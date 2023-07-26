@@ -4,8 +4,8 @@
 
 Welcome to Advanced Software Construction 240. The content for this course is represented by the following three parts.
 
-- [Instruction](https://github.com/softwareconstruction240/instruction/blob/main/topics.md#readme)
-- [Course slides](https://github.com/softwareconstruction240/instruction/blob/main/slides/slides.md#readme)
+- [Instruction](https://github.com/softwareconstruction240/.github/blob/main/topics.md#readme)
+- [Course slides](https://github.com/softwareconstruction240/.github/blob/main/slides/slides.md#readme)
 - Assignments, quizzes, and tests are submitted through Canvas
 
 # Technologies and Instruction
