@@ -1,18 +1,11 @@
-# BYU **Adv Software Construction** `cs240`
+# BYU **Advanced Software Construction** `cs240`
 
 ![cover](https://github.com/softwareconstruction240/.github/blob/main/profile/softwareconstructioncover.jpg?raw=true)
 
-Welcome to Adv Software Construction 240. By the end of this instruction you will:
+Welcome to Advanced Software Construction 240. The content for this course is represented by the following three parts.
 
-- outcome 1
-- outcome 2
-- outcome 3
-- outcome 4
-
-The content for this course is represented by the following three parts.
-
-- [Instruction](https://github.com/softwareconstruction240/.github/blob/main/profile/instructionTopics.md#readme)
-- [Course slides](https://github.com/softwareconstruction240/.github/blob/main/profile/slides/slides.md#readme)
+- [Instruction](https://github.com/softwareconstruction240/instruction/blob/main/instructionTopics.md#readme)
+- [Course slides](https://github.com/softwareconstruction240/instruction/blob/main/slides/slides.md#readme)
 - Assignments, quizzes, and tests are submitted through Canvas
 
 # Technologies and Instruction
