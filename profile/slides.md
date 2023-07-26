@@ -1,4 +1,4 @@
-# Instructional slides
+# Slides
 
 The following slide decks are used to lead discussion of the instructional topics.
 
