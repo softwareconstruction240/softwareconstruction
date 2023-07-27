@@ -1,6 +1,6 @@
 # WebSocket
 
-- [Slides](https://docs.google.com/presentation/d/1jNPLDXYxK7kMvui4WvK0bshU076_OTQ1/edit?usp=sharing&ouid=114081115660452804792&rtpof=true&sd=true)
+🖥️ [Slides](https://docs.google.com/presentation/d/1jNPLDXYxK7kMvui4WvK0bshU076_OTQ1/edit?usp=sharing&ouid=114081115660452804792&rtpof=true&sd=true)
 
 The WebSocket protocol provides the ability to have bidirectional communication between a client and a server. WebSocket connections are established by upgrading the HTTP protocol.
 
@@ -30,6 +30,6 @@ The key parts of this code include the call to `Spark.webSocket` to register the
 
 ## Demonstration code
 
-- [Simple echo Client and Server](example-code)
+📁 [Simple echo Client and Server](example-code)
 
 This code provides an IntelliJ project that contains modules for both a Client and Server. Examples for both HTTP and WebSocket communication is provided. This allows you to compare and contrast how to use these protocols.
