@@ -2,7 +2,7 @@
 
 - Course Intro
 - ▶ Java Fundamentals Part 1
-- ▶ Java Fundamentals Part 2
+- ▶ Java Fundamentals Part 2 (Java IO)
 - ▶ Spelling Corrector Part 1
 
 ## Module 2
@@ -10,7 +10,7 @@
 - ▶ Spelling Corrector Part 2
 - ▶ Classes and Objects Part 1
 - ▶ Classes and Objects Part 2
-- ▶ Java Inheritance (**Was Interfaces and Abstract Classes**)
+- ▶ Java Inheritance
 
 ## Module 3
 
@@ -22,10 +22,10 @@
 
 ## Module 4
 
-- Git (**too late?**)
+- Git
 - ▶ Java Inner Classes
 - ▶ JSON and serialization
-- ❓ Java Generics and Lambdas (**I can't find this in Canvas but no assignment was made to create this**)
+- Java Generics and Lambdas
 - (**Exam**) Spelling Corrector
 
 ## Module 5
@@ -37,8 +37,8 @@
 
 ## Module 6
 
-- Project Server Design (Web API) Part 1
-- Project Server Design (Web API) Part 2
+- Project Server Design (Chess Web API) Part 1
+- Project Server Design (Chess Web API) Part 2
 - ▶ Writing Quality Code
 - Style Checker
 - (**Due**) Chess Game
@@ -47,33 +47,32 @@
 
 - ▶ Unit Testing
 - Coverage tools
-- ❓ Java I/O (**exists in old, but missing in new course**)
 - ▶ Relational Databases (The Relational Model) Part 1
 - ▶ Relational Databases (SQL) Part 2
-- (**Due**) Server Design
+- (**Due**) Chess Server Design
 
 ## Module 8
 
 - ▶ Relational Databases (JDBC and MySQL) Part 3
 - Relational Databases Part 4
 - MySQL
-- Project Design (Database)
-- (**Due**) Web API
+- Project Design (Chess Database)
+- (**Due**) Chess Web API
 
 ## Module 9
 
 - ▶ Logging, ▶ Debugging
 - **flex**
-- ▶ Assertions and parameter checking (**Was defensive programming?**)
+- ▶ Assertions and parameter checking
 - **flex**
 
 ## Module 10
 
-- Project Design (Pregame)
+- Project Design (Chess Pregame)
 - Console UI
 - WebSocket Part 1
 - WebSocket Part 2
-- (**Due**) Database
+- (**Due**) Chess Database
 
 ## Module 11
 
@@ -84,11 +83,11 @@
 
 # Module 12
 
-- Project Design (Game Play) Part 1
-- Project Design (Game Play) Part 2
+- Project Design (Chess Game Play) Part 1
+- Project Design (Chess Game Play) Part 2
 - Concurrency in server Part 1
 - Concurrency in server Part 2
-- (**Due**) Pre Game
+- (**Due**) Chess Pregame
 
 # Module 13
 
@@ -99,8 +98,5 @@
 
 # Module 14
 
-- **flex**
-- **flex**
-- **flex**
-- **flex**
-- (**Due**) Game Play
+- Final
+- (**Due**) Chess Game Play
