@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CS 240 Chess Server</title>
+
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="index.css" />
+  <script defer src="index.js"></script>
+</head>
+
+<body>
+<h1><span class="chess-icon">♔</span> CS 240 Chess Server</h1>
+<p>
+  The CS 240 Chess Server Web API is described below. Some of the APIs require a request body to be sent (like
+  "/user/login" and "/user/register"), while others require an Authorization authToken (received at login). To view
+  the required JSON format, click on the link below and look in the request body. To try out an API, click the link,
+  modify the request as needed, and press Send.
+</p>
+
+<h2>Endpoints</h2>
+<table>
+  <tr>
+    <td class="endpoint" onclick="login()"><div>/user/login</div></td>
+    <td>
+      <span class="description">Log in a user</span> A request body must be supply the username and password. If
+      login succeeds, an authorization authToken is returned. Use the authToken on other API calls that require
+      authorization. The returned JSON object contains "Authorization" (the authorization authToken) and "username"
+      (the username that was just logged in). No authorization authToken is required to call this endpoint.
+    </td>
+  </tr>
+
+  <tr>
+    <td class="endpoint" onclick="register()"><div>/user/register</div></td>
+    <td>
+      <span class="description">Register a user</span> Returns the same JSON object as log in, including an
+      authorization authToken. You may use the authToken with future requests that require authorization. No
+      authorization authToken is required to call this endpoint.
+    </td>
+  </tr>
+  <tr>
+    <td class="endpoint" onclick="logout()"><div>/user/logout</div></td>
+    <td>
+      <span class="description">Logs out an authenticated user</span> Returns JSON result with success status, or if
+      failed error message describing reason. An authToken is required to call this endpoint.
+    </td>
+  </tr>
+  <tr>
+    <td class="endpoint" onclick="gamesList()"><div>/games/list</div></td>
+    <td>
+      <span class="description">Lists all the games in the database</span> This API does not take a request body.
+      The response JSON lists all the games, including the board. An authToken is required to call this endpoint.
+    </td>
+  </tr>
+  <tr>
+    <td class="endpoint" onclick="createGame()"><div>/games/create</div></td>
+    <td>
+      <span class="description">Create a new Chess Game</span> The request body must contain a name for the game.
+      The response JSON contains the ID of created game, a success status and, if failed, an error message
+      describing the reason. An authToken is required to call this endpoint.
+    </td>
+  </tr>
+  <tr>
+    <td class="endpoint" onclick="joinGame()"><div>/games/join</div></td>
+    <td>
+      <span class="description">Join a Chess Game</span> The request body must contain the game ID, as well as what
+      color the user wants to claim. The response JSON contains a success status and, if failed, an error message
+      describing the reason. An authToken is required to call this endpoint.
+    </td>
+  </tr>
+  <tr>
+    <td class="endpoint" onclick="clearDB()"><div>/clear</div></td>
+    <td>
+      <span class="description">Clear ALL data from the database</span> This includes users and all game data. No
+      authorization authToken is required.
+    </td>
+  </tr>
+</table>
+<h2>Execute</h2>
+<div class="box">
+  <h3>Request</h3>
+  <div class="input"><label for="method">Method:</label> <input type="text" id="method" /></div>
+
+  <div class="input">
+    <label for="handleBox">Endpoint:</label> <input type="text" id="handleBox" name="handleBox" />
+  </div>
+
+  <div class="input">
+    <label for="authToken">Auth Token:</label> <input type="text" id="authToken" name="authToken" />
+  </div>
+
+  <div class="input">
+    <label for="requestBox">Request Body:</label> <textarea id="requestBox" name="requestBox"></textarea>
+  </div>
+
+  <button onclick="submit()">Send</button>
+</div>
+<div class="box">
+  <h3>Response</h3>
+  <pre id="response" readonly></pre>
+</div>
+
+<h2>A few notes</h2>
+
+<p>
+  The authorization authToken is returned from the server in the "Authorization" attribute of the JSON object
+  returned by the "/user/register" and "/user/login" APIs. The authorization authToken must be placed in the
+  "Authorization" header on all subsequent HTTP requests.
+</p>
+<p>
+  If something fails, the returned JSON object contains a "message" attribute which contains a message describing
+  what happened. Watch for these as they will give helpful insight into why the server did not work as expected.
+</p>
+</body>
+</html>

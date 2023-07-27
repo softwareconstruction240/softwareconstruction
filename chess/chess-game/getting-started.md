@@ -1,6 +1,10 @@
 # Chess Game - Getting Started
 
+📁 [Starter code](../starter-code): Interfaces and tests.
+
 ## Creating an IntelliJ Project
+
+Take the following steps to setup your Chess project.
 
 1. File -> New -> Project
 2. Select `Java` and hit next
