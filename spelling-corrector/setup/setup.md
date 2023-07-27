@@ -74,7 +74,7 @@ This will run the tests. The tests will obviously fail because you have not writ
 
 Do the same thing with the `TrieTest` class and observe them failing.
 
-⚠ Note: You will also need to create a Node class and have it implement INode, though this will not affect setting up the test cases.
+⚠ Note: You will also need to create a Node class, implement INode, and copy over the test `txt` files from the starter code. However, this will not affect the test from running.
 
 ## Implementing the code
 
