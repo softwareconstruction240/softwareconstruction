@@ -7,7 +7,9 @@ The course content is divided into multiple modules. Each module represents a we
 ## Module 1
 
 - Course Intro
-- Java Fundamentals Part 1
+- Java Fundamentals ([Slides](https://docs.google.com/presentation/d/1qC9DMSf7PYm-vBhK_qRS0Zu8lNVwQ4H7/edit?usp=sharing&ouid=114081115660452804792&rtpof=true&sd=true))
+  - Java History and Overview ([Video](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=cb99566e-3a9d-40c9-86c0-ad56013f4a64&start=0))
+  - Installing Java ([Video](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=0c39ffac-a1b2-4fa3-bb1e-ad560142a73b&start=0))
 - Java Fundamentals Part 2 (Java IO)
 - Spelling Corrector Part 1
 
@@ -28,7 +30,7 @@ The course content is divided into multiple modules. Each module represents a we
 
 ## Module 4
 
-- Git
+- Git ([Slides](https://docs.google.com/presentation/d/1y4u5y9uNiekYcubilyhYLjUGVoYBqs4q/edit?usp=sharing&ouid=114081115660452804792&rtpof=true&sd=true))
 - Java Inner Classes
 - JSON and serialization
 - Java Generics and Lambdas
@@ -37,7 +39,7 @@ The course content is divided into multiple modules. Each module represents a we
 ## Module 5
 
 - HTTP
-- Curl
+- Curl ([Slides](https://docs.google.com/presentation/d/1pM_tUVD7c6kWpHkEwuRpbWmoBFss3GuK/edit?usp=sharing&ouid=114081115660452804792&rtpof=true&sd=true))
 - Web API Implementation (Java Spark) Part 1
 - Web API Implementation (Java Spark) Part 2
 
@@ -61,7 +63,7 @@ The course content is divided into multiple modules. Each module represents a we
 
 - Relational Databases (JDBC and MySQL) Part 3
 - Relational Databases Part 4
-- MySQL
+- MySQL ([Slides](https://docs.google.com/presentation/d/1w5bcntrExgMnB92uLJL52uuutLLQABSt/edit?usp=sharing&ouid=114081115660452804792&rtpof=true&sd=true))
 - Project Design (Chess Database)
 - ☑ Chess Web API (**Due**)
 
@@ -74,7 +76,7 @@ The course content is divided into multiple modules. Each module represents a we
 
 - Project Design (Chess Pregame)
 - Console UI
-- [WebSocket](websocket/websocket.md)
+- [WebSocket](websocket/websocket.md) ([Slides](https://docs.google.com/presentation/d/1jNPLDXYxK7kMvui4WvK0bshU076_OTQ1/edit?usp=sharing&ouid=114081115660452804792&rtpof=true&sd=true))
 - ☑ Chess Database (**Due**)
 
 ## Module 11
