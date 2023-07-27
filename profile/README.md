@@ -8,7 +8,7 @@ Welcome to CS 240 - **Advanced Software Construction**. The content for this cou
 - Spelling Corrector
 - Chess
 
-  1. [Chess game](chess/chess-game/chess-game.md)
+  1. [Chess game](https://github.com/softwareconstruction240/.github/blob/main/profile/chess/chess-game/chess-game.md)
   1. Server design
   1. Web API
   1. Database
