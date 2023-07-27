@@ -1,0 +1,40 @@
+package chess;
+
+import java.util.Collection;
+
+/**
+ * Represents a single chess piece
+ */
+public interface ChessPiece {
+
+    /**
+     * The various different chess piece options
+     */
+    enum PieceType{
+        KING,
+        QUEEN,
+        BISHOP,
+        KNIGHT,
+        ROOK,
+        PAWN
+    }
+
+    /**
+     * @return Which team this chess piece belongs to
+     */
+    ChessGame.TeamColor getTeamColor();
+
+    /**
+     * @return which type of chess piece this piece is
+     */
+    PieceType getPieceType();
+
+    /**
+     * Calculates all the positions a chess piece can move to
+     * Does not take into account moves that are illegal due to leaving the king in danger
+            //fixme should we leave this comment in for students? Checking for king in danger can lead to ugly
+            //fixme recursive bug, and must be done as a 2 step process
+     * @return Collection of valid moves
+     */
+    Collection<ChessMove> pieceMoves(ChessBoard board, ChessPosition myPosition);
+}

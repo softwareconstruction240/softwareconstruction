@@ -5,12 +5,12 @@
 1. File -> New -> Project
 2. Select `Java` and hit next
 3. Continue through the prompts until you get to name your project. Choose a name for your project and hit finish
-4. Right Click on `src and select `Mark Directory as->Unmark as Sources Root
-5. In the `src folder, create a subfolder named `main. Right-click on `main and select `Mark Directory as->Mark as Sources Root. This folder will contain your chess game Java source code.
-6. In the `src folder, create a subfolder named `starter. Right-click on `starter and select `Mark Directory as->Mark as Sources Root. This folder will contain the starter Java code that we provide to you.
-7. In the `src folder, create a subfolder named `test. Right-click on `test and select `Mark Directory as->Mark as Test Sources Root. This folder will contain all Junit test cases, including the pass off test cases.
-8. In a File Explorer (outside of IntelliJ), copy the `chess folder from the provided starter code into the `src/starter folder.
-9. In a File Explorer (outside of IntelliJ), copy the `passoffTests folder from the provided starter code into the `src/test folder.
+4. Right Click on `src` and select `Mark Directory as`->`Unmark as Sources Root`
+5. In the `src` folder, create a subfolder named `main`. Right-click on `main` and select `Mark Directory as`->`Mark as Sources Root`. This folder will contain your chess game Java source code.
+6. In the `src` folder, create a subfolder named `starter`. Right-click on `starter` and select `Mark Directory as`->`Mark as Sources Root`. This folder will contain the starter Java code that we provide to you.
+7. In the `src` folder, create a subfolder named `test`. Right-click on `test` and select `Mark Directory as`->`Mark as Test Sources Root`. This folder will contain all Junit test cases, including the pass off test cases.
+8. In a File Explorer (outside of IntelliJ), copy the `chess` folder from the provided [starter code](starter-code) into the `src/starter` folder.
+9. In a File Explorer (outside of IntelliJ), copy the `passoffTests` folder from the provided [starter code](starter-code) into the `src/test` folder.
 
 ## Adding Dependencies
 
