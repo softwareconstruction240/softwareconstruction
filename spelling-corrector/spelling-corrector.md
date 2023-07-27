@@ -11,7 +11,7 @@ When storing or looking up a word in the dictionary we want the match to be case
 ## Work to do
 
 1. Thoroughly review [specification](specification.md).
-1. Set up your [IntelliJ project](setup.md).
+1. Set up your [IntelliJ project](setup/setup.md).
 1. Implement the spelling corrector by running and implementing the tests. Take careful notes for what you did.
 1. Pass of the project with a TA.
 1. Review your notes and then, without referencing them, reimplement the spelling corrector. Record how long it took you to complete the project. If you can complete the project in the required amount of time you are ready for the Exam.

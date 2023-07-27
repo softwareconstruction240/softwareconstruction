@@ -1,7 +1,5 @@
 # Spelling Corrector Specification
 
-📁 [Interfaces](starter-code/spell): Files necessary to implement the spelling corrector.
-
 ## Trie (Data Structure)
 
 You are required to implement your dictionary as a Trie (pronounced “try”). A Trie is a tree-based data structure designed to store items that are sequences of characters from an alphabet. Each Trie-Node stores a count and a sequence of Nodes, one for each element in the alphabet. Each Trie-Node has a single parent except for the root of the Trie which does not have a parent. A sequence of characters from the alphabet is stored in the Trie as a path in the Trie from the root to the last character of the sequence.
