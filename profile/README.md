@@ -2,12 +2,14 @@
 
 ![cover](https://github.com/softwareconstruction240/.github/blob/main/profile/softwareconstructioncover.jpg?raw=true)
 
-Welcome to CS 240 - **Advanced Software Construction**. The content for this course is represented by the following parts.
+**Welcome to CS `240`** - Advanced Software Construction
+
+The content for this course is represented by the following parts.
 
 - [Instruction](https://github.com/softwareconstruction240/.github/blob/main/profile/modules.md#readme)
+- [Course slides](https://github.com/softwareconstruction240/.github/blob/main/profile/slides.md#readme)
 - Spelling Corrector
 - [Chess](https://github.com/softwareconstruction240/.github/blob/main/profile/chess/chess.md#readme)
-- [Course slides](https://github.com/softwareconstruction240/.github/blob/main/profile/slides.md#readme)
 - Assignments, quizzes, and tests are submitted through Canvas
 
 ## Outcomes
