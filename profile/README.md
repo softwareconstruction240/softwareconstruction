@@ -2,19 +2,11 @@
 
 ![cover](https://github.com/softwareconstruction240/.github/blob/main/profile/softwareconstructioncover.jpg?raw=true)
 
-Welcome to CS 240 - **Advanced Software Construction**. The content for this course is represented by the following pieces.
+Welcome to CS 240 - **Advanced Software Construction**. The content for this course is represented by the following parts.
 
 - [Instruction](https://github.com/softwareconstruction240/.github/blob/main/profile/modules.md#readme)
 - Spelling Corrector
-- Chess
-
-  1. [Chess game](https://github.com/softwareconstruction240/.github/blob/main/profile/chess/chess-game/chess-game.md)
-  1. Server design
-  1. Web API
-  1. Database
-  1. Pregame
-  1. Game play
-
+- [Chess](https://github.com/softwareconstruction240/.github/blob/main/profile/chess/chess.md#readme)
 - [Course slides](https://github.com/softwareconstruction240/.github/blob/main/profile/slides.md#readme)
 - Assignments, quizzes, and tests are submitted through Canvas
 
