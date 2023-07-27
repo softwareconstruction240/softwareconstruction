@@ -7,7 +7,7 @@
 The content for this course is represented by the following parts.
 
 - [Instruction](https://github.com/softwareconstruction240/.github/blob/main/instruction/modules.md#readme)
-- Spelling Corrector
+- [Spelling Corrector](https://github.com/softwareconstruction240/.github/blob/main/spelling-corrector/spelling-corrector.md#readme)
 - [Chess](https://github.com/softwareconstruction240/.github/blob/main/chess/chess.md#readme)
 - Assignments, quizzes, and tests are submitted through Canvas
 
