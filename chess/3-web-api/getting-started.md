@@ -5,9 +5,7 @@
 The Starter Code should have three folders: `libs`, `serverTests`, and `web`. Do the following:
 
 1. Copy the `libs` folder into your project’s root folder. The `libs` folder contains some Java libraries (i.e., JAR files) that the pass off test cases depend on.
-
 1. Copy the `serverTests` folder into your project’s `src/test/passoffTests` folder so it’s a sibling of `chessTests` and `TestFactory`. The `serverTests` folder contains the server test cases.
-
 1. Copy the `web` folder into your project’s root folder. The `web` folder contains the files that implement the server’s test web page. When you create your server class, you will need to specify the `web` folder’s path for static files, as shown below.
 
    ```java
@@ -22,13 +20,13 @@ Add the following dependencies to your project. HINT: Use the File->Project Stru
 
   - Scope: Compile
 
-  Logger for the server. The server needs a logger to work. This is a simple one that tells you about things like when an API is accessed.
+    Logger for the server. The server needs a logger to work. This is a simple one that tells you about things like when an API is accessed.
 
 - `com.sparkjava:spark-core:2.9.3`
 
   - Scope: Compile
 
-  This library gives us the framework for our server.
+    This library gives us the framework for our server.
 
 - `com.google.code.gson:gson:2.10.1`
 
