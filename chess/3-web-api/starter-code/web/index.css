@@ -30,6 +30,11 @@ td {
   background: #a3a08f;
   color: rgb(236, 236, 236);
 }
+.method {
+font-size:smaller;
+padding-bottom:.5em;
+  color: #7076bf;
+}
 .description {
   font-weight: 800;
   display: block;
@@ -79,7 +84,6 @@ button:active {
 #response {
   color: #4e3e15;
 }
-
 code {
   background-color: #e8e0cb;
   border-radius: 5px;

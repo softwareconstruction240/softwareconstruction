@@ -44,7 +44,7 @@ function displayRequest(method, endpoint, request) {
 }
 
 function clearAll() {
-  displayRequest('DELETE', '/', null);
+  displayRequest('DELETE', '/db', null);
 }
 function register() {
   displayRequest('POST', '/user', { username: 'username', password: 'password', email: 'email' });
