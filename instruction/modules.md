@@ -88,8 +88,8 @@ The course content is divided into multiple modules. Each module represents a we
 
 ## Module 12
 
-- Project Design (Chess Game Play) Part 1
-- Project Design (Chess Game Play) Part 2
+- Project Design (Chess Gameplay) Part 1
+- Project Design (Chess Gameplay) Part 2
 - Concurrency in server Part 1
 - Concurrency in server Part 2
 - ☑ Chess Pregame (**Due**)
@@ -103,7 +103,7 @@ The course content is divided into multiple modules. Each module represents a we
 ## Module 14
 
 - ☑ Final (**Exam**)
-- ☑ Chess Game Play (**Due**)
+- ☑ Chess Gameplay (**Due**)
 
 ### Legend
 
