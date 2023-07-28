@@ -1,6 +1,6 @@
 # Chess Game
 
-In this part of the Chess Project, you will create the base Chess Game behavior. To do this you will create the following 10 implementation classes that implement the provided interfaces: A Chess Game class, a Chess Board class, a Chess Position class, a Chess Move class, and 6 Chess Piece classes. In later assignments you will use this code to create a fully playable game.
+In this part of the Chess Project, you will create the base Chess Game behavior. To do this you will create the following 10 implementation classes that implement the provided interfaces: A Chess Game class, a chessboard class, a Chess Position class, a Chess Move class, and 6 Chess Piece classes. In later assignments you will use this code to create a fully playable game.
 
 ## Code Class Structure
 
@@ -16,7 +16,7 @@ This class serves as the top-level management of the Chess Game. It is responsib
 
 **Key Methods**:
 
-- **validMoves**: Takes as input a position on the Chess Board and returns all moves the piece there can legally make. If there is no piece at that location, this method returns `null`.
+- **validMoves**: Takes as input a position on the chessboard and returns all moves the piece there can legally make. If there is no piece at that location, this method returns `null`.
 - **makeMove**: Receives a given move and executes it, provided it is a legal move. If the move is illegal, it throws a `InvalidMoveException`. A move is illegal if the chess piece cannot move there, if the move leaves the team’s king in danger, or if it’s not the corresponding teams turn.
 - **isInCheck**: Returns true if the specified team’s King could be captured by an opposing piece.
 - **isInCheckmate**: Returns true if the given team has no way to protect their king from being captured.
@@ -40,7 +40,7 @@ This class represents a possible move a chess piece could make. It contains the 
 
 ### ChessPosition
 
-This represents a location on the Chess Board. This should be represented as a row number from 1-8, and a column number from 1-8. (1,1) corresponds to the bottom left corner (which in chess notation is denoted `a1`). (8,8) corresponds to the top right corner (`h8` in chess notation).
+This represents a location on the chessboard. This should be represented as a row number from 1-8, and a column number from 1-8. (1,1) corresponds to the bottom left corner (which in chess notation is denoted `a1`). (8,8) corresponds to the top right corner (`h8` in chess notation).
 
 ## Recommended Order
 
@@ -116,7 +116,7 @@ Below is the setup using the first letter to denote each piece (using `n` for kn
 
 And the starting board using chess pieces:
 
-![Chess board](chess-board.png)
+![chessboard](chess-board.png)
 
 Here are some guides that may help:
 

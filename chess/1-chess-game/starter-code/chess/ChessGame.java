@@ -62,14 +62,14 @@ public interface ChessGame {
     Boolean isInStalemate(TeamColor teamColor);
 
     /**
-     * Sets this game's chess board with a given board
+     * Sets this game's chessboard with a given board
      * @param board the new board to use
      */
     void setBoard(ChessBoard board);
 
     /**
-     * Gets the current chess board
-     * @return the chess board
+     * Gets the current chessboard
+     * @return the chessboard
      */
     ChessBoard getBoard();
 }

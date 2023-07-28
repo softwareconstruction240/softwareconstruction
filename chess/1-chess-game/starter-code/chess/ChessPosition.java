@@ -1,7 +1,7 @@
 package chess;
 
 /**
- * Represents a single square position on a chess board
+ * Represents a single square position on a chessboard
  */
 public interface ChessPosition {
     /**

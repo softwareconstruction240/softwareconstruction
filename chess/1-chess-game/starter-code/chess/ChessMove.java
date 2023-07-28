@@ -1,7 +1,7 @@
 package chess;
 
 /**
- * Represents moving a chess piece on a chess board
+ * Represents moving a chess piece on a chessboard
  */
 public interface ChessMove {
     /**
