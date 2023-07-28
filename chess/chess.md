@@ -12,3 +12,9 @@ We use the game of chess to help you develop and demonstrate mastery during this
 | 4. Database      | [doc](4-database/getting-started.md)      | [doc](4-database/database.md)           | [dir](4-database/starter-code)      | Persistently storing players, games, and authentication.       |
 | 5. Pregame       | [doc](5-pregame/getting-started.md)       | [doc](5-pregame/pregame.md)             | [dir](5-pregame/starter-code)       | Creating an command line interface (CLI) for the chess client. |
 | 6. Gameplay      | [doc](6-gameplay/getting-started.md)      | [doc](6-gameplay/gameplay.md)           | [dir](6-gameplay/starter-code)      | Implementing gameplay with multiple players.                   |
+
+## Example
+
+When you complete the project, you should have something similar to the following.
+
+![chess board](chess-demo.gif)
