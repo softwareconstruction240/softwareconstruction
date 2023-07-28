@@ -14,7 +14,7 @@ function submit() {
 
 function send(path, params, method, authToken) {
   params = !!params ? params : undefined;
-  let errStr = ""
+  let errStr = '';
   fetch(path, {
     method: method,
     body: params,
@@ -24,7 +24,7 @@ function send(path, params, method, authToken) {
     },
   })
     .then((response) => {
-      if (!response.ok) errStr = response.status + ": " + response.statusText + "\n"
+      if (!response.ok) errStr = response.status + ': ' + response.statusText + '\n';
       return response.json();
     })
     .then((data) => {
@@ -43,24 +43,24 @@ function displayRequest(method, endpoint, request) {
   document.getElementById('requestBox').value = body;
 }
 
-function clearDB() {
-  displayRequest('POST', '/clear', null);
-}
-function login() {
-  displayRequest('POST', '/user/login', { username: 'username', password: 'password' });
+function clearAll() {
+  displayRequest('DELETE', '/', null);
 }
 function register() {
-  displayRequest('POST', '/user/register', { username: 'username', password: 'password', email: 'email' });
+  displayRequest('POST', '/user', { username: 'username', password: 'password', email: 'email' });
+}
+function login() {
+  displayRequest('POST', '/session', { username: 'username', password: 'password' });
 }
 function logout() {
-  displayRequest('POST', '/user/logout', null);
+  displayRequest('DELETE', '/session', null);
 }
 function gamesList() {
-  displayRequest('GET', '/games/list', null);
+  displayRequest('GET', '/game', null);
 }
 function createGame() {
-  displayRequest('POST', '/games/create', { gameName: 'gameName' });
+  displayRequest('POST', '/game', { gameName: 'gameName' });
 }
 function joinGame() {
-  displayRequest('POST', '/games/join', { playerColor: 'WHITE/BLACK', gameID: 0 });
+  displayRequest('PUT', '/game', { playerColor: 'WHITE/BLACK/empty', gameID: 0 });
 }

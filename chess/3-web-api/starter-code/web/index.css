@@ -79,3 +79,9 @@ button:active {
 #response {
   color: #4e3e15;
 }
+
+code {
+  background-color: #e8e0cb;
+  border-radius: 5px;
+  padding: 0.05em;
+}
