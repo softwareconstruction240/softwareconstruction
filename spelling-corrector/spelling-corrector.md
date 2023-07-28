@@ -4,10 +4,6 @@ You are familiar with spell checkers. For most spell checkers, a candidate word 
 
 In this project you will create such a spell corrector. There is one major difference. Our spell checker will only validate a single word rather than each word in a list of words.
 
-For this program we need a dictionary similar to Google’s. Our dictionary is generated using a large text file. The text file contains a large number of unsorted words. Every time your program runs it will create the dictionary from this text file. The dictionary will contain every word in the text file and a frequency for that word. Instead of storing a percent, your program need only store the number of times the word appears in the text file.
-
-When storing or looking up a word in the dictionary we want the match to be case insensitive. That is, a new or candidate word matches a word in the dictionary independent of the case of the letters in the respective words. Thus, the word “move” matches “Move”. If the strings “apple”, “Apple”, and “APPLE” each appear once in the input file, then your representation of the word (it could be any of the three words or some other variation) would appear once and would have a frequency of 3 associated with it.
-
 ## Work to do
 
 1. Thoroughly review the [specification](specification.md).

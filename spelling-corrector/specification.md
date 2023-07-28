@@ -1,5 +1,9 @@
 # Spelling Corrector Specification
 
+For this program we need a dictionary similar to Google’s. Our dictionary is generated using a large text file. The text file contains a large number of unsorted words. Every time your program runs it will create the dictionary from this text file. The dictionary will contain every word in the text file and a frequency for that word. Instead of storing a percent, your program need only store the number of times the word appears in the text file.
+
+When storing or looking up a word in the dictionary we want the match to be case insensitive. That is, a new or candidate word matches a word in the dictionary independent of the case of the letters in the respective words. Thus, the word “move” matches “Move”. If the strings “apple”, “Apple”, and “APPLE” each appear once in the input file, then your representation of the word (it could be any of the three words or some other variation) would appear once and would have a frequency of 3 associated with it.
+
 ## Trie (Data Structure)
 
 You are required to implement your dictionary as a Trie (pronounced “try”). A Trie is a tree-based data structure designed to store items that are sequences of characters from an alphabet. Each Trie-Node stores a count and a sequence of Nodes, one for each element in the alphabet. Each Trie-Node has a single parent except for the root of the Trie which does not have a parent. A sequence of characters from the alphabet is stored in the Trie as a path in the Trie from the root to the last character of the sequence.
