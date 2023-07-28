@@ -64,13 +64,5 @@ public class Database {
     synchronized public void returnConnection(Connection connection) {
         connections.add(connection);
     }
-
-    /**
-     * Returns a connection that is not associated with the pool and doesn't have a catalog set.
-     * You must close the connection when done.
-     */
-    public Connection openConnection() throws SQLException {
-        return DriverManager.getConnection(CONNECTION_URL, DB_USERNAME, DB_PASSWORD);
-    }
 }
 
