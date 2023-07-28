@@ -57,7 +57,7 @@ public class Database {
     }
 
     /**
-     * Return a connection to the pool. Only connections obtained by calling
+     * Return a previously acquired connection to the pool.
      *
      * @param connection previous obtained by calling {@link #getConnection() getConnection}.
      */
