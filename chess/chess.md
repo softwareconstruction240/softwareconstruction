@@ -1,5 +1,7 @@
 # Chess
 
+![chess board](6-gameplay/highlight-moves.png)
+
 We use the game of chess to help you develop and demonstrate mastery during this course. Your development work is divided into six different phases. Each phase demonstrates a different architectural concept or technology.
 
 | Phase            | Getting Started                           | Requirements                            | Starter Code                        | Description                                                    |
