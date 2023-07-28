@@ -7,10 +7,10 @@ The course content is divided into multiple modules. Each module represents a we
 ## Module 1
 
 - Course Intro
-- Java Fundamentals ([Slides](https://docs.google.com/presentation/d/1qC9DMSf7PYm-vBhK_qRS0Zu8lNVwQ4H7/edit?usp=sharing&ouid=114081115660452804792&rtpof=true&sd=true))
+- Java Fundamentals Part 1 ([Slides](https://docs.google.com/presentation/d/1qC9DMSf7PYm-vBhK_qRS0Zu8lNVwQ4H7/edit?usp=sharing&ouid=114081115660452804792&rtpof=true&sd=true))
   - Java History and Overview ([Video](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=cb99566e-3a9d-40c9-86c0-ad56013f4a64&start=0))
   - Installing Java ([Video](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=0c39ffac-a1b2-4fa3-bb1e-ad560142a73b&start=0))
-- Java Fundamentals Part 2 (Java IO)
+- Java Fundamentals Part 2
 - Spelling Corrector Part 1
 
 ## Module 2
