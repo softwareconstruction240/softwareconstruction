@@ -26,7 +26,7 @@ When you are done copying the starter code your project should look similar to t
 
 ## Dependencies
 
-The last step we need to do is add dependencies to your project. Since these tests run on JUnit you need to have the files for JUnit so that IntelliJ can access them and use them. The folder that is labeled “jars” is where all this code is stored as .jar files. So we will add dependencies to your project for these files so that your project knows where to go in order to access the code.
+The last step we need to do is add dependencies to your project. Since these tests run on JUnit you need to have the files for JUnit so that IntelliJ can access them and use them. The folder that is labeled `jars` is where all this code is stored as .jar files. So we will add dependencies to your project for these files so that your project knows where to go in order to access the code.
 
 Select File > Project Structure. Click on `Modules` and then the `Dependencies` tab. Click the little `+` icon in the `Dependencies` pane and select `JARs or directories`. Navigate to the jars folder in your project and select all of the jar files then click `OK`.
 

@@ -1,6 +1,6 @@
 # Getting Started
 
-📁 [Starter code](starter-code): Exception class.
+📁 [Starter code](starter-code)
 
 The starter code for this part of the project contains one folder named `dataAccess`.
 

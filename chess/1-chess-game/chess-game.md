@@ -87,7 +87,7 @@ Rooks may move in straight lines as far as there is open space. If there is an e
 
 **`Knight`**
 
-Knight’s move in an “L” shape, moving 2 squares in one direction and 1 square in the other direction. Knights are the only piece that can ignore pieces in the in-between squares (they can “Jump” over other pieces). They can move to squares occupied by an enemy piece and capture the enemy piece, or to unoccupied squares.
+Knight’s move in an `L` shape, moving 2 squares in one direction and 1 square in the other direction. Knights are the only piece that can ignore pieces in the in-between squares (they can `Jump` over other pieces). They can move to squares occupied by an enemy piece and capture the enemy piece, or to unoccupied squares.
 
 **`Bishop`**
 
@@ -101,7 +101,7 @@ Queens are the most powerful piece and may move in straight lines and diagonals 
 
 Each player starts with 8 pawns, 1 King, 1 Queen, 2 Bishops, 2 Knight, and 2 Rooks, totaling 16 pieces per player. White’s pawns span row 2, while Black’s pawns span row 7. The rest of the pieces are lined up across row 1 for white and row 8 for black in the following columns: 1: Rook, 2: Knight, 3: Bishop, 4: Queen, 5: King, 6: Bishop, 7: Knight, 8: Rook.
 
-Below is the setup using the first letter to denote each piece (using “n” for knight). Capital letters represent white pieces and lowercase letters represent black pieces.
+Below is the setup using the first letter to denote each piece (using `n` for knight). Capital letters represent white pieces and lowercase letters represent black pieces.
 
 ```sh
 |r|n|b|q|k|b|n|r|
@@ -130,8 +130,8 @@ You do not have to implement these moves, but if you go the extra mile and succe
 
 **`Castling`**
 
-This is a special move where the King and a Rook move simultaneously. The castling move can only be taken when 4 conditions are met; 1: Neither the King nor Rook have moved, 2: There are no pieces between the King and the Rook, 3: The King is not in Check, and 4: Both your Rook and King will be safe after making the move (cannot be captured by any enemy pieces). To Castle, the King moves 2 spaces towards the Rook, and the Rook “Jumps” the king moving to the position next to and on the other side of the King. This is represented in a ChessMove as the king moving 2 spaces to the side.
+This is a special move where the King and a Rook move simultaneously. The castling move can only be taken when 4 conditions are met; 1: Neither the King nor Rook have moved, 2: There are no pieces between the King and the Rook, 3: The King is not in Check, and 4: Both your Rook and King will be safe after making the move (cannot be captured by any enemy pieces). To Castle, the King moves 2 spaces towards the Rook, and the Rook `Jumps` the king moving to the position next to and on the other side of the King. This is represented in a ChessMove as the king moving 2 spaces to the side.
 
 **`En Passant`**
 
-This is a special move taken by a Pawn in response to your opponent double moving a Pawn. If your opponent double moves a pawn so it ends next to yours (skipping the position where your pawn could have captured their pawn), then on your immediately following turn your pawn may capture their pawn as if their pawn had only moved 1 square. This is as if your pawn is capturing their pawn mid motion, or “In Passing”.
+This is a special move taken by a Pawn in response to your opponent double moving a Pawn. If your opponent double moves a pawn so it ends next to yours (skipping the position where your pawn could have captured their pawn), then on your immediately following turn your pawn may capture their pawn as if their pawn had only moved 1 square. This is as if your pawn is capturing their pawn mid motion, or `In Passing`.

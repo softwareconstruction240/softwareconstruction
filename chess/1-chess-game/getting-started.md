@@ -1,6 +1,6 @@
 # Chess Game - Getting Started
 
-📁 [Starter code](../starter-code): Interfaces and tests.
+📁 [Starter code](starter-code)
 
 ## Creating an IntelliJ Project
 
