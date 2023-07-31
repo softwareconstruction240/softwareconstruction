@@ -7,15 +7,13 @@ The course content is divided into multiple modules. Each module represents a we
 ## Module 1
 
 - Course Intro
-- [Java Fundamentals](java-fundamentals/java-fundamentals.md) Part 1
-- Java Fundamentals Part 2
-- [Spelling Corrector](spelling-corrector/spelling-corrector.md) Part 1
+- [Java Fundamentals](java-fundamentals/java-fundamentals.md)
+- [Spelling Corrector](spelling-corrector/spelling-corrector.md)
 
 ## Module 2
 
-- Spelling Corrector Part 2
-- [Classes and Objects](classes-and-objects/classes-and-objects.md) Part 1
-- Classes and Objects Part 2
+- More Spelling Corrector
+- [Classes and Objects](classes-and-objects/classes-and-objects.md)
 - Java Inheritance
 
 ## Module 3
