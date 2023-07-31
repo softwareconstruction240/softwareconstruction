@@ -14,7 +14,7 @@ The course content is divided into multiple modules. Each module represents a we
 ## Module 2
 
 - Spelling Corrector Part 2
-- Classes and Objects Part 1
+- [Classes and Objects](classes-and-objects/classes-and-objects.md) Part 1
 - Classes and Objects Part 2
 - Java Inheritance
 

@@ -2,7 +2,28 @@
 
 🖥️ [Slides](https://docs.google.com/presentation/d/1qC9DMSf7PYm-vBhK_qRS0Zu8lNVwQ4H7/edit?usp=sharing&ouid=114081115660452804792&rtpof=true&sd=true)
 
-In order to understand Java Fundamentals we need to explore the following topics.
+In Java, all code is contained in a class that contains properties and methods. If your class has a method name `main` then it can act as the starting point for your program. A simple Java program looks like the following.
+
+**HelloWorld.java**
+
+```java
+public class HelloWorld {
+    public static void main(String[] args) {
+      System.out.println("Hello World!");
+    }
+}
+```
+
+You can convert the above Java code into an intermediary binary format calls Java Byte code using the `javac` compiler. You can then execute the byte code using the Java virtual machine.
+
+```sh
+➜ javac HelloWorld.java
+➜ java HelloWorld
+
+Hello World!
+```
+
+In order to fully understand Java Fundamentals we need to explore the following topics.
 
 1. Ways that Java is different from C++
 1. How to get and install Java and an IDE
@@ -16,16 +37,6 @@ In order to understand Java Fundamentals we need to explore the following topics
 1. How to specify command-line parameters in IntelliJ
 1. The relationship between Packages, Imports and the CLASSPATH environment variable
 1. How to use a Scanner to read a text file of words, separated by whitespace
-
-In Java, all code is contained in a class that contains properties and methods. If your class has a method name `main` then it can act as the starting point for your program. A simple Java program looks like the following.
-
-```java
-public class HelloWorld {
-    public static void main(String[] args) {
-      System.out.println("Hello World");
-    }
-}
-```
 
 ## Videos
 
