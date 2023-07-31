@@ -7,11 +7,11 @@ The course content is divided into multiple modules. Each module represents a we
 ## Module 1
 
 - Course Intro
-- Java Fundamentals Part 1 ([Slides](https://docs.google.com/presentation/d/1qC9DMSf7PYm-vBhK_qRS0Zu8lNVwQ4H7/edit?usp=sharing&ouid=114081115660452804792&rtpof=true&sd=true))
+- [Java Fundamentals](java-fundamentals/java-fundamentals.md) Part 1
   - Java History and Overview ([Video](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=cb99566e-3a9d-40c9-86c0-ad56013f4a64&start=0))
   - Installing Java ([Video](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=0c39ffac-a1b2-4fa3-bb1e-ad560142a73b&start=0))
 - Java Fundamentals Part 2
-- Spelling Corrector Part 1
+- Spelling Corrector Part 1 ([Slides](https://docs.google.com/presentation/d/1FkxHpWkpQr-YIdtIqQeYwnAOekQ75Slg/edit?usp=sharing&ouid=114081115660452804792&rtpof=true&sd=true)
 
 ## Module 2
 
@@ -76,7 +76,7 @@ The course content is divided into multiple modules. Each module represents a we
 
 - Project Design (Chess Pregame)
 - Console UI
-- [WebSocket](websocket/websocket.md) ([Slides](https://docs.google.com/presentation/d/1jNPLDXYxK7kMvui4WvK0bshU076_OTQ1/edit?usp=sharing&ouid=114081115660452804792&rtpof=true&sd=true))
+- [WebSocket](websocket/websocket.md)
 - ☑ Chess Database (**Due**)
 
 ## Module 11
