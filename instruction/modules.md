@@ -21,6 +21,7 @@ The course content is divided into multiple modules. Each module represents a we
 
 - [Java Collections](collections/collections.md)
 - [Java Exceptions](exceptions/exceptions.md)
+- [Java Input and Output (IO)](io/io.md)
 - Design Principles
 - Project Design (Chess Game)
 - ☑ Spelling Corrector (**Due**)
