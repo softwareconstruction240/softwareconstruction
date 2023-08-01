@@ -43,11 +43,3 @@ In order to fully understand collections we need to explore the following topics
 
 - 🎥 [Java Collections](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=7f2f800e-d46e-4ce4-8839-ad5f011fa7a1&start=0)
 - 🎥 [Using Collections Correctly](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=bea26db3-5825-4df2-9ba0-ad5f01260f7e&start=0)
-
-## Demonstration code
-
-📁 [Person](example-code/Person.java)
-
-📁 [Person2](example-code/Person2.java)
-
-📁 [Team](example-code/Team.java)

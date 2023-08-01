@@ -30,7 +30,7 @@ You can convert the above Java code into an intermediary binary format calls Jav
 Hello World!
 ```
 
-In order to fully understand Java Fundamentals we need to explore the following topics.
+Things to understand:
 
 1. Ways that Java is different from C++
 1. How to get and install Java and an IDE

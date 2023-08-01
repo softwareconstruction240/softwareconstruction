@@ -34,12 +34,12 @@ public class ListExample {
 }
 ```
 
-In order to fully understand inheritance we need to explore the following topics.
+Things to understand:
 
 - What polymorphism is
 - What abstract classes are and when to use them
 - What interfaces are and when to use them
-- How interfaces and abstract classes are both similar and difference
+- How interfaces and abstract classes are both similar and different
 - How to implement an interface in a class
 - How to create an interface
 - The guarantee you have when a reference of an abstract class or interface type does not refer to null

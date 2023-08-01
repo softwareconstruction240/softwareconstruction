@@ -34,7 +34,7 @@ public class HelloWorld {
 }
 ```
 
-In order to fully understand classes and objects we need to explore the following topics.
+Things to understand:
 
 1. What object references are and why we need them
 1. The differences between static methods and variables and instance methods and variables
