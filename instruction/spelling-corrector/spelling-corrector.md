@@ -4,7 +4,7 @@
 
 As a preparatory step towards mastering the art of constructing software you will build a spelling corrector. This will help you learn the basics of building a Java program before we move to the more complex chess program.
 
-[Spelling Corrector explanation, specification, and requirements](../spelling-corrector/spelling-corrector.md).
+[Spelling Corrector explanation, specification, and requirements](../../spelling-corrector/spelling-corrector.md).
 
 The concepts we will cover as part of your work on the spelling corrector include the following.
 

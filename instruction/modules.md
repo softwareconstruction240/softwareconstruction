@@ -18,7 +18,7 @@ The course content is divided into multiple modules. Each module represents a we
 
 ## Module 3
 
-- Java Collections
+- [Java Collections](collections/collections.md)
 - Java Exceptions
 - Design Principles
 - Project Design (Chess Game)

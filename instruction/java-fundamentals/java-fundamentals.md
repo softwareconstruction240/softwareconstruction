@@ -2,6 +2,13 @@
 
 🖥️ [Slides](https://docs.google.com/presentation/d/1qC9DMSf7PYm-vBhK_qRS0Zu8lNVwQ4H7/edit?usp=sharing&ouid=114081115660452804792&rtpof=true&sd=true)
 
+📖 **Required Reading**: Core Java SE 9 for the Impatient
+
+- Chapter 1: Fundamental Programming Structures
+- Sections of Chapter 9:
+  - Section 9.1 Input/Output Streams, Readers, and Writers
+  - Section 9.2 Paths, Files, and Directories
+
 In Java, all code is contained in a class that contains properties and methods. If your class has a method name `main` then it can act as the starting point for your program. A simple Java program looks like the following.
 
 **HelloWorld.java**
