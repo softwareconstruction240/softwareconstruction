@@ -31,6 +31,7 @@ public class ListExample {
   // implemented.
   private void add(List<String> list, String value) {
     list.add(value);
+  }
 }
 ```
 

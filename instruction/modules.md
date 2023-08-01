@@ -20,7 +20,7 @@ The course content is divided into multiple modules. Each module represents a we
 ## Module 3
 
 - [Java Collections](collections/collections.md)
-- Java Exceptions
+- [Java Exceptions](exceptions/exceptions.md)
 - Design Principles
 - Project Design (Chess Game)
 - ☑ Spelling Corrector (**Due**)
