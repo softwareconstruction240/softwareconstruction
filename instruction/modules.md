@@ -53,7 +53,7 @@ The course content is divided into multiple modules. Each module represents a we
 
 - Unit Testing
 - Coverage tools
-- Relational Databases (The Relational Model) Part 1
+- [Relational Databases (The Relational Model)](relational-db-model/
 - Relational Databases (SQL) Part 2
 - ☑ Chess Server Design (**Due**)
 
