@@ -40,26 +40,32 @@ In order to fully understand Java Fundamentals we need to explore the following 
 
 ## Videos
 
-- Java History and Overview ([Video](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=cb99566e-3a9d-40c9-86c0-ad56013f4a64))
-- Installing Java ([Video](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=0c39ffac-a1b2-4fa3-bb1e-ad560142a73b))
-- Java Architecture ([Video](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=e9ff3ffe-ce6e-4bba-b363-ad560143be64))
-- Writing, Compiling, and Running Java Code ([Video](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=6e020a04-00fd-40cf-95dc-ad560146bbd8&start=0))
-- Javadoc ([Video](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=2a12a261-6e95-4e97-a838-ad56014c1ceb&start=0))
-- Primitive Data Types ([Video](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=5d673b50-c9a2-465e-8d5c-ad56014eaeed&start=0))
-- Working with Strings ([Video](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=f77e9a7f-36b2-40c8-8fa3-ad5601520775&start=0))
-- Combining Strings with StringBuilder ([Video](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=b7d693f9-a705-42f4-98f4-adf8015c3166&start=0))
-- Arrays ([Video](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=4d122f41-6fd6-4e78-bb3e-ad8e013d82c0&start=0))
-- Array of Arrays ([Video](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=71826d41-0b65-4b98-903f-ad8e014772e0&start=0))
-- Command Line Arguments ([Video](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=ddfefe0e-442d-4c56-8f60-ad5d013b4005&start=0))
-- Packages, Imports, and the CLASSPATH Environment Variable ([Video](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=c52bc183-f041-42c6-8e36-ad5d013d318f&start=0))
-- How to use a Scanner to read a text file of words separated by whitespace ([Video](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=3501b44d-296c-40b8-aee1-ad5d014138c8&start=0))
+- 🎥 [Java History and Overview](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=cb99566e-3a9d-40c9-86c0-ad56013f4a64)
+- 🎥 [Installing Java](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=0c39ffac-a1b2-4fa3-bb1e-ad560142a73b)
+- 🎥 [Java Architecture](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=e9ff3ffe-ce6e-4bba-b363-ad560143be64)
+- 🎥 [Writing, Compiling, and Running Java Code](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=6e020a04-00fd-40cf-95dc-ad560146bbd8&start=0)
+- 🎥 [Javadoc](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=2a12a261-6e95-4e97-a838-ad56014c1ceb&start=0)
+- 🎥 [Primitive Data Types](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=5d673b50-c9a2-465e-8d5c-ad56014eaeed&start=0)
+- 🎥 [Working with Strings](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=f77e9a7f-36b2-40c8-8fa3-ad5601520775&start=0)
+- 🎥 [Combining Strings with StringBuilder](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=b7d693f9-a705-42f4-98f4-adf8015c3166&start=0)
+- 🎥 [Arrays](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=4d122f41-6fd6-4e78-bb3e-ad8e013d82c0&start=0)
+- 🎥 [Array of Arrays](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=71826d41-0b65-4b98-903f-ad8e014772e0&start=0)
+- 🎥 [Command Line Arguments](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=ddfefe0e-442d-4c56-8f60-ad5d013b4005&start=0)
+- 🎥 [Packages, Imports, and the CLASSPATH Environment Variable](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=c52bc183-f041-42c6-8e36-ad5d013d318f&start=0)
+- 🎥 [How to use a Scanner to read a text file of words separated by whitespace](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=3501b44d-296c-40b8-aee1-ad5d014138c8&start=0)
 
 ## Demonstration code
 
 📁 [Simple Classes](example-code/01-simple-classes/)
+
 📁 [Primitive Data Types](example-code/02-primitive-data-types/)
+
 📁 [Strings](example-code/03-strings/)
+
 📁 [Arrays](example-code/04-arrays/)
+
 📁 [Command Line Arguments](example-code/05-command-line-arguments/)
+
 📁 [Packages Imports](example-code/06-packages-imports/)
+
 📁 [Input Output](example-code/07-input-output/)
