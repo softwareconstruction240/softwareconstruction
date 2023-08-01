@@ -14,7 +14,8 @@ The course content is divided into multiple modules. Each module represents a we
 
 - More Spelling Corrector
 - [Classes and Objects](classes-and-objects/classes-and-objects.md)
-- Java Inheritance
+- [Java Inheritance](inheritance/inheritance.md)
+- [Copying Objects](copying-objects/copying-objects.md)
 
 ## Module 3
 
