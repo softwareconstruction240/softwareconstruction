@@ -30,7 +30,7 @@ public class ExampleTests {
 }
 ```
 
-Things to understand:
+## Things to Understand
 
 - Why unit testing is important
 - How to write unit tests using the JUnit testing framework

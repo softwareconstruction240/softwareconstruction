@@ -29,7 +29,7 @@ The following gives a simple visualization of a database name `pet-store` that c
 
 With you data stored in relational tables you can use the different ID fields of the table to cross-reference, or join, the data together to power your application. We will learn how to read, write, and query your data when we discuss Structure Query Language (SQL).
 
-Things to understand:
+## Things to Understand
 
 - How data is represented in the relational model
 - How primary and foreign keys work

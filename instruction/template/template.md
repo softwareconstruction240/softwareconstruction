@@ -8,7 +8,7 @@
 
 blurb
 
-Things to understand:
+## Things to Understand
 
 - x
 - x

@@ -34,7 +34,7 @@ public class HelloWorld {
 }
 ```
 
-Things to understand:
+## Things to Understand
 
 1. What object references are and why we need them
 1. The differences between static methods and variables and instance methods and variables

@@ -44,7 +44,7 @@ public class ExceptionExample {
 
 Note that exceptions should be exceptional. Do not throw exceptions for things that happen in the normal flow of your code. For example, if it is expected that sometimes a file may not be found, then that is not exceptional.
 
-Things to understand:
+## Things to Understand
 
 - The difference between checked and unchecked exceptions in Java
 - How and when to handle an exception in Java

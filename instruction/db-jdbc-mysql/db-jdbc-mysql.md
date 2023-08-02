@@ -34,7 +34,7 @@ public class DatabaseExample {
 }
 ```
 
-Things to understand:
+## Things to Understand
 
 - How to execute each of the SQL statements from Java using JDBC
 - How to use JDBC connections

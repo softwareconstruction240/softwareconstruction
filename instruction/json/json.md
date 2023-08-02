@@ -75,7 +75,7 @@ JSON: {"year":2264,"pets":["cat","dog","fish"],"name":"perry"}
 Object: {year=2264.0, pets=[cat, dog, fish], name=perry}
 ```
 
-Things to understand:
+## Things to Understand
 
 - How to read / understand JSON documents
 - How to generate an JSON string from the instance variables of a Java object

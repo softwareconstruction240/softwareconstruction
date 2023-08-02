@@ -36,7 +36,7 @@ The following demonstrates a simple query to read all of the pets in a database.
 +--------+----------+---------------+
 ```
 
-Things to understand:
+## Things to Understand
 
 - How to create and drop tables
 - Why drop table if exists is useful

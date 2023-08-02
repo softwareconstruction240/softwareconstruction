@@ -27,7 +27,7 @@ public class ReadFile {
 }
 ```
 
-Things to understand:
+## Things to Understand
 
 - How input and output streams work
 - The difference between streams and readers and writers

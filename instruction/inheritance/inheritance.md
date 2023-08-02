@@ -35,7 +35,7 @@ public class ListExample {
 }
 ```
 
-Things to understand:
+## Things to Understand
 
 - What polymorphism is
 - What abstract classes are and when to use them

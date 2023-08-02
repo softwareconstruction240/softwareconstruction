@@ -4,7 +4,7 @@
 
 When you make a copy of an object you must consider the important difference between making a copy of the data and making a copy of a pointer to the data. When you make a copy of the data you make an independent duplicate of the data. When you copy a pointer to data, the copy can change when the data that the pointer references changes.
 
-Things to understand:
+## Things to Understand
 
 - The difference between a shallow copy and a deep copy
 - How to use `copy constructors` to implement deep copies
