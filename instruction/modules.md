@@ -45,7 +45,7 @@ The course content is divided into multiple modules. Each module represents a we
 
 - Project Server Design (Chess Web API) Part 1
 - Project Server Design (Chess Web API) Part 2
-- Writing Quality Code
+- [Writing Quality Code](quality-code/quality-code.md)
 - Style Checker
 - ☑ Chess Game (**Due**)
 
