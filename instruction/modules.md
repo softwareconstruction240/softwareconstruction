@@ -68,7 +68,7 @@ The course content is divided into multiple modules. Each module represents a we
 ## Module 9
 
 - Logging, Debugging
-- Assertions and parameter checking
+- [Defensive Programming](defensive-programming/defensive-programming.md)
 
 ## Module 10
 
