@@ -51,7 +51,7 @@ The course content is divided into multiple modules. Each module represents a we
 
 ## Module 7
 
-- Unit Testing
+- [Unit Testing](unit-testing/unit-testing.md)
 - Coverage tools
 - [Relational Databases (The Relational Model)](db-model/db-model.md)
 - [Relational Databases (SQL)](db-sql/db-sql.md)
@@ -60,7 +60,7 @@ The course content is divided into multiple modules. Each module represents a we
 ## Module 8
 
 - [Relational Databases (JDBC and MySQL)](db-jdbc-mysql/db-jdbc-mysql.md)
-- Relational Databases Part 4
+- Relational Databases More
 - MySQL ([Slides](https://docs.google.com/presentation/d/1w5bcntrExgMnB92uLJL52uuutLLQABSt/edit?usp=sharing&ouid=114081115660452804792&rtpof=true&sd=true))
 - Project Design (Chess Database)
 - ☑ Chess Web API (**Due**)
