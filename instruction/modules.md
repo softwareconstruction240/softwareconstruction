@@ -67,8 +67,9 @@ The course content is divided into multiple modules. Each module represents a we
 
 ## Module 9
 
-- Logging, Debugging
 - [Defensive Programming](defensive-programming/defensive-programming.md)
+- [Logging](logging/logging.md)
+- [Debugging](debugging/debugging.md)
 
 ## Module 10
 
