@@ -29,7 +29,7 @@ The course content is divided into multiple modules. Each module represents a we
 ## Module 4
 
 - Git ([Slides](https://docs.google.com/presentation/d/1y4u5y9uNiekYcubilyhYLjUGVoYBqs4q/edit?usp=sharing&ouid=114081115660452804792&rtpof=true&sd=true))
-- Java Inner Classes
+- [Java Inner Classes](inner-classes/inner-classes.md)
 - [JSON and Serialization](json/json.md)
 - Java Generics and Lambdas
 - ☑ Spelling Corrector (**Exam**)
