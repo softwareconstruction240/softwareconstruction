@@ -30,6 +30,8 @@ As stated previously, gameplay will not be implemented until later. For now, whe
 
 ![chessboard](ChessBoard.png)
 
+NOTE: Should you choose to use the unicode Chess characters, some machines by default don't render them in the console (this is often the case if you are using a .jar file). To fix this on Windows (it shouldn't be an issue on Mac/Linux), go to Settings > Time and Language > Language and Region > Administrative Language Settings and on the Administrative tab click Change System Locale and then check the box for using UTF-8 which requires system reboot. This should fix the issue.
+
 ## Unit Tests
 
 Write positive and negative unit tests for each method on your ServerFacade class (all the methods used to call your server).
