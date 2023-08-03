@@ -5,7 +5,7 @@
 📖 **Required Reading**: Core Java SE 9 for the Impatient
 
 - Chapter 1: Fundamental Programming Structures
-- Sections of Chapter 9:
+- Chapter 9:
   - Section 9.1 Input/Output Streams, Readers, and Writers
   - Section 9.2 Paths, Files, and Directories
 
@@ -21,7 +21,7 @@ public class HelloWorld {
 }
 ```
 
-You can convert the above Java code into an intermediary binary format calls Java Byte code using the `javac` compiler. You can then execute the byte code using the Java virtual machine.
+You can convert the above Java code into an intermediary binary format called `Java Byte Code` using the compiler (`javac`). Once created, you can then execute the byte code using the Java virtual machine (`java`).
 
 ```sh
 ➜ javac HelloWorld.java
