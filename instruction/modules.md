@@ -22,7 +22,7 @@ The course content is divided into multiple modules. Each module represents a we
 - [Java Collections](collections/collections.md)
 - [Java Exceptions](exceptions/exceptions.md)
 - [Java Input and Output (IO)](io/io.md)
-- Design Principles
+- Design Principles (🛑 Not new but missing from Canvas)
 - ♕ [Phase 1: Chess Game](../chess/1-chess-game/chess-game.md)
 - ☑ Spelling Corrector (**Due**)
 
@@ -31,27 +31,27 @@ The course content is divided into multiple modules. Each module represents a we
 - [Git](git/git.md)
 - [Java Inner Classes](inner-classes/inner-classes.md)
 - [JSON and Serialization](json/json.md)
-- Java Generics and Lambdas
+- Java Generics and Lambdas (🛑 Not new but missing from Canvas)
 - ☑ Spelling Corrector (**Exam**)
 
 ## Module 5
 
 - [HTTP](http/http.md)
 - [Curl](curl/curl.md)
-- Web API Implementation (Java Spark)
+- Web API Implementation (Java Spark) (🛑 New - Owner: Jerod)
 
 ## Module 6
 
 - ♕ [Phase 2: Server Design](../chess/2-server-design/server-design.md)
 - ♕ [Phase 3: Chess Web API](../chess/3-web-api/web-api.md)
 - [Writing Quality Code](quality-code/quality-code.md)
-- Style Checker
+- Style Checker (!Missing)
 - ☑ Chess Game (**Due**)
 
 ## Module 7
 
 - [Unit Testing](unit-testing/unit-testing.md)
-- Coverage tools
+- Coverage tools (🛑 New - Owner: Jerod)
 - [Relational Databases (The Relational Model)](db-model/db-model.md)
 - [Relational Databases (SQL)](db-sql/db-sql.md)
 - ☑ Chess Server Design (**Due**)
@@ -72,24 +72,24 @@ The course content is divided into multiple modules. Each module represents a we
 ## Module 10
 
 - ♕ [Phase 5: Chess Pregame](../chess/5-pregame/pregame.md)
-- Console UI
+- Console UI (🛑 New - Owner: Ken)
 - [WebSocket](websocket/websocket.md)
 - ☑ Chess Database (**Due**)
 
 ## Module 11
 
-- Security (hash digital sign, password storage)
-- Security (certs, ssl)
+- Security (hash digital sign, password storage) (🛑 New - Owner: Ken)
+- Security (certs, ssl) (🛑 New - Owner: Ken)
 
 ## Module 12
 
 - ♕ [Phase 6: Chess Gameplay](../chess/6-gameplay/gameplay.md)
-- Concurrency
+- Concurrency (🛑 New - Owner: Ken)
 - ☑ Chess Pregame (**Due**)
 
 ## Module 13
 
-- Command-line Java tools
+- Command-line Java tools (🛑 New - Owner: Ken)
 - Final Review
 
 ## Module 14
