@@ -16,6 +16,8 @@
 
 ![Linus Torvalds](linusTorvalds.jpg)
 
+> _Source: Wikipedia_
+
 > “Talk is cheap. Show me the code.”
 >
 > — Linus Torvalds
@@ -223,7 +225,7 @@ You clone a repository by providing the GitHub repository's URL as a parameter t
 When you clone a repository it is placed in a subdirectory named with the name of the repository. So make sure you are in the directory where you keep all of your source repositories before you run the command.
 
 ```sh
-➜  git clone https://github.com/softwarecontruction240/chess.git
+➜  git clone https://github.com/softwareconstruction240/chess.git
 
 Cloning into 'chess'...
 remote: Total 4 (delta 0), reused 0 (delta 0), pack-reused 0
@@ -244,8 +246,6 @@ You can also use the `Git` tab, at the bottom of the screen, to see the commit h
 
 ![IntelliJ Git](GitIntelliJ.gif)
 
-Underneath the covers, IntelliJ is running Git commands just like we did on the command line, but using a visual tool makes working with versions much easier. Take some time and play with adding files, modifying them, committing, and diffing. You want to get to the point where this is second nature so that you can easily experiment and make mistakes, knowing that with Git, you can always easily recover.
+Underneath the covers, IntelliJ is running Git commands just like we did on the command line, but using a visual tool makes working with versions much easier.
 
-```
-
-```
+Take some time and play with adding files, modifying them, committing, and diffing. You want to get to the point where this is second nature so that you can easily experiment and make mistakes, knowing that with Git, you can always easily recover.
