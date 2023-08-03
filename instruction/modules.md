@@ -23,11 +23,12 @@ The course content is divided into multiple modules. Each module represents a we
 - [Java Exceptions](exceptions/exceptions.md)
 - [Java Input and Output (IO)](io/io.md)
 - Design Principles
-- Project Design (Chess Game)
+- ♕ [Phase 1: Chess Game](../chess/1-chess-game/chess-game.md)
 - ☑ Spelling Corrector (**Due**)
 
 ## Module 4
 
+- ♕ [Phase 2: Server Design](../chess/2-server-design/server-design.md)
 - [Git](git/git.md)
 - [Java Inner Classes](inner-classes/inner-classes.md)
 - [JSON and Serialization](json/json.md)
@@ -38,13 +39,11 @@ The course content is divided into multiple modules. Each module represents a we
 
 - [HTTP](http/http.md)
 - [Curl](curl/curl.md)
-- Web API Implementation (Java Spark) Part 1
-- Web API Implementation (Java Spark) Part 2
+- Web API Implementation (Java Spark)
 
 ## Module 6
 
-- Project Server Design (Chess Web API) Part 1
-- Project Server Design (Chess Web API) Part 2
+- ♕ [Phase 3: Chess Web API](../chess/3-web-api/web-api.md)
 - [Writing Quality Code](quality-code/quality-code.md)
 - Style Checker
 - ☑ Chess Game (**Due**)
@@ -59,9 +58,9 @@ The course content is divided into multiple modules. Each module represents a we
 
 ## Module 8
 
-- [Relational Databases (JDBC and MySQL)](db-jdbc-mysql/db-jdbc-mysql.md)
 - [MySQL](mysql/mysql.md)
-- Project Design (Chess Database)
+- [Relational Databases (JDBC)](db-jdbc/db-jdbc.md)
+- ♕ [Phase 4: Chess Database](../chess/4-database/database.md);
 - ☑ Chess Web API (**Due**)
 
 ## Module 9
@@ -72,30 +71,25 @@ The course content is divided into multiple modules. Each module represents a we
 
 ## Module 10
 
-- Project Design (Chess Pregame)
+- ♕ [Phase 5: Chess Pregame](../chess/5-pregame/pregame.md)
 - Console UI
 - [WebSocket](websocket/websocket.md)
 - ☑ Chess Database (**Due**)
 
 ## Module 11
 
-- Security (hash digital sign, password storage) Part 1
-- Security (hash digital sign, password storage) Part 2
-- Security (certs, ssl) Part 1
-- Security (certs, ssl) Part 2
+- Security (hash digital sign, password storage)
+- Security (certs, ssl)
 
 ## Module 12
 
-- Project Design (Chess Gameplay) Part 1
-- Project Design (Chess Gameplay) Part 2
-- Concurrency in server Part 1
-- Concurrency in server Part 2
+- ♕ [Phase 6: Chess Gameplay](../chess/6-gameplay/gameplay.md)
+- Concurrency
 - ☑ Chess Pregame (**Due**)
 
 ## Module 13
 
-- Command-line Java tools Part 1
-- Command-line Java tools Part 2
+- Command-line Java tools
 - Final Review
 
 ## Module 14
