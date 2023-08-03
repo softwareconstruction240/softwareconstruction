@@ -37,7 +37,7 @@ The course content is divided into multiple modules. Each module represents a we
 ## Module 5
 
 - [HTTP](http/http.md)
-- Curl ([Slides](https://docs.google.com/presentation/d/1pM_tUVD7c6kWpHkEwuRpbWmoBFss3GuK/edit?usp=sharing&ouid=114081115660452804792&rtpof=true&sd=true))
+- [Curl](curl/curl.md)
 - Web API Implementation (Java Spark) Part 1
 - Web API Implementation (Java Spark) Part 2
 
