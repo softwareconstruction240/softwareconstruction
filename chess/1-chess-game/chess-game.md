@@ -60,6 +60,8 @@ The Tests in ChessExtraCredit are for the `Castling` and `En Passant` moves. Suc
 
 To run the tests, you can click the play icon next to an individual test, or you can right click on a package or class and select `Run` or `Run Tests in …`
 
+NOTE: In order for the tests to pass, you are required to override the .equals() and .hashCode() methods in your Move implementation and your Position implementation. To do this automatically in IntelliJ, select Code > Generate... > Override Methods and then select equals and hashCode. The default methods provided by IntelliJ should suffice.
+
 ![Run test button](test-run-button.png)
 ![Run test menu](test-run-menu.png)
 
