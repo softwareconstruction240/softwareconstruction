@@ -12,7 +12,7 @@ The course content is divided into multiple modules. Each module represents a we
 
 ## Module 2
 
-- More Spelling Corrector
+- _Spelling Corrector continued..._
 - [Classes and Objects](classes-and-objects/classes-and-objects.md)
 - [Java Inheritance](inheritance/inheritance.md)
 - [Copying Objects](copying-objects/copying-objects.md)
@@ -28,7 +28,6 @@ The course content is divided into multiple modules. Each module represents a we
 
 ## Module 4
 
-- ♕ [Phase 2: Server Design](../chess/2-server-design/server-design.md)
 - [Git](git/git.md)
 - [Java Inner Classes](inner-classes/inner-classes.md)
 - [JSON and Serialization](json/json.md)
@@ -43,6 +42,7 @@ The course content is divided into multiple modules. Each module represents a we
 
 ## Module 6
 
+- ♕ [Phase 2: Server Design](../chess/2-server-design/server-design.md)
 - ♕ [Phase 3: Chess Web API](../chess/3-web-api/web-api.md)
 - [Writing Quality Code](quality-code/quality-code.md)
 - Style Checker
