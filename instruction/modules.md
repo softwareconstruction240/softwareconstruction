@@ -8,7 +8,7 @@ The course content is divided into multiple modules. Each module represents a we
 
 - [Introduction](introduction/introduction.md) (🛑 Not new, but not sure how to translate to GitHub)
 - [Java Fundamentals](java-fundamentals/java-fundamentals.md)
-- [Spelling Corrector](spelling-corrector/spelling-corrector.md)
+- [Spelling Corrector](../spelling-corrector/spelling-corrector.md)
 
 ## Module 2
 
