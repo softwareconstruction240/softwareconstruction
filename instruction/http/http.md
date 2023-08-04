@@ -1,4 +1,4 @@
-# Hyper
+# Hypertext Transfer Protocol
 
 🖥️ [Slides](https://docs.google.com/presentation/d/1VECGwiLgXd541yq9BWVSYiphHAXHG0ca/edit?usp=sharing&ouid=114081115660452804792&rtpof=true&sd=true)
 
