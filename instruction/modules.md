@@ -44,7 +44,7 @@ The course content is divided into multiple modules. Each module represents a we
 
 - [Writing Quality Code](quality-code/quality-code.md)
 - [Style Checker](style-checker/style-checker.md) (🛑 New - Owner: Jerod)
-- ♕ [Phase 2: Server Design](../chess/2-server-design/server-design.md)
+- ♕ [Phase 2: Chess Server Design](../chess/2-server-design/server-design.md)
 - ♕ [Phase 3: Chess Web API](../chess/3-web-api/web-api.md)
 - ☑ Chess Game (**Due**)
 

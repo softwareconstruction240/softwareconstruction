@@ -1,4 +1,4 @@
-# Server Design
+# ♕ Phase 2: Chess Server Design
 
 In this part of the Chess Project, you will create the class and package structure for your Chess Server. Create the Java packages you think you will need for your server implementation. Then, populate each package with the classes you think you will need. For this assignment you need not create fully-functional classes. Rather, for each class you only need to declare the public methods, constructors, and fields the class will need. Add minimal bodies to each method and constructor sufficient to make the class compile. If a method has no return value, its body may be empty. If a method has a return value, add a return statement so the method will compile (e.g., return null or zero or false or whatever works). The code needs to compile so that we can use the Javadoc tool to generate nicely-formatted documentation for your design that you can submit for grading.
 

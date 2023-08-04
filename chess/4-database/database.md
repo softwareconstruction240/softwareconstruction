@@ -1,4 +1,4 @@
-# Database
+# ♕ Phase 4: Chess Database
 
 In this part of the Chess project, you will modify your data access (DAO) classes to store data in a MySQL database instead of storing data in main memory. You will also write unit tests using JUnit for your DAO classes. This will be done in a few steps:
 

@@ -1,4 +1,4 @@
-# Web API
+# ♕ Phase 3: Chess Web API
 
 In this part of the Chess Project, you will create your Chess server and implement eight different Web API functions that clients will use to communicate with your server. This will include finishing your DAO classes, creating your Server class, creating a Handler class for each Web API, and creating Service classes to execute the Web APIs. You will also write automated tests for your Service classes.
 
@@ -92,7 +92,7 @@ Note that `whiteUsername` and `blackUsername` may be `null`.
 | property             | value                                                                                                                                                                                                              |
 | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **Description**      | Verifies that the specified game exists, and, if a color is specified, adds the caller as the requested color to the game. If no color is specified the user is joined as an observer. This request is idempotent. |
-| **URL path**         | `/game`                                                                                                                                                                                                    |
+| **URL path**         | `/game`                                                                                                                                                                                                            |
 | **HTTP Method**      | `PUT`                                                                                                                                                                                                              |
 | **Headers**          | `authorization: <authToken>`                                                                                                                                                                                       |
 | **Body**             | `{ "playerColor":"WHITE/BLACK", "gameID":1 }`                                                                                                                                                                      |
