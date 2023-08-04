@@ -1,4 +1,4 @@
-# Exceptions
+# Java Exceptions
 
 🖥️ [Slides](https://docs.google.com/presentation/d/1CIyKxxGhJXUCQvwsJT64Oaao0p9LcBIZ/edit?usp=sharing&ouid=114081115660452804792&rtpof=true&sd=true)
 

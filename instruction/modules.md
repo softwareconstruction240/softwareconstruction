@@ -78,8 +78,8 @@ The course content is divided into multiple modules. Each module represents a we
 
 ## Module 11
 
-- [Security: Authentication](security-authentication/security-authentication.md) (🛑 New - Owner: Ken)
-- [Security: Connections](security-connections/security-connections.md) (🛑 New - Owner: Ken)
+- [Security - Authentication](security-authentication/security-authentication.md) (🛑 New - Owner: Ken)
+- [Security - Connections](security-connections/security-connections.md) (🛑 New - Owner: Ken)
 
 ## Module 12
 
