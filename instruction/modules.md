@@ -42,10 +42,10 @@ The course content is divided into multiple modules. Each module represents a we
 
 ## Module 6
 
-- ♕ [Phase 2: Server Design](../chess/2-server-design/server-design.md)
-- ♕ [Phase 3: Chess Web API](../chess/3-web-api/web-api.md)
 - [Writing Quality Code](quality-code/quality-code.md)
 - [Style Checker](style-checker/style-checker.md) (🛑 New - Owner: Jerod)
+- ♕ [Phase 2: Server Design](../chess/2-server-design/server-design.md)
+- ♕ [Phase 3: Chess Web API](../chess/3-web-api/web-api.md)
 - ☑ Chess Game (**Due**)
 
 ## Module 7
@@ -60,7 +60,7 @@ The course content is divided into multiple modules. Each module represents a we
 
 - [MySQL](mysql/mysql.md)
 - [Relational Databases (JDBC)](db-jdbc/db-jdbc.md)
-- ♕ [Phase 4: Chess Database](../chess/4-database/database.md);
+- ♕ [Phase 4: Chess Database](../chess/4-database/database.md)
 - ☑ Chess Web API (**Due**)
 
 ## Module 9
@@ -71,9 +71,9 @@ The course content is divided into multiple modules. Each module represents a we
 
 ## Module 10
 
-- ♕ [Phase 5: Chess Pregame](../chess/5-pregame/pregame.md)
 - [Console UI](console-ui/console-ui.md) (🛑 New - Owner: Ken)
 - [WebSocket](websocket/websocket.md)
+- ♕ [Phase 5: Chess Pregame](../chess/5-pregame/pregame.md)
 - ☑ Chess Database (**Due**)
 
 ## Module 11
@@ -83,8 +83,8 @@ The course content is divided into multiple modules. Each module represents a we
 
 ## Module 12
 
-- ♕ [Phase 6: Chess Gameplay](../chess/6-gameplay/gameplay.md)
 - [Concurrency](concurrency/concurrency.md) (🛑 New - Owner: Ken)
+- ♕ [Phase 6: Chess Gameplay](../chess/6-gameplay/gameplay.md)
 - ☑ Chess Pregame (**Due**)
 
 ## Module 13

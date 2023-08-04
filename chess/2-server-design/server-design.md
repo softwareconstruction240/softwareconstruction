@@ -22,4 +22,4 @@ After creating and commenting your classes, follow these instructions to generat
 
 ## Submitting Your Design
 
-Submit your Javadocs zip archive to the Chess Design Canvas Assignment.
+Submit your Javadocs zip archive to the `Chess Server Design` Canvas Assignment.
