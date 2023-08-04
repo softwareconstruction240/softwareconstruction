@@ -1,4 +1,4 @@
-# Inner Classes
+# Java Inner Classes
 
 📖 **Required Reading**: Core Java SE 9 for the Impatient
 
