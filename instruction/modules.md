@@ -51,15 +51,15 @@ The course content is divided into multiple modules. Each module represents a we
 ## Module 7
 
 - [Unit Testing](unit-testing/unit-testing.md)
-- [Coverage tools](coverage-tools/coverage-tools.md) (🛑 New - Owner: Jerod)
-- [Relational Databases (The Relational Model)](db-model/db-model.md)
-- [Relational Databases (SQL)](db-sql/db-sql.md)
+- [Coverage Tools](coverage-tools/coverage-tools.md) (🛑 New - Owner: Jerod)
+- [Relational Databases - The Relational Model](db-model/db-model.md)
+- [Relational Databases - SQL](db-sql/db-sql.md)
 - ☑ Chess Server Design (**Due**)
 
 ## Module 8
 
 - [MySQL](mysql/mysql.md)
-- [Relational Databases (JDBC)](db-jdbc/db-jdbc.md)
+- [Relational Databases - JDBC](db-jdbc/db-jdbc.md)
 - ♕ [Phase 4: Chess Database](../chess/4-database/database.md)
 - ☑ Chess Web API (**Due**)
 
