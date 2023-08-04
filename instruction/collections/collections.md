@@ -32,7 +32,7 @@ public class Mountains {
 }
 ```
 
-In order to fully understand collections we need to explore the following topics.
+## Things to Understand
 
 - The interfaces and classes that make up the Java collection API
 - What each interface and class is used for
