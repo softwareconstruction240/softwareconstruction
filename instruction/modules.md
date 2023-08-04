@@ -31,7 +31,7 @@ The course content is divided into multiple modules. Each module represents a we
 - [Git](git/git.md)
 - [Java Inner Classes](inner-classes/inner-classes.md)
 - [JSON and Serialization](json/json.md)
-- [Java Generics and Lambdas](generics/generics.md) (🛑 Not new but missing from Canvas)
+- [Java Generics](generics/generics.md) (🛑 Not new but missing from Canvas)
 - ☑ Spelling Corrector (**Exam**)
 
 ## Module 5
@@ -95,7 +95,7 @@ The course content is divided into multiple modules. Each module represents a we
 ## Module 14
 
 - ☑ Final (**Exam**)
-- ☑ Chess Gameplay (**Due**)
+- ☑ Chess Game Play (**Due**)
 
 ### Legend
 
