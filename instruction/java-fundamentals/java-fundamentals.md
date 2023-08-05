@@ -21,7 +21,7 @@ public class HelloWorld {
 }
 ```
 
-You can convert the above Java code into an intermediary binary format called `Java Byte Code` using the compiler (`javac`). Once created, you can then execute the byte code using the Java virtual machine (`java`).
+You can convert the above Java code into an intermediary binary format called `Java Byte Code` using the compiler (`javac`). Once compiled, you can then execute the byte code using the Java virtual machine (`java`).
 
 ```sh
 ➜ javac HelloWorld.java
