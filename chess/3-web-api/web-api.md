@@ -21,7 +21,7 @@ An API is a command a server makes available to the public. For your server thes
 | property             | value                                                          |
 | -------------------- | -------------------------------------------------------------- |
 | **Description**      | Clears the database. Removes all users, games, and authTokens. |
-| **URL path**         | `/`                                                            |
+| **URL path**         | `/db`                                                            |
 | **HTTP Method**      | `DELETE`                                                       |
 | **Success response** | [200]                                                          |
 | **Failure response** | [500] `{ "message": "Error: description" }`                    |
