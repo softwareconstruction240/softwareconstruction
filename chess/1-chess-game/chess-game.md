@@ -46,7 +46,7 @@ This represents a location on the chessboard. This should be represented as a ro
 
 For this project, you are free to implement the classes above in whatever order makes sense to you. However, for those who may be stuck on where to go from here, below is a good order of implementation:
 
-- Simple class that require little to no logic (Board, Move, Position)
+- Simple classes that require little to no logic (Board, Move, Position)
 - Each piece and its respective `pieceMoves()` method
 - Game
 
