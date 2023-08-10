@@ -31,6 +31,7 @@ Add the following dependencies to the `client` module:
   - Scope: Compile
 - **org.glassfish.tyrus.bundles:tyrus-standalone-client:1.15**
   - Scope: Compile
+  - Add this to the server module as well
 - **org.slf4j:slf4j-simple:1.7.36**
   - Because you already added this to the server, it should already be an option to add and you shouldn't need to search for it again.
 
