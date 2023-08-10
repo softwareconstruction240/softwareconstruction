@@ -127,7 +127,7 @@ Previously, you created a `chess` package that contains the model classes that r
 | whitePlayerID | int           |
 | blackPlayerID | int           |
 | gameName      | string        |
-| game          | ChessGameImpl |
+| game          | `ChessGame` implementation |
 
 **AuthToken**
 
