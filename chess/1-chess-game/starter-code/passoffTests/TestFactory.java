@@ -2,8 +2,6 @@ package passoffTests;
 
 import chess.*;
 
-import java.util.HashMap;
-
 /**
  * Used for testing your code
  * Add in code using your classes for each method for each FIXME
