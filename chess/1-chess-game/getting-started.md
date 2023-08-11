@@ -18,7 +18,7 @@ Take the following steps to setup your Chess project.
 
 ## Adding Dependencies
 
-`Dependencies` are external libraries are used in your application. Java libraries are contained in JAR files (.jar). Maven provides an online repository of freely available Java libraries that you can include in your projects. You can go to [https://mvnrepository.com/](https://mvnrepository.com/) to browse all the libraries available through Maven. This section explains how to use Maven to add an external library dependency to your project.
+`Dependencies` are external libraries are used in your application. Java libraries are contained in JAR files (.jar). Maven provides an online repository of freely available Java libraries that you can include in your projects. You can go to [https://mvnrepository.com/](https://mvnrepository.com/) to browse all the libraries available through Maven. This section explains how to use Maven to add an external library dependency to your project. Regarding the versions of all dependencies throughout this project, there likely will be newer versions available. You are welcome to use the versions listed below (which are the newest at the time of writing) or the most current ones.
 
 1. Go to File -> Project Structure
 2. In the pop-up go Modules -> Dependencies, and hit the `+` mark to add new dependency
