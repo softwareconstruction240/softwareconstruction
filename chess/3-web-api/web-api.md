@@ -21,7 +21,7 @@ An API is a command a server makes available to the public. For your server thes
 | property             | value                                                          |
 | -------------------- | -------------------------------------------------------------- |
 | **Description**      | Clears the database. Removes all users, games, and authTokens. |
-| **URL path**         | `/db`                                                            |
+| **URL path**         | `/db`                                                          |
 | **HTTP Method**      | `DELETE`                                                       |
 | **Success response** | [200]                                                          |
 | **Failure response** | [500] `{ "message": "Error: description" }`                    |
@@ -41,13 +41,13 @@ An API is a command a server makes available to the public. For your server thes
 
 ### Login
 
-| property             | value                                       |
-| -------------------- | ------------------------------------------- |
-| **Description**      | Logs in an existing user.                   |
-| **URL path**         | `/session`                                  |
-| **HTTP Method**      | `POST`                                      |
-| **Success response** | [200]                                       |
-| **Failure response** | [500] `{ "message": "Error: description" }` |
+| property             | value                                      	     |
+| -------------------- | --------------------------------------------------- |
+| **Description**      | Logs in an existing user (returns a new authToken). |
+| **URL path**         | `/session`                                  	     |
+| **HTTP Method**      | `POST`                                     	     |
+| **Success response** | [200]                                      	     |
+| **Failure response** | [500] `{ "message": "Error: description" }` 	     |
 
 ### Logout
 
@@ -121,12 +121,12 @@ Previously, you created a `chess` package that contains the model classes that r
 
 **Game**
 
-| Field         | Type          |
-| ------------- | ------------- |
-| gameID        | int           |
-| whitePlayerID | int           |
-| blackPlayerID | int           |
-| gameName      | string        |
+| Field         | Type        		     |
+| ------------- | -------------------------- |
+| gameID        | int      		     |
+| whitePlayerID | int     		     |
+| blackPlayerID | int    		     |
+| gameName      | string   		     |
 | game          | `ChessGame` implementation |
 
 **AuthToken**
