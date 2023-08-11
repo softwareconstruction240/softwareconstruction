@@ -47,15 +47,14 @@ public class WebSocketTests {
 
     @BeforeAll
     static void init(){
-        serverFacade = new TestServerFacade("localhost", TestFactory
-                .getServerPort());
+        serverFacade = new TestServerFacade("localhost", TestFactory.getServerPort());
         serverFacade.clear();
 
         bobClient = new TestClient();
         jamesClient = new TestClient();
         alfredClient = new TestClient();
 
-        //set bob details
+        //set Bob details
         userBob = new TestModels.TestUser();
         userBob.username = "bob";
         userBob.password = "BOB";
@@ -70,7 +69,7 @@ public class WebSocketTests {
         //set Alfred details
         userAlfred = new TestModels.TestUser();
         userAlfred.username = "Alfred";
-        userAlfred.password = "Brucy";
+        userAlfred.password = "Bruce";
         userAlfred.email = "Batman@Mr.Wayne";
 
         waitTime = TestFactory.getMessageTime();
@@ -132,7 +131,7 @@ public class WebSocketTests {
         TestModels.TestJoinRequest joinRequest = new TestModels.TestJoinRequest();
         TestModels.TestCreateResult createResult;
 
-        //emptyGame;
+        //emptyGame
         createResult = serverFacade.createGame(createRequest, bobAuth);
         emptyGame = createResult.gameID;
 
@@ -225,9 +224,7 @@ public class WebSocketTests {
         //check received messages
         assertEquals(1, alfredMessages.size(), "Alfred did not get a message");
         assertEquals(TestModels.TestServerMessageType.LOAD_GAME, alfredMessages.get(0).serverMessageType, "Alfred's message was not a LOAD_GAME message");
-        assertNotNull(alfredMessages.get(0).game, "Alfreds LOAD_GAME message did not contain a game");
-
-
+        assertNotNull(alfredMessages.get(0).game, "Alfred's LOAD_GAME message did not contain a game");
 
 
         //join other spot on game
@@ -299,7 +296,7 @@ public class WebSocketTests {
     @Test
     @Order(3)
     public void joinObserverGood() throws InterruptedException, ExecutionException {
-        //try observe full game
+        //try to observe full game
         TestModels.TestCommand joinCommand = new TestModels.TestCommand();
         joinCommand.commandType = TestModels.TestCommandType.JOIN_OBSERVER;
         joinCommand.authToken = bobAuth;
@@ -635,7 +632,7 @@ public class WebSocketTests {
         jamesResult.get(3*waitTime, TimeUnit.SECONDS);
 
         //have bob make an invalid move
-        //try move rook
+        //try to move rook
         ChessPosition startingPosition = TestFactory
                 .getNewPosition(1, 1);
         ChessPosition endingPosition = TestFactory
