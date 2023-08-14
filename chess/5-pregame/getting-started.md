@@ -87,19 +87,6 @@ Next, modify the default (server) module and the client module so that they have
 
 Now, follow the previous steps again to add the same dependency to the `client` module.
 
-## Set up IntelliJ Terminal to Display Chess Characters
-
-The default console font in IntelliJ (JetBrains Mono) doesn't actually monospace chess characters and spaces well, contrary to its name. In order for your board to print correctly, you will need to change the font settings. This is done as follows:
-
-1. Open the IntelliJ `Settings` menu. This can be done from the `File` menu or the gear icon in the top right.
-1. Navigate to the `Console Font` options using `Editor` -> `Color Scheme` -> `Console Font`.
-1. Create a new scheme. Click the gear icon next to the current scheme name and hit `Duplicate…`. Name the scheme how you wish (perhaps `Chess`).
-1. Check the box `Use console font instead of the default`.
-1. Change the font to `Monospaced`.
-1. Leave the `Size:` value as-is. The default should be 13.
-1. If you wish, you can change the `Line height:` option to make the board look square. If you're planning on using the unicode chess piece characters, 1.6 should work.
-1. Click `OK`.
-
 ## Create Client Executable JAR File
 
 At times you might want to run your Chess client outside of IntelliJ. For example, when testing you will need to run multiple instances of your client to test interaction between multiple users. Or, you might want to share your client with someone so they can play chess with you. To make it possible to run the Chess client outside of IntelliJ, we will create an `executable JAR file` for your client. A `JAR file` has a name with the .jar extension and is essentially a zip file containing a collection of compiled Java classes (i.e., .class files). An `executable JAR file` is a JAR file that contains at least one class with a `main` method, and thus can be executed to run the program within the JAR file. For example, if you have an executable JAR file named `client.jar` containing your Chess client, it can be executed using the following command line (Java must be installed on the computer where the JAR file is being executed):
