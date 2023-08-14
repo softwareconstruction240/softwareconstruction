@@ -46,7 +46,9 @@ An API is a command a server makes available to the public. For your server thes
 | **Description**      | Logs in an existing user (returns a new authToken). |
 | **URL path**         | `/session`                                  	     |
 | **HTTP Method**      | `POST`                                     	     |
-| **Success response** | [200]                                      	     |
+| **Body**             | `{ "username":"", "password":"" }`                  |
+| **Success response** | [200] `{ "username":"", "authToken":"" }`           |
+| **Failure response** | [401] `{ "message": "Error: unauthorized" }`        |
 | **Failure response** | [500] `{ "message": "Error: description" }` 	     |
 
 ### Logout
@@ -58,6 +60,7 @@ An API is a command a server makes available to the public. For your server thes
 | **HTTP Method**      | `DELETE`                                        |
 | **Headers**          | `authorization: <authToken>`                    |
 | **Success response** | [200]                                           |
+| **Failure response** | [401] `{ "message": "Error: unauthorized" }`    |
 | **Failure response** | [500] `{ "message": "Error: description" }`     |
 
 ### List Games
@@ -70,7 +73,7 @@ Note that `whiteUsername` and `blackUsername` may be `null`.
 | **URL path**         | `/game`                                                                                  |
 | **HTTP Method**      | `GET`                                                                                    |
 | **Headers**          | `authorization: <authToken>`                                                             |
-| **Success response** | [200] `{ "games": ["gameID":1, "whiteUsername":"", "blackUsername":"", "gameName:""} ]}` |
+| **Success response** | [200] `{ "games": ["gameID":, "whiteUsername":"", "blackUsername":"", "gameName:""} ]}`  |
 | **Failure response** | [401] `{ "message": "Error: unauthorized" }`                                             |
 | **Failure response** | [500] `{ "message": "Error: description" }`                                              |
 
@@ -83,7 +86,7 @@ Note that `whiteUsername` and `blackUsername` may be `null`.
 | **HTTP Method**      | `POST`                                       |
 | **Headers**          | `authorization: <authToken>`                 |
 | **Body**             | `{ "gameName":"" }`                          |
-| **Success response** | [200] `{}`                                   |
+| **Success response** | [200] `{ "gameID": }`                        |
 | **Failure response** | [401] `{ "message": "Error: unauthorized" }` |
 | **Failure response** | [500] `{ "message": "Error: description" }`  |
 
@@ -95,7 +98,7 @@ Note that `whiteUsername` and `blackUsername` may be `null`.
 | **URL path**         | `/game`                                                                                                                                                                                                            |
 | **HTTP Method**      | `PUT`                                                                                                                                                                                                              |
 | **Headers**          | `authorization: <authToken>`                                                                                                                                                                                       |
-| **Body**             | `{ "playerColor":"WHITE/BLACK", "gameID":1 }`                                                                                                                                                                      |
+| **Body**             | `{ "playerColor":"WHITE/BLACK", "gameID": }`                                                                                                                                                                       |
 | **Success response** | [200] `{}`                                                                                                                                                                                                         |
 | **Failure response** | [400] `{ "message": "Error: bad request" }`                                                                                                                                                                        |
 | **Failure response** | [401] `{ "message": "Error: unauthorized" }`                                                                                                                                                                       |
