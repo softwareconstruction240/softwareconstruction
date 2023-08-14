@@ -206,8 +206,7 @@ Similarly, the `login` web API returns a JSON object of the following format, de
 ```json
 {
   "authToken": "example_auth",
-  "username": "example_username",
-  "success": true
+  "username": "example_username"
 }
 ```
 
@@ -215,8 +214,7 @@ Similarly, the `login` web API returns a JSON object of the following format, de
 
 ```json
 {
-  "message": "Error: description",
-  "success": false
+  "message": "Error: description"
 }
 ```
 
@@ -224,12 +222,11 @@ From this you can derive the following LoginResult class:
 
 ```java
 	class LoginResult {
-		private boolean success;
 		private String message;
 		private String authToken;
 		private String username;
 		public LoginResult() { … }
-		// … Getters and Setters for success, message, authToken, and username properties
+		// … Getters and Setters for message, authToken, and username properties
 	}
 ```
 
