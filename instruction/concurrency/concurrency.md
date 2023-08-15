@@ -12,7 +12,7 @@ Programs can use threads to do multiple things at once. This can make programs m
 
 - What is a thread?
 - Creating and executing a simple thread in Java
-- Using a thread pool (ExecutorService) to run multiple threads
+- Using a thread pool (ExecutorService in Java) to run multiple threads
 - What is a race condition (or race hazard)?
 - How to use database transactions to avoid race conditions
 - How to use "synchronized" methods and code blocks in Java to avoid race conditions
