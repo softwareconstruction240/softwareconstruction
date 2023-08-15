@@ -20,4 +20,10 @@ Programs can use threads to do multiple things at once. This can make programs m
 
 ## Demonstration code
 
-📁 [x](example-code/)
+📁 [Java Thread Example](example-code/src/demo/JavaThreadExample.java)
+
+📁 [Java Thread Pool Example](example-code/src/demo/JavaThreadPoolExample.java)
+
+📁 [File Race Condition Example](example-code/src/demo/FileRaceConditionExample.java)
+
+📁 [Synchronized Stack Example](example-code/src/demo/Stack.java)
