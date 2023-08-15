@@ -1,10 +1,8 @@
 # Console User Interface (UI)
 
-🖥️ [Slides]()
+🖥️ [Slides](https://docs.google.com/presentation/d/1zHBDEdB6xhvnA12m3VliBaOQj7yZOxjT/edit#slide=id.p1)
 
-📖 **Required Reading**: Core Java SE 9 for the Impatient
-
-- None
+📖 **Required Reading**: None
 
 Typically, when a program prints output to the console (or terminal), the text plain without much formatting. However, it is possible to create fairly nice console user interfaces that include formatted and colored text and use character-based graphics. This lecture explains how to create
 a text-based console user interface, with an emphasis on how to implement the Chess client user interface.
