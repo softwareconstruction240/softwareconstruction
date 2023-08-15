@@ -1,6 +1,6 @@
 # ♕ Phase 3: Chess Web API
 
-In this part of the Chess Project, you will create your Chess server and implement eight different Web API functions that clients will use to communicate with your server. This will include finishing your DAO classes, creating your Server class, creating a Handler class for each Web API, and creating Service classes to execute the Web APIs. You will also write automated tests for your Service classes.
+In this part of the Chess Project, you will create your Chess server and implement seven different Web API functions that clients will use to communicate with your server. This will include finishing your DAO classes, creating your Server class, creating a Handler class for each Web API, and creating Service classes to execute the Web APIs. You will also write automated tests for your Service classes.
 
 ![Sever class structure](server-class-structure.png)
 
@@ -12,7 +12,7 @@ In this part of the Chess Project, you will create your Chess server and impleme
 
 ## Required Web APIs
 
-An API is a command a server makes available to the public. For your server these API’s will be accessed via the HTTP protocol. Often the Server requires some data when a client uses an API. For an HTTP request this data can be stored in HTTP Headers, in the URL, and in the request body. The Server then sends back data to the client, including a value in the HTTP Response Header (indicating if there was any error with the HTTP protocol), and any needed information in the HTTP Response Body. For your server, you will use JSON strings for the Request and Response bodies.
+An API is a command a server makes available to the public. For your server these API’s will be accessed via the Hypertext Transfer Protocol (HTTP). Often the server requires some data when a client uses an API. For an HTTP request this data can be stored in HTTP Headers, in the URL, and/or in the request body. The Server then sends back data to the client, including a value in the HTTP Response Code (indicating if command was completed successfully), and any needed information in the HTTP Response Body. For your server, you will use JSON strings for the Request and Response bodies.
 
 ## API Details
 
@@ -99,7 +99,7 @@ Note that `whiteUsername` and `blackUsername` may be `null`.
 | **HTTP Method**      | `PUT`                                                                                                                                                                                                              |
 | **Headers**          | `authorization: <authToken>`                                                                                                                                                                                       |
 | **Body**             | `{ "playerColor":"WHITE/BLACK", "gameID": }`                                                                                                                                                                       |
-| **Success response** | [200] `{}`                                                                                                                                                                                                         |
+| **Success response** | [200]                                                                                                                                                                                                          |
 | **Failure response** | [400] `{ "message": "Error: bad request" }`                                                                                                                                                                        |
 | **Failure response** | [401] `{ "message": "Error: unauthorized" }`                                                                                                                                                                       |
 | **Failure response** | [403] `{ "message": "Error: already taken" }`                                                                                                                                                                      |
@@ -167,11 +167,11 @@ Here are some examples of the kinds of methods your DAO classes will need to sup
 
 The Service classes implement the actual functionality of the server. More specifically, the Service classes implement the logic associated with the web APIs.
 
-Each service is responsible for executing a web API. A simple implementation of this is to have a separate Service class for each web API, with each Service class having a single public method. You may also put multiple service methods in one class if that makes more sense to you, but whatever you do should comply with the Single Responsibility Principle. For example, a LoginService class might have the following public interface:
+Each service is responsible for executing a web API. A simple implementation of this is to have a separate Service class for each web API, with each Service class having a single public method. For example, a LoginService class might look like this:
 
 ```java
-class LoginService {
-	public LoginResult login(LoginRequest request);
+public class LoginService {
+	public LoginResult login(LoginRequest request) {}
 }
 ```
 

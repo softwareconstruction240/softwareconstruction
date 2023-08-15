@@ -39,7 +39,7 @@ During gameplay all communication between client and server should be implemente
 
 When a user joins or observes a game, their client should do the following:
 
-1. Call the server join API to join them to them to the game (or verify the game exists if they are observing).
+1. Call the server join API to join them to the game (or verify the game exists if they are observing).
 1. Open a WebSocket connection with the server (using the `/connect` endpoint) so it can send and receive gameplay messages.
 1. Send either a JOIN_PLAYER or JOIN_OBSERVER WebSocket message to the server.
 1. Transition to the gameplay UI. The gameplay UI draws the chess board and allows the user perform the gameplay commands described in the previous section.

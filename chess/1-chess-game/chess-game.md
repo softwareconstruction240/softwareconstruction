@@ -1,6 +1,6 @@
 # ♕ Phase 1: Chess Game
 
-In this part of the Chess Project, you will create the base Chess Game behavior. To do this you will create the following 10 implementation classes that implement the provided interfaces: A Chess Game class, a chessboard class, a Chess Position class, a Chess Move class, and 6 Chess Piece classes. In later assignments you will use this code to create a fully playable game.
+In this part of the Chess Project, you will create the base Chess Game behavior. To do this you will create the following 10 implementation classes that implement the provided interfaces: A Chess Game class, a Chess Board class, a Chess Position class, a Chess Move class, and 6 Chess Piece classes. In later assignments you will use this code to create a fully playable game.
 
 ## Code Class Structure
 
@@ -36,7 +36,7 @@ This class represents a single chess piece, with its corresponding type and team
 
 ### ChessMove
 
-This class represents a possible move a chess piece could make. It contains the starting and ending positions. It also contains a field for the type of piece a pawn is being promoted to. This field for promotion type should be null for all moves other than when a pawn is being promoted.
+This class represents a possible move a chess piece could make. It contains the starting and ending positions. It also contains a field for the type of piece a pawn is being promoted to. If the move would not result in a pawn being promoted, the promotion type field should be null.
 
 ### ChessPosition
 
@@ -52,15 +52,17 @@ For this project, you are free to implement the classes above in whatever order 
 
 ## Testing
 
-For the pass off tests to be able to instantiate your classes, you will need to fill in some Factory methods. In the `test` folder, go to passoffTests / TestFactory. Inside the TestFactory class are 5 methods you will need to fill in for the tests to work properly. These methods are in the `Chess Functions` section of TestFactory. Each method has a `FIXME` comment that describes what the method needs to return. The other methods in TestFactory will be used in future assignments and can be ignored for now.
+For the pass off tests to be able to instantiate your classes, you will need to fill in some factory methods. In the `test` folder, go to passoffTests / TestFactory. Inside the TestFactory class are 5 methods you will need to fill in for the tests to work properly. These methods are in the `Chess Functions` section of TestFactory. Each method has a `FIXME` comment that describes what the method needs to return. The other methods in TestFactory will be used in future assignments and can be ignored for now.
 
-The test cases for this assignment are in `passoffTests → chessTests`. `ValidMoveTests` has a collection of tests for the movement of individual pieces, and ChessGameTests has tests for the overall gameplay. You will need to pass all these tests to pass off this assignment.
+The test cases for this assignment are in `passoffTests → chessTests`. `ChessPieceTests` has a collection of tests for the movement of individual pieces, ChessBoardTests has tests for adding/gettings pieces and your resetBoard method, and ChessGameTests has tests for the overall gameplay. You will need to pass all these tests to pass off this assignment.
 
 The Tests in ChessExtraCredit are for the `Castling` and `En Passant` moves. Successfully passing these will earn you some extra credit on this assignment, but are not required for pass off.
 
 To run the tests, you can click the play icon next to an individual test, or you can right click on a package or class and select `Run` or `Run Tests in …`
 
-NOTE: In order for the tests to pass, you are required to override the .equals() and .hashCode() methods in your Move implementation and your Position implementation. To do this automatically in IntelliJ, select Code > Generate... > Override Methods and then select equals and hashCode. The default methods provided by IntelliJ should suffice.
+NOTE: In order for the tests to pass, you are required to override the .equals() and .hashCode() methods in your ChessMove implementation and your ChessPosition implementation. To do this automatically in IntelliJ, select Code > Generate... > Override Methods and then select equals and hashCode. The default methods provided by IntelliJ should suffice.
+
+NOTE: Debugging is often easier if you override the .toString() method in your ChessMove implementation (and possibly ChessPosition implementation). This is not required, but you may want to consider it. The default methods provided by IntelliJ are better than nothing, but you may wish to write your own .toString() method for easiest debugging.
 
 ![Run test button](test-run-button.png)
 ![Run test menu](test-run-menu.png)
@@ -75,7 +77,7 @@ Chess is a strategy game where 2 players take turn moving pieces and capturing e
 
 **`King`**
 
-Kings may move 1 square in any direction (including diagonal) to either a position occupied by an enemy piece (capturing the enemy piece), or to an unoccupied position. A player is not allowed to make any move that would allow the opponent to capture their King. If your King is in danger of being captured on your turn, you must make a move that removes your King from Immediate danger.
+Kings may move 1 square in any direction (including diagonal) to either a position occupied by an enemy piece (capturing the enemy piece), or to an unoccupied position. A player is not allowed to make any move that would allow the opponent to capture their King. If your King is in danger of being captured on your turn, you must make a move that removes your King from immediate danger.
 
 **`Pawn`**
 
@@ -89,7 +91,7 @@ Rooks may move in straight lines as far as there is open space. If there is an e
 
 **`Knight`**
 
-Knight’s move in an `L` shape, moving 2 squares in one direction and 1 square in the other direction. Knights are the only piece that can ignore pieces in the in-between squares (they can `Jump` over other pieces). They can move to squares occupied by an enemy piece and capture the enemy piece, or to unoccupied squares.
+Knights move in an `L` shape, moving 2 squares in one direction and 1 square in the other direction. Knights are the only piece that can ignore pieces in the in-between squares (they can "jump" over other pieces). They can move to squares occupied by an enemy piece and capture the enemy piece, or to unoccupied squares.
 
 **`Bishop`**
 
@@ -130,9 +132,18 @@ Here are some guides that may help:
 
 You do not have to implement these moves, but if you go the extra mile and successfully implement both of these moves, you’ll earn some extra credit on this assignment.
 
+NOTE: These moves can but do not have to be provided by `ChessPiece::pieceMoves`, and can be provided by `ChessGame::validMoves` instead.
+
 **`Castling`**
 
-This is a special move where the King and a Rook move simultaneously. The castling move can only be taken when 4 conditions are met; 1: Neither the King nor Rook have moved, 2: There are no pieces between the King and the Rook, 3: The King is not in Check, and 4: Both your Rook and King will be safe after making the move (cannot be captured by any enemy pieces). To Castle, the King moves 2 spaces towards the Rook, and the Rook `Jumps` the king moving to the position next to and on the other side of the King. This is represented in a ChessMove as the king moving 2 spaces to the side.
+This is a special move where the King and a Rook move simultaneously. The castling move can only be taken when 4 conditions are met: 
+
+1. Neither the King nor Rook have moved since the game started
+2. There are no pieces between the King and the Rook
+3. The King is not in Check 
+4. Both your Rook and King will be safe after making the move (cannot be captured by any enemy pieces). 
+
+To Castle, the King moves 2 spaces towards the Rook, and the Rook "jumps" the king moving to the position next to and on the other side of the King. This is represented in a ChessMove as the king moving 2 spaces to the side.
 
 **`En Passant`**
 
