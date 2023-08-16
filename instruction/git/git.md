@@ -1,4 +1,6 @@
-# Title
+# Git
+
+![Git Icon](GitIcon.png)
 
 🖥️ [Slides](https://docs.google.com/presentation/d/1y4u5y9uNiekYcubilyhYLjUGVoYBqs4q/edit?usp=sharing&ouid=114081115660452804792&rtpof=true&sd=true)
 
@@ -7,10 +9,6 @@
 - [GitHub create a repo](https://docs.github.com/en/get-started/quickstart/create-a-repo)
 - [GitHub cloning a repo](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
 - [GitHub personal access tokens](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
-
-# Git
-
-![Git Icon](GitIcon.png)
 
 [Linus Torvalds](https://en.wikipedia.org/wiki/Linus_Torvalds), the creator of Linux, was fed up with the proprietary version control software that he was using to track the code for the Linux kernel and so over a weekend he built Git, the world's most popular version control system.
 
@@ -249,3 +247,7 @@ You can also use the `Git` tab, at the bottom of the screen, to see the commit h
 Underneath the covers, IntelliJ is running Git commands just like we did on the command line, but using a visual tool makes working with versions much easier.
 
 Take some time and play with adding files, modifying them, committing, and diffing. You want to get to the point where this is second nature so that you can easily experiment and make mistakes, knowing that with Git, you can always easily recover.
+
+| Prev                                                            | Up                       | Next                                                    |
+| --------------------------------------------------------------- | ------------------------ | ------------------------------------------------------- |
+| ♕ [Phase 1: Chess Game](../../chess/1-chess-game/chess-game.md) | [Modules](../modules.md) | [Java Inner Classes](../inner-classes/inner-classes.md) |
