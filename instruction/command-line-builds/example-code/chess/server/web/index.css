@@ -1,0 +1,91 @@
+html {
+  font-family: sans-serif;
+  background: #f7f0e0;
+  color: #343434;
+}
+body {
+  max-width: 80em;
+}
+table {
+  border-spacing: 0.5em;
+}
+.chess-icon {
+  font-size: 2em;
+}
+td {
+  background: #dad6bf;
+  padding: 1em;
+  border-radius: 5px;
+}
+.endpoint {
+  background: #b8b5a2;
+  color: rgb(84 84 68);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0 1em;
+  text-align: left;
+  cursor: pointer;
+}
+.endpoint:hover {
+  background: #a3a08f;
+  color: rgb(236, 236, 236);
+}
+.method {
+font-size:smaller;
+padding-bottom:.5em;
+  color: #7076bf;
+}
+.description {
+  font-weight: 800;
+  display: block;
+  padding: 0 0 0.25em 0;
+}
+label {
+  color: #694d01;
+}
+input,
+textarea {
+  display: block;
+  width: 90%;
+  max-width: 70em;
+  margin: 0.5em 0 0 0;
+  padding: 0.25em;
+}
+textarea {
+  height: 20em;
+  padding: 1em;
+}
+.input {
+  margin: 1em 0;
+}
+.box {
+  border-radius: 5px;
+  background: #dad6bf;
+  padding: 0.5em 2em 2em;
+  margin: 1em;
+}
+button {
+  background-color: #786907;
+  border-radius: 5px;
+  border-style: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  height: 30px;
+  width: 60px;
+  margin-left: -4px;
+}
+button:hover {
+  opacity: 0.8;
+}
+button:active {
+  background-color: #373003;
+}
+#response {
+  color: #4e3e15;
+}
+code {
+  background-color: #e8e0cb;
+  border-radius: 5px;
+  padding: 0.05em;
+}
