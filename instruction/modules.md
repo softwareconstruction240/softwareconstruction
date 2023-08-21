@@ -31,7 +31,8 @@ The course content is divided into multiple modules. Each module represents a we
 - [Git](git/git.md)
 - [Java Inner Classes](inner-classes/inner-classes.md)
 - [JSON and Serialization](json/json.md)
-- [Java Generics](generics/generics.md) (🛑 Not new but missing from Canvas)
+- [Java Generics](generics/generics.md) (🛑 New - Owner: Jerod)
+- [Java Lambdas](lambdas/lambdas.md) (🛑 New - Owner: Jerod)
 - ☑ Spelling Corrector (**Exam**)
 
 ## Module 5
@@ -58,16 +59,16 @@ The course content is divided into multiple modules. Each module represents a we
 
 ## Module 8
 
-- [MySQL](mysql/mysql.md)
 - [Relational Databases - JDBC](db-jdbc/db-jdbc.md)
+- [MySQL](mysql/mysql.md)
 - ♕ [Phase 4: Chess Database](../chess/4-database/database.md)
 - ☑ Chess Web API (**Due**)
 
 ## Module 9
 
-- [Defensive Programming](defensive-programming/defensive-programming.md)
 - [Logging](logging/logging.md)
 - [Debugging](debugging/debugging.md)
+- [Defensive Programming](defensive-programming/defensive-programming.md)
 
 ## Module 10
 
@@ -78,8 +79,8 @@ The course content is divided into multiple modules. Each module represents a we
 
 ## Module 11
 
-- [Security - Authentication](security-authentication/security-authentication.md) (🛑 New - Owner: Ken)
-- [Security - Connections](security-connections/security-connections.md) (🛑 New - Owner: Ken)
+- [Computer Security (1)](computer-security/computer-security.md) (🛑 New - Owner: Ken)
+- [Computer Security (2)](computer-security/computer-security.md) (🛑 New - Owner: Ken)
 
 ## Module 12
 
@@ -89,13 +90,13 @@ The course content is divided into multiple modules. Each module represents a we
 
 ## Module 13
 
-- [Command line tools](command-line-tools/command-line-tools.md) (🛑 New - Owner: Ken)
-- Final Review
+- [Command line tools](command-line-builds/command-line-builds.md) (🛑 New - Owner: Ken)
+- [Final Exam Review](final-exam-review/final-exam-review.md) (🛑 New)
 
 ## Module 14
 
-- ☑ Final (**Exam**)
 - ☑ Chess Game Play (**Due**)
+- ☑ Final (**Exam**)
 
 ### Legend
 
