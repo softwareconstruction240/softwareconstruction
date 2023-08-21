@@ -120,22 +120,23 @@ Inner: OuterExample$1InnerExample has access to Outer: OuterExample, and variabl
 
 The ability for a local inner class to access the variables of its declaring scope is a programming concept called `closure`. This is useful when you want to create object factories that can be parameterized by the environment that they are declared in. Here is an example of using `closure` to create objects that can speak different languages.
 
+Notice that the object returned from factory method can access the `helloPhrase` parameter that was passed to the factory method even after the factory method has gone out of scope.
+
 ```java
 public class Closure {
-    public static void main(String[] args) {
-
-        var outer = new Closure();
-        var spanish = outer.SpeakerFactory("Hola");
-        var german = outer.SpeakerFactory("Hallo");
-
-        System.out.printf("Spanish: %s\nGerman: %s", spanish.sayHello(), german.sayHello());
-    }
-
     public interface Speaker {
         String sayHello();
     }
 
-    public Speaker SpeakerFactory(String helloPhrase) {
+    public static void main(String[] args) {
+
+        var spanish = SpeakerFactory("Hola");
+        var german = SpeakerFactory("Hallo");
+
+        System.out.printf("Spanish: %s\nGerman: %s", spanish.sayHello(), german.sayHello());
+    }
+
+    private static Speaker SpeakerFactory(String helloPhrase) {
         class InnerExample implements Speaker {
             public String sayHello() {
                 return helloPhrase;
@@ -156,7 +157,7 @@ German: Hallo
 
 ## Anonymous Inner Class
 
-An anonymous inner class, is defined in line by referencing an interface, followed by the implementation. This is useful in cases where you have commonly used interfaces that only have a single method. This saves you from creating lots of little classes that are only used once. In the following example we can create two different implementations of the `Speaker` interface by defining the `sayHello` method inline.
+An anonymous inner class, is defined inline by referencing an interface, followed by the implementation. This is useful in cases where you have commonly used interfaces that only have a single method. This saves you from creating lots of little classes that are only used once. In the following example we can create two different implementations of the `Speaker` interface by defining the `sayHello` method inline.
 
 Note that anonymous inner classes also have closure on the scope that they were declared in.
 
@@ -182,27 +183,6 @@ public class AnonymousExample {
     }
 }
 ```
-
-## Lambda Functions
-
-A Java Lambda function is a simplified syntax for an anonymous inner class. With a lambda function you can represent a single method interface by providing the parameters and the return value of the interface. Since our `Speaker` interface simply returns a single phrase, this is a good candidate for a lambda function.
-
-```java
-public class LambdaExample {
-    public interface Speaker {
-        String sayHello();
-    }
-
-    public static void main(String[] args) {
-        Speaker spanish = () -> "Holo";
-        Speaker german = () -> "Hallo";
-
-        System.out.printf("Spanish: %s\nGerman: %s", spanish.sayHello(), german.sayHello());
-    }
-}
-```
-
-Notice how compact the lambda function representation is. If you need to provide more than a single line when defining your lambda function, you can include curly braces, but you must also explicitly include the return keyword.
 
 ## Things to Understand
 

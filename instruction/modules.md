@@ -32,7 +32,7 @@ The course content is divided into multiple modules. Each module represents a we
 - [Java Inner Classes](inner-classes/inner-classes.md)
 - [JSON and Serialization](json/json.md)
 - [Java Generics](generics/generics.md)
-- [Java Lambdas](lambdas/lambdas.md) (🛑 New - Owner: Jerod)
+- [Java Lambdas](lambdas/lambdas.md)
 - ☑ Spelling Corrector (**Exam**)
 
 ## Module 5
