@@ -72,25 +72,25 @@ The course content is divided into multiple modules. Each module represents a we
 
 ## Module 10
 
-- [Console UI](console-ui/console-ui.md) (🛑 New - Owner: Ken)
+- [Console UI](console-ui/console-ui.md)
 - [WebSocket](websocket/websocket.md)
 - ♕ [Phase 5: Chess Pregame](../chess/5-pregame/pregame.md)
 - ☑ Chess Database (**Due**)
 
 ## Module 11
 
-- [Computer Security (1)](computer-security/computer-security.md) (🛑 New - Owner: Ken)
-- [Computer Security (2)](computer-security/computer-security.md) (🛑 New - Owner: Ken)
+- [Computer Security (1)](computer-security/computer-security.md)
+- [Computer Security (2)](computer-security/computer-security.md)
 
 ## Module 12
 
-- [Concurrency](concurrency/concurrency.md) (🛑 New - Owner: Ken)
+- [Concurrency](concurrency/concurrency.md)
 - ♕ [Phase 6: Chess Gameplay](../chess/6-gameplay/gameplay.md)
 - ☑ Chess Pregame (**Due**)
 
 ## Module 13
 
-- [Command line tools](command-line-builds/command-line-builds.md) (🛑 New - Owner: Ken)
+- [Command line tools](command-line-builds/command-line-builds.md)
 - [Final Exam Review](final-exam-review/final-exam-review.md) (🛑 New)
 
 ## Module 14
