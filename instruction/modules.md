@@ -6,7 +6,7 @@ The course content is divided into multiple modules. Each module represents a we
 
 ## Module 1
 
-- [Introduction](introduction/introduction.md) (🛑 Not new, but not sure how to translate to GitHub)
+- [Introduction](introduction/introduction.md)
 - [Java Fundamentals](java-fundamentals/java-fundamentals.md)
 - [Spelling Corrector](../spelling-corrector/spelling-corrector.md)
 
