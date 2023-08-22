@@ -2,7 +2,7 @@
 
 🖥️ [Slides](https://docs.google.com/presentation/d/1VECGwiLgXd541yq9BWVSYiphHAXHG0ca/edit?usp=sharing&ouid=114081115660452804792&rtpof=true&sd=true)
 
-📖 **Deeper Dive Reading**: [MDN An overview of HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview)
+📖 **Optional Reading**: [MDN An overview of HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview)
 
 Hypertext Transfer Protocol (`HTTP`) is how the web talks. When a web browser makes a request to a web server it does it using the HTTP protocol. In previous instruction we discussed how to use HTTP. Now, we will talk about the internals of HTTP. Just like becoming fluent in a foreign language makes a visit to another country more enjoyable, understanding how to speak HTTP helps you communicate effectively when talking on the web.
 
@@ -119,7 +119,7 @@ Within those ranges here are some of the more common codes. See the [MDN documen
 
 ## Headers
 
-📖 **Deeper dive reading**: [MDN HTTP headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers)
+📖 **Optional Reading**: [MDN HTTP headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers)
 
 HTTP headers specify metadata about a request or response. This includes things like how to handle security, caching, data formats, and cookies. Some common headers that you will use include the following.
 

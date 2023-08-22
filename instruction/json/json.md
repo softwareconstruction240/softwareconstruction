@@ -4,7 +4,7 @@
 
 📖 **Required Reading**: [Learn Gson](https://www.tutorialspoint.com/gson/index.htm)
 
-📖 **Deeper dive reading**: [Douglas Crockford: The JSON Saga](https://www.youtube.com/watch?v=-C-JoyNuQJs)
+📖 **Optional Reading**: [Douglas Crockford: The JSON Saga](https://www.youtube.com/watch?v=-C-JoyNuQJs)
 
 ## JSON
 

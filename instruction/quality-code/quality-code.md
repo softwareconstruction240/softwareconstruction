@@ -2,7 +2,7 @@
 
 🖥️ [Slides](https://docs.google.com/presentation/d/13wQKz2ZLsqJVFDuoy0IJ_wLspmSpipS0/edit?usp=sharing&ouid=114081115660452804792&rtpof=true&sd=true)
 
-📖 **Deeper Dive Reading**: [Clean Code](https://www.oreilly.com/library/view/clean-code-a/9780136083238/)
+📖 **Optional Reading**: [Clean Code](https://www.oreilly.com/library/view/clean-code-a/9780136083238/)
 
 Despite stereotypes to the contrary, software engineering is an art form. It requires significant creativity to envision, architect, and create quality user experiences. That same care and artistic expression should be reflected in how your organize and write your code. One quality of a distinguished engineer is that they write code that is easy to discover, read, comprehend, manipulate, and extend. Take for example the following two small programs.
 

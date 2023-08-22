@@ -44,10 +44,10 @@ The course content is divided into multiple modules. Each module represents a we
 ## Module 6
 
 - [Writing Quality Code](quality-code/quality-code.md)
-- [Style Checker](style-checker/style-checker.md) (🛑 New - Owner: Jerod)
+- [Style Checking](style-checker/style-checker.md) (🛑 New - Owner: Jerod)
 - ♕ [Phase 2: Chess Server Design](../chess/2-server-design/server-design.md)
 - ♕ [Phase 3: Chess Web API](../chess/3-web-api/web-api.md)
-- ☑ Chess Game (**Due**)
+- ☑ Phase 1: Chess Game (**Due**)
 
 ## Module 7
 
@@ -55,14 +55,14 @@ The course content is divided into multiple modules. Each module represents a we
 - [Coverage Tools](coverage-tools/coverage-tools.md) (🛑 New - Owner: Jerod)
 - [Relational Databases - The Relational Model](db-model/db-model.md)
 - [Relational Databases - SQL](db-sql/db-sql.md)
-- ☑ Chess Server Design (**Due**)
+- ☑ Phase 2: Chess Server Design (**Due**)
 
 ## Module 8
 
 - [Relational Databases - JDBC](db-jdbc/db-jdbc.md)
 - [MySQL](mysql/mysql.md)
 - ♕ [Phase 4: Chess Database](../chess/4-database/database.md)
-- ☑ Chess Web API (**Due**)
+- ☑ Phase 3: Chess Web API (**Due**)
 
 ## Module 9
 
@@ -75,7 +75,7 @@ The course content is divided into multiple modules. Each module represents a we
 - [Console UI](console-ui/console-ui.md)
 - [WebSocket](websocket/websocket.md)
 - ♕ [Phase 5: Chess Pregame](../chess/5-pregame/pregame.md)
-- ☑ Chess Database (**Due**)
+- ☑ Phase 4: Chess Database (**Due**)
 
 ## Module 11
 
@@ -86,7 +86,7 @@ The course content is divided into multiple modules. Each module represents a we
 
 - [Concurrency](concurrency/concurrency.md)
 - ♕ [Phase 6: Chess Gameplay](../chess/6-gameplay/gameplay.md)
-- ☑ Chess Pregame (**Due**)
+- ☑ Phase 5: Chess Pregame (**Due**)
 
 ## Module 13
 
@@ -95,7 +95,7 @@ The course content is divided into multiple modules. Each module represents a we
 
 ## Module 14
 
-- ☑ Chess Game Play (**Due**)
+- ☑ Phase 6: Chess Game Play (**Due**)
 - ☑ Final (**Exam**)
 
 ### Legend
