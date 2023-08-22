@@ -8,7 +8,7 @@
 
 The Java programming language originally required everything to be defined within the scope of a class. That meant that defining a simple utility, or one off function, outside of a class was not allowed. This becomes problematic when you wanted to write small one line functions that do things like handle a mouse click event, or run a simple concurrent task. By forcing all functions to be defined in a class, Java effectively forced developers to new class, in a new file, for each single line function they wanted to implement. You can image hundreds or even thousands of these little files cluttering up a large sized application.
 
-Consider the following `Speaker` interface.
+Consider the following `Speaker` interface,
 
 ```java
 interface Speaker {
@@ -16,7 +16,7 @@ interface Speaker {
 }
 ```
 
-And a method that takes a `Speaker` interface like the following:
+and a method that takes a `Speaker` interface like the following.
 
 ```java
 void speak(Speaker speaker) {
@@ -24,7 +24,7 @@ void speak(Speaker speaker) {
 }
 ```
 
-You then want to create speakers for different languages. To do this you would need to create a new class for every language that you wanted to implement. Each of these would be in their own Java class file.
+Assume you want to create speakers for different languages. To do this you would need to create a new class for every language that you wanted to implement. Each of these would implement the `Speaker` interface and be in their own Java class file.
 
 ```java
 // FrenchSpeaker.java
@@ -74,15 +74,15 @@ speak(new Speaker {
     });
 ```
 
-To overcome this deficiency in the language, Java introduced `Lambda` functions. In Java, Lambda functions are effectively a syntactic simplification of anonymous inner classes that implement an interface with a single function. Interfaces of this type are called a `Functional Interface`.
+To overcome this deficiency in the language, Java introduced `Lambda` functions. In Java, Lambda functions are effectively a syntactic simplification of anonymous inner classes that implement an interface with a single function. An interface of this type is called a `Functional Interface`.
 
-If you have a parameter that is expecting a `Functional Interface` then you can use the abbreviated lambda syntax. The lambda syntax provides the parameters on the left and the return value on the right, separated by a `->` symbol. A simple lambda function that takes two numbers and adds them together would look like the following.
+If you have a parameter that is expecting a `Functional Interface` then you can use the abbreviated lambda syntax. The lambda syntax provides the input parameters on the left and the return value on the right, separated by an `->` symbol. A simple lambda function that takes two numbers as input and then returns their sum would look like the following.
 
 ```java
 (a, b) -> a + b
 ```
 
-Notice that you do not have to declare the types, include the block curly braces, or use the return keyword. Those are all implied by the syntax and the `Functional Interface` that the lambda function represents.
+Notice that you do not have to declare the types, include the block curly braces, or use the return keyword. Those are all implied by the syntax and the `Functional Interface` that the lambda function implements.
 
 For the example we described above, we could reduce our anonymous speaker classes to be the following.
 
@@ -99,6 +99,37 @@ Notice how compact the lambda function representation is. If you need to provide
   return a + b;
 }
 ```
+
+## Lambdas and JDK Collections
+
+Because many of the JDK collection classes provide operations that require a `Functional Interface`, they can use the simplified lambda syntax. For example, the `List.removeIf` operation requires an object that implements the `Predicate` interface. This interface is defined as the following.
+
+```java
+@FunctionalInterface
+public interface Predicate<T> {
+    boolean test(T t);
+}
+```
+
+That means we can provide either the long form anonymous class implementation,
+
+```java
+var list = new ArrayList<>(List.of(1, 3));
+list.removeIf(new Predicate<Integer>() {
+    public boolean test(Integer n) {
+        return n > 2;
+    }
+});
+```
+
+or the shortened form lambda syntax.
+
+```java
+var list = new ArrayList<>(List.of(1, 3));
+list.removeIf(n -> n > 2);
+```
+
+Either way is equivalent, but the lambda represent is much more concise and easy to digest once you are familiar with it.
 
 ## Closure
 
