@@ -91,7 +91,7 @@ The course content is divided into multiple modules. Each module represents a we
 ## Module 13
 
 - [Command line tools](command-line-builds/command-line-builds.md)
-- [Final Exam Review](final-exam-review/final-exam-review.md) (🛑 New)
+- [Final Exam Review](final-exam-review/final-exam-review.md)
 
 ## Module 14
 
