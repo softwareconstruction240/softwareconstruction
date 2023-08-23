@@ -1,14 +1,12 @@
 # Introduction
 
+🖥️ [Slides](https://docs.google.com/presentation/d/1hn9IpJT1DMQ1fECSt1CY7EdoDi4OQgRn/edit?usp=sharing&ouid=114081115660452804792&rtpof=true&sd=true)
+
 Welcome to Computer Science 240: `Advanced Software Construction`. This course is primarily about learning how to build large programs by giving you experinece with a set of related technologies. This includes: Java, HTTP, relational databases, WebSocket, Testing, and console programming. You’ve probably built a number of smaller programs that were targeted at learning particular concepts. In this class, we will learn how to build programs that are realistic, real-world, bigger, and more complicated than the things you have previously experienced.
 
 When you’re building a small program, you can beat it into submission and make it work without too much thought. However, when you build larger programs it requires careful design, engineering, and proper tooling. This class is an introduction on how to do that.
 
 As software systems get larger, the complexity increases exponentially. It has more parts and pieces to it, and those parts and pieces have to work together to make the system actually work. There’s some techniques that need to be learned for how to take a large system and break it down and decompose it into smaller pieces. There are also engineering techniques on how to write your code in such a way that you can test it along the way, so that when all the code has been written, and integrated together, the whole system actually works.
-
-In this class, you will have some experiences where you struggle, where things are hard, you get stuck and you bang your head against something for a while, and it can be frustrating. Sometimes people get discouraged because they think they are the only one that is struggling, and everybody else is having a much easier time. That is not really the case. Everybody struggles when they program. The struggle is part of the fun of programming. Don’t let that damage your self-confidence. You can do this. Just about anybody can learn how to do this, as long as they’re willing to put in the time and the effort. That really is the key in this course, is putting in the time. As long as you’re going to be willing to put in the time and work hard, then you’re very likely to be successful. When you struggle, don’t get discouraged, don’t assume that you should go find something else to do that you should change your major or quit, just know that that’s part of the learning process, and that as we struggle, we grow, we learn, and that’s okay.
-
-This class is all about projects. There ins't really any homework other than programming projects. We program a lot in this class, and really the structure of the course is driven by the projects themselves. If you ever wonder why are we learning things in a particular order, it’s because it is driven by the projects.
 
 We use the Java programming language in this class. Java has been a popular language for multiple decades. According to the [2023 Stack Overflow survey](https://survey.stackoverflow.co/2023/#most-popular-technologies-language-prof), Java is used by 30% of professional developers. Java has some nice properties. It is object oriented, compiled, has garbage collection, and is strongly typed. In short, Java is a good language help you round out your skill set and resume.
 
@@ -25,7 +23,7 @@ In order to properly learn Java you will need to reference selected chapters of 
 There are two programming projects that you will complete for this course. The first program is a simple `spelling corrector`. You provide the program with a dictionary and a word to correct. It then returns a corrected suggestion.
 
 ```sh
-➜  java spell/Main dictionary.txt truble
+➜  java spell dictionary.txt truble
 
 Suggestion: trouble
 ```
