@@ -22,7 +22,7 @@ The course content is divided into multiple modules. Each module represents a we
 - [Java Collections](collections/collections.md)
 - [Java Exceptions](exceptions/exceptions.md)
 - [Java Input and Output (IO)](io/io.md)
-- [Design Principles](design-principles/design-principles.md) (🛑 Not new but missing from Canvas)
+- [Design Principles](design-principles/design-principles.md)
 - ♕ [Phase 1: Chess Game](../chess/1-chess-game/chess-game.md)
 - ☑ Spelling Corrector (**Due**)
 
