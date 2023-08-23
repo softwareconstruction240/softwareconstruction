@@ -24,7 +24,7 @@ String stringItem = stringList.get(0);
 
 If you attempt to put an integer into the stringList you will get a compile time error, and vice-versa. Also, because the compiler knows what its type parameter is bound to for the generic class, you don't need to do the type conversion.
 
-Before generics were introduced to Java you had to either create a different class implementation for each type you wanted to support, or you had to use an `Object` to represent the type of the class and then typecast the `Object` before you could use it. Consider the follow use of the non-generic `ArrayList` class.
+Before generics were introduced to Java you had to either create a different class implementation for each type you wanted to support, or you had to use an `Object` to represent the type of the class and then typecast the `Object` before you could use it. Consider the following use of the non-generic `ArrayList` class.
 
 ```java
 var list = new ArrayList();
@@ -35,7 +35,7 @@ Integer integerItem = (Integer) list.get(0);
 String stringItem = (String) list.get(0); // Exception thrown at runtime
 ```
 
-Not only does this code force the overhead of type casting, it is also dangerous because you never really know what type of object you are getting from the list unless you use reflection pervious to the type cast. If you guess wrong you will throw a runtime exception.
+Not only does this code force the overhead of type casting, it is also dangerous because your list can contain any type of object, and unless you use reflection, you have to guess how to type cast the object. If you guess wrong you will throw a runtime exception.
 
 ## Demonstration code
 
