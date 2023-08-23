@@ -39,7 +39,7 @@ The course content is divided into multiple modules. Each module represents a we
 
 - [HTTP](http/http.md)
 - [cURL](curl/curl.md)
-- [Web API](web-api/web-api.md) (🛑 New - Owner: Jerod)
+- [Web API](web-api/web-api.md)
 
 ## Module 6
 
