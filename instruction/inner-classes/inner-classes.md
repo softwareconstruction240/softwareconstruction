@@ -3,6 +3,7 @@
 📖 **Required Reading**: Core Java SE 9 for the Impatient
 
 - Chapter 2 section 2.6 Nested Classes
+- Chapter 3 section 3.9 Local and Anonymous Classes
 
 Normally in Java, a class must be defined at the top level of a file that has the same name as the class. However, there are times when a class is only used within the context of another class, method, or scope. This is where inner, or nested, classes come into play.
 
