@@ -17,16 +17,12 @@ The content for this course is represented by the following parts.
 
 By the end of the course you should have experienced the following outcomes.
 
-- Have experience in and be comfortable with programming large programs
-- Be able to apply problem-solving techniques to large programs
-- Be familiar with basic object-oriented design concepts
-- Know and understand basic coding, testing, and debugging strategies for large programs
-- Learn the Java programming language
-- Learn the fundamental concepts and implementation techniques of:
-  - Relational databases
-  - Command line interfaces
-  - Web APIs
-- Demonstrate the aptitude and work ethic necessary to succeed in computer science
+- Learn to construct a medium-scale server program with data persistence in a principled way by applying relevant engineering techniques such as up-front design, quality code construction, unit testing, assertions, and error handling.
+- Learn and apply basic software design principles such as single responsibility, low coupling, avoidance of code duplication and information/data hiding to create modular code.
+- Learn and apply the basics of relational database design, modeling and programmatic access.
+- Learn and apply basic security principles and concepts.
+- Learn to validate a program’s behavior against its specification using testing practices.
+- Use modern software tools including integrated development environments, testing frameworks, debuggers, version control, and documentation processing tools.
 
 ## Technologies
 
