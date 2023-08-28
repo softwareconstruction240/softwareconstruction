@@ -63,6 +63,16 @@ The key to learning how to be an exceptional software engineer rests in your abi
 >
 > — Tim Cook, ([source](https://appleinsider.com/articles/22/10/03/if-you-want-to-work-for-apple-you-need-these-four-traits))
 
+## Making mistakes
+
+Making mistakes is a key component for learning. Recognizing and embracing the power of making mistakes will help you learn faster, and at a deeper level. Just decide that you are going to make mistakes and that is fine, even preferable. Many of the most important discoveries of all time were a result of making and understanding mistakes. No one learns to walk without falling down. With that said, you should acquire a framework where you can make mistakes while minimizing their ability to slow your progress. Things such as version repositories, notebooks, simulations, working with peers, automation, and reproducibility are all useful for safely making mistakes.
+
+Whenever you approach something new, approach it with the attitude that you will learn by making mistakes. This will keep them from being a barrier to your progress.
+
+> “To make no mistakes is not in the power of man; but from their errors and mistakes the wise and good learn wisdom for the future.”
+>
+> — Plutarch
+
 ## Mastery Demonstration
 
 Your mastery of advanced software construction is demonstrated by the following three areas and percentages.
