@@ -30,7 +30,7 @@ You will use the Java programming language for all of your work in this course. 
 
 ![StackOverflow Survey](javaStackOverflowSurvey.png)
 
-In order to properly learn Java, you will need to reference selected chapters of the book `Core Java for the Impatient`. This book is available for free on the Safari Books collection available through the Harold B. Lee Library. You can also reference the many resources available on the web for mastering the different concepts found in the Java programming languages.
+In order to properly learn Java, you will need to reference selected chapters of the book `Core Java for the Impatient`. This book is available for free on the Safari Books collection available through the Harold B. Lee Library. You can also reference the many resources available on the web for mastering the different concepts found in the Java programming language.
 
 ![Java for the Impatient](CoreJavaForTheImpatient3rdEdition.jpg)
 
