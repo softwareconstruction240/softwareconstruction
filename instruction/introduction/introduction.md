@@ -38,7 +38,7 @@ In order to properly learn Java, you will need to reference selected chapters of
 
 ## Enrichment Lectures
 
-Towards the end of the course, while you are hammering away on your chess program, the course topics will focus on additional enrichment material that you should be familiar with as a professional developer. These topics will not be reflected in your project work, but you will need to be familiar with their content since they will represent the bulk of the material covered by the final exam. These includes topics such as security, concurrency, and Java command line tools.
+Towards the end of the course, while you are hammering away on your chess program, the course topics will focus on additional enrichment material that you should be familiar with as a professional developer. These topics will not be reflected in your project work, but you will need to be familiar with their content since they will represent the bulk of the material covered by the final exam. These include topics such as security, concurrency, and Java command line tools.
 
 ## Canvas
 
