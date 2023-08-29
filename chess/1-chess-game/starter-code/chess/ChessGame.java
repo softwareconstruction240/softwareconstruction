@@ -42,24 +42,27 @@ public interface ChessGame {
 
     /**
      * Determines if the given team is in check
+     *
      * @param teamColor which team to check for check
      * @return True if the specified team is in check
      */
-    Boolean isInCheck(TeamColor teamColor);
+    boolean isInCheck(TeamColor teamColor);
 
     /**
      * Determines if the given team is in checkmate
+     *
      * @param teamColor which team to check for checkmate
      * @return True if the specified team is in checkmate
      */
-    Boolean isInCheckmate(TeamColor teamColor);
+    boolean isInCheckmate(TeamColor teamColor);
 
     /**
      * Determines if the given team is in stalemate, which here is defined as having no valid moves
+     *
      * @param teamColor which team to check for stalemate
      * @return True if the specified team is in stalemate, otherwise false
      */
-    Boolean isInStalemate(TeamColor teamColor);
+    boolean isInStalemate(TeamColor teamColor);
 
     /**
      * Sets this game's chessboard with a given board
