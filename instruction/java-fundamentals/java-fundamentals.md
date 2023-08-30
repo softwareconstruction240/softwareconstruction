@@ -9,7 +9,33 @@
   - Section 9.1 Input/Output Streams, Readers, and Writers
   - Section 9.2 Paths, Files, and Directories
 
-In Java, all code is contained in a class that contains properties and methods. If your class has a method name `main` then it can act as the starting point for your program. A simple Java program looks like the following.
+## History
+
+While working at Sun Microsystems James Gosling formalized his idea of build a programming language that would compile to an intermediate format that could run on multiple operating systems. This became the foundation of the Java Programming language.
+
+![James Gosling](jamesGosling.jpg)
+
+> _Source: Wikipedia_
+
+> “So in a strong sense with Java it was a learning process for us - there was some tech learning - but the most important learnings were social or behavioral things.”
+>
+> — James Gosling
+
+Java quickly gained adoption because of its simplified, yet powerful, object orient model, standard library, and promise of portability. As of 2023, Java is used by [30% of programming professionals](https://survey.stackoverflow.co/2023/#section-most-popular-technologies-programming-scripting-and-markup-languages) and is the core language for many of the largest software systems in the world.
+
+### Timeline
+
+- **1991** - Work begins on Java.
+- **1996** - Version 1 released.
+- **2006** - Sun starts (OpenJDK](http://openjdk.java.net/projects/jdk/) under a GPL license. OpenJDK become the reference implementation.
+- **2010** - Oracle acquires Sun and Java
+- **2019** - (JDK8) OracleJDK requires license for production deployment. OpenJDK adoption increases.
+- **2021** - Oracle relents and makes it open again with an option for paid support, and requirements for enterprise use.
+- **2023** - Adoptium becomes the primary source for OpenJDK
+
+## Hello World
+
+In Java, all code is defined in a class that contains properties and methods. Each class is stored in a file with a filename that is the same as the class, and has a `.java` extension. If your class has a method name `main`, then it can act as the starting point for your program. A simple Java program looks like the following.
 
 **HelloWorld.java**
 
@@ -21,7 +47,7 @@ public class HelloWorld {
 }
 ```
 
-You can convert the above Java code into an intermediary binary format called `Java Byte Code` using the compiler (`javac`). Once compiled, you can then execute the byte code using the Java virtual machine (`java`).
+You can convert the above Java code into the intermediary binary format called `Java Byte Code` using the Java compiler (`javac`). Once compiled, you can then execute the byte code using the Java virtual machine (`java`).
 
 ```sh
 ➜ javac HelloWorld.java
@@ -29,6 +55,262 @@ You can convert the above Java code into an intermediary binary format called `J
 
 Hello World!
 ```
+
+## Java Architecture
+
+One of the things that made Java so different than other languages, is that it compiles to an intermediate format called `byte code`. The `byte code` can then be copied to, and executed on, any device that has the Java Runtime Environment (JRE) installed. This makes it so you don't have to build a machine specific binary for every device that you want to target, or alternatively, interpret the source code at runtime.
+
+| Architecture | Example Languages  | Comment                                                                                            |
+| ------------ | ------------------ | -------------------------------------------------------------------------------------------------- |
+| Binary       | C, Rust, Go        | A device and OS specific binary is built at development time, and distributed to the target device |
+| Byte Code    | Java, WebAssembly  | An intermediate layer binary is built at development time an interpreted on the target device      |
+| Interpreted  | JavaScript, Python | The source code is distributed to the target device where an interpreter executes the source       |
+
+Using a byte code representation provides the advantage of being faster than a purely interpreted language, without requiring a specific binary to be created for each target device.
+
+The downside is that you need to install the JRE on all target devices, and the byte code still requires some translation and runtime optimization. This makes it slower than a natively compiled binary.
+
+## Installing IntelliJ and Java
+
+To get started developing with Java, you need to install the Java Developer Kit (JDK) and the IntelliJ integrated development environment (IDE). The easiest way to do this is to use follow the instructions for installing the IntelliJ IDE and then using IntelliJ to install the version of the JDK that you want to use.
+
+⚠ [IntelliJ Installation Instructions](https://www.jetbrains.com/help/idea/installation-guide.html)
+
+After you have installed IntelliJ take some time to get familiar with the environment. Create a new project and, if you don't already have a JDK downloaded, download the latest version as part of creating the project. Additonally, if you select the `Add sample code` option it will create a simple `hello world` application for you.
+
+![InstallingJDK](installJDK.gif)
+
+## Your First Java Program
+
+If you used the IntelliJ project wizard to create a project, and selected the `Add sample code` option, then you have already built your first program. If not then go back and do that now. You should then edit the `main.java` file to make it do something different. You can change it to output your name, or to do some simple math. Even though you don't know any Java at this point, you can still play around with it in order to get a feel for how it works. The more you play around, the more comfortable you will be.
+
+Try something like the following as a replacement for you `main.java` code.
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        for (var i=0;i<10;i++) {
+            System.out.println(i + ". Advanced Software Construction");
+        }
+    }
+}
+```
+
+You can execute your code by pressing the little green arrow button to the immediate left of your source code.
+
+## JDK Documentation
+
+In addition to the fundamentals of the Java programming language, the Java JDK is broken up into multiple modules libraries that implement common functionality. You can find the documentation for these libraries on [Oracle's website](https://docs.oracle.com/en/java/javase/20/docs/api/index.html). You should spend some time examining the libraries that you think would be useful to you. Some of the most commonly used ones are `java.io`, `java.lang`, `java.util`, and `java.net`. However, a good place to start is by reading the introductory chapters in the `Core Java for the Impatient` textbook and then using the inline help and suggestions that IntelliJ provides.
+
+## Types
+
+Java provides the following primitive data types.
+
+| Type    | Size (bits) | Uses                           |
+| ------- | ----------- | ------------------------------ |
+| byte    | 8           | Data streaming, binary parsing |
+| short   | 16          | Small numbers                  |
+| int     | 32          | Numbers                        |
+| long    | 64          | Big numbers                    |
+| float   | 32          | Floating point numbers         |
+| double  | 64          | Big floating point numbers     |
+| char    | 16          | Textual characters             |
+| boolean | 1           | True or false                  |
+
+Java is a strongly typed language, and so you must always specify the type of a variable. Often times the complier can infer the type of the variable from its context. In that case you can used the simplified `var` keyword to designate that you are declaring a variable with an implicit type. In the following example, the compiler can infer that you are creating an `int` variable for `number2` based on the assignment of the integer value.
+
+```java
+int number1 = 1;
+var number2 = 2;
+```
+
+## Classes and Objects
+
+In addition to the primitive types, Java makes extensive use of defining classes that are instantiated as objects. The Java language defines a base `Object` class. This class forms that foundation for every other class in Java. The base `Object` class contains the following methods.
+
+| Method          | Comment                                                                    |
+| --------------- | -------------------------------------------------------------------------- |
+| clone           | Creates a copy of the object                                               |
+| equals          | Returns true if the object equals the provided object                      |
+| getClass        | Gets the name of the class that the object represents                      |
+| toString        | Provides a human readable string that represents the object's state        |
+| wait and notify | Used to control multi-threaded concurrency by using the object as the lock |
+
+Any class that you define, automatically derives from the core `Object` unless otherwise specified. That means that your objects automatically inherit all of the core `Object` methods and are available for you to override. The following is an example of simple `Person` class that derives from the `Object` class.
+
+```java
+// Note that extending Object is the default and not normally explicitly stated
+public class Person extends Object {
+    private String name;
+
+    public Person(String name) {
+        this.name = name;
+    }
+
+    /**
+     * Override the Object class implementation
+     */
+    @Override
+    public String toString() {
+        return String.format("My name is %s", name);
+    }
+}
+```
+
+You create an instance of an object from a class definition with the new operator.
+
+```java
+var inventor = new Person("James Gosling");
+```
+
+Just like classes that you write, the JDK builds on the `Object` class to provide many common implementations for things like lists, sets, network, streams, database, and math. You should become familiar with the common JDK classes by exploring the documentation.
+
+## Strings
+
+Strings are a primary class in Java. The data contained in a `String` object is immutable. This means that it cannot be changed once it is created. You can create a string object using the literal syntax.
+
+```java
+var inventor = "James Gosling";
+```
+
+Or, you can explicitly create a String using the `new` operator.
+
+```java
+var inventor = new String("James Gosling");
+```
+
+You should note that when you use the string literal syntax, the JRE puts the string in a special table that reduces the memory necessary to represent strings. Internally, Java will check the internal table to see if memory has already been allocated for that string. If it has then it will return a pointer to the string instead of creating a new string. When you use the `new` operator the memory for the string is always allocated on the heap.
+
+## StringBuilder
+
+Unlike the `String` class, the `StringBuilder` class allows you to modify the string it represents. The idea with `StringBuilder` is that you will build up a string over time, as part of the logic of your program. You can then convert the value of the `StringBuilder` to a `String` representation using the `toString` method.
+
+```java
+var nameBuilder = new StringBuilder();
+nameBuilder.append("James");
+nameBuilder.append(" ");
+nameBuilder.append("Gosling");
+
+var name = nameBuilder.toString();
+System.out.println(name);
+```
+
+## Arrays
+
+In Java, arrays can be used to represent a list of any primitive or object type. To allocate an array, you follow the data type with a pair of square brackets and define how big you want the array to be.
+
+```java
+String[] strings = new String[10];
+int[] numbers = new int[5];
+```
+
+You can also initialize the values of the array using the initializer list syntax.
+
+```java
+String[] strings = {"James", "Tim", "Ada"};
+int[] numbers = {1,2,3};
+```
+
+Array values can be retrieved, or assigned, using the zero based index value of the array.
+
+```java
+String[] names = {"James", "Tim", "Ada"};
+names[0] = "Jaime";
+System.out.println(names[0]);
+```
+
+You can iterate over the array's values by using either a standard `for` loop, or the `for-each` loop syntax.
+
+```java
+for (var i = 0; i < names.length; i++) {
+    System.out.println(names[i]);
+}
+
+for (var name : names) {
+    System.out.println(name);
+}
+```
+
+## Running Programs from the Command Line
+
+When you run your programs from within IntelliJ, it is actually invoking the Java compiler (`javac`) to convert your source code to byte code, and then running it with the Java byte code interpreter (`java`). Once you have installed the JDK, you can run these utilities yourself so that you can experience what IntelliJ is doing behind the scenes.
+
+To do this, open your command line console program and create a file named `Hello.java` with the following content. The special method signature `public static void main(String[] args)` designates the class as an entry point for your Java program.
+
+```java
+public class Hello {
+    public static void main(String[] args) {
+      System.out.println("Hello World!");
+    }
+}
+```
+
+You can then compile the source code to byte code using the following command.
+
+```sh
+➜  javac Hello.java
+```
+
+This will create a file named `Hello.class` that contains the byte code. To run the program, invoke the `java` program.
+
+```sh
+➜  java Hello
+
+Hello World!
+```
+
+## Program Arguments
+
+The `args` parameter, defined by your main method, provides the ability to receive any program parameters that were passed to `java` program when it was invoked. If you modify your program to access the `args` parameter, you can use the args to configure how your program works.
+
+```java
+public class Hello {
+    public static void main(String[] args) {
+        var name = args[0];
+        System.out.printf("Hello %s!%n", name);
+    }
+}
+```
+
+```sh
+➜  javac Hello.java
+➜  java Hello James
+
+Hello James!
+```
+
+## Package and Import
+
+When you write code, you normally provide a name for the package that contains the code. Packages are declared with the `package` keyword. The package name should match the directory structure of your code. All code in the same package has special access, called `package scope` to other code in the package. Any code that you want available outside the package must be marked with `public scope`. Packages allow you to encapsulate, or hide, data and functionality when it is not needed externally, and expose it publicly when it is appropriate.
+
+To use a package in your source code you must import it using the `import` keyword. The following code demonstrates the use of the `package` keyword to create a package named `Demo`. The `import` keyword provides access to the `List` class that is part of the standard `java.util` package.
+
+```java
+package Demo;
+
+import java.util.List;
+
+public class Hello {
+    public static void main(String[] args) {
+        var list = List.of(args);
+        System.out.printf("Args: %s!%n", list);
+    }
+}
+```
+
+## Class Path
+
+If you are importing packages from a third party library, or referencing code that you have written that is outside the path of the currently executing class, you must tell the `java` program where to find the compiled byte code class files. You do this by providing the `classpath`, or `cp`, parameter to the `java` program, that represents the location of the external code.
+
+For example, if you had a `Hello` class file in a `Demo` package, it could import classes from a completely different directory structure by using the `cp` parameter. To specify multiple class path directories, you need to separate your paths with a `:` on Linux based operating systems, and a `,` on Windows based systems.
+
+```sh
+➜  java -cp .:~/prod Demo.Hello
+
+Rise and shout
+```
+
+In addition to specifying the class path on the command line you can use an environment variable named `CLASSPATH` to reference the location of all you Java byte code files.
 
 ## Things to Understand
 
