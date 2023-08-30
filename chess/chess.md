@@ -13,6 +13,15 @@ We use the game of chess to help you develop and demonstrate mastery during this
 | 5. Pregame       | [doc](5-pregame/getting-started.md)       | [doc](5-pregame/pregame.md)             | [dir](5-pregame/starter-code)       | Creating an command line interface (CLI) for the chess client. |
 | 6. Gameplay      | [doc](6-gameplay/getting-started.md)      | [doc](6-gameplay/gameplay.md)           | [dir](6-gameplay/starter-code)      | Implementing gameplay with multiple players.                   |
 
+## Starter Code
+
+⚠ Each phase of the project comes with `starter code`. In order to make it easy to copy the starter files to your personal project repository, you should clone the course repository to your development environment.
+
+```sh
+git clone https://github.com/softwareconstruction240/softwareconstruction.git
+
+```
+
 ## Example
 
 When you complete the project, you should have something similar to the following.

@@ -16,6 +16,12 @@ In this project you will create such a spell corrector. There is one major diffe
 
 ## Work to do
 
+1. Clone the course repository so that you can have easy access to the starter code.
+
+   ```sh
+   git clone https://github.com/softwareconstruction240/softwareconstruction.git
+   ```
+
 1. Thoroughly review the [specification](specification.md).
 1. Set up your [IntelliJ project](setup/setup.md).
 1. Implement the spelling corrector by running and implementing the tests. Take careful notes for what you did.
