@@ -86,7 +86,8 @@ Note that `whiteUsername` and `blackUsername` may be `null`.
 | **HTTP Method**      | `POST`                                       |
 | **Headers**          | `authorization: <authToken>`                 |
 | **Body**             | `{ "gameName":"" }`                          |
-| **Success response** | [200] `{ "gameID": }`                        |
+| **Success response** | [200] `{ "gameID": 1234 }`                   |
+| **Failure response** | [400] `{ "message": "Error: bad request" }`  |
 | **Failure response** | [401] `{ "message": "Error: unauthorized" }` |
 | **Failure response** | [500] `{ "message": "Error: description" }`  |
 
@@ -98,8 +99,8 @@ Note that `whiteUsername` and `blackUsername` may be `null`.
 | **URL path**         | `/game`                                                                                                                                                                                                            |
 | **HTTP Method**      | `PUT`                                                                                                                                                                                                              |
 | **Headers**          | `authorization: <authToken>`                                                                                                                                                                                       |
-| **Body**             | `{ "playerColor":"WHITE/BLACK", "gameID": }`                                                                                                                                                                       |
-| **Success response** | [200]                                                                                                                                                                                                          |
+| **Body**             | `{ "playerColor":"WHITE/BLACK", "gameID": 1234 }`                                                                                                                                                                  |
+| **Success response** | [200]                                                                                                                                                                                                              |
 | **Failure response** | [400] `{ "message": "Error: bad request" }`                                                                                                                                                                        |
 | **Failure response** | [401] `{ "message": "Error: unauthorized" }`                                                                                                                                                                       |
 | **Failure response** | [403] `{ "message": "Error: already taken" }`                                                                                                                                                                      |
