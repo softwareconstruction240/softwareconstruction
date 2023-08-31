@@ -8,6 +8,7 @@ The course content is divided into multiple modules. Each module represents a we
 
 - [Introduction](introduction/introduction.md)
 - [Java Fundamentals](java-fundamentals/java-fundamentals.md)
+- [Java Object Class](java-object-class/java-object-class.md)
 - [Spelling Corrector](../spelling-corrector/spelling-corrector.md)
 
 ## Module 2

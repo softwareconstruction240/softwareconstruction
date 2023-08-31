@@ -126,44 +126,34 @@ var number2 = 2;
 
 ## Classes and Objects
 
-In addition to the primitive types, Java makes extensive use of defining classes that are instantiated as objects. The Java language defines a base `Object` class. This class forms that foundation for every other class in Java. The base `Object` class contains the following methods.
+In addition to the primitive types, Java makes extensive use of defining classes that are instantiated as objects when they are allocated in memory and assigned values. In Java, any code that you write must be defined in a class.
 
-| Method          | Comment                                                                    |
-| --------------- | -------------------------------------------------------------------------- |
-| clone           | Creates a copy of the object                                               |
-| equals          | Returns true if the object equals the provided object                      |
-| getClass        | Gets the name of the class that the object represents                      |
-| toString        | Provides a human readable string that represents the object's state        |
-| wait and notify | Used to control multi-threaded concurrency by using the object as the lock |
+Classes define both fields and methods for the class. A field represents a variable, or property, of the object such as a name, weight, or height. A method represents an operation on the object such as run, talk, or sleep.
 
-Any class that you define, automatically derives from the core `Object` unless otherwise specified. That means that your objects automatically inherit all of the core `Object` methods and are available for you to override. The following is an example of simple `Person` class that derives from the `Object` class.
+A class may have one or more constructors that initialize the fields of the object. The constructor looks like a method, but doesn't have a return type and must have the same name as the class.
+
+The following is an example of simple `Person` class.
 
 ```java
-// Note that extending Object is the default and not normally explicitly stated
-public class Person extends Object {
+public class Person {
     private String name;
 
     public Person(String name) {
         this.name = name;
     }
 
-    /**
-     * Override the Object class implementation
-     */
-    @Override
-    public String toString() {
-        return String.format("My name is %s", name);
+    public void sleep() {
+        System.out.printf("%s is sleeping", name);
     }
 }
 ```
 
-You create an instance of an object from a class definition with the new operator.
+You create an object instance of of a class with the `new` operator. This allocated the memory on the heap for the object. That memory is cleaned up once the last reference to the object goes out of scope.
 
 ```java
 var inventor = new Person("James Gosling");
+inventor.sleep();
 ```
-
-Just like classes that you write, the JDK builds on the `Object` class to provide many common implementations for things like lists, sets, network, streams, database, and math. You should become familiar with the common JDK classes by exploring the documentation.
 
 ## Strings
 
@@ -230,6 +220,27 @@ for (var name : names) {
     System.out.println(name);
 }
 ```
+
+## Static
+
+The `static` keyword marks a method and variable as being independent of any object instantiation in a class. That means you can use the static method without actually creating a class. This is good for utility methods, or singletons, that are allocated on the class instead of an object.
+
+```java
+public class StaticExample {
+    public static int globalValue = 3;
+
+    public static boolean isGlobalOdd() {
+        return (globalValue % 1) == 0;
+    }
+
+    public static void main(String[] args) {
+        globalValue = 2;
+        System.out.println(isGlobalOdd());
+    }
+}
+```
+
+Note that in this example, the `main` method is also static. That is because it needs to be called as an entry point to the program. That happens before any objects are allocated.
 
 ## Running Programs from the Command Line
 
@@ -365,6 +376,7 @@ public class ScannerExample {
 - 🎥 [Command Line Arguments](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=ddfefe0e-442d-4c56-8f60-ad5d013b4005&start=0)
 - 🎥 [Packages, Imports, and the CLASSPATH Environment Variable](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=c52bc183-f041-42c6-8e36-ad5d013d318f&start=0)
 - 🎥 [How to use a Scanner to read a text file of words separated by whitespace](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=3501b44d-296c-40b8-aee1-ad5d014138c8&start=0)
+- 🎥 [Static Variables and Methods](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=d7e4aa43-754c-494a-9638-ad5f01310a45&start=0)
 
 ## Demonstration code
 
