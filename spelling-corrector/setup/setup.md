@@ -80,4 +80,4 @@ Do the same thing with the `TrieTest` class and observe them failing.
 
 Your job is to now write all the code necessary to get all of the tests to pass. Once they all pass then you know that you have a working spelling corrector.
 
-Using tests to help implement your code not only makes it easier to write your code, but it helps you feel confident that you can change your code without breaking anything. In this case we wrote all of the tests for you. We will also provide many of the tests necessary for the class, but you will want to practice writing your own tests in order to become proficient with the process of Test Driven Development (`TDD`).
+Using tests to help implement your code not only makes it easier to write your code, but it helps you feel confident that you can change your code without breaking anything. In this case we wrote all of the tests for you. We will also provide many of the tests necessary for the rest of the course. However, you will want to practice writing your own tests in order to become proficient with the process of Test Driven Development (`TDD`).

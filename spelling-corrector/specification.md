@@ -12,15 +12,19 @@ For our Trie we will be storing words (a word is a sequence of alphabetic charac
 
 Each node in the root’s array of Nodes represents the first letter of a word stored in the Trie. Each of those Nodes has an array of Nodes for the second letter of the word, and so on. For example, the word `kick` would be stored as follows:
 
+```java
 root.nodes['k'].nodes['i'].nodes['c'].nodes['k']
+```
 
-The count in a node represents the number of times a word represented by the path from the root to that node appeared in the text file from which the dictionary was created. Thus, if the word `kick` appeared twice, root.nodes['k'].nodes['i'].nodes['c'].nodes['k'].count = 2.
+The count in a node represents the number of times a word represented by the path from the root to that node appeared in the text file from which the dictionary was created. Thus, if the word `kick` appeared twice, `root.nodes['k'].nodes['i'].nodes['c'].nodes['k'].count` equals 2.
 
 If the word `kicks` appears at least once in the text file then it would be stored as
 
+```java
 root.nodes['k'].nodes['i'].nodes['c'].nodes['k'].nodes['s']
+```
 
-and root.nodes['k'].nodes['i'].nodes['c'].nodes['k'].nodes['s'].count would be greater than or equal to one.
+and `root.nodes['k'].nodes['i'].nodes['c'].nodes['k'].nodes['s'].count` would be greater than or equal to one.
 
 If the count value of any node, n, is zero then the word represented by the path from the root to n did not appear in the original text file. For example, if root.nodes['k'].nodes['i'].count = 0 then the word `ki` does not appear in the original text file. A node may have descendant nodes even if its count is zero. Using the example above, some of the nodes representing `kick` and `kicks` would have counts of 0 (e.g root.nodes['k'], root.nodes['k'].nodes['i'], and root.nodes['k'].nodes['i'].nodes['c']) but root.nodes['k'].node['i'].nodes['c'].nodes['k'] and root.nodes['k'].node['i'].nodes['c'].nodes['k'].nodes['s'] would have counts greater than 0.
 
@@ -30,7 +34,7 @@ Using our example above, with only `kick` and `kicks` in the Trie it would have 
 
 ### Additional Required Methods
 
-Although not strictly required to make your Trie work as a dictionary to solve the spelling corrector problem, your Trie must implement the following three additional methods that are commonly implemented in general purpose Java classes: toString(), `hashCode()`, and equals(Object).
+Although not strictly required to make your Trie work as a dictionary to solve the spelling corrector problem, your Trie must implement the following three additional methods that are commonly implemented in general purpose Java classes: `toString()`, `hashCode()`, and `equals(Object)`.
 
 The toString specification is as follows:
 For each word, in alphabetical order:
@@ -76,6 +80,8 @@ The Four Edit Distances:
 Create classes that correctly implement the `ITrie`, `INode`, and `ISpellCorrector` interfaces according to this specification. All three classes should have a constructor that takes no arguments. The `ITrie`, `INode`, and `ISpellCorrector` interfaces are provided on the course web site in the files associated with this project. Remember you must implement all methods defined in these Interfaces. A main class that runs your spelling corrector is also provided. You will need to create an instance of your `ISpellCorrector` implementing class inside the ‘main’ method of the Main class in the place indicated by the comment in the file. The provided code exists in a ‘spell’ package. Your code should also be placed in a ‘spell’ package.
 
 ### Example Programs
+
+The following shows examples
 
 ```sh
 java spell.Main words.txt bbig

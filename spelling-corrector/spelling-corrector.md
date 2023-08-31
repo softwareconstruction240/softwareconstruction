@@ -11,7 +11,7 @@ In this project you will create such a spell corrector. There is one major diffe
 When you are done implementing your spelling corrector you will have a console application that takes a dictionary and a word as input. The corrector will then analyze the word and suggest a "corrected" replacement for the word. The following shows an example of a working spelling corrector.
 
 ```sh
-➜  java spell/Main dictionary.txt truble
+➜  java spell.Main dictionary.txt truble
 
 Suggestion: trouble
 ```
