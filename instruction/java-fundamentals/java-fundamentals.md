@@ -312,6 +312,29 @@ Rise and shout
 
 In addition to specifying the class path on the command line you can use an environment variable named `CLASSPATH` to reference the location of all you Java byte code files.
 
+## File and Scanner
+
+A convenient way to read data from a file on your hard drive is to open it using the `File` class and then read it line by line using the `Scanner` class.
+
+The following example demonstrates opening and parsing a file, if it exists, by creating a `Scanner` object. `Scanner` implements the `Iterator` interface, and so you can call `hasNext` to see if it has something to iterate, and `next` to return the next value and advance the iterator.
+
+```java
+public class ScannerExample {
+    public static void main(String[] args) throws FileNotFoundException {
+        if (args.length == 1) {
+            var file = new File(args[0]);
+            if (file.exists()) {
+                var scanner = new Scanner(file);
+                while (scanner.hasNext()) {
+                    var text = scanner.next();
+                    System.out.println(text);
+                }
+            }
+        }
+    }
+}
+```
+
 ## Things to Understand
 
 1. Ways that Java is different from C++
