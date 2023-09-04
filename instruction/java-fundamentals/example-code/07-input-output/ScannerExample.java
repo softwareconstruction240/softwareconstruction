@@ -24,6 +24,6 @@ public class ScannerExample {
     }
 
     private void usage() {
-        System.out.println("\nUSAGE: java ScannerExample2 <input-file>");
+        System.out.println("\nUSAGE: java ScannerExample <input-file>");
     }
 }
