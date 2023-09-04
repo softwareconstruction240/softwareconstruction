@@ -31,7 +31,7 @@ Java quickly gained adoption because of its simplified, yet powerful, object ori
 - **2010** - Oracle acquires Sun and Java
 - **2019** - (JDK8) OracleJDK requires license for production deployment. OpenJDK adoption increases.
 - **2021** - Oracle relents and makes it open again with an option for paid support, and requirements for enterprise use.
-- **2023** - Adoptium becomes the primary source for OpenJDK
+- **2023** - (JDK20) Adoptium becomes the primary source for OpenJDK. Oracle shifts its requirements for paid support.
 
 ## Hello World
 
