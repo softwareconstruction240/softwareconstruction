@@ -2,7 +2,7 @@
 
 🖥️ [Slides](https://docs.google.com/presentation/d/1VOvCn5605TAaCC4DBZBH-B4YSDZij0UF/edit?usp=sharing&ouid=114081115660452804792&rtpof=true&sd=true)
 
-📖 **Required Reading**: Core Java SE 9 for the Impatient
+📖 **Required Reading**: Core Java for the Impatient
 
 - Chapter 5: Exceptions, Assertions, and Logging. _Only Section 2 Assertions - 2.2: Enabling and Disabling Assertions_
 

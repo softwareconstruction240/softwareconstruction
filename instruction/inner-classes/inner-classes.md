@@ -1,6 +1,6 @@
 # Java Inner Classes
 
-📖 **Required Reading**: Core Java SE 9 for the Impatient
+📖 **Required Reading**: Core Java for the Impatient
 
 - Chapter 2 section 2.6 Nested Classes
 - Chapter 3 section 3.9 Local and Anonymous Classes

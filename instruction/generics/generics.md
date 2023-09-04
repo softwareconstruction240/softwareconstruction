@@ -2,7 +2,7 @@
 
 🖥️ [Slides](https://docs.google.com/presentation/d/1a3aELn5tIIfY-g4-wOQ1vackTD4RacDn/edit?usp=sharing&ouid=114081115660452804792&rtpof=true&sd=true)
 
-📖 **Required Reading**: Core Java SE 9 for the Impatient
+📖 **Required Reading**: Core Java for the Impatient
 
 - Chapter 6: Generic Programming. _Only_ Sections 6.1-6.4
 

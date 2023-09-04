@@ -2,7 +2,7 @@
 
 🖥️ [Slides](https://docs.google.com/presentation/d/1qC9DMSf7PYm-vBhK_qRS0Zu8lNVwQ4H7/edit?usp=sharing&ouid=114081115660452804792&rtpof=true&sd=true)
 
-📖 **Required Reading**: Core Java SE 9 for the Impatient
+📖 **Required Reading**: Core Java for the Impatient
 
 - Chapter 1: Fundamental Programming Structures
 - Chapter 9:

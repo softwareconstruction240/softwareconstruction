@@ -2,7 +2,7 @@
 
 🖥️ [Slides]()
 
-📖 **Required Reading**: Core Java SE 9 for the Impatient
+📖 **Required Reading**: Core Java for the Impatient
 
 - Chapter x:
 

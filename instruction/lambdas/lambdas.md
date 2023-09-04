@@ -2,7 +2,7 @@
 
 🖥️ [Slides](https://docs.google.com/presentation/d/16JLfaKkdoYEe5CyN61rQ5n1hj0BgRhjD/edit?usp=sharing&ouid=114081115660452804792&rtpof=true&sd=true)
 
-📖 **Required Reading**: Core Java SE 9 for the Impatient
+📖 **Required Reading**: Core Java for the Impatient
 
 - Chapter 3: Interfaces and Lambda Expressions. _Only_: section 3.4
 
