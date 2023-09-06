@@ -17,6 +17,7 @@ The course content is divided into multiple modules. Each module represents a we
 - [Classes and Objects](classes-and-objects/classes-and-objects.md)
 - [Java Inheritance](inheritance/inheritance.md)
 - [Copying Objects](copying-objects/copying-objects.md)
+- [Object Oriented Design](object-oriented-design/object-oriented-design.md)
 
 ## Module 3
 

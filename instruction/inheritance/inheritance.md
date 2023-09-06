@@ -1,5 +1,7 @@
 # Java Inheritance
 
+🖥️ [Slides](https://docs.google.com/presentation/d/17S-Y7Og08S9kRWHZfnH8k2wTBht39aCd/edit?usp=sharing&ouid=114081115660452804792&rtpof=true&sd=true)
+
 📖 **Required Reading**: Core Java for the Impatient
 
 - Chapter 3:
