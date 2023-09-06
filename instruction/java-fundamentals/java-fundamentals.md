@@ -74,7 +74,8 @@ The downside is that you need to install the JRE on all target devices, and the 
 
 To get started developing with Java, you need to install the Java Developer Kit (JDK) and the IntelliJ integrated development environment (IDE). The easiest way to do this is to use follow the instructions for installing the IntelliJ IDE and then using IntelliJ to install the version of the JDK that you want to use.
 
-⚠ [IntelliJ Installation Instructions](https://www.jetbrains.com/help/idea/installation-guide.html)
+⚠ [IntelliJ Installation Instructions](https://www.jetbrains.com/help/idea/installation-guide.html) - Make sure you choose the free Community Edition. Do this by selecting the `Standalone installation`, picking your operating system, clicking on the download link, and then scrolling down to the `Community
+Edition` option.
 
 After you have installed IntelliJ take some time to get familiar with the environment. Create a new project and, if you don't already have a JDK downloaded, download the latest version as part of creating the project. Additonally, if you select the `Add sample code` option it will create a simple `hello world` application for you.
 
