@@ -1,8 +1,10 @@
 # Java Object Class
 
-All classes in Java can have a single super class that they derive from. The default super class is called the `Object` class. If you do not explicitly specify what super class your class extends then you will automatically inherit the `Object` class.
+🖥️ [Slides](https://docs.google.com/presentation/d/17S-Y7Og08S9kRWHZfnH8k2wTBht39aCd/edit?usp=sharing&ouid=114081115660452804792&rtpof=true&sd=true)
 
-When you extend another class, you inherit all of the functionality of that class. Often times this means you can overload the methods of the super class in order to alter its functionality. The base `Object` class contains the following methods that you can override.
+All classes in Java can have a single base class that they extend. When you extend another class you inherit all of the public and protected methods and fields that the class provides. The default Java base class is called the `Object` class. If you do not explicitly specify what base class your class extends then you will automatically inherit the `Object` class.
+
+When one class extends another class it can override, or overload, the base classes methods in order to alter, or extend, its functionality. The base `Object` class contains the following methods that you can override.
 
 | Method          | Comment                                                                    |
 | --------------- | -------------------------------------------------------------------------- |
@@ -37,7 +39,7 @@ Just like classes that you write, the JDK builds on the `Object` class to provid
 
 ## equals
 
-When you compare primitive types, like an `int` or `char`, you can use the `==` operator. When you want to compare objects you want to use the `equals` operator. The `Object` class `==` and `equals` implementation will only return true if you are comparing the exact same instance. If you want to actually compare the values of an object then you need to override the `equals` method and implement what equality means for the class. For example, here is a class that compares the `value` field in order to determine equality.
+When you compare primitive types, like an `int` or `char`, you can use the `==` operator. When you want to compare objects you want to use the `equals` operator. The `Object` class `==` and `equals` implementation will only return true if you are comparing the exact same object instance. If you want to actually compare the values of an object, then you need to override the `equals` method and implement what equality means for the class. For example, here is a class that compares the `value` field in order to determine equality.
 
 ```java
 public class EqualExample {
@@ -47,12 +49,13 @@ public class EqualExample {
         this.value = value;
     }
 
+
     @Override
-    public boolean equals(Object obj) {
-        if (obj instanceof EqualExample cmp) {
-            return value.equals(cmp.value);
-        }
-        return false;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        EqualExample that = (EqualExample) o;
+        return value.equals(that.value);
     }
 
     public static void main(String[] args) {
@@ -71,9 +74,9 @@ public class EqualExample {
 
 ## hashcode
 
-Many of the collection objects in Java require a fast method for determining equality. The `hashcode` method returns a reasonably unique number that represents the object's values. When a collection is attempting to determine equality to two objects, it will first call the `hashcode` method and if the returned values match, it will then call the `equals` method.
+Many of the collection objects in Java require a fast method for determining equality. The `hashCode` method returns a reasonably unique number that represents the object's values. When a collection is attempting to determine the equality of two objects, it will first call the `hashCode` method and if the returned values match, it will then call the `equals` method.
 
-Here is an example, of a simple `hashcode` implementation that gets the hash code for the underlying `value` field and multiplies it by a prime number in order to make it more unique to this class.
+Here is an example, of a simple `hashCode` implementation that gets the hash code for the underlying `value` field and multiplies it by a prime number in order to make it more somewhat unique to this class.
 
 ```java
 public class HashcodeExample {
@@ -83,6 +86,15 @@ public class HashcodeExample {
         this.value = value;
     }
 
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        HashcodeExample that = (HashcodeExample) o;
+        return Objects.equals(value, that.value);
+    }
+
     @Override
     public int hashCode() {
         return 71 * value.hashCode();
@@ -90,19 +102,26 @@ public class HashcodeExample {
 }
 ```
 
-## Concepts
+When an object overrides both the `equals` and `hashCode` methods, you can use it with any of the JDK's collection classes that do equality checks. For example, the `HashMap` class indexes the objects that it contains by organizing them by their hash code and equality. If you do not override those functions then the HashMap will use the `Object` class's default implementation. That will result in every object in the map being considered as unique, even if they have the same field values.
 
-The concepts we will cover as part of your work on the spelling corrector include the following.
+## Things to Understand
 
-1. What the `toString()` method does and how to override it
-1. What the `equals(...)` method does and how to override it
-1. How hash tables work and why we need a `hashcode()` method
-1. How to override the `hashcode()` method
+- How to override methods in Java
+- How to properly implement a hashcode() method
+- How and why to overload a method
+- What the final keyword means when applied to variables, methods and classes
+- What the `toString()` method does and how to override it
+- What the `equals(...)` method does and how to override it
+- How to override the `hashCode()` method
+- How hash tables work and why we need a `hashCode()` method
 
 ## Videos
 
 - 🎥 [Classes and Objects Overview](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=8d7440ec-313d-45d1-891f-ad5f01307ab8&start=0)
 - 🎥 [The `Object` Super Class](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=1de40809-379f-44fd-8ffe-ad5f01307a86&start=0)
+- 🎥 [Method Overriding](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=d47ce0c1-85e5-45a7-b56d-ad5d01512d78&start=0)
 - 🎥 [Overriding toString()](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=cc129f1b-ae0f-44b0-a424-ad5f01307ae4&start=0)
 - 🎥 [Overriding equals()](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=7ecb0a44-16bc-4fa7-b924-ad5f01307b29&start=0)
+- 🎥 [Implementing a Hashcode Method](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=a486e175-a53f-4aed-b436-ad5d015744ac&start=0)
+- 🎥 [Method Overloading](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=7bec5f67-10c3-4b19-a0fc-ad640139627a&start=0)
 - 🎥 [Hash Tables](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=42265b8a-aced-457d-a494-ad5f0130d9a9&start=0)
