@@ -172,6 +172,20 @@ var inventor = new String("James Gosling");
 
 You should note that when you use the string literal syntax, the JRE puts the string in a special table that reduces the memory necessary to represent strings. Internally, Java will check the internal table to see if memory has already been allocated for that string. If it has then it will return a pointer to the string instead of creating a new string. When you use the `new` operator the memory for the string is always allocated on the heap.
 
+The Java `String` class has a bunch of methods that help manipulate strings. Here is a sampling of some of the more commonly used ones.
+
+| Method      | Purpose                                                     |
+| ----------- | ----------------------------------------------------------- |
+| length      | Get the length of the string                                |
+| charAt      | Get the character at the given index                        |
+| startsWith  | Does the string start with the given substring              |
+| indexOf     | Get the index of the given substring                        |
+| substring   | Return the substring at the given index                     |
+| format      | Create a string from a format template and parameters       |
+| toLowerCase | Drop all the character case                                 |
+| split       | Split the string into an array based on the given substring |
+| replace     | Replace the substring in the string                         |
+
 ## StringBuilder
 
 Unlike the `String` class, the `StringBuilder` class allows you to modify the string it represents. The idea with `StringBuilder` is that you will build up a string over time, as part of the logic of your program. You can then convert the value of the `StringBuilder` to a `String` representation using the `toString` method.
