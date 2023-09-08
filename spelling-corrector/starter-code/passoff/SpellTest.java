@@ -430,12 +430,12 @@ public class SpellTest {
         try {
             studentCorrector.useDictionary(filename);
         } catch (IOException e) {
-            fail("Student spell corrector could not load dictionary. It threw: " + e.toString());
+            fail("Student spell corrector could not load dictionary. It threw: " + e.toString(), e);
         }
         try {
             suggestion = studentCorrector.suggestSimilarWord(word);
         } catch (Throwable t) {
-            fail("Student code threw: " + t.getMessage());
+            fail("Student code threw: " + t.getMessage(), t);
         }
         return suggestion;
     }

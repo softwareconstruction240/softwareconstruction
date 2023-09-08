@@ -231,7 +231,7 @@ public class TrieTest {
             System.exit(-1);
         } catch (Exception e) {
             e.printStackTrace();
-            fail("Exception thrown during million+ word add (including duplicates)");
+            fail("Exception thrown during million+ word add (including duplicates)", e);
         }
         assertEquals(78891, studentTrie.getNodeCount(),
                 "Incorrect node count after million+ word add (including many duplicates)");
