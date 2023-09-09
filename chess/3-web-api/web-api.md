@@ -73,7 +73,7 @@ Note that `whiteUsername` and `blackUsername` may be `null`.
 | **URL path**         | `/game`                                                                                  |
 | **HTTP Method**      | `GET`                                                                                    |
 | **Headers**          | `authorization: <authToken>`                                                             |
-| **Success response** | [200] `{ "games": ["gameID":, "whiteUsername":"", "blackUsername":"", "gameName:""} ]}`  |
+| **Success response** | [200] `{ "games": ["gameID": 1234, "whiteUsername":"", "blackUsername":"", "gameName:""} ]}`  |
 | **Failure response** | [401] `{ "message": "Error: unauthorized" }`                                             |
 | **Failure response** | [500] `{ "message": "Error: description" }`                                              |
 
