@@ -18,7 +18,7 @@ public class TrieTest {
 
     private static final String trieString = "baboon\ncar\ncares\ncaress";
     private static final String wrongTrieString = "baboon\ncar\ncar\ncares\ncaress";
-    private static final String FILENAME = "notsobig.txt";
+    private static final String FILENAME = "./src/spell/notsobig.txt";
     private ITrie studentTrie;
     private ITrie studentTrie2;
 
