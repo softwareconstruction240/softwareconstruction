@@ -72,7 +72,7 @@ public class EqualExample {
 }
 ```
 
-## hashcode
+## hashCode
 
 Many of the collection objects in Java require a fast method for determining equality. The `hashCode` method returns a reasonably unique number that represents the object's values. When a collection is attempting to determine the equality of two objects, it will first call the `hashCode` method and if the returned values match, it will then call the `equals` method.
 
@@ -107,7 +107,7 @@ When an object overrides both the `equals` and `hashCode` methods, you can use i
 ## Things to Understand
 
 - How to override methods in Java
-- How to properly implement a hashcode() method
+- How to properly implement a hashCode() method
 - How and why to overload a method
 - What the final keyword means when applied to variables, methods and classes
 - What the `toString()` method does and how to override it

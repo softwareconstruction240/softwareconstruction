@@ -36,7 +36,7 @@ public class Mountains {
 
 - The interfaces and classes that make up the Java collection API
 - What each interface and class is used for
-- The importance of overriding the `equals(...)` and `hashcode()` methods of classes that will be placed in collections
+- The importance of overriding the `equals(...)` and `hashCode()` methods of classes that will be placed in collections
 - The importance of implementing the Comparable interface in classes that will be placed in collections
 
 ## Videos

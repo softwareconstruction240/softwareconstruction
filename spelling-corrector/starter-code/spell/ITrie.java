@@ -49,7 +49,7 @@ public interface ITrie {
 	String toString();
 
 	/**
-	 * Returns the hashcode of this trie.
+	 * Returns the hashCode of this trie.
 	 * MUST be constant time.
 	 * 
 	 * @return a uniform, deterministic identifier for this trie.
