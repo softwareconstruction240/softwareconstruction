@@ -46,11 +46,11 @@ For each word, in alphabetical order:
 
 This method must be recursive.
 
-Your `hashCode()` method should produce hashCode values that satisfy the general contract of hashCode (as specified in the Javadoc for the hashCode method of Object) and are reasonably unique. You can achieve this by taking the index of the first non null child node of the root and multiplying that index by the node count and word count of the Trie. The `hashCode()` function then returns this variable. **You should not use toString(), built-in `hashcode()` methods (e.g. that of a list) or similar methods inside your `hashcode()` method. Your `hashcode()` method’s logic should be written by you.**
+Your `hashCode()` method should produce hashCode values that satisfy the general contract of hashCode (as specified in the Javadoc for the hashCode method of Object) and are reasonably unique. You can achieve this by taking the index of the first non null child node of the root and multiplying that index by the node count and word count of the Trie. The `hashCode()` function then returns this variable. **You should not use toString(), built-in `hashCode()` methods (e.g. that of a list) or similar methods inside your `hashCode()` method. Your `hashCode()` method’s logic should be written by you.**
 
-The equals() method has to be thorough! You need to traverse both Tries fully and make sure they are the same. **You should not use toString(), similar string methods, or `hashcode()` to create your equals() method.**
+The equals() method has to be thorough! You need to traverse both Tries fully and make sure they are the same. **You should not use toString(), similar string methods, or `hashCode()` to create your equals() method.**
 
-**Use of other data structures is not allowed in the trie or node classes.** For example, it is common to use a separate data structure, such as a Stack or Queue to traverse the nodes of a tree structure. This is not allowed in your Trie implementation. Equally you may not store chars within each individual node. Instead of relying on these other data structures, both the equals() and the toString() methods must be recursive. **The hashcode method should run in constant time.**
+**Use of other data structures is not allowed in the trie or node classes.** For example, it is common to use a separate data structure, such as a Stack or Queue to traverse the nodes of a tree structure. This is not allowed in your Trie implementation. Equally you may not store chars within each individual node. Instead of relying on these other data structures, both the equals() and the toString() methods must be recursive. **The hashCode method should run in constant time.**
 
 Your `Trie` class must implement the `ITrie` interface provided on the course website and your TrieNode must implement the INode interface.
 
