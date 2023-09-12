@@ -1,8 +1,9 @@
 package spell;
 
 /**
- * DO NOT MODIFY THIS FILE!
- * Your trie node class should implement the INode interface.
+ * Note: Create your Trie Node class based on this interface.
+ * 
+ * You can add to the interface, but do not you alter or remove anything.
  */
 public interface INode {
 

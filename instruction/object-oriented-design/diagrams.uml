@@ -1,0 +1,58 @@
+# https://mermaid.live/edit
+
+sequenceDiagram
+    Person->>Fruit:plant
+    Fruit-->>Fruit:grow
+    Person->>Fruit:isRipe
+    Person->>Fruit:eat
+
+classDiagram
+    Person <|-- Programmer : is-a
+
+    class Person{
+    name
+    birthPlace
+    }
+
+    class Programmer {
+      GitHubRepo
+      Computer
+      writeCode()
+    }
+
+    class Computer {
+      type
+      save(code)
+      run(code)
+    }
+
+    Programmer *-- Computer : has-a
+    Programmer *-- GitHubRepo : has-a
+    Car ..> Person : uses-a
+    Car ..> Route : uses-a
+
+class Car {
+        travel(Person, Route)
+}
+
+class GitHubRepo {
+    push()
+    pull()
+}
+
+class FrankenPersonRouteCar {
+    car
+    route
+    person
+    driveCarByRoute()
+}
+
+    Object *-- Object : has-a
+
+    class Object {
+        value
+    }
+
+
+
+

@@ -391,7 +391,6 @@ public class ScannerExample {
 - 🎥 [Command Line Arguments](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=ddfefe0e-442d-4c56-8f60-ad5d013b4005&start=0)
 - 🎥 [Packages, Imports, and the CLASSPATH Environment Variable](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=c52bc183-f041-42c6-8e36-ad5d013d318f&start=0)
 - 🎥 [How to use a Scanner to read a text file of words separated by whitespace](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=3501b44d-296c-40b8-aee1-ad5d014138c8&start=0)
-- 🎥 [Static Variables and Methods](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=d7e4aa43-754c-494a-9638-ad5f01310a45&start=0)
 
 ## Demonstration code
 

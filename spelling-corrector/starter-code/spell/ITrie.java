@@ -1,12 +1,9 @@
 package spell;
 
 /**
- * DO NOT MODIFY THIS FILE!
- * If you think you need to modify this document for your code to work, your
- * code will not pass the TA driver.
- * Your trie class MUST implement the ITrie interface.
- * Your trie class MUST be named "Trie" found in the file "Trie.java".
- * Your trie class MUST be in the spell package.
+ * Note: Create your Trie class based on this interface.
+ * 
+ * You can add to the interface, but do not you alter or remove anything.
  */
 public interface ITrie {
 
