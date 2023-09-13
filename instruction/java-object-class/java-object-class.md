@@ -76,7 +76,7 @@ public class EqualExample {
 
 Many of the collection objects in Java require a fast method for determining equality. The `hashCode` method returns a reasonably unique number that represents the object's values. When a collection is attempting to determine the equality of two objects, it will first call the `hashCode` method and if the returned values match, it will then call the `equals` method.
 
-Here is an example, of a simple `hashCode` implementation that gets the hash code for the underlying `value` field and multiplies it by a prime number in order to make it more somewhat unique to this class.
+Here is an example of a simple `hashCode` implementation that gets the hash code for the underlying `value` field and multiplies it by a prime number in order to make it more somewhat unique to this class.
 
 ```java
 public class HashcodeExample {

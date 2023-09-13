@@ -111,7 +111,7 @@ public static class CloneCopy implements Cloneable {
 }
 ```
 
-However, overriding `clone` requires that you implement the `Cloneable` marker interface, do a type casting on the result, and handle the possibility of a `CloneNotSupportedException`.
+However, overriding `clone` requires that you implement the `Cloneable` marker interface, do a typecasting on the result, and handle the possibility of a `CloneNotSupportedException`.
 
 ## Things to Understand
 

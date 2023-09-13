@@ -8,7 +8,24 @@
   - section 1: Input, Output Streams, Readers, and Writers
   - section 2: Paths, Files and Directories
 
-Input and output refers to when you read or write data from a source outside of your program. Commonly this occurs from devices such as file storage, the network, a keyboard, or a printer. Here is a simple example that reads a file as `input` and writes the contents out to the screen as `output`.
+Input and output refers to when you read or write data from a source outside of your program. Commonly this occurs from devices such as file storage, the network, a keyboard, or a printer.
+
+The [java.io](https://docs.oracle.com/javase/8/docs/api/java/io/package-summary.html) package contains many classes and interfaces for working with I/O. The following table gives examples of some of the more commonly used `java.io` classes.
+
+| Class                                                                                               | Purpose                                                                                              |
+| --------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| [InputStream](https://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html)                   | Represents data as unbounded incoming sequence.                                                      |
+| [OutputStream](https://docs.oracle.com/javase/8/docs/api/java/io/OutputStream.html)                 | Represents data as an unbounded outgoing sequence.                                                   |
+| [Reader](https://docs.oracle.com/javase/8/docs/api/java/io/Reader.html)                             | Provides functionality for reading an InputStream.                                                   |
+| [Writer](https://docs.oracle.com/javase/8/docs/api/java/io/Writer.html)                             | Provides functionality for writing to an output stream.                                              |
+| [FileInputStream](https://docs.oracle.com/javase/8/docs/api/java/io/FileInputStream.html)           | Stream that uses a file as its source of data.                                                       |
+| [ByteArrayInputStream](https://docs.oracle.com/javase/8/docs/api/java/io/ByteArrayInputStream.html) | Stream that uses a byte array as its source of data.                                                 |
+| [BufferedReader](https://docs.oracle.com/javase/8/docs/api/java/io/BufferedReader.html)             | Reader that wraps another reader and caches the reader's data in an attempt to optimize performance. |
+| [StringReader](https://docs.oracle.com/javase/8/docs/api/java/io/StringReader.html)                 | Represents a String as an input reader.                                                              |
+| [File](https://docs.oracle.com/javase/8/docs/api/java/io/File.html)                                 | Provides basic directory and file operations such as create, exists, iterate, or delete.             |
+| [Scanner]()                                                                                         | Parses a file into String tokens. Note that this class is actually in `java.util`.                   |
+
+Here is a simple example that reads a file as `input` and writes the contents out to the screen as `output`.
 
 ```java
 import java.io.File;

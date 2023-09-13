@@ -16,7 +16,7 @@ There are two programming projects that you will complete for this course. The f
 Suggestion: trouble
 ```
 
-The purpose of the spelling corrector is to help you learn the basics of your development tools. After you have completed the spelling corrector you will take a timed exam during which, you will reimplement the program without referencing your previous work. Being able to efficiently write code under a deadline will demonstrate your mastery, and prepare you for the realities of programming professionally.
+The purpose of the spelling corrector is to help you learn the basics of your development tools. After you have completed the spelling corrector you will take a timed exam during which you will reimplement the program without referencing your previous work. Being able to efficiently write code under a deadline will demonstrate your mastery, and prepare you for the realities of programming professionally.
 
 Once you have completed the spelling corrector, you can confidently assume that you have the basic skills necessary to complete the second, and much larger, `multi-player chess` program. This program consists of a chess server that allows multiple client player programs to connect, register users, and play games.
 

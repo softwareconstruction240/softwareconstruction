@@ -19,9 +19,9 @@ Polymorphism is the blanket term used in computer science to represent the idea 
 
 ## Interfaces
 
-Interfaces allows you to define what something does, without specifying how it does it. It also allows you to create and supply alternative implementations for the interface. For example, you can have an interface that defines what a `List` can do, and then create classes that provide different implementations of the `List`. Perhaps one implementation uses less memory, and a different one is faster. You can then write code that uses the `List` interface and not have to think about if it is using the fast version or the memory efficient version.
+Interfaces allow you to define what something does, without specifying how it does it. It also allows you to create and supply alternative implementations for the interface. For example, you can have an interface that defines what a `List` can do, and then create classes that provide different implementations of the `List`. Perhaps one implementation uses less memory, and a different one is faster. You can then write code that uses the `List` interface and not have to think about if it is using the fast version or the memory efficient version.
 
-The following example show two implementations of a `List`. One that uses an array, and one that uses a linked list. The two lists can be passed to a function, `addAndPrint` in this case, that doesn't know anything about the implementation of the list, it just knows that it can call the interface's `add` method.
+The following example shows two implementations of a `List`. One that uses an array, and one that uses a linked list. The two lists can be passed to a function, `addAndPrint` in this case, that doesn't know anything about the implementation of the list, it just knows that it can call the interface's `add` method.
 
 ```java
 import java.util.List;
@@ -84,7 +84,7 @@ public class AlphabetIterator implements CharIterator {
 
 ## Abstract Classes
 
-Abstract classes provide another type of polymorphism. However, unlike interfaces, where a class implements all of the functionality of the interface, an abstract class base class provides some of the implementation and leaves other methods to be implementation by the subclass.
+Abstract classes provide another type of polymorphism. However, unlike interfaces, where a class implements all of the functionality of the interface, an abstract class base class provides some of the implementation and leaves other methods to be implemented by the subclass.
 
 Here is an example of an abstract class that implements the JDK's `Iterator` interface, but also defines a new abstract method for iterating with a string prefix. This is done by specifying the `abstract` keyword on the `nextWithPrefix` method, without providing an implementation of the method.
 
@@ -131,7 +131,7 @@ public static class PrefixAlphabetIterator extends AlphabetIterator {
 }
 ```
 
-Like interfaces, the name of the abstract class, can be used to represent the subclass when passed to functions that expect the abstract class. In the following code, we create an object of the type `PrefixAlphabetIterator` and then pass it to a function that expects the abstract class `AlphabetIterator`.
+Like interfaces, the name of the abstract class can be used to represent the subclass when passed to functions that expect the abstract class. In the following code, we create an object of the type `PrefixAlphabetIterator` and then pass it to a function that expects the abstract class `AlphabetIterator`.
 
 ```java
 public static void main(String[] args) {

@@ -10,7 +10,7 @@
 
 Object oriented design owes much of its popularity to its natural representation of the real world. By carefully modeling the actual application domain, the resulting code will exclude complications that would have resulted if you use other [programming paradigms](https://en.wikipedia.org/wiki/Programming_paradigm) that focus more on functional logic or declarative constructs.
 
-In object oriented programming everything revolves around a `Class` construct that serves as the template for actual objects. Classes always represent nouns, or things, such as a cat, car, word, database row, or even abstract things such as a thought or behavior. A class's operations, or methods, are always verbs, such as build, run, speak, compute, or destroy. When you instantiate a class into an object, you convert the template into an actual thing. For example, we can create an object named `James` from class named `Person`. The class `Person` has a `brithPlace` field, the object `James` has a birth place value of Alberta Calgary.
+In object oriented programming everything revolves around a `Class` construct that serves as the template for actual objects. Classes always represent nouns, or things, such as a cat, car, word, database row, or even abstract things such as a thought or behavior. A class's operations, or methods, are always verbs, such as build, run, speak, compute, or destroy. When you instantiate a class into an object, you convert the template into an actual thing. For example, we can create an object named `James` from a class named `Person`. The class `Person` has a `brithPlace` field, the object `James` has a birth place value of Alberta Calgary.
 
 | Real World                       | Class Representation               | Object Representation |
 | -------------------------------- | ---------------------------------- | --------------------- |
@@ -32,7 +32,7 @@ The following is an example of the relationships between a number of objects. No
 
 ![Class Diagram](classRelationshipDiagram.jpg)
 
-The key is to understand your domain and distill the important object fields, operations, and interactions down to the minimal representation, that meets the application needs. That might mean that your model doesn't perfectly fit real world objects, but you can often make your model easier to use and understand if you skip some of the important details. Likewise, sometimes the most literal domain representation does not fit the model of how users interact with their domain. When that happens, go with the users. It is their mental model you are trying to represent.
+The key is to understand your domain and distill the important object fields, operations, and interactions down to the minimal representation that meets the application needs. That might mean that your model doesn't perfectly fit real world objects, but you can often make your model easier to use and understand if you skip some of the important details. Likewise, sometimes the most literal domain representation does not fit the model of how users interact with their domain. When that happens, go with the users. It is their mental model you are trying to represent.
 
 For example, in the above example, a `Programmer` doesn't actually have a single `Computer` that is part of the required definition of a programmer. A more real world representation would be to allow for multiple computers, or to have a `uses-a` relationship with the computer instead of a `has-a` relationship. However, if our application doesn't need that complexity, then you can simplify things by making the assumption that all programmers in our domain have a single computer that they use to write code with. That allows you to encapsulate, or hide, the computer and gitHub repo they are using when the `writeCode` method is called.
 
@@ -56,7 +56,7 @@ Another form of simplicity is represented by the [Single Responsibility Principl
 
 ![frankenobject](frankenObject.jpg)
 
-Following the Single Responsibility Principle makes it so there is only one reason to manipulate the class. You manipulate the `Person` class to represent the person and the `Route` class to represent the route. If you find yourself making a `Frankenobject` that represent multiple real world objects then you need to refactor you code into multiple classes.
+Following the Single Responsibility Principle makes it so there is only one reason to manipulate the class. You manipulate the `Person` class to represent the person and the `Route` class to represent the route. If you find yourself making a `Frankenobject` that represents multiple real world objects then you need to refactor your code into multiple classes.
 
 Of course you can simplify too far and end up with thousands of classes that each have a single line of code, or a single object that aggregates itself and can represent everything. Both of these extremes should be avoided. What you want is to be straight forward in your object modeling and try to stick as close to the real world domain as possible.
 

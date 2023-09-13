@@ -32,7 +32,7 @@ Suggestion: trouble
 
 ## Motivation
 
-The propose of writing the `Spelling Corrector` is to give you experience with writing a small Java program before we jump into the larger `Chess` project. If you understand everything that the `Spelling Corrector` teaches and can write it in the time limit required by the exam, then you should feel confident that you will be successful with the rest of the class.
+The purpose of writing the `Spelling Corrector` is to give you experience with writing a small Java program before we jump into the larger `Chess` project. If you understand everything that the `Spelling Corrector` teaches and can write it in the time limit required by the exam, then you should feel confident that you will be successful with the rest of the class.
 
 ## Concepts
 

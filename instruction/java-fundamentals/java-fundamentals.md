@@ -11,7 +11,7 @@
 
 ## History
 
-While working at Sun Microsystems James Gosling formalized his idea of build a programming language that would compile to an intermediate format that could run on multiple operating systems. This became the foundation of the Java Programming language.
+While working at Sun Microsystems James Gosling formalized his idea of building a programming language that would compile to an intermediate format that could run on multiple operating systems. This became the foundation of the Java Programming language.
 
 ![James Gosling](jamesGosling.jpg)
 
@@ -21,13 +21,13 @@ While working at Sun Microsystems James Gosling formalized his idea of build a p
 >
 > — James Gosling
 
-Java quickly gained adoption because of its simplified, yet powerful, object orient model, standard library, and promise of portability. As of 2023, Java is used by [30% of programming professionals](https://survey.stackoverflow.co/2023/#section-most-popular-technologies-programming-scripting-and-markup-languages) and is the core language for many of the largest software systems in the world.
+Java quickly gained adoption because of its simplified, yet powerful, object oriented model, standard library, and promise of portability. As of 2023, Java is used by [30% of programming professionals](https://survey.stackoverflow.co/2023/#section-most-popular-technologies-programming-scripting-and-markup-languages) and is the core language for many of the largest software systems in the world.
 
 ### Timeline
 
 - **1991** - Work begins on Java.
 - **1996** - Version 1 released.
-- **2006** - Sun starts [OpenJDK](http://openjdk.java.net/projects/jdk/) under a GPL license. OpenJDK become the reference implementation.
+- **2006** - Sun starts [OpenJDK](http://openjdk.java.net/projects/jdk/) under a GPL license. OpenJDK became the reference implementation.
 - **2010** - Oracle acquires Sun and Java
 - **2019** - (JDK8) OracleJDK requires license for production deployment. OpenJDK adoption increases.
 - **2021** - Oracle relents and makes it open again with an option for paid support, and requirements for enterprise use.
@@ -47,7 +47,7 @@ public class HelloWorld {
 }
 ```
 
-You can convert the above Java code into the intermediary binary format called `Java Byte Code` using the Java compiler (`javac`). Once compiled, you can then execute the byte code using the Java virtual machine (`java`).
+You can convert the above Java code into the intermediary binary format called `Java Bytecode` using the Java compiler (`javac`). Once compiled, you can then execute the bytecode using the Java virtual machine (`java`).
 
 ```sh
 ➜ javac HelloWorld.java
@@ -58,26 +58,26 @@ Hello World!
 
 ## Java Architecture
 
-One of the things that made Java so different than other languages, is that it compiles to an intermediate format called `byte code`. The `byte code` can then be copied to, and executed on, any device that has the Java Runtime Environment (JRE) installed. This makes it so you don't have to build a machine specific binary for every device that you want to target, or alternatively, interpret the source code at runtime.
+One of the things that made Java so different from other languages, is that it compiles to an intermediate format called `bytecode`. The `bytecode` can then be copied to, and executed on, any device that has the Java Runtime Environment (JRE) installed. This makes it so you don't have to build a machine specific binary for every device that you want to target, or alternatively, interpret the source code at runtime.
 
 | Architecture | Example Languages  | Comment                                                                                            |
 | ------------ | ------------------ | -------------------------------------------------------------------------------------------------- |
 | Binary       | C, Rust, Go        | A device and OS specific binary is built at development time, and distributed to the target device |
-| Byte Code    | Java, WebAssembly  | An intermediate layer binary is built at development time an interpreted on the target device      |
+| Bytecode     | Java, WebAssembly  | An intermediate layer binary is built at development time an interpreted on the target device      |
 | Interpreted  | JavaScript, Python | The source code is distributed to the target device where an interpreter executes the source       |
 
-Using a byte code representation provides the advantage of being faster than a purely interpreted language, without requiring a specific binary to be created for each target device.
+Using a bytecode representation provides the advantage of being faster than a purely interpreted language, without requiring a specific binary to be created for each target device.
 
-The downside is that you need to install the JRE on all target devices, and the byte code still requires some translation and runtime optimization. This makes it slower than a natively compiled binary.
+The downside is that you need to install the JRE on all target devices, and the bytecode still requires some translation and runtime optimization. This makes it slower than a natively compiled binary.
 
 ## Installing IntelliJ and Java
 
-To get started developing with Java, you need to install the Java Developer Kit (JDK) and the IntelliJ integrated development environment (IDE). The easiest way to do this is to use follow the instructions for installing the IntelliJ IDE and then using IntelliJ to install the version of the JDK that you want to use.
+To get started developing with Java, you need to install the Java Developer Kit (JDK) and the IntelliJ integrated development environment (IDE). The easiest way to do this is to follow the instructions for installing the IntelliJ IDE and then using IntelliJ to install the version of the JDK that you want to use.
 
 ⚠ [IntelliJ Installation Instructions](https://www.jetbrains.com/help/idea/installation-guide.html) - Make sure you choose the free Community Edition. Do this by selecting the `Standalone installation`, picking your operating system, clicking on the download link, and then scrolling down to the `Community
 Edition` option.
 
-After you have installed IntelliJ take some time to get familiar with the environment. Create a new project and, if you don't already have a JDK downloaded, download the latest version as part of creating the project. Additonally, if you select the `Add sample code` option it will create a simple `hello world` application for you.
+After you have installed IntelliJ take some time to get familiar with the environment. Create a new project and, if you don't already have a JDK downloaded, download the latest version as part of creating the project. Additionally, if you select the `Add sample code` option it will create a simple `hello world` application for you.
 
 ![InstallingJDK](installJDK.gif)
 
@@ -85,7 +85,7 @@ After you have installed IntelliJ take some time to get familiar with the enviro
 
 If you used the IntelliJ project wizard to create a project, and selected the `Add sample code` option, then you have already built your first program. If not then go back and do that now. You should then edit the `main.java` file to make it do something different. You can change it to output your name, or to do some simple math. Even though you don't know any Java at this point, you can still play around with it in order to get a feel for how it works. The more you play around, the more comfortable you will be.
 
-Try something like the following as a replacement for you `main.java` code.
+Try something like the following as a replacement for your `main.java` code.
 
 ```java
 public class Main {
@@ -118,7 +118,7 @@ Java provides the following primitive data types.
 | char    | 16          | Textual characters             |
 | boolean | 1           | True or false                  |
 
-Java is a strongly typed language, and so you must always specify the type of a variable. Often times the complier can infer the type of the variable from its context. In that case you can used the simplified `var` keyword to designate that you are declaring a variable with an implicit type. In the following example, the compiler can infer that you are creating an `int` variable for `number2` based on the assignment of the integer value.
+Java is a strongly typed language, and so you must always specify the type of a variable. Oftentimes the compiler can infer the type of the variable from its context. In that case you can use the simplified `var` keyword to designate that you are declaring a variable with an implicit type. In the following example, the compiler can infer that you are creating an `int` variable for `number2` based on the assignment of the integer value.
 
 ```java
 int number1 = 1;
@@ -133,7 +133,7 @@ Classes define both fields and methods for the class. A field represents a varia
 
 A class may have one or more constructors that initialize the fields of the object. The constructor looks like a method, but doesn't have a return type and must have the same name as the class.
 
-The following is an example of simple `Person` class.
+The following is an example of a simple `Person` class.
 
 ```java
 public class Person {
@@ -149,7 +149,7 @@ public class Person {
 }
 ```
 
-You create an object instance of of a class with the `new` operator. This allocated the memory on the heap for the object. That memory is cleaned up once the last reference to the object goes out of scope.
+You create an object instance of a class with the `new` operator. This allocated the memory on the heap for the object. That memory is cleaned up once the last reference to the object goes out of scope.
 
 ```java
 var inventor = new Person("James Gosling");
@@ -259,7 +259,7 @@ Note that in this example, the `main` method is also static. That is because it 
 
 ## Running Programs from the Command Line
 
-When you run your programs from within IntelliJ, it is actually invoking the Java compiler (`javac`) to convert your source code to byte code, and then running it with the Java byte code interpreter (`java`). Once you have installed the JDK, you can run these utilities yourself so that you can experience what IntelliJ is doing behind the scenes.
+When you run your programs from within IntelliJ, it is actually invoking the Java compiler (`javac`) to convert your source code to bytecode, and then running it with the Java bytecode interpreter (`java`). Once you have installed the JDK, you can run these utilities yourself so that you can experience what IntelliJ is doing behind the scenes.
 
 To do this, open your command line console program and create a file named `Hello.java` with the following content. The special method signature `public static void main(String[] args)` designates the class as an entry point for your Java program.
 
@@ -271,13 +271,13 @@ public class Hello {
 }
 ```
 
-You can then compile the source code to byte code using the following command.
+You can then compile the source code to bytecode using the following command.
 
 ```sh
 ➜  javac Hello.java
 ```
 
-This will create a file named `Hello.class` that contains the byte code. To run the program, invoke the `java` program.
+This will create a file named `Hello.class` that contains the bytecode. To run the program, invoke the `java` program.
 
 ```sh
 ➜  java Hello
@@ -287,7 +287,7 @@ Hello World!
 
 ## Program Arguments
 
-The `args` parameter, defined by your main method, provides the ability to receive any program parameters that were passed to `java` program when it was invoked. If you modify your program to access the `args` parameter, you can use the args to configure how your program works.
+The `args` parameter, defined by your main method, provides the ability to receive any program parameters that were passed to the `java` program when it was invoked. If you modify your program to access the `args` parameter, you can use the args to configure how your program works.
 
 ```java
 public class Hello {
@@ -324,11 +324,11 @@ public class Hello {
 }
 ```
 
-## Class Path
+## Classpath
 
-If you are importing packages from a third party library, or referencing code that you have written that is outside the path of the currently executing class, you must tell the `java` program where to find the compiled byte code class files. You do this by providing the `classpath`, or `cp`, parameter to the `java` program, that represents the location of the external code.
+If you are importing packages from a third party library, or referencing code that you have written that is outside the path of the currently executing class, you must tell the `java` program where to find the compiled bytecode class files. You do this by providing the `classpath`, or `cp`, parameter to the `java` program, that represents the location of the external code.
 
-For example, if you had a `Hello` class file in a `Demo` package, it could import classes from a completely different directory structure by using the `cp` parameter. To specify multiple class path directories, you need to separate your paths with a `:` on Linux based operating systems, and a `,` on Windows based systems.
+For example, if you had a `Hello` class file in a `Demo` package, it could import classes from a completely different directory structure by using the `cp` parameter. To specify multiple classpath directories, you need to separate your paths with a `:` on Linux based operating systems, and a `,` on Windows based systems.
 
 ```sh
 ➜  java -cp .:~/prod Demo.Hello
@@ -336,7 +336,7 @@ For example, if you had a `Hello` class file in a `Demo` package, it could impor
 Rise and shout
 ```
 
-In addition to specifying the class path on the command line you can use an environment variable named `CLASSPATH` to reference the location of all you Java byte code files.
+In addition to specifying the classpath on the command line you can use an environment variable named `CLASSPATH` to reference the location of all your Java bytecode files.
 
 ## File and Scanner
 

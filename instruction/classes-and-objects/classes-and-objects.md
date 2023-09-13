@@ -4,7 +4,7 @@
 
 📖 **Required Reading**: Core Java for the Impatient Chapter 2: Object-Oriented Programming
 
-Classes are the primary programming construct for Java. A class contains fields and methods. Fields represent variables within the class and methods represent operations that the class performs. For example, if we had a class that represents a person, we might have a field called `name` that contains the person's name, and a method call `sayName` that outputs the name. An object is an instantiation, or instance, of a class that has been initialized to contain values. A class may also, have a constructor that provides the default values for the fields when the class is instantiated into an object.
+Classes are the primary programming construct for Java. A class contains fields and methods. Fields represent variables within the class and methods represent operations that the class performs. For example, if we had a class that represents a person, we might have a field called `name` that contains the person's name, and a method called `sayName` that outputs the name. An object is an instantiation, or instance, of a class that has been initialized to contain values. A class may also have a constructor that provides the default values for the fields when the class is instantiated into an object.
 
 ```java
 public class Person {
@@ -23,7 +23,7 @@ public class Person {
 }
 ```
 
-If you wanted to instantiate a `Person` object from the `Person` class, you use the `new` operator and pass the values you want to initialize the object with. The provided values then gets passed to the class's constructor. Here is an example of a Java program that uses the `Person` class.
+If you wanted to instantiate a `Person` object from the `Person` class, you use the `new` operator and pass the values you want to initialize the object with. The provided values then get passed to the class's constructor. Here is an example of a Java program that uses the `Person` class.
 
 ```java
 public class HelloPerson {
@@ -98,7 +98,7 @@ An important concept in object oriented programming is the idea of encapsulation
 
 One common design pattern to enable encapsulation is the use of getters and setters methods to access fields instead of publicly exposing the field directly. These methods are often called `accessor methods`. A getter is simply a method that gets the value of the field, and a setter is a method that sets the value of a field. This makes it so you can hide how the field is implemented and protect the data integrity of your fields.
 
-Here is an simple example of using accessor methods.
+Here is a simple example of using accessor methods.
 
 ```java
 public class GetSetExample {
