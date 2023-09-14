@@ -117,7 +117,7 @@ public class ExceptionExample {
 
 ## Exceptions Should be Exceptional
 
-Remember that exceptions should be exceptional. Do not throw exceptions for things that happen in the normal flow of your code. For example, if it is expected that sometimes a file may not be found, then that is not exceptional. Also do throw exceptions to return values from a function. For example, a token parser should not throw exceptions in order to return tokens that it parses to anyone with a catch block.
+Remember that exceptions should be exceptional. Do not throw exceptions for things that happen in the normal flow of your code. For example, if it is expected that sometimes a file may not be found, then that is not exceptional. Also do not throw exceptions simply to return values from a function. For example, a token parser should not throw exceptions in order to return tokens that it parses to anyone with a catch block.
 
 Using exceptions for non-exceptional cases makes debugging much more difficult and creates unexpected side effects in your code that make it less maintainable.
 
