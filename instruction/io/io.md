@@ -23,7 +23,7 @@ The [java.io](https://docs.oracle.com/javase/8/docs/api/java/io/package-summary.
 | [BufferedReader](https://docs.oracle.com/javase/8/docs/api/java/io/BufferedReader.html)             | Reader that wraps another reader and caches the reader's data in an attempt to optimize performance. |
 | [StringReader](https://docs.oracle.com/javase/8/docs/api/java/io/StringReader.html)                 | Represents a String as an input reader.                                                              |
 | [File](https://docs.oracle.com/javase/8/docs/api/java/io/File.html)                                 | Provides basic directory and file operations such as create, exists, iterate, or delete.             |
-| [Scanner]()                                                                                         | Parses a file into String tokens. Note that this class is actually in `java.util`.                   |
+| [Scanner](https://docs.oracle.com/javase/8/docs/api/java/util/Scanner.html)                                                                                         | Parses a file into String tokens. Note that this class is actually in `java.util`.                   |
 
 Here is a simple example that reads a file as `input` and writes the contents out to the screen as `output`.
 
