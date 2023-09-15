@@ -1,5 +1,11 @@
 # ♕ Phase 3: Chess Web API
 
+♟️ [Project Overview](../chess.md)
+
+✅ [Phase 3 Getting Started](getting-started.md)
+
+📁 [Phase 3 Starter code](starter-code)
+
 In this part of the Chess Project, you will create your Chess server and implement seven different Web API functions that clients will use to communicate with your server. This will include finishing your DAO classes, creating your Server class, creating a Handler class for each Web API, and creating Service classes to execute the Web APIs. You will also write automated tests for your Service classes.
 
 ![Sever class structure](server-class-structure.png)

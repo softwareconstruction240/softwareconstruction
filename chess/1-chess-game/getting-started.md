@@ -1,6 +1,10 @@
 # Chess Game - Getting Started
 
-📁 [Starter code](starter-code)
+♟️ [Project Overview](../chess.md)
+
+📋 [Phase 1 Requirements](chess-game.md)
+
+📁 [Phase 1 Starter code](starter-code)
 
 ## Creating an IntelliJ Project
 

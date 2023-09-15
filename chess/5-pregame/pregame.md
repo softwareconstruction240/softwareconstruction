@@ -1,5 +1,11 @@
 ## ♕ Phase 5: Chess Pregame
 
+♟️ [Project Overview](../chess.md)
+
+✅ [Phase 5 Getting Started](getting-started.md)
+
+📁 [Phase 5 Starter code](starter-code)
+
 In this part of the Chess Project, you will create an initial version of your Chess client. Your Chess client will be a terminal-based (i.e., console-based) program that gives the user a simple interface for playing Chess. Your client should implement all user interactions that occur before and after actual gameplay (gameplay interactions will be implemented in the next part of the project). This includes allowing the user to display help text, register, login, list existing games, create a new game, join a game, observe a game, logout, and exit. You will also write the client code that draws the chessboard.
 
 ## Required Functionality

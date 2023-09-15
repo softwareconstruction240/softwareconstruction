@@ -1,6 +1,10 @@
 # Getting Started
 
-📁 [Starter code](starter-code)
+♟️ [Project Overview](../chess.md)
+
+📋 [Phase 4 Requirements](database.md)
+
+📁 [Phase 4 Starter code](starter-code)
 
 The Starter Code has two folders, `dataAccess` and `serverTests`. Do the following:
 

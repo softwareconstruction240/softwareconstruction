@@ -16,7 +16,7 @@ The [java.io](https://docs.oracle.com/javase/8/docs/api/java/io/package-summary.
 | --------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
 | [InputStream](https://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html)                   | Represents data as unbounded incoming sequence.                                                      |
 | [OutputStream](https://docs.oracle.com/javase/8/docs/api/java/io/OutputStream.html)                 | Represents data as an unbounded outgoing sequence.                                                   |
-| [Reader](https://docs.oracle.com/javase/8/docs/api/java/io/Reader.html)                             | Provides functionality for reading an InputStream.                                                   |
+| [Reader](https://docs.oracle.com/javase/8/docs/api/java/io/Reader.html)                             | Provides functionality for reading an input stream.                                                   |
 | [Writer](https://docs.oracle.com/javase/8/docs/api/java/io/Writer.html)                             | Provides functionality for writing to an output stream.                                              |
 | [FileInputStream](https://docs.oracle.com/javase/8/docs/api/java/io/FileInputStream.html)           | Stream that uses a file as its source of data.                                                       |
 | [ByteArrayInputStream](https://docs.oracle.com/javase/8/docs/api/java/io/ByteArrayInputStream.html) | Stream that uses a byte array as its source of data.                                                 |

@@ -1,6 +1,10 @@
 # Getting Started
 
-📁 [Starter code](starter-code)
+♟️ [Project Overview](../chess.md)
+
+📋 [Phase 2 Requirements](server-design.md)
+
+📁 [Phase 2 Starter code](starter-code)
 
 The starter code for this part of the project contains one folder named `dataAccess`.
 

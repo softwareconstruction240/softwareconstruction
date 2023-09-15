@@ -1,5 +1,11 @@
 # ♕ Phase 6: Chess Gameplay
 
+♟️ [Project Overview](../chess.md)
+
+✅ [Phase 6 Getting Started](getting-started.md)
+
+📁 [Phase 6 Starter code](starter-code)
+
 For the final part of the Chess Project, you will implement gameplay. Gameplay will use WebSocket to communicate between client and server (instead of Web APIs). When a user joins or observes a game, their client should establish a WebSocket connection with the server. This WebSocket will be used to exchange messages between client and server (and vice versa).
 
 ## Gameplay Functionality

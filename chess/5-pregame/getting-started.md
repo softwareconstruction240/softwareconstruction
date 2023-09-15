@@ -1,6 +1,10 @@
 # Getting Started
 
-📁 [Starter code](starter-code)
+♟️ [Project Overview](../chess.md)
+
+📋 [Phase 5 Requirements](pregame.md)
+
+📁 [Phase 5 Starter code](starter-code)
 
 ## Create Client Module
 

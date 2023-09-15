@@ -1,6 +1,10 @@
 # Getting Started
 
-📁 [Starter code](starter-code)
+♟️ [Project Overview](../chess.md)
+
+📋 [Phase 6 Requirements](gameplay.md)
+
+📁 [Phase 6 Starter code](starter-code)
 
 The Starter Code should have 2 folders, `serverTests` and `webSocketMessages`. Do the following:
 

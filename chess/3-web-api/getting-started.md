@@ -1,6 +1,10 @@
 # Getting Started
 
-📁 [Starter code](starter-code)
+♟️ [Project Overview](../chess.md)
+
+📋 [Phase 3 Requirements](web-api.md)
+
+📁 [Phase 3 Starter code](starter-code)
 
 The Starter Code should have three folders: `libs`, `serverTests`, and `web`. Do the following:
 
