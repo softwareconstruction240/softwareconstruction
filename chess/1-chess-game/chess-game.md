@@ -130,18 +130,18 @@ Here are some guides that may help:
 
 ### Extra Credit Moves
 
-You do not have to implement these moves, but if you go the extra mile and successfully implement both of these moves, you’ll earn some extra credit on this assignment.
+You do not have to implement these moves, but if you go the extra mile and successfully implement these moves, you’ll earn 2% extra credit for each move (4% total) on this assignment.
 
 NOTE: These moves can but do not have to be provided by `ChessPiece::pieceMoves`, and can be provided by `ChessGame::validMoves` instead.
 
 **`Castling`**
 
-This is a special move where the King and a Rook move simultaneously. The castling move can only be taken when 4 conditions are met: 
+This is a special move where the King and a Rook move simultaneously. The castling move can only be taken when 4 conditions are met:
 
 1. Neither the King nor Rook have moved since the game started
 2. There are no pieces between the King and the Rook
-3. The King is not in Check 
-4. Both your Rook and King will be safe after making the move (cannot be captured by any enemy pieces). 
+3. The King is not in Check
+4. Both your Rook and King will be safe after making the move (cannot be captured by any enemy pieces).
 
 To Castle, the King moves 2 spaces towards the Rook, and the Rook "jumps" the king moving to the position next to and on the other side of the King. This is represented in a ChessMove as the king moving 2 spaces to the side.
 
