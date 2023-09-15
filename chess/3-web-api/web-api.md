@@ -47,15 +47,15 @@ An API is a command a server makes available to the public. For your server thes
 
 ### Login
 
-| property             | value                                      	     |
+| property             | value                                               |
 | -------------------- | --------------------------------------------------- |
 | **Description**      | Logs in an existing user (returns a new authToken). |
-| **URL path**         | `/session`                                  	     |
-| **HTTP Method**      | `POST`                                     	     |
+| **URL path**         | `/session`                                          |
+| **HTTP Method**      | `POST`                                              |
 | **Body**             | `{ "username":"", "password":"" }`                  |
 | **Success response** | [200] `{ "username":"", "authToken":"" }`           |
 | **Failure response** | [401] `{ "message": "Error: unauthorized" }`        |
-| **Failure response** | [500] `{ "message": "Error: description" }` 	     |
+| **Failure response** | [500] `{ "message": "Error: description" }`         |
 
 ### Logout
 
@@ -131,12 +131,12 @@ Previously, you created a `chess` package that contains the model classes that r
 
 **Game**
 
-| Field         | Type        		     |
+| Field         | Type                       |
 | ------------- | -------------------------- |
-| gameID        | int      		     |
-| whiteUsername | String     		     |
-| blackUsername | String    		     |
-| gameName      | String   		     |
+| gameID        | int                        |
+| whiteUsername | String                     |
+| blackUsername | String                     |
+| gameName      | String                     |
 | game          | `ChessGame` implementation |
 
 **AuthToken**
@@ -178,7 +178,7 @@ Each service is responsible for executing a web API. A simple implementation of 
 
 ```java
 public class LoginService {
-	public LoginResult login(LoginRequest request) {}
+ public LoginResult login(LoginRequest request) {}
 }
 ```
 
@@ -198,12 +198,12 @@ As described in the previous section, Service class methods receive Request obje
 From this you can derive the following LoginRequest class:
 
 ```java
-	class LoginRequest {
-		private String username;
-		private String password;
-		public LoginRequest() {…}
-		// … Getters and Setters for username and password properties
-	}
+ class LoginRequest {
+  private String username;
+  private String password;
+  public LoginRequest() {…}
+  // … Getters and Setters for username and password properties
+ }
 ```
 
 Similarly, the `login` web API returns a JSON object of the following format, depending on whether the login operation succeeded or failed:
@@ -228,13 +228,13 @@ Similarly, the `login` web API returns a JSON object of the following format, de
 From this you can derive the following LoginResult class:
 
 ```java
-	class LoginResult {
-		private String message;
-		private String authToken;
-		private String username;
-		public LoginResult() { … }
-		// … Getters and Setters for message, authToken, and username properties
-	}
+ class LoginResult {
+  private String message;
+  private String authToken;
+  private String username;
+  public LoginResult() { … }
+  // … Getters and Setters for message, authToken, and username properties
+ }
 ```
 
 You will be using the GSON library for serialization and deserialization. GSON can take a Java Object and convert its contents to a JSON string. In the other direction, GSON can take a JSON string and a class type, and create a new instance of that class with any matching fields being initialized from the JSON string. For this process to work properly, the field names in your Request and Result classes must match exactly the property names in the JSON strings, including capitalization.
