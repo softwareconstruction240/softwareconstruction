@@ -120,7 +120,7 @@ The following sections describe the various classes that are depicted in the arc
 
 Previously, you created a `chess` package that contains the model classes that represent the core data and algorithms for Chess. Now you need to create additional model classes that represent the core data and algorithms needed to implement a `chess server`, including: User, Game, and AuthToken.
 
-**User**
+#### User
 
 | Field    | Type   |
 | -------- | ------ |
@@ -129,7 +129,7 @@ Previously, you created a `chess` package that contains the model classes that r
 | password | String |
 | email    | String |
 
-**Game**
+#### Game
 
 | Field         | Type                       |
 | ------------- | -------------------------- |
@@ -139,7 +139,7 @@ Previously, you created a `chess` package that contains the model classes that r
 | gameName      | String                     |
 | game          | `ChessGame` implementation |
 
-**AuthToken**
+#### AuthToken
 
 | Field     | Type   |
 | --------- | ------ |
@@ -208,7 +208,7 @@ From this you can derive the following LoginRequest class:
 
 Similarly, the `login` web API returns a JSON object of the following format, depending on whether the login operation succeeded or failed:
 
-**Success**
+#### Success
 
 ```json
 {
@@ -217,7 +217,7 @@ Similarly, the `login` web API returns a JSON object of the following format, de
 }
 ```
 
-**Error**
+#### Error
 
 ```json
 {

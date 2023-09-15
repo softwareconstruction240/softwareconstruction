@@ -114,23 +114,23 @@ When sending a `Notification` that refers to one of the clients, the message sho
 
 If a `UserGameCommand` is invalid (e.g. invalid authToken or gameID doesn’t exist) the server should only send an `Error` message informing the Root Client what went wrong. No messages should be sent to the other Clients. The Error message must contain the word `error` (case doesn’t matter).
 
-**Root Client sends JOIN_PLAYER**
+#### Root Client sends JOIN_PLAYER
 
 The server should send a `LOAD_GAME` message back to the root client, and a `Notification` message to all other players and observers in that game informing them what color the root client is joining as.
 
-**Root Client sends JOIN_OBSERVER**
+#### Root Client sends JOIN_OBSERVER
 
 The server should send a `LOAD_GAME` message back to the root client, and a `Notification` message to all other players and observers in that game informing them the root client joined as an observer.
 
-**Root Client sends MAKE_MOVE**
+#### Root Client sends MAKE_MOVE
 
 The server should send a `LOAD_GAME` message back to all clients in the game (including the root client) with an updated game. The server should also send a `Notification` message to all players and observers in the game other than the root client informing them what move was made.
 
-**Root Client sends LEAVE**
+#### Root Client sends LEAVE
 
 The server should remove the root client from the game and send all remaining clients a `Notification` message informing them that the root client left. This applies to when a player leaves as well as when an observer leaves.
 
-**Root Client sends RESIGN**
+#### Root Client sends RESIGN
 
 The server should mark the game as over (no more moves can be made) and send all other clients a `Notification` message informing them that the root client resigned. The server should also send a `Notification` message to the root user letting them know they resigned successfully.
 

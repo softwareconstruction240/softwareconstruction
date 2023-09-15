@@ -1,4 +1,4 @@
-## ♕ Phase 5: Chess Pregame
+# ♕ Phase 5: Chess Pregame
 
 ♟️ [Project Overview](../chess.md)
 
