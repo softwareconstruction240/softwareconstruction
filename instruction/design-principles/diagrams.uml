@@ -1,0 +1,26 @@
+classDiagram
+    MyAbstraction <-- Input
+    MyAbstraction --> Output
+    class Input{
+      getA()
+      getB()
+    }
+    class MyAbstraction{
+      process(Input):Output
+    }
+    class Output{
+      setC(c)
+    }
+
+    Game *-- Board
+    Game *-- Piece
+    Game *-- Participant
+
+    Board *-- Square
+    Participant <|-- Player
+    Participant <|-- Observer
+
+    Piece <|-- King
+    Piece <|-- Rook
+    Piece <|-- Pawn
+    
