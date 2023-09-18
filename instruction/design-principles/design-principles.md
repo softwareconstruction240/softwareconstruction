@@ -185,7 +185,7 @@ Consider factors such as:
 
 ## Single Responsibility Principle
 
-Simplicity is a primary goal of good software design. One form of simplicity is represented by the [Single Responsibility Principle](https://en.wikipedia.org/wiki/Single-responsibility_principle). The idea here is that an object does one thing and does it well. You don't have a `Person` class that has a method to `driveCarByRoute` that performs the actions of a car in motion. You would have a `Person` class, a `Car` class, and a `Route` class. You would then pass the `Person` and `Route` to the car's `drive` method, and send it on its way.
+One form of simplicity is represented by the [Single Responsibility Principle](https://en.wikipedia.org/wiki/Single-responsibility_principle). The idea here is that an object does one thing and does it well. You don't have a `Person` class that has a method to `driveCarByRoute` that performs the actions of a car in motion. You would have a `Person` class, a `Car` class, and a `Route` class. You would then pass the `Person` and `Route` to the car's `drive` method, and send it on its way.
 
 ![frankenobject](frankenObject.jpg)
 
@@ -203,6 +203,38 @@ Classes are not the only places where you need to consider the single responsibi
  */
 String dbAction(String key, String value, int i);
 ```
+
+If you find yourself changing a class for different reasons, functionality vs representation vs mutation vs display vs persistence, then you are probably in violation of the single responsibility principle.
+
+## Open Closed Principle
+
+Classes should be open to extension and closed for modification. Meaning that you want to encourage additions to a class as appropriate, but modifying existing functionality is discouraged due to its tendency to disrupt the existing code base.
+
+## Liskov Substitution Principle
+
+![Barabra Liskov](barbra-livskov.png)
+
+> _source: Wikipedia_
+
+> “[be] aware not just of what you understand, but also what you don’t understand”
+>
+> — Barabra Liskov
+
+If an operation is dependent on an interface, or base class, you must be able to substitute any derived class without altering the operation. This can happen if a base class throws an `UnsupportedException` for an interface or overridden method, or if the operation does a type cast on the interface.
+
+Violations of this principle cause unexpected behaviors within the application and require the developer to understand all of the code before they can safely make substitutions.
+
+## Interface Segregation Principle
+
+When you define an interface you only include methods that work together as a cohesive whole. You don't add methods that are related, but not necessary for the consumption of the primary usage of the interface. Put another way, the interface segregation principle states that that no consumer of an interface should be forced to depend on methods it does not use.
+
+Exposing methods to all consumers of the interface, without regard for the user of the methods by all the consumers, creates a significant maintenance problem. If you want to alter the interface then you must examine all uses of the interface. Instead, the preferred approach is to create multiple interfaces that an object uses and only use the interface that is appropriate to the consumer.
+
+## Dependency Inversion Principle
+
+The dependency inversion principle suggests the you should expose interfaces and not concrete classes. Interfaces enable the core abstraction necessary to make code extensible and maintainable. Whenever to expose a concrete class implementation you expose unintended coupling with the class. At very least you are exposing a constructor and potentially extraneous methods that are unnecessary to the use of the class.
+
+Put another way, the principle says that dependencies are made on aspects of functionality, not on implementations of the functionality.
 
 ## Avoiding Code Duplication
 
