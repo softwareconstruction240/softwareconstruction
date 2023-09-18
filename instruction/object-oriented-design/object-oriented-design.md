@@ -50,21 +50,15 @@ In many ways encapsulation is preferable to inheriting functionality primarily b
 
 ## Simplicity
 
-Simplicity is another important characteristic of object oriented programming. One form of simplicity is restricting the number of objects in your system to the smallest number possible. This includes the number of interfaces you create, how inheritance is abstracted, and what operations an object exposes.
+Simplicity is another important characteristic of object oriented programming. One form of simplicity is restricting the number of objects in your system to the smallest number possible, and no less. This includes the number of interfaces you create, how inheritance is abstracted, and what operations an object exposes.
 
 Of course you can simplify too far and end up with thousands of classes that each have a single line of code, or a single object that aggregates itself and can represent everything. Both of these extremes should be avoided. What you want is to be straight forward in your object modeling and try to stick as close to the real world domain as possible.
 
-#################################
-#################################
-#################################
-#################################
+**Too many classes**
 
-Example of too many classes
+![Verbose Object](verboseObject.png)
 
-#################################
-#################################
-#################################
-#################################
+**Not enough classes**
 
 ![Ultimate Object](ultimateObject.jpg)
 
