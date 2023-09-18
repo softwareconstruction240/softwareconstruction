@@ -6,6 +6,8 @@ classDiagram
       getB()
     }
     class MyAbstraction{
+      -private encapsulatedData
+      -private encapsulatedMethods()
       process(Input):Output
     }
     class Output{
