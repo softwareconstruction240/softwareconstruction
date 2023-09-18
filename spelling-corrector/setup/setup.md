@@ -16,9 +16,11 @@ Create your project the location where you want to store you work for this cours
 
 ## Copy the Starter Code
 
-Copy the [Starter code](../starter-code) `jars` folder to the main folder of your project.
+Copy the [Starter code](../starter-code) `jars` folder to the main folder of your project. These are the zipped up byte-code classes that run the tests.
 
-Copy the [Starter code](../starter-code) `spell` and `passoff` folders to the `src` folder of your project.
+Copy the [Starter code](../starter-code) `txt` files to the main folder of your project. These are the dictionary files used by the tests.
+
+Copy the [Starter code](../starter-code) `spell` and `passoff` folders to the `src` folder of your project. These are the interfaces you need to implement and the tests that must pass in order to complete the project.
 
 When you are done copying the starter code your project should look similar to the following. You’ll see a lot of red errors, but that is okay for now.
 
