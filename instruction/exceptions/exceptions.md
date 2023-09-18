@@ -62,7 +62,7 @@ The exclusion to the `throws` declaration rule, is when you throw what is known 
 
 ## Finally
 
-You can also use the `try` syntax to create a block of code that always gets executed whenever the try block exits. This is called a finally block. The finally block is executed whether or not an exception is throw.
+You can also use the `try` syntax to create a block of code that always gets executed whenever the try block exits. This is called a finally block. The finally block is executed whether or not an exception is throw. If an exception is thrown, but there is no catch block, the finally method will get called, but then the exception continues up the call stack until a catch block is discovered.
 
 ```java
 try {
