@@ -36,7 +36,7 @@ You can throw any exception from a function, but Java requires that your functio
 ```java
 void top() {
     try {
-        B();
+        A();
     } catch (Exception ex) {
         System.out.println("this WILL execute");
     }
