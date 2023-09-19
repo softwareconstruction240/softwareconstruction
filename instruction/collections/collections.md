@@ -8,6 +8,8 @@
 
 The Java Collection library provide several useful utility classes for dealing with data structures. This includes things like lists, sets, and maps. Using the standard collections library makes it so that you don't have to write this code yourself. You can also be confident that the code has been thoroughly tested, is secure, and is multithreaded where appropriate.
 
+![Collections](collections.png)
+
 Most of the JDK collection objects are contained in the [java.util](https://docs.oracle.com/javase/8/docs/api/java/util/package-summary.html) package. It is worth the time to browser the JavaDocs for this package and become familiar with what it offers. Some of the more commonly used interfaces include [List](), [Map](), [Set](), and [Iterator](). The package also provides various implementations of the interfaces such as [HashMap](https://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html), [ArrayList](https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html), and [TreeSet](https://docs.oracle.com/javase/8/docs/api/java/util/TreeSet.html).
 
 ## ArrayList Example
