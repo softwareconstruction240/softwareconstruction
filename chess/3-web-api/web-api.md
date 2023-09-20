@@ -1,5 +1,9 @@
 # ♕ Phase 3: Chess Web API
 
+- [Chess Application Overview](../chess.md)
+- [Getting Started](getting-started.md)
+- [Starter Code](starter-code)
+
 In this part of the Chess Project, you will create your Chess server and implement seven different Web API functions that clients will use to communicate with your server. This will include finishing your DAO classes, creating your Server class, creating a Handler class for each Web API, and creating Service classes to execute the Web APIs. You will also write automated tests for your Service classes.
 
 ![Sever class structure](server-class-structure.png)
@@ -41,15 +45,15 @@ An API is a command a server makes available to the public. For your server thes
 
 ### Login
 
-| property             | value                                      	     |
+| property             | value                                               |
 | -------------------- | --------------------------------------------------- |
 | **Description**      | Logs in an existing user (returns a new authToken). |
-| **URL path**         | `/session`                                  	     |
-| **HTTP Method**      | `POST`                                     	     |
+| **URL path**         | `/session`                                          |
+| **HTTP Method**      | `POST`                                              |
 | **Body**             | `{ "username":"", "password":"" }`                  |
 | **Success response** | [200] `{ "username":"", "authToken":"" }`           |
 | **Failure response** | [401] `{ "message": "Error: unauthorized" }`        |
-| **Failure response** | [500] `{ "message": "Error: description" }` 	     |
+| **Failure response** | [500] `{ "message": "Error: description" }`         |
 
 ### Logout
 
@@ -67,15 +71,15 @@ An API is a command a server makes available to the public. For your server thes
 
 Note that `whiteUsername` and `blackUsername` may be `null`.
 
-| property             | value                                                                                    |
-| -------------------- | ---------------------------------------------------------------------------------------- |
-| **Description**      | Gives a list of all games.                                                               |
-| **URL path**         | `/game`                                                                                  |
-| **HTTP Method**      | `GET`                                                                                    |
-| **Headers**          | `authorization: <authToken>`                                                             |
-| **Success response** | [200] `{ "games": ["gameID": 1234, "whiteUsername":"", "blackUsername":"", "gameName:""} ]}`  |
-| **Failure response** | [401] `{ "message": "Error: unauthorized" }`                                             |
-| **Failure response** | [500] `{ "message": "Error: description" }`                                              |
+| property             | value                                                                                        |
+| -------------------- | -------------------------------------------------------------------------------------------- |
+| **Description**      | Gives a list of all games.                                                                   |
+| **URL path**         | `/game`                                                                                      |
+| **HTTP Method**      | `GET`                                                                                        |
+| **Headers**          | `authorization: <authToken>`                                                                 |
+| **Success response** | [200] `{ "games": ["gameID": 1234, "whiteUsername":"", "blackUsername":"", "gameName:""} ]}` |
+| **Failure response** | [401] `{ "message": "Error: unauthorized" }`                                                 |
+| **Failure response** | [500] `{ "message": "Error: description" }`                                                  |
 
 ### Create Game
 
@@ -125,12 +129,12 @@ Previously, you created a `chess` package that contains the model classes that r
 
 **Game**
 
-| Field         | Type        		     |
+| Field         | Type                       |
 | ------------- | -------------------------- |
-| gameID        | int      		     |
-| whiteUsername | String     		     |
-| blackUsername | String    		     |
-| gameName      | String   		     |
+| gameID        | int                        |
+| whiteUsername | String                     |
+| blackUsername | String                     |
+| gameName      | String                     |
 | game          | `ChessGame` implementation |
 
 **AuthToken**

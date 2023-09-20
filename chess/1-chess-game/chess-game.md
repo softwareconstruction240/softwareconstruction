@@ -1,5 +1,9 @@
 # ♕ Phase 1: Chess Game
 
+- [Chess Application Overview](../chess.md)
+- [Getting Started](getting-started.md)
+- [Starter Code](starter-code)
+
 In this part of the Chess Project, you will create the base Chess Game behavior. To do this you will create the following 10 implementation classes that implement the provided interfaces: A Chess Game class, a Chess Board class, a Chess Position class, a Chess Move class, and 6 Chess Piece classes. In later assignments you will use this code to create a fully playable game.
 
 ## Code Class Structure
