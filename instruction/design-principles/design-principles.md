@@ -183,58 +183,178 @@ Consider factors such as:
 1. **Algorithmic complexity** - Are you willing to sacrifice readability and maintainability?
 1. **Compatibility with interface and persistence layers** - Some data structures are easier to serialize.
 
-## Single Responsibility Principle
+## SOLID
 
-One form of simplicity is represented by the [Single Responsibility Principle](https://en.wikipedia.org/wiki/Single-responsibility_principle). The idea here is that an object does one thing and does it well. You don't have a `Person` class that has a method to `driveCarByRoute` that performs the actions of a car in motion. You would have a `Person` class, a `Car` class, and a `Route` class. You would then pass the `Person` and `Route` to the car's `drive` method, and send it on its way.
+The SOLID principles of clean code were promoted by a popular software design consultant named Robert Martin (AKA Uncle Bob).
 
-![frankenobject](frankenObject.jpg)
+![Uncle Bob](robert-martin.png)
 
-Following the single responsibility principle makes it so there is only one reason to manipulate the class. You manipulate the `Person` class to represent the person and the `Route` class to represent the route. If you find yourself making a `FrankenObject` that represents multiple real world objects then you need to refactor your code into multiple classes.
+> _source: [SmarterMSP.com](https://smartermsp.com/pioneers-in-tech-barbara-liskov-and-the-clu-programming-language/)_
+
+> “Truth can only be found in one place: the code.”
+>
+> — Robert Martin
+
+SOLID represent five key principles.
+
+1. Single Responsibility - Do only one thing
+1. Open Closed - Open for extension, closed for modification
+1. Liskov Substitution - Interfaces can be backed by any concrete implementation
+1. Interface Segregation - Keep interfaces cohesive
+1. Dependency Inversion - Reference interfaces, not concrete implementations
+
+Let's look at each of these in detail.
+
+### Single Responsibility Principle
+
+One form of simplicity is represented by the [Single Responsibility Principle](https://en.wikipedia.org/wiki/Single-responsibility_principle). The idea here is that an object does one thing and does it well. You don't have a `Person` class that represents everything associated with a person. You have a `Person` class that represents the distinct attributes of a person such as `name` and `brithDate`, and then you have other classes that represent things associated with a Person.
+
+![single responsibility](single-responsibility.png)
+
+Following the single responsibility principle makes it so there is only one reason to manipulate the class. You manipulate the `Person` class to represent the person and the `Death` class to represent a death. If you find yourself making a `FrankenObject` that represents multiple objects, or responsibilities, then you should consider refactoring your code into multiple classes.
 
 The Java `String` class is a frequently cited example of violating the single responsibility principle as it not only represents an immutable string but provides operations for manipulating and converting the string. This makes the `String` class both a data container and a data mutator.
 
 Classes are not the only places where you need to consider the single responsibility principle. Methods and variables can also fall prey to confusing and conflicting responsibilities. For example, the following method has been overloaded with multiple responsibilities and interpret the parameters and return value in contradictory ways.
 
-```java
-/**
- * i < 0 delete the key and the empty string if successful
- * i == 0 return the old value if different
- * i > 0 replace the value and return the old value
- */
-String dbAction(String key, String value, int i);
-```
-
 If you find yourself changing a class for different reasons, functionality vs representation vs mutation vs display vs persistence, then you are probably in violation of the single responsibility principle.
 
-## Open Closed Principle
+#### Violation Example
+
+```java
+public interface FrankenPerson {
+    public void drive();
+    public void sleep();
+    public void eat();
+    public void work();
+    public void die();
+    public void play();
+
+    public void setAlarm();
+    public void planRoute();
+    public void shopForFood();
+    public void buyGymPass();
+}
+```
+
+```java
+public interface SOPViolation {
+    /**
+     * i < 0 delete the key and the empty string if successful
+     * i == 0 return the old value if different
+     * i > 0 replace the value and return the old value
+     */
+    public String dbAction(String key, String value, int i);
+}
+```
+
+### Open Closed Principle
 
 Classes should be open to extension and closed for modification. Meaning that you want to encourage additions to a class as appropriate, but modifying existing functionality is discouraged due to its tendency to disrupt the existing code base.
 
-## Liskov Substitution Principle
+#### Violation Example
 
-![Barabra Liskov](barbra-livskov.png)
+A simple example of violating the open closed principle is prohibiting the ability to extend a class by including the `final` keyword on a method.
 
-> _source: Wikipedia_
+```java
+public class UnableToExtend {
+    @Override
+    final public String toString() {
+        return super.toString();
+    }
+}
+
+// This will not compile because toString is final
+public class Rejected extends OpenClosedExample {
+    public String toString() {
+        return super.toString();
+    }
+}
+```
+
+```java
+public class AbleToModify {
+    // Allowing global changes to how the core algorithm works
+    public static String prefix = "";
+
+    public void log(String message) {
+        System.out.println(prefix + message);
+    }
+}
+```
+
+### Liskov Substitution Principle
+
+![Barbara Liskov](barbara-liskov.jpeg)
+
+> _source: [SmarterMSP.com](https://smartermsp.com/pioneers-in-tech-barbara-liskov-and-the-clu-programming-language/)_
 
 > “[be] aware not just of what you understand, but also what you don’t understand”
 >
-> — Barabra Liskov
+> — Barbara Liskov
 
 If an operation is dependent on an interface, or base class, you must be able to substitute any derived class without altering the operation. This can happen if a base class throws an `UnsupportedException` for an interface or overridden method, or if the operation does a type cast on the interface.
 
+#### Violation Example
+
+```java
+public class LSPExample extends Object {
+    public int hashCode() {
+        throw new UnsupportedOperationException();
+    }
+}
+```
+
+```java
+void lspViolation2(List list) {
+  var arrayList = (ArrayList)list;
+}
+```
+
 Violations of this principle cause unexpected behaviors within the application and require the developer to understand all of the code before they can safely make substitutions.
 
-## Interface Segregation Principle
+### Interface Segregation Principle
 
 When you define an interface you only include methods that work together as a cohesive whole. You don't add methods that are related, but not necessary for the consumption of the primary usage of the interface. Put another way, the interface segregation principle states that that no consumer of an interface should be forced to depend on methods it does not use.
 
 Exposing methods to all consumers of the interface, without regard for the user of the methods by all the consumers, creates a significant maintenance problem. If you want to alter the interface then you must examine all uses of the interface. Instead, the preferred approach is to create multiple interfaces that an object uses and only use the interface that is appropriate to the consumer.
 
-## Dependency Inversion Principle
+#### Violation Example
 
-The dependency inversion principle suggests the you should expose interfaces and not concrete classes. Interfaces enable the core abstraction necessary to make code extensible and maintainable. Whenever to expose a concrete class implementation you expose unintended coupling with the class. At very least you are exposing a constructor and potentially extraneous methods that are unnecessary to the use of the class.
+```java
+public interface InterfaceSegregationExample {
+    byte readByte();
+    String readString();
+    int readInt();
+
+    // Outside cohesive whole.
+    void writeByte(byte b);
+    void writeString(String s);
+    void writeInt(int i);
+}
+```
+
+### Dependency Inversion Principle
+
+The dependency inversion principle suggests the you should expose interfaces and not concrete classes. Interfaces enable the core abstraction necessary to make code extensible and maintainable. Whenever to expose a concrete class implementation you expose unintended coupling with the class. At very least you are exposing a specific implementation and potentially extraneous methods that are unnecessary to the use of the interface that should represent the class.
 
 Put another way, the principle says that dependencies are made on aspects of functionality, not on implementations of the functionality.
+
+#### Violation Example
+
+```java
+public class DependencyInversionExample {
+    private int[] items;
+
+    List getItemsGood() {
+        return List.of(items);
+    }
+
+    int[] getItemsBad() {
+        return items;
+    }
+}
+```
 
 ## Avoiding Code Duplication
 
