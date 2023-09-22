@@ -36,6 +36,11 @@ String stringItem = (String) list.get(0); // Exception thrown at runtime
 ```
 
 Not only does this code force the overhead of type casting, it is also dangerous because your list can contain any type of object, and unless you use reflection, you have to guess how to type cast the object. If you guess wrong you will throw a runtime exception.
+## Videos
+
+- 🎥 [Generic Types Overview (4:00)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=15993248-1fa0-47fa-ba6f-b0530109e081)
+- 🎥 [Using Generic Classes (6:49)] (https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=ced1be5e-61a3-4dfd-b03f-b053010b6950)
+- 🎥 [Generic Type Wildcards (1:59)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=32ad9f28-5028-44d0-8bb2-b053010d7bc9)
 
 ## Demonstration code
 
