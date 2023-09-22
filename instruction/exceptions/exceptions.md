@@ -115,6 +115,50 @@ public class ExceptionExample {
 }
 ```
 
+## Try with Resource
+
+Not closing resources, such as file handles or database connections, can lead to leaks that will cause your application to fail. The following example shows the allocation of an input stream that closes the stream after it is used. However, if an exception is thrown during the read operation the stream is not closed and the file handle is leaked. That means the resources associated with the file are never released and eventually that application will not be able to open files.
+
+```java
+public void NoTry() throws IOException {
+    FileInputStream input = new FileInputStream("test.txt");
+    System.out.println(input.read());
+
+    // If an exception is thrown this will not close the stream
+    input.close();
+}
+```
+
+To work around this, it is common to use the `try/finally` syntax to clean up resources that need to be closed. In the example below the stream will be closed whether or not an exception is thrown.
+
+```java
+public void TryWithFinally() throws IOException {
+    FileInputStream input = null;
+    try {
+        input = new FileInputStream("test.txt");
+        System.out.println(input.read());
+    } finally {
+        if (input != null) {
+            // If an exception is thrown this will not close the stream
+            input.close();
+        }
+    }
+}
+```
+
+As you can see by the previous example, resource cleanup introduces a lot of boilerplate code. To make this common, necessary, activity easier to implement Java introduced the `try with resource` syntax. You can use this syntax with any class that implements the [closable](https://docs.oracle.com/javase/8/docs/api/java/io/Closeable.html) interface. This includes things like input and output streams, readers and writers, network connections, files, and channels.
+
+To use this syntax you place the allocation of the object as a parameter to the `try` keyword. The Java complier will automatically generate the finally block and call close for you.
+
+```java
+public void tryWithResources() throws IOException {
+    // Close is automatically called at the end of the try block
+    try (FileInputStream input = new FileInputStream("test.txt")) {
+        System.out.println(input.read());
+    }
+}
+```
+
 ## Exceptions Should be Exceptional
 
 Remember that exceptions should be exceptional. Do not throw exceptions for things that happen in the normal flow of your code. For example, if it is expected that sometimes a file may not be found, then that is not exceptional. Also do throw exceptions to return values from a function. For example, a token parser should not throw exceptions in order to return tokens that it parses to anyone with a catch block.
