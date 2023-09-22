@@ -146,6 +146,17 @@ Just like anonymous classes, lambda functions also support closure. That means y
     }
 ```
 
+## Videos (34:42)
+
+- 🎥 [Lambda Expressions Overview (6:47)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=6cfff192-6903-40b0-bacb-b053010e7658)
+- 🎥 [How Java Lambdas Work (7:14)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=30d50a0f-b462-4d41-b7c6-b05301107ef8)
+- 🎥 [Lambda Syntax (2:56)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=66a7b726-985e-4f7e-be87-b0530112a93e)
+- 🎥 [Function / Lambda Variables (2:47)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=3c58fb2e-dc04-4dc4-b040-b0530113a8f6)
+- 🎥 [Creating APIs with Lambdas (5:10)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=4f332bfb-9836-41d8-acc0-b0530114dcb2)
+- 🎥 [Using Generic Interfaces Example Revisited (2:10)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=ceee1a53-7ff3-4a71-8b26-b0530116817b)
+- 🎥 [Use of Lambdas in Existing Classes (3:22)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=19b04002-8028-4e50-bd68-b0530117654d)
+- 🎥 [Method References (4:16)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=465b91d6-210d-4838-b266-b0530119161e)
+
 ## Demonstration code
 
 📁 [ComparatorWithLambda.java](example-code/ComparatorWithLambda.java)
