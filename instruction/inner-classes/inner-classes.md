@@ -171,7 +171,7 @@ public class AnonymousExample {
     public static void main(String[] args) {
         var spanish = new Speaker() {
             public String sayHello() {
-                return "Hallo";
+                return "Hola";
             }
         };
         var german = new Speaker() {
