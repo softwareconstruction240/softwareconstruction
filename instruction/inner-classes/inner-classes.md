@@ -23,7 +23,7 @@ You can think of a static inner class as being a convenient way to declare a cla
 Because the inner class is declared as being static, it is completely independent of the outer class, and does not have access to outer class's `this` pointer.
 
 ```java
-public class OuterExample {
+public class StaticOuterExample {
     public static void main(String[] args) {
         System.out.println(new OuterExample());
     }
@@ -46,7 +46,7 @@ public class OuterExample {
 **Output**
 
 ```sh
-Inner: OuterExample$StaticInnerExample
+Inner: StaticOuterExample$StaticInnerExample
 ```
 
 ## Inner Classes
