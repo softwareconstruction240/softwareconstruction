@@ -99,7 +99,7 @@ public class LocalOuterExample {
             public String toString() {
                 var inner = this.getClass().getName();
                 // Note the use of the outer class's this pointer and scope variables.
-                var outer = OuterExample.this.getClass().getName();
+                var outer = LocalOuterExample.this.getClass().getName();
                 return String.format("Inner: %s has access to Outer: %s, and variables: %s", inner, outer, outerLocalVar);
             }
         }
