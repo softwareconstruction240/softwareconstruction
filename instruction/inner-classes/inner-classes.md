@@ -25,7 +25,7 @@ Because the inner class is declared as being static, it is completely independen
 ```java
 public class StaticOuterExample {
     public static void main(String[] args) {
-        System.out.println(new OuterExample());
+        System.out.println(new StaticOuterExample());
     }
 
     private StaticInnerExample inner = new StaticInnerExample();
@@ -87,9 +87,9 @@ Inner: OuterExample$InnerExample has access to Outer: OuterExample
 A local inner class is like a normal inner class, but are declared within the scope of the block. A declaration scope may be a method, or something like a `for loop`. An important property of local inner classes is that, whatever variables exist within the declaration scope are also available to the local inner class.
 
 ```java
-public class OuterExample {
+public class LocalOuterExample {
     public static void main(String[] args) {
-        System.out.println(new OuterExample());
+        System.out.println(new LocalOuterExample());
     }
 
     public String toString() {
