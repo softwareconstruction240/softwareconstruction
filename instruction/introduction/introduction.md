@@ -8,7 +8,7 @@ In previous courses you have probably focused on building small programs that ta
 
 ## Software Engineering
 
-The term software engineering was first used in conjunction with the software created for the Apollo moon landings. Margaret Hamilton, the lead programmer for the MIT team, described their work as complementary to the hardware engineering in complexity and design, and therefore was `software engineering`.
+The term software engineering was first used in conjunction with the software created for the Apollo moon landings. Margaret Hamilton, the director of the software division, described their work as complementary to the hardware engineering in complexity and design, and therefore was `software engineering`.
 
 ![Margaret Hamilton](margaret-hamilton.jpg)
 
