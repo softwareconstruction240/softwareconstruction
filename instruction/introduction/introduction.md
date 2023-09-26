@@ -6,6 +6,18 @@ Welcome to Computer Science 240: `Advanced Software Construction`. This course f
 
 In previous courses you have probably focused on building small programs that targeted learning a particular concept. While these programs teach you a specific concept, they fail to provide you with the skills necessary to create applications that require careful design, engineering, and tooling.
 
+## Software Engineering
+
+The term software engineering was first used in conjunction with the software created for the Apollo moon landings. Margaret Hamilton, the lead programmer for the MIT team, described their work as complementary to the hardware engineering in complexity and design, and therefore was `software engineering`.
+
+![Margaret Hamilton](margaret-hamilton.jpg)
+
+> _Source: Wikipedia_
+
+> “Looking back, we were the luckiest people in the world. There was no choice but to be pioneers; no time to be beginners.”
+>
+> — Margaret Hamilton
+
 ## Projects
 
 There are two programming projects that you will complete for this course. The first program is a simple `spelling corrector`. This program takes as input, a dictionary and a candidate word. The corrector analyzes the word and then returns a corrected suggestion.
