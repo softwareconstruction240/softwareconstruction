@@ -97,3 +97,7 @@ Object: {year=2264.0, pets=[cat, dog, fish], name=perry}
 📁 [generator](example-code/generator)
 
 📁 [parser](example-code/parser)
+
+📁 [typeAdapter](example-code/typeAdapter)
+
+📁 [runtimeTypeAdapter](example-code/runtimeTypeAdapter)
