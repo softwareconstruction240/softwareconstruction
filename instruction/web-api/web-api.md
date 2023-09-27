@@ -4,7 +4,7 @@
 
 🖥️ [Slides: Client](https://docs.google.com/presentation/d/1P-qIn-6mrZ28UuRFtFMIvGnjygOtOzZ5/edit?usp=sharing&ouid=114081115660452804792&rtpof=true&sd=true)
 
-## Writing an Web Service in Java
+## Writing a Web Service in Java
 
 Now that you understand how HTTP works at a theoretical level you can write Java code to make requests from an HTTP client and respond from an HTTP server.
 
