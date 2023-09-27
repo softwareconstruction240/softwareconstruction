@@ -37,6 +37,29 @@ String stringItem = (String) list.get(0); // Exception thrown at runtime
 
 Not only does this code force the overhead of type casting, it is also dangerous because your list can contain any type of object, and unless you use reflection, you have to guess how to type cast the object. If you guess wrong you will throw a runtime exception.
 
+## Writing Your Own Generic Classes
+
+You can also write your own generic classes by using the syntax that creates placeholders for the generic type. The following example creates a generic storage object that can be initialized to contain any specific type.
+
+The example simply wraps an `ArrayList`, but it could be altered to read and write data to a database that supports different types.
+
+```java
+class Storage<T> {
+    List<T> items = new ArrayList<>();
+
+    void add(T item) {
+        items.add(item);
+    }
+
+    T get(int i) {
+        return items.get(i);
+    }
+}
+
+var intStorage = new Storage<Integer>();
+var stringStorage = new Storage<String>();
+```
+
 ## Videos (12:48)
 
 - 🎥 [Generic Types Overview (4:00)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=15993248-1fa0-47fa-ba6f-b0530109e081)
