@@ -82,8 +82,7 @@ By default Gson will attempt to examine the class you are importing and exportin
 To define a `TypeAdapter` you write a class that implements a `write` and `read` method. The following is a simple type adapter that prefixes a string on output and removes the prefix on input.
 
 ```java
-public static TypeAdapter<String> getJsonTypeAdapter() {
-    final String prefix = "x-";
+public static TypeAdapter<String> createPrefixAdapter(String prefix) {
     return new TypeAdapter<>() {
         @Override
         public void write(JsonWriter w, String text) throws IOException {
@@ -99,15 +98,15 @@ public static TypeAdapter<String> getJsonTypeAdapter() {
 }
 ```
 
-You can then use the type adapter when you create your Gson serializer by creating a `GsonBuilder` and registering the type adapter.
+You can then use the type adapter when you create your Gson serializer by creating a `GsonBuilder` and registering the type adapter. In the following example we register the adapter to work with any `String` objects.
 
 ```java
 var builder = new GsonBuilder();
-builder.registerTypeAdapter(String.class, getJsonTypeAdapter());
+builder.registerTypeAdapter(String.class, createPrefixAdapter("x-"));
 var serializer = builder.create();
 ```
 
-The new serializer will then pass object types to the adapter whenever the JSON text is serialized. Here is the full example.
+The new serializer will then call the adapter whenever it attempts to serialize objects of the type the adapter is registered for. Here is the full example.
 
 ```java
 public class GsonAdapterExample {
@@ -116,7 +115,7 @@ public class GsonAdapterExample {
         var obj = new String[]{"cat", "dog", "cow"};
 
         var builder = new GsonBuilder();
-        builder.registerTypeAdapter(String.class, getJsonTypeAdapter());
+        builder.registerTypeAdapter(String.class, createPrefixAdapter("x-"));
         var serializer = builder.create();
 
         var json = serializer.toJson(obj);
@@ -127,8 +126,7 @@ public class GsonAdapterExample {
     }
 
 
-    public static TypeAdapter<String> getJsonTypeAdapter() {
-        final String prefix = "x-";
+    public static TypeAdapter<String> createPrefixAdapter(String prefix) {
         return new TypeAdapter<>() {
             @Override
             public void write(JsonWriter w, String text) throws IOException {
@@ -143,6 +141,13 @@ public class GsonAdapterExample {
         };
     }
 }
+```
+
+The above code will output the following.
+
+```sh
+JSON:   ["x-cat","x-dog","x-cow"]
+Object: [cat, dog, cow]
 ```
 
 ## Things to Understand
