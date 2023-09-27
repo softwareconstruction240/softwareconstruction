@@ -48,7 +48,7 @@ JSON is always encoded with [UTF-8](https://en.wikipedia.org/wiki/UTF-8). This a
 The `Gson` library was created by Google in order to support JSON in Java code. Once you have installed the Gson library you can convert a Java String to a Java object, or a Java object to a string. The following code demonstrates how to do this.
 
 ```java
-public class JsonExample {
+public class GsonExample {
     public static void main(String[] args) {
         var obj = Map.of(
                 "name", "perry",
