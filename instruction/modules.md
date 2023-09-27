@@ -15,7 +15,7 @@ The course content is divided into multiple modules. Each module represents a we
 
 - Spelling Corrector _continued..._
 - [Classes and Objects](classes-and-objects/classes-and-objects.md)
-- [Java Inheritance](inheritance/inheritance.md)
+- [Interfaces and Abstract Classes](interfaces-abstract-classes/interfaces-and-abstract-classes.md)
 - [Copying Objects](copying-objects/copying-objects.md)
 - [Object Oriented Design](object-oriented-design/object-oriented-design.md)
 
