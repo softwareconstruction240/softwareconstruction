@@ -37,7 +37,7 @@ Java quickly gained adoption because of its simplified, yet powerful, object ori
 
 In Java, all code is defined in a class that contains properties and methods. Each class is stored in a file with a filename that is the same as the class, and has a `.java` extension. If your class has a method name `main`, then it can act as the starting point for your program. A simple Java program looks like the following.
 
-**HelloWorld.java**
+#### HelloWorld.java
 
 ```java
 public class HelloWorld {

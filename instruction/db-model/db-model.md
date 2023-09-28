@@ -8,20 +8,23 @@ At a basic level, relational data is stored in a `database`. A database contains
 
 The following gives a simple visualization of a database name `pet-store` that contains a table for `pet`, `owner`, and `purchase`.
 
-**pet**
+#### pet
+
 |id|name|type|
 |-|-|-|
 |93|Fido|dog|
 |14|Puddles|cat|
 |77|Chip|bird|
 
-**owner**
+#### owner
+
 |id|name|phonenumber|
 |-|-|-|
 |81|Juan|6196663333|
 |82|Bud|8018889999|
 
-**purchase**
+#### purchase
+
 |id|ownerid|petid|
 |-|-|-|
 |51|81|93|

@@ -12,6 +12,7 @@ Take the following steps to setup your Chess project.
 
 1. Create a GitHub repo for your chess project and name it `chess`.
 1. Clone the repository to your development environment. Make sure you put the clone of the repository in a directory that you use for this class's coursework. These commands will look something like the following.
+
    ```sh
    cd ~/byu/cs240
    git clone https://github.com/YOURACCOUNTHERE/chess.git

@@ -9,17 +9,17 @@ Software should be developed with security in mind. Bad actors (hackers) try to 
 ## Things to Understand
 
 - High-level goals of computer security
-    - Data confidentiality
-    - Authentication
-    - Data integrity
-    - Non-Repudiation 
-- Fundamental security concepts and technologies 
-    - Cryptographic hash functions
-    - Symmetric data encryption
-    - Asymmetric (ie, Public Key) data encryption with public and private keys
-    - Secure key exchange
-    - Digital signatures
-    - Public key certificates
+  - Data confidentiality
+  - Authentication
+  - Data integrity
+  - Non-Repudiation
+- Fundamental security concepts and technologies
+  - Cryptographic hash functions
+  - Symmetric data encryption
+  - Asymmetric (ie, Public Key) data encryption with public and private keys
+  - Secure key exchange
+  - Digital signatures
+  - Public key certificates
 - Secure password storage and verification
 - Secure network communication using HTTPS (ie, SSL/TLS)
 

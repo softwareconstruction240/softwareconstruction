@@ -6,7 +6,6 @@ Typically, when a program prints output to the console (or terminal), the text i
 
 ![Console User Interface](Midnight_Commander_(2005)_en.png)
 
-
 ## Things to Understand
 
 - How to use terminal control codes to clear the terminal, set background and text colors, and text attributes such as bold, faint, italic, underline, and blinking

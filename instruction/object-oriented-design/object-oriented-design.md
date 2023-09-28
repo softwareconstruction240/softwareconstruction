@@ -54,11 +54,11 @@ Simplicity is another important characteristic of object oriented programming. O
 
 Of course you can simplify too far and end up with thousands of classes that each have a single line of code, or a single object that aggregates itself and can represent everything. Both of these extremes should be avoided. What you want is to be straight forward in your object modeling and try to stick as close to the real world domain as possible.
 
-**Too many classes**
+#### Too many classes
 
 ![Verbose Object](verboseObject.png)
 
-**Not enough classes**
+#### Not enough classes
 
 ![Ultimate Object](ultimateObject.jpg)
 

@@ -30,9 +30,9 @@ The following demonstrates a simple query to read all of the pets in a database.
 +--------+----------+---------------+
 | id     | name     | type          |
 +--------+----------+---------------+
-| 93     | Fido	    | dog           |
+| 93     | Fido     | dog           |
 | 14     | Puddles  | cat           |
-| 77     | Chip	    | bird          |
+| 77     | Chip     | bird          |
 +--------+----------+---------------+
 ```
 

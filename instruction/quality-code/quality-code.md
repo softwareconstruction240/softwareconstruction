@@ -6,7 +6,7 @@
 
 Despite stereotypes to the contrary, software engineering is an art form. It requires significant creativity to envision, architect, and create quality user experiences. That same care and artistic expression should be reflected in how your organize and write your code. One quality of a distinguished engineer is that they write code that is easy to discover, read, comprehend, manipulate, and extend. Take for example the following two small programs.
 
-**Example 1**
+#### Example 1
 
 ```java
 public class ComputeIt {
@@ -31,7 +31,7 @@ static int doIt(int ipt, int ftr) {
 }
 ```
 
-**Example 2**
+#### Example 2
 
 ```java
 public class Fibonacci {

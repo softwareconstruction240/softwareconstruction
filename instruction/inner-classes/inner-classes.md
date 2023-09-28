@@ -43,7 +43,7 @@ public class StaticOuterExample {
 }
 ```
 
-**Output**
+#### Output
 
 ```sh
 Inner: StaticOuterExample$StaticInnerExample
@@ -76,7 +76,7 @@ public class OuterExample {
 }
 ```
 
-**Output**
+#### Output
 
 ```sh
 Inner: OuterExample$InnerExample has access to Outer: OuterExample
@@ -111,7 +111,7 @@ public class LocalOuterExample {
 }
 ```
 
-**Output**
+#### Output
 
 ```sh
 Inner: OuterExample$1InnerExample has access to Outer: OuterExample, and variables: outerLocalVar
@@ -149,7 +149,7 @@ public class Closure {
 }
 ```
 
-**Output**
+#### Output
 
 ```sh
 Spanish: Hola
