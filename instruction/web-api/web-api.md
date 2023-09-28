@@ -143,16 +143,11 @@ When this server is running you will get the following results when you make req
 For our client code, we can use the standard JDK `java.net` library to make HTTP requests. The following example hard codes the URL, but the terse nature of the example helps to demonstrate the essential pieces of the request.
 
 ```java
-import com.google.gson.Gson;
-import java.io.*;
-import java.net.*;
-import java.util.Map;
-
 public class ClientExample {
     public static void main(String[] args) throws Exception {
         // Specify the desired endpoint
-        URL url = new URL("http://localhost:8080/name");
-        HttpURLConnection http = (HttpURLConnection) url.openConnection();
+        URI url = new URI("http://localhost:8080/name");
+        HttpURLConnection http = (HttpURLConnection) url.toURL().openConnection();
         http.setRequestMethod("GET");
 
         // Make the request
