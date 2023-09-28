@@ -28,25 +28,26 @@ Assume you want to create speakers for different languages. To do this you would
 
 ```java
 // FrenchSpeaker.java
-class FrenchSpeaker implements Speaker {
-    String sayHello() {
-      return 'bonjour';
+static class FrenchSpeaker implements Speaker {
+    public String sayHello() {
+        return "bonjour";
     }
 }
 
 // GermanSpeaker.java
-class GermanSpeaker implements Speaker {
-    String sayHello() {
-      return 'hallo';
+static class GermanSpeaker implements Speaker {
+    public String sayHello() {
+        return "hallo";
     }
 }
 
 // EnglishSpeaker.java
-class EnglishSpeaker implements Speaker {
-    String sayHello() {
-      return 'hello';
+static class EnglishSpeaker implements Speaker {
+    public String sayHello() {
+        return "hello";
     }
 }
+
 ```
 
 You could then use each of these classes in your calls to `speak`.
@@ -60,18 +61,21 @@ speak(new EnglishSpeaker());
 You can simplify this problem somewhat by using anonymous classes. This removes the need for all the extra class files, but it still creates a lot of redundant overhead in your code.
 
 ```java
-speak((new Speaker {
-    String sayHello() {
-      return 'bonjour';
-    });
-speak(new Speaker {
-    String sayHello() {
-      return 'hallo';
-    });
-speak(new Speaker {
-    String sayHello() {
-      return 'hello';
-    });
+speak(new Speaker() {
+    public String sayHello() {
+        return "bonjour";
+    }
+});
+speak(new Speaker() {
+    public String sayHello() {
+        return "hallo";
+    }
+});
+speak(new Speaker() {
+    public String sayHello() {
+        return "hello";
+    }
+});
 ```
 
 To overcome this deficiency in the language, Java introduced `Lambda` functions. In Java, Lambda functions are effectively a syntactic simplification of anonymous inner classes that implement an interface with a single function. An interface of this type is called a `Functional Interface`.
@@ -87,9 +91,9 @@ Notice that you do not have to declare the types, include the block curly braces
 For the example we described above, we could reduce our anonymous speaker classes to be the following.
 
 ```java
-speak(() -> 'bonjour');
-speak(() -> 'hallo');
-speak(() -> 'hello');
+speak(() -> "bonjour");
+speak(() -> "hallo");
+speak(() -> "hello");
 ```
 
 Notice how compact the lambda function representation is. If you need to provide more than a single line when defining the body of your lambda function, you can include curly braces, but you must also explicitly include the `return` keyword.
@@ -145,6 +149,17 @@ Just like anonymous classes, lambda functions also support closure. That means y
         return () -> msg;
     }
 ```
+
+## Videos (34:42)
+
+- 🎥 [Lambda Expressions Overview (6:47)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=6cfff192-6903-40b0-bacb-b053010e7658)
+- 🎥 [How Java Lambdas Work (7:14)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=30d50a0f-b462-4d41-b7c6-b05301107ef8)
+- 🎥 [Lambda Syntax (2:56)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=66a7b726-985e-4f7e-be87-b0530112a93e)
+- 🎥 [Function / Lambda Variables (2:47)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=3c58fb2e-dc04-4dc4-b040-b0530113a8f6)
+- 🎥 [Creating APIs with Lambdas (5:10)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=4f332bfb-9836-41d8-acc0-b0530114dcb2)
+- 🎥 [Using Generic Interfaces Example Revisited (2:10)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=ceee1a53-7ff3-4a71-8b26-b0530116817b)
+- 🎥 [Use of Lambdas in Existing Classes (3:22)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=19b04002-8028-4e50-bd68-b0530117654d)
+- 🎥 [Method References (4:16)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=465b91d6-210d-4838-b266-b0530119161e)
 
 ## Demonstration code
 

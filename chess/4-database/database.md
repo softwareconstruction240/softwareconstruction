@@ -1,6 +1,6 @@
 # ♕ Phase 4: Chess Database
 
-♟️ [Project Overview](../chess.md)
+♟️ [Chess Application Overview](../chess.md)
 
 ✅ [Phase 4 Getting Started](getting-started.md)
 

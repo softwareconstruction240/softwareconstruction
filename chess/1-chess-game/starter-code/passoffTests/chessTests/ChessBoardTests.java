@@ -136,6 +136,27 @@ public class ChessBoardTests {
                     board.getPiece(TestFactory.getNewPosition(8, column)).getTeamColor(),
                     "Piece at starting position was incorrect color");
         }
+
+        //check nullity
+        ChessPosition pawnPosition = TestFactory.getNewPosition(3, 3);
+        ChessPosition knightPosition = TestFactory.getNewPosition(4, 4);
+        ChessPosition bishopPosition = TestFactory.getNewPosition(5, 5);
+        ChessPosition rookPosition = TestFactory.getNewPosition(6, 6);
+        board.addPiece(pawnPosition,
+                TestFactory.getNewPiece(ChessGame.TeamColor.WHITE, ChessPiece.PieceType.PAWN));
+        board.addPiece(knightPosition,
+                TestFactory.getNewPiece(ChessGame.TeamColor.BLACK, ChessPiece.PieceType.KNIGHT));
+        board.addPiece(bishopPosition,
+                TestFactory.getNewPiece(ChessGame.TeamColor.WHITE, ChessPiece.PieceType.BISHOP));
+        board.addPiece(rookPosition,
+                TestFactory.getNewPiece(ChessGame.TeamColor.BLACK, ChessPiece.PieceType.ROOK));
+        board.resetBoard();
+        for (int row = 3; row <= 6; ++row) {
+            for (int column = 1; column <= 8; ++column) {
+                Assertions.assertNull(board.getPiece(TestFactory.getNewPosition(row, column)),
+                        "Piece in the middle of the board was not reset");
+            }
+        }
     }
 
 }

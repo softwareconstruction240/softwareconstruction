@@ -1,6 +1,6 @@
 # Getting Started
 
-♟️ [Project Overview](../chess.md)
+♟️ [Chess Application Overview](../chess.md)
 
 📋 [Phase 5 Requirements](pregame.md)
 

@@ -15,7 +15,7 @@ The course content is divided into multiple modules. Each module represents a we
 
 - Spelling Corrector _continued..._
 - [Classes and Objects](classes-and-objects/classes-and-objects.md)
-- [Java Inheritance](inheritance/inheritance.md)
+- [Interfaces and Abstract Classes](interfaces-abstract-classes/interfaces-and-abstract-classes.md)
 - [Copying Objects](copying-objects/copying-objects.md)
 - [Object Oriented Design](object-oriented-design/object-oriented-design.md)
 
@@ -26,16 +26,16 @@ The course content is divided into multiple modules. Each module represents a we
 - [Java Input and Output (IO)](io/io.md)
 - [Design Principles](design-principles/design-principles.md)
 - ♕ [Phase 1: Chess Game](../chess/1-chess-game/chess-game.md)
-- ☑ Spelling Corrector (**Due**)
+- ☑ Spelling Corrector (**Due Sept 19th**)
+- ☑ Spelling Corrector (**Exam Sept 22nd**)
 
 ## Module 4
 
 - [Git](git/git.md)
 - [Java Inner Classes](inner-classes/inner-classes.md)
-- [JSON and Serialization](json/json.md)
-- [Java Generics](generics/generics.md)
 - [Java Lambdas](lambdas/lambdas.md)
-- ☑ Spelling Corrector (**Exam**)
+- [Java Generics](generics/generics.md)
+- [JSON and Serialization](json/json.md)
 
 ## Module 5
 
@@ -49,7 +49,7 @@ The course content is divided into multiple modules. Each module represents a we
 - [Style Checking](style-checker/style-checker.md)
 - ♕ [Phase 2: Chess Server Design](../chess/2-server-design/server-design.md)
 - ♕ [Phase 3: Chess Web API](../chess/3-web-api/web-api.md)
-- ☑ Phase 1: Chess Game (**Due**)
+- ☑ Phase 1: Chess Game (**Due Oct 9th**)
 
 ## Module 7
 
@@ -57,14 +57,14 @@ The course content is divided into multiple modules. Each module represents a we
 - [Code Coverage](code-coverage/code-coverage.md)
 - [Relational Databases - The Relational Model](db-model/db-model.md)
 - [Relational Databases - SQL](db-sql/db-sql.md)
-- ☑ Phase 2: Chess Server Design (**Due**)
+- ☑ Phase 2: Chess Server Design (**Due Oct 17th**)
 
 ## Module 8
 
 - [Relational Databases - JDBC](db-jdbc/db-jdbc.md)
 - [MySQL](mysql/mysql.md)
 - ♕ [Phase 4: Chess Database](../chess/4-database/database.md)
-- ☑ Phase 3: Chess Web API (**Due**)
+- ☑ Phase 3: Chess Web API (**Due Oct 27th**)
 
 ## Module 9
 
@@ -77,7 +77,7 @@ The course content is divided into multiple modules. Each module represents a we
 - [Console UI](console-ui/console-ui.md)
 - [WebSocket](websocket/websocket.md)
 - ♕ [Phase 5: Chess Pregame](../chess/5-pregame/pregame.md)
-- ☑ Phase 4: Chess Database (**Due**)
+- ☑ Phase 4: Chess Database (**Due Nov 7th**)
 
 ## Module 11
 
@@ -88,16 +88,16 @@ The course content is divided into multiple modules. Each module represents a we
 
 - [Concurrency](concurrency/concurrency.md)
 - ♕ [Phase 6: Chess Gameplay](../chess/6-gameplay/gameplay.md)
-- ☑ Phase 5: Chess Pregame (**Due**)
 
 ## Module 13
 
 - [Command line tools](command-line-builds/command-line-builds.md)
 - [Final Exam Review](final-exam-review/final-exam-review.md)
+- ☑ Phase 5: Chess Pregame (**Due Nov 27th**)
 
 ## Module 14
 
-- ☑ Phase 6: Chess Game Play (**Due**)
+- ☑ Phase 6: Chess Game Play (**Due Dec 14th**)
 - ☑ Final (**Exam**)
 
 ### Legend

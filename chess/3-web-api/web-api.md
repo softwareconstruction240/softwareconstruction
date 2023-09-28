@@ -1,6 +1,6 @@
 # ♕ Phase 3: Chess Web API
 
-♟️ [Project Overview](../chess.md)
+♟️ [Chess Application Overview](../chess.md)
 
 ✅ [Phase 3 Getting Started](getting-started.md)
 
@@ -73,15 +73,15 @@ An API is a command a server makes available to the public. For your server thes
 
 Note that `whiteUsername` and `blackUsername` may be `null`.
 
-| property             | value                                                                                    |
-| -------------------- | ---------------------------------------------------------------------------------------- |
-| **Description**      | Gives a list of all games.                                                               |
-| **URL path**         | `/game`                                                                                  |
-| **HTTP Method**      | `GET`                                                                                    |
-| **Headers**          | `authorization: <authToken>`                                                             |
-| **Success response** | [200] `{ "games": ["gameID": 1234, "whiteUsername":"", "blackUsername":"", "gameName:""} ]}`  |
-| **Failure response** | [401] `{ "message": "Error: unauthorized" }`                                             |
-| **Failure response** | [500] `{ "message": "Error: description" }`                                              |
+| property             | value                                                                                        |
+| -------------------- | -------------------------------------------------------------------------------------------- |
+| **Description**      | Gives a list of all games.                                                                   |
+| **URL path**         | `/game`                                                                                      |
+| **HTTP Method**      | `GET`                                                                                        |
+| **Headers**          | `authorization: <authToken>`                                                                 |
+| **Success response** | [200] `{ "games": ["gameID": 1234, "whiteUsername":"", "blackUsername":"", "gameName:""} ]}` |
+| **Failure response** | [401] `{ "message": "Error: unauthorized" }`                                                 |
+| **Failure response** | [500] `{ "message": "Error: description" }`                                                  |
 
 ### Create Game
 
@@ -124,7 +124,6 @@ Previously, you created a `chess` package that contains the model classes that r
 
 | Field    | Type   |
 | -------- | ------ |
-| userID   | int    |
 | username | String |
 | password | String |
 | email    | String |

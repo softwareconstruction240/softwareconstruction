@@ -223,7 +223,7 @@ You clone a repository by providing the GitHub repository's URL as a parameter t
 When you clone a repository it is placed in a subdirectory named with the name of the repository. So make sure you are in the directory where you keep all of your source repositories before you run the command.
 
 ```sh
-➜  git clone https://github.com/softwareconstruction240/chess.git
+➜  git clone https://github.com/YOURACCOUNT/chess.git
 
 Cloning into 'chess'...
 remote: Total 4 (delta 0), reused 0 (delta 0), pack-reused 0
@@ -234,20 +234,59 @@ Receiving objects: 100% (4/4), done.
 
 ## IntelliJ and Git
 
-Knowing how to use Git from the console is a very valuable skill. Git offers a wide variety of functionality such as creating branches of the repository, temporarily stashing changes, and cloning repositories to other machines.
+Knowing how to use Git from the console is a very valuable skill. Git offers a wide variety of functionality such as creating branches of the repository, temporarily stashing changes, and cloning repositories to other machines. However, by using a tool like IntelliJ you can hide all of the complexity of the command line and use a visual interface instead.
 
-However, by using a tool like IntelliJ you can hide all of the complexity of the command line and use a visual interface instead.
+Here are the steps you need to take to successfully use Git, GitHub, and IntelliJ.
 
-Here we see IntelliJ looking at a `HelloWorld` class we have been working in. Once we have made our changes, we can use the `Commit` tab On the left to interact with Git and GitHub. On the `Commit` tab we can see all the changes we have made to the code. By clicking on the files we see the difference between the old and new version. If everything looks good we can press the `Commit and Push` button. Because this is our first commit to GitHub we need to provide our Personal Access Token. Once you have done this once, you don't need to do it again.
+### One Time Steps
 
-You can also use the `Git` tab, at the bottom of the screen, to see the commit history for your project. This allows you to walk back in history and see where changes were introduced or even revert back to previous versions.
+1. Make sure Git is installed.
+1. Make sure you have a GitHub account.
+1. Make sure you have a personal access token or have configured IntelliJ to have access to your GitHub account using OAuth.
+
+### Per Project Steps
+
+1. Create a GitHub repo for the project. Creating your repo in GitHub and then cloning it locally is much easier than trying to associate a local Git repo to a newly created GitHub repo.
+1. Copy the URL for your GitHub repo.
+
+   ![GitHub Repo URL](github-url.png)
+
+1. Clone the GitHub repo to your development environment using the GitHub repo URL.
+
+```sh
+➜  git clone https://github.com/YOURACCOUNT/YOURREPO.git
+```
+
+1. Create your project in IntelliJ. Set the target location for the project to be the same location where your cloned the repo.
+
+1. In the IntelliJ project, make a change, commit, and push to make sure it is working.
+
+The following video demonstrates committing and pushing code from IntelliJ to a GitHub repo. Once we have made our changes, we can use the `Commit` tab on the left to interact with Git and GitHub. On the `Commit` tab we can see all the changes we have made to the code. By clicking on the files we see the difference between the old and new version. If everything looks good we can press the `Commit and Push` button. If this is the first push you are making to your GitHub account then, you need to provide our Personal Access Token. Once you have done this once, you don't need to do it again.
 
 ![IntelliJ Git](GitIntelliJ.gif)
+
+You can also use the `Git` tab, at the bottom of the screen, to see the commit history for your project. This allows you to walk back in history and see where changes were introduced or even revert back to previous versions.
 
 Underneath the covers, IntelliJ is running Git commands just like we did on the command line, but using a visual tool makes working with versions much easier.
 
 Take some time and play with adding files, modifying them, committing, and diffing. You want to get to the point where this is second nature so that you can easily experiment and make mistakes, knowing that with Git, you can always easily recover.
 
-| Prev                                                            | Up                       | Next                                                    |
-| --------------------------------------------------------------- | ------------------------ | ------------------------------------------------------- |
+### Connecting an Existing IntelliJ Project to GitHub
+
+If you already have a Git repo in your local development environment and you want to connect it to a GitHub repo then you need to take two steps.
+
+1. Set the upstream origin for your local repo to point to the GitHub repo.
+
+   ```sh
+   ➜  git remote add origin https://github.com/YOURACCOUNT/YOURREPO.git
+   ```
+
+1. Set the branch and remote for the origin. You do this the first time you push. Note that your branch may be `master` instead of `main` depending on how you have configured your GitHub repo.
+
+   ```sh
+   ➜  git push -u origin main
+   ```
+
+# Course Navigation
+
 | ♕ [Phase 1: Chess Game](../../chess/1-chess-game/chess-game.md) | [Modules](../modules.md) | [Java Inner Classes](../inner-classes/inner-classes.md) |

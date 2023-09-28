@@ -3,7 +3,7 @@ package spell;
 /**
  * Note: Create your Trie class based on this interface.
  * 
- * You can add to the interface, but do not you alter or remove anything.
+ * You can add to the interface, but do not alter or remove anything.
  */
 public interface ITrie {
 

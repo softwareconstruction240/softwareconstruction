@@ -2,7 +2,7 @@
 
 📖 **Required Reading**: Core Java for the Impatient
 
-- Chapter 2 section 2.6 Nested Classes
+- Chapter 2 section 2.7 Nested Classes
 - Chapter 3 section 3.9 Local and Anonymous Classes
 
 Normally in Java, a class must be defined at the top level of a file that has the same name as the class. However, there are times when a class is only used within the context of another class, method, or scope. This is where inner, or nested, classes come into play.
@@ -23,9 +23,9 @@ You can think of a static inner class as being a convenient way to declare a cla
 Because the inner class is declared as being static, it is completely independent of the outer class, and does not have access to outer class's `this` pointer.
 
 ```java
-public class OuterExample {
+public class StaticOuterExample {
     public static void main(String[] args) {
-        System.out.println(new OuterExample());
+        System.out.println(new StaticOuterExample());
     }
 
     private StaticInnerExample inner = new StaticInnerExample();
@@ -46,7 +46,7 @@ public class OuterExample {
 **Output**
 
 ```sh
-Inner: OuterExample$StaticInnerExample
+Inner: StaticOuterExample$StaticInnerExample
 ```
 
 ## Inner Classes
@@ -87,9 +87,9 @@ Inner: OuterExample$InnerExample has access to Outer: OuterExample
 A local inner class is like a normal inner class, but are declared within the scope of the block. A declaration scope may be a method, or something like a `for loop`. An important property of local inner classes is that, whatever variables exist within the declaration scope are also available to the local inner class.
 
 ```java
-public class OuterExample {
+public class LocalOuterExample {
     public static void main(String[] args) {
-        System.out.println(new OuterExample());
+        System.out.println(new LocalOuterExample());
     }
 
     public String toString() {
@@ -99,7 +99,7 @@ public class OuterExample {
             public String toString() {
                 var inner = this.getClass().getName();
                 // Note the use of the outer class's this pointer and scope variables.
-                var outer = OuterExample.this.getClass().getName();
+                var outer = LocalOuterExample.this.getClass().getName();
                 return String.format("Inner: %s has access to Outer: %s, and variables: %s", inner, outer, outerLocalVar);
             }
         }
@@ -171,7 +171,7 @@ public class AnonymousExample {
     public static void main(String[] args) {
         var spanish = new Speaker() {
             public String sayHello() {
-                return "Hallo";
+                return "Hola";
             }
         };
         var german = new Speaker() {

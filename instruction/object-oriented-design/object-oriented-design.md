@@ -10,7 +10,7 @@
 
 Object oriented design owes much of its popularity to its natural representation of the real world. By carefully modeling the actual application domain, the resulting code will exclude complications that would have resulted if you use other [programming paradigms](https://en.wikipedia.org/wiki/Programming_paradigm) that focus more on functional logic or declarative constructs.
 
-In object oriented programming everything revolves around a `Class` construct that serves as the template for actual objects. Classes always represent nouns, or things, such as a cat, car, word, database row, or even abstract things such as a thought or behavior. A class's operations, or methods, are always verbs, such as build, run, speak, compute, or destroy. When you instantiate a class into an object, you convert the template into an actual thing. For example, we can create an object named `James` from a class named `Person`. The class `Person` has a `brithPlace` field, the object `James` has a birth place value of Alberta Calgary.
+In object oriented programming everything revolves around a `Class` construct that serves as the template for actual objects. Classes always represent nouns, or things, such as a cat, car, word, database row, or even abstract things such as a thought or behavior. A class's operations, or methods, are always verbs, such as build, run, speak, compute, or destroy. When you instantiate a class into an object, you convert the template into an actual thing. For example, we can create an object named `James` from a class named `Person`. The class `Person` has a `birthPlace` field, the object `James` has a birth place value of Alberta Calgary.
 
 | Real World                       | Class Representation               | Object Representation |
 | -------------------------------- | ---------------------------------- | --------------------- |
@@ -50,15 +50,15 @@ In many ways encapsulation is preferable to inheriting functionality primarily b
 
 ## Simplicity
 
-Simplicity is another important characteristic of object oriented programming. One form of simplicity is restricting the number of objects in your system to the smallest number possible. This includes the number of interfaces you create, how inheritance is abstracted, and what operations an object exposes.
-
-Another form of simplicity is represented by the [Single Responsibility Principle](https://en.wikipedia.org/wiki/Single-responsibility_principle). The idea here is that an object does one thing and does it well. You don't have a `Person` class that has a method to `driveCarByRoute` that performs the actions of a car in motion. You would have a `Person` class, a `Car` class, and a `Route` class. You would then pass the `Person` and `Route` to the car's `drive` method, and send it on its way.
-
-![frankenobject](frankenObject.jpg)
-
-Following the Single Responsibility Principle makes it so there is only one reason to manipulate the class. You manipulate the `Person` class to represent the person and the `Route` class to represent the route. If you find yourself making a `Frankenobject` that represents multiple real world objects then you need to refactor your code into multiple classes.
+Simplicity is another important characteristic of object oriented programming. One form of simplicity is restricting the number of objects in your system to the smallest number possible, and no less. This includes the number of interfaces you create, how inheritance is abstracted, and what operations an object exposes.
 
 Of course you can simplify too far and end up with thousands of classes that each have a single line of code, or a single object that aggregates itself and can represent everything. Both of these extremes should be avoided. What you want is to be straight forward in your object modeling and try to stick as close to the real world domain as possible.
+
+**Too many classes**
+
+![Verbose Object](verboseObject.png)
+
+**Not enough classes**
 
 ![Ultimate Object](ultimateObject.jpg)
 

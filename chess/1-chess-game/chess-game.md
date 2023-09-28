@@ -1,6 +1,6 @@
 # ♕ Phase 1: Chess Game
 
-♟️ [Project Overview](../chess.md)
+♟️ [Chess Application Overview](../chess.md)
 
 ✅ [Phase 1 Getting Started](getting-started.md)
 
@@ -136,7 +136,7 @@ Here are some guides that may help:
 
 ### Extra Credit Moves
 
-You do not have to implement these moves, but if you go the extra mile and successfully implement both of these moves, you’ll earn some extra credit on this assignment.
+You do not have to implement these moves, but if you go the extra mile and successfully implement these moves, you’ll earn 2% extra credit for each move (4% total) on this assignment.
 
 NOTE: These moves can but do not have to be provided by `ChessPiece::pieceMoves`, and can be provided by `ChessGame::validMoves` instead.
 

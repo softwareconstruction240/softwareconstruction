@@ -57,6 +57,18 @@ classDiagram
     }
 
 
+    classDiagram
+    object <|-- Organism
+    Organism <|-- Animal
+    Animal *-- Soul
+    Animal *-- Body
+    Body *-- Head
+    Body *-- Torso
+    Body *-- Appendage
+    Appendage <|-- Leg
+    Appendage <|-- Arm
+    Animal <|-- Mammal
+    Mammal <|-- Person
 
 
 

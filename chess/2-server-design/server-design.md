@@ -1,6 +1,6 @@
 # ♕ Phase 2: Chess Server Design
 
-♟️ [Project Overview](../chess.md)
+♟️ [Chess Application Overview](../chess.md)
 
 ✅ [Phase 2 Getting Started](getting-started.md)
 

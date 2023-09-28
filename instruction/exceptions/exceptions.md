@@ -36,7 +36,7 @@ You can throw any exception from a function, but Java requires that your functio
 ```java
 void top() {
     try {
-        B();
+        A();
     } catch (Exception ex) {
         System.out.println("this WILL execute");
     }
@@ -62,7 +62,7 @@ The exclusion to the `throws` declaration rule, is when you throw what is known 
 
 ## Finally
 
-You can also use the `try` syntax to create a block of code that always gets executed whenever the try block exits. This is called a finally block. The finally block is executed whether or not an exception is throw.
+You can also use the `try` syntax to create a block of code that always gets executed whenever the try block exits. This is called a finally block. The finally block is executed whether or not an exception is throw. If an exception is thrown, but there is no catch block, the finally method will get called, but then the exception continues up the call stack until a catch block is discovered.
 
 ```java
 try {
@@ -111,6 +111,50 @@ public class ExceptionExample {
         }
 
         // Otherwise load the configuration
+    }
+}
+```
+
+## Try with Resource
+
+Not closing resources, such as file handles or database connections, can lead to leaks that will cause your application to fail. The following example shows the allocation of an input stream that closes the stream after it is used. However, if an exception is thrown during the read operation the stream is not closed and the file handle is leaked. That means the resources associated with the file are never released and eventually that application will not be able to open files.
+
+```java
+public void NoTry() throws IOException {
+    FileInputStream input = new FileInputStream("test.txt");
+    System.out.println(input.read());
+
+    // If an exception is thrown this will not close the stream
+    input.close();
+}
+```
+
+To work around this, it is common to use the `try/finally` syntax to clean up resources that need to be closed. In the example below the stream will be closed whether or not an exception is thrown.
+
+```java
+public void TryWithFinally() throws IOException {
+    FileInputStream input = null;
+    try {
+        input = new FileInputStream("test.txt");
+        System.out.println(input.read());
+    } finally {
+        if (input != null) {
+            // If an exception is thrown this will not close the stream
+            input.close();
+        }
+    }
+}
+```
+
+As you can see by the previous example, resource cleanup introduces a lot of boilerplate code. To make this common, necessary, activity easier to implement Java introduced the `try with resource` syntax. You can use this syntax with any class that implements the [closable](https://docs.oracle.com/javase/8/docs/api/java/io/Closeable.html) interface. This includes things like input and output streams, readers and writers, network connections, files, and channels.
+
+To use this syntax you place the allocation of the object as a parameter to the `try` keyword. The Java complier will automatically generate the finally block and call close for you.
+
+```java
+public void tryWithResources() throws IOException {
+    // Close is automatically called at the end of the try block
+    try (FileInputStream input = new FileInputStream("test.txt")) {
+        System.out.println(input.read());
     }
 }
 ```
