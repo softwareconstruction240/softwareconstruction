@@ -17,11 +17,11 @@ import com.google.gson.Gson;
 import spark.*;
 import java.util.*;
 
-public class ExampleServer {
+public class ServerExample {
     private ArrayList<String> names = new ArrayList<>();
 
     public static void main(String[] args) {
-        new ExampleServer().run();
+        new ServerExample().run();
     }
 
     private void run() {
@@ -29,7 +29,7 @@ public class ExampleServer {
         Spark.port(8080);
 
         // Register a directory for hosting static files
-        Spark.staticFileLocation("public");
+        Spark.externalStaticFileLocation("public");
 
         // Register handlers for each endpoint using the method reference syntax
         Spark.get("/name", this::listNames);
@@ -55,7 +55,7 @@ public class ExampleServer {
 }
 ```
 
-You should also notice the call to `staticFileLocation`. This loads static files from the directory given by the parameter. In the example above, if you have a file named `hello.html` in the `public` directory, then it will be served up to your HTTP client if a request to `localhost:8080/hello.html` is made.
+You should also notice the call to `externalStaticFileLocation`. This loads static files from the directory given by the parameter. In the example above, if you have a file named `hello.html` in the `public` directory, then it will be served up to your HTTP client if a request to `localhost:8080/hello.html` is made.
 
 ### Web Client
 
@@ -67,7 +67,7 @@ import java.io.*;
 import java.net.*;
 import java.util.Map;
 
-public class ExampleClient {
+public class ClientExample {
     public static void main(String[] args) throws Exception {
         // Specify the desired endpoint
         URL url = new URL("http://localhost:8080/name");
