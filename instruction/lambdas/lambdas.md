@@ -28,25 +28,26 @@ Assume you want to create speakers for different languages. To do this you would
 
 ```java
 // FrenchSpeaker.java
-class FrenchSpeaker implements Speaker {
-    String sayHello() {
-      return 'bonjour';
+static class FrenchSpeaker implements Speaker {
+    public String sayHello() {
+        return "bonjour";
     }
 }
 
 // GermanSpeaker.java
-class GermanSpeaker implements Speaker {
-    String sayHello() {
-      return 'hallo';
+static class GermanSpeaker implements Speaker {
+    public String sayHello() {
+        return "hallo";
     }
 }
 
 // EnglishSpeaker.java
-class EnglishSpeaker implements Speaker {
-    String sayHello() {
-      return 'hello';
+static class EnglishSpeaker implements Speaker {
+    public String sayHello() {
+        return "hello";
     }
 }
+
 ```
 
 You could then use each of these classes in your calls to `speak`.
@@ -60,18 +61,21 @@ speak(new EnglishSpeaker());
 You can simplify this problem somewhat by using anonymous classes. This removes the need for all the extra class files, but it still creates a lot of redundant overhead in your code.
 
 ```java
-speak((new Speaker {
-    String sayHello() {
-      return 'bonjour';
-    });
-speak(new Speaker {
-    String sayHello() {
-      return 'hallo';
-    });
-speak(new Speaker {
-    String sayHello() {
-      return 'hello';
-    });
+speak(new Speaker() {
+    public String sayHello() {
+        return "bonjour";
+    }
+});
+speak(new Speaker() {
+    public String sayHello() {
+        return "hallo";
+    }
+});
+speak(new Speaker() {
+    public String sayHello() {
+        return "hello";
+    }
+});
 ```
 
 To overcome this deficiency in the language, Java introduced `Lambda` functions. In Java, Lambda functions are effectively a syntactic simplification of anonymous inner classes that implement an interface with a single function. An interface of this type is called a `Functional Interface`.
@@ -87,9 +91,9 @@ Notice that you do not have to declare the types, include the block curly braces
 For the example we described above, we could reduce our anonymous speaker classes to be the following.
 
 ```java
-speak(() -> 'bonjour');
-speak(() -> 'hallo');
-speak(() -> 'hello');
+speak(() -> "bonjour");
+speak(() -> "hallo");
+speak(() -> "hello");
 ```
 
 Notice how compact the lambda function representation is. If you need to provide more than a single line when defining the body of your lambda function, you can include curly braces, but you must also explicitly include the `return` keyword.

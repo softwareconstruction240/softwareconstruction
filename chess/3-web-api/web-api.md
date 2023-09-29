@@ -122,7 +122,6 @@ Previously, you created a `chess` package that contains the model classes that r
 
 | Field    | Type   |
 | -------- | ------ |
-| userID   | int    |
 | username | String |
 | password | String |
 | email    | String |

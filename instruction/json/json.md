@@ -48,7 +48,7 @@ JSON is always encoded with [UTF-8](https://en.wikipedia.org/wiki/UTF-8). This a
 The `Gson` library was created by Google in order to support JSON in Java code. Once you have installed the Gson library you can convert a Java String to a Java object, or a Java object to a string. The following code demonstrates how to do this.
 
 ```java
-public class JsonExample {
+public class GsonExample {
     public static void main(String[] args) {
         var obj = Map.of(
                 "name", "perry",
@@ -75,6 +75,81 @@ JSON: {"year":2264,"pets":["cat","dog","fish"],"name":"perry"}
 Object: {year=2264.0, pets=[cat, dog, fish], name=perry}
 ```
 
+### Creating Gson TypeAdapters
+
+By default Gson will attempt to examine the class you are importing and exporting and properly represent all the fields of the class. However, if you are exporting or importing an abstract class then it will not export all of the fields of the subclass. You may also want to have control over what Gson imports and exports. In order to support these use cases, Gson provides the ability to supply a `TypeAdapter` that implements exactly how the JSON text should be serialized and deserialized.
+
+To define a `TypeAdapter` you write a class that implements a `write` and `read` method. The following is a simple type adapter that prefixes a string on output and removes the prefix on input.
+
+```java
+public static TypeAdapter<String> createPrefixAdapter(String prefix) {
+    return new TypeAdapter<>() {
+        @Override
+        public void write(JsonWriter w, String text) throws IOException {
+            w.value(prefix + text);
+        }
+
+        @Override
+        public String read(JsonReader r) throws IOException {
+            var text = r.nextString().substring(prefix.length());
+            return text;
+        }
+    };
+}
+```
+
+You can then use the type adapter when you create your Gson serializer by creating a `GsonBuilder` and registering the type adapter. In the following example we register the adapter to work with any `String` objects.
+
+```java
+var builder = new GsonBuilder();
+builder.registerTypeAdapter(String.class, createPrefixAdapter("x-"));
+var serializer = builder.create();
+```
+
+The new serializer will then call the adapter whenever it attempts to serialize objects of the type the adapter is registered for. Here is the full example.
+
+```java
+public class GsonAdapterExample {
+
+    public static void main(String[] args) {
+        var obj = new String[]{"cat", "dog", "cow"};
+
+        var builder = new GsonBuilder();
+        builder.registerTypeAdapter(String.class, createPrefixAdapter("x-"));
+        var serializer = builder.create();
+
+        var json = serializer.toJson(obj);
+        System.out.println("JSON:   " + json);
+
+        var objFromJson = serializer.fromJson(json, obj.getClass());
+        System.out.println("Object: " + Arrays.toString(objFromJson));
+    }
+
+
+    public static TypeAdapter<String> createPrefixAdapter(String prefix) {
+        return new TypeAdapter<>() {
+            @Override
+            public void write(JsonWriter w, String text) throws IOException {
+                w.value(prefix + text);
+            }
+
+            @Override
+            public String read(JsonReader r) throws IOException {
+                var text = r.nextString().substring(prefix.length());
+                return text;
+            }
+        };
+    }
+}
+```
+
+The above code will output the following.
+
+```sh
+JSON:   ["x-cat","x-dog","x-cow"]
+Object: [cat, dog, cow]
+```
+
 ## Things to Understand
 
 - How to read / understand JSON documents
@@ -97,3 +172,7 @@ Object: {year=2264.0, pets=[cat, dog, fish], name=perry}
 📁 [generator](example-code/generator)
 
 📁 [parser](example-code/parser)
+
+📁 [typeAdapter](example-code/typeAdapter)
+
+📁 [runtimeTypeAdapter](example-code/runtimeTypeAdapter)
