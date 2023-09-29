@@ -120,7 +120,7 @@ Using decomposition at the program level helps you so that you don't have to kee
 
 ## High Cohesion and Low Coupling
 
-High cohesion means that an object only represents highly related data and functionality. You don't include tangentially related methods or fields in an object. Instead you create objects that execute in concert with each other.
+High cohesion means that an object only represents highly related data and functionality. You don't include tangentially related methods or fields in an object. Instead you create a cohesive object that executes in concert with other related objects.
 
 Low coupling means that objects do not strongly rely on each other. High coupling occurs when an object that cannot be used without understanding the specific implementation details of another object, or when two objects require each other to operate. Generally, low coupling means that you are using interfaces appropriately and that objects do not have bidirectional bindings.
 
@@ -258,38 +258,65 @@ public interface SOPViolation {
 
 ### Open Closed Principle
 
-Classes should be open to extension and closed for modification. Meaning that you want to encourage additions to a class as appropriate, but modifying existing functionality is discouraged due to its tendency to disrupt the existing code base.
+Classes should be open to extension and closed for modification. The core concept is that you should generalize the functionality of a class so that you don't have to internally modify it in order to provide a desired extension of its functionality.
+
+A common example for the open closed principle involves passing in interfaces that control how the class works. This is in contrast to modifying the classes methods to provide new functionality.
 
 #### Violation Example
 
-A simple example of violating the open closed principle is prohibiting the ability to extend a class by including the `final` keyword on a method.
+As an example, the following code forces you to create a new method for every different type of format that you want the class to support. Additionally, the class has a constructor that represents a specific type of data. If you want to provide a different type of data, you must modify the class to include an additional constructor and internal data type.
 
 ```java
-public class UnableToExtend {
-    @Override
-    final public String toString() {
-        return super.toString();
-    }
-}
+public static class OpenForModificationList {
+    final private String[] items;
 
-// This will not compile because toString is final
-public class Rejected extends OpenClosedExample {
-    public String toString() {
-        return super.toString();
+    public OpenForModificationList(String[] items) {
+        this.items = items;
+    }
+
+    public String formatCommaSeparated() {
+        return String.join(",", items);
+    }
+
+    public String formatQuotedCommaSeparated() {
+        var formattedItems = new ArrayList<String>();
+        for (var item : items) {
+            formattedItems.add(String.format("'%s'", item));
+        }
+
+        return String.join(",", formattedItems);
     }
 }
 ```
 
-```java
-public class AbleToModify {
-    // Allowing global changes to how the core algorithm works
-    public static String prefix = "";
+### Correct Example
 
-    public void log(String message) {
-        System.out.println(prefix + message);
+We can improve the previous code by using interface parameters and Java generics to open the class to extension without ever modifying the code.
+
+```java
+public interface Formatter<T> {
+    String format(T s);
+}
+
+public static class OpenForExtensionList<T> {
+    final private List<T> items;
+
+    public OpenForExtensionList(List<T> items) {
+        this.items = items;
+    }
+
+    public String format(Formatter formatter, String separator) {
+        var formattedItems = new ArrayList<String>();
+        for (var item : items) {
+            formattedItems.add(formatter.format(item));
+        }
+
+        return String.join(separator, formattedItems);
     }
 }
 ```
+
+In this example the `Formatter` interface extends how the class formats and the generic type extends the supported types.
 
 ### Liskov Substitution Principle
 
