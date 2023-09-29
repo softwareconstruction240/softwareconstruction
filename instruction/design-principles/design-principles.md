@@ -118,6 +118,12 @@ Programming languages themselves utilize decomposition to represent different pa
 
 Using decomposition at the program level helps you so that you don't have to keep the whole code base on your screen at the same time. You just need to open the files that represent the current task.
 
+## High Cohesion and Low Coupling
+
+High cohesion means that an object only represents highly related data and functionality. You don't include tangentially related methods or fields in an object. Instead you create objects that execute in concert with each other.
+
+Low coupling means that objects do not strongly rely on each other. High coupling occurs when an object that cannot be used without understanding the specific implementation details of another object, or when two objects require each other to operate. Generally, low coupling means that you are using interfaces appropriately and that objects do not have bidirectional bindings.
+
 ## Names
 
 You should give appropriate consideration to the names that you use for your classes, methods, and variables. A good name will convey meaning that makes your code more maintainable and less of a cognitive load to read. Consider the following example where you have to read the docs in order to know what is happening.
@@ -149,17 +155,19 @@ There are standard conventions that should be followed when choosing names. Thes
 1. Constants are all uppercase
 1. CamelCase should be used for all names, except constants.
 
-## Aggregation Vs Inheritance
+## Prefer Aggregation Over Inheritance
 
-When you are creating your classes you need to carefully consider the different meanings and implications of using inheritance instead of aggregation. We often simplify the concepts of inheritance and aggregation to represent `is-a` and `has-a` relationships respectively. However, by favoring aggregation you can create composable objects that have the benefits of multiple inheritance without all of the complexity the multiple inheritance incurs. Aggregated objects can demonstrate polymorphic behavior by exposing interfaces that are implemented by the contained objects. As long as interfaces are used to access the aggregations, the containing class can replace the aggregated objects without impacting any users of the objects. In short, when combined with interfaces, aggregation can provide:
+When you are creating your classes you need to carefully consider the different meanings and implications of using inheritance instead of aggregation. We often simplify the concepts of inheritance and aggregation to represent `is-a` and `has-a` relationships respectively. However, by favoring aggregation you can create composable objects that have the benefits of multiple inheritance without all of the complexity that multiple inheritance incurs. Aggregated objects can demonstrate polymorphic behavior by exposing interfaces that are implemented by the contained objects. As long as interfaces are used to access the aggregations, the containing class can replace the aggregated objects without impacting any users of the objects. In short, when combined with interfaces, aggregation can provide:
 
 1. `has-a` and `is-a` relationships
 1. The benefits of multiple inheritance
 1. Encapsulation
 
+This suggests that in many cases Aggregation should be preferred over inheritance.
+
 ## Core Technologies
 
-Even though you want to design for your domain first, that does not mean that you give no thought to your technology infrastructure. Carefully consider core technologies that are expensive to change once an application is deployed. This includes things such as programming languages, data schemas, protocols, databases, deployment processes, and hosting locations. Some criteria that you should consider when choosing core technology includes:
+Even though you want to design for your domain first, that does not mean that you give no thought to your technology infrastructure. The success of your application depends upon the careful consideration of core technologies that are expensive to change once an application is deployed. This includes things such as programming languages, data schemas, protocols, databases, deployment processes, and hosting locations. Some criteria that you should consider when choosing core technology includes:
 
 1. Security
 1. Cost
@@ -207,7 +215,7 @@ Let's look at each of these in detail.
 
 ### Single Responsibility Principle
 
-One form of simplicity is represented by the [Single Responsibility Principle](https://en.wikipedia.org/wiki/Single-responsibility_principle). The idea here is that an object does one thing and does it well. You don't have a `Person` class that represents everything associated with a person. You have a `Person` class that represents the distinct attributes of a person such as `name` and `brithDate`, and then you have other classes that represent things associated with a Person.
+The [Single Responsibility Principle](https://en.wikipedia.org/wiki/Single-responsibility_principle) represents the desirability of high cohesion. The idea here is that an object does one thing and does it well. You don't have a `Person` class that represents everything associated with a person. You have a `Person` class that represents the distinct attributes of a person such as `name` and `brithDate`, and then you have other classes that represent things associated with a Person.
 
 ![single responsibility](single-responsibility.png)
 
