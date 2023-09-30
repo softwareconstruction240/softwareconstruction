@@ -1,5 +1,8 @@
 # Spelling Corrector Specification
 
+- [Spelling Corrector Overview](spelling-corrector.md)
+- [Getting Started](setup/setup.md)
+
 For this program we need a dictionary similar to Google’s. Our dictionary is generated using a large text file. The text file contains a large number of unsorted words. Every time your program runs it will create the dictionary from this text file. The dictionary will contain every word in the text file and a frequency for that word. Instead of storing a percent, your program need only store the number of times the word appears in the text file.
 
 When storing or looking up a word in the dictionary we want the match to be case insensitive. That is, a new or candidate word matches a word in the dictionary independent of the case of the letters in the respective words. Thus, the word `move` matches `Move`. If the strings `apple`, `Apple`, and `APPLE` each appear once in the input file, then your representation of the word (it could be any of the three words or some other variation) would appear once and would have a frequency of three associated with it.
@@ -70,7 +73,7 @@ There are four measures of edit distance we will use: deletion, transposition (s
 
 ## The Four Edit Distances
 
-All of the edit distance rules assume that all characters are in lowercase.
+All of the edit distance rules assume that all characters are in lowercase. Here, `|s|` denotes the length of the string `s`.
 
 - **Deletion Distance**: A string `s` has a deletion distance of one from another string `t` if and only if `t` is equal to `s` when one character is removed. The only strings that are a deletion distance of one from `bird` are `ird`, `brd`, `bid`, and `bir`. Note that if a string `s` has a deletion distance of one from another string `t` then `|s| = |t| -1 `. Also, there are exactly `|t|` strings that are a deletion distance of one from `t`. The dictionary may contain zero to N words with a deletion distance of one from `t`.
 - **Transposition Distance**: A string `s` has a transposition distance of one from another string `t` if and only if `t` is equal to `s` when two adjacent characters are transposed. The only strings that are a transposition distance of one from `house` are `ohuse`, `huose`, `hosue` and `houes`. Note that if a string `s` has a transposition distance of one from another string `t` then `|s| = |t|`. Also, there are exactly `|t| - 1` strings that are a transposition distance of one from `t`. The dictionary may contain zero to N strings with a transposition distance of one from `t`.

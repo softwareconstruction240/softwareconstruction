@@ -24,7 +24,7 @@ The [java.io](https://docs.oracle.com/javase/20/docs/api/java/io/package-summary
 | [StringReader](https://docs.oracle.com/javase/20/docs/api/java/io/StringReader.html)                 | Represents a String as an input reader.                                                              |
 | [PrintStream](https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/io/PrintStream.html) | Output stream that provides print functions such as `println` or `printf`                            |
 | [File](https://docs.oracle.com/javase/20/docs/api/java/io/File.html)                                 | Provides basic directory and file operations such as create, exists, iterate, or delete.             |
-| [Scanner]()                                                                                          | Parses a file into Strings. Note that this class is in `java.util`.                                  |
+| [Scanner](https://docs.oracle.com/javase/8/docs/api/java/util/Scanner.html)                                                                                          | Parses a file into Strings. Note that this class is in `java.util`.                                  |
 
 ## InputStream and OutputStream
 
@@ -56,7 +56,7 @@ public class ConsoleEcho {
 
 ## Reader and Writer
 
-Working with streams is fine if what you need is bytes, but often you need to work with higher level objects. That is where the [java.io.Reader]() and [java.io.Writer]() classes come into play. These classes will use a stream to read or write bytes, but then they will convert them to a more meaningful representation such as a character array, string, object, or file.
+Working with streams is fine if what you need is bytes, but often you need to work with higher level objects. That is where the [java.io.Reader](https://docs.oracle.com/javase/8/docs/api/java/io/Reader.html) and [java.io.Writer](https://docs.oracle.com/javase/8/docs/api/java/io/Writer.html) classes come into play. These classes will use a stream to read or write bytes, but then they will convert them to a more meaningful representation such as a character array, string, object, or file.
 
 Like the stream base classes `Reader` and `Writer` are both abstract. That means you need to create a subclass specific to the type of reader/writer that you want to use. Some common subclasses include `LineNumberReader`, `FileReader`, `PrintWriter`, or `StringWriter`.
 
