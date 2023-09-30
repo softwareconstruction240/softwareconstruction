@@ -15,7 +15,7 @@
 
 ## Polymorphism
 
-Polymorphism is the blanket term used in computer science to represent the idea of morphing an object to fit into many (i.e. poly) different contexts. In Java, the use of inheritance and abstract classes are the primary ways to provide polymorphism. You use the `extend` keyword to inherit another class's functionality, and you use the `implements` keyword to inherit an interface definition. Polymorphism allows you to decouple, or abstract, a class's internals, from how it is used. That makes it so you can significantly alter the class without having to change how the class is used.
+Polymorphism is the blanket term used in computer science to represent the idea of morphing an object to fit into many (i.e. poly) different contexts. In Java, the use of inheritance and abstract classes are the primary ways to provide polymorphism. You use the `extends` keyword to inherit another class's functionality, and you use the `implements` keyword to inherit an interface definition. Polymorphism allows you to decouple, or abstract, a class's internals, from how it is used. That makes it so you can significantly alter the class without having to change how the class is used.
 
 ## Interfaces
 
@@ -46,6 +46,8 @@ public class ListExample {
   }
 }
 ```
+
+Note that, because `addAndPrint()` doesn't know anything about `list`'s type except that it implements the `List` interface, it can only call methods on `list` that are declared in the interface. If `LinkedList` had an additional method that was not declared in the interface, and `addAndPrint()` tried to call that method on `list`, it would not compile, even if it was passed a `LinkedList`.
 
 ## Writing Your Own Interface
 
@@ -84,7 +86,7 @@ public class AlphabetIterator implements CharIterator {
 
 ## Abstract Classes
 
-Abstract classes provide another type of polymorphism. However, unlike interfaces, where a class implements all of the functionality of the interface, an abstract class base class provides some of the implementation and leaves other methods to be implemented by the subclass.
+Abstract classes provide another type of polymorphism. However, unlike interfaces, where the subclass implements all of the functionality of the interface, a base class that is an abstract class provides some of the implementation and leaves other methods to be implemented by the subclass.
 
 Here is an example of an abstract class that implements the JDK's `Iterator` interface, but also defines a new abstract method for iterating with a string prefix. This is done by specifying the `abstract` keyword on the `nextWithPrefix` method, without providing an implementation of the method.
 
@@ -115,7 +117,7 @@ public static abstract class AlphabetIterator implements Iterator {
 }
 ```
 
-A subclass can then `extend` the abstract class by providing an implementation of the abstract `nextWithPrefix` method. Additionally, for instructive purposes, we also override the `next` method to include a default prefix that represents the numerical order of the iterated items.
+A subclass `extends` the abstract class by providing an implementation of the abstract `nextWithPrefix` method. Additionally, for instructive purposes, we also override the `next` method to include a default prefix that represents the numerical order of the iterated items.
 
 Note the use of the `super` keyword in the `nextWithPrefix` function. `super` allows you to access methods in the abstract base class when you have methods with the same name as the subclass. In this example, it is used to access the abstract class's `next` function instead of the `next` function implemented by `PrefixAlphabetIterator`. Without the use of `super`, the call to `next` would have created an infinite loop.
 
@@ -149,7 +151,7 @@ public static void print(AlphabetIterator iter) {
 
 ## instanceof
 
-Polymorphism is great because it makes it so code only needs to know about the provided interface. For example, if you want to have a list that can contain any type of object that extends the `Object` class, it can safely ignore the fact that those objects are also things like String, Integer, Person, or Map classes. However, sometimes you need to know if an object is of a specific type so that you can use it in different ways. This is where the `instanceof` operator comes in handy. `instanceof` will return true, if the provided variable is of the given type. A simple example of its use is demonstrated with a test to see if a string literal is an instance of type `String`.
+Polymorphism is great because it makes it so code only needs to know about the provided interface. For example, if you want to have a list that can contain any type of object that extends the `Object` class, it can safely ignore the fact that those objects are also things like String, Integer, Person, or Map classes. However, sometimes you need to know if an object is of a specific type so that you can use it in different ways. This is where the `instanceof` operator comes in handy. `instanceof` will return true, if the provided variable is of the given type (including if it extends or implements it). A simple example of its use is demonstrated with a test to see if a string literal is an instance of type `String`.
 
 ```java
 if ("I am a string" instanceof String) {
@@ -177,7 +179,7 @@ public static void main(String[] args) {
 
 ## final
 
-If you don't want a subclass to override a method in a base class then you can prefix the method with the keyword `final`. You can also use the final keyword to make a class's field value immutable.
+If you don't want a subclass to override a method in a base class then you can prefix the method with the keyword `final`. You can also use the final keyword to make a class's field value immutable. (You can still call methods on final fields, however, so it's not the same as the C++ `const`.)
 
 ```java
 public class FinalExample {

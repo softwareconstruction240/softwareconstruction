@@ -70,7 +70,7 @@ There are four measures of edit distance we will use: deletion, transposition (s
 
 ## The Four Edit Distances
 
-All of the edit distance rules assume that all characters are in lowercase.
+All of the edit distance rules assume that all characters are in lowercase. Here, `|s|` denotes the length of the string `s`.
 
 - **Deletion Distance**: A string `s` has a deletion distance of one from another string `t` if and only if `t` is equal to `s` when one character is removed. The only strings that are a deletion distance of one from `bird` are `ird`, `brd`, `bid`, and `bir`. Note that if a string `s` has a deletion distance of one from another string `t` then `|s| = |t| -1 `. Also, there are exactly `|t|` strings that are a deletion distance of one from `t`. The dictionary may contain zero to N words with a deletion distance of one from `t`.
 - **Transposition Distance**: A string `s` has a transposition distance of one from another string `t` if and only if `t` is equal to `s` when two adjacent characters are transposed. The only strings that are a transposition distance of one from `house` are `ohuse`, `huose`, `hosue` and `houes`. Note that if a string `s` has a transposition distance of one from another string `t` then `|s| = |t|`. Also, there are exactly `|t| - 1` strings that are a transposition distance of one from `t`. The dictionary may contain zero to N strings with a transposition distance of one from `t`.
