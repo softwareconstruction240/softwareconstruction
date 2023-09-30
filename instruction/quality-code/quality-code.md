@@ -86,6 +86,68 @@ Just like good art, quality code is often a subjective opinion. There are lots o
 
 Learning to write quality code requires effort and experience. One way to accelerate your mastery is to study quality code that others have written. Many open source projects found on GitHub provide examples of industrial quality code. You can also debug into the libraries that you commonly use, in order to learn from what they have done. Consider all of these examples with a critical eye. Ask yourself if there is a better way to structure and represent this problem.
 
+## Names
+
+You should give appropriate consideration to the names that you use for your classes, methods, and variables. A good name will convey meaning that makes your code more maintainable and less of a cognitive load to read. Consider the following example where you have to read the docs in order to know what is happening.
+
+```java
+/**
+ * Compute the mean of the numbers and
+ * ignore any values that are outliers.
+ */
+public int calc(int[] x, boolean ignore);
+```
+
+Because the names are terse and nondescript it encourages the reader to trust the docs, which might not actually reflect what the code actually does. It also means that as the code is altered, the programmer may feel no responsibility to be true to the original intent of the name. Before long this function may be doing much more than `calc` and the meaning of `ignore` may stray far from excluding outliers.
+
+Instead, if reasonable function and parameter names were chosen, the code becomes self documenting and a future programmer will think twice before changing the obvious intent conveyed by the name.
+
+```java
+public int calculateMean(int[] numbers, boolean ignoreOutliers);
+```
+
+A good name will encourage the following:
+
+1. Self documenting code
+1. Cohesion
+1. Encapsulation
+1. Decomposition
+1. Reduction of code duplication
+1. Reduction of nested statements
+
+There are standard conventions that should be followed when choosing names. These conventions include the following.
+
+1. Object names are nouns
+1. Method names are verbs
+1. Objects begin with uppercase
+1. Methods begin with lowercase
+1. Variables begin with lowercase
+1. Package names begin with lowercase and should be separated by dots
+1. Constants are all uppercase
+1. CamelCase should be used for all names, except constants
+
+## Parameters
+
+1. Use configuration object rather than long parameter lists. This encourages encapsulation
+1. Consistent parameter ordering: `in`, `in-out`, `out`
+
+## Immutability
+
+1. In objects
+1. In methods, no side effects
+
+## Declaring Variables
+
+1. Don't reuse. Make final.
+1. Declare close to use.
+1. Always initialize
+
+## Code Layout
+
+## Style
+
+1. Braces and such.
+
 ## Things to Understand
 
 - The importance of a good name.

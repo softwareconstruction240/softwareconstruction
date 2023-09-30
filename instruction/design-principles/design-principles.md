@@ -124,37 +124,6 @@ High cohesion means that an object only represents highly related data and funct
 
 Low coupling means that objects do not strongly rely on each other. High coupling occurs when an object that cannot be used without understanding the specific implementation details of another object, or when two objects require each other to operate. Generally, low coupling means that you are using interfaces appropriately and that objects do not have bidirectional bindings.
 
-## Names
-
-You should give appropriate consideration to the names that you use for your classes, methods, and variables. A good name will convey meaning that makes your code more maintainable and less of a cognitive load to read. Consider the following example where you have to read the docs in order to know what is happening.
-
-```java
-/**
- * Compute the mean of the numbers and
- * ignore any values that are outliers.
- */
-public int calc(int[] x, boolean ignore);
-```
-
-Because the names are terse and nondescript it encourages the reader to trust the docs, which might not actually reflect what the code actually does. It also means that as the code is altered, the programmer may feel no responsibility to be true to the original intent of the name. Before long this function may be doing much more than `calc` and the meaning of `ignore` may stray far from excluding outliers.
-
-Instead, if reasonable function and parameter names were chosen, the code becomes self documenting and a future programmer will think twice before changing the obvious intent conveyed by the name.
-
-```java
-public int calculateMean(int[] numbers, boolean ignoreOutliers);
-```
-
-There are standard conventions that should be followed when choosing names. These conventions include the following.
-
-1. Object names are nouns
-1. Method names are verbs
-1. Objects begin with uppercase
-1. Methods begin with lowercase
-1. Variables begin with lowercase
-1. Package names begin with lowercase and should be separated by dots.
-1. Constants are all uppercase
-1. CamelCase should be used for all names, except constants.
-
 ## Prefer Aggregation Over Inheritance
 
 When you are creating your classes you need to carefully consider the different meanings and implications of using inheritance instead of aggregation. We often simplify the concepts of inheritance and aggregation to represent `is-a` and `has-a` relationships respectively. However, by favoring aggregation you can create composable objects that have the benefits of multiple inheritance without all of the complexity that multiple inheritance incurs. Aggregated objects can demonstrate polymorphic behavior by exposing interfaces that are implemented by the contained objects. As long as interfaces are used to access the aggregations, the containing class can replace the aggregated objects without impacting any users of the objects. In short, when combined with interfaces, aggregation can provide:
@@ -406,7 +375,6 @@ You can reduce duplicated code by:
 - The goals of software design
 - Design is an iterative process
 - Abstraction
-- Good naming
 - Single Responsibility Principle
 - Decomposition
 - Good algorithm and data structure selection
