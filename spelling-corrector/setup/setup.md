@@ -1,5 +1,8 @@
 # Spelling Corrector IntelliJ Setup
 
+- [Spelling Corrector Overview](../spelling-corrector.md)
+- [Specification](../specification.md)
+
 📁 [Starter code](../starter-code): Application interfaces and testing code.
 
 ## Create a Project

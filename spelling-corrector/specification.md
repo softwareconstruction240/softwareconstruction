@@ -1,5 +1,8 @@
 # Spelling Corrector Specification
 
+- [Spelling Corrector Overview](spelling-corrector.md)
+- [Getting Started](setup/setup.md)
+
 For this program we need a dictionary similar to Google’s. Our dictionary is generated using a large text file. The text file contains a large number of unsorted words. Every time your program runs it will create the dictionary from this text file. The dictionary will contain every word in the text file and a frequency for that word. Instead of storing a percent, your program need only store the number of times the word appears in the text file.
 
 When storing or looking up a word in the dictionary we want the match to be case insensitive. That is, a new or candidate word matches a word in the dictionary independent of the case of the letters in the respective words. Thus, the word `move` matches `Move`. If the strings `apple`, `Apple`, and `APPLE` each appear once in the input file, then your representation of the word (it could be any of the three words or some other variation) would appear once and would have a frequency of three associated with it.

@@ -1,5 +1,8 @@
 # Spelling Corrector
 
+- [Specification](specification.md)
+- [Getting Started](setup/setup.md)
+
 🖥️ [Slides](https://docs.google.com/presentation/d/1FkxHpWkpQr-YIdtIqQeYwnAOekQ75Slg/edit?usp=sharing&ouid=114081115660452804792&rtpof=true&sd=true)
 
 As a preparatory step towards mastering the art of constructing software you will build a spelling corrector. This will help you learn the basics of building a Java program before we move to the more complex chess program.
