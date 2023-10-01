@@ -134,32 +134,6 @@ When you are creating your classes you need to carefully consider the different 
 
 This suggests that in many cases Aggregation should be preferred over inheritance.
 
-## Core Technologies
-
-Even though you want to design for your domain first, that does not mean that you give no thought to your technology infrastructure. The success of your application depends upon the careful consideration of core technologies that are expensive to change once an application is deployed. This includes things such as programming languages, data schemas, protocols, databases, deployment processes, and hosting locations. Some criteria that you should consider when choosing core technology includes:
-
-1. Security
-1. Cost
-1. Availability
-1. Redundancy
-1. Stability
-1. Market acceptance
-1. Support
-1. Performance
-1. Elasticity
-
-### Data Structures
-
-Likewise you should be thoughtful about choosing a data structure that fits the situation. It is sometimes easy to fall back on the same old data structure for every situation. After all you can represent anything with a sufficiently convoluted `String` class. You just start encoding your data structure into the string characters separated by delimiting control characters. Instead you should spend time becoming familiar with the strengths and weaknesses of different data structures and pick the one with the proper characteristics.
-
-Consider factors such as:
-
-1. **Similarity to the data it models** - Don't use a list to represent a tree.
-1. **Space complexity** - If memory is abundant then favor this characteristic.
-1. **Time complexity** - If speed is important then favor this characteristic
-1. **Algorithmic complexity** - Are you willing to sacrifice readability and maintainability?
-1. **Compatibility with interface and persistence layers** - Some data structures are easier to serialize.
-
 ## SOLID
 
 The SOLID principles of clean code were promoted by a popular software design consultant named Robert Martin (AKA Uncle Bob).
@@ -340,25 +314,102 @@ public interface InterfaceSegregationExample {
 
 ### Dependency Inversion Principle
 
-The dependency inversion principle suggests the you should expose interfaces and not concrete classes. Interfaces enable the core abstraction necessary to make code extensible and maintainable. Whenever to expose a concrete class implementation you expose unintended coupling with the class. At very least you are exposing a specific implementation and potentially extraneous methods that are unnecessary to the use of the interface that should represent the class.
+The dependency inversion principle suggests the you should expose and use interfaces and not concrete classes. Interfaces enable the core abstraction necessary to make code extensible and maintainable. Whenever you expose a concrete class implementation you expose unintended coupling with the class. At very least you are exposing a specific implementation, constructor, and potentially extraneous methods that are unnecessary to the use of the interface that should represent the class.
 
-Put another way, the principle says that dependencies are made on aspects of functionality, not on implementations of the functionality.
+Put another way, the principle says that dependencies are made on aspects of functionality, not on implementations of the functionality. In the following example the high level `Route` class is highly coupled with the instantiation and use of the low level `Honda` object.
 
 #### Violation Example
 
 ```java
-public class DependencyInversionExample {
-    private int[] items;
+class Violation {
+    public static void main(String[] args) {
+        Honda honda = new Honda();
 
-    List getItemsGood() {
-        return List.of(items);
+        new Route().drive(honda);
     }
 
-    int[] getItemsBad() {
-        return items;
+    static class Route {
+        /**
+         * Highly coupled with lower class implementation.
+         */
+        void drive(Honda car) {
+            car.go();
+        }
+
+    }
+
+    static class Honda {
+        void go() {
+            System.out.println("put put");
+        }
     }
 }
 ```
+
+#### Correct Example
+
+In order to properly apply the dependency inversion principle you invert the use of low level concrete classes and expose low level interfaces instead. The following example we use a factory method that uses reflection to load the constructor that is specified as a command line argument. The factory returns a `Vehicle` interface rather than a concrete class. Now the `Route` doesn't know know anything about the vehicle that is being used. It just calls `go`. This breaks the coupling between the objects and moves the decision about what vehicle is actually used to be completely out of the code.
+
+```java
+class Correct {
+    public static void main(String[] args) {
+        var vehicleMakerClass = args.length == 1 ? args[0] : "Honda";
+        var factory = new VehicleFactory(vehicleMakerClass);
+
+        Vehicle vehicle = factory.createVehicle();
+
+        new Route().drive(vehicle);
+    }
+
+    interface Vehicle {
+        void go();
+    }
+
+    static class Route {
+        void drive(Vehicle vehicle) {
+            vehicle.go();
+        }
+    }
+
+    static class VehicleFactory {
+        private Constructor<Vehicle> vehicleConstructor;
+
+        VehicleFactory(String vehicleMakerClass) {
+            try {
+                vehicleMakerClass = "design.DependencyInversionExample$Correct$" + vehicleMakerClass;
+                var vehicleClass = Class.forName(vehicleMakerClass);
+                vehicleConstructor = (Constructor<Vehicle>) vehicleClass.getDeclaredConstructor();
+            } catch (Exception ignored) {
+            }
+        }
+
+        Vehicle createVehicle() {
+            if (vehicleConstructor != null) {
+                try {
+                    return vehicleConstructor.newInstance();
+                } catch (Exception ignored) {
+                }
+            }
+            return new Honda();
+        }
+    }
+
+    static class Honda implements Vehicle {
+        public void go() {
+            System.out.println("put put");
+        }
+    }
+
+    static class BMW implements Vehicle {
+        public void go() {
+            System.out.println("vroom");
+        }
+    }
+}
+
+```
+
+By inverting the dependencies, you can decouple the code and move the commitment to an algorithm to a higher level. Now you can execute the code with different parameters and completely modify how it works.
 
 ## Avoiding Code Duplication
 
