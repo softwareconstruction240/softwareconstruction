@@ -39,7 +39,6 @@ public class Fibonacci {
         if (args.length == 1) {
             try {
                 var sequencePosition = Integer.parseInt(args[0]);
-
                 var fibonacciNumber = computeFibonacci(sequencePosition);
 
                 System.out.println(fibonacciNumber);
@@ -115,7 +114,7 @@ A good name will encourage the following:
 1. Reduction of code duplication
 1. Reduction of nested statements
 
-There are standard conventions that should be followed when choosing names. These conventions include the following.
+There are standard conventions that should be followed when choosing names. For the Java language, these conventions include the following.
 
 1. Object names are nouns
 1. Method names are verbs
@@ -128,13 +127,42 @@ There are standard conventions that should be followed when choosing names. Thes
 
 ## Parameters
 
-1. Use configuration object rather than long parameter lists. This encourages encapsulation
-1. Consistent parameter ordering: `in`, `in-out`, `out`
+When declaring a method's parameters you want to make sure you consider their complexity. Having too many parameters, parameters that interact in complex ways, or parameters that are ambiguous in their meaning are a common source of bugs. Here are some suggestions to keeping your parameters clean.
+
+| Description                                                                                                                                        | Example                                                                                  |
+| -------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| Use Enum instead of String, Integer, or Boolean                                                                                                    | `ChessPiece.KING` instead of `"king"`, `AutoSave.ENABLED`, instead of `true`             |
+| Pass configuration objects rather than long parameter lists                                                                                        | `new Game(config)` instead of `new Game(3, "white", initialBoard, true, true, false, 9)` |
+| Use consistent ordering (e.g. input params followed by output params)                                                                              | `scoreGame(players, board, result)` instead of `scoreGame(players, result, board)`       |
+| Use return values that mutate a copy of the input parameter instead of manipulating the value of a parameter that acts as both an input and output | `Board makeMove(Board boardIn)` instead of `void makeMove(Board boardInAndOut)`          |
 
 ## Immutability
 
-1. In objects
-1. In methods, no side effects
+Objects that do not change after they are constructed are referred to as immutable. In order to understand that value of immutability, consider the `String` class. If `String` was not immutable then you would never be sure you still had the same string value after a sub method was called. The following example demonstrates that an unintentional side effect of calling an imaginary operation named `String.setText`.
+
+```java
+
+void printWithPrefix(){
+    String prefix = "- "
+    for (var item : list.of("a", "b", "c")) {
+        System.out.println(appendPrefix(prefix, item));
+    }
+}
+
+void appendPrefix(String prefix, String text) {
+    prefix.setText(prefix + text);
+    return prefix;
+}
+
+// Output:
+// - a
+// - a- b
+// - a- b- c
+```
+
+Because `String` is immutable, you never have to worry about its value being changed and you can safely pass it to any function.
+
+Immutability guarantees thread safe code because it eliminates the possibility that one thread can be modifying an object at the same time a different thread is reading it.
 
 ## Declaring Variables
 
@@ -144,9 +172,49 @@ There are standard conventions that should be followed when choosing names. Thes
 
 ## Code Layout
 
+You want your code to read like a newspaper. The most interesting things should be on the front page in a very short concise representation. You then can move to a section of the paper that is of interest, and turn to the following pages if you want the details of a story.
+
+Likewise, in your code you want to follow an intuitive and consistent ordering.
+
+### Application Layout
+
+1. Keep all your application code in a single directory
+1. Include an application README.md file
+1. Include a .gitignore file
+1. Include a license file
+1. Have an obvious entry point to your code base. For example, a `Main` class in your top level package.
+1. Decompose sub packages into lower level classes and concrete implementations
+1. Maintain cohesion within a package
+1. Include package level JavaDocs as useful
+
+### Class Layout
+
+1.  Class JavaDocs as necessary
+1.  Private fields
+1.  Constructors
+1.  Public methods
+1.  Public override methods
+1.  Private methods
+
+## Method Characteristics
+
+Methods are a powerful coding abstraction. You should maximize the value of methods according to the following principles.
+
+| Principle                                      | Description                                                                                                                                   |
+| ---------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| Appropriate method length                      | The method should be short enough that you can understand it with a quick scan. Usually this means less than 20 lines.                        |
+| Embrace Decomposition                          |                                                                                                                                               |
+| Self documentation                             |                                                                                                                                               |
+| Avoiding duplication                           |                                                                                                                                               |
+| Avoiding expression nesting                    |                                                                                                                                               |
+| Declare variables where they are used          |                                                                                                                                               |
+| Prefer single a return statement               | Having multiple return statements in different express blocks forces the reader to carefully examine the code in order to understand the flow |
+| Don't recycle variables for different purposes | If `time` is used to represent the time of day, don't reuse it later to represent the time spent executing a function                         |
+| Appropriate line length                        | Keep your line lengths short enough that you can understand it with out scrolling or parsing complex expressions                              |
+
 ## Style
 
-1. Braces and such.
+In the early days of programming there were endless debates about where to put your curly braces, how much whitespace to put between functions, and if your code should be indented with tabs or spaces. However, now days, most professionals agree that stylistic differences are not as important as consistency. This is true both within a team, and across the industry. For that reason, most teams choose an industry, or language, idiomatic formatter and just let it do its job.
 
 ## Things to Understand
 
