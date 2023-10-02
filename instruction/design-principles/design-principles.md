@@ -376,7 +376,6 @@ class Correct {
 
         VehicleFactory(String vehicleMakerClass) {
             try {
-                vehicleMakerClass = "design.DependencyInversionExample$Correct$" + vehicleMakerClass;
                 var vehicleClass = Class.forName(vehicleMakerClass);
                 vehicleConstructor = (Constructor<Vehicle>) vehicleClass.getDeclaredConstructor();
             } catch (Exception ignored) {
