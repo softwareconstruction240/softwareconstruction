@@ -152,3 +152,12 @@ To Castle, the King moves 2 spaces towards the Rook, and the Rook "jumps" the ki
 **`En Passant`**
 
 This is a special move taken by a Pawn in response to your opponent double moving a Pawn. If your opponent double moves a pawn so it ends next to yours (skipping the position where your pawn could have captured their pawn), then on your immediately following turn your pawn may capture their pawn as if their pawn had only moved 1 square. This is as if your pawn is capturing their pawn mid motion, or `In Passing`.
+
+
+# Grading Rubric
+
+- **100%** - All `starter code` tests pass.
+
+# Go Celebrate
+
+Phase #1, done! You are one your way to mastering software construction. Go and celebrate with some ice cream 🍦.
