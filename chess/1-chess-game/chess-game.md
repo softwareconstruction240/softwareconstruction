@@ -8,9 +8,9 @@ In this part of the Chess Project, you will create the base Chess Game behavior.
 
 ## Code Class Structure
 
-![Class structure](class-structure.jpg)
+![Class structure](class-structure.png)
 
-**NOTE**: You are not limited to these functions. These functions are required to be able to run the automated tests. You will likely need to create additional methods.
+**NOTE**: You are not limited to this representation. These functions are required to be able to run the automated tests. You will likely need to add new methods to these interfaces, create new interfaces, and classes.
 
 ## Class Summaries
 
@@ -152,7 +152,6 @@ To Castle, the King moves 2 spaces towards the Rook, and the Rook "jumps" the ki
 **`En Passant`**
 
 This is a special move taken by a Pawn in response to your opponent double moving a Pawn. If your opponent double moves a pawn so it ends next to yours (skipping the position where your pawn could have captured their pawn), then on your immediately following turn your pawn may capture their pawn as if their pawn had only moved 1 square. This is as if your pawn is capturing their pawn mid motion, or `In Passing`.
-
 
 # Grading Rubric
 
