@@ -33,6 +33,26 @@ The easiest way to store the state of a ChessGame in MySQL is to serialize it to
 
 ## Pass Off Tests
 
-Ensure that all provided pass off tests work properly, including the PersistenceTests added for this assignment, and the StandardAPITests from the previous assignment.
+The tests provided for this assignment are in the PersistenceTests class. To run the tests first start your server, and then run PersistenceTests. When PersistenceTest runs, it will first call your web APIs to create some data in your database. Next, it will pause and prompt you to restart your server. Once your server has been restarted, press ‘Enter’ to continue with the tests.
 
-When PersistenceTest runs, it will first call your web APIs to create some data in your database. Next, it will pause and prompt you to restart your server. Once your server has been restarted, press ‘Enter’ to continue with the tests.
+Additionally, run the StandardAPITests from the previous phase to make sure they still run successfully.
+
+## Pass Off, Submission, and Grading
+
+To pass off this assignment, meet with a TA and demonstrate that your code passes the provided test cases (PersistenceTests and StandardAPITests).
+
+After you pass off your project with a TA, you should immediately submit your project source code for grading. Your grade on the project will be determined by the date you submitted your source code after passing off, not the date that you passed off. If we never receive your source code, you will not receive credit for the assignment. Here are the instructions for submitting your project source code:
+
+- In Intellij, navigate to the "Build" menu at the top of the screen and select "Clean Project" to remove auto-generated build files (if this option is not available, you can skip this step).
+- Create a ZIP file containing your whole project folder (not just the Java source files).
+- Submit your ZIP file on Canvas under the `Chess Database` assignment.
+- To demonstrate that your test cases execute successfully, you should run your unit tests inside Intellij and take a screenshot of the successful test results displayed by Intellij. Please take one screenshot that shows the result of all of your tests passing. The tests used for the screenshot must be the same as the ones submitted in the Code Quality assignment ZIP file.
+- Submit your screenshot under the `Chess Database` assignment on Canvas. The screenshot is submitted separately from your code ZIP file.
+
+### Grading Rubric
+
+| Category | Criteria | Points |
+| --- | --- | ---: |
+| Functionality | All pass off test cases succeed | 100 |
+| Unit Tests | All test cases pass<br/>Each public method on DAO classes has two test cases, one positive test and one negative test<br/>Every test case includes an Assert statement of some type | 25 |
+| | Total | 125 |

@@ -153,10 +153,13 @@ To Castle, the King moves 2 spaces towards the Rook, and the Rook "jumps" the ki
 
 This is a special move taken by a Pawn in response to your opponent double moving a Pawn. If your opponent double moves a pawn so it ends next to yours (skipping the position where your pawn could have captured their pawn), then on your immediately following turn your pawn may capture their pawn as if their pawn had only moved 1 square. This is as if your pawn is capturing their pawn mid motion, or `In Passing`.
 
-# Grading Rubric
+## Pass Off and Grading
 
-- **100%** - All `starter code` tests pass.
+To pass off this assignment, meet with a TA and demonstrate that your code passes the provided test cases.
 
-# Go Celebrate
+### Grading Rubric
 
-Phase #1, done! You are one your way to mastering software construction. Go and celebrate with some ice cream 🍦.
+| Category      | Criteria                        | Points |
+| ------------- | ------------------------------- | -----: |
+| Functionality | All pass off test cases succeed |    125 |
+|               | Total                           |    125 |

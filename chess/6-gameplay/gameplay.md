@@ -134,8 +134,29 @@ The server should mark the game as over (no more moves can be made) and send all
 
 Here is a [sequence diagram](https://sequencediagram.org/index.html?presentationMode=readOnly#initialData=C4S2BsFMAIHEEMC2MAK54E8BQWB2B7YGfAN0gCdoBlCs8gLmgCFwBXGcEXSAZ2nMgAHAT0i5g0ABIAVaSmjIePeAHNeAOgA6uWALHRO3PgOG8xEgOqQARlXwBjANaQJi5Wp45B8cqHshvcWpaCix4e2B8SjRMCgBGMIio6BiMCgAmRMjKAHlrUXI6BKwAXhKAGXwVLjKAYjTwcHwAdyw8gqKAWlrrNkgAPhpCinpK6txodpDyOOhvJWaogBMsVIzu3vZB6dGqrhT0NPJ0ufgF5dXD+I2+7eGGMf21mdPz8hXSkoRkaHsBeFA+FwdQaTVazziNy2Qzo9AAwv8iHAkJAEhCoQMYSMAFL4fbfVHMcoAQThAGlLrEZt0VHpcHdYdicgBJAByAH0UCSAJoAUQASlgseQaXT+hDRjliQARdmwYkAWV5lKO6QxDJG5RAPGAKvWPVuwvouPxKNmFkkzOkyueatqtMgYg1DCZbM5PIFQumosd9NtkplcsVyuFPqdEtZOWkzIAYsy4cTozlWdAABQAKzxE1t0F64UcAEo2vlppCDdCdlqdcWOtdy5idiaJgSElN7mWHU6ja6OTkmFQBQA1T2h+1ittFAOy+VKr33MN+q4zeiR6NxhNJlMZrOTEvt6D4Pd0IujzuLqnpFdR2PxxPM5NpzP7CfxA9HihFz4EuaHEGQRotHq1Jjr6zr0AqxJkry7IKjkw7QJA6SQAALHOdALuKS5xFOQazqeYr+uUUrTsGaEUBhL7LkRgYziG3ogeGWFXmut6bmmiCkDAiEoSe9FnphF7MTeG73luHFkAhSHIbx84MfSlHYauwl3g+qbiVxUmfmU372EC9hsDwIBAn+AHglhGFGvyvJUMysCsmRIpyQJRyKde64qVuIggCo2ZYTJ6FOf6SnuWxqZeT5BxUnE-nkU5ClCSFolpuFvlRZ+toWZWvLEsODkYRGbmsUlqZQPAEm2jFjn8fFwVFappXlUu6SfjWpaZfcozZblOA4EAA) that demonstrates the player communications.
 
-## Pass Off
+## Pass Off Tests
 
 The provided tests for this assignment are in the `WebSocketTests` class. These test the `WebSocket` interactions between client and server. To run the tests first start your server, and then run `WebSocketTests`.
 
-Also, meet with a TA and demonstrate that your Chess client and server meet the requirements listed above.
+## Code Quality
+
+For this phase the TAs will grade the quality of your project's source code. The rubric used to evaluate code quality can be found here: [Rubric](../code-quality-rubric.md)
+
+## Pass Off, Submission, and Grading
+
+To pass off this assignment, meet with a TA and demonstrate that your code passes the provided test cases.
+Also, demonstrate to the TA that your Chess client and server meet all requirements.
+
+After you pass off your project with a TA, you should immediately submit your project source code for grading. Your grade on the project will be determined by the date you submitted your source code after passing off, not the date that you passed off. If we never receive your source code, you will not receive credit for the assignment. Here are the instructions for submitting your project source code:
+
+- In Intellij, navigate to the "Build" menu at the top of the screen and select "Clean Project" to remove auto-generated build files (if this option is not available, you can skip this step).
+- Create a ZIP file containing your whole project folder (not just the Java source files).
+- Submit your ZIP file on Canvas under the `Chess Gameplay` assignment.
+
+### Grading Rubric
+
+| Category | Criteria | Points |
+| --- | --- | ---: |
+| Functionality | Program supports all required functionality | 125 |
+| Code Quality | [Rubric](../code-quality-rubric.md) | 30 |
+| | Total | 155 |
