@@ -8,9 +8,9 @@ In this part of the Chess Project, you will create the base Chess Game behavior.
 
 ## Code Class Structure
 
-![Class structure](class-structure.jpg)
+![Class structure](class-structure.png)
 
-**NOTE**: You are not limited to these functions. These functions are required to be able to run the automated tests. You will likely need to create additional methods.
+**NOTE**: You are not limited to this representation. These functions are required to be able to run the automated tests. You will likely need to add new methods to these interfaces, create new interfaces, and classes.
 
 ## Class Summaries
 
