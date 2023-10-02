@@ -255,3 +255,28 @@ Good tests extensively show that we get the expected behavior. This could be ass
 The provided tests for this assignment are in the StandardAPITests class. These test the server-side functionality of the API’s. To run the tests first start your server, and then run StandardAPITests.
 
 For the tests to work properly, our test classes need to know which port you are running your server on. We default to port 8080, but if you need to change this edit `TestFactory::getServerPort()` in the `passoffTests` package to return the port you are using.
+
+## Code Quality
+
+For this phase the TAs will grade the quality of your project's source code. The rubric used to evaluate code quality can be found here: [Rubric](../code-quality-rubric.md)
+
+## Pass Off, Submission, and Grading
+
+To pass off this assignment, meet with a TA and demonstrate that your code passes the provided test cases.
+
+After you pass off your project with a TA, you should immediately submit your project source code for grading. Your grade on the project will be determined by the date you submitted your source code after passing off, not the date that you passed off. If we never receive your source code, you will not receive credit for the assignment. Here are the instructions for submitting your project source code:
+
+- In Intellij, navigate to the "Build" menu at the top of the screen and select "Clean Project" to remove auto-generated build files (if this option is not available, you can skip this step).
+- Create a ZIP file containing your whole project folder (not just the Java source files).
+- Submit your ZIP file on Canvas under the `Chess Web API` assignment.
+- To demonstrate that your test cases execute successfully, you should run your unit tests inside Intellij and take a screenshot of the successful test results displayed by Intellij. Please take one screenshot that shows the result of all of your tests passing. The tests used for the screenshot must be the same as the ones submitted in the Code Quality assignment ZIP file.
+- Submit your screenshot under the `Chess Web API` assignment on Canvas. The screenshot is submitted separately from your code ZIP file.
+
+### Grading Rubric
+
+| Category | Criteria | Points |
+| --- | --- | ---: |
+| Functionality | All pass off test cases succeed | 125 |
+| Code Quality | [Rubric](../code-quality-rubric.md) | 30 |
+| Unit Tests | All test cases pass<br/>Each public method on Service classes has two test cases, one positive test and one negative test<br/>Every test case includes an Assert statement of some type | 25 |
+| | Total | 180 |
