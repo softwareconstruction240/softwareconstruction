@@ -159,14 +159,7 @@ To pass off this assignment, meet with a TA and demonstrate that your code passe
 
 ### Grading Rubric
 
-<<<<<<< HEAD
-| Category      | Criteria                        | Points |
-| ------------- | ------------------------------- | -----: |
-| Functionality | All pass off test cases succeed |    125 |
-|               | Total                           |    125 |
-=======
 | Category | Criteria | Points |
 | --- | --- | ---: |
 | Functionality | All pass off test cases succeed | 125 |
 | | Total | 125 |
->>>>>>> ded9de5 (Added grading rubrics to all Chess phase specifications.)
