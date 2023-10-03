@@ -18,13 +18,15 @@ public class ChessBoardTests {
     @Test
     @DisplayName("Add and Get Piece")
     public void getAddPiece() {
-        ChessPosition position = getNewPosition(4, 4);
+        ChessPosition addPosition = getNewPosition(4, 4);
         ChessPiece piece = getNewPiece(ChessGame.TeamColor.BLACK, ChessPiece.PieceType.BISHOP);
 
-        board.addPiece(position, piece);
+        board.addPiece(addPosition, piece);
 
-        ChessPiece foundPiece = board.getPiece(position);
+        ChessPosition getPosition = getNewPosition(4, 4);
+        ChessPiece foundPiece = board.getPiece(getPosition);
 
+        Assertions.assertNotNull(foundPiece, "Could not find added piece");
         Assertions.assertEquals(piece.getPieceType(), foundPiece.getPieceType(),
                 "ChessPiece returned by getPiece had the wrong piece type");
         Assertions.assertEquals(piece.getTeamColor(), foundPiece.getTeamColor(),
