@@ -166,9 +166,12 @@ Immutability guarantees thread safe code because it eliminates the possibility t
 
 ## Declaring Variables
 
-1. Don't reuse. Make final.
-1. Declare close to use.
-1. Always initialize
+When you are declaring variables in want to consider the following.
+
+1. Don't reuse variables for different purposes. Declaring a variable with the `final` keyword makes it clear that it should not be reused.
+1. Declare your variables close to where they are used. This makes it easier to determine the variables scope and type.
+1. Always initialize your variables. Leaving a variable uninitialized creates the opportunity for a null pointer exception or other unexpected behavior.
+1. Remove unused variables. Leaving an unused variable declaration in your code makes it more difficult to manage your code.
 
 ## Code Layout
 

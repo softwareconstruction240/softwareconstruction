@@ -1,31 +1,5 @@
 
-# -- Bad abstraction - Make a move
 
-sequenceDiagram
-    Player->>+Game: makeMove
-    Game->>+Board: new board(empty)
-    loop all pieces in new positions
-        Game->>+Board: addPiece
-    end
-
-
-# -- Bad abstraction - Validate moves
-
-sequenceDiagram
-    Player->>+Game: validMoves()
-    Note over Board: No piece iterator so all positions checked
-    loop all positions
-        Game->>+Board: getPiece(position)
-        Game->>+ChessPiece: pieceMoves(board, position)
-        Note over ChessPiece: Doesn't know history or turn
-        loop all piece moves
-            ChessPiece->>+ChessPiece: isValidMove(board, move)
-        end
-        Note over Game: Know history and turn
-        loop all moves
-            Game->>+Game: isValidMove(turn, board, move)
-        end
-    end
 
 # -- Obvious domain model
 
@@ -71,6 +45,54 @@ PieceImpl <|-- Knight
 PieceImpl <|-- Bishop
 PieceImpl <|-- Pawn
 
+# -- Consistent naming
+
+classDiagram  
+
+    class ChessGame {
+        <<interface>>
+        teamTurn():TeamColor
+        validMoves(ChessPosition):Collection~ChessMove~
+        makeMove(ChessMove)
+
+        isInCheck(TeamColor):Boolean
+        isInCheckmate(TeamColor):Boolean
+        isInStalemate(TeamColor):Boolean
+
+        board(ChessBoard)
+        board():ChessBoard
+    }
+
+# -- Bad abstraction - Make a move
+
+sequenceDiagram
+    Player->>+Game: makeMove
+    Game->>+Board: new board(empty)
+    Note over Board: No movePiece or removePiece
+    loop all pieces in new positions
+        Game->>+Board: addPiece
+    end
+
+
+# -- Bad abstraction - Validate moves
+
+sequenceDiagram
+    Player->>+Game: validMoves()
+    Note over Board: No piece iterator so all positions checked
+    loop all positions
+        Game->>+Board: getPiece(position)
+        Game->>+ChessPiece: pieceMoves(board, position)
+        Note over ChessPiece: Doesn't know history or turn
+        loop all piece moves
+            ChessPiece->>+ChessPiece: isValidMove(board, move)
+        end
+        Note over Game: Know history and turn
+        loop all moves
+            Game->>+Game: isValidMove(turn, board, move)
+        end
+    end
+
+
 # -- Dependency Inversion - RuleBook
 
 classDiagram  
@@ -99,17 +121,22 @@ classDiagram
     class ChessRuleBook {
         <<interface>>
     }
+
+    class MovementRule {
+        <<interface>>
+        validMoves(ChessBoard, ChessPosition):Collection~ChessMove~
+    }
     
     ChessGame "1" o-- ChessRuleBook
     ChessGame "1" o-- ChessBoard
     ChessRuleBook o-- MovementRule
 
 
-MovementRule <|-- KingMovementRule
-MovementRule <|-- QueenMovementRule
-MovementRule <|-- RookMovementRule
-MovementRule <|-- BishopMovementRule
-MovementRule <|-- KnightMovementRule
+    MovementRule <|-- KingMovementRule
+    MovementRule <|-- QueenMovementRule
+    MovementRule <|-- RookMovementRule
+    MovementRule <|-- BishopMovementRule
+    MovementRule <|-- KnightMovementRule
 
 # -- YNGNI
 
@@ -169,3 +196,79 @@ ChessGame o-- ChessRuleBook
 ChessRuleBook <|-- FIDERuleBook
 ChessRuleBook <|-- 1300RuleBook
 ChessRuleBook <|-- SimplifiedRuleBook
+
+
+# -- POLA - There is no removePiece on the Board interface
+
+sequenceDiagram
+    Game->>+Board: recreate board
+    Game->>+Board: addPiece(null)
+    Game->>+Board: removePiece(King), addPiece(King)
+    Game->>+Board: movePiece(King)
+
+
+
+# -- Fixed abstraction. Final design
+classDiagram
+
+    class ChessGame {
+        state():GameState
+        state(GameState)
+        validMoves(ChessPosition):Collection~ChessMove~
+        makeMove(ChessMove)
+    }
+
+    class ChessRuleBook {
+        <<interface>>
+        validMoves(ChessBoard, ChessPosition):Collection~ChessMove~
+
+        isBoardValid(ChessBoard):Boolean
+
+        isInCheck(ChessBoard, TeamColor):Boolean
+        isInCheckmate(ChessBoard, TeamColor):Boolean
+        isInStalemate(ChessBoard, TeamColor):Boolean
+    }
+
+    class Placement {
+        ChessPosition
+        ChessPiece
+    }
+
+    class ChessBoard {
+        iterate(): Iterator~Placement~
+        movePiece(ChessPosition, ChessPosition)
+        getPiece(ChessPosition):ChessPiece
+        history(): Iterator~ChessBoard~
+    }
+    ChessGame o-- "1" ChessBoard
+    ChessGame o-- "1" ChessRuleBook
+
+    class ChessPiece {
+        getTeamColor():TeamColor
+        getPieceType():PieceType
+    }
+    ChessBoard --> Placement
+    ChessBoard o-- "1" ChessPiece
+
+    class GameState {
+        turn(): TeamColor
+        winner(): TeamColor
+        status()
+        time()
+        board(): ChessBoard
+    }
+
+        class MovementRule {
+        <<interface>>
+        validMoves(ChessBoard, ChessPosition):Collection~ChessMove~
+    }
+    
+    ChessRuleBook o-- MovementRule
+
+
+    MovementRule <|-- KingMovementRule
+    MovementRule <|-- QueenMovementRule
+    MovementRule <|-- RookMovementRule
+    MovementRule <|-- BishopMovementRule
+    MovementRule <|-- KnightMovementRule
+
