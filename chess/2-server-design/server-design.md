@@ -30,13 +30,12 @@ After creating and commenting your classes, follow these instructions to generat
 
 Submit your Javadocs zip archive to the `Chess Server Design` Canvas Assignment.
 
-
 ### Grading Rubric
 
 When initially graded, your design will be given one of three scores:
 
-| Score | Criteria |
-| ---: | :--- |
-| 100% | Your design is mostly correct with only minor adjustments needed. Read TA suggestions for improvement in Canvas. |
-| 50% | Your design has significant deficiencies. Meet with a TA to discuss your design, ideally the same TA who originally graded your design. Improve and resubmit your design within one week of initial grading, and receive a maximum score of 100%. |
-| 0% | The submitted design was not a serious attempt at doing the assignment correctly. Resubmit your design within one week of initial grading and receive a maximum score of 50%. |
+| Score | Criteria                                                                                                                                                                                                                                          |
+| ----: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+|  100% | Your design is mostly correct with only minor adjustments needed. Read TA suggestions for improvement in Canvas.                                                                                                                                  |
+|   50% | Your design has significant deficiencies. Meet with a TA to discuss your design, ideally the same TA who originally graded your design. Improve and resubmit your design within one week of initial grading, and receive a maximum score of 100%. |
+|    0% | The submitted design was not a serious attempt at doing the assignment correctly. Resubmit your design within one week of initial grading and receive a maximum score of 50%.                                                                     |

@@ -155,8 +155,8 @@ After you pass off your project with a TA, you should immediately submit your pr
 
 ### Grading Rubric
 
-| Category | Criteria | Points |
-| --- | --- | ---: |
-| Functionality | Program supports all required functionality | 125 |
-| Code Quality | [Rubric](../code-quality-rubric.md) | 30 |
-| | Total | 155 |
+| Category      | Criteria                                    | Points |
+| ------------- | ------------------------------------------- | -----: |
+| Functionality | Program supports all required functionality |    125 |
+| Code Quality  | [Rubric](../code-quality-rubric.md)         |     30 |
+|               | Total                                       |    155 |
