@@ -51,8 +51,8 @@ After you pass off your project with a TA, you should immediately submit your pr
 
 ### Grading Rubric
 
-| Category | Criteria | Points |
-| --- | --- | ---: |
-| Functionality | All pass off test cases succeed | 100 |
-| Unit Tests | All test cases pass<br/>Each public method on DAO classes has two test cases, one positive test and one negative test<br/>Every test case includes an Assert statement of some type | 25 |
-| | Total | 125 |
+| Category      | Criteria                                                                                                                                                                            | Points |
+| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -----: |
+| Functionality | All pass off test cases succeed                                                                                                                                                     |    100 |
+| Unit Tests    | All test cases pass<br/>Each public method on DAO classes has two test cases, one positive test and one negative test<br/>Every test case includes an Assert statement of some type |     25 |
+|               | Total                                                                                                                                                                               |    125 |

@@ -62,8 +62,8 @@ After you pass off your project with a TA, you should immediately submit your pr
 
 ### Grading Rubric
 
-| Category | Criteria | Points |
-| --- | --- | ---: |
-| Functionality | Program supports all required functionality | 100 |
-| Unit Tests | All test cases pass<br/>Each public method on the Server Facade class has two test cases, one positive test and one negative test<br/>Every test case includes an Assert statement of some type | 25 |
-| | Total | 125 |
+| Category      | Criteria                                                                                                                                                                                        | Points |
+| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -----: |
+| Functionality | Program supports all required functionality                                                                                                                                                     |    100 |
+| Unit Tests    | All test cases pass<br/>Each public method on the Server Facade class has two test cases, one positive test and one negative test<br/>Every test case includes an Assert statement of some type |     25 |
+|               | Total                                                                                                                                                                                           |    125 |
