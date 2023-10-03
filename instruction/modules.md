@@ -41,7 +41,6 @@ The course content is divided into multiple modules. Each module represents a we
 
 - [HTTP](http/http.md)
 - [cURL](curl/curl.md)
-- [Design Principles (Chess Examples)](https://docs.google.com/presentation/d/1dncxSAgnIqjV9RNzGR94EWVltJiCApqC3EvNPqz97-E/edit?usp=sharing)
 - [Web API](web-api/web-api.md)
 
 ## Module 6
