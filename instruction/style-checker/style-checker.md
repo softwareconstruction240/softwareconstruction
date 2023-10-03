@@ -4,9 +4,13 @@
 
 Adhering to best practices and being consistent in your code structure, styles, and formatting is a hallmark of a professional developer. Historically, a proficient development team, would develop a document that outlined the standards that the team was expected to adhere to. This included common idioms to follow, anti-patterns to avoid, and a description of proper formatting and coding layout. As an example, you can reference [Google's style guide for Java](https://google.github.io/styleguide/javaguide.html). You will see that it describes very basic things like how you indent your code, how you order your import statements, and what is the limit on line length.
 
+## Drop the Ego
+
 Style guides are usually very opinionated. This is because they are attempting to create a common representation of code that enables the team to focus on what the code does, and not what the code looks like. Being willing to put the team first is an important part of what is called [Egoless Development](https://blog.codinghorror.com/the-ten-commandments-of-egoless-programming/), and should be a quality that you strive to refine as part of your professional development.
 
 One of the easiest ways to drop the ego, and conform to the team, is to simply use automated tools for organizing, formatting, and styling your code. Modern programming languages such as `Go` and `Rust` actually deploy linters and formatters as part of their language toolkit. This makes it so that any code written in that language is always formatted in a similar way. `Python` takes it a step further and actually makes the formatting part of the language.
+
+## Leveraging Tools
 
 When using IntelliJ, there is a built in action to reformat your code when you save a file. You can also enable a style checker that runs before you push your code to GitHub. Tools like this also help you discover features of Java that you might not be familiar with.
 
