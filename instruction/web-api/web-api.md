@@ -10,7 +10,7 @@ Now that you understand how HTTP works at a theoretical level you can write Java
 
 For our server code, we will use a library called [JavaSpark](https://sparkjava.com/). `JavaSpark` makes it very easy to write an HTTP server that handles multiple endpoint requests. An endpoint is the code that handles a specific HTTP resource request. You can think of the service endpoints as being the public methods of the service interface.
 
-As an example, let's write an HTTP service named `name list` that implements maintains a list of names. To make the service useful we will provide the following endpoints.
+As an example, let's write an HTTP service named `name list` that maintains a list of names. To make the service useful we will provide the following endpoints.
 
 | Endpoint   | HTTP Method | HTTP path   | Purpose                                              |
 | ---------- | ----------- | ----------- | ---------------------------------------------------- |
@@ -125,7 +125,7 @@ public class ServerExample {
 You can experiment with this code by doing the following.
 
 1. Create a directory name `public` and put an `index.html` file in it that contains some simple text.
-1. Run the code from a directory relative to directory that contains the `public` directory.
+1. Run the code from a directory relative to the directory that contains the `public` directory.
 1. Open your browser and point it to `localhost:8080`. This should display the contents of your `index.html` file.
 1. Run the following commands with Curl
    1. `curl localhost:8080/name`, returns `{"name":[]}`
