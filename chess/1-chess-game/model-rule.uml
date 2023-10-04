@@ -201,10 +201,10 @@ ChessRuleBook <|-- SimplifiedRuleBook
 # -- POLA - There is no removePiece on the Board interface
 
 sequenceDiagram
-    Game->>+Board: recreate board
-    Game->>+Board: addPiece(null)
-    Game->>+Board: removePiece(King), addPiece(King)
-    Game->>+Board: movePiece(King)
+    Game->>+Board: 1. recreate board
+    Game->>+Board: 2. addPiece(null), addPiece(King)
+    Game->>+Board: 3. removePiece(King), addPiece(King)
+    Game->>+Board: 4. movePiece(King)
 
 
 
