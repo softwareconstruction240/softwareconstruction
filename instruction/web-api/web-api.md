@@ -2,6 +2,8 @@
 
 🖥️ [Slides: Server](https://docs.google.com/presentation/d/1Nvb0fUObt-An0nMOFEhgIufnSN6qpixF/edit?usp=sharing&ouid=114081115660452804792&rtpof=true&sd=true)
 
+🖥️ [Slides: Server Implementation Tips](https://docs.google.com/presentation/d/1hORd88ej8W-nqHgEpYU2GmPcrSrHew1V/edit?usp=drive_link&ouid=110961336761942794636&rtpof=true&sd=true)
+
 🖥️ [Slides: Client](https://docs.google.com/presentation/d/1P-qIn-6mrZ28UuRFtFMIvGnjygOtOzZ5/edit?usp=sharing&ouid=114081115660452804792&rtpof=true&sd=true)
 
 Now that you understand how HTTP works at a theoretical level you can write Java code to make requests from an HTTP client and respond from an HTTP server.
