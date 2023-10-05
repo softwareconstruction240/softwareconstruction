@@ -16,7 +16,7 @@ In this part of the Chess Project, you will create your Chess server and impleme
 
 ## Required Web APIs
 
-An API is a command a server makes available to the public. For your server these API’s will be accessed via the Hypertext Transfer Protocol (HTTP). Often the server requires some data when a client uses an API. For an HTTP request this data can be stored in HTTP Headers, in the URL, and/or in the request body. The Server then sends back data to the client, including a value in the HTTP Response Code (indicating if command was completed successfully), and any needed information in the HTTP Response Body. For your server, you will use JSON strings for the Request and Response bodies.
+An API is a command a server makes available to the public. For your server these API’s will be accessed via the Hypertext Transfer Protocol (HTTP). Often the server requires some data when a client uses an API. For an HTTP request this data can be stored in HTTP Headers, in the URL, and/or in the request body. The Server then sends back data to the client, including a value in the HTTP Response Code (indicating if the command was completed successfully), and any needed information in the HTTP Response Body. For your server, you will use JSON strings for the Request and Response bodies.
 
 ## API Details
 
