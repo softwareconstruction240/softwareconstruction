@@ -12,14 +12,24 @@ One of the easiest ways to drop the ego, and conform to the team, is to simply u
 
 ## Leveraging Tools
 
-When using IntelliJ, there is a built in action to reformat your code when you save a file. You can also enable a style checker that runs before you push your code to GitHub. Tools like this also help you discover features of Java that you might not be familiar with.
+IntelliJ is a powerful development tool. Not only does it help you write and debug your code, it has functionality for formatting, suggesting style/idiomatic changes, and refactoring your code. Tools like this also help you clean up your code and discover features of Java that you might not be familiar with.
+
+### Autoformatting
 
 You can either use the format command to format the current file, or you can enable automatic formatting in IntelliJ so that it formats a file whenever it is saved. The following video show the use of both these formatting methods.
 
 ![Auto format](autoFormat.gif)
 
-To have IntelliJ check your files for idiomatic problems and suggest ways to clean up your code, you can invoke the `Problem` checker, or click on the yellow light bulbs when they appear next to your code. IntelliJ will also automatically run the `Problem` checker when you push your code to GitHub.
+### Idiomatic Suggestions
+
+To have IntelliJ check your files for idiomatic problems and suggest ways to clean up your code, you can invoke the `Problem` checker, or click on the yellow light bulbs when they appear next to your code. In the top right corner of the editor is a control that will help you step through all the problems in the file, or display a green checkmark if everything looks good. IntelliJ will also automatically run the `Problem` checker when you push your code to GitHub.
 
 ![Style Checker](styleChecker.gif)
 
 It is important to get in the habit of consistently using these tools while you are developing your code. Otherwise, you end up with hundreds of problems that need to be corrected and the temptation will increase to just ignore them all.
+
+### Refactoring Tools
+
+IntelliJ also contains many tools for refactoring your code. Using these tools will improve style of your code. The following demonstrates extracting a method.
+
+![Refactor method](refactorTool.gif)

@@ -201,23 +201,60 @@ Likewise, in your code you want to follow an intuitive and consistent ordering.
 
 ## Method Characteristics
 
-Methods are a powerful coding abstraction. You should maximize the value of methods according to the following principles.
+Methods are a powerful coding abstraction. You can maximize the value of methods by applying the following principles.
 
-| Principle                                      | Description                                                                                                                                   |
-| ---------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| Appropriate method length                      | The method should be short enough that you can understand it with a quick scan. Usually this means less than 20 lines.                        |
-| Embrace Decomposition                          |                                                                                                                                               |
-| Self documentation                             |                                                                                                                                               |
-| Avoiding duplication                           |                                                                                                                                               |
-| Avoiding expression nesting                    |                                                                                                                                               |
-| Declare variables where they are used          |                                                                                                                                               |
-| Prefer single a return statement               | Having multiple return statements in different express blocks forces the reader to carefully examine the code in order to understand the flow |
-| Don't recycle variables for different purposes | If `time` is used to represent the time of day, don't reuse it later to represent the time spent executing a function                         |
-| Appropriate line length                        | Keep your line lengths short enough that you can understand it with out scrolling or parsing complex expressions                              |
+| Principle                                 | Description                                                                                                                                                                                 |
+| ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Appropriate method length**             | The method should be short enough that you can understand it with a quick scan. Usually this means less than 20 lines.                                                                      |
+| **Embrace Decomposition**                 | A method that contains code for doing multiple things should be broken into multiple submethods.                                                                                            |
+| **Self documentation**                    | Decomposing a method into submethods reduces the need to insert comments. Instead create a method and allow the name of the method to document what the code does.                          |
+| **Avoiding duplication**                  | If the same code appears in multiple places with slight variations, you should consider creating a method to replace the duplication and pass in a parameter that represents the variation. |
+| **Avoiding expression nesting**           | Nested expressions, (`if` inside `while`, inside `for`, inside 'switch', ...), can make code difficult to follow. Instead break the nested expressions into submethods.                     |
+| **Declare variables where they are used** | Localizing the context of the code helps make code more readable. The goal is to be able understand what every block of code is doing without scrolling or navigating away from the code.   |
+| **Prefer single a return statement**      | Having multiple return statements in different express blocks forces the reader to carefully examine the code in order to understand the flow                                               |
+| **Don't recycle**                         | If `time` is used to represent the time of day, don't reuse it later to represent the time spent executing a method                                                                         |
+| **Appropriate line length**               | Keep your line lengths short enough that you can understand it with out scrolling or parsing complex expressions                                                                            |
 
 ## Style
 
-In the early days of programming there were endless debates about where to put your curly braces, how much whitespace to put between functions, and if your code should be indented with tabs or spaces. However, now days, most professionals agree that stylistic differences are not as important as consistency. This is true both within a team, and across the industry. For that reason, most teams choose an industry, or language, idiomatic formatter and just let it do its job.
+In the early days of programming there were endless debates about where to put your curly braces, how much whitespace to put between functions, and if your code should be indented with tabs or spaces.
+
+```java
+void style1()
+{
+}
+
+void style2() {}
+
+void style3() {
+}
+
+void style4()
+    {
+    }
+```
+
+However, now days, most professionals agree that stylistic differences are not as important as consistency. This is true both within a team, and across the industry. For that reason, most teams choose an industry, or language, idiomatic formatter and just let it do its job. Within IntelliJ, you can enable automatic formatting, by modifying the IDE settings and enabling the `Reformat code` option in the `Tools > Actions on Save` configuration pane.
+
+![auto format](format-settings.png)
+
+The key point with styling, is to drop the ego and focus on the team when picking a style, and preferably let your tool enforce the style.
+
+## Refactoring
+
+The term `refactoring` refers to improving the internal quality of your code without modify the external representation. There are many common refactoring techniques that will significantly increase the quality of your code. The following table briefly describes some of the more common ones.
+
+| Name                      | Description                                                                                                                                                                                                                                                                                                                                                                                                     |
+| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Function Extraction       | Moving complex expressions in one function, into a cohesive subfunction. This clarifies the flow of the code by reducing the number of expressions in the function and makes it self documenting with the subfunctions name. This can also be used if you have a complex conditional. Instead of having a handful of boolean predicates, simply replace it with one function that represents the boolean logic. |
+| Function Inline           | Moving a simple subfunction into an express in the parent function. This could be a lambda function or simply a single expression. This reduces the overhead of the code and increases readability by placing everything necessary to comprehend the function in one place.                                                                                                                                     |
+| Inline Temp Variables     | Instead of creating a temp variable in one expression and then passing the temp variable as a parameter to a second expression, you simplify code by putting the first expression as an inline parameter and dropping the temporary variable. Note that this may make debugging more difficult if examining the temporary variable is commonly desired.                                                         |
+| Method Relocation         | When classes lack cohesion it is helpful to move methods around or even create new classes to contain a non-cohesive function.                                                                                                                                                                                                                                                                                  |
+| Renaming                  | Renaming methods or variables often leads to better code clarity. Don't be afraid to rename something and see how it sounds.                                                                                                                                                                                                                                                                                    |
+| Abstraction               | Abstraction includes things like consolidating duplicate code into a common method, using generics/templates, creating abstract base classes, or implementing multiple concrete classes with an interface.                                                                                                                                                                                                      |
+| Parameter Objectification | Replace a long list of parameters with a configuration object.                                                                                                                                                                                                                                                                                                                                                  |
+
+It is key that you have a good set of unit tests that confirms you did not introduce a bug during the refactoring process.
 
 ## Things to Understand
 
@@ -228,7 +265,7 @@ In the early days of programming there were endless debates about where to put y
 - How to properly use parameters.
 - How to properly layout your code to maximize readability.
 - How to make expressions easy to read and understand.
-- How to write good pseudocode.
+- How to refactor your code.
 
 ## Videos
 
