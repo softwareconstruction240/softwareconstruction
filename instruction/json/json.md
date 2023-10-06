@@ -149,6 +149,35 @@ The above code will output the following.
 JSON:   ["x-cat","x-dog","x-cow"]
 Object: [cat, dog, cow]
 ```
+### RuntimeTypeAdapter
+
+When deserializing classes from an inheritance hiearchy there are times when Gson doesn't know which subclass to instantiate. For example, if a class you want to deserialize has a reference of an abstract or interface type, Gson doesn't know which subclass or implementing class to instantiate. In that case you can write a custom type adapter or use the RuntimeTypeAdapterFactory class. See the [runtimeTypeAdapter example](example-code/runtimeTypeAdapter) code for details.
+
+RuntimeTypeAdapterFactory is created and maintained by the Gson team but is not included the Gson library. There are two ways to get the code:
+
+1. Copy the code from this [github repo](https://github.com/google/gson/blob/main/extras/src/main/java/com/google/gson/typeadapters/RuntimeTypeAdapterFactory.java) (put the code in the package specified in the source file)
+2. Install the [gson-extras library](https://mvnrepository.com/artifact/org.danilopianini/gson-extras) from maven
+
+## Obtaining the Gson Dependency
+
+There are three main ways to make the Gson library available to your project:
+
+1. Add the dependency from Intellij's File / Project Structure dialog
+
+   Search for gson and select the latest version
+
+1. Create a Maven project and add the Maven dependency to your pom.xml file
+   
+   <dependency>
+      <groupId>com.google.code.gson</groupId>
+      <artifactId>gson</artifactId>
+      <version>2.10.1</version>
+   </dependency>
+   
+1. Create a Gradle project and add the Gradle dependency to your build.gradle file
+   
+   implementation group: 'com.google.code.gson', name: 'gson', version: '2.10.1'
+
 
 ## Things to Understand
 
