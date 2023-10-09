@@ -63,7 +63,7 @@ public class Fibonacci {
     private static int computeFibonacci(int sequencePosition) {
         var n2Value = 0;
         var n1Value = 0;
-        for (var currentPosition = 0; currentPosition < sequencePosition; currentPosition++) {
+        for (var currentPosition = 1; currentPosition <= sequencePosition; currentPosition++) {
             if (currentPosition == 1) {
                 n1Value = 1;
             } else {
@@ -79,11 +79,11 @@ public class Fibonacci {
 
 Both of these examples correctly compute the Fibonacci number for a given Fibonacci sequence position. However, the first example, while shorter, seems to go to great lengths to obfuscate its purpose and mix different coding styles. The second example seeks to intentionally define its purpose and match the Fibonacci algorithm with clarity.
 
-Quality coding extends well beyond writing clear functions. It begins with a design that clearly expresses the problem from the user's perspective. Its structure naturally fits the real world objects contained in the problem. It considers the code base as a whole (including build, testing, and delivery systems), instead of narrowly focusing on the code that is currently under development. It relies on proper naming of objects, methods, variables, and resources. It uses documentation and comments to clarify intent rather than duplicate code. Simplicity is valued over brevity and performance, when performance is not a critical factor. Each piece of the code does one thing, and does one thing well. It does not repeat itself. It values the ability to enhance or extend the code without impacting the larger context. It sets up safeguards that enable rapid enhancement without prolonged regression testing.
+Quality coding extends well beyond writing clear functions. It begins with a design that clearly expresses the problem from the user's perspective. Its structure naturally fits the real world objects contained in the problem. It considers the code base as a whole (including build, testing, and delivery systems), instead of narrowly focusing on the code that is currently under development. It relies on proper naming of objects, methods, variables, and resources. It uses documentation and comments to clarify intent rather than duplicate code. When performance is not a critical factor, simplicity is valued over brevity or performance. Each piece of the code does one thing, and does one thing well. It does not repeat itself. It values the ability to enhance or extend the code without impacting the larger context. It sets up safeguards that enable rapid enhancement without prolonged regression testing.
 
 Just like good art, quality code is often a subjective opinion. There are lots of good guidelines, but there are no absolute rules. A true artist knows when to break rules for the sake of a larger goal. However, if you cannot understand your own code the week after you wrote it, or if your definition of quality does not match that of your team, then there is definitely a problem.
 
-Learning to write quality code requires effort and experience. One way to accelerate your mastery is to study quality code that others have written. Many open source projects found on GitHub provide examples of industrial quality code. You can also debug into the libraries that you commonly use, in order to learn from what they have done. Consider all of these examples with a critical eye. Ask yourself if there is a better way to structure and represent this problem.
+Learning to write quality code requires effort and experience. One way to accelerate your mastery is to study quality code that others have written. Many open source projects found on GitHub provide examples of industrial quality code. You can also debug into the libraries that you commonly use, in order to learn from what they have done. Consider all of these examples with a critical eye. Ask yourself if there is a better way to structure and represent the problem.
 
 ## Names
 
@@ -138,20 +138,20 @@ When declaring a method's parameters you want to make sure you consider their co
 
 ## Immutability
 
-Objects that do not change after they are constructed are referred to as immutable. In order to understand that value of immutability, consider the `String` class. If `String` was not immutable then you would never be sure you still had the same string value after a sub method was called. The following example demonstrates that an unintentional side effect of calling an imaginary operation named `String.setText`.
+Objects that do not change after they are constructed are referred to as immutable. In order to understand that value of immutability, consider the `String` class. If `String` was not immutable then you would never be sure you still had the same string value after a sub method was called. The following example demonstrates an unintentional side effect of calling an imaginary operation named `String.setText`.
 
 ```java
 
 void printWithPrefix(){
     String prefix = "- "
     for (var item : list.of("a", "b", "c")) {
-        System.out.println(appendPrefix(prefix, item));
+        printWithPrefix(prefix, item);
     }
 }
 
-void appendPrefix(String prefix, String text) {
+void printWithPrefix(String prefix, String text) {
     prefix.setText(prefix + text);
-    return prefix;
+    System.out.println(prefix);
 }
 
 // Output:
@@ -160,7 +160,7 @@ void appendPrefix(String prefix, String text) {
 // - a- b- c
 ```
 
-Because `String` is immutable, you never have to worry about its value being changed and you can safely pass it to any function.
+In reality, because `String` is immutable, you never have to worry about its value being changed and you can safely pass it to any function.
 
 Immutability guarantees thread safe code because it eliminates the possibility that one thread can be modifying an object at the same time a different thread is reading it.
 
@@ -169,7 +169,7 @@ Immutability guarantees thread safe code because it eliminates the possibility t
 When you are declaring variables in want to consider the following.
 
 1. Don't reuse variables for different purposes. Declaring a variable with the `final` keyword makes it clear that it should not be reused.
-1. Declare your variables close to where they are used. This makes it easier to determine the variables scope and type.
+1. Declare your variables close to where they are used. Localizing the context of the code helps make code more readable. The goal is to be able understand what every block of code is doing without scrolling or navigating away from the code.
 1. Always initialize your variables. Leaving a variable uninitialized creates the opportunity for a null pointer exception or other unexpected behavior.
 1. Remove unused variables. Leaving an unused variable declaration in your code makes it more difficult to manage your code.
 
@@ -179,7 +179,9 @@ You want your code to read like a newspaper. The most interesting things should 
 
 Likewise, in your code you want to follow an intuitive and consistent ordering.
 
-### Application Layout
+### Application Structure
+
+At the application level, you want to use a consistent structure for your code. Some common principles for defining application structure include the following.
 
 1. Keep all your application code in a single directory
 1. Include an application README.md file
@@ -192,28 +194,69 @@ Likewise, in your code you want to follow an intuitive and consistent ordering.
 
 ### Class Layout
 
-1.  Class JavaDocs as necessary
+Within a class you also want to follow a consistent structure. One common class layout includes the following order.
+
+1.  Class JavaDocs
+1.  Public fields
 1.  Private fields
 1.  Constructors
 1.  Public methods
 1.  Public override methods
 1.  Private methods
 
+```java
+/**
+ * Provides an example of how to properly lay out your code so
+ * that it reads like a newspaper story, with the important
+ * details at the top, with increasing decomposition towards
+ * the bottom.
+ *
+ * @see FibonacciGood for a real example
+ */
+public class LayoutExample {
+    /**
+     * Fields declared first
+     */
+    private String field1;
+
+    /**
+     * Then constructors
+     */
+    public LayoutExample() {
+
+    }
+
+    /**
+     * Then public methods
+     */
+    public void publicMethod() {
+
+    }
+
+    /**
+     * Then private methods
+     */
+    private void privateMethod() {
+
+    }
+}
+```
+
 ## Method Characteristics
 
 Methods are a powerful coding abstraction. You can maximize the value of methods by applying the following principles.
 
-| Principle                                 | Description                                                                                                                                                                                 |
-| ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Appropriate method length**             | The method should be short enough that you can understand it with a quick scan. Usually this means less than 20 lines.                                                                      |
-| **Embrace Decomposition**                 | A method that contains code for doing multiple things should be broken into multiple submethods.                                                                                            |
-| **Self documentation**                    | Decomposing a method into submethods reduces the need to insert comments. Instead create a method and allow the name of the method to document what the code does.                          |
-| **Avoiding duplication**                  | If the same code appears in multiple places with slight variations, you should consider creating a method to replace the duplication and pass in a parameter that represents the variation. |
-| **Avoiding expression nesting**           | Nested expressions, (`if` inside `while`, inside `for`, inside 'switch', ...), can make code difficult to follow. Instead break the nested expressions into submethods.                     |
-| **Declare variables where they are used** | Localizing the context of the code helps make code more readable. The goal is to be able understand what every block of code is doing without scrolling or navigating away from the code.   |
-| **Prefer single a return statement**      | Having multiple return statements in different express blocks forces the reader to carefully examine the code in order to understand the flow                                               |
-| **Don't recycle**                         | If `time` is used to represent the time of day, don't reuse it later to represent the time spent executing a method                                                                         |
-| **Appropriate line length**               | Keep your line lengths short enough that you can understand it with out scrolling or parsing complex expressions                                                                            |
+| Principle                            | Description                                                                                                                                                                                 |
+| ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Appropriate method length**        | The method should be short enough that you can understand it with a quick scan. Usually this means less than 20 lines.                                                                      |
+| **Embrace Decomposition**            | A method that contains code for doing multiple things should be broken into multiple submethods.                                                                                            |
+| **Self documentation**               | Decomposing a method into submethods reduces the need to insert comments. Instead create a method and allow the name of the method to document what the code does.                          |
+| **Avoiding duplication**             | If the same code appears in multiple places with slight variations, you should consider creating a method to replace the duplication and pass in a parameter that represents the variation. |
+| **Avoiding expression nesting**      | Nested expressions, (`if` inside `while`, inside `for`, inside 'switch', ...), can make code difficult to follow. Instead break the nested expressions into submethods.                     |
+| **Prefer a single return statement** | Having multiple return statements in different express blocks forces the reader to carefully examine the code in order to understand the flow                                               |
+| **Don't recycle**                    | If `time` is used to represent the time of day, don't reuse it later to represent the time spent executing a method                                                                         |
+| **Whitespace**                       | Use whitespace to separates related bodies of code.                                                                                                                                         |
+| **Appropriate line length**          | Keep your line lengths short enough that you can understand it with out scrolling or parsing complex expressions                                                                            |
 
 ## Style
 
@@ -232,6 +275,24 @@ void style3() {
 void style4()
     {
     }
+```
+
+```java
+if (true) x++;
+
+if (true)
+    x++;
+
+if (true) {
+    x++;
+}
+
+if (true)
+{
+    x++;
+}
+
+(true) ? x++ : x;
 ```
 
 However, now days, most professionals agree that stylistic differences are not as important as consistency. This is true both within a team, and across the industry. For that reason, most teams choose an industry, or language, idiomatic formatter and just let it do its job. Within IntelliJ, you can enable automatic formatting, by modifying the IDE settings and enabling the `Reformat code` option in the `Tools > Actions on Save` configuration pane.
@@ -254,7 +315,46 @@ The term `refactoring` refers to improving the internal quality of your code wit
 | Abstraction               | Abstraction includes things like consolidating duplicate code into a common method, using generics/templates, creating abstract base classes, or implementing multiple concrete classes with an interface.                                                                                                                                                                                                      |
 | Parameter Objectification | Replace a long list of parameters with a configuration object.                                                                                                                                                                                                                                                                                                                                                  |
 
-It is key that you have a good set of unit tests that confirms you did not introduce a bug during the refactoring process.
+The following is an example of refactoring the Fibonacci example that was given above. To get to this result we did the following refactorings:
+
+1. Created a new abstraction to represent the Fibonacci number as a Java record.
+1. Extracted the function to iteratively calculate the sequence into the `increment` and `value` methods on the `Fibonacci` record.
+1. Inlined temp variables in the `increment` method.
+1. Renamed the variables.
+
+```java
+    private record Fibonacci(int n2, int n1) {
+        public int value() {
+            return n2 + n1;
+        }
+
+        private Fibonacci increment() {
+            if (n1 == 0) {
+                return new Fibonacci(0, 1);
+            }
+
+            return new Fibonacci(n1, value());
+        }
+    }
+
+    private static int refactoredFibonacci(int sequencePosition) {
+        var fib = new Fibonacci(0, 0);
+        for (var currentPosition = 1; currentPosition <= sequencePosition; currentPosition++) {
+            fib = fib.increment();
+        }
+        return fib.value();
+    }
+```
+
+Having a good set of unit tests is key to successful refactoring. That way you can quickly determine if you introduced a bug during the refactoring process.
+
+We can verify that our new Fibonacci does the same thing as the old version with a test like the following.
+
+```java
+for (var i : Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7)) {
+    assertEquals(originalFibonacci(i), refactoredFibonacci(i));
+}
+```
 
 ## Things to Understand
 
@@ -277,7 +377,3 @@ It is key that you have a good set of unit tests that confirms you did not intro
 - 🎥 [Code Layout](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=89391851-a002-40f4-8740-ad6b015871b5&start=0)
 - 🎥 [Pseudo-Code](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=56a43caf-5554-4d6d-a845-ad6d013f861a&start=0)
 - 🎥 [Variable Names](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=6297fb45-e525-4e3b-a8a6-ad6d0140afb3&start=0)
-
-## Demonstration code
-
-📁 [x](example-code/)
