@@ -1,0 +1,7 @@
+sequenceDiagram
+    Client->>Server: validMoves()
+    Server->>ChessGame: validModes()
+    ChessGame->>ChessBoard: getPiece()
+    ChessGame->>ChessPiece: pieceMoves()
+    Server->>Client: Collection<ChessMove>
+    Client->>Server:makeMove(ChessMove)

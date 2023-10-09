@@ -130,12 +130,12 @@ There are standard conventions that should be followed when choosing names. For 
 
 When declaring a method's parameters you want to make sure you consider their complexity. Having too many parameters, parameters that interact in complex ways, or parameters that are ambiguous in their meaning are a common source of bugs. Here are some suggestions to keeping your parameters clean.
 
-| Description                                                                                                                                        | Example                                                                                  |
-| -------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| Use Enum instead of String, Integer, or Boolean                                                                                                    | `ChessPiece.KING` instead of `"king"`, `AutoSave.ENABLED`, instead of `true`             |
-| Pass configuration objects rather than long parameter lists                                                                                        | `new Game(config)` instead of `new Game(3, "white", initialBoard, true, true, false, 9)` |
-| Use consistent ordering (e.g. input params followed by output params)                                                                              | `scoreGame(players, board, result)` instead of `scoreGame(players, result, board)`       |
-| Use return values that mutate a copy of the input parameter instead of manipulating the value of a parameter that acts as both an input and output | `Board makeMove(Board boardIn)` instead of `void makeMove(Board boardInAndOut)`          |
+| Concept               | Description                                                                                                                                        | Example                                                                                  |
+| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| **Use symbols**       | Use Enum instead of String, Integer, or Boolean                                                                                                    | `ChessPiece.KING` instead of `"king"`, `AutoSave.ENABLED`, instead of `true`             |
+| **Reduce parameters** | Pass configuration objects, use setters, or have valid defaults, rather than long parameter lists                                                  | `new Game(config)` instead of `new Game(3, "white", initialBoard, true, true, false, 9)` |
+| **Be consistent**     | Use consistent ordering (e.g. input params followed by output params)                                                                              | `scoreGame(players, board, result)` instead of `scoreGame(players, result, board)`       |
+| **Single return**     | Use return values that mutate a copy of the input parameter instead of manipulating the value of a parameter that acts as both an input and output | `Board makeMove(Board boardIn)` instead of `void makeMove(Board boardInAndOut)`          |
 
 ## Immutability
 
@@ -306,15 +306,15 @@ The key point with styling, is to drop the ego and focus on the team when pickin
 
 The term `refactoring` refers to improving the internal quality of your code without modify the external representation. There are many common refactoring techniques that will significantly increase the quality of your code. The following table briefly describes some of the more common ones.
 
-| Name                      | Description                                                                                                                                                                                                                                                                                                                                                                                                     |
-| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Function Extraction       | Moving complex expressions in one function, into a cohesive subfunction. This clarifies the flow of the code by reducing the number of expressions in the function and makes it self documenting with the subfunctions name. This can also be used if you have a complex conditional. Instead of having a handful of boolean predicates, simply replace it with one function that represents the boolean logic. |
-| Function Inline           | Moving a simple subfunction into an express in the parent function. This could be a lambda function or simply a single expression. This reduces the overhead of the code and increases readability by placing everything necessary to comprehend the function in one place.                                                                                                                                     |
-| Inline Temp Variables     | Instead of creating a temp variable in one expression and then passing the temp variable as a parameter to a second expression, you simplify code by putting the first expression as an inline parameter and dropping the temporary variable. Note that this may make debugging more difficult if examining the temporary variable is commonly desired.                                                         |
-| Method Relocation         | When classes lack cohesion it is helpful to move methods around or even create new classes to contain a non-cohesive function.                                                                                                                                                                                                                                                                                  |
-| Renaming                  | Renaming methods or variables often leads to better code clarity. Don't be afraid to rename something and see how it sounds.                                                                                                                                                                                                                                                                                    |
-| Abstraction               | Abstraction includes things like consolidating duplicate code into a common method, using generics/templates, creating abstract base classes, or implementing multiple concrete classes with an interface.                                                                                                                                                                                                      |
-| Parameter Objectification | Replace a long list of parameters with a configuration object.                                                                                                                                                                                                                                                                                                                                                  |
+| Name                          | Description                                                                                                                                                                                                                                                                                                                                                                                                     |
+| ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Function Extraction**       | Moving complex expressions in one function, into a cohesive subfunction. This clarifies the flow of the code by reducing the number of expressions in the function and makes it self documenting with the subfunctions name. This can also be used if you have a complex conditional. Instead of having a handful of boolean predicates, simply replace it with one function that represents the boolean logic. |
+| **Function Inline**           | Moving a simple subfunction into an express in the parent function. This could be a lambda function or simply a single expression. This reduces the overhead of the code and increases readability by placing everything necessary to comprehend the function in one place.                                                                                                                                     |
+| **Inline Temp Variables**     | Instead of creating a temp variable in one expression and then passing the temp variable as a parameter to a second expression, you simplify code by putting the first expression as an inline parameter and dropping the temporary variable. Note that this may make debugging more difficult if examining the temporary variable is commonly desired.                                                         |
+| **Method Relocation**         | When classes lack cohesion it is helpful to move methods around or even create new classes to contain a non-cohesive function.                                                                                                                                                                                                                                                                                  |
+| **Renaming**                  | Renaming methods or variables often leads to better code clarity. Don't be afraid to rename something and see how it sounds.                                                                                                                                                                                                                                                                                    |
+| **Abstraction**               | Abstraction includes things like consolidating duplicate code into a common method, using generics/templates, creating abstract base classes, or implementing multiple concrete classes with an interface.                                                                                                                                                                                                      |
+| **Parameter Objectification** | Replace a long list of parameters with a configuration object.                                                                                                                                                                                                                                                                                                                                                  |
 
 The following is an example of refactoring the Fibonacci example that was given above. To get to this result we did the following refactorings:
 
@@ -357,6 +357,24 @@ for (var i : Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7)) {
 }
 ```
 
+## Model Before Coding
+
+Thinking through what you are trying to code before you start coding often leads to better quality code. You can do this by creating class or sequence diagrams and then verbally stepping through the common use cases.
+
+![Sequence Diagram](sequence-diagram.png)
+
+You can also use a technique called pseudo-code, where you write out what the code does in plain text. For example:
+
+```text
+
+client make move
+   user specifies a move
+   call server to get the valid moves
+   validate the user's move is a valid
+   call server with the validated move
+
+```
+
 ## Things to Understand
 
 - The importance of a good name.
@@ -367,6 +385,7 @@ for (var i : Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7)) {
 - How to properly layout your code to maximize readability.
 - How to make expressions easy to read and understand.
 - How to refactor your code.
+- Writing pseudo-code.
 
 ## Videos
 
