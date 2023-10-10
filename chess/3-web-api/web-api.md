@@ -188,7 +188,7 @@ As described in the previous section, Service class methods receive Request obje
 ```java
 {
     "username":"your_username",
-    "password": `your_password`
+    "password": "your_password"
 }
 ```
 
