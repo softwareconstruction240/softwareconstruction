@@ -143,9 +143,10 @@ Objects that do not change after they are constructed are referred to as immutab
 
 ```java
 
-void printWithPrefix(){
+void printList(){
     String prefix = "- "
-    for (var item : list.of("a", "b", "c")) {
+    var items = list.of("a", "b", "c");
+    for (var item : items) {
         printWithPrefix(prefix, item);
     }
 }
@@ -163,7 +164,7 @@ void printWithPrefix(String prefix, String text) {
 
 In reality, because `String` is immutable, you never have to worry about its value being changed and you can safely pass it to any function.
 
-Immutability guarantees thread safe code because it eliminates the possibility that one thread can be modifying an object at the same time a different thread is reading it.
+Immutability also guarantees thread safe code because it eliminates the possibility that one thread can be modifying an object at the same time a different thread is reading it.
 
 ## Code Layout
 
