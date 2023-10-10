@@ -165,18 +165,9 @@ In reality, because `String` is immutable, you never have to worry about its val
 
 Immutability guarantees thread safe code because it eliminates the possibility that one thread can be modifying an object at the same time a different thread is reading it.
 
-## Declaring Variables
-
-When you are declaring variables in want to consider the following.
-
-1. Don't reuse variables for different purposes. Declaring a variable with the `final` keyword makes it clear that it should not be reused.
-1. Declare your variables close to where they are used. Localizing the context of the code helps make code more readable. The goal is to be able understand what every block of code is doing without scrolling or navigating away from the code.
-1. Always initialize your variables. Leaving a variable uninitialized creates the opportunity for a null pointer exception or other unexpected behavior.
-1. Remove unused variables. Leaving an unused variable declaration in your code makes it more difficult to manage your code.
-
 ## Code Layout
 
-You want your code to read like a newspaper. The most interesting things should be on the front page in a very short concise representation. You then can move to a section of the paper that is of interest, and turn to the following pages if you want the details of a story.
+You want your code to read like a news website. The most interesting things should be on the front page in a very short concise representation. You then can move to a section of the paper that is of interest, and turn to the following pages if you want the details of a story.
 
 Likewise, in your code you want to follow an intuitive and consistent ordering.
 
@@ -250,6 +241,7 @@ Methods are a powerful coding abstraction. You can maximize the value of methods
 | Principle                            | Description                                                                                                                                                                                 |
 | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Appropriate method length**        | The method should be short enough that you can understand it with a quick scan. Usually this means less than 20 lines.                                                                      |
+| **Appropriate line length**          | Keep your line lengths short enough that you can understand it with out scrolling or parsing complex expressions                                                                            |
 | **Embrace Decomposition**            | A method that contains code for doing multiple things should be broken into multiple submethods.                                                                                            |
 | **Self documentation**               | Decomposing a method into submethods reduces the need to insert comments. Instead create a method and allow the name of the method to document what the code does.                          |
 | **Avoiding duplication**             | If the same code appears in multiple places with slight variations, you should consider creating a method to replace the duplication and pass in a parameter that represents the variation. |
@@ -257,7 +249,6 @@ Methods are a powerful coding abstraction. You can maximize the value of methods
 | **Prefer a single return statement** | Having multiple return statements in different express blocks forces the reader to carefully examine the code in order to understand the flow                                               |
 | **Don't recycle**                    | If `time` is used to represent the time of day, don't reuse it later to represent the time spent executing a method                                                                         |
 | **Whitespace**                       | Use whitespace to separates related bodies of code.                                                                                                                                         |
-| **Appropriate line length**          | Keep your line lengths short enough that you can understand it with out scrolling or parsing complex expressions                                                                            |
 
 ## Style
 
