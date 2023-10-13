@@ -137,35 +137,6 @@ When declaring a method's parameters you want to make sure you consider their co
 | **Be consistent**     | Use consistent ordering (e.g. input params followed by output params)                                                                              | `scoreGame(players, board, result)` instead of `scoreGame(players, result, board)`       |
 | **Single return**     | Use return values that mutate a copy of the input parameter instead of manipulating the value of a parameter that acts as both an input and output | `Board makeMove(Board boardIn)` instead of `void makeMove(Board boardInAndOut)`          |
 
-## Immutability
-
-Objects that do not change after they are constructed are referred to as immutable. In order to understand that value of immutability, consider the `String` class. If `String` was not immutable then you would never be sure you still had the same string value after a sub method was called. The following example demonstrates an unintentional side effect of calling an imaginary operation named `String.setText`.
-
-```java
-
-void printList(){
-    String prefix = "- "
-    var items = list.of("a", "b", "c");
-    for (var item : items) {
-        printWithPrefix(prefix, item);
-    }
-}
-
-void printWithPrefix(String prefix, String text) {
-    prefix.setText(prefix + text);
-    System.out.println(prefix);
-}
-
-// Output:
-// - a
-// - a- b
-// - a- b- c
-```
-
-In reality, because `String` is immutable, you never have to worry about its value being changed and you can safely pass it to any function.
-
-Immutability also guarantees thread safe code because it eliminates the possibility that one thread can be modifying an object at the same time a different thread is reading it.
-
 ## Code Layout
 
 You want your code to read like a news website. The most interesting things should be on the front page in a very short concise representation. You then can move to a section of the paper that is of interest, and turn to the following pages if you want the details of a story.
