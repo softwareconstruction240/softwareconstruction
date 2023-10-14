@@ -60,7 +60,7 @@ class PetClass {
 }
 ```
 
-That is a 52 lines of boilerplate code just to represent three fields. Since data objects are very common, Java introduced the `record` keyword in order to make the syntax more concise.
+That is everything we need to make a fully functional, immutable, data object. However, it is also 52 lines of boilerplate code just to represent three fields. Since data objects are very common, Java introduced the `record` keyword in order to make the syntax more concise.
 
 All you have to do is declare a record and the fields you want it to contain. Here is a record replacement for our pet class that is functionally equivalent.
 
