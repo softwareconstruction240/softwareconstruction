@@ -1,0 +1,22 @@
+classDiagram
+ class pet {
+    id : primary key
+    name
+    type
+ }
+
+ class owner {
+    id : primary key
+    name
+    phoneNumber
+ }
+
+
+ class purchase {
+    id : primary key
+    ownerId : foreign key
+    petId : foreign key
+ }
+
+ purchase --> pet: petId -> id
+ purchase --> owner: ownerId -> id
