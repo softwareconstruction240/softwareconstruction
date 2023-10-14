@@ -8,14 +8,24 @@
 
 In order to get started you will need to install MySQL to your development environment. You can install the latest free MySQL Community Server version from [MySQL.com](https://dev.mysql.com/downloads/mysql/).
 
-## Clients
+![MySQL install](mysql-install.png)
 
-Once you have install MySQL it is time to start executing SQL statements. To do this you need a SQL client application that can talk to the SQL server that is now running in your development environment.
+## SQL Clients
 
-There are several free and paid for options that you can choose from when looking for a client application to execute MySQL statements. By default, when you installed the MySQL server it should have also installed a console client program called the MySQl Shell (`mysqlsh`). To start the shell, open a command console window and type the following (substituting the username and password that you provided when you installed MySQL).
+Once you have installed MySQL it is time to start executing SQL statements. To do this you need a SQL client application that can talk to the SQL server that is now running in your development environment.
+
+There are several free and paid for options that you can choose from when looking for a client application to execute MySQL statements. One popular tool is the MySQL console client program called the MySQl Shell (`mysqlsh`). You can download shell from [MySQL.com](https://dev.mysql.com/downloads/shell/).
+
+Once you have downloaded the shell, you can start it by opening a command console window and type the following (substituting the username and password that you provided when you installed MySQL).
 
 ```sh
 mysqlsh -u yourusername -pyourpassword --sql
+```
+
+For example, if you created your root user with the password `edgarcobb` you would execute:
+
+```sh
+mysqlsh -u root -pedgarcobb --sql
 ```
 
 Once the shell starts up you can get help by typing `/help` or exit the shell using `/exit`. You can now start typing SQL queries. For example, try the following:
@@ -27,6 +37,8 @@ SHOW tables;
 SELECT host, user FROM user;
 /exit
 ```
+
+![MySQL shell](mysqlsh.png)
 
 Alternatively, if you are looking for a visual MySQL client you might try [MySQL workbench](https://www.mysql.com/products/workbench/).
 
@@ -50,3 +62,37 @@ Here are a list of common SQL commands that you can use to administrate a databa
 | Insert into `name`     | Insert data into a table                                    | insert into pet values ("zoe", 3)             |
 | select \_ from `name`  | Query a table                                               | select \_ from pet                            |
 | drop table `name`      | Delete a table                                              | drop table pet                                |
+
+## Experimenting
+
+Spend some time working with your SQL client program to make requests. You can use some of the commands described above, or if you are worried about messing up your server, you can try some simple queries that don't actually manipulate table data. This includes queries that just do simple math or get the current time.
+
+```sql
+> select 1+1;
++-----+
+| 1+1 |
++-----+
+|   2 |
++-----+
+1 row in set (0.0008 sec)
+
+> select now();
++---------------------+
+| now()               |
++---------------------+
+| 2023-10-07 12:34:56 |
++---------------------+
+1 row in set (0.0008 sec)
+
+> select now(), now() + 1;
++---------------------+----------------+
+| now()               | now() + 1      |
++---------------------+----------------+
+| 2023-10-07 12:34:56 | 20231007123457 |
++---------------------+----------------+
+1 row in set (0.0008 sec)
+```
+
+In future topics you will learn how to create tables, as well as insert and query the data. After that, you will learn how to connect to your database and execute queries from your Java code.
+
+At this point you should just make sure your MySQL server is up and running, and that you can access using a client program.
