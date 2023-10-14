@@ -46,7 +46,7 @@ The key parts of this code include the call to `Spark.webSocket` to register the
 
 In order to initiate a WebSocket connection to a server from a client in Java you need a library that implements the `javax.websocket.WebSocketContainer` interface. In this course we use the `glassfish.tyrus` library to implement `WebSocketContainer`. Next, you then need to implement the `onOpen` method on the `javax.websocket.Endpoint` abstract class in order to create the class that will handle sending and receiving WebSocket messages.
 
-Now you are ready to create your connection by calling the `connectToServer` method on the container and providing a reference to an object for the class that implemented the `Endpoint` class. This will return a `Session` object that you can use to send messages over your WebSocket connection.
+Now you are ready to create your connection by calling the `connectToServer` method on the container and providing a reference to an object for the class that extends the `Endpoint` class. This will return a `Session` object that you can use to send messages over your WebSocket connection.
 
 You receive messages by registering an `onMessage` listener with the session's `addMessageHandler`.
 
