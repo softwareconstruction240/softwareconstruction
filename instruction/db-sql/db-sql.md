@@ -36,6 +36,22 @@ The following demonstrates a simple query to read all of the pets in a database.
 +--------+----------+---------------+
 ```
 
+## Table of Common SQL Commands
+
+## Working with Databases
+
+## Creating a Table
+
+### Types
+
+## Inserting Data
+
+## Querying a Table
+
+## Joining Tables
+
+## Dropping a Table
+
 ## Things to Understand
 
 - How to create and drop tables
