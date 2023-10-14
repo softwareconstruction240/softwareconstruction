@@ -410,6 +410,35 @@ class Correct {
 
 By inverting the dependencies, you can decouple the code and move the commitment to an algorithm to a higher level. Now you can execute the code with different parameters and completely modify how it works.
 
+## Immutability
+
+Objects that do not change after they are constructed are referred to as immutable. In order to understand that value of immutability, consider the `String` class. If `String` was not immutable then you would never be sure you still had the same string value after a sub method was called. The following example demonstrates an unintentional side effect of calling an imaginary operation named `String.setText`.
+
+```java
+
+void printList(){
+    String prefix = "- "
+    var items = list.of("a", "b", "c");
+    for (var item : items) {
+        printWithPrefix(prefix, item);
+    }
+}
+
+void printWithPrefix(String prefix, String text) {
+    prefix.setText(prefix + text);
+    System.out.println(prefix);
+}
+
+// Output:
+// - a
+// - a- b
+// - a- b- c
+```
+
+In reality, because `String` is immutable, you never have to worry about its value being changed and you can safely pass it to any function.
+
+Immutability also guarantees thread safe code because it eliminates the possibility that one thread can be modifying an object at the same time a different thread is reading it.
+
 ## Avoiding Code Duplication
 
 If your code contains multiple copies of the same code then it is violating the `Do not repeat yourself`, or DRY, principle. Code duplication creates maintenance problems when you want to alter the code, increase the impact of errors, and makes it more difficult to correct the problems. It also makes the code unnecessarily complex because the reader has to read the same blocks over and over again to make sure they don't contain subtle variations.
