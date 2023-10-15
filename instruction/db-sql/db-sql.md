@@ -143,7 +143,7 @@ Now that you have a database and a table, it is time to insert some data. You ca
 INSERT INTO pet (name, type) VALUES ('Puddles', 'cat');
 ```
 
-If you need to update an existing row then you use a `UPDATE` statement along with the names and values of the fields you want to update. When updating a row you want to be careful to specify which rows to update with a `WHERE` clause. If you don't specify which rows to update then all rows will be updated. In the example below, only the row with an `id` equal to 1 will be updated to set the pet name to `fido`.
+If you need to update an existing row then you use an `UPDATE` statement along with the names and values of the fields you want to update. When updating a row you want to be careful to specify which rows to update with a `WHERE` clause. If you don't specify which rows to update, then all the rows will be updated. In the example below, only the row with an `id` equal to 1 will be updated to set the pet name to `fido`.
 
 ```sql
 UPDATE pet SET name = 'fido' WHERE id = 1;
@@ -155,7 +155,7 @@ When you want to delete some rows, you use a `DELETE` statement and specify a `W
 DELETE FROM pet WHERE type = 'cat';
 ```
 
-If you want to delete all data from a table then use the `TRUNCATE` statement. This will delete the data, but not the table itself.
+If you want to delete **all** data from a table, then use the `TRUNCATE` statement. This will delete all of the table's data, but not the table itself.
 
 ```sql
 TRUNCATE TABLE pet;
@@ -163,13 +163,13 @@ TRUNCATE TABLE pet;
 
 ## Selecting Data
 
-The whole point of databases is efficiently querying data. The primary statement for querying data from a SQL compliant database is the `SELECT` statement. Here is an example of a simple SELECT that returns all the names and types for every pet.
+The `SELECT` statement provides the primary mechanism for querying data from a SQL compliant RDBMS. Here is an example of a simple SELECT that returns all the names and types for every pet.
 
 ```sql
 SELECT name, type FROM pet;
 ```
 
-If you want to select specific pets, then you include a WHERE clause. WHERE clauses can be very complex. They can include boolean predicates, wildcards. You can also supply a `LIMIT` on the amount of data to return. Here is an example of a SELECT that returns a maximum of two rows that are either a dog or cat named Puddle.
+If you want to select specific pets, then you include a WHERE clause. WHERE clauses can be very complex. They can include boolean predicates, wildcards. You can also supply a `LIMIT` on the amount of data to return. Here is an example of a SELECT that returns a maximum of two rows that are either dogs with any name, or cats named Puddle.
 
 ```sql
 SELECT name, type FROM pet WHERE type='dog' OR (type='cat' AND name='Puddle') LIMIT 2;
@@ -232,7 +232,7 @@ this would be the result of our JOIN SELECT statement.
 
 ## Initializing Your Database
 
-When you are using a database to store your application data, it is often useful to make sure all of your databases and tables exist when you start up. You can do this by executing `CREATE DATABASE` and `CREATE TABLE` calls at the beginning of your application. You can conditional create these objects with the `IF NOT EXISTS` clause.
+When you are using a database to store your application data, it is often useful to make sure all of your databases and tables exist when you start up. You can do this by executing `CREATE DATABASE` and `CREATE TABLE` calls at the beginning of your application. You can conditionally create these objects with the `IF NOT EXISTS` clause. With that clause, the statement is simply ignored if the structure already exists.
 
 ```sql
 CREATE DATABASE IF NOT EXISTS petshop;
@@ -245,7 +245,7 @@ CREATE TABLE  IF NOT EXISTS pet (
 );
 ```
 
-By following this pattern your application will always work even when it starts up using a database server that has not yet been initialized. This pattern is called `infrastructure as code` because it treats your configuration as code, removes the human error factor from configuring your application, and tracks the history of the infrastructure changes through the same version control process that your code uses.
+By following this pattern, your application will always work even when it starts up using a database server that has not yet been initialized. This pattern is called `infrastructure as code` because it treats your configuration as code, removes the human error factor, and tracks the history of the infrastructure changes with the same version control process that your code uses.
 
 ## Table of Common SQL Commands
 
