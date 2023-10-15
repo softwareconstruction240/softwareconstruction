@@ -48,6 +48,7 @@ The course content is divided into multiple modules. Each module represents a we
 
 - [Writing Quality Code](quality-code/quality-code.md)
 - [Style Checking](style-checker/style-checker.md)
+- [JavaDoc](javadoc/javadoc.md)
 - ♕ [Phase 2: Chess Server Design](../chess/2-server-design/server-design.md)
 - ♕ [Phase 3: Chess Web API](../chess/3-web-api/web-api.md)
 - ☑ Phase 1: Chess Game (**Due Oct 9th**)
