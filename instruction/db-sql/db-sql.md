@@ -2,7 +2,7 @@
 
 🖥️ [Slides](https://docs.google.com/presentation/d/19nC7v6SDqoEeK75Mb-f6L3QhnbuP6Xfo/edit?usp=sharing&ouid=114081115660452804792&rtpof=true&sd=true)
 
-`Structure Query Language` (SQL) is a programming language that is specifically designed to interact with relational databases. It contains instructions for inserting, updating, reading, and deleting data. It also provides instructions for administrating the database and the users that have access to the database.
+`Structure Query Language` (SQL) is a programming language that is specifically designed to interact with relational databases. It contains instructions for inserting, updating, reading, and deleting data. It also provides instructions for managing the database and the users that have access to the database.
 
 Here is an example of SQL statements for creating a database, creating at table, and inserting some sample data.
 
@@ -40,11 +40,11 @@ The following demonstrates a simple query to read all of the pets in a database.
 
 SQL is a declarative programming language. This means that you declare what you want rather than providing a series of imperative commands that define how to do something.
 
-In order to completely understand the above example we need to take a step back and examine the possible SQL statements.
+In order to completely understand the above example we need to take a step back and examine some of the common SQL statements.
 
 ## Working with Databases
 
-A databases server, or RDBMS, can host one or more databases. You create a database with the `CREATE DATABASE` statement. After you have created the database you use the `USE` statement to select the database for use with future commands.
+A database server, or RDBMS, can host one or more databases. You create a database with the `CREATE DATABASE` statement. After you have created the database you use the `USE` statement to select the database for use with future commands.
 
 ```sql
 CREATE DATABASE pet_store;
@@ -104,7 +104,7 @@ CREATE TABLE pet (
 );
 ```
 
-If you determine you need an index after you create table, you can use the `CREATE INDEX` statement along with the table and field you want to index.
+If you determine you need an index after you create a table, you can use the `CREATE INDEX` statement along with the table and field you want to index.
 
 ```sql
 CREATE INDEX index_name ON pet (name);
@@ -184,7 +184,7 @@ SELECT COUNT(0) from pet;
 
 ## Joining Tables
 
-If you want to combine tables to compute a temporary different view of the data then you would use a `JOIN` clause along with the names of the two tables that you want to join. The following example would join together the purchase and pet tables into a rows where the pet IDs match.
+If you want to combine tables to compute a temporary different view of the data then you would use a `JOIN` clause along with the names of the two tables that you want to join. The following example would join together the purchase and pet tables into rows with matching pet IDs.
 
 ```sql
 SELECT purchase.id AS purchaseId, purchase.ownerId, pet.id AS petId, pet.name, pet.type
