@@ -88,10 +88,10 @@ A good primary key has the following characteristics.
 
 You can create new views of the relational data by specifying queries that `join` data from different tables based upon matching keys.
 
-From the pet store tables we defined above would could create a different view of the data with a query that joined the owner name with the pet's name based upon the purchase keys found in the purchase table. This query might look something like:
+From the pet store tables we defined above, we could create a different view of the data with a query that joined the owner name with the pet's name based upon the ID fields found in the purchase table. This query might look something like:
 
 ```text
-Join the owner and pet tables together based upon matching pet IDs.
+Join the owner and pet data together based upon matching pet IDs.
 ```
 
 This would result in a view that would look like the following.
@@ -101,7 +101,7 @@ This would result in a view that would look like the following.
 | 81      | Juan      | 93    | Fido    |
 | 82      | Bud       | 77    | Chip    |
 
-Data views are usually only created temporarily so that an application can create the data aggregations necessary to facilitate the functionality of the application. That means they are created in memory and then thrown away once the application is done with them.
+Data views are usually only created temporarily so that an application can use the aggregated data to facilitate the functionality of the application. That means they are created in memory and then thrown away once the application is done with them.
 
 ## Working with Relational Data
 
