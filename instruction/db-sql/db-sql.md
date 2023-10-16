@@ -44,7 +44,7 @@ In order to completely understand the above example we need to take a step back 
 
 ## Working with Databases
 
-A database server, or RDBMS, can host one or more databases. You create a database with the `CREATE DATABASE` statement. After you have created the database you use the `USE` statement to select the database for use with future commands.
+A database server, or remote database management system (RDBMS), can host one or more databases. You create a database with the `CREATE DATABASE` statement. After you have created the database you execute a `USE` statement to select the database for use with future commands.
 
 ```sql
 CREATE DATABASE pet_store;
