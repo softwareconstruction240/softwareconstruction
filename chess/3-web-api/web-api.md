@@ -4,6 +4,8 @@
 - [Getting Started](getting-started.md)
 - [Starter Code](starter-code)
 
+🖥️ [Slides: Server Implementation Tips](https://docs.google.com/presentation/d/1hORd88ej8W-nqHgEpYU2GmPcrSrHew1V/edit?usp=drive_link&ouid=110961336761942794636&rtpof=true&sd=true)
+
 In this part of the Chess Project, you will create your Chess server and implement seven different Web API functions that clients will use to communicate with your server. This will include finishing your DAO classes, creating your Server class, creating a Handler class for each Web API, and creating Service classes to execute the Web APIs. You will also write automated tests for your Service classes.
 
 ![Sever class structure](server-class-structure.png)
@@ -77,7 +79,7 @@ Note that `whiteUsername` and `blackUsername` may be `null`.
 | **URL path**         | `/game`                                                                                      |
 | **HTTP Method**      | `GET`                                                                                        |
 | **Headers**          | `authorization: <authToken>`                                                                 |
-| **Success response** | [200] `{ "games": ["gameID": 1234, "whiteUsername":"", "blackUsername":"", "gameName:""} ]}` |
+| **Success response** | [200] `{ "games": [{"gameID": 1234, "whiteUsername":"", "blackUsername":"", "gameName:""} ]}` |
 | **Failure response** | [401] `{ "message": "Error: unauthorized" }`                                                 |
 | **Failure response** | [500] `{ "message": "Error: description" }`                                                  |
 

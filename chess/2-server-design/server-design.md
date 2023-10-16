@@ -4,6 +4,8 @@
 - [Getting Started](getting-started.md)
 - [Starter Code](starter-code)
 
+🖥️ [Slides](https://docs.google.com/presentation/d/12zsEJ-at5DsbKNy7a0Eac0D1ZWa4RBIC/edit?usp=sharing&ouid=117271818978464480745&rtpof=true&sd=true)
+
 In this part of the Chess Project, you will create the class and package structure for your Chess Server. Read the [web-api.md](../3-web-api/web-api.md) document for phase 3 of the project to learn about the functionality and web apis you need to include in your design. Create the Java packages you will need for your server implementation. Then, populate each package with the classes you will need. For this assignment you need not create fully-functional classes. Rather, for each class you only need to declare the public methods, constructors, and fields the class will need. Add minimal bodies to each method and constructor sufficient to make the class compile. If a method has no return value(void), its body may be empty. If a method has a return value, add a return statement so the method will compile (e.g., return null or zero or false or whatever works). The code needs to compile so that we can use the Javadoc tool to generate nicely-formatted documentation for your design that you can submit for grading.
 
 ⚠ Carefully read the specifications for the next Chess deliverable: [Web API](../3-web-api/web-api.md). This will help you understand the purpose and structure of the classes you are designing in this phase.

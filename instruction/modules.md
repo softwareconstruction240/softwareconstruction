@@ -25,6 +25,7 @@ The course content is divided into multiple modules. Each module represents a we
 - [Java Exceptions](exceptions/exceptions.md)
 - [Java Input and Output (IO)](io/io.md)
 - [Design Principles](design-principles/design-principles.md)
+- [Java Records](records/records.md)
 - ♕ [Phase 1: Chess Game](../chess/1-chess-game/chess-game.md)
 - ☑ Spelling Corrector (**Due Sept 19th**)
 - ☑ Spelling Corrector (**Exam Sept 22nd**)
@@ -47,6 +48,7 @@ The course content is divided into multiple modules. Each module represents a we
 
 - [Writing Quality Code](quality-code/quality-code.md)
 - [Style Checking](style-checker/style-checker.md)
+- [JavaDoc](javadoc/javadoc.md)
 - ♕ [Phase 2: Chess Server Design](../chess/2-server-design/server-design.md)
 - ♕ [Phase 3: Chess Web API](../chess/3-web-api/web-api.md)
 - ☑ Phase 1: Chess Game (**Due Oct 9th**)
