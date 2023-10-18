@@ -161,31 +161,105 @@ if (resultSet.next()) {
 
 ## Protecting Against SQL Injections
 
-The reason why you want to use the set functions on a prepared statement is to prevent against what is know as a SQL injection. Consider the case where we simplified our insertion function to the following.
+The reason why you want to use the `set` functions on a prepared statement is to prevent against what is know as a SQL injection. Consider the case where we simplified the `insertPet` function to the following.
 
 ```java
-void sqlInjection(Connection conn, String name, String type) throws SQLException {
-    try (var preparedStatement = conn.prepareStatement("INSERT INTO pet (name, type) VALUES(" + name + "," + type + ")")) {
+void insertPet(Connection conn, String name, String type) throws SQLException {
+    try (var preparedStatement = conn.prepareStatement("INSERT INTO pet (name, type) VALUES('" + name + "','" + type + "')")) {
         preparedStatement.executeUpdate();
     }
 }
 ```
 
-This would actually work fine in the normal case and simplify our code somewhat.
+This simplifies the code and would actually work fine in the normal case. The problem occurs when someone supplies the following name:
 
-The problem occurs when someone supplies the name following name:
-
-```text
-'joe','cat');INSERT INTO pet (name, type) VALUES('die','frog'
+```java
+name = "joe','cat'); DROP TABLE pet; -- ";
 ```
+
+This will result in the following SQL execution that deletes your entire table.
+
+```sql
+INSERT INTO pet (name, type) VALUES('joe','cat'); DROP TABLE pet; -- 'rat')
+```
+
+In addition to using the database connection prepared statements properly you also want to sanitize any input that comes from a user to make sure it only contains patterns that you expect. A more secure insert pet method would look like the following.
+
+```java
+void insertPet(Connection conn, String name, String type) throws SQLException {
+    if (name.matches("[a-zA-Z]+" && type.matches("[a-zA-Z]+"))) {
+        var statement = "INSERT INTO pet (name, type) VALUES(?,?)";
+        try (var preparedStatement = conn.prepareStatement(statement)) {
+            preparedStatement.setString(1, name);
+            preparedStatement.setString(2, type);
+            preparedStatement.executeUpdate();
+        }
+    }
+}
+```
+
+![XKCD SQL Injection](xkcd-sql-injection.png)
+
+> Source: _Randall Munroe. Exploits of a Mom. xkcd. (CC BY-NC 2.5)_
 
 ## Updates
 
+You can update data using JDBC code similar to what you used for inserting data. You just need to change the SQL statement that you execute.
+
+```java
+void updatePet(Connection conn, int petID, String name) throws SQLException {
+    try (var preparedStatement = conn.prepareStatement("UPDATE pet SET name=? WHERE id=?")) {
+        preparedStatement.setString(1, name);
+        preparedStatement.setInt(2, petID);
+
+        preparedStatement.executeUpdate();
+    }
+}
+```
+
+Make sure that you include a `WHERE` clause in your statement. Otherwise you will update every row in the table.
+
 ## Deleting Data
+
+You delete data by specifying a `DELETE` SQL statement along with a `WHERE` clause that describes the rows to delete.
+
+```java
+void deletePet(Connection conn, int petID) throws SQLException {
+    try (var preparedStatement = conn.prepareStatement("DELETE FROM pet WHERE id=?")) {
+        preparedStatement.setInt(1, petID);
+        preparedStatement.executeUpdate();
+    }
+}
+```
+
+If no clause is specified then all of the table data will be deleted. However, it is usually more efficient to use a `TRUNCATE tableNameHere` statement instead.
 
 ## Queries
 
-### Reading Complex Data
+In order to get things out of a database you need to call the `executeQuery` method on the prepared statement. The `executeQuery` method returns a `java.sql.ResultSet` object that represents the resulting rows that match the query.
+
+You can parameterize the `SELECT` statement with a `WHERE` clause, or you can leave out the clause if you want to return all rows in the table.
+
+```java
+void queryPets(Connection conn, String findType) throws SQLException {
+    try (var preparedStatement = conn.prepareStatement("SELECT id, name, type FROM pet WHERE type=?")) {
+        preparedStatement.setString(1, findType);
+        try (var rs = preparedStatement.executeQuery()) {
+            while (rs.next()) {
+                var id = rs.getInt("id");
+                var name = rs.getString("name");
+                var type = rs.getString("type");
+
+                System.out.printf("id: %d, name: %s, type: %s%n", id, name, type);
+            }
+        }
+    }
+}
+```
+
+When you call the result set `next` method it will advance the result to the next row. If it ever returns `false` then it means you have read all the matching rows. You can read the fields of the row with the result set `get` methods. There are methods for all of the basic SQL types. Make sure that the fields you get are represented in the fields that your `SELECT` statement requested.
+
+Make sure that your wrap the result set returned from the query with a `try-with-resource` block so that you release the resources associated with the result once you are done with them.
 
 ## Type Adapters
 

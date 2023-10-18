@@ -31,8 +31,8 @@ record Pet(int id, String name, String type){}
 
 var pets = Pet[]{
     new Pet(93, "Fido", "dog"),
-    new Pet(93, "Puddles", "cat"),
-    new Pet(93, "Chip", "bird")
+    new Pet(14, "Puddles", "cat"),
+    new Pet(77, "Chip", "bird")
 }
 ```
 
