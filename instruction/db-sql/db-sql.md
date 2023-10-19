@@ -44,7 +44,7 @@ In order to completely understand the above example we need to take a step back 
 
 ## Working with Databases
 
-A database server, or RDBMS, can host one or more databases. You create a database with the `CREATE DATABASE` statement. After you have created the database you use the `USE` statement to select the database for use with future commands.
+A database server, or remote database management system (RDBMS), can host one or more databases. You create a database with the `CREATE DATABASE` statement. After you have created the database you execute a `USE` statement to select the database for use with future commands.
 
 ```sql
 CREATE DATABASE pet_store;
@@ -131,6 +131,7 @@ Here is a list of the common SQL data types that you can use when you create a t
 | CHAR      | Fixed-length character strings.          | 'A', 'Hello, world!', '1234567890'                        |
 | VARCHAR   | Variable-length character strings.       | 'A', 'Hello, world!', '1234567890'                        |
 | TEXT      | Variable-length text data.               | 'This is a long text string that can be any length.'      |
+| BLOB      | Variable-length binary data.             | `Binary data of any length`                               |
 | DATE      | Date values.                             | '2023-10-14'                                              |
 | TIME      | Time values.                             | '15:43:45'                                                |
 | DATETIME  | Date and time values.                    | '2023-10-14 15:43:45'                                     |
