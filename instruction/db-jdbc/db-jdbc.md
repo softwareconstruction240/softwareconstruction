@@ -177,7 +177,7 @@ This simplifies the code and would actually work fine in the normal case. The pr
 name = "joe','cat'); DROP TABLE pet; -- ";
 ```
 
-This will result in the following SQL execution that deletes your entire table.
+This will result in execution the following SQL. This first inserts a bogus pet record, and then deletes the entire pet table.
 
 ```sql
 INSERT INTO pet (name, type) VALUES('joe','cat'); DROP TABLE pet; -- 'rat')
@@ -261,7 +261,99 @@ When you call the result set `next` method it will advance the result to the nex
 
 Make sure that your wrap the result set returned from the query with a `try-with-resource` block so that you release the resources associated with the result once you are done with them.
 
-## Type Adapters
+## Text and Blob Types
+
+Sometimes you want to store large text or binary data in the database. In MySQL the `text` type can represent large textual sequences, and the `blob` type represents large binary sequences. These can be as large as 4 gigabytes. Blob and text data is not searchable, but it is convenient to associate it with some other indexed fields. For example, a commonly used pattern called a `key-value` store, associates a single key field with a blob field. This basically uses the database as a big persisted map.
+
+Another example of storing large text data comes from the chess application. With chess, you need to store your game board and make it searchable using the game ID. One way to do this is to serialize your board to JSON and then place the JSON data in a `text` field.
+
+We can demonstrate how to do this using a simple pet record that has a name, a type, and a list of friends.
+
+```java
+record Pet(int id, String name, String type, String[] friends) {}
+```
+
+We can create a SQL table schema that matches this structure by including field for the friend array that has type `longtext`. The `longtext` type can represent text strings that are up to 4 gigabytes and so that will be plenty of room for all the pet's friends.
+
+```java
+CREATE TABLE  IF NOT EXISTS pet (
+    name VARCHAR(255) DEFAULT NULL,
+    type VARCHAR(255) DEFAULT NULL,
+    friends longtext NOT NULL,
+    PRIMARY KEY (id)
+```
+
+We then create a method that inserts a pet into the database. This serializes the friend field using the Gson `toJson` method, and uses a SQL INSERT statement to put it in the database.
+
+```java
+void insertPet(Connection conn, Pet pet) throws SQLException {
+    try (var preparedStatement = conn.prepareStatement("INSERT INTO pet (name, type, friends) VALUES(?, ?, ?)")) {
+        preparedStatement.setString(1, pet.name);
+        preparedStatement.setString(2, pet.type);
+
+        // Serialize and store the friend JSON.
+        var json = new Gson().toJson(pet.friends);
+        preparedStatement.setString(3, json);
+
+        preparedStatement.executeUpdate();
+    }
+}
+```
+
+And we can read it back out again by reversing the process.
+
+```java
+Collection<Pet> listPets(Connection conn) throws SQLException {
+    var pets = new ArrayList<Pet>();
+    try (var preparedStatement = conn.prepareStatement("SELECT name, type, friends FROM pet")) {
+        try (var rs = preparedStatement.executeQuery()) {
+            while (rs.next()) {
+                var name = rs.getString("name");
+                var type = rs.getString("type");
+
+                // Read and deserialize the friend JSON.
+                var json = rs.getString("friends");
+                var friends = new Gson().fromJson(json, String[].class);
+
+                pets.add(new Pet(name, type, friends));
+            }
+        }
+    }
+    return pets;
+}
+```
+
+### Type Adapters
+
+Sometimes you need to deserialize JSON data into a field that is defined as an Interface. When that happens, you must register an adapter to tell Gson what concrete class it should use when deserializing the JSON.
+
+We can demonstrate that my changing our Pet record to contain a `List` instead of a `String[]`.
+
+```java
+record Pet(String name, String type, List friends) {}
+```
+
+Now that we have an interface in our record, Gson no longer knows what class to create in order to represent the `List` interface. That means we must register an adapter that explicitly handles the conversion. We can do this by replacing the deserialization code given above,
+
+```java
+var json = rs.getString("friends");
+var friends = new Gson().fromJson(json, String[].class);
+```
+
+to one that registers an adapter for the `List` interface.
+
+```java
+var json = rs.getString("friends");
+var builder = new GsonBuilder();
+    builder.registerTypeAdapter(List.class,
+        (JsonDeserializer<ArrayList>) (el, t, ctx) -> new Gson().fromJson(el, ArrayList.class));
+
+var friends = builder.create().fromJson(json, List.class);
+```
+
+Now Gson knows that whenever it sees a `List` it creates a `ArrayList` to back it.
+
+With the Chess application you may have a similar situation with the game interfaces. You may have to tell Gson to map the `ChesssGame`, `ChessBoard`, and `ChessPiece` interfaces to your implementations if you serialize any of these objects.
 
 ## Things to Understand
 

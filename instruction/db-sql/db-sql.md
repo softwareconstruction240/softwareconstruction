@@ -131,6 +131,7 @@ Here is a list of the common SQL data types that you can use when you create a t
 | CHAR      | Fixed-length character strings.          | 'A', 'Hello, world!', '1234567890'                        |
 | VARCHAR   | Variable-length character strings.       | 'A', 'Hello, world!', '1234567890'                        |
 | TEXT      | Variable-length text data.               | 'This is a long text string that can be any length.'      |
+| BLOB      | Variable-length binary data.             | `Binary data of any length`                               |
 | DATE      | Date values.                             | '2023-10-14'                                              |
 | TIME      | Time values.                             | '15:43:45'                                                |
 | DATETIME  | Date and time values.                    | '2023-10-14 15:43:45'                                     |
