@@ -159,19 +159,27 @@ if (resultSet.next()) {
 }
 ```
 
-## Protecting Against SQL Injections
+### Protecting Against SQL Injections
 
-The reason why you want to use the `set` functions on a prepared statement is to prevent against what is know as a SQL injection. Consider the case where we simplified the `insertPet` function to the following.
+![XKCD SQL Injection](xkcd-sql-injection.png)
+
+> Source: _Randall Munroe. Exploits of a Mom. xkcd. (CC BY-NC 2.5)_
+
+Using the `set` functions on a prepared statement helps prevent against what is know as a SQL injection. A SQL injection allows an attacker to inject unexpected SQL syntax into a statement. Consider the case where we simplify the `insertPet` function to the following.
 
 ```java
-void insertPet(Connection conn, String name, String type) throws SQLException {
-    try (var preparedStatement = conn.prepareStatement("INSERT INTO pet (name, type) VALUES('" + name + "','" + type + "')")) {
-        preparedStatement.executeUpdate();
-    }
+void insertPet(String name) throws SQLException {
+        var conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pet_store?allowMultiQueries=true", "root", "monkeypie");
+
+        var statement = "INSERT INTO pet (name) VALUES('" + name + "')";
+        System.out.println(statement);
+        try (var preparedStatement = conn.prepareStatement(statement)) {
+            preparedStatement.executeUpdate();
+        }
 }
 ```
 
-This simplifies the code and would actually work fine in the normal case. The problem occurs when someone supplies the following name:
+This makes the code smaller and would actually work fine in the normal case. The problem occurs when someone supplies the following name:
 
 ```java
 name = "joe','cat'); DROP TABLE pet; -- ";
@@ -186,21 +194,24 @@ INSERT INTO pet (name, type) VALUES('joe','cat'); DROP TABLE pet; -- 'rat')
 In addition to using the database connection prepared statements properly you also want to sanitize any input that comes from a user to make sure it only contains patterns that you expect. A more secure insert pet method would look like the following.
 
 ```java
-void insertPet(Connection conn, String name, String type) throws SQLException {
-    if (name.matches("[a-zA-Z]+" && type.matches("[a-zA-Z]+"))) {
-        var statement = "INSERT INTO pet (name, type) VALUES(?,?)";
+void insertPet(String name) throws SQLException {
+    var conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pet_store", "root", "monkeypie");
+
+    if (name.matches("[a-zA-Z]+")) {
+        var statement = "INSERT INTO pet (name) VALUES(?)";
         try (var preparedStatement = conn.prepareStatement(statement)) {
             preparedStatement.setString(1, name);
-            preparedStatement.setString(2, type);
             preparedStatement.executeUpdate();
         }
     }
 }
 ```
 
-![XKCD SQL Injection](xkcd-sql-injection.png)
+This does the following to help prevent a SQL injection.
 
-> Source: _Randall Munroe. Exploits of a Mom. xkcd. (CC BY-NC 2.5)_
+1. Validates the input is of the expected format.
+1. Uses the prepared statement `set` functions which also validates the format.
+1. Does not allow multiple statements to execute in a single `executeUpdate` request by removing the `allowMultiQueries` from the connection string.
 
 ## Updates
 
@@ -279,8 +290,7 @@ We can create a SQL table schema that matches this structure by including field 
 CREATE TABLE  IF NOT EXISTS pet (
     name VARCHAR(255) DEFAULT NULL,
     type VARCHAR(255) DEFAULT NULL,
-    friends longtext NOT NULL,
-    PRIMARY KEY (id)
+    friends longtext NOT NULL
 ```
 
 We then create a method that inserts a pet into the database. This serializes the friend field using the Gson `toJson` method, and uses a SQL INSERT statement to put it in the database.
@@ -325,7 +335,7 @@ Collection<Pet> listPets(Connection conn) throws SQLException {
 
 ### Type Adapters
 
-Sometimes you need to deserialize JSON data into a field that is defined as an Interface. When that happens, you must register an adapter to tell Gson what concrete class it should use when deserializing the JSON.
+Sometimes you need to deserialize JSON data into a field that is defined as, or contains, an Interface. When that happens, you must register an adapter to tell Gson what concrete class it should use when deserializing the JSON.
 
 We can demonstrate that my changing our Pet record to contain a `List` instead of a `String[]`.
 
@@ -333,27 +343,36 @@ We can demonstrate that my changing our Pet record to contain a `List` instead o
 record Pet(String name, String type, List friends) {}
 ```
 
-Now that we have an interface in our record, Gson no longer knows what class to create in order to represent the `List` interface. That means we must register an adapter that explicitly handles the conversion. We can do this by replacing the deserialization code given above,
+Now that we have an interface in our record, Gson no longer knows what class to create in order to represent the `List` interface. That means we must register an adapter that explicitly handles the conversion. Gson supports this with the `JsonDeserializer` interface. This interface defines a method named `deserialize` that takes a JSON element and converts it into the expected object. In the example below we take the element and use the `fromJson` method to do the explicit conversion for us.
+
+```java
+class ListAdapter implements JsonDeserializer<ArrayList> {
+    public ArrayList deserialize(JsonElement el, Type type, JsonDeserializationContext ctx) throws JsonParseException {
+        return new Gson().fromJson(el, ArrayList.class);
+    }
+}
+```
+
+We then use the adapter when we deserialize the friends field from the database. We replace the simple deserialization code,
 
 ```java
 var json = rs.getString("friends");
 var friends = new Gson().fromJson(json, String[].class);
 ```
 
-to one that registers an adapter for the `List` interface.
+with code that creates a builder and registers the adapter to be used whenever the `List` interface is observed.
 
 ```java
 var json = rs.getString("friends");
 var builder = new GsonBuilder();
-    builder.registerTypeAdapter(List.class,
-        (JsonDeserializer<ArrayList>) (el, t, ctx) -> new Gson().fromJson(el, ArrayList.class));
+    builder.registerTypeAdapter(List.class, new ListAdapter());
 
 var friends = builder.create().fromJson(json, List.class);
 ```
 
 Now Gson knows that whenever it sees a `List` it creates a `ArrayList` to back it.
 
-With the Chess application you may have a similar situation with the game interfaces. You may have to tell Gson to map the `ChesssGame`, `ChessBoard`, and `ChessPiece` interfaces to your implementations if you serialize any of these objects.
+With the Chess application you may have a similar situation with the game interfaces. If so, then you will have to tell Gson to map the `ChesssGame`, `ChessBoard`, and `ChessPiece` interfaces to your concrete implementations.
 
 ## Things to Understand
 
