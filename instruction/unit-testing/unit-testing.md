@@ -40,7 +40,7 @@ There are several characteristics that you want to strive for when creating test
 
 JUnit is a common library that is used for testing Java code. JUnit uses a combination of annotations and assertion functions to provide its basic functionality.
 
-When JUnit starts up it scans the code for any function that has a `@Test` annotation and marks it as a unit test. Once all the tests have been discovered, JUnit executes each function. Usually your test will have one or more assertion functions that assert that your code is working correctly. The assertion functions represent things such as `assertEquals`, `assertTrue`, or `assertNotNull`. JUnit has lots of different [assertions functions](https://junit.org/junit5/docs/5.0.1/api/org/junit/jupiter/api/Assertions.html) that cover everything from equality to expected exceptions.
+When JUnit starts up it scans the code for any function that has a `@Test` annotation and marks it as a unit test. Once all the tests have been discovered, JUnit executes each function. Usually your test will have one or more assertion functions that assert that your code is working correctly. JUnit provides the ability to assert that something is true, not null, equals something, or that it throws an exception. Take some time to get familiar with all the [assertions functions](https://junit.org/junit5/docs/5.0.1/api/org/junit/jupiter/api/Assertions.html) that JUnit provides.
 
 If any assertion fails, an exception will be thrown and that test is aborted and marked as failing. The following is an example of a JUnit test with some trivial assertions.
 
