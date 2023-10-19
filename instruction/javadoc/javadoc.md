@@ -2,17 +2,17 @@
 
 ## What is Javadoc?
 
-
 Javadoc is a tool that comes with JDK and it is used for generating Java code documentation in HTML format from Java source code, which requires documentation in a predefined format.
 
 To use Javadoc, put "Javadoc comments" on all classes, fields, constructors, and methods that require documentation. A "Javadoc comment" begins with `/**` and ends with `*/`. A minimal Javadoc comment includes a description of the class, field, constructor, or method being documented. A Javadoc comment may also contain "Javadoc tags" that can be used to provide more specific information. Here is a list of the most commonly used tags:
 
-| Common Tags | Description | Format | Example |
-| --- | --- | --- | --- |
-| `@param` | Used to document a constructor or method parameter's name and purpose | `@param paramName paramDescription` | `@param id the id of the customer who created the order` |
-| `@throws` | Used to document an exception type that might be thrown by a constructor or method | `@throws exceptionClassName description` | `@throws SQLException the order could not be added to the database` |
-| `@exception` | Same as `@throws` | `@exception exceptionClassName description` | `@exception SQLException the order could not be added to the database` |
-| `@return` | Used to document a method's return value | `@return descriptionOfReturnValue` | `@return the customer with the specified id` |
+| Common Tags               | Description                                                                        | Format                                   | Example                                                             |
+| ------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------- | ------------------------------------------------------------------- |
+| `@param`                  | Used to document a constructor or method parameter's name and purpose              | `@param paramName paramDescription`      | `@param id the id of the customer who created the order`            |
+| `@throws` or `@exception` | Used to document an exception type that might be thrown by a constructor or method | `@throws exceptionClassName description` | `@throws SQLException the order could not be added to the database` |
+| `@return`                 | Used to document a method's return value                                           | `@return descriptionOfReturnValue`       | `@return the customer with the specified id`                        |
+| `@link`                   | Create a link to some other code                                                   | `{@link class text`                      | `{@link server Server}`                                             |
+| `@see`                    | Like link, but it puts it in a section at the end of the generated HTML            | `@see class`                             | `@see dataAccess`                                                   |
 
 ## Javadoc Examples
 
