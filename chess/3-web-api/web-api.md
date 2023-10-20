@@ -252,6 +252,11 @@ The Server acts as the director of traffic. It receives HTTP requests and sends 
 
 Good tests extensively show that we get the expected behavior. This could be asserting that data put into the database is really there, or that a function throws an error when it should. Write a positive and a negative JUNIT test case for each public method on your Service classes, except for Clear which only needs a positive test case. A positive test case is one for which the action happens successfully (e.g., successfully claiming a spot in a game). A negative test case is one for which the operation fails (e.g., trying to claim an already claimed spot).
 
+## Example Code 
+
+You might find it helpful to reference the course instruction topic on how to writing a [web API](../../instruction/web-api/web-api.md) when you are trying to figure out how to get started with the phase of the project.
+
+
 ## Pass Off Tests
 
 The provided tests for this assignment are in the StandardAPITests class. These test the server-side functionality of the API’s. To run the tests first start your server, and then run StandardAPITests.
@@ -282,9 +287,4 @@ After you pass off your project with a TA, you should immediately submit your pr
 | Code Quality  | [Rubric](../code-quality-rubric.md)                                                                                                                                                     |     30 |
 | Unit Tests    | All test cases pass<br/>Each public method on Service classes has two test cases, one positive test and one negative test<br/>Every test case includes an Assert statement of some type |     25 |
 |               | Total          
-
-## Example Code 
-
-Reference the following example code as you get started on your server.
-[Software Construction GitHub repository](https://github.com/softwareconstruction240/softwareconstruction/blob/main/instruction/web-api/web-api.md)
 
