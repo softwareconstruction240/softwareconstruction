@@ -248,6 +248,31 @@ CREATE TABLE  IF NOT EXISTS pet (
 
 By following this pattern, your application will always work even when it starts up using a database server that has not yet been initialized. This pattern is called `infrastructure as code` because it treats your configuration as code, removes the human error factor, and tracks the history of the infrastructure changes with the same version control process that your code uses.
 
+When we discuss the Java Database Connector (JDBC) we will demonstrate how to initialize your database from your Java code.
+
+You can also write a text file that contains SQL statements and execute them using the MySQL client shell (mysqlsh). For example, if you had an initialization SQL script that contained the following.
+
+```sql
+DROP DATABASE pet_store;
+CREATE DATABASE pet_store;
+
+USE pet_store;
+
+CREATE TABLE pet (
+    id INT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL,
+    type VARCHAR(255) NOT NULL,
+    PRIMARY KEY (id),
+    INDEX (name)
+);
+```
+
+You could run the script with the following console command.
+
+```sh
+➜ mysqlsh -u yourusername -pyourpassword --sql < initialize.sql
+```
+
 ## Table of Common SQL Commands
 
 The follow table summaries all of the commands that were used in this instruction topic.
