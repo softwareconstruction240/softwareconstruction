@@ -274,9 +274,10 @@ After you pass off your project with a TA, you should immediately submit your pr
 
 ### Grading Rubric
 
-| Category      | Criteria                                                                                                                                                                                | Points |
-| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -----: |
-| Functionality | All pass off test cases succeed                                                                                                                                                         |    125 |
-| Code Quality  | [Rubric](../code-quality-rubric.md)                                                                                                                                                     |     30 |
-| Unit Tests    | All test cases pass<br/>Each public method on Service classes has two test cases, one positive test and one negative test<br/>Every test case includes an Assert statement of some type |     25 |
-|               | Total                                                                                                                                                                                   |    180 |
+| Category       | Criteria                                                                                                                                                                                | Points |
+| -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -----: |
+| Web API Works  | All pass off test cases succeed                                                                                                                                                         |    115 |
+| Web Page Loads | Test web page properly loads in browser (including all files linked to by the test page: favicon.ico, index.css, index.js)                                                              |     10 |
+| Code Quality   | [Rubric](../code-quality-rubric.md)                                                                                                                                                     |     30 |
+| Unit Tests     | All test cases pass<br/>Each public method on Service classes has two test cases, one positive test and one negative test<br/>Every test case includes an Assert statement of some type |     25 |
+|                | Total                                                                                                                                                                                   |    180 |
