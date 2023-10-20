@@ -2,7 +2,13 @@
 
 🖥️ [Slides](https://docs.google.com/presentation/d/19nC7v6SDqoEeK75Mb-f6L3QhnbuP6Xfo/edit?usp=sharing&ouid=114081115660452804792&rtpof=true&sd=true)
 
-`Structure Query Language` (SQL) is a programming language that is specifically designed to interact with relational databases. It contains instructions for inserting, updating, reading, and deleting data. It also provides instructions for managing the database and the users that have access to the database.
+`Structure Query Language` (SQL) is a programming language that is specifically designed to interact with relational databases. It contains statements for inserting, updating, reading, and deleting data. It also provides statements for managing the database and the users that have access to the database.
+
+You can categorizes the most commonly used SQL statements into the following buckets.
+
+1. **DDL** (Data Definition Language) - Create, alter, drop.
+1. **DML** (Data Manipulation Language) - Insert, update, delete.
+1. **DQL** (Data Query Language) - Select.
 
 Here is an example of SQL statements for creating a database, creating at table, and inserting some sample data.
 
