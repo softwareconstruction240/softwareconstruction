@@ -1,4 +1,3 @@
-import java.io.File;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -25,8 +24,21 @@ public class DatabaseAccessExample {
 
         List<Book> books;
 
-        String dbName = "db" + File.separator + "bookclub.sqlite";
-        String connectionURL = "jdbc:sqlite:" + dbName;
+        /*
+         * Note: You will need to create a user and grant access in MySQL and then change the username and password
+         * below to your username and password. Use the following sql statements (replacing the username and password):
+         *
+         * CREATE USER 'jerodw'@'localhost' IDENTIFIED BY 'mypassword';
+         * GRANT ALL on BookClub.* to 'jerodw'@'localhost';
+         *
+         * Note: The grant statement assumes you named your database 'BookClub' when you created it.
+         *
+         * Note: In practice you shouldn't store your username and password in source code. A better way is to store it
+         * in a config file and add the config file to your .gitignore so it doesn't get checked into source control.
+         * Then write code to pull the username and password out of the config file to include in the connection
+         * String.
+         */
+        String connectionURL = "jdbc:mysql://localhost:3306/BookClub?user=jerodw&password=mypassword";
 
         Connection connection = null;
         try(Connection c = DriverManager.getConnection(connectionURL)) {
@@ -58,7 +70,7 @@ public class DatabaseAccessExample {
             // Commit the transaction
             connection.commit();
         } catch(SQLException ex) {
-            if(connection != null) {
+            if(connection != null && !connection.isClosed()) {
                 connection.rollback();
             }
             throw ex;
@@ -85,6 +97,19 @@ public class DatabaseAccessExample {
     }
 
     private void removeBooks(Connection connection) throws SQLException {
+        deleteBooksRead(connection);
+        deleteBooks(connection);
+    }
+
+    private static void deleteBooksRead(Connection connection) throws SQLException {
+        String sql = "delete from books_read";
+
+        try(PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.executeUpdate();
+        }
+    }
+
+    private static void deleteBooks(Connection connection) throws SQLException {
         String sql = "delete from book";
 
         try(PreparedStatement stmt = connection.prepareStatement(sql)) {
@@ -92,9 +117,9 @@ public class DatabaseAccessExample {
             int count = stmt.executeUpdate();
 
             // Reset the auto-increment counter so new books start over with an id of 1
-            sql = "delete from sqlite_sequence where name = 'book'";
-            try(PreparedStatement resetSequenceStatement = connection.prepareStatement(sql)) {
-                resetSequenceStatement.executeUpdate();
+            sql = "ALTER TABLE book AUTO_INCREMENT = 1";
+            try(PreparedStatement resetAutoIncrementStatement = connection.prepareStatement(sql)) {
+                resetAutoIncrementStatement.executeUpdate();
             }
 
             System.out.printf("Deleted %d books\n", count);
@@ -104,7 +129,7 @@ public class DatabaseAccessExample {
     private void insertBooks(Connection connection, List<Book> books) throws SQLException {
         String sql = "insert into book (title, author, genre, category_id) values (?, ?, ?, ?)";
 
-        try(PreparedStatement stmt = connection.prepareStatement(sql)) {
+        try(PreparedStatement stmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             for(Book book : books) {
                 stmt.setString(1, book.getTitle());
                 stmt.setString(2, book.getAuthor());
@@ -112,10 +137,9 @@ public class DatabaseAccessExample {
                 stmt.setInt(4, book.getCategoryId());
 
                 if(stmt.executeUpdate() == 1) {
-                    try(Statement keyStmt =  connection.createStatement();
-                        ResultSet keyRS = keyStmt.executeQuery("select last_insert_rowid()")) {
-                        keyRS.next();
-                        int id = keyRS.getInt(1); // ID of the inserted book
+                    try(ResultSet generatedKeys = stmt.getGeneratedKeys()) {
+                        generatedKeys.next();
+                        int id = generatedKeys.getInt(1); // ID of the inserted book
                         book.setId(id);
                     }
 

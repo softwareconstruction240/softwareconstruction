@@ -6,34 +6,16 @@ drop table if exists category;
 
 create table member
 (
-	id integer not null primary key autoincrement,
+	id integer not null primary key auto_increment,
 	name varchar(255) not null,
 	email_address varchar(255) not null
 );
 
-create table book
-(
-	id integer not null primary key autoincrement,
-	title varchar(255) not null,
-	author varchar(255) not null,
-	genre varchar(32) not null,
-	category_id integer not null,
-	foreign key(genre) references genre(genre),
-	foreign key(category_id) references category(id)
-);
 
 create table genre
 (
 	genre varchar(20) not null primary key,
 	description varchar(255)
-);
-
-create table books_read
-(
-	member_id integer not null,
-	book_id integer not null,
-	foreign key(member_id) references member(id),
-	foreign key(book_id) references book(id)
 );
 
 create table category
@@ -42,6 +24,25 @@ create table category
 	name varchar(255) not null,
 	parent_id integer,
 	foreign key(parent_id) references category(id)
+);
+
+create table book
+(
+	id integer not null primary key auto_increment,
+	title varchar(255) not null,
+	author varchar(255) not null,
+	genre varchar(32) not null,
+	category_id integer not null,
+	foreign key(genre) references genre(genre),
+	foreign key(category_id) references category(id)
+);
+
+create table books_read
+(
+	member_id integer not null,
+	book_id integer not null,
+	foreign key(member_id) references member(id),
+	foreign key(book_id) references book(id)
 );
 
 

@@ -40,7 +40,7 @@ There are several characteristics that you want to strive for when creating test
 
 JUnit is a common library that is used for testing Java code. JUnit uses a combination of annotations and assertion functions to provide its basic functionality.
 
-When JUnit starts up it scans the code for any function that has a `@Test` annotation and marks it as a unit test. Once all the tests have been discovered, JUnit executes each function. Usually your test will have one or more assertion functions that assert that your code is working correctly. The assertion functions represent things such as `assertEquals`, `assertTrue`, or `assertNotNull`. JUnit has lots of different [assertions functions](https://junit.org/junit5/docs/5.0.1/api/org/junit/jupiter/api/Assertions.html) that cover everything from equality to expected exceptions.
+When JUnit starts up it scans the code for any function that has a `@Test` annotation and marks it as a unit test. Once all the tests have been discovered, JUnit executes each function. Usually your test will have one or more assertion functions that assert that your code is working correctly. JUnit provides the ability to assert that something is true, not null, equals something, or that it throws an exception. Take some time to get familiar with all the [assertions functions](https://junit.org/junit5/docs/5.0.1/api/org/junit/jupiter/api/Assertions.html) that JUnit provides.
 
 If any assertion fails, an exception will be thrown and that test is aborted and marked as failing. The following is an example of a JUnit test with some trivial assertions.
 
@@ -62,16 +62,36 @@ public class ExampleTests {
 
 In addition to annotating a function as a unit test, JUnit has several other useful annotations.
 
-| Annotation  | Description                                                                                      |
-| ----------- | ------------------------------------------------------------------------------------------------ |
-| AfterAll    | Run after all tests execute.                                                                     |
-| AfterEach   | Run after each test executes.                                                                    |
-| BeforeAll   | Run before all tests execute.                                                                    |
-| BeforeEach  | Run before each test executes.                                                                   |
-| Disabled    | Disable this test. Use this when you are working on a test that is not yet ready for production. |
-| DisplayName | The name to show for the unit test. This will default to the function name if not specified.     |
-| Order       | The order that tests should execute in. Use this if your tests have dependencies between tests.  |
-| Test        | Run this unit test.                                                                              |
+| Annotation        | Description                                                                                      |
+| ----------------- | ------------------------------------------------------------------------------------------------ |
+| AfterAll          | Run after all tests execute.                                                                     |
+| AfterEach         | Run after each test executes.                                                                    |
+| BeforeAll         | Run before all tests execute.                                                                    |
+| BeforeEach        | Run before each test executes.                                                                   |
+| Disabled          | Disable this test. Use this when you are working on a test that is not yet ready for production. |
+| DisplayName       | The name to show for the unit test. This will default to the function name if not specified.     |
+| Order             | The order that tests should execute in. Use this if your tests have dependencies between tests.  |
+| Test              | A simple unit test.                                                                              |
+| ParameterizedTest | A parameterized unit test. This test is called once for each supplied parameter.                 |
+
+## Parameterization
+
+When testing interfaces it is desireable to create one set of tests for all implementations of the interface instead of duplicating the tests for each implementation. In order to accomplish this you care a `ParameterizedTest` instead of a simple `Test`. There are different ways to parameterize a test using JUnit, but one way is to use the `ValueSource` annotation to provide multiple alternate values to pass into the test. JUnit then repeatedly invokes the test with the different provided values.
+
+In the following example we parameterize our test to pass in different implementations of the `List` interface. The test function is called three times, once for an ArrayList, once for a LinkedList, and once for a Stack.
+
+```java
+@ParameterizedTest
+@ValueSource(classes = {ArrayList.class, LinkedList.class, Stack.class})
+public void addAndGetToList(Class<? extends List> listClass) throws Exception {
+    var list = listClass.getDeclaredConstructor().newInstance();
+    var expectedItem = "item";
+
+    list.add(expectedItem);
+    Assertions.assertEquals(1, list.size());
+    Assertions.assertEquals(expectedItem, list.get(0));
+}
+```
 
 ## Autogenerate Unit Tests
 
