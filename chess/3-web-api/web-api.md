@@ -281,4 +281,10 @@ After you pass off your project with a TA, you should immediately submit your pr
 | Functionality | All pass off test cases succeed                                                                                                                                                         |    125 |
 | Code Quality  | [Rubric](../code-quality-rubric.md)                                                                                                                                                     |     30 |
 | Unit Tests    | All test cases pass<br/>Each public method on Service classes has two test cases, one positive test and one negative test<br/>Every test case includes an Assert statement of some type |     25 |
-|               | Total                                                                                                                                                                                   |    180 |
+|               | Total          
+
+## Example Code 
+
+Reference the following example code as you get started on your server.
+[Software Construction GitHub repository](https://github.com/softwareconstruction240/softwareconstruction/blob/main/instruction/web-api/web-api.md)
+
