@@ -18,9 +18,11 @@ You need to create classes for each Service, each Request and Result, each Model
 
 ## Javadoc
 
-[Javadoc](https://www.oracle.com/technical-resources/articles/java/javadoc-tool.html) is a tool that looks through your code and extracts comments in order to generate nicely-formatted documentation for your classes. This is the same tool that is used to generate the official Java API documentation. Write a Javadoc comment for each class, constructor, method, and field in your design that explains the item’s purpose and/or function. You should also document all constructor and method parameters with Javadoc @param tags, all return values with Javadoc @return tags, and all exceptions throw with Javadoc @throws or @exception tags (these two tags are synonymous). You do need not write Javadoc comments for getter and setter methods.
+[Javadoc](https://www.oracle.com/technical-resources/articles/java/javadoc-tool.html) is a tool that parses your code and converts specially formatted comments in to HTML documentation. This is the same tool that is used to generate the official Java API documentation.
 
-After creating and commenting your classes, follow these instructions to generate the documentation for your design.
+Your deliverable for this phase is to write Javadoc comments for each class, constructor, and method in your server design. Your Javadocs will be used by the instructor to determine the validity of your design. Each class, constructor, and method Javadoc comment should supply @param, @return, @throws, @link, and @see tags as appropriate. You do need not write Javadoc comments for getters, setters, or methods that are documented on an interface. You do not need to write Javadoc for code that is outside of your service design.
+
+After creating and commenting your classes, use the following instructions to generate your Javadocs.
 
 1. Select packages you want Javadocs for
 1. Select Tools -> Generate JavaDoc...

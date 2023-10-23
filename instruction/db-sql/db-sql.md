@@ -2,7 +2,13 @@
 
 🖥️ [Slides](https://docs.google.com/presentation/d/19nC7v6SDqoEeK75Mb-f6L3QhnbuP6Xfo/edit?usp=sharing&ouid=114081115660452804792&rtpof=true&sd=true)
 
-`Structure Query Language` (SQL) is a programming language that is specifically designed to interact with relational databases. It contains instructions for inserting, updating, reading, and deleting data. It also provides instructions for managing the database and the users that have access to the database.
+`Structure Query Language` (SQL) is a programming language that is specifically designed to interact with relational databases. It contains statements for inserting, updating, reading, and deleting data. It also provides statements for managing the database and the users that have access to the database.
+
+You can categorizes the most commonly used SQL statements into the following buckets.
+
+1. **DDL** (Data Definition Language) - Create, alter, drop.
+1. **DML** (Data Manipulation Language) - Insert, update, delete.
+1. **DQL** (Data Query Language) - Select.
 
 Here is an example of SQL statements for creating a database, creating at table, and inserting some sample data.
 
@@ -247,6 +253,31 @@ CREATE TABLE  IF NOT EXISTS pet (
 ```
 
 By following this pattern, your application will always work even when it starts up using a database server that has not yet been initialized. This pattern is called `infrastructure as code` because it treats your configuration as code, removes the human error factor, and tracks the history of the infrastructure changes with the same version control process that your code uses.
+
+When we discuss the Java Database Connector (JDBC) we will demonstrate how to initialize your database from your Java code.
+
+You can also write a text file that contains SQL statements and execute them using the MySQL client shell (mysqlsh). For example, if you had an initialization SQL script that contained the following.
+
+```sql
+DROP DATABASE pet_store;
+CREATE DATABASE pet_store;
+
+USE pet_store;
+
+CREATE TABLE pet (
+    id INT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL,
+    type VARCHAR(255) NOT NULL,
+    PRIMARY KEY (id),
+    INDEX (name)
+);
+```
+
+You could run the script with the following console command.
+
+```sh
+➜ mysqlsh -u yourusername -pyourpassword --sql < initialize.sql
+```
 
 ## Table of Common SQL Commands
 
