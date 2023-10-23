@@ -1,6 +1,6 @@
 # Logging
 
-🖥️ [Slides]()
+🖥️ [Slides](https://docs.google.com/presentation/d/1KuCyhYfKQEuvJZRddhfjwxZvSfOZjWxa/edit?usp=sharing&ouid=114081115660452804792&rtpof=true&sd=true)
 
 📖 **Required Reading**: Core Java for the Impatient
 
