@@ -63,7 +63,7 @@ void makeSQLCalls() throws SQLException {
 
 ## Creating Databases and Tables
 
-Once you have a connection you can use it to create databases and tables. It is a good idea to create Java code that does this either when your application starts up, or with an explicit initialization operation. This allows you to define all of the infrastructure that your code depends upon in the code that actually uses the infrastructure. That way you can always assume that the required databases and tables exist instead of managing and initializing that infrastructure as some sort of external manual executed process.
+Once you have a connection you can use it to create databases and tables. It is a good idea to create Java code that create your databases and tables either when your application starts up, or with an explicit initialization operation. This allows you to define all of the infrastructure that your code depends upon in the code that actually uses the infrastructure. That way you can always assume that the required databases and tables exist instead of managing and initializing that infrastructure as some sort of external manual executed process.
 
 We can fully configure a theoretical pet store application by doing the following.
 
@@ -72,27 +72,27 @@ We can fully configure a theoretical pet store application by doing the followin
 1. Create the pet table if it doesn't exist.
 
 ```java
-    void configureDatabase() throws SQLException {
-        try (var conn = getConnection()) {
-            var createDbStatement = conn.prepareStatement("CREATE DATABASE IF NOT EXISTS pet_store");
-            createDbStatement.executeUpdate();
+void configureDatabase() throws SQLException {
+    try (var conn = getConnection()) {
+        var createDbStatement = conn.prepareStatement("CREATE DATABASE IF NOT EXISTS pet_store");
+        createDbStatement.executeUpdate();
 
-            conn.setCatalog("pet_store");
+        conn.setCatalog("pet_store");
 
-            var createPetTable = """
-                CREATE TABLE  IF NOT EXISTS pet (
-                    id INT NOT NULL AUTO_INCREMENT,
-                    name VARCHAR(255) NOT NULL,
-                    type VARCHAR(255) NOT NULL,
-                    PRIMARY KEY (id)
-                )""";
+        var createPetTable = """
+            CREATE TABLE  IF NOT EXISTS pet (
+                id INT NOT NULL AUTO_INCREMENT,
+                name VARCHAR(255) NOT NULL,
+                type VARCHAR(255) NOT NULL,
+                PRIMARY KEY (id)
+            )""";
 
 
-            try (var createTableStatement = conn.prepareStatement(createPetTable)) {
-                createTableStatement.executeUpdate();
-            }
+        try (var createTableStatement = conn.prepareStatement(createPetTable)) {
+            createTableStatement.executeUpdate();
         }
     }
+}
 ```
 
 We execute SQL statements by first creating a `PreparedStatement`. You can think of a prepared statement as a SQL statement template. In the above code we create two prepared statements. One to create the database and one to create the table. Both of the statements are created with hard coded strings that represent the desired SQL to execute.
@@ -281,7 +281,7 @@ Another example of storing large text data comes from the chess application. Wit
 We can demonstrate how to do this using a simple pet record that has a name, a type, and a list of friends.
 
 ```java
-record Pet(int id, String name, String type, String[] friends) {}
+record Pet(String name, String type, String[] friends) {}
 ```
 
 We can create a SQL table schema that matches this structure by including field for the friend array that has type `longtext`. The `longtext` type can represent text strings that are up to 4 gigabytes and so that will be plenty of room for all the pet's friends.
@@ -291,6 +291,7 @@ CREATE TABLE  IF NOT EXISTS pet (
     name VARCHAR(255) DEFAULT NULL,
     type VARCHAR(255) DEFAULT NULL,
     friends longtext NOT NULL
+);
 ```
 
 We then create a method that inserts a pet into the database. This serializes the friend field using the Gson `toJson` method, and uses a SQL INSERT statement to put it in the database.
