@@ -269,15 +269,15 @@ For this phase the TAs will grade the quality of your project's source code. The
 
 ## Pass Off, Submission, and Grading
 
-To pass off this assignment, meet with a TA and demonstrate that your code passes the provided test cases.
+To pass off this assignment, meet with a TA and demonstrate that your code passes the provided test cases and that your test web page loads correctly. You must pass this part to recieve credit for any part of the assignment.
+
+During the pass off, the TA will check the test cases your wrote for the Services classes pass and grade them accoridng to the rubric.
 
 After you pass off your project with a TA, you should immediately submit your project source code for grading. Your grade on the project will be determined by the date you submitted your source code after passing off, not the date that you passed off. If we never receive your source code, you will not receive credit for the assignment. Here are the instructions for submitting your project source code:
 
 - In Intellij, navigate to the "Build" menu at the top of the screen and select "Clean Project" to remove auto-generated build files (if this option is not available, you can skip this step).
 - Create a ZIP file containing your whole project folder (not just the Java source files).
 - Submit your ZIP file on Canvas under the `Chess Web API` assignment.
-- To demonstrate that your test cases execute successfully, you should run your unit tests inside Intellij and take a screenshot of the successful test results displayed by Intellij. Please take one screenshot that shows the result of all of your tests passing. The tests used for the screenshot must be the same as the ones submitted in the Code Quality assignment ZIP file.
-- Submit your screenshot under the `Chess Web API` assignment on Canvas. The screenshot is submitted separately from your code ZIP file.
 
 ### Grading Rubric
 
