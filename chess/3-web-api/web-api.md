@@ -271,7 +271,7 @@ For this phase the TAs will grade the quality of your project's source code. The
 
 To pass off this assignment, meet with a TA and demonstrate that your code passes the provided test cases and that your test web page loads correctly. You must pass this part to recieve credit for any part of the assignment.
 
-During the pass off, the TA will check the test cases your wrote for the Services classes pass and grade them accoridng to the rubric.
+After checking the above, the TA will run and review the test cases your wrote for the Services classes pass and grade them accoridng to the rubric.
 
 After you pass off your project with a TA, you should immediately submit your project source code for grading. Your grade on the project will be determined by the date you submitted your source code after passing off, not the date that you passed off. If we never receive your source code, you will not receive credit for the assignment. Here are the instructions for submitting your project source code:
 
