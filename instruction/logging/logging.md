@@ -194,6 +194,23 @@ public class ServerLoggingExample {
 }
 ```
 
+You can then query your database for requests that match a given time range or level.
+
+```sql
+> SELECT * FROM log WHERE date > '2023-10-20' AND level='INFO';
+
++----+-------------------------------+-------+---------------------+
+| id | message                       | level | date                |
++----+-------------------------------+-------+---------------------+
+|  1 | [GET]/data - 200              | INFO  | 2023-10-25 11:21:46 |
+|  3 | [GET]/cow/joe/name/fish - 200 | INFO  | 2023-10-25 11:21:58 |
+|  4 | [GET]/home/provo - 200        | INFO  | 2023-10-25 11:23:40 |
+|  5 | [GET]/home/provo - 200        | INFO  | 2023-10-25 11:27:52 |
+|  6 | [POST]/home/provo - 200       | INFO  | 2023-10-25 11:42:33 |
+|  7 | [DELETE]/home/provo - 200     | INFO  | 2023-10-25 11:42:48 |
++----+-------------------------------+-------+---------------------+
+```
+
 ## Log4J
 
 Java's direct support for logging, with the `java.util.logging` package, was not introduced until 2002. Before that developers had to implement their own logging. The most common solution was to use the 3rd party package `Log4J`. In fact `java.util.logging` was modeled based upon the functionality of `Log4J`. For that reason it is very common to still see production Java code using `Log4J`.
