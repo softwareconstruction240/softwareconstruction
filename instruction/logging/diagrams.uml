@@ -1,0 +1,67 @@
+classDiagram
+
+
+class Formatter {
+  + format(Record record): String
+}
+
+class Handler {
+  publish(LogRecord record)
+}
+
+class LogManager {
+    Logger[]
+}
+
+class Logger {
+  Level
+  Handler[]
+  log(level, message)
+}
+
+class Level {
+  OFF
+  SEVERE
+  WARNING
+  INFO
+  FINE
+  FINER
+  FINEST
+  ALL
+}
+
+class LogRecord {
+    Level
+    Message
+}
+
+LogManager *-- Logger
+Logger *-- Handler
+Logger --> LogRecord
+Handler --> Formatter
+LogRecord *-- Level
+
+
+
+
+graph LR
+
+dev((fa:fa-user-cog dev))
+user((fa:fa-person user))
+database[(fa:fa-database database)]
+monitoring(fa:fa-chart-bar monitoring)
+alerting(fa:fa-bell alerting)
+
+classDef a fill:#258
+
+subgraph "logging"
+user:::a --> application
+application --> logger
+end
+logger --> database
+dev:::a --> monitoring
+monitoring --> database
+subgraph "observing"
+monitoring --> alerting
+alerting --> dev
+end
