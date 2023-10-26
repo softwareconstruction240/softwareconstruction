@@ -38,7 +38,7 @@ The JDK `java.sql` package contains interfaces and abstract classes for connecti
 
 ![MySQL connector](mysql-connector.png)
 
-Most modern connector packages don't require you to initialize the connector. The act of including it in your classpath will do that automatically. Once you have installed the package for you project you are good to create connections with it.
+Most modern connector packages don't require you to initialize the connector. The act of including it in your classpath will do that automatically. Once you have installed the package for your project you are good to create connections with it.
 
 ## Obtaining a Connection
 
