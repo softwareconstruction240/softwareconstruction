@@ -1403,8 +1403,93 @@ public class WebSocketTests {
                 "Expected 1 message for Alfred, got " + alfredMessages.size());
         Assertions.assertEquals(TestModels.TestServerMessageType.NOTIFICATION, alfredMessages.get(0).serverMessageType,
                 "Alfred didn't get NOTIFICATION message");
+    }
 
 
+    @Test
+    @Order(17)
+    @DisplayName("Move After Resign")
+    public void moveAfterResign() throws ExecutionException, InterruptedException, TimeoutException {
+        //have bob join the game as a player
+        TestModels.TestCommand joinCommand = new TestModels.TestCommand();
+        joinCommand.commandType = TestModels.TestCommandType.JOIN_PLAYER;
+        joinCommand.authToken = bobAuth;
+        joinCommand.playerColor = ChessGame.TeamColor.WHITE;
+        joinCommand.gameID = fullGame;
+
+        //wait for bob joining as a player to go through
+        bobClient.connect();
+        CountDownLatch readyLatch = new CountDownLatch(1);
+        testExecutor.submit(bobClient.getSendMessageRunnable(joinCommand, readyLatch));
+        bobExecutor.submit(new GetServerMessages(1, bobClient, readyLatch))
+                .get(waitTime, TimeUnit.MILLISECONDS);
+
+        //have james join as a player
+        joinCommand = new TestModels.TestCommand();
+        joinCommand.commandType = TestModels.TestCommandType.JOIN_PLAYER;
+        joinCommand.playerColor = ChessGame.TeamColor.BLACK;
+        joinCommand.authToken = jamesAuth;
+        joinCommand.gameID = fullGame;
+
+        //wait for james joining as a player to go through
+        jamesClient.connect();
+        readyLatch = new CountDownLatch(2);
+        testExecutor.submit(jamesClient.getSendMessageRunnable(joinCommand, readyLatch));
+        Future<List<TestModels.TestMessage>> jamesResult =
+                jamesExecutor.submit(new GetServerMessages(1, jamesClient, readyLatch));
+        Future<List<TestModels.TestMessage>> bobResult =
+                bobExecutor.submit(new GetServerMessages(1, bobClient, readyLatch));
+        bobResult.get(2 * waitTime, TimeUnit.MILLISECONDS);
+        jamesResult.get(2 * waitTime, TimeUnit.MILLISECONDS);
+
+
+        //have alfred join as an observer
+        joinCommand = new TestModels.TestCommand();
+        joinCommand.commandType = TestModels.TestCommandType.JOIN_OBSERVER;
+        joinCommand.authToken = alfredAuth;
+        joinCommand.gameID = fullGame;
+
+
+        //wait for alfred joining as an observer to go through
+        alfredClient.connect();
+        readyLatch = new CountDownLatch(3);
+        testExecutor.submit(alfredClient.getSendMessageRunnable(joinCommand, readyLatch));
+        Future<List<TestModels.TestMessage>> alfredResult =
+                alfredExecutor.submit(new GetServerMessages(1, alfredClient, readyLatch));
+        bobResult = bobExecutor.submit(new GetServerMessages(1, bobClient, readyLatch));
+        jamesResult = jamesExecutor.submit(new GetServerMessages(1, jamesClient, readyLatch));
+        alfredResult.get(3 * waitTime, TimeUnit.MILLISECONDS);
+        bobResult.get(3 * waitTime, TimeUnit.MILLISECONDS);
+        jamesResult.get(3 * waitTime, TimeUnit.MILLISECONDS);
+
+        //have james resign
+        //create command
+        TestModels.TestCommand resignation = new TestModels.TestCommand();
+        resignation.commandType = TestModels.TestCommandType.RESIGN;
+        resignation.authToken = jamesAuth;
+        resignation.gameID = fullGame;
+
+        //ready message
+        readyLatch = new CountDownLatch(3);
+        testExecutor.submit(jamesClient.getSendMessageRunnable(resignation, readyLatch));
+
+        //start getting messages
+        bobResult = bobExecutor.submit(new GetServerMessages(1, bobClient, readyLatch, waitTime));
+        jamesResult = jamesExecutor.submit(new GetServerMessages(1, jamesClient, readyLatch, waitTime));
+        alfredResult = alfredExecutor.submit(new GetServerMessages(1, alfredClient, readyLatch, waitTime));
+
+        //prep messages lists
+        List<TestModels.TestMessage> bobMessages = new ArrayList<>();
+        List<TestModels.TestMessage> jamesMessages = new ArrayList<>();
+        List<TestModels.TestMessage> alfredMessages = new ArrayList<>();
+
+        //wait to get all messages
+        try {
+            bobMessages = bobResult.get(waitTime * 4, TimeUnit.MILLISECONDS);
+            jamesMessages = jamesResult.get(waitTime * 4, TimeUnit.MILLISECONDS);
+            alfredMessages = alfredResult.get(waitTime * 4, TimeUnit.MILLISECONDS);
+
+        } catch (TimeoutException ignore) {}
 
         //bob attempts to make a move after james resigned
         ChessPosition startingPosition = TestFactory.getNewPosition(2, 5);
@@ -1459,7 +1544,7 @@ public class WebSocketTests {
 
 
     @Test
-    @Order(17)
+    @Order(18)
     @DisplayName("Observer Resign")
     public void invalidResignObserver() throws ExecutionException, InterruptedException, TimeoutException {
         //have bob join the game as a player
@@ -1558,7 +1643,7 @@ public class WebSocketTests {
 
 
     @Test
-    @Order(18)
+    @Order(19)
     @DisplayName("Game Over Resign")
     public void invalidResignGameOver() throws ExecutionException, InterruptedException, TimeoutException {
         //have bob join the game as a player
@@ -1673,7 +1758,7 @@ public class WebSocketTests {
 
 
     @Test
-    @Order(19)
+    @Order(20)
     @DisplayName("Leave Game")
     public void leaveGame() throws ExecutionException, InterruptedException, TimeoutException {
         //have bob join the game as a player
