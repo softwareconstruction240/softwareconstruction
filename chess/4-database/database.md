@@ -40,7 +40,7 @@ You will want to carefully consider the need for a Gson type adapter when you do
 ## Unit Tests
 
 1. Write a positive and a negative JUNIT test case for each public method on your DAO classes, except for Clear methods which only need a positive test case. A positive test case is one for which the action happens successfully (e.g., creating a new user in the database). A negative test case is one for which the operation fails (e.g., creating a User that has the same username as an existing user).
-2. Ensure that all of your unit tests work, including the new DAO tests the Service tests you wrote in the previous assignment.
+2. Ensure that all of your unit tests work, including the new DAO tests and the Service tests you wrote in the previous assignment.
 
 ## Pass Off Tests
 
