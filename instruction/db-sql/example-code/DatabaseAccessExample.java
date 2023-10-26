@@ -8,6 +8,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DatabaseAccessExample {
+    /*
+     * Note: You will need to create a user and grant access in MySQL and then change the username and password
+     * below to your username and password. Use the following sql statements (replacing the username and password):
+     *
+     * CREATE USER 'jerodw'@'localhost' IDENTIFIED BY 'mypassword';
+     * GRANT ALL on BookClub.* to 'jerodw'@'localhost';
+     *
+     * Note: The grant statement assumes you named your database 'BookClub' when you created it.
+     *
+     * Note: In practice you shouldn't store your username and password in source code. A better way is to store it
+     * in a config file and add the config file to your .gitignore to prevent it from being checked into source
+     * control. Then write code to pull the username and password out of the config file to include in the
+     * connection String.
+     */
+    public static final String username = "jerodw";
+    public static final String password = "mypassword";
 
     public static void main(String [] args) {
         try {
@@ -24,24 +40,10 @@ public class DatabaseAccessExample {
 
         List<Book> books;
 
-        /*
-         * Note: You will need to create a user and grant access in MySQL and then change the username and password
-         * below to your username and password. Use the following sql statements (replacing the username and password):
-         *
-         * CREATE USER 'jerodw'@'localhost' IDENTIFIED BY 'mypassword';
-         * GRANT ALL on BookClub.* to 'jerodw'@'localhost';
-         *
-         * Note: The grant statement assumes you named your database 'BookClub' when you created it.
-         *
-         * Note: In practice you shouldn't store your username and password in source code. A better way is to store it
-         * in a config file and add the config file to your .gitignore so it doesn't get checked into source control.
-         * Then write code to pull the username and password out of the config file to include in the connection
-         * String.
-         */
-        String connectionURL = "jdbc:mysql://localhost:3306/BookClub?user=jerodw&password=mypassword";
+        String connectionURL = "jdbc:mysql://localhost:3306/BookClub";
 
         Connection connection = null;
-        try(Connection c = DriverManager.getConnection(connectionURL)) {
+        try(Connection c = DriverManager.getConnection(connectionURL, username, password)) {
             connection = c;
 
             // Start a transaction
