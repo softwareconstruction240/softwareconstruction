@@ -18,15 +18,101 @@ Knowing what debugging tools are available and how to effectively employ them is
 
 The more you think about debugging as applying the scientific method, the more you will become adept at the debugging process.
 
-1. State the problem
-1. Reproduce the problem
-1. Isolate a problem
-1. Form a hypothesis
-1. Conduct experiments and gather data
+1. Concisely state the problem
+1. Reproduce the problem with a unit test
+1. Isolate a problem to its simplest representation
+1. Step through the tested code
 1. Implement a solution
-1. Verify the solution
+1. Verify that the unit test passes
+1. Verify that all tests pass
 
 In this instruction we focus on `visual debuggers`. You are encouraged to become experts with the debugger that is available for your development environment. In our case this is IntelliJ. Learn how to quickly execute the debugger, use it with only keystrokes, maximize the use of breakpoints, inspect variables and execution stacks, and isolate a reproduction of the problem, possibly with new unit tests.
+
+## Example Debugging
+
+```java
+List<String> filterToCWordsAnyLengthAndAWordsGreaterThanFive(List<String> words) {
+    var result = new ArrayList<String>();
+    try {
+        for (var i = words.size(); i > 0; i--) {
+            var word = words.get(i);
+            if (word.matches("^(c|a).{5,100}$")) {
+                result.add(word);
+            }
+        }
+    } catch (Exception ignore) {
+    }
+    return result;
+}
+```
+
+## Generating Tests
+
+![Generate Test](generate-test.png)
+
+```java
+@Test
+void filterToCWordsAnyLengthAndAWordsGreaterThanFive() {
+}
+```
+
+```java
+@Test
+void filterToCWordsAnyLengthAndAWordsGreaterThanFive() {
+    var words = List.of("cattle", "dog", "appalachian", "apple", "pig");
+    var results = BugExample.filterToCWordsAnyLengthAndAWordsGreaterThanFive(words)
+            .stream().sorted().toList();
+
+    var expected = List.of("cattle", "appalachian").stream().sorted().toList();
+    assertIterableEquals(expected, results);
+}
+```
+
+## Stepping Through Code
+
+## Breakpoints
+
+### Conditional Breakpoints
+
+When you create a breakpoint in IntelliJ you can specify conditions such as the required value of a variable before the breakpoint will trigger.
+
+![Conditional Breakpoint](conditional-breakpoint.png)
+
+## Examining up the Stack
+
+![Stack](stack.png)
+
+## Breaking on Exceptions
+
+## Error Messages
+
+```text
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: Index 5 out of bounds for length 5
+	at java.base/java.util.ImmutableCollections$ListN.get(ImmutableCollections.java:680)
+	at debugging.BugExample.filter(BugExample.java:16)
+	at debugging.BugExample.main(BugExample.java:9)
+```
+
+## Enhancing Tests
+
+As you fix bugs you will often discover other problems that haven't been reported yet. For example, our specification says that you can have `a` words of length greater than five, but if we modify our test to try long `a` words we will discover that there is still a bug.
+
+```java
+@Test
+void filterToCWordsAnyLengthAndAWordsGreaterThanFive() {
+    var big = "a";
+    for (var i = 0; i < 1005; i++) {
+        big += 'a';
+    }
+
+    var words = List.of("cattle", "dog", "appalachian", "apple", "pig", big);
+    var results = BugExample.filterToCWordsAnyLengthAndAWordsGreaterThanFive(words);
+    results = results.stream().sorted().toList();
+
+    var expected = List.of("cattle", "appalachian", big);
+    expected = expected.stream().sorted().toList();
+}
+```
 
 ## Things to Understand
 
