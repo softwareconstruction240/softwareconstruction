@@ -138,9 +138,15 @@ As you are debugging you might find that you need to know what happened in the f
 
 ![Stack](stack.png)
 
-## Breaking on Exceptions
+## Executing Multiple Processes
+
+Sometimes you need to debug/run multiple processes at the same time. For example, you might want to debug both your server and your client so that you can see how requests from the client execute on your server. With IntelliJ, you can debug multiple programs by just starting each one up individually. In the following image you can see that the server is started and a breakpoint set on the `listNames` HTTP endpoint. Then we set a breakpoint in the client and start it up. As the request flow goes from client to server, the server breakpoint is hit. Once we resume execution, the client picks up the when the call to the server returns. This allows us to see exactly what is happening in each application.
+
+![debug multiple processes](debug-multiple-processes.gif)
 
 ## Error Messages
+
+The error messages generated while debugging often contain valuable information. Take that time to read them and digest what they are telling you. Also note that you can follow the links displayed in the stack traces to see exactly where the errors are occurring. You can then set a breakpoint on that line and rerun the test to debug what is going on.
 
 ```text
 Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: Index 5 out of bounds for length 5
