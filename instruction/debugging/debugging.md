@@ -86,7 +86,7 @@ void filterToCWordsAnyLengthAndAWordsGreaterThanFive() {
   var actual = BugExample.filterToCWordsAnyLengthAndAWordsGreaterThanFive(words);
   actual = actual.stream().sorted().toList();
 
-  var expected = List.of("cattle", "appalachian". "cat");
+  var expected = List.of("cattle", "appalachian", "cat");
   expected = expected.stream().sorted().toList();
 
   assertIterableEquals(expected, actual);
