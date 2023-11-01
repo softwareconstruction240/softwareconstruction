@@ -24,7 +24,22 @@ Your test console window should now allow user input.
 
 ## Connect Database class to MySQL
 
-Go to the Database class in your project’s `src/starter/dataAccess` folder and edit the `MYSQL_URL`, `DB_USERNAME`, and `DP_PASSWORD` fields to match the configuration of your MySQL server. This will allow you to use the Database class methods to manage a connection to your MySQL database.
+Open to the `Database.java` file in your project’s `src/starter/dataAccess` folder and edit the `CONNECTION_URL`, `DB_USERNAME`, and `DB_PASSWORD` fields to match the configuration of your MySQL server. This class provides an example of how to manage a pool of database connections to your MySQL database. The usage of this class is completely optional, but if you do use it then here is an example of how you obtain and return connections.
+
+```java
+public boolean example(String selectStatement, Database db) throws DataAccessException{
+
+  var conn = db.getConnection();
+
+  try (var preparedStatement = conn.prepareStatement(selectStatement)) {
+      return preparedStatement.execute();
+  } catch (SQLException ex) {
+      throw new DataAccessException(ex.toString());
+  } finally {
+      db.returnConnection(conn);
+  }
+}
+```
 
 ## Dependencies
 
