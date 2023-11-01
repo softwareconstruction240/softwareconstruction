@@ -24,7 +24,7 @@ Your test console window should now allow user input.
 
 ## Connect Database class to MySQL
 
-Go to the Database class in your project’s `src/starter/dataAccess` folder and edit the `MYSQL_URL`, `DB_USERNAME`, and `DP_PASSWORD` fields to match the configuration of your MySQL server. This will allow you to use the Database class methods to manage a connection to your MySQL database.
+Go to the Database class in your project’s `src/starter/dataAccess` folder and edit the `MYSQL_URL`, `DB_USERNAME`, and `DB_PASSWORD` fields to match the configuration of your MySQL server. This will allow you to use the Database class methods to manage a connection to your MySQL database.
 
 ## Dependencies
 
