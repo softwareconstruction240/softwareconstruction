@@ -20,7 +20,7 @@ The more you think about debugging as applying the scientific method, the more y
 
 1. Concisely state the problem
 1. Reproduce the problem with a unit test
-1. Isolate a problem to its simplest representation
+1. Isolate the problem to its simplest representation
 1. Step through the tested code
 1. Implement a solution
 1. Verify that the unit test passes
