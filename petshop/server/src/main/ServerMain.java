@@ -1,6 +1,6 @@
 import server.PetServer;
 
-public class Main {
+public class ServerMain {
     /**
      * Starts the server on the given port. If port is 0 then a random port is used.
      */
