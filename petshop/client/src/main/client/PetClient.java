@@ -20,9 +20,9 @@ public class PetClient {
     }
 
     public void run() {
-        System.out.println("Welcome to the pet store. Press enter to get help. \uD83D\uDC36");
-        Scanner scanner = new Scanner(System.in);
+        System.out.println("\uD83D\uDC36 Welcome to the pet store. Press enter to get help.");
 
+        Scanner scanner = new Scanner(System.in);
         var result = "";
         while (!result.equals("quit")) {
             printPrompt();
@@ -30,9 +30,9 @@ public class PetClient {
 
             try {
                 result = eval(line);
-                System.out.print(SET_TEXT_COLOR_YELLOW + result);
+                System.out.print(BLUE + result);
             } catch (Throwable e) {
-                System.out.println(e.getMessage());
+                System.out.print(e.getMessage());
             }
         }
         System.out.println();
@@ -48,6 +48,7 @@ public class PetClient {
                     case "add" -> addPet(tokens);
                     case "list" -> listPets();
                     case "delete" -> deletePet(tokens);
+                    case "clear" -> deleteAllPets();
                     case "quit" -> "quit";
                     default -> help();
                 };
@@ -56,23 +57,6 @@ public class PetClient {
             result = ex.getMessage();
         }
         return result;
-    }
-
-    private String listPets() throws ResponseException {
-        var pets = server.listPets();
-        return new Gson().toJson(pets);
-    }
-
-    private String deletePet(String[] tokens) throws ResponseException {
-        try {
-            if (tokens.length == 2) {
-                var id = Integer.parseInt(tokens[1]);
-                server.deletePet(id);
-                return String.format("Deleted %d", id);
-            }
-        } catch (Exception ignore) {
-        }
-        throw new ResponseException(400, "Expected: <pet id>");
     }
 
     private String addPet(String[] tokens) throws ResponseException {
@@ -84,24 +68,53 @@ public class PetClient {
                 var friends = new ArrayFriendList(friendArray);
                 var pet = new Pet(0, name, type, friends);
                 pet = server.addPet(pet);
-                return pet.toString();
+                return pet.toString() + "\n";
             }
         } catch (Exception ignore) {
         }
         throw new ResponseException(400, "Expected: <name> <CAT|DOG|FROG> [<friend name>]*");
     }
 
+    private String listPets() throws ResponseException {
+        var pets = server.listPets();
+        var result = new StringBuilder();
+        var gson = new Gson();
+        for (var pet : pets) {
+            result.append(gson.toJson(pet)).append('\n');
+        }
+        return result.toString();
+    }
+
+    private String deletePet(String[] tokens) throws ResponseException {
+        try {
+            if (tokens.length == 2) {
+                var id = Integer.parseInt(tokens[1]);
+                server.deletePet(id);
+                return String.format("Deleted %d\n", id);
+            }
+        } catch (Exception ignore) {
+        }
+        throw new ResponseException(400, "Expected: <pet id>");
+    }
+
+    private String deleteAllPets() throws ResponseException {
+        server.deleteAllPets();
+        return "Deleted all\n";
+    }
+
     private String help() {
         return """
-                list
-                delete <pet id>
-                add <name> <CAT|DOG|FROG|FISH> [<friend name>]*
+                - list
+                - delete <pet id>
+                - add <name> <CAT|DOG|FROG|FISH> [<friend name>]*
+                - clear
+                - quit
                 """;
     }
 
 
     private void printPrompt() {
-        System.out.print(RESET_TEXT_COLOR + "\n >>> " + SET_TEXT_COLOR_GREEN);
+        System.out.print(RESET + ">>> " + GREEN);
     }
 
 }
