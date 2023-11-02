@@ -1,4 +1,4 @@
-package client;
+package util;
 
 import com.google.gson.Gson;
 
@@ -10,11 +10,6 @@ public class ResponseException extends Exception {
 
     public ResponseException(int statusCode, String message) {
         super(message);
-        this.statusCode = statusCode;
-    }
-
-    public ResponseException(int statusCode, InputStreamReader reader) {
-        super((String) (new Gson().fromJson(reader, HashMap.class)).get("message"));
         this.statusCode = statusCode;
     }
 
