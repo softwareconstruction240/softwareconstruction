@@ -1,4 +1,4 @@
-import client.PetClient;
+import client.Repl;
 
 public class ClientMain {
     public static void main(String[] args) throws Exception {
@@ -7,7 +7,7 @@ public class ClientMain {
             serverUrl = args[0];
         }
 
-        new PetClient(serverUrl).run();
+        new Repl(serverUrl).run();
     }
 
 }
