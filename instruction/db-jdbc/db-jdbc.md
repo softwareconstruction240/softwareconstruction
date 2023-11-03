@@ -55,7 +55,7 @@ Connection getConnection() throws SQLException {
 }
 
 void makeSQLCalls() throws SQLException {
-    try (var conn = getConnection() {
+    try (var conn = getConnection()) {
         // Execute SQL statements on the connection here
     }
 }
