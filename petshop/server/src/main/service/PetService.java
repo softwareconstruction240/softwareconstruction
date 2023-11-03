@@ -1,31 +1,32 @@
 package service;
 
+import dataAccess.DataAccess;
 import model.Pet;
 
 import java.util.Collection;
-import java.util.HashMap;
 
 public class PetService {
-    private int nextId = 1;
-    final private HashMap<Integer, Pet> pets = new HashMap<>();
+
+    private final DataAccess dataAccess;
+
+    public PetService(DataAccess dataAccess) {
+        this.dataAccess = dataAccess;
+    }
 
     public Pet addPet(Pet pet) {
-        pet = new Pet(nextId++, pet.name(), pet.type(), pet.friends());
-
-        pets.put(pet.id(), pet);
-        return pet;
+        return dataAccess.addPet(pet);
     }
 
     public Collection<Pet> listPets() {
-        return pets.values();
+        return dataAccess.listPets();
     }
 
 
     public void deletePet(Integer id) {
-        pets.remove(id);
+        dataAccess.deletePet(id);
     }
 
     public void deleteAllPets() {
-        pets.clear();
+        dataAccess.deleteAllPets();
     }
 }

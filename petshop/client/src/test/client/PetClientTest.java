@@ -1,6 +1,5 @@
 package client;
 
-import model.ArrayFriendList;
 import org.junit.jupiter.api.*;
 import server.PetServer;
 
@@ -97,7 +96,7 @@ class PetClientTest {
 
     private static String getId(String text) {
         Pattern p = Pattern.compile("'id':(\\d+),");
-        text  = text.replace('"', '\'');
+        text = text.replace('"', '\'');
         Matcher m = p.matcher(text);
         if (m.find()) {
             return m.group(1);

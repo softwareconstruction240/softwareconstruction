@@ -1,20 +1,20 @@
 package server;
 
 import com.google.gson.Gson;
+import dataAccess.MemoryDataAccess;
 import model.ModelSerializer;
 import model.Pet;
 import service.PetService;
 import spark.*;
+import util.ResponseException;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 public class PetServer {
-    private PetService service;
+    private final PetService service;
 
     public PetServer() {
-        service = new PetService();
+        service = new PetService(new MemoryDataAccess());
     }
 
     public PetServer run(int port) {
@@ -26,7 +26,7 @@ public class PetServer {
         Spark.get("/pet", this::listPets);
         Spark.delete("/pet/:id", this::deletePet);
         Spark.delete("/pet", this::deleteAllPets);
-        Spark.exception(Exception.class, this::exceptionHandler);
+        Spark.exception(ResponseException.class, this::exceptionHandler);
 
         Spark.awaitInitialization();
         return this;
@@ -40,8 +40,8 @@ public class PetServer {
         Spark.stop();
     }
 
-    private void exceptionHandler(Exception ex, Request req, Response res) {
-        res.status(500);
+    private void exceptionHandler(ResponseException ex, Request req, Response res) {
+        res.status(ex.StatusCode());
     }
 
     private Object addPet(Request req, Response res) {

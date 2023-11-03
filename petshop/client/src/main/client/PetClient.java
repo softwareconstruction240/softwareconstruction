@@ -1,7 +1,6 @@
 package client;
 
 import java.util.Arrays;
-import java.util.Scanner;
 
 import com.google.gson.Gson;
 import model.ArrayFriendList;
@@ -9,8 +8,6 @@ import model.Pet;
 import model.PetType;
 import util.ResponseException;
 import util.ServerFacade;
-
-import static client.EscapeSequences.*;
 
 public class PetClient {
     private final ServerFacade server;

@@ -1,3 +1,4 @@
+import dataAccess.MemoryDataAccess;
 import model.ArrayFriendList;
 import model.Pet;
 import model.PetType;
@@ -6,14 +7,12 @@ import org.junit.jupiter.api.Test;
 import service.PetService;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class PetServiceTest {
-    static PetService service = new PetService();
+    static final PetService service = new PetService(new MemoryDataAccess());
 
     @BeforeEach
     void clear() {

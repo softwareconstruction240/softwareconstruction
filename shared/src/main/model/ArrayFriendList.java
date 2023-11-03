@@ -1,7 +1,6 @@
 package model;
 
 import java.util.*;
-import java.util.function.Consumer;
 
 public class ArrayFriendList implements FriendList {
     final private ArrayList<String> list = new ArrayList<>();
