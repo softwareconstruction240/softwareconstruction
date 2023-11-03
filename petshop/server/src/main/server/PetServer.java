@@ -6,7 +6,6 @@ import model.ModelSerializer;
 import model.Pet;
 import service.PetService;
 import spark.*;
-import util.ResponseException;
 
 import java.util.Map;
 

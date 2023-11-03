@@ -6,8 +6,8 @@ import com.google.gson.Gson;
 import model.ArrayFriendList;
 import model.Pet;
 import model.PetType;
-import util.ResponseException;
-import util.ServerFacade;
+import server.ResponseException;
+import server.ServerFacade;
 
 public class PetClient {
     private final ServerFacade server;
