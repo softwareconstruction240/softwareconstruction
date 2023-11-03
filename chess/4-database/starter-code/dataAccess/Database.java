@@ -3,66 +3,97 @@ package dataAccess;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.LinkedList;
 
 /**
- * Database is responsible for creating connections to the database. Connections are
- * managed with a simple pool in order to increase performance. To obtain and
- * use connections represented by this class use the following pattern.
- *
- * <pre>
- *  public boolean example(String selectStatement, Database db) throws DataAccessException{
- *    var conn = db.getConnection();
- *    try (var preparedStatement = conn.prepareStatement(selectStatement)) {
- *        return preparedStatement.execute();
- *    } catch (SQLException ex) {
- *        throw new DataAccessException(ex.toString());
- *    } finally {
- *        db.returnConnection(conn);
- *    }
- *  }
- * </pre>
+ * Class responsible for creating connections to the database
  */
 public class Database {
 
-    // FIXME: Change these fields, if necessary, to match your database configuration
-    public static final String DB_NAME = "chess";
+    //FIXME replace with your database URL
+    //private static final String MYSQL_URL = "localhost:3306/MyAwesomeChessDatabase";
+    private static final String MYSQL_URL = "localhost:3306/chess";
+
+    //FIXME replace with your database username
+    //private static final String DB_USERNAME = "AwesomeChessServer";
     private static final String DB_USERNAME = "root";
+
+    //FIXME replace with your database password (null if no password)
+    //private static final String DB_PASSWORD = null;
     private static final String DB_PASSWORD = "admin";
 
-    private static final String CONNECTION_URL = "jdbc:mysql://localhost:3306";
-
-    private final LinkedList<Connection> connections = new LinkedList<>();
+    /**
+     * The connection to the database
+     */
+    private static Connection conn;
+    private static final String DATABASE_DRIVER = "jdbc:mysql://";
 
     /**
-     * Get a connection to the database. This pulls a connection out of a simple
-     * pool implementation. The connection must be returned to the pool after
-     * you are done with it by calling {@link #returnConnection(Connection) returnConnection}.
-     *
-     * @return Connection
+     * Initiates a connection to the database
+     * @return new Connection object
+     * @throws DataAccessException
      */
-    synchronized public Connection getConnection() throws DataAccessException {
+    public Connection openConnection() throws DataAccessException {
         try {
-            Connection connection;
-            if (connections.isEmpty()) {
-                connection = DriverManager.getConnection(CONNECTION_URL, DB_USERNAME, DB_PASSWORD);
-                connection.setCatalog(DB_NAME);
-            } else {
-                connection = connections.removeFirst();
+            //shouldn't try to open an active connection
+            if (conn != null){
+                throw new DataAccessException("Database connection already open");
             }
-            return connection;
+
+            //The Structure for this Connection is driver:language:path
+            //The path assumes you start in the root of your project unless given a non-relative path
+            final String CONNECTION_URL = DATABASE_DRIVER + MYSQL_URL;
+
+            // Open a database connection to the file given in the path
+            conn = DriverManager.getConnection(CONNECTION_URL, DB_USERNAME, DB_PASSWORD);
+
+            // Start a transaction
+            conn.setAutoCommit(false);
         } catch (SQLException e) {
-            throw new DataAccessException(e.getMessage());
+            e.printStackTrace();
+            throw new DataAccessException("Unable to open connection to database");
+        }
+
+        return conn;
+    }
+
+    /**
+     * If a connection exists, opens a connection. Otherwise, just uses current connection
+     * @return Connection to database
+     * @throws DataAccessException
+     */
+    public Connection getConnection() throws DataAccessException {
+        if (conn == null) {
+            return openConnection();
+        } else {
+            return conn;
         }
     }
 
     /**
-     * Return a previously acquired connection to the pool.
-     *
-     * @param connection previous obtained by calling {@link #getConnection() getConnection}.
+     * Closes connection to database.
+     * @param commit If we want to commit changes to the database. If false, no changes will be made
+     * @throws DataAccessException
      */
-    synchronized public void returnConnection(Connection connection) {
-        connections.add(connection);
+    public void closeConnection(boolean commit) {
+        if (conn == null) {
+            return;
+        }
+
+        try {
+            if (commit) {
+                //This will commit the changes to the database
+                conn.commit();
+            } else {
+                //If we find out something went wrong, pass a false into closeConnection and this
+                //will rollback any changes we made during this connection
+                conn.rollback();
+            }
+
+            conn.close();
+            conn = null;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }
-
