@@ -1,7 +1,11 @@
 package client;
 
+import model.ArrayFriendList;
 import org.junit.jupiter.api.*;
 import server.PetServer;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -31,20 +35,26 @@ class PetClientTest {
     @Test
     void addPet() {
         var result = assertDoesNotThrow(() -> client.addPet("joe", "fish"));
-        assertEquals(q("{'id':1,'name':'joe','type':'FISH','friends':{'list':[]}}"), result);
+        assertMatches("\\{'id':\\d+,'name':'joe','type':'FISH','friends':\\{'list':\\[]}}", result);
 
-        result = assertDoesNotThrow(() -> client.addPet("sally"));
-        assertEquals(q("{'pet':['joe','sally']}"), result);
+        result = assertDoesNotThrow(() -> client.addPet("sally", "cat"));
+        assertMatches("\\{'id':\\d+,'name':'sally','type':'CAT','friends':\\{'list':\\[]}}", result);
     }
 
 
     @Test
-    void deletePet() throws Exception {
-        client.addPet("joe");
-        client.addPet("sally");
+    void addPetWithFriends() {
+        var result = assertDoesNotThrow(() -> client.addPet("joe", "fish", "a", "b"));
+        assertMatches("\\{'id':\\d+,'name':'joe','type':'FISH','friends':\\{'list':\\['a','b']}}", result);
+    }
 
-        var result = assertDoesNotThrow(() -> client.deletePet("joe"));
-        assertEquals(q("{'pet':['sally']}"), result);
+    @Test
+    void deletePet() throws Exception {
+        var id = getId(client.addPet("joe", "frog"));
+        client.addPet("sally", "cat");
+
+        var result = assertDoesNotThrow(() -> client.deletePet(id));
+        assertEquals("Deleted " + id, result);
     }
 
 
@@ -53,31 +63,46 @@ class PetClientTest {
         client.addPet("joe", "rock");
         var result = assertDoesNotThrow(() -> client.deleteAllPets());
         assertEquals("Deleted all", result);
-
-        var listResult = client.listPets();
-        assertEquals(q(""), listResult);
+        assertEquals(q(""), client.listPets());
     }
 
     @Test
     void deleteNonexistentPet() {
-        assertDoesNotThrow(() -> client.addPet("joe"));
-        assertDoesNotThrow(() -> client.addPet("sally"));
-
-        var result = assertDoesNotThrow(() -> client.deletePet("buddy"));
-        assertEquals(q("{'pet':['joe','sally']}"), result);
+        var result = assertDoesNotThrow(() -> client.deletePet("933432"));
+        assertEquals(q("Deleted 933432"), result);
     }
 
 
     @Test
     void listPet() {
-        assertDoesNotThrow(() -> client.addPet("joe"));
-        assertDoesNotThrow(() -> client.addPet("sally"));
+        assertDoesNotThrow(() -> client.addPet("joe", "fish"));
+        assertDoesNotThrow(() -> client.addPet("sally", "fish"));
 
         var result = assertDoesNotThrow(() -> client.listPets());
-        assertEquals(q("{'pet':['joe','sally']}"), result);
+        assertMatches("""
+                \\{'id':\\d+,'name':'joe','type':'FISH','friends':\\{'list':\\[]}}
+                \\{'id':\\d+,'name':'sally','type':'FISH','friends':\\{'list':\\[]}}
+                """, result);
     }
 
-    private String q(String in) {
+    private void assertMatches(String expected, String actual) {
+        actual = actual.replace('"', '\'');
+
+        assertTrue(actual.matches(expected), actual);
+    }
+
+    private static String q(String in) {
         return in.replace('\'', '"');
+    }
+
+    private static String getId(String text) {
+        Pattern p = Pattern.compile("'id':(\\d+),");
+        text  = text.replace('"', '\'');
+        Matcher m = p.matcher(text);
+        if (m.find()) {
+            return m.group(1);
+        }
+        fail("ID not found");
+        return "";
     }
 }

@@ -14,7 +14,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ServerTest {
+class PetServerTest {
     static private PetServer petServer;
     static ServerFacade server;
 
