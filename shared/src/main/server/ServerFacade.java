@@ -1,6 +1,7 @@
 package server;
 
 import com.google.gson.Gson;
+import exception.ResponseException;
 import model.ModelSerializer;
 import model.Pet;
 

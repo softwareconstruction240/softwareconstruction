@@ -1,4 +1,5 @@
-import dataAccess.MemoryDataAccess;
+import dataaccess.MemoryDataAccess;
+import exception.ResponseException;
 import model.ArrayFriendList;
 import model.Pet;
 import model.PetType;
@@ -15,12 +16,12 @@ class PetServiceTest {
     static final PetService service = new PetService(new MemoryDataAccess());
 
     @BeforeEach
-    void clear() {
+    void clear() throws ResponseException {
         service.deleteAllPets();
     }
 
     @Test
-    void addPet() {
+    void addPet() throws ResponseException {
         var pet = new Pet(0, "joe", PetType.FISH, null);
         pet = service.addPet(pet);
 
@@ -30,7 +31,7 @@ class PetServiceTest {
     }
 
     @Test
-    void listPets() {
+    void listPets() throws ResponseException {
         List<Pet> expected = new ArrayList<>();
         expected.add(service.addPet(new Pet(0, "joe", PetType.FISH, null)));
         expected.add(service.addPet(new Pet(0, "sally", PetType.CAT, null)));
@@ -41,7 +42,7 @@ class PetServiceTest {
     }
 
     @Test
-    void deletePet() {
+    void deletePet() throws ResponseException {
         List<Pet> expected = new ArrayList<>();
         var pet = service.addPet(new Pet(0, "joe", PetType.FISH, null));
         expected.add(service.addPet(new Pet(0, "sally", PetType.CAT, null)));
@@ -53,7 +54,7 @@ class PetServiceTest {
     }
 
     @Test
-    void deleteAllPets() {
+    void deleteAllPets() throws ResponseException {
         service.addPet(new Pet(0, "joe", PetType.FISH, null));
         service.addPet(new Pet(0, "sally", PetType.CAT, null));
         service.addPet(new Pet(0, "fido", PetType.DOG, new ArrayFriendList("a", "b")));

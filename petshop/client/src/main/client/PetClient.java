@@ -6,7 +6,7 @@ import com.google.gson.Gson;
 import model.ArrayFriendList;
 import model.Pet;
 import model.PetType;
-import server.ResponseException;
+import exception.ResponseException;
 import server.ServerFacade;
 
 public class PetClient {

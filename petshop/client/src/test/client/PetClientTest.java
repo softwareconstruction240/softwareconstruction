@@ -1,5 +1,6 @@
 package client;
 
+import dataaccess.MemoryDataAccess;
 import org.junit.jupiter.api.*;
 import server.PetServer;
 
@@ -15,7 +16,7 @@ class PetClientTest {
 
     @BeforeAll
     static void startServer() {
-        petServer = new PetServer();
+        petServer = new PetServer(new MemoryDataAccess());
         petServer.run(0);
         var url = "http://localhost:" + petServer.port();
         client = new PetClient(url);

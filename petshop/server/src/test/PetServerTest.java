@@ -1,3 +1,4 @@
+import dataaccess.MemoryDataAccess;
 import model.ArrayFriendList;
 import model.Pet;
 import model.PetType;
@@ -20,7 +21,7 @@ class PetServerTest {
 
     @BeforeAll
     static void startServer() {
-        petServer = new PetServer();
+        petServer = new PetServer(new MemoryDataAccess());
         petServer.run(0);
         var url = "http://localhost:" + petServer.port();
         server = new ServerFacade(url);
