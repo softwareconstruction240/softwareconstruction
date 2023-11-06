@@ -14,11 +14,11 @@ import static java.sql.Statement.RETURN_GENERATED_KEYS;
 import static java.sql.Types.NULL;
 
 
-public class MySQLDataAccess implements DataAccess {
+public class MySqlDataAccess implements DataAccess {
 
-    private final DataAccessConfig config;
+    private final MySqlDataAccessConfig config;
 
-    public MySQLDataAccess(DataAccessConfig config) throws ResponseException {
+    public MySqlDataAccess(MySqlDataAccessConfig config) throws ResponseException {
         this.config = config;
         configureDatabase();
     }
