@@ -3,7 +3,7 @@ import dataaccess.MySqlDataAccess;
 import server.PetServer;
 
 public class ServerMain {
-    private static MySqlDataAccessConfig defaultMySqlConfig = new MySqlDataAccessConfig("jdbc:mysql://localhost:3306", "root", "monkeypie", "testpetstore");
+    final private static MySqlDataAccessConfig defaultMySqlConfig = new MySqlDataAccessConfig("jdbc:mysql://localhost:3306", "root", "monkeypie", "testpetstore");
 
 
     /**
