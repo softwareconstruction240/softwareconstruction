@@ -29,7 +29,7 @@ If you run this code with the following command you will see how the arguments a
 3. c
 ```
 
-Using application arguments is a convenient way to customize how your application operates. For example, with your chess client application you could allow the user to provide the URL of your chess server. The code below specifies a default URL, but allow the user to override it with a provided value.
+Using application arguments is a convenient way to customize how your application operates. For example, with your chess client application you could allow the user to provide the URL of your chess server. The code below specifies a default URL, but allows the user to override it with a provided value.
 
 ```java
 public class ClientMain {
@@ -137,7 +137,7 @@ Now when we run our calculator, we see the color changes.
 
 ## Reading from Standard In
 
-In order to create a complete console based application you need to also receive input from your user. When you java program executes, the operating system usually streams the buttons pressed on a keyboard to the `System.in` object.
+In order to create a complete console based application you need to also receive input from your user. When your java program executes, the operating system usually streams the buttons pressed on a keyboard to the `System.in` object.
 
 To demonstrate reading from the keyboard, we can modify our calculator to read our numbers from what the user is typing instead of reading it from the application arguments. To do this we wrap `System.in` with the `Scanner` class so that we can read from the user's input a line at a time. Once the user presses `Enter` we can parse out the numbers and output the result.
 
@@ -181,7 +181,7 @@ Input your numbers
 
 ## Demonstration code
 
-The following demonstration code uses escape sequences to draw a tic tac toe board. This is similar to the concepts you will need in order to implement the rendering of the chess board. The `EscapeSequences.java` file contains may standard codes that you might find useful in your programming.
+The following demonstration code uses escape sequences to draw a tic tac toe board. This is similar to the concepts you will need in order to implement the rendering of the chess board. The `EscapeSequences.java` file contains many standard codes that you might find useful in your programming.
 
 ![tic tac toe](tictactoe.png)
 
