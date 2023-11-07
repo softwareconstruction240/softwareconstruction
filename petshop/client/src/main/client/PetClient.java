@@ -131,7 +131,7 @@ public class PetClient {
 
     public String help() {
         return """
-                \\u001b[34;1m
+                \u001b[34;1m
                 - list
                 - adopt <pet id>
                 - rescue <name> <CAT|DOG|FROG|FISH> [<friend name>]*
@@ -139,7 +139,7 @@ public class PetClient {
                 - leave
                 - adoptall
                 - quit
-                \\u001b[0m
+                \u001b[0m
                 """;
     }
 }
