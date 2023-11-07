@@ -13,5 +13,6 @@
     <orderEntry type="module" module-name="server" scope="TEST" />
     <orderEntry type="module" module-name="shared" />
     <orderEntry type="library" name="slf4j.nop" level="project" />
+    <orderEntry type="library" name="glassfish.tyrus.bundles.standalone.client" level="project" />
   </component>
 </module>

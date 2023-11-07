@@ -105,7 +105,7 @@ public class PetClient {
             ws = new WebSocketFacade(serverUrl, notificationHandler);
 
             state = State.INSIDE;
-            //ws.enterPetShop(visitorName);
+            ws.enterPetShop(visitorName);
             return "entered shop";
         }
         return "already in shop";
@@ -113,7 +113,8 @@ public class PetClient {
 
     public String leavePetShop() throws ResponseException {
         if (state == State.INSIDE) {
-            //ws.leavePetShop(visitorName);
+            ws.leavePetShop(visitorName);
+            ws = null;
             state = State.OUTSIDE;
             return "left shop";
         }

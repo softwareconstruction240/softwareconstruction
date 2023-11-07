@@ -25,11 +25,11 @@ public class ServerMain {
             port = server.port();
             System.out.printf("Server started on port %d%n", port);
             return;
-        } catch (Exception ex) {
+        } catch (Throwable ex) {
             System.out.printf("Unable to start server: %s%n", ex.getMessage());
         }
         System.out.println("""
-                Pet Store Server:
+                Pet Server:
                 java ServerMain <port> [<dburl> <dbuser> <dbpassword> <dbname>]
                 """);
     }

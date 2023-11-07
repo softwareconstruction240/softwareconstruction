@@ -5,11 +5,10 @@ package client;
  */
 public class EscapeSequences {
 
-    private static final String UNICODE_ESCAPE = "\u001b";
+    private static final String SET_TEXT_COLOR = "\u001b[";
 
-    private static final String SET_TEXT_COLOR = UNICODE_ESCAPE + "[38;5;";
-
-    public static final String GREEN = SET_TEXT_COLOR + "46m";
-    public static final String BLUE = SET_TEXT_COLOR + "12m";
+    public static final String GREEN = SET_TEXT_COLOR + "36m";
+    public static final String BLUE = SET_TEXT_COLOR + "32m";
+    public static final String RED = SET_TEXT_COLOR + "31m";
     public static final String RESET = SET_TEXT_COLOR + "0m";
 }
