@@ -29,54 +29,54 @@ class PetClientTest {
 
     @BeforeEach
     void clear() throws Exception {
-        client.deleteAllPets();
+        client.adoptAllPets();
     }
 
     @Test
     void addPet() {
-        var result = assertDoesNotThrow(() -> client.addPet("joe", "fish"));
+        var result = assertDoesNotThrow(() -> client.rescuePet("joe", "fish"));
         assertMatches("\\{'id':\\d+,'name':'joe','type':'FISH','friends':\\{'list':\\[]}}", result);
 
-        result = assertDoesNotThrow(() -> client.addPet("sally", "cat"));
+        result = assertDoesNotThrow(() -> client.rescuePet("sally", "cat"));
         assertMatches("\\{'id':\\d+,'name':'sally','type':'CAT','friends':\\{'list':\\[]}}", result);
     }
 
 
     @Test
     void addPetWithFriends() {
-        var result = assertDoesNotThrow(() -> client.addPet("joe", "fish", "a", "b"));
+        var result = assertDoesNotThrow(() -> client.rescuePet("joe", "fish", "a", "b"));
         assertMatches("\\{'id':\\d+,'name':'joe','type':'FISH','friends':\\{'list':\\['a','b']}}", result);
     }
 
     @Test
     void deletePet() throws Exception {
-        var id = getId(client.addPet("joe", "frog"));
-        client.addPet("sally", "cat");
+        var id = getId(client.rescuePet("joe", "frog"));
+        client.rescuePet("sally", "cat");
 
-        var result = assertDoesNotThrow(() -> client.deletePet(id));
+        var result = assertDoesNotThrow(() -> client.adoptPet(id));
         assertEquals("Deleted " + id, result);
     }
 
 
     @Test
     void deleteAllPets() throws Exception {
-        client.addPet("joe", "rock");
-        var result = assertDoesNotThrow(() -> client.deleteAllPets());
+        client.rescuePet("joe", "rock");
+        var result = assertDoesNotThrow(() -> client.adoptAllPets());
         assertEquals("Deleted all", result);
         assertEquals(q(""), client.listPets());
     }
 
     @Test
     void deleteNonexistentPet() {
-        var result = assertDoesNotThrow(() -> client.deletePet("933432"));
+        var result = assertDoesNotThrow(() -> client.adoptPet("933432"));
         assertEquals(q("Deleted 933432"), result);
     }
 
 
     @Test
     void listPet() {
-        assertDoesNotThrow(() -> client.addPet("joe", "fish"));
-        assertDoesNotThrow(() -> client.addPet("sally", "fish"));
+        assertDoesNotThrow(() -> client.rescuePet("joe", "fish"));
+        assertDoesNotThrow(() -> client.rescuePet("sally", "fish"));
 
         var result = assertDoesNotThrow(() -> client.listPets());
         assertMatches("""

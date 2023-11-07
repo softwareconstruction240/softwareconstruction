@@ -9,8 +9,18 @@ public record Pet(int id, String name, PetType type, FriendList friends) {
         return new Gson().toJson(this);
     }
 
+    public String sound() {
+        return switch (type) {
+            case DOG -> "bark";
+            case CAT -> "meow";
+            case FISH -> "bubbles";
+            case FROG -> "ribbit";
+            case ROCK -> "roll";
+        };
+    }
+
+    // Override because we need to deep compare friends.
     public boolean equals(Object o) {
-        // Overriden because we need to deep compare friends.
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 

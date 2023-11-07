@@ -12,15 +12,19 @@ import java.util.Map;
 
 public class PetServer {
     private final PetService service;
+    private final PetWebSocketHandler webSocketHandler;
 
     public PetServer(DataAccess dataAccess) {
         service = new PetService(dataAccess);
+        webSocketHandler = new PetWebSocketHandler(dataAccess);
     }
 
     public PetServer run(int port) {
         Spark.port(port);
 
         Spark.externalStaticFileLocation("public");
+
+        Spark.webSocket("/connect", webSocketHandler);
 
         Spark.post("/pet", this::addPet);
         Spark.get("/pet", this::listPets);
