@@ -136,7 +136,7 @@ Here are some guides that may help:
 
 ### Extra Credit Moves
 
-You do not have to implement these moves, but if you go the extra mile and successfully implement these moves, you’ll earn 2% extra credit for each move (4% total) on this assignment.
+You do not have to implement these moves, but if you go the extra mile and successfully implement these moves, you’ll earn 5 extra credit points for each move (10 total) on this assignment.
 
 NOTE: These moves can but do not have to be provided by `ChessPiece::pieceMoves`, and can be provided by `ChessGame::validMoves` instead.
 
@@ -161,7 +161,8 @@ To pass off this assignment, meet with a TA and demonstrate that your code passe
 
 ### Grading Rubric
 
-| Category      | Criteria                        | Points |
-| ------------- | ------------------------------- | -----: |
-| Functionality | All pass off test cases succeed |    125 |
-|               | Total                           |    125 |
+| Category      | Criteria                              |    Points |
+| ------------- | ------------------------------------- | --------: |
+| Functionality | All pass off test cases succeed       |       125 |
+| Extra Credit  | `chessExtraCredit` test cases succeed | bonus +10 |
+|               | Total                                 |       125 |
