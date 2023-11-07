@@ -5,6 +5,7 @@ import dataaccess.DataAccess;
 import exception.ResponseException;
 import model.ModelSerializer;
 import model.Pet;
+import server.websocket.WebSocketHandler;
 import service.PetService;
 import spark.*;
 
@@ -12,11 +13,11 @@ import java.util.Map;
 
 public class PetServer {
     private final PetService service;
-    private final PetWebSocketHandler webSocketHandler;
+    private final WebSocketHandler webSocketHandler;
 
     public PetServer(DataAccess dataAccess) {
         service = new PetService(dataAccess);
-        webSocketHandler = new PetWebSocketHandler(dataAccess);
+        webSocketHandler = new WebSocketHandler(dataAccess);
     }
 
     public PetServer run(int port) {

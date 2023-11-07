@@ -1,4 +1,4 @@
-package server;
+package server.websocket;
 
 import org.eclipse.jetty.websocket.api.Session;
 
@@ -14,7 +14,6 @@ public class Connection {
     }
 
     public void send(String msg) throws IOException {
-        System.out.printf("Send to %s: %s%n", visitorName, msg);
         session.getRemote().sendString(msg);
     }
 }

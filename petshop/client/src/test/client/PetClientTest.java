@@ -16,11 +16,12 @@ class PetClientTest {
     static PetClient client;
 
     @BeforeAll
-    static void startServer() {
+    static void startServer() throws Exception {
         petServer = new PetServer(new MemoryDataAccess());
         petServer.run(0);
         var url = "http://localhost:" + petServer.port();
         client = new PetClient(url, null);
+        client.signin("tester");
     }
 
     @AfterAll

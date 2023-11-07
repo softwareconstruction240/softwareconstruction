@@ -1,4 +1,4 @@
-package server;
+package server.websocket;
 
 import com.google.gson.Gson;
 import dataaccess.DataAccess;
@@ -10,17 +10,14 @@ import webSocketMessages.Notification;
 
 import java.io.IOException;
 import java.util.Timer;
-import java.util.TimerTask;
 
 
 @WebSocket
-public class PetWebSocketHandler {
+public class WebSocketHandler {
 
-    private final DataAccess dataAccess;
-    private final PetStoreConnectionManager connections = new PetStoreConnectionManager();
+    private final ConnectionManager connections = new ConnectionManager();
 
-    public PetWebSocketHandler(DataAccess dataAccess) {
-        this.dataAccess = dataAccess;
+    public WebSocketHandler(DataAccess dataAccess) {
         new Timer().scheduleAtFixedRate(
                 new NoiseTimer(connections, dataAccess),
                 5000, 5000);

@@ -7,17 +7,17 @@ import model.ArrayFriendList;
 import model.Pet;
 import model.PetType;
 import exception.ResponseException;
-import server.NotificationHandler;
+import client.websocket.NotificationHandler;
 import server.ServerFacade;
-import server.WebSocketFacade;
+import client.websocket.WebSocketFacade;
 
 public class PetClient {
-    private final String visitorName = "george";
+    private String visitorName = null;
     private final ServerFacade server;
     private final String serverUrl;
     private final NotificationHandler notificationHandler;
     private WebSocketFacade ws;
-    private State state = State.OUTSIDE;
+    private State state = State.UNKNOWN;
 
     public PetClient(String serverUrl, NotificationHandler notificationHandler) {
         server = new ServerFacade(serverUrl);
@@ -33,6 +33,7 @@ public class PetClient {
                 var cmd = tokens[0];
                 var params = Arrays.copyOfRange(tokens, 1, tokens.length);
                 result = switch (cmd) {
+                    case "signin" -> signin(params);
                     case "rescue" -> rescuePet(params);
                     case "list" -> listPets();
                     case "enter" -> enterPetShop();
@@ -49,23 +50,32 @@ public class PetClient {
         return result;
     }
 
+    public String signin(String... params) throws ResponseException {
+        if (state != State.UNKNOWN) throw new ResponseException(400, "Already signed in");
+        if (params.length >= 1) {
+            state = State.OUTSIDE;
+            visitorName = String.join("-", params);
+            return String.format("You signed in as %s.", visitorName);
+        }
+        throw new ResponseException(400, "Expected: <yourname>");
+    }
+
     public String rescuePet(String... params) throws ResponseException {
-        try {
-            if (params.length >= 2) {
-                var name = params[0];
-                var type = PetType.valueOf(params[1].toUpperCase());
-                var friendArray = Arrays.copyOfRange(params, 2, params.length);
-                var friends = new ArrayFriendList(friendArray);
-                var pet = new Pet(0, name, type, friends);
-                pet = server.addPet(pet);
-                return String.format("You rescued %s. Assigned ID: %d", pet.name(), pet.id());
-            }
-        } catch (Exception ignore) {
+        assertSignedIn();
+        if (params.length >= 2) {
+            var name = params[0];
+            var type = PetType.valueOf(params[1].toUpperCase());
+            var friendArray = Arrays.copyOfRange(params, 2, params.length);
+            var friends = new ArrayFriendList(friendArray);
+            var pet = new Pet(0, name, type, friends);
+            pet = server.addPet(pet);
+            return String.format("You rescued %s. Assigned ID: %d", pet.name(), pet.id());
         }
         throw new ResponseException(400, "Expected: <name> <CAT|DOG|FROG> [<friend name>]*");
     }
 
     public String listPets() throws ResponseException {
+        assertSignedIn();
         var pets = server.listPets();
         var result = new StringBuilder();
         var gson = new Gson();
@@ -76,21 +86,20 @@ public class PetClient {
     }
 
     public String adoptPet(String... params) throws ResponseException {
-        try {
-            if (params.length == 1) {
-                var id = Integer.parseInt(params[0]);
-                var pet = getPet(id);
-                if (pet != null) {
-                    server.deletePet(id);
-                    return String.format("%s says %s", pet.name(), pet.sound());
-                }
+        assertSignedIn();
+        if (params.length == 1) {
+            var id = Integer.parseInt(params[0]);
+            var pet = getPet(id);
+            if (pet != null) {
+                server.deletePet(id);
+                return String.format("%s says %s", pet.name(), pet.sound());
             }
-        } catch (Exception ignore) {
         }
         throw new ResponseException(400, "Expected: <pet id>");
     }
 
     public String adoptAllPets() throws ResponseException {
+        assertSignedIn();
         var buffer = new StringBuilder();
         for (var pet : server.listPets()) {
             buffer.append(String.format("%s says %s%n", pet.name(), pet.sound()));
@@ -101,22 +110,24 @@ public class PetClient {
     }
 
     public String enterPetShop() throws ResponseException {
+        assertSignedIn();
         if (state == State.OUTSIDE) {
             ws = new WebSocketFacade(serverUrl, notificationHandler);
 
             state = State.INSIDE;
             ws.enterPetShop(visitorName);
-            return "entered shop";
+            return String.format("%s entered the shop", visitorName);
         }
         return "already in shop";
     }
 
     public String leavePetShop() throws ResponseException {
+        assertSignedIn();
         if (state == State.INSIDE) {
             ws.leavePetShop(visitorName);
             ws = null;
             state = State.OUTSIDE;
-            return "left shop";
+            return String.format("%s left the shop", visitorName);
         }
         return "not in shop";
     }
@@ -131,8 +142,13 @@ public class PetClient {
     }
 
     public String help() {
+        if (state == State.UNKNOWN) {
+            return """
+                    - signin <yourname>
+                    - quit
+                    """;
+        }
         return """
-                \u001b[34;1m
                 - list
                 - adopt <pet id>
                 - rescue <name> <CAT|DOG|FROG|FISH> [<friend name>]*
@@ -140,7 +156,12 @@ public class PetClient {
                 - leave
                 - adoptall
                 - quit
-                \u001b[0m
                 """;
+    }
+
+    private void assertSignedIn() throws ResponseException {
+        if (state == State.UNKNOWN) {
+            throw new ResponseException(400, "You must sign in");
+        }
     }
 }

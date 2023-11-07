@@ -1,4 +1,4 @@
-package server;
+package server.websocket;
 
 import dataaccess.DataAccess;
 import webSocketMessages.Notification;
@@ -6,10 +6,10 @@ import webSocketMessages.Notification;
 import java.util.TimerTask;
 
 public class NoiseTimer extends TimerTask {
-    private final PetStoreConnectionManager connections;
+    private final ConnectionManager connections;
     private final DataAccess dataAccess;
 
-    public NoiseTimer(PetStoreConnectionManager connections, DataAccess dataAccess) {
+    public NoiseTimer(ConnectionManager connections, DataAccess dataAccess) {
         this.connections = connections;
         this.dataAccess = dataAccess;
     }
