@@ -15,6 +15,8 @@ public record Pet(int id, String name, PetType type, FriendList friends) {
             case CAT -> "meow";
             case FISH -> "bubbles";
             case FROG -> "ribbit";
+            case BIRD -> "tweet";
+            case RAT -> "squeak";
             case ROCK -> "roll";
         };
     }

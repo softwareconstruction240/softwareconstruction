@@ -15,7 +15,8 @@ public class Repl implements NotificationHandler {
     }
 
     public void run() {
-        System.out.println("\uD83D\uDC36 Welcome to the pet store. Press enter to get help.");
+        System.out.println("\uD83D\uDC36 Welcome to the pet store. Please sign in.");
+        System.out.print(client.help());
 
         Scanner scanner = new Scanner(System.in);
         var result = "";
