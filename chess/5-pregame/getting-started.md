@@ -56,20 +56,6 @@ Add the following dependencies to the `shared` module:
 - **com.google.code.gson:gson:2.10.1**
   - Scope: Compile
 
-## Move Shared Files into Shared Module
-
-Next, move all files needed by both server and client from the default server module into the `shared` module. Since these files have previously been added to your Git repository, you need to move the files using `git mv` rather than just moving the files in a file explorer. This can be accomplished by either using the Git command-line, or by dragging and dropping files within the IntelliJ Project navigator (i.e., IntelliJ will do a `git mv` for you).
-
-Here are the files you should move into the `shared` module:
-
-1. Move the `src/starter/chess` package to `shared/src/starter`. ⚠ Do not move `src/starter/dataAccess` since that code is only needed by the server
-1. Move the `src/main/chess` package to `shared/src/main`.
-1. Move the package containing your model classes from `src/main` to `shared/src/main`.
-1. Move the package containing your Web API request classes from `src/main` to `shared/src/main`.
-1. Move the package containing your Web API result classes from `src/main` to `shared/src/main`.
-
-Now that you’ve moved the shared classes into the `shared` module, your server code will contain lots of compile errors. These errors will be fixed in the next section.
-
 ## Create Dependencies on Shared Module
 
 Next, modify the default (server) module and the client module so that they have a dependency on the shared module. This is done as follows:
@@ -83,6 +69,20 @@ Next, modify the default (server) module and the client module so that they have
 1. Select the `shared` module and click `OK`. Your default (server) module now has a dependency on the shared code module, and should compile successfully again.
 
 Now, follow the previous steps again to add the same dependency to the `client` module.
+
+## Move Shared Files into Shared Module
+
+Next, move all files needed by both server and client from the default server module into the `shared` module. Since these files have previously been added to your Git repository, you need to move the files using `git mv` rather than just moving the files in a file explorer. This can be accomplished by either using the Git command-line, or by dragging and dropping files within the IntelliJ Project navigator (i.e., IntelliJ will do a `git mv` for you).
+
+Here are the files you should move into the `shared` module:
+
+1. Move the `src/starter/chess` package to `shared/src/starter`. ⚠ Do not move `src/starter/dataAccess` since that code is only needed by the server
+1. Move the `src/main/chess` package to `shared/src/main`.
+1. Move the package containing your model classes from `src/main` to `shared/src/main`.
+1. Move the package containing your Web API request classes from `src/main` to `shared/src/main`.
+1. Move the package containing your Web API result classes from `src/main` to `shared/src/main`.
+
+Now that you’ve moved the shared classes into the `shared` module, your server code will contain lots of compile errors. These errors will be fixed in the next section.
 
 ## Create Client Executable JAR File
 
