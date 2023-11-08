@@ -10,6 +10,8 @@ In this part of the Chess Project, you will create an initial version of your Ch
 
 ### Prelogin UI
 
+When the user first opens your Chess client application they can execute any of the Prelogin commands.
+
 | Command      | Description                                                                                                                                                                                                      |
 | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Help**     | Displays text informing the user what actions they can take.                                                                                                                                                     |
@@ -17,7 +19,13 @@ In this part of the Chess Project, you will create an initial version of your Ch
 | **Login**    | Prompts the user to input login information. Calls the server login API to login the user. When successfully logged in, the client should transition to the Postlogin UI.                                        |
 | **Register** | Prompts the user to input registration information. Calls the server register API to register and login the user. If successfully registered, the client should be logged in and transition to the Postlogin UI. |
 
+#### Example Prelogin UI
+
+![prelogin](prelogin.png)
+
 ### Postlogin UI
+
+After the user has registered or logged in they can then execute any of the Postlogin commands.
 
 | Command           | Description                                                                                                                                                                                                                                                                                                                          |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -27,6 +35,10 @@ In this part of the Chess Project, you will create an initial version of your Ch
 | **List Games**    | Lists all the games that currently exist on the server. Calls the server list API to get all the game data, and displays the games in a numbered list, including the game name and players (not observers) in the game. The numbering for the list should be independent of the game IDs.                                            |
 | **Join Game**     | Allows the user to specify which game they want to join and what color they want to play. They should be able to enter the number of the desired game. Your client will need to keep track of which number corresponds to which game from the last time it listed the games. Calls the server join API to join the user to the game. |
 | **Join Observer** | Allows the user to specify which game they want to observe. They should be able to enter the number of the desired game. Your client will need to keep track of which number corresponds to which game from the last time it listed the games. Calls the server join API to verify that the specified game exists.                   |
+
+#### Example Postlogin UI
+
+![postlogin](postlogin.png)
 
 ### Gameplay UI
 
