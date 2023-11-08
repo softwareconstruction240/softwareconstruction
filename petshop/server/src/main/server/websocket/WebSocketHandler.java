@@ -20,7 +20,7 @@ public class WebSocketHandler {
     public WebSocketHandler(DataAccess dataAccess) {
         new Timer().scheduleAtFixedRate(
                 new NoiseTimer(connections, dataAccess),
-                5000, 5000);
+                10000, 15000);
     }
 
     @OnWebSocketMessage
