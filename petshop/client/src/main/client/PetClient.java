@@ -17,7 +17,7 @@ public class PetClient {
     private final String serverUrl;
     private final NotificationHandler notificationHandler;
     private WebSocketFacade ws;
-    private State state = State.UNKNOWN;
+    private State state = State.SIGNEDOUT;
 
     public PetClient(String serverUrl, NotificationHandler notificationHandler) {
         server = new ServerFacade(serverUrl);
@@ -26,35 +26,31 @@ public class PetClient {
     }
 
     public String eval(String input) {
-        var result = "Invalid input";
         try {
             var tokens = input.toLowerCase().split(" ");
-            if (tokens.length > 0) {
-                var cmd = tokens[0];
-                var params = Arrays.copyOfRange(tokens, 1, tokens.length);
-                result = switch (cmd) {
-                    case "signin" -> signin(params);
-                    case "rescue" -> rescuePet(params);
-                    case "list" -> listPets();
-                    case "enter" -> enterPetShop();
-                    case "leave" -> leavePetShop();
-                    case "adopt" -> adoptPet(params);
-                    case "adoptall" -> adoptAllPets();
-                    case "quit" -> "quit";
-                    default -> help();
-                };
-            }
+            var cmd = (tokens.length > 0) ? tokens[0] : "help";
+            var params = Arrays.copyOfRange(tokens, 1, tokens.length);
+            return switch (cmd) {
+                case "signin" -> signIn(params);
+                case "rescue" -> rescuePet(params);
+                case "list" -> listPets();
+                case "signout" -> signOut();
+                case "adopt" -> adoptPet(params);
+                case "adoptall" -> adoptAllPets();
+                case "quit" -> "quit";
+                default -> help();
+            };
         } catch (ResponseException ex) {
-            result = ex.getMessage();
+            return ex.getMessage();
         }
-        return result;
     }
 
-    public String signin(String... params) throws ResponseException {
-        if (state != State.UNKNOWN) throw new ResponseException(400, "Already signed in");
+    public String signIn(String... params) throws ResponseException {
         if (params.length >= 1) {
-            state = State.OUTSIDE;
+            state = State.SIGNEDIN;
             visitorName = String.join("-", params);
+            ws = new WebSocketFacade(serverUrl, notificationHandler);
+            ws.enterPetShop(visitorName);
             return String.format("You signed in as %s.", visitorName);
         }
         throw new ResponseException(400, "Expected: <yourname>");
@@ -109,27 +105,12 @@ public class PetClient {
         return buffer.toString();
     }
 
-    public String enterPetShop() throws ResponseException {
+    public String signOut() throws ResponseException {
         assertSignedIn();
-        if (state == State.OUTSIDE) {
-            ws = new WebSocketFacade(serverUrl, notificationHandler);
-
-            state = State.INSIDE;
-            ws.enterPetShop(visitorName);
-            return String.format("%s entered the shop", visitorName);
-        }
-        return "already in shop";
-    }
-
-    public String leavePetShop() throws ResponseException {
-        assertSignedIn();
-        if (state == State.INSIDE) {
-            ws.leavePetShop(visitorName);
-            ws = null;
-            state = State.OUTSIDE;
-            return String.format("%s left the shop", visitorName);
-        }
-        return "not in shop";
+        ws.leavePetShop(visitorName);
+        ws = null;
+        state = State.SIGNEDOUT;
+        return String.format("%s left the shop", visitorName);
     }
 
     private Pet getPet(int id) throws ResponseException {
@@ -142,9 +123,9 @@ public class PetClient {
     }
 
     public String help() {
-        if (state == State.UNKNOWN) {
+        if (state == State.SIGNEDOUT) {
             return """
-                    - signin <yourname>
+                    - signIn <yourname>
                     - quit
                     """;
         }
@@ -152,15 +133,14 @@ public class PetClient {
                 - list
                 - adopt <pet id>
                 - rescue <name> <CAT|DOG|FROG|FISH> [<friend name>]*
-                - enter
-                - leave
-                - adoptall
+                - adoptAll
+                - signOut
                 - quit
                 """;
     }
 
     private void assertSignedIn() throws ResponseException {
-        if (state == State.UNKNOWN) {
+        if (state == State.SIGNEDOUT) {
             throw new ResponseException(400, "You must sign in");
         }
     }

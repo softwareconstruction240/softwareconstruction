@@ -22,7 +22,8 @@ public class NoiseTimer extends TimerTask {
             var pets = dataAccess.listPets();
             if (!pets.isEmpty()) {
                 var pet = pets.stream().toList().get(rand.nextInt() % pets.size());
-                var message = String.format("%s said %s", pet.name(), pet.sound());
+                var type = pet.type().toString().toLowerCase();
+                var message = String.format("%s the %s said %s", pet.name(), type, pet.sound());
                 var notification = new Notification(Notification.Type.NOISE, message);
                 connections.broadcast(null, notification);
             }
