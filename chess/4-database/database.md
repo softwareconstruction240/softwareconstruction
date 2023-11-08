@@ -37,6 +37,13 @@ The easiest way to store the state of a ChessGame in MySQL is to serialize it to
 
 You will want to carefully consider the need for a Gson type adapter when you do your serialization. If your classes have any interface fields then you will need to tell Gson how to instantiate a concrete class for the interface when it is deserializing. You might want to review the [instruction](../../instruction/db-jdbc/db-jdbc.md) on this topic.
 
+### Relevant Instruction Topics
+
+- [JSON and Serialization](../../instruction/json/json.md): Serialization objects to the database.
+- [Relational Databases](../../instruction/): How relational databases work.
+- [SQL](../../instruction/db-sql/): Using SQL statements.
+- [JDBC](../../instruction/db-jdbc/): Using SQL from Java.
+
 ## Unit Tests
 
 1. Write a positive and a negative JUNIT test case for each public method on your DAO classes, except for Clear methods which only need a positive test case. A positive test case is one for which the action happens successfully (e.g., creating a new user in the database). A negative test case is one for which the operation fails (e.g., creating a User that has the same username as an existing user).

@@ -1,13 +1,13 @@
-import client.PetClient;
+import client.Repl;
 
 public class ClientMain {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         var serverUrl = "http://localhost:8080";
         if (args.length == 1) {
             serverUrl = args[0];
         }
 
-        new PetClient(serverUrl).run();
+        new Repl(serverUrl).run();
     }
 
 }

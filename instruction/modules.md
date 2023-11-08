@@ -77,8 +77,8 @@ The course content is divided into multiple modules. Each module represents a we
 ## Module 10
 
 - [Console UI](console-ui/console-ui.md)
-- [WebSocket](websocket/websocket.md)
 - ♕ [Phase 5: Chess Pregame](../chess/5-pregame/pregame.md)
+- [WebSocket](websocket/websocket.md)
 - ☑ Phase 4: Chess Database (**Due Nov 7th**)
 
 ## Module 11

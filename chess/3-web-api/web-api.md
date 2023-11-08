@@ -248,13 +248,15 @@ Handler classes serve as a translator between HTTP and Java. Your Handlers will 
 
 The Server acts as the director of traffic. It receives HTTP requests and sends them to the correct Handler for processing. Due to the bulk of the action happening in the Handlers and Services, the Server class will likely be quite simple.
 
-## Unit Tests
+## Service Unit Tests
 
 Good tests extensively show that we get the expected behavior. This could be asserting that data put into the database is really there, or that a function throws an error when it should. Write a positive and a negative JUNIT test case for each public method on your Service classes, except for Clear which only needs a positive test case. A positive test case is one for which the action happens successfully (e.g., successfully claiming a spot in a game). A negative test case is one for which the operation fails (e.g., trying to claim an already claimed spot).
 
-## Example Code
+The service unit tests must directly call the methods on your service classes. They should not use the HTTP server test code that is provided with the starter code.
 
-You might find it helpful to reference the course instruction topic on how to writing a [web API](../../instruction/web-api/web-api.md) when you are trying to figure out how to get started with the phase of the project.
+## Relevant Instruction Topics
+
+- [Web API](../../instruction/web-api/web-api.md): Creating an HTTP server.
 
 ## Pass Off Tests
 
@@ -280,10 +282,10 @@ After you pass off your project with a TA, you should immediately submit your pr
 
 ### Grading Rubric
 
-| Category       | Criteria                                                                                                                                                                                | Points |
-| -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -----: |
-| Web API Works  | All pass off test cases succeed                                                                                                                                                         |    115 |
-| Web Page Loads | Test web page properly loads in browser (including all files linked to by the test page: favicon.ico, index.css, index.js)                                                              |     10 |
-| Code Quality   | [Rubric](../code-quality-rubric.md)                                                                                                                                                     |     30 |
-| Unit Tests     | All test cases pass<br/>Each public method on Service classes has two test cases, one positive test and one negative test<br/>Every test case includes an Assert statement of some type |     25 |
-|                | Total                                                                                                                                                                                   |    180 |
+| Category       | Criteria                                                                                                                                                                                         | Points |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -----: |
+| Web API Works  | All pass off test cases in `StandardAPITests.java` succeed                                                                                                                                       |    115 |
+| Web Page Loads | Test web page properly loads in browser (including all files linked to by the test page: favicon.ico, index.css, index.js)                                                                       |     10 |
+| Code Quality   | [Rubric](../code-quality-rubric.md)                                                                                                                                                              |     30 |
+| Unit Tests     | All test cases pass<br/>Each public method on your **Service classes** has two test cases, one positive test and one negative test<br/>Every test case includes an Assert statement of some type |     25 |
+|                | Total                                                                                                                                                                                            |    180 |

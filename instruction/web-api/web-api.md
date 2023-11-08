@@ -262,9 +262,28 @@ If you first run the `name list` service defined above, then you can run the `Cl
 {name=["dog", "cat"]}
 ```
 
+### Writing a Request Body and Headers
+
+To send an HTTP body or header using the `HttpURLConnection` class you must first specify `http.setDoOutput` to true. You can then set a header using `addRequestProperty`, or send a body using the stream returned from `getOutputStream`.
+
+```java
+// Specify that we are going to write out data
+http.setDoOutput(true);
+
+// Write out a header
+http.addRequestProperty("Content-Type", "application/json");
+
+// Write out the body
+var body = Map.of("name", "joe", "type", "cat");
+try (var outputStream = http.getOutputStream()) {
+    var jsonBody = new Gson().toJson(body);
+    outputStream.write(jsonBody.getBytes());
+}
+```
+
 ## Implementing a Simple Curl
 
-We can expand the previous HTTP client example to implement a simple version of Curl. This example reads the HTTP method, URL, and body from the command line parameters. Using that information, it makes an HTTP request and receives a response.
+We can expand our Web Client example to implement a simple version of Curl. This example reads the HTTP method, URL, and body from the command line parameters. Using that information, it makes an HTTP request and receives a response.
 
 ```java
 public class ClientCurlExample {

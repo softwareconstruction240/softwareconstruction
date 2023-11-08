@@ -9,4 +9,7 @@ The Starter Code should have 2 folders, `serverTests` and `webSocketMessages`. D
 
 ## Dependencies
 
-You should not need to add any new dependencies for this part of the project. All necessary dependencies were added previously.
+Add the following dependencies to the `client` module:
+
+- **org.glassfish.tyrus.bundles:tyrus-standalone-client:1.15**
+  - Scope: Compile

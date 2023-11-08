@@ -8,7 +8,10 @@ public class WSClient extends Endpoint {
         var ws = new WSClient();
         Scanner scanner = new Scanner(System.in);
 
-        while (true) ws.send(scanner.nextLine());
+        System.out.println("Enter a message you want to echo");
+        while (true) {
+            ws.send(scanner.nextLine());
+        }
     }
 
     public Session session;

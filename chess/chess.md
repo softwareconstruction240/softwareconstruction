@@ -22,6 +22,23 @@ git clone https://github.com/softwareconstruction240/softwareconstruction.git
 
 ```
 
+## Deliverables
+
+Every phase has different deliverables. You will deliver your code for each phase, but you will also meet with a TA to interactively pass off most phases.
+
+| Phase            | Deliverables                                                                                      |
+| ---------------- | ------------------------------------------------------------------------------------------------- |
+| 1. Chess game    | Complete pass off tests for the chess game code.                                                  |
+| 2. Server design | Create javadocs for the service and database components.                                          |
+| 3. Web API       | Complete pass off tests for the HTTP server<br/>Create and complete unit tests for chess service. |
+| 4. Database      | Create and complete unit tests for the chess database.                                            |
+| 5. Pregame       | Create and complete client unit tests.                                                            |
+| 6. Gameplay      | Complete pass off tests for WebSocket server.                                                     |
+
+The deliverables in blue represent tests provided by the course start up code that you must pass. The deliverables in green represent unit tests that you must write and pass.
+
+![deliverables](deliverables.png)
+
 ## Example
 
 When you complete the project, you should have something similar to the following.

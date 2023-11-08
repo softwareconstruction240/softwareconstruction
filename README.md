@@ -13,6 +13,7 @@ The content for this course is represented by the following parts.
 - [Instruction](instruction/modules.md#readme)
 - [Spelling Corrector](spelling-corrector/spelling-corrector.md#readme)
 - [Chess](chess/chess.md#readme)
+- [Pet Shop](petshop/petshop.md)
 - Assignments, quizzes, and tests submitted through Canvas
 
 ## Outcomes

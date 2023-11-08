@@ -1,31 +1,33 @@
 package service;
 
+import dataaccess.DataAccess;
 import model.Pet;
+import exception.ResponseException;
 
 import java.util.Collection;
-import java.util.HashMap;
 
 public class PetService {
-    private int nextId = 1;
-    final private HashMap<Integer, Pet> pets = new HashMap<>();
 
-    public Pet addPet(Pet pet) {
-        pet = new Pet(nextId++, pet.name(), pet.type(), pet.friends());
+    private final DataAccess dataAccess;
 
-        pets.put(pet.id(), pet);
-        return pet;
+    public PetService(DataAccess dataAccess) {
+        this.dataAccess = dataAccess;
     }
 
-    public Collection<Pet> listPets() {
-        return pets.values();
+    public Pet addPet(Pet pet) throws ResponseException {
+        return dataAccess.addPet(pet);
+    }
+
+    public Collection<Pet> listPets() throws ResponseException {
+        return dataAccess.listPets();
     }
 
 
-    public void deletePet(Integer id) {
-        pets.remove(id);
+    public void deletePet(Integer id) throws ResponseException {
+        dataAccess.deletePet(id);
     }
 
-    public void deleteAllPets() {
-        pets.clear();
+    public void deleteAllPets() throws ResponseException {
+        dataAccess.deleteAllPets();
     }
 }

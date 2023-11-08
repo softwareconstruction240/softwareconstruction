@@ -10,8 +10,9 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="sparkjava.spark.core" level="project" />
     <orderEntry type="library" name="google.code.gson" level="project" />
-    <orderEntry type="library" name="junit.jupiter" level="project" />
+    <orderEntry type="library" scope="TEST" name="junit.jupiter" level="project" />
     <orderEntry type="module" module-name="shared" />
     <orderEntry type="library" name="slf4j.nop" level="project" />
+    <orderEntry type="library" name="mysql.connector.java" level="project" />
   </component>
 </module>

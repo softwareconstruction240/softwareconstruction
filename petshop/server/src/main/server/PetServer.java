@@ -1,20 +1,23 @@
 package server;
 
 import com.google.gson.Gson;
+import dataaccess.DataAccess;
+import exception.ResponseException;
 import model.ModelSerializer;
 import model.Pet;
+import server.websocket.WebSocketHandler;
 import service.PetService;
 import spark.*;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 public class PetServer {
-    private PetService service;
+    private final PetService service;
+    private final WebSocketHandler webSocketHandler;
 
-    public PetServer() {
-        service = new PetService();
+    public PetServer(DataAccess dataAccess) {
+        service = new PetService(dataAccess);
+        webSocketHandler = new WebSocketHandler(dataAccess);
     }
 
     public PetServer run(int port) {
@@ -22,11 +25,13 @@ public class PetServer {
 
         Spark.externalStaticFileLocation("public");
 
+        Spark.webSocket("/connect", webSocketHandler);
+
         Spark.post("/pet", this::addPet);
         Spark.get("/pet", this::listPets);
         Spark.delete("/pet/:id", this::deletePet);
         Spark.delete("/pet", this::deleteAllPets);
-        Spark.exception(Exception.class, this::exceptionHandler);
+        Spark.exception(ResponseException.class, this::exceptionHandler);
 
         Spark.awaitInitialization();
         return this;
@@ -40,31 +45,31 @@ public class PetServer {
         Spark.stop();
     }
 
-    private void exceptionHandler(Exception ex, Request req, Response res) {
-        res.status(500);
+    private void exceptionHandler(ResponseException ex, Request req, Response res) {
+        res.status(ex.StatusCode());
     }
 
-    private Object addPet(Request req, Response res) {
+    private Object addPet(Request req, Response res) throws ResponseException {
         var pet = ModelSerializer.deserialize(req.body(), Pet.class);
         pet = service.addPet(pet);
         return new Gson().toJson(pet);
     }
 
-    private Object listPets(Request req, Response res) {
+    private Object listPets(Request req, Response res) throws ResponseException {
         res.type("application/json");
         var list = service.listPets().toArray();
         return new Gson().toJson(Map.of("pet", list));
     }
 
 
-    private Object deletePet(Request req, Response res) {
+    private Object deletePet(Request req, Response res) throws ResponseException {
         var id = Integer.parseInt(req.params(":id"));
         service.deletePet(id);
         res.status(204);
         return "";
     }
 
-    private Object deleteAllPets(Request req, Response res) {
+    private Object deleteAllPets(Request req, Response res) throws ResponseException {
         service.deleteAllPets();
         res.status(204);
         return "";

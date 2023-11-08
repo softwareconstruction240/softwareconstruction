@@ -10,10 +10,10 @@ In this part of the Chess Project, you will create an initial version of your Ch
 
 ### Prelogin UI
 
-| Command      | Description                                                                                                                                                                                               |
-| ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Help**     | Displays text informing the user what actions they can take.                                                                                                                                              |
-| **Quit**     | Exits the program.                                                                                                                                                                                        |
+| Command      | Description                                                                                                                                                                                                      |
+| ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Help**     | Displays text informing the user what actions they can take.                                                                                                                                                     |
+| **Quit**     | Exits the program.                                                                                                                                                                                               |
 | **Login**    | Prompts the user to input login information. Calls the server login API to login the user. When successfully logged in, the client should transition to the Postlogin UI.                                        |
 | **Register** | Prompts the user to input registration information. Calls the server register API to register and login the user. If successfully registered, the client should be logged in and transition to the Postlogin UI. |
 
@@ -23,8 +23,8 @@ In this part of the Chess Project, you will create an initial version of your Ch
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **Help**          | Displays text informing the user what actions they can take.                                                                                                                                                                                                                                                                         |
 | **Logout**        | Logs out the user. Calls the server logout API to logout the user. After logging out with the server, the client should transition to the Prelogin UI.                                                                                                                                                                               |
-| **Create Game**   | Allows the user to input a name for the new game. Calls the server create API to create the game. This does not join the player to the created game; it only creates the new game in the server.                                                                                                                                        |
-| **List Games**    | Lists all the games that currently exist on the server. Calls the server list API to get all the game data, and displays the games in a numbered list, including the game name and players (not observers) in the game. The numbering for the list should be independent of the game IDs.                                       |
+| **Create Game**   | Allows the user to input a name for the new game. Calls the server create API to create the game. This does not join the player to the created game; it only creates the new game in the server.                                                                                                                                     |
+| **List Games**    | Lists all the games that currently exist on the server. Calls the server list API to get all the game data, and displays the games in a numbered list, including the game name and players (not observers) in the game. The numbering for the list should be independent of the game IDs.                                            |
 | **Join Game**     | Allows the user to specify which game they want to join and what color they want to play. They should be able to enter the number of the desired game. Your client will need to keep track of which number corresponds to which game from the last time it listed the games. Calls the server join API to join the user to the game. |
 | **Join Observer** | Allows the user to specify which game they want to observe. They should be able to enter the number of the desired game. Your client will need to keep track of which number corresponds to which game from the last time it listed the games. Calls the server join API to verify that the specified game exists.                   |
 
@@ -33,6 +33,11 @@ In this part of the Chess Project, you will create an initial version of your Ch
 As stated previously, gameplay will not be implemented until later. For now, when a user joins or observes a game, the client should draw the initial state of a Chess game in the terminal, but not actually enter gameplay mode. The chessboard should be drawn twice, once in each orientation (i.e., once with white pieces at the bottom and once with black pieces at the bottom). An example of what the chessboard might look like is given below. You are free to make your chessboard look different as long as the essential information is displayed in an easily readable way.
 
 ![chessboard](ChessBoard.png)
+
+### Relevant Instruction Topics
+
+- [Console UI](../../instruction/console-ui/console-ui.md): Reading from the keyboard and writing out fancy text.
+- [Web API](../../instruction/web-api/web-api.md): Making HTTP client requests.
 
 ### Tips for using Unicode chess characters
 
