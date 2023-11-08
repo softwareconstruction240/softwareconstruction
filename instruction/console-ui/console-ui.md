@@ -112,7 +112,7 @@ The color command begins the escape sequence `\u001b[`. This tells the console t
 
 ## Coloring With Java
 
-We can enhance our calculator to use different colors by printing out the correct control colors before we print the text. We do this by creating constants that represent the different foreground and background colors we want to use, and then print the constants out to `System.out` before we print any text.
+We can enhance our calculator to use different colors by printing out the correct control colors before we print the text. We do this by providing the escape sequences for the different foreground and background colors we want to use to `System.out` before we print any text.
 
 ```java
 public class FancyCalculatorExample {
