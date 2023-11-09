@@ -31,6 +31,9 @@ public class GetExample {
             // Read and process response body from InputStream ...
         } else {
             // SERVER RETURNED AN HTTP ERROR
+
+            InputStream responseBody = connection.getErrorStream();
+            // Read and process error response body from InputStream ...
         }
     }
 }

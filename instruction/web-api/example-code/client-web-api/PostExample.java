@@ -37,6 +37,9 @@ public class PostExample {
         }
         else {
             // SERVER RETURNED AN HTTP ERROR
+
+            InputStream responseBody = connection.getErrorStream();
+            // Read and process error response body from InputStream ...
         }
     }
 }
