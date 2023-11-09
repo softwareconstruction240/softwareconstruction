@@ -83,8 +83,7 @@ The course content is divided into multiple modules. Each module represents a we
 
 ## Module 11
 
-- [Computer Security (1)](computer-security/computer-security.md)
-- [Computer Security (2)](computer-security/computer-security.md)
+- [Computer Security](computer-security/computer-security.md)
 
 ## Module 12
 
