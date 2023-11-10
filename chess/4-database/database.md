@@ -42,7 +42,7 @@ You will want to carefully consider the need for a Gson type adapter when you do
 - [JSON and Serialization](../../instruction/json/json.md): Serialization objects to the database.
 - [Relational Databases](../../instruction/): How relational databases work.
 - [SQL](../../instruction/db-sql/): Using SQL statements.
-- [JDBC](../../instruction/db-jdbc/): Using SQL from Java.
+- [JDBC](../../instruction/db-jdbc/): Using SQL from Java including type adapters.
 
 ## Unit Tests
 
