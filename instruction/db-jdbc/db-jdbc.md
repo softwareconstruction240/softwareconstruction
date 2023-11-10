@@ -353,7 +353,7 @@ Now that we have an interface in our record, Gson no longer knows what class to 
 ```java
 class ListAdapter implements JsonDeserializer<FriendList> {
     public FriendList deserialize(JsonElement el, Type type, JsonDeserializationContext ctx) throws JsonParseException {
-        return ctx.fromJson(el, ArrayFriendList.class);
+        return ctx.deserialize(el, ArrayFriendList.class);
     }
 }
 ```
