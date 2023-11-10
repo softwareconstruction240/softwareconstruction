@@ -63,7 +63,7 @@ void makeSQLCalls() throws SQLException {
 
 ## Creating Databases and Tables
 
-Once you have a connection you can use it to create databases and tables. It is a good idea to create Java code that create your databases and tables either when your application starts up, or with an explicit initialization operation. This allows you to define all of the infrastructure that your code depends upon in the code that actually uses the infrastructure. That way you can always assume that the required databases and tables exist instead of managing and initializing that infrastructure as some sort of external manual executed process.
+Once you have a connection you can use it to create databases and tables. It is a good idea to create Java code that create your databases and tables if they don't exist either when your application starts up, or with an explicit initialization operation. This allows you to define all of the infrastructure that your code depends upon in the code that actually uses the infrastructure. That way you can always assume that the required databases and tables exist instead of managing and initializing that infrastructure as some sort of external manual executed process.
 
 We can fully configure a theoretical pet store application by doing the following.
 
