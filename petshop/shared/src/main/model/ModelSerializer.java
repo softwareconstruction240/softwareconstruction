@@ -13,13 +13,14 @@ public class ModelSerializer {
 
     public static <T> T deserialize(Reader reader, Class<T> responseClass) {
         GsonBuilder gsonBuilder = new GsonBuilder();
+        // Deserialize FriendList to ArrayFriendList if used.
         gsonBuilder.registerTypeAdapter(FriendList.class, new FriendListAdapter());
         return gsonBuilder.create().fromJson(reader, responseClass);
     }
 
     private static class FriendListAdapter implements JsonDeserializer<FriendList> {
         public FriendList deserialize(JsonElement el, Type type, JsonDeserializationContext ctx) throws JsonParseException {
-            return new Gson().fromJson(el, ArrayFriendList.class);
+            return ctx.deserialize(el, ArrayFriendList.class);
         }
     }
 }
