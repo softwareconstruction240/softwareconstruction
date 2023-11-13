@@ -4,7 +4,7 @@
 
 📖 **Required Reading**: None
 
-Software system conduct trillions of dollars in daily transactions, and manage access to billions personal records. This makes these systems a valuable target for attack. Bad actors try to compromise systems in a variety of ways. They may try to gain unauthorized access to data and computers for the purposes of stealing, monitoring, damaging, or otherwise misusing these assets. In order to mitigate their efforts you must include security as a primary design criteria, understand historical and current attack vectors, vigilantly monitor for intrusion, and continually enhance your systems as new threats evolve.
+Software systems conduct trillions of dollars in daily transactions, and manage access to billions of personal records. This makes these systems a valuable target for attack. Bad actors try to compromise systems in a variety of ways. They may try to gain unauthorized access to data and computers for the purposes of stealing, monitoring, damaging, or otherwise misusing these assets. In order to mitigate their efforts you must include security as a primary design criteria, understand historical and current attack vectors, vigilantly monitor for intrusion, and continually enhance your systems as new threats evolve.
 
 This topic focuses on the core concepts and technologies necessary to securely store and transmit data. The core concepts of computer security include the following.
 
@@ -94,13 +94,13 @@ Using either method should generate the same output for the word `Fox`. You can 
 
 ### Creating Signatures
 
-One primary use for a hash function is to create a unique, short, fixed size, signature that can represent data blocks of arbitrary length. With a signature you can use it as a compact representation of the data, and to determine equality to other data blocks.
+One primary use for a hash function is to create a unique, short, fixed size signature that can represent data blocks of arbitrary length. With a signature you can use it as a compact representation of the data, and to determine equality to other data blocks.
 
 The key properties of a hash function that is used for generating signatures include speed, fixed size, determinism, and resistance to collisions. Therefore algorithms such as MD5 and SHA-1 work well for this purpose. As an example, Git uses SHA-1 to generate a unique signature for all the data in a given commit.
 
 ### Securing Passwords
 
-If a hash function is one-way and preimage resistant, then it is a good candidate for representing passwords. Under this model you would hash user's password when they register and then store it in the database. When you want to authenticate a user's password you simply hash the password at login, and compare it to the previously stored hashed value.
+If a hash function is one-way and preimage resistant, then it is a good candidate for representing passwords. Under this model you would hash the user's password when they register and then store it in the database. When you want to authenticate a user's password you simply hash the password at login, and compare it to the previously stored hashed value.
 
 In order to understand why hashing passwords is valuable, consider the case where you simply store plain text representations of passwords in a database column.
 
@@ -112,7 +112,7 @@ In order to understand why hashing passwords is valuable, consider the case wher
 
 > Plain text passwords
 
-If your database is every compromised then the attacker now has all of the credentials for all of your users. That might allow them access to valuable monetary, proprietary, or confidential data. Even if your application has little value to compromise, it is common for passwords to be reused on different website. For example, if Juan reused his super secret password `p@33w0r6` on his school account, bank application, and his shopping websites.
+If your database is ever compromised then the attacker now has all of the credentials for all of your users. That might allow them access to valuable monetary, proprietary, or confidential data. Even if your application has little value to compromise, it is common for passwords to be reused on different websites. For example, if Juan reused his super secret password `p@33w0r6` on his school account, bank application, and his shopping websites.
 
 By hashing the passwords the attacker cannot simply read the password from the database and use it to log in to an account.
 
@@ -146,7 +146,7 @@ Note that the salt is not encrypted. It can be simply stored in your database al
 
 ### Bcrypt
 
-As an additional protection for our user's passwords we want to use a hash algorithm that is expensive to calculate. That way it is difficult to create a table of precomputed passwords. With modern hardware, that utilizes graphical processing units (GPUs), it is possible to try millions of possible hashes per second with the `SHA-256` algorithm. For this reason, algorithms such as `Bcrypt` were created to make it computationally expensive to generate a hash, while still maintaining all of the other desirable characteristics of a password hashing algorithm. That means that while `SHA-256` can create missions of hashes per second, `Bcrypt` will only generate a few thousand when running on the same hardware. That makes it very difficult for an attacker to create a large rainbow table, and extremely difficult to do so with salted data.
+As an additional protection for our user's passwords we want to use a hash algorithm that is expensive to calculate. That way it is difficult to create a table of precomputed passwords. With modern hardware that utilizes graphical processing units (GPUs), it is possible to try millions of possible hashes per second with the `SHA-256` algorithm. For this reason, algorithms such as `Bcrypt` were created to make it computationally expensive to generate a hash, while still maintaining all of the other desirable characteristics of a password hashing algorithm. That means that while `SHA-256` can create millions of hashes per second, `Bcrypt` will only generate a few thousand when running on the same hardware. The cost of generation it very difficult for an attacker to create a large rainbow table, and extremely difficult to do so with salted data.
 
 You can experiment with `Bcrypt` using the following library.
 
@@ -188,9 +188,9 @@ password != toomanysecrets
 
 In Cryptography, `encryption` is the process of encoding data so that it is unreadable. Decryption is the process of decoding data back to its original form.
 
-Unlike hashing passwords, many applications need to both encrypt and decrypt information. For example, when you has to save confidential information such as a user's medical or financial records, you want to encrypt that data so that it is difficult to compromise, but you also need to be able to decrypt it so that it can be returned to the user on request.
+Unlike hashing passwords, many applications need to both encrypt and decrypt information. For example, when you have to save confidential information such as a user's medical or financial records, you want to encrypt that data so that it is difficult to compromise, but you also need to be able to decrypt it so that it can be returned to the user on request.
 
-In the world of cryptography, the unencrypted test is called plain text. The encrypted text is called cipher text. Algorithms that both encrypt and decrypt data utilize a sequence of bytes, called a key, that enable conversion. Typically, the longer the key size, the more difficult it will be to defeat the encryption.
+In the world of cryptography, the unencrypted test is called plain text. The encrypted text is called a cipher. Algorithms that both encrypt and decrypt data utilize a sequence of bytes, called a key, that enable conversion. Typically, the longer the key size, the more difficult it will be to defeat the encryption.
 
 | Term        | Purpose                                | Example             |
 | ----------- | -------------------------------------- | ------------------- |
@@ -199,7 +199,7 @@ In the world of cryptography, the unencrypted test is called plain text. The enc
 | Key size    | The length of the key                  | 1024 bits           |
 | Cipher text | encrypted data                         | 88338012387532      |
 
-Consider a simple encryption algorithm that added a number from one to 16, to each character of text. This would be easy to encrypt and decrypt text and only require a key size of four bits.
+Consider a simple encryption algorithm that adds a number from one to 16, to each character of text. This would be easy to encrypt and decrypt text and only require a key size of four bits.
 
 | Value       | Value          |
 | ----------- | -------------- |
@@ -245,7 +245,7 @@ This number is significantly larger than the estimated number of atoms in the ob
 The `SimpleExample` encryption code that was demonstrated above is an example of a symmetric key encryption algorithm. Symmetric algorithms use the same key to both encryption and decryption. Symmetric encryption algorithms are attractive because they are very quick to compute and difficult to attack assuming that you have an appropriately sized key.
 
 As we mentioned above, a good encryption algorithm will use complex mathematics to make it difficult to encrypt or decrypt without the proper key. One commonly used symmetric key algorithm is Advanced Encryption Standard (`AES`). This algorithm shifts blocks of characters around, across multiple rounds of manipulation, while applying a key size of 128, 192, or 256 bits. It also applies
-a `initialization vector` to create a unique cipher value for each `plain text`/`initialization vector` combination. The use of the initialization vector makes it so that the same plain text does not result in the same cipher representation. Without that, you would be determine the encrypted data by brute forcing an attack that guessed what the plain text was.
+an `initialization vector` to create a unique cipher value for each `plain text`/`initialization vector` combination. The use of the initialization vector makes it so that the same plain text does not result in the same cipher representation. Without that, you would be able to determine the encrypted data by brute forcing an attack that guessed what the plain text was.
 
 The following code demonstrates the use of `AES` to encrypt and decrypt data.
 
@@ -375,9 +375,9 @@ While symmetric encryption is good at quickly providing secure encryption, it ha
 
 One common way to solve this problem is to use `asymmetric key encryption` to exchange an encrypted `symmetric key`. Once both parties have the symmetric key they can use it to transmit large amounts of data. With this pattern you would do the following:
 
-1. Sally generates a asymmetric key pair.
+1. Sally generates an asymmetric key pair.
 1. Sally publicly posts the public key.
-1. Juan generates a symmetric key and encrypts it using the public key provided Sally.
+1. Juan generates a symmetric key and encrypts it using the public key provided by Sally.
 1. Juan sends the encrypted key to Sally.
 1. Sally decrypts the encrypted key using her private key.
 1. Sally sends a message back to Juan that is encrypted using Juan's symmetric key.
@@ -385,21 +385,21 @@ One common way to solve this problem is to use `asymmetric key encryption` to ex
 
 ## Digital Signatures
 
-Asymmetric encryption also helps us solve the problems of `Non-Repudiation` and `Data Integrity`. Non-Repudiation is the task of guarantee that the party sending a message is actually who they say they are. Data Integrity guarantees that the data has not be tampered with since it left the sender. The basic idea is to create a `digital signature` that represents both the author of the data and the data sent in the message. This is done using the following steps:
+Asymmetric encryption also helps us solve the problems of `Non-Repudiation` and `Data Integrity`. Non-Repudiation is the task of guaranteeing that the party sending a message is actually who they say they are. Data Integrity guarantees that the data has not been tampered with since it left the sender. The basic idea is to create a `digital signature` that represents both the author of the data and the data sent in the message. This is done using the following steps:
 
-1. Sally generates a asymmetric key pair.
+1. Sally generates an asymmetric key pair.
 1. Sally publicly posts the public key.
-1. Sally generate a message.
-1. Sally hashes the message using an algorithm use as SHA-1. This is called the `signer digest`.
+1. Sally generates a message.
+1. Sally hashes the message using SHA-1. This is called the `signer digest`.
 1. Sally encrypts the signer digest using her private key. This creates the `signature`.
 1. Sally posts the message and the signature publicly.
 1. Juan obtains the message and hashes it using the same algorithm Sally used. This is called the `receiver digest`.
-1. Juan uses Sally's public key to decrypt the signature. This returns the `signer digest` in a way that provided non-repudiation by guaranteeing it was created by Sally.
-1. Juan compare the `signer digest` to the `receiver digest`. If they match then that provides data integrity because the message has not changed since Sally signed it.
+1. Juan uses Sally's public key to decrypt the signature. This returns the `signer digest` in a way that provides non-repudiation by guaranteeing it was created by Sally.
+1. Juan compares the `signer digest` to the `receiver digest`. If they match then that provides data integrity because the message has not changed since Sally signed it.
 
 ## Web Certificates and Secure Communication (HTTPS)
 
-An important feature of the world wide web is knowing that the website you are talking to is actually the website you believe it to be. This is solved by gaining a web certificate, from an authority, called a certificate authority (`CA`), that is trusted by both the website owner and the website browser. A web certificate is then contains both an asymmetric key pair and a digital signature that is signed by the CA that creates a `signer digest` of the website information and the certificate's public key. The web certificate is then used to demonstrate non-repudiation of the website owner.
+An important feature of the world wide web is knowing that the website you are talking to is actually the website you believe it to be. This is solved by gaining a web certificate, from an authority, called a certificate authority (`CA`), that is trusted by both the website owner and the website browser. A web certificate contains information about the website identity, a public asymmetric key, and a digital signature signed by the CA. The web certificate is used to demonstrate non-repudiation of the website owner using the following steps.
 
 1. The website is granted a web certificate and key pair from the CA.
 1. The web certificate contains a public asymmetric key. The website keeps the private key secure.
@@ -417,7 +417,7 @@ Once a web browser has verified that the certificate is valid, it then attempts 
 
 If the website cannot decrypt the symmetric key then that means the website is not actually the owner of the validated certificate and it terminates communication. That is why the website must be very careful to never publicly release their web certificate private key.
 
-This demonstrates how modern cryptography forms the foundation of the web security by providing user authentication, authorization, non-repudiation, data integrity, and secure communication.
+This demonstrates how modern cryptography forms the foundation of web security by providing user authentication, authorization, non-repudiation, data integrity, and secure communication.
 
 ## Things to Understand
 
