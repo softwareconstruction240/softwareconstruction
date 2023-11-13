@@ -362,6 +362,12 @@ public class AsymmetricKeyExample {
 }
 ```
 
+You can also generate an asymmetric key pair using the console command line tool `ssh-keygen`. The following command uses the RSA algorithm to generate a key pair with a length of 4096 bits.
+
+```sh
+ssh-keygen -t rsa -b 4096
+```
+
 ### Disadvantages of Asymmetric Key Encryption
 
 While asymmetric key cryptography is one of the most important inventions in the history of computing, asymmetric key encryption has several disadvantages when compared with symmetric key encryption.
@@ -382,6 +388,8 @@ One common way to solve this problem is to use `asymmetric key encryption` to ex
 1. Sally decrypts the encrypted key using her private key.
 1. Sally sends a message back to Juan that is encrypted using Juan's symmetric key.
 1. Communication then continues using Juan's symmetric key.
+
+![Key exchange](keyExchange.png)
 
 ## Digital Signatures
 
