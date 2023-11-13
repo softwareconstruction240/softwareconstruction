@@ -1,0 +1,14 @@
+sequenceDiagram
+    Sally-->>Sally: Generate key pair
+    Sally-->>Sally: Publish public key 
+    Juan-->>Juan: Generate symmetric key
+    Juan->>Sally: Get public key 
+    Juan-->>Juan: Encrypt symmetric key
+    Juan->>Sally: Send encrypted key
+    Sally-->>Sally: Decrypt symmetric key
+    loop  Send data
+        Sally->>Juan: send ecrypted message
+    Juan->>Sally: send ecrypted message
+
+    end
+            
