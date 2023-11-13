@@ -43,7 +43,7 @@ If you are using macOS or linux you can use the `shasum` command console utility
 f55bd2cdfae7972827638f3691a5bc189199d7cff7188d5ead489afdea0e5403
 ```
 
-The following demonstrates doing the same thing with java code.
+The following demonstrates doing the same thing with Java code.
 
 ```java
 package demo;
@@ -144,9 +144,9 @@ Note that the salt is not encrypted. It can be simply stored in your database al
 | Hashed            | The password in not immediately usable if the database is compromised             |
 | Hashed and salted | Each individual password must be analyzed in order to be successfully compromised |
 
-As a final measure to protect our user's passwords we want to use a hash algorithm that is expensive to calculate. That way it is difficult to create a table of precomputed passwords. For this reason algorithms such as `Bcrypt` were created to make it intentionally difficult to compute while still maintaining all of the other desirable characteristics of a password hashing algorithm
+### Bcrypt
 
-With modern hardware that utilizes graphical processing units (GPUs), it is possible to try millions of possible values per second for the `SHA-256` algorithm. By contrast the `Bcrypt` algorithm would only compute a few thousand results.
+As an additional protection for our user's passwords we want to use a hash algorithm that is expensive to calculate. That way it is difficult to create a table of precomputed passwords. With modern hardware, that utilizes graphical processing units (GPUs), it is possible to try millions of possible hashes per second with the `SHA-256` algorithm. For this reason, algorithms such as `Bcrypt` were created to make it computationally expensive to generate a hash, while still maintaining all of the other desirable characteristics of a password hashing algorithm. That means that while `SHA-256` can create missions of hashes per second, `Bcrypt` will only generate a few thousand when running on the same hardware. That makes it very difficult for an attacker to create a large rainbow table, and extremely difficult to do so with salted data.
 
 You can experiment with `Bcrypt` using the following library.
 
@@ -154,7 +154,7 @@ You can experiment with `Bcrypt` using the following library.
 org.springframework.security:spring-security-core:5.7.1
 ```
 
-This makes it easy to write code that hashes a password, with salt automatically included, and then later compares the hash to a candidate password. The following example first hashes a password and then compares it to three possible candidates.
+This implementation of Bcrypt makes it so you can hash and salt a password with one line of code, and then later compare the hash to a candidate password with another line of code. The following example first hashes the password `toomanysecrets` and then compares it to three possible candidates.
 
 ```java
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -234,17 +234,20 @@ public class SimpleExample {
 
 However, our simple encryption algorithm would be easy to defeat because you could simply try all `16` possible values of the key to decrypt any cipher text. In order for an algorithm to be viable, it needs to have a large key and an algorithm that exploits complex mathematics. For example, a key size of 1024 bits could require as many as `2^1024` attempts, or:
 
-````
+```
 1,797,693,134,862,315,907,729,305,190,789,024,733,617,976,978,942,306,572,734,300,811,577,326,758,055,009,631,327,084,773,224,075,360,211,201,138,798,713,933,576,587,897,688,144,166,224,928,474,306,394,741,243,777,678,934,248,652,763,022,196,012,460,941,194,530,829,520,850,057,688,381,506,823,424,628,814,739,131,105,408,272,371,633,505,106,845,862,982,399,472,459,384,797,163,048,353,563,296,242,241,372,160
-``
+```
+
 This number is significantly larger than the estimated number of atoms in the observable universe, which is estimated to be around 10^80.
 
-### Symmetric Key Encryption
+## Symmetric Key Encryption
 
-The encryption code that was demonstrated above is an example of a symmetric key encryption algorithm because it uses the same key to both encryption and decryption. Symmetric encryption algorithms are attractive because they are very quick to compute and difficult to attack assuming that you have an appropriately sized key.
+The `SimpleExample` encryption code that was demonstrated above is an example of a symmetric key encryption algorithm. Symmetric algorithms use the same key to both encryption and decryption. Symmetric encryption algorithms are attractive because they are very quick to compute and difficult to attack assuming that you have an appropriately sized key.
 
-As we mentioned above a good encryption algorithm will also use complex mathematics to make it difficult to encrypt or decrypt without the proper key. One commonly used symmetric key algorithm is Advanced Encryption Standard (`AES`). This algorithm shifts blocks of characters around, across multiple rounds of manipulation, using a key size of 128, 192, or 256 bits. It also uses
-a `initialization vector` to create a unique cipher value for each plain text, initialization vector, combination.
+As we mentioned above, a good encryption algorithm will use complex mathematics to make it difficult to encrypt or decrypt without the proper key. One commonly used symmetric key algorithm is Advanced Encryption Standard (`AES`). This algorithm shifts blocks of characters around, across multiple rounds of manipulation, while applying a key size of 128, 192, or 256 bits. It also applies
+a `initialization vector` to create a unique cipher value for each `plain text`/`initialization vector` combination. The use of the initialization vector makes it so that the same plain text does not result in the same cipher representation. Without that, you would be determine the encrypted data by brute forcing an attack that guessed what the plain text was.
+
+The following code demonstrates the use of `AES` to encrypt and decrypt data.
 
 ```java
 import javax.crypto.*;
@@ -295,23 +298,26 @@ public class SymmetricKeyExample {
         out.write(cipher.doFinal());
     }
 }
-````
+```
 
 ### Asymmetric Key Encryption
 
-The two keys must have a certain mathematical relationship, and so must be generated together (called a “key pair”)
-Given one of the keys, it is infeasible to calculate the other key
+An alternative to symmetric key encryption is `asymmetric key encryption`. With this algorithm, two keys have a certain mathematical relationship to each other, and are generated at the same time as a `key pair`. The pair consists of a `public` key and a `private` key. Given one key you cannot determine the other key, but you can decrypt data that was encrypted by the other key. With a key pair you can publicly distribute the public key and then any party that has the public key can encrypt data that can only be decrypted by a party that has the private key.
 
 1. Generate a key pair
-1. Keep one of the keys secret. This is your “private key”
-1. Give the other key to anyone who wants to send you data. This is your “public key”. There is no need to keep it secret.
-1. When sending you data, the sender encrypts the data with your public key
-1. When you receive the data, you decrypt the data with your private key
-1. No one other than you can decrypt the data because only you have your private key
-1. For this to work, it is very important that you keep your private key secret
+1. Keep one of the keys secret. This is the `private key`.
+1. Give the other key to anyone who wants to send you data. This is the `public key`. There is no need to keep it secret.
+1. When sending you data, the sender encrypts the data with the public key
+1. When you receive the data, you decrypt the data with the private key
 
-- RSA: RSA is a mature and well-respected algorithm that is widely used in a variety of applications, including secure communication, digital signatures, and certificate authorities.
-- Elliptic curve cryptography (ECC): ECC is a newer algorithm that is more efficient than RSA and offers comparable security. ECC is becoming increasingly popular in a variety of applications, including mobile devices and lightweight devices.
+In order for this exchange to work it is very important that you keep the private key secret. If the private key is every publicly released then the pair becomes worthless.
+
+There are several implementations of asymmetric key encryption. Here are the two most popular ones.
+
+- **Rivest–Shamir–Adleman (RSA)**: This is a mature and well-respected algorithm that is widely used in a variety of applications, including secure communication, digital signatures, and certificate authorities.
+- **Elliptic curve cryptography (ECC)**: This is a newer algorithm that is more efficient than RSA and offers comparable security. ECC is becoming increasingly popular in a variety of applications, including mobile devices and lightweight devices.
+
+Asymmetric key encryption is built directly into the JDK `crypto` and `security` packages. The following code demonstrates how to create a key pair and then use it to encrypt and decrypt data.
 
 ```java
 import javax.crypto.Cipher;
@@ -356,49 +362,62 @@ public class AsymmetricKeyExample {
 }
 ```
 
-Disadvantages of asymmetric key encryption
+### Disadvantages of Asymmetric Key Encryption
 
-- Can only encrypt a small amount of data - E.g., RSA can only encrypt data less than the key size (e.g., 2048 bits, 4096 bits, etc.)
-- Much slower than symmetric key encryption (e.g., AES). Symmetric key encryption should be used to encrypt large amounts of data
-- Private keys must be securely stored and never shared with others
+While asymmetric key cryptography is one of the most important inventions in the history of computing, asymmetric key encryption has several disadvantages when compared with symmetric key encryption.
 
-Why would you ever use asymmetric key encryption?
-
-It has a number powerful applications, including:
-
-- Secure Symmetric Key Exchange
-- Digital Signatures
-
-Asymmetric key cryptography is one of the most important inventions in the history of computing
+1. **Size restriction** - You can only encrypt a small amount of data. With RSA, you can only encrypt data less than the key size (e.g., 2048 bits, 4096 bits, etc.)
+1. **Performance** - Asymmetric encryption is much slower than symmetric encryption.
 
 ## Secure Key Exchange
 
-Encryption of large amounts of data should be done using symmetric key encryption
-But, symmetric key encryption requires “Alice” and “Bob” to both use the same secret key. How do they both agree upon and obtain the secret key?
-Email?, Text?, Phone Call?, Regular mail? List of secret keys agreed upon in advance?
-All of these are insecure and/or inconvenient
-Public key encryption can be used to securely and automatically share secret keys between sender and receiver
+While symmetric encryption is good at quickly providing secure encryption, it has one significant drawback. The key must be known to both the encryption and decryption software. That means if you are trying to transmit encrypted data to remote parties, you must also securely transmit the key. Either the key must be supplied in advance of the remote communication, or delivered with some other secure channel such as in-person communication. Using any means that also uses symmetric encryption simply creates another layer to the problem.
+
+One common way to solve this problem is to use `asymmetric key encryption` to exchange an encrypted `symmetric key`. Once both parties have the symmetric key they can use it to transmit large amounts of data. With this pattern you would do the following:
+
+1. Sally generates a asymmetric key pair.
+1. Sally publicly posts the public key.
+1. Juan generates a symmetric key and encrypts it using the public key provided Sally.
+1. Juan sends the encrypted key to Sally.
+1. Sally decrypts the encrypted key using her private key.
+1. Sally sends a message back to Juan that is encrypted using Juan's symmetric key.
+1. Communication then continues using Juan's symmetric key.
 
 ## Digital Signatures
 
-Hash message. (signer digest)
-Encrypt message using private key. (signature)
+Asymmetric encryption also helps us solve the problems of `Non-Repudiation` and `Data Integrity`. Non-Repudiation is the task of guarantee that the party sending a message is actually who they say they are. Data Integrity guarantees that the data has not be tampered with since it left the sender. The basic idea is to create a `digital signature` that represents both the author of the data and the data sent in the message. This is done using the following steps:
 
-Hash message (receiver digest).
-Decrypt signature.
-Compare decrypted signature (signer digest) to receiver digest.
+1. Sally generates a asymmetric key pair.
+1. Sally publicly posts the public key.
+1. Sally generate a message.
+1. Sally hashes the message using an algorithm use as SHA-1. This is called the `signer digest`.
+1. Sally encrypts the signer digest using her private key. This creates the `signature`.
+1. Sally posts the message and the signature publicly.
+1. Juan obtains the message and hashes it using the same algorithm Sally used. This is called the `receiver digest`.
+1. Juan uses Sally's public key to decrypt the signature. This returns the `signer digest` in a way that provided non-repudiation by guaranteeing it was created by Sally.
+1. Juan compare the `signer digest` to the `receiver digest`. If they match then that provides data integrity because the message has not changed since Sally signed it.
 
-## Web Certificate
+## Web Certificates and Secure Communication (HTTPS)
 
-## Secure Web Communication (HTTPS)
+An important feature of the world wide web is knowing that the website you are talking to is actually the website you believe it to be. This is solved by gaining a web certificate, from an authority, called a certificate authority (`CA`), that is trusted by both the website owner and the website browser. A web certificate is then contains both an asymmetric key pair and a digital signature that is signed by the CA that creates a `signer digest` of the website information and the certificate's public key. The web certificate is then used to demonstrate non-repudiation of the website owner.
 
-Secure Key exchange.
+1. The website is granted a web certificate and key pair from the CA.
+1. The web certificate contains a public asymmetric key. The website keeps the private key secure.
+1. A web browser makes a connection to the website.
+1. The website provides the certificate as part of the connection process.
+1. The browser verifies that the certificate was signed by the CA.
 
-Ask for public key.
-Create a symmetric key. encode with public key.
-Send to server.
-Server decodes with private key.
-Communication proceeds with symmetric key.
+Once a web browser has verified that the certificate is valid, it then attempts to create a secure connection to the website. The browser uses the asymmetric public key that was provided in the certificate to begin a secure key exchange.
+
+1. The browser creates a symmetric key.
+1. The browser encrypts the key using the public key provided in the certificate.
+1. The browser sends the encrypted key to the website.
+1. The website decrypts the key using the certificate's private key.
+1. The website responds with data encrypted using the browser's symmetric key.
+
+If the website cannot decrypt the symmetric key then that means the website is not actually the owner of the validated certificate and it terminates communication. That is why the website must be very careful to never publicly release their web certificate private key.
+
+This demonstrates how modern cryptography forms the foundation of the web security by providing user authentication, authorization, non-repudiation, data integrity, and secure communication.
 
 ## Things to Understand
 
