@@ -203,6 +203,8 @@ In the world of cryptography, the unencrypted test is called plain text. The enc
 | Key size    | The length of the key                  | 1024 bits           |
 | Cipher text | encrypted data                         | 88338012387532      |
 
+### Simple Example
+
 Consider a simple encryption algorithm that adds a number from one to 16, to each character of text. This would be easy to encrypt and decrypt text and only require a key size of four bits.
 
 | Value       | Value          |
@@ -409,6 +411,10 @@ Asymmetric encryption also helps us solve the problems of `Non-Repudiation` and 
 1. Juan uses Sally's public key to decrypt the signature. This returns the `signer digest` in a way that provides non-repudiation by guaranteeing it was created by Sally.
 1. Juan compares the `signer digest` to the `receiver digest`. If they match then that provides data integrity because the message has not changed since Sally signed it.
 
+![Digital Signatures](digitalCert.png)
+
+Digital signatures are used to sign emails, contracts, crypto currency transactions, and web certificates.
+
 ## Web Certificates and Secure Communication (HTTPS)
 
 An important feature of the world wide web is knowing that the website you are talking to is actually the website you believe it to be. This is solved by gaining a web certificate, from an authority, called a certificate authority (`CA`), that is trusted by both the website owner and the website browser. A web certificate contains information about the website identity, a public asymmetric key, and a digital signature signed by the CA. The web certificate is used to demonstrate non-repudiation of the website owner using the following steps.
@@ -428,6 +434,8 @@ Once a web browser has verified that the certificate is valid, it then attempts 
 1. The website responds with data encrypted using the browser's symmetric key.
 
 If the website cannot decrypt the symmetric key then that means the website is not actually the owner of the validated certificate and it terminates communication. That is why the website must be very careful to never publicly release their web certificate private key.
+
+![web certs](webCert.png)
 
 This demonstrates how modern cryptography forms the foundation of web security by providing user authentication, authorization, non-repudiation, data integrity, and secure communication.
 
