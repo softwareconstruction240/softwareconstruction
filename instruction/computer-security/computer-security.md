@@ -61,7 +61,7 @@ public class CryptoHashFunctionDemo {
                 "Fox",
                 "Fox",
                 "The red fox jumps over the blue dog",
-                "The red fox jumps ouer the blue dog",
+                "The red fox jumps oѵer the blue dog",
         };
 
         for (String input : allInputs) {
@@ -136,7 +136,11 @@ In order to combat a rainbow table attack, it is common to combine the password 
 
 > Hashed passwords using SHA-1 and salt
 
-Note that the salt is not encrypted. It can be simply stored in your database along with the hashed password. The idea is to simply make it difficult for the attacker to precompute the hashed value. With the salt you are making each hash unique.
+The following diagram demonstrates the flow necessary to use salted passwords.
+
+![Salting](salting.png)
+
+Note that the salt is not encrypted. It can be simply stored in your database along with the hashed password. The idea is to simply make it difficult for the attacker to precompute the hashed value. With the salt you are making each hash unique. To do a brute for attack against that representation an attacker would have to compute a rainbow table against each salted password.
 
 | Representation    | Benefit                                                                           |
 | ----------------- | --------------------------------------------------------------------------------- |
