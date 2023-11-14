@@ -183,7 +183,7 @@ public class StandardAPITests {
         TestModels.TestLoginRegisterResult registerResult = serverFacade.register(registerRequest);
 
         Assertions.assertEquals(HTTP_FORBIDDEN, serverFacade.getStatusCode(),
-                "Server response code was not 401 Forbidden");
+                "Server response code was not 403 Forbidden");
         Assertions.assertFalse(registerResult.success, "Response didn't return not successful");
         Assertions.assertTrue(registerResult.message.toLowerCase(Locale.ROOT).contains("error"),
                 "Response missing error message");
@@ -517,7 +517,7 @@ public class StandardAPITests {
 
         //check failed
         Assertions.assertEquals(HTTP_FORBIDDEN, serverFacade.getStatusCode(),
-                "Server response code was not 401 Forbidden");
+                "Server response code was not 403 Forbidden");
         Assertions.assertFalse(joinResult.success, "Request didn't return not successful");
         Assertions.assertTrue(
                 joinResult.message != null && joinResult.message.toLowerCase(Locale.ROOT).contains("error"),
