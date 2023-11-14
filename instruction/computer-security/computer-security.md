@@ -253,6 +253,8 @@ The `SimpleExample` encryption code that was demonstrated above is an example of
 As we mentioned above, a good encryption algorithm will use complex mathematics to make it difficult to encrypt or decrypt without the proper key. One commonly used symmetric key algorithm is Advanced Encryption Standard (`AES`). This algorithm shifts blocks of characters around, across multiple rounds of manipulation, while applying a key size of 128, 192, or 256 bits. It also applies
 an `initialization vector` to create a unique cipher value for each `plain text`/`initialization vector` combination. The use of the initialization vector makes it so that the same plain text does not result in the same cipher representation. Without that, you would be able to determine the encrypted data by brute forcing an attack that guessed what the plain text was.
 
+![symmetric encryption](symmetric.png)
+
 The following code demonstrates the use of `AES` to encrypt and decrypt data. The code begins by generating an appropriately sized key and then creating an initialization vector. These are then used to first encrypt and then decrypt the message.
 
 ```java
@@ -389,13 +391,13 @@ While symmetric encryption is good at quickly providing secure encryption, it ha
 
 One common way to solve this problem is to use `asymmetric key encryption` to exchange an encrypted `symmetric key`. Once both parties have the symmetric key they can use it to transmit large amounts of data. With this pattern you would do the following:
 
-1. Sally generates an asymmetric key pair.
-1. Sally publicly posts the public key.
-1. Juan generates a symmetric key and encrypts it using the public key provided by Sally.
-1. Juan sends the encrypted key to Sally.
-1. Sally decrypts the encrypted key using her private key.
-1. Sally sends a message back to Juan that is encrypted using Juan's symmetric key.
-1. Communication then continues using Juan's symmetric key.
+1. Client generates an asymmetric key pair.
+1. Client publicly posts the public key.
+1. Server generates a symmetric key and encrypts it using the public key provided by Client.
+1. Server sends the encrypted key to Client.
+1. Client decrypts the encrypted key using her private key.
+1. Client sends a message back to Server that is encrypted using Server's symmetric key.
+1. Communication then continues using Server's symmetric key.
 
 ![Key exchange](keyExchange.png)
 
@@ -418,6 +420,8 @@ Asymmetric encryption also helps us solve the problems of `Non-Repudiation` and 
 Digital signatures are used to sign emails, contracts, crypto currency transactions, and web certificates.
 
 ## Web Certificates and Secure Communication (HTTPS)
+
+Let's move to an example that demonstrates everything we have learned about encryption including using digital signatures, symmetric keys, asymmetric keys, and key exchanges.
 
 An important feature of the world wide web is knowing that the website you are talking to is actually the website you believe it to be. This is solved by gaining a web certificate, from an authority, called a certificate authority (`CA`), that is trusted by both the website owner and the website browser. A web certificate contains information about the website identity, a public asymmetric key, and a digital signature signed by the CA. The web certificate is used to demonstrate non-repudiation of the website owner using the following steps.
 
