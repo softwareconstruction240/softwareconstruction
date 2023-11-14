@@ -1,6 +1,6 @@
 sequenceDiagram
+    participant Juan
     Sally-->>Sally: Generate key pair
-    Sally-->>Sally: Publish public key 
     Juan-->>Juan: Generate symmetric key
     Juan->>Sally: Get public key 
     Juan-->>Juan: Encrypt symmetric key
@@ -10,5 +10,16 @@ sequenceDiagram
         Sally->>Juan: send ecrypted message
     Juan->>Sally: send ecrypted message
 
+    end
+            
+            
+sequenceDiagram
+    participant Juan
+    Sally-->>Sally: Generate asymmetric key pair
+    Juan->>Sally: Get public key 
+    Juan-->>Juan: Encrypt data with public key
+    loop  Send data
+    Juan->>Sally: Send encrypted data
+    Sally-->>Sally: Decrypt data with private key
     end
             

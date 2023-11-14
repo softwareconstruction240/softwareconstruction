@@ -244,7 +244,7 @@ However, our simple encryption algorithm would be easy to defeat because you cou
 1,797,693,134,862,315,907,729,305,190,789,024,733,617,976,978,942,306,572,734,300,811,577,326,758,055,009,631,327,084,773,224,075,360,211,201,138,798,713,933,576,587,897,688,144,166,224,928,474,306,394,741,243,777,678,934,248,652,763,022,196,012,460,941,194,530,829,520,850,057,688,381,506,823,424,628,814,739,131,105,408,272,371,633,505,106,845,862,982,399,472,459,384,797,163,048,353,563,296,242,241,372,160
 ```
 
-This number is significantly larger than the estimated number of atoms in the observable universe, which is estimated to be around 10^80.
+This number is significantly larger than the number of atoms in the observable universe, which is estimated to be around 10^80.
 
 ## Symmetric Key Encryption
 
@@ -253,7 +253,7 @@ The `SimpleExample` encryption code that was demonstrated above is an example of
 As we mentioned above, a good encryption algorithm will use complex mathematics to make it difficult to encrypt or decrypt without the proper key. One commonly used symmetric key algorithm is Advanced Encryption Standard (`AES`). This algorithm shifts blocks of characters around, across multiple rounds of manipulation, while applying a key size of 128, 192, or 256 bits. It also applies
 an `initialization vector` to create a unique cipher value for each `plain text`/`initialization vector` combination. The use of the initialization vector makes it so that the same plain text does not result in the same cipher representation. Without that, you would be able to determine the encrypted data by brute forcing an attack that guessed what the plain text was.
 
-The following code demonstrates the use of `AES` to encrypt and decrypt data.
+The following code demonstrates the use of `AES` to encrypt and decrypt data. The code begins by generating an appropriately sized key and then creating an initialization vector. These are then used to first encrypt and then decrypt the message.
 
 ```java
 import javax.crypto.*;
@@ -269,14 +269,12 @@ public class SymmetricKeyExample {
         var secretMessage = "toomanysecrets";
 
         var plainTextIn = new ByteArrayInputStream(secretMessage.getBytes());
-        var cipherTextOut = new ByteArrayOutputStream();
-        runAes(Cipher.ENCRYPT_MODE, plainTextIn, cipherTextOut, key, initVector);
+        var cipherBytes = runAes(Cipher.ENCRYPT_MODE, plainTextIn, key, initVector);
 
-        var cipherTextIn = new ByteArrayInputStream(cipherTextOut.toByteArray());
-        var plainTextOut = new ByteArrayOutputStream();
-        runAes(Cipher.DECRYPT_MODE, cipherTextIn, plainTextOut, key, initVector);
+        var cipherTextIn = new ByteArrayInputStream(cipherBytes);
+        var plainTextBytes = runAes(Cipher.DECRYPT_MODE, cipherTextIn, key, initVector);
 
-        System.out.printf("%s == %s%n", secretMessage, plainTextOut);
+        System.out.printf("%s == %s%n", secretMessage, new String(plainTextBytes));
     }
 
     static SecretKey createAesKey() throws Exception {
@@ -291,10 +289,11 @@ public class SymmetricKeyExample {
         return new IvParameterSpec(ivBytes);
     }
 
-    static void runAes(int cipherMode, InputStream in, OutputStream out, SecretKey key, IvParameterSpec initVector) throws Exception {
+    static byte[] runAes(int cipherMode, InputStream in, SecretKey key, IvParameterSpec initVector) throws Exception {
         Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
         cipher.init(cipherMode, key, initVector);
 
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
         byte[] inputBytes = new byte[64];
         int bytesRead;
         while ((bytesRead = in.read(inputBytes)) != -1) {
@@ -302,6 +301,7 @@ public class SymmetricKeyExample {
         }
 
         out.write(cipher.doFinal());
+        return out.toByteArray();
     }
 }
 ```
@@ -315,6 +315,8 @@ An alternative to symmetric key encryption is `asymmetric key encryption`. With 
 1. Give the other key to anyone who wants to send you data. This is the `public key`. There is no need to keep it secret.
 1. When sending you data, the sender encrypts the data with the public key
 1. When you receive the data, you decrypt the data with the private key
+
+![asymmetric encryption](asymmetric.png)
 
 In order for this exchange to work it is very important that you keep the private key secret. If the private key is every publicly released then the pair becomes worthless.
 
