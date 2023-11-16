@@ -70,8 +70,8 @@ public class StandardAPITests {
 
     @Test
     @Order(1)
-    @DisplayName("Static Files Default")
-    public void testFileHandlerDefault() throws TestException {
+    @DisplayName("Static Files")
+    public void staticFiles() throws TestException {
         String indexHTMLStr = null;
         try (FileInputStream fis = new FileInputStream("web/index.html")) {
             StringBuilder sb = new StringBuilder();
