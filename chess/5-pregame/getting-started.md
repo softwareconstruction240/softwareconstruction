@@ -66,7 +66,7 @@ Next, modify the default (server) module and the client module so that they have
 1. Select the `Dependencies` tab.
 1. Click the `+` button at the top of the Dependencies tab to add a new dependency.
 1. Select `Module Dependency…` from the drop-down list.
-1. Select the `shared` module and click `OK`. Your default (server) module now has a dependency on the shared code module, and should compile successfully again.
+1. Select the `shared` module and click `OK`. Your default (server) module now has a dependency on the shared code module.
 
 Now, follow the previous steps again to add the same dependency to the `client` module.
 
@@ -82,7 +82,7 @@ Here are the files you should move into the `shared` module:
 1. Move the package containing your Web API request classes from `src/main` to `shared/src/main`.
 1. Move the package containing your Web API result classes from `src/main` to `shared/src/main`.
 
-Now that you’ve moved the shared classes into the `shared` module, your server code will contain lots of compile errors. These errors will be fixed in the next section.
+⚠ As you move your code to the `shared` module you might see warnings. This is usually caused because you are attempting to move code into shared that still has references to code in your server. You can ignore the warnings and fix it up after the move, keep moving code over until it all in the shared module, or fix the dependencies before you attempt to move. Which choice you make will depend upon how your code is structured.
 
 ## Create Client Executable JAR File
 
