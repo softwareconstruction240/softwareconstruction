@@ -164,7 +164,7 @@ public class InteractiveCalculatorExample {
 ```
 
 ```sh
-➜  java InteractiveCalculatorExample.java 1 2 3
+➜  java InteractiveCalculatorExample.java
 
 Input your numbers
 >>> 1 2 3
