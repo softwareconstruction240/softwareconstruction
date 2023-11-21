@@ -56,7 +56,6 @@ The following program demonstrates creating two thread that print out the thread
 
 ```java
 public class ThreadExample {
-
     public static void main(String[] args) {
 
         new CountingThread().start();
@@ -94,7 +93,6 @@ You can also skip extending 'Thread' and use the `Runnable` functional interface
 
 ```java
 public class RunnableExample {
-
     public static void main(String[] args) {
 
         new Thread(() -> {
@@ -109,9 +107,35 @@ public class RunnableExample {
 }
 ```
 
-### Threading
+### Callable
 
-## Thread Pools
+Sometimes you need to wait for a thread to calculate a result before you continue executing your main process thread. You can do this by creating an [ExecutorService](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ExecutorService.html) that handles the execution of a pool of threads. You can then submit a lambda function that implements the `Callable` functional interface. Callable is similar to Runnable, except that it returns a result. The result is represented by a `Future` object that will eventually contain the result of the Callable once it exits.
+
+You can wait for the Callable to complete, and thus get the return value, by calling the `get` method on the future object. This is demonstrated by the code below. Calling the `submit` method causes the thread to branch but the main thread will block with the `get` call until the thread completes. 
+
+```java
+public class CallableExample {
+    public static void main(String[] args) throws Exception {
+        try (ExecutorService executorService = Executors.newSingleThreadExecutor()) {
+            Future<String> future = executorService.submit(() -> {
+                return "Callable result";
+            });
+            System.out.println(future.get());
+        }
+    }
+}
+```
+
+### Thread Pools
+
+The ExecutorService's pool of threads allows you to efficiently execute threads while minimizing the overhead of creating and switching between threads. In our example above we created a pool using the `Executors` factory method `newSingleThreadExecutor` that shares a single thread and simply time swaps between them. You can also create a thread pool that allocates a fixed number of threads using the `newFixedThreadPool` method, or a thread pool that grows, and reuses threads, when new threads are requested with the `newCachedThreadPool`.
+
+|Pool Type|Description|
+|-|-|
+|newSingleThreadExecutor|Uses a single thread and switches the callable task. Good for removing thread context switching overhead.|
+|newFixedThreadPool|Reuses threads. Good for saving on thread creation overhead.|
+|new CachedThreadPool|Reuses threads. Good for saving on thread creation overhead where the maximum number of needed thread is unknown.|
+|newScheduledThreadPool|Runs threads periodically. Good for scheduled tasks.|
 
 ## Race Conditions
 
