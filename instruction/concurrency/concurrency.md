@@ -46,45 +46,67 @@ In the pizza shop you need to have the paddle to pull a pizza out of the oven an
 
 ## Concurrent Programming in Java
 
-The primary mechanism that makes concurrent programming work in Java is the `Thread` object.
+The primary mechanisms that makes concurrent programming work in Java are Processes and Threads. A process is created when you run the Java Virtual Machine and point it at a class that has a `main` function. Once the main process has started it can span other processes using the [ProcessBuilder](https://docs.oracle.com/javase/8/docs/api/java/lang/ProcessBuilder.html) object. Each process runs as a separate application that can communicate with other processes using the main function arguments, standard input, standard output, or inter process communication.
+
+A Thread is a light weight process that runs under the context a parent process. This means that threads can share memory, variables or parameters, in order to communicate with each other. You create a Java thread by extending the [Thread](https://docs.oracle.com/javase/8/docs/api/java/lang/Thread.html) abstract class and providing a `run` method. You then allocate a new object from your class and call the `start` method. This will create a branch in the execution of your code. One branch will start executing your `run` method and the other branch with start executing the code listed after the `start` call.
+
+## Thread Example 
+
+The following program demonstrates creating two thread that print out the thread's ID multiple times. 
 
 ```java
 public class ThreadExample {
 
     public static void main(String[] args) {
 
-        CountingThread joe = new CountingThread("Joe");
-        CountingThread sally = new CountingThread("Sally");
+        new CountingThread().start();
+        new CountingThread().start();
 
-        joe.start();
-        sally.start();
-
-        System.out.println("\nLeaving Main Thread");
+        System.out.println("\nExit Main Thread");
     }
 
 
     static class CountingThread extends Thread {
-        final String name;
-
-        CountingThread(String name) {
-            this.name = name;
-        }
-
         public void run() {
+            var id = this.threadId();
             for (int i = 0; i != 10; i++) {
-                System.out.printf("%s:%d ", name, i);
+                System.out.printf("%s:%d ", id, i);
             }
+            System.out.printf("%nExit thread %s%n", id);
         }
     }
 }
 ```
 
-What this program outputs will be different every time because it relies on the scheduler of your computer's processor and how content is inserted into the output stream. However, one possible output is demonstrated below. Notice that the output for the two threads are intermingled with each other, and that the main process thread actually output right in the middle of the other two threads.
+What this program outputs will be different every time you run it because it relies on the scheduler of your computer's processor and how content is inserted into the output stream. However, one possible output is demonstrated below. Notice that the output for the two threads are intermingled with each other, and that the main process thread exits before the other two threads. This demonstrates the concurrent nature of the execution.
 
 ```txt
-Joe:0 Joe:1 Joe:2 Joe:3 Joe:4 Joe:5 Joe:6 Sally:0 Sally:1 Sally:2
-Leaving Main Thread
-Joe:7 Joe:8  Sally:3 Sally:4 Sally:5 Sally:6 Joe:9 Joe:10 Sally:4 Sally:5 Sally:6 Sally:7 Sally:8 Sally:9 Sally:10
+Exit Main Thread
+22:0 22:1 22:2 22:3 22:4 23:0 23:1 23:2 23:3 22:5 22:6 22:7 22:8 22:9 
+Exit thread 22
+23:4 23:5 23:6 23:7 23:8 23:9 
+Exit thread 23
+```
+
+### Runnable
+
+You can also skip extending 'Thread' and use the `Runnable` functional interface to run a thread. This allows you to compactly represent your thread implementation with a lambda function.
+
+```java
+public class RunnableExample {
+
+    public static void main(String[] args) {
+
+        new Thread(() -> {
+            var id = Thread.currentThread().threadId();
+            for (int i = 0; i != 10; i++) {
+                System.out.printf("%s:%d ", id, i);
+            }
+        }).start();
+
+        System.out.println("\nLeaving Main Thread");
+    }
+}
 ```
 
 ### Threading
