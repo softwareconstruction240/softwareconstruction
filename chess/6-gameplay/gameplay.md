@@ -4,7 +4,11 @@
 - [Getting Started](getting-started.md)
 - [Starter Code](starter-code)
 
-For the final part of the Chess Project, you will implement gameplay. Gameplay will use WebSocket to communicate between client and server (instead of Web APIs). When a user joins or observes a game, their client should establish a WebSocket connection with the server. This WebSocket will be used to exchange messages between client and server (and vice versa).
+For the final part of the Chess Project, you will implement gameplay. Gameplay will use WebSocket to communicate between client and server (instead of Web APIs). When a user joins or observes a game, their client should establish a WebSocket connection with the server. This WebSocket will be used to exchange messages between client and server (and vice versa). Figure 1 shows a recommended design for the chess client.
+
+![client design](client-design.png)
+
+_Figure 1: Recommended Chess Client Design_
 
 ## Gameplay Functionality
 
@@ -23,7 +27,7 @@ The gameplay UI should support the following user commands:
 
 ![highlight moves](highlight-moves.png)
 
-_Figure 1: Example Highlight Move_
+_Figure 2: Example Highlight Move_
 
 ### Notifications
 
