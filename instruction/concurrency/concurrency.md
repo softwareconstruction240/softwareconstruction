@@ -24,35 +24,59 @@ We can solve this problem by hiring more workers so we can serve multiple custom
 
 The pattern of concurrent execution of tasks is a foundational principle in computer science that enables increased throughput.
 
+## Concurrency at the System Level
+
+A computer enables concurrency by having multiple processing units (CPUs). Each CPU can only process one task at a time. When your computer runs, it has hundreds of tasks that it needs to execute. This includes each program you start, sending and receiving network communication, receiving input from your keyboard, rendering to your display, and storing information. The computer's operating system controls which task runs on a CPU. By constantly switching the currently running task, the CPU gives the appearance that everything is running at the same time. If you have multiple CPUs then the tasks are actually running concurrently. However no system has enough CPUs for every task to run concurrently, and so the operating system spends much of its time scheduling and swapping the currently running tasks.
+
 ## Concurrency Complexities
 
-Implementing concurrency doesn't come for free. It is more complex to hire and manage multiple workers, and if the workers cannot execute as a team you may lose all of the benefits that concurrency provides and end up with a shop that is less efficient than a shop with a single worker. These complexities can include operational overhead, resource synchronization, starvation, and deadlock. Let's look at each one individually.
+Implementing concurrency doesn't come for free. If an operating system only executed a single task at a time, it would be more simple than an operating system that can execute on multiple processors. In our pizza shop example, it is more complex to hire and manage multiple workers than to have a single worker. Likewise, if the workers cannot execute as a team, then you may lose all of the benefits that concurrency provides and end up with a shop that is less efficient than a shop with a single worker. These complexities can include operational overhead, resource synchronization, starvation, and deadlock. Let's look at each one of these complexities individually.
 
 ### Overhead
 
-With our pizza example, we can keep adding workers in an attempt to increase **throughput**, but at some point the shop will be too small to allow the workers to efficiently move around. When that happens, adding more workers just increase the **overhead** of each worker having to walk around each other. This will decrease the productivity of each worker and cause pizzas to be created at a slower rate. If we continue to add workers, then eventually none of them will be able to move and no pizzas will be created.
+With our pizza example, we can keep adding workers in an attempt to increase **throughput**, but at some point the shop will be too small to allow the workers to efficiently move around. When that happens, adding more workers just increase the **overhead** of each worker having to walk around each other. This will decrease the productivity of each worker and cause pizzas to be created at a slower rate. If we continue adding workers, then eventually none of them will be able to move and no pizzas will be created.
+
+In computer systems, overhead is determined by how expensive it is to create and manage tasks. If the CPU spends all of its time creating, deleting, and switching between tasks it will get nothing done.
 
 ### Resource synchronization
 
-You can also run into trouble when the workers need to **synchronize** their work on resources that cannot be shared concurrently, such as the pizza oven or cash register. Imagine what would happen if two workers tried to take and order at the same time using the same cash register. You might end up with one customer paying for another customer's pizza, or both customers getting their pizzas for free.
+You can also run into trouble when the workers need to **synchronize** their work on resources that cannot be shared concurrently. In our pizza shop there is only one cash register. Imagine what would happen if two workers tried to take an order at the same time using the single cash register. This might result in one customer paying for another customer's pizza, or both customers getting their pizzas for free.
+
+In a computer system, memory is a resource that is shared by all tasks. If multiple tasks try to write to memory at the same time they will overwrite each other or create duplicate entries.
 
 ### Starvation
 
-There is also the problem of one worker monopolizing a resource. For example, if a worker starts taking an order on the cash register, but then decides to go on break before completing the order. Now, no other worker can take any orders. The result is no more pizzas and everyone is unhappy. When workers cannot operate because a necessary resource is not available it is called resource **starvation**.
+Next we consider when one worker monopolizing a resource. For example, If a worker starts taking an order on the cash register, but then decides to go on break before completing the order. Now, no other worker can take any orders. The result is no more pizzas and everyone is unhappy. When workers cannot operate because a necessary resource is not available it is called resource **starvation**.
+
+Most computers only have one network card. If one task monopolizes the use of the network then no other task can send or receive data.
 
 ### Deadlock
 
 In the pizza shop you need to have the paddle to pull a pizza out of the oven and create a pizza box to put it in. If one worker is holding the box maker while a different worker is holding the oven paddle, neither one can actually complete the pizza making process. When two workers each hold a resource that the other worker needs to get a job done, you end up with **deadlock** in your system. One of the workers must temporarily release the resource so that the work can move forward.
 
+If we look back to our computer example, we have two resources, memory and the network. When two processes want to read from memory and write to the network, the operating system must make sure that they are sharing nicely. If one process grabs the network, and the other process grabs the access to the memory, neither one will be able to complete their tasks. The operating system must step in and require one of them to release their resources.
+
+### Parallelism vs Concurrency
+
+When you have multiple tasks and a single CPU, the operating system will swap which task is executing so the each task gets a change to run. This allows the tasks to run in parallel. If you have multiple CPUs then the operating system can actually run the tasks at the same time, or concurrently. If tasks are not actually running concurrently then you don't need to worry about starvation or deadlock because nothing actually runs at the same time. However, you must still consider the overhead involved with swapping tasks.
+
 ## Concurrent Programming in Java
 
-The primary mechanisms that makes concurrent programming work in Java are Processes and Threads. A process is created when you run the Java Virtual Machine and point it at a class that has a `main` function. Once the main process has started it can span other processes using the [ProcessBuilder](https://docs.oracle.com/javase/8/docs/api/java/lang/ProcessBuilder.html) object. Each process runs as a separate application that can communicate with other processes using the main function arguments, standard input, standard output, or inter process communication.
+Now that we have an idea of what concurrency is and what some of the complexities are, let's turn our attention to how we can take advantage of concurrently in our Java programs. First let's look at how you can create and execute multiple tasks.
 
-A Thread is a light weight process that runs under the context a parent process. This means that threads can share memory, variables or parameters, in order to communicate with each other. You create a Java thread by extending the [Thread](https://docs.oracle.com/javase/8/docs/api/java/lang/Thread.html) abstract class and providing a `run` method. You then allocate a new object from your class and call the `start` method. This will create a branch in the execution of your code. One branch will start executing your `run` method and the other branch with start executing the code listed after the `start` call.
+The primary mechanisms that enables concurrent programming in Java are Processes and Threads. A process is created when you run the Java Virtual Machine and point it at a class that has a `main` function. Once the main process has started it can span other processes using the [ProcessBuilder](https://docs.oracle.com/javase/8/docs/api/java/lang/ProcessBuilder.html) object. Each process runs as a separate application that can coordinate with other processes using the main function's arguments, standard input, standard output, or inter-process communication.
 
-## Thread Example 
+Each process has a main thread of execution, and can create additional threads to process concurrent tasks. A Thread is a form of light weight process that runs under the context a parent process. Threads in the same process can share memory, as variables or parameters, in order to communicate with each other.
 
-The following program demonstrates creating two thread that print out the thread's ID multiple times. 
+You create a Java thread by extending the [Thread](https://docs.oracle.com/javase/8/docs/api/java/lang/Thread.html) abstract class and providing a `run` method. You then allocate a new object from your class and call the `start` method. This will create a branch in the execution of your code. One branch will start executing your `run` method and the other branch with start executing the code listed after the `start` call.
+
+Each process and thread is assigned a unique identifier by the operating system. The ID is used to control which thread is currently executing and what resources it owns.
+
+### Thread Example
+
+The following program demonstrates creating two threads that print out the thread's ID multiple times. The `CountingThread` class and extends the `Thread` abstract class by implementing our simple counter in the `run` method. We then allocate two new instances of `CountingThread` and call the `start` method to begin their execution.
+
+Note that as this program runs, we actually have three threads. Our main process thread, and two counting threads. If your computer has three processors, then each of the threads run concurrently.
 
 ```java
 public class ThreadExample {
@@ -77,19 +101,19 @@ public class ThreadExample {
 }
 ```
 
-What this program outputs will be different every time you run it because it relies on the scheduler of your computer's processor and how content is inserted into the output stream. However, one possible output is demonstrated below. Notice that the output for the two threads are intermingled with each other, and that the main process thread exits before the other two threads. This demonstrates the concurrent nature of the execution.
+What this program outputs will be different every time you run it because it relies on the operating systems's scheduler to determine when threads run. However, one possible output is demonstrated below. Notice that the output for the two threads are intermingled with each other, and that the main process thread exits before the other two threads. This demonstrates the concurrent nature of the execution.
 
 ```txt
 Exit Main Thread
-22:0 22:1 22:2 22:3 22:4 23:0 23:1 23:2 23:3 22:5 22:6 22:7 22:8 22:9 
+22:0 22:1 22:2 22:3 22:4 23:0 23:1 23:2 23:3 22:5 22:6 22:7 22:8 22:9
 Exit thread 22
-23:4 23:5 23:6 23:7 23:8 23:9 
+23:4 23:5 23:6 23:7 23:8 23:9
 Exit thread 23
 ```
 
 ### Runnable
 
-You can also skip extending 'Thread' and use the `Runnable` functional interface to run a thread. This allows you to compactly represent your thread implementation with a lambda function.
+You can also skip extending `Thread` and use the `Runnable` functional interface to run a thread. This allows you to compactly represent your thread implementation with a lambda function.
 
 ```java
 public class RunnableExample {
@@ -107,11 +131,32 @@ public class RunnableExample {
 }
 ```
 
-### Callable
+### Join
 
-Sometimes you need to wait for a thread to calculate a result before you continue executing your main process thread. You can do this by creating an [ExecutorService](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ExecutorService.html) that handles the execution of a pool of threads. You can then submit a lambda function that implements the `Callable` functional interface. Callable is similar to Runnable, except that it returns a result. The result is represented by a `Future` object that will eventually contain the result of the Callable once it exits.
+Sometimes you want to wait for one or more threads to complete before you continue executing your main process thread. You can do this by call the `join` method on the Thread object.
 
-You can wait for the Callable to complete, and thus get the return value, by calling the `get` method on the future object. This is demonstrated by the code below. Calling the `submit` method causes the thread to branch but the main thread will block with the `get` call until the thread completes. 
+```java
+public class JoinExample {
+    public static void main(String[] args) throws Exception {
+        var t = new Thread(() -> System.out.println("Thread done"));
+
+        t.start();
+        t.join();
+
+        System.out.println("Exiting Main Thread");
+    }
+}
+```
+
+In the above example, "Thread done" will always output before "Exiting Main Thread" because the `join` method will block the main thread until the thread exits.
+
+### Callable and Executors
+
+When you want to return a result from a thread you can do this by creating an [ExecutorService](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ExecutorService.html). You can then start a thread by calling the ExecutorService's `submit` method with an implementation of the `Callable` functional interface. Callable is similar to Runnable, except that it returns a result. When you call `submit`, it returns a `Future` object that will eventually contain the result of the Callable once the thread exits.
+
+You can wait for the Callable to complete, and thus get the return value, by calling the `get` method on the future object. This is similar to the `join` function described above, but `get` will return the thread's result.
+
+The use of an ExecutorService, Futures, and blocking on the `get` method is demonstrated by the code below. Calling the `submit` method causes the thread to branch but the main thread will block on the call to the Future's `get` method until the thread completes.
 
 ```java
 public class CallableExample {
@@ -128,26 +173,288 @@ public class CallableExample {
 
 ### Thread Pools
 
-The ExecutorService's pool of threads allows you to efficiently execute threads while minimizing the overhead of creating and switching between threads. In our example above we created a pool using the `Executors` factory method `newSingleThreadExecutor` that shares a single thread and simply time swaps between them. You can also create a thread pool that allocates a fixed number of threads using the `newFixedThreadPool` method, or a thread pool that grows, and reuses threads, when new threads are requested with the `newCachedThreadPool`.
+In addition to returning `Future` objects from the execution of a `Callable`, the ExecutorService can efficiently manage multiple threads as a group, or pool. If you are not careful in how you create and execute threads, the overhead of the thread management can quickly decrease the value of concurrent execution.
 
-|Pool Type|Description|
-|-|-|
-|newSingleThreadExecutor|Uses a single thread and switches the callable task. Good for removing thread context switching overhead.|
-|newFixedThreadPool|Reuses threads. Good for saving on thread creation overhead.|
-|new CachedThreadPool|Reuses threads. Good for saving on thread creation overhead where the maximum number of needed thread is unknown.|
-|newScheduledThreadPool|Runs threads periodically. Good for scheduled tasks.|
+In our example above we created a pool using the ExecutorService's factory `newSingleThreadExecutor` method. This creates a single thread and gives each Callable an equal chance to execute. You can also create a thread pool that allocates a fixed number of threads using the `newFixedThreadPool` method. This executor will block newly submitted tasks if there are no available threads in the pool. The `newCachedThreadPool` will grow the pool of threads when a new task is submitted if all of the current threads in in use.
 
-## Race Conditions
+With all of the executors defined above, the threads in the pool are reused for each of the submitted tasks. This helps to decrease the overhead involved with creating and deleting threads.
 
-## Mutexes
+| Pool Type               | Description                                                                                                       |
+| ----------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| newSingleThreadExecutor | Uses a single thread and switches the callable task. Good for removing thread context switching overhead.         |
+| newFixedThreadPool      | Reuses threads. Good for saving on thread creation overhead.                                                      |
+| new CachedThreadPool    | Reuses threads. Good for saving on thread creation overhead where the maximum number of needed thread is unknown. |
+| newScheduledThreadPool  | Runs threads periodically. Good for scheduled tasks without creating a new thread every time.                     |
 
-## Synchronization
+## Synchronizing Threads
 
-## Starvation
+Supporting concurrency in your application will significantly increase the complexity of your code. Multithreaded programs are a major source of bugs that corrupt the integrity of your data or cause your application to fail entirely.
+
+### Race Conditions
+
+One common threading bug results from multiple threads racing to use a shared resource at the same time. Consider the following code where you have one thread taking pizza orders and multiple threads racing to make the pizzas. They coordinate their work by sharing a list of pizza orders. One thread puts the order on the list and the other threads check to see if there is a pizza on the list and then attempts to remove it and make the pizza.
+
+```java
+public class PizzaRaceExample {
+    final static ArrayList<String> orders = new ArrayList<>();
+
+    public static void main(String[] args) throws Exception {
+        new Thread(() -> takeOrders()).start();
+
+        for (var i = 0; i < 10; i++) {
+            new Thread(() -> makePizzas()).start();
+        }
+    }
+
+    static void takeOrders() {
+        for (var i = 1; i < 1000; i++) {
+            var order = "Pizza-" + i;
+            System.out.printf("Ordering %s%n", order);
+            orders.add(order);
+        }
+    }
+
+    static void makePizzas() {
+        while (true) {
+            if (!orders.isEmpty()) {
+                var order = orders.remove(0);
+                System.out.printf("%s served%n", order);
+            }
+        }
+    }
+}
+
+```
+
+If you run this code, you will likely get the following result:
+
+```txt
+Ordering Pizza-1
+Ordering Pizza-2
+Ordering Pizza-3
+Pizza-3 served
+Pizza-2 served
+Pizza-1 served
+Exception in thread "Thread-7" Exception in thread "Thread-6" java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
+```
+
+This happens because a Maker thread checks to see if there is a pizza in the list, but before it can pull it out of the list, another thread pulls it out of the list and the first thread gets an array out of bounds exception when it tries to grab the order that is no longer in the list. Any piece of code that can cause data corruption when manipulated by multiple threads is called a `critical section`. Usually this involves code that read, modifies, and writes a resource over multiple non-atomic instructions.
+
+In the pizza shop case, the critical sections are when we add to the order list,
+
+```java
+orders.add(order);
+```
+
+and when we read and remove from the order list.
+
+```java
+// order was here when checked
+if (!orders.isEmpty()) {
+    // order is no longer there when removed
+    var order = orders.remove(0);
+}
+```
+
+### Synchronization
+
+To solve our race condition bug, we need to protect our critical sections by synchronizing their access so that only one thread can use the shared resource at a time. This can be done by creating a `synchronized` code block around any critical section.
+
+A `synchronized` code block begins with the `synchronized` statement and takes a synchronization object as a parameter. The synchronization object can be any object, but you need to use the same synchronization object for each critical section you are trying to protect. When your code executes and hits the synchronization block it will call the `wait` and `notify` methods that your synchronization object inherits from the base `Object` class in order to block multiple threads from entering the critical section at the same time. The synchronization code block is defined by the curly braces that surround the entire critical section.
+
+The syntax looks like the following.
+
+```java
+synchronized(object) {
+    // code that accesses a shared resource
+}
+```
+
+For our pizza shop, we want to define a critical sections around anywhere that accesses the order list. This includes where we add to the list, where we check its length, and also when we remove from the list.
+
+We use the `orders` object as the object for the synchronized statement. You can use any object, but it must be the same exact object used in all critical sections that you want to synchronize. It is common to use an object specifically created for synchronization (e.g. `Object lock = new Object()`, the `this` pointer of the class, a static object (e.g. `static Object lock = new Object()`, or the class object (e.g. `this.class`) depending on the scope of the resource you are trying to synchronize.
+
+We can make our pizza shop thread safe by adding a critical section to both the `takeOrders` function and the `makePizzas` function.
+
+```java
+public class PizzaSyncExample {
+    final static ArrayList<String> orders = new ArrayList<>();
+
+    public static void main(String[] args) throws Exception {
+        new Thread(() -> takeOrders()).start();
+
+        for (var i = 0; i < 10; i++) {
+            new Thread(() -> makePizzas()).start();
+        }
+    }
+
+    static void takeOrders() {
+        for (var i = 1; i < 1000; i++) {
+            var order = "Pizza-" + i;
+            System.out.printf("Ordering %s%n", order);
+            synchronized (orders) {
+                orders.add(order);
+            }
+        }
+    }
+
+    static void makePizzas() {
+        while (true) {
+            synchronized (orders) {
+                if (!orders.isEmpty()) {
+                    var order = orders.remove(0);
+                    System.out.printf("%s served%n", order);
+                }
+            }
+        }
+    }
+}
+```
+
+Alternatively, if a function represents the entire critical section, you can use the `synchronized` keyword on the function signature. This syntax:
+
+```java
+synchronized void func() {
+    // critical section
+}
+```
+
+is equivalent to this syntax:
+
+```java
+void func() {
+    synchronized(this) {
+        // critical section
+    }
+}
+```
+
+## Multithreaded HTTP Requests
+
+It is important to recognized that if you create an HTTP server, you have created a multithreaded application. That is because multiple web browsers may connect to your server concurrently. Consider the following code.
+
+```java
+public class MultithreadedServerExample {
+    static int value = 0;
+
+    public static void main(String[] args) {
+        Spark.port(8080);
+        Spark.get("/add/:amount", (req, res) -> {
+            value = value + Integer.parseInt(req.params(":amount"));
+            return " " + value;
+        });
+    }
+}
+```
+
+In this example, the `value` variable is read and modified in the endpoint handler. If execute the following commands from your command console it will repeatedly try to increment and decrement the value. All things being equal these commands should cancel each other out, but because
+
+```sh
+while true; do curl localhost:8080/add/1; print "\n"; done &
+while true; do curl localhost:8080/add/-1; print "\n"; done &
+wait
+```
+
+## Atomic Concurrency
+
+The Java concurrency package also includes several classes that make it so that you don't create critical sections that have to be protected with a synchronization object. One of these classes is the the `AtomicInteger`. Remember that you only need to protect resources that take several steps to modify (e.g. read/modify/write). The distinct steps allow another thread to slip in between and change the resource you are working with. If you can read/modify/write a resource in on step, or atomically, then there is no need to synchronize the object across threads. We can rewrite our server example to use an `AtomicInteger` instead of the simple `int` type. Then instead of reading the value, modifying it with the plus operator, and then writing it, we simply call the `AtomicInteger.addAndGet` method to do all three in one atomic step. This makes things completely thread safe.
+
+```java
+public class AtomicServerExample {
+    static AtomicInteger value = new AtomicInteger(0);
+
+    public static void main(String[] args) {
+        Spark.port(8080);
+        Spark.get("/add/:amount", (req, res) -> {
+            var add = Integer.parseInt(req.params(":amount"));
+            return " " + value.addAndGet(add);
+        });
+    }
+}
+```
+
+There are other atomic classes in the JDK that you might find useful in order to support concurrency. This include the following.
+
+| Class                | Description                                                                                                                                                                          |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| BlockingQueue        | A thread-safe queue that allows threads to add and remove elements without worrying about synchronization. It is useful for implementing producer-consumer patterns.                 |
+| LinkedBlockingQueue  | An implementation of the BlockingQueue interface that uses a linked list to store its elements. It is a good choice for applications that require high throughput and low latency.   |
+| ArrayBlockingQueue   | An implementation of the BlockingQueue interface that uses an array to store its elements. It is a good choice for applications that require bounded capacity and fast access times. |
+| ConcurrentHashMap    | A thread-safe implementation of the HashMap class. It is a good choice for applications that require a high-performance map that can be safely accessed by multiple threads.         |
+| CopyOnWriteArrayList | A thread-safe implementation of the ArrayList class. It is a good choice for applications that require a read-heavy list that can be occasionally modified.                          |
 
 ## Database Transactions
 
-## Threading Overhead
+Memory is not the only resource that might be corrupted by concurrent thread access. It is common to have multiple threads accessing a database at the same time. If your application needs to read something from the database, modify it, and then write back to the database they you have an opportunity for corruption.
+
+Consider an example where you have a table that stores a unique username along with their email address. When you try to add a new user, you first check to see if the username is already in the table. If it is then it returns an error, otherwise it writes the user to the table. Notice that this is the classic read/modify/write pattern that causes a problem for multithreaded applications. As long as only one thread can write to the database at a time then everything will be fine, but if you allow multiple users to make HTTP endpoint requests then you have the possibility of corruption.
+
+```java
+public static void main(String[] args) throws Exception {
+    var username = args[0];
+    var email = args[1];
+    configureDatabase();
+
+    try (var conn = getConnection()) {
+        if (!userExists(conn, username)) {
+            insertUser(conn, username, email);
+        }
+    }
+}
+```
+
+To solve this problem you can tell the database to consider all requests made on a connection as a single transaction. Using a transaction makes it so all the requests fail, and are reversed, if any of the requests fail. It also makes it so all requests are executed atomically. That means that no other connection can modify the table while the transaction is executing. To create a transaction we would modify the above code to first create a transaction by turning off the automatic commitment of each statement as it executes by calling `setAutoCommit(false)`. We then execute multiple queries, insert, update, or delete statements. We commit all the statements atomically by calling `commit`, or if we want to discard all the work that the statements did we call `rollback`.
+
+```java
+public static void main(String[] args) throws Exception {
+    var username = args[0];
+    var email = args[1];
+    configureDatabase();
+
+    try (var conn = getConnection()) {
+        conn.setAutoCommit(false);
+
+        try {
+            if (!userExists(conn, username)) {
+                insertUser(conn, username, email);
+                conn.commit();
+            }
+        } catch (SQLException e) {
+            conn.rollback();
+        }
+    }
+}
+```
+
+### Database Transaction Alternatives
+
+One of the major problems with using concurrency to increase the throughput of your application, is that the coding complexity and processing overhead can create new problems. When synchronizing threads you can deadlock the application, or create too many threads and cause thread starvation. Likewise, database transactions significantly impact the performance of your database if used incorrectly or excessively.
+
+Instead of using transactions you can use other methods to make things execute concurrently. One solution to the problem that we defined above, is to make the username a unique key for the table. That way if you try and add two rows with the same username, the database will enforce the uniqueness and reject the second request.
+
+Database Management Systems (DBMS) often contain clauses that make statements atomic. You can use the `INSERT IGNORE` syntax to not execute the statement if the row already has the value your are attempting to set. If you are trying to do an insert if something doesn't exist, or an update if it does exist, you can use the `INSERT … ON DUPLICATE KEY UPDATE` syntax.
+
+Any of these options will increase the performance of your database if you are attempting to modify a single table. That leaves the use of transactions for when you must execute multiple statements such as when you are modifying multiple tables that are related with foreign keys.
+
+## Concurrency in the Chess Application
+
+Now that we understand the power and complexity of concurrent programming we can look at the chess application and decide if we already have concurrency bugs, or if we could increase the performance of the application by introducing concurrency.
+
+The client program itself only allows one player at a time. However, it can receive asynchronous WebSocket messages on a thread that is different from the main UI thread. This means there is the possibility of our shared client state becoming corrupted.
+
+1. If a user leaves a game and the server concurrently receives a MAKE_MOVE message that could put the user back into the game.
+
+Additionally, our HTTP server allows multiple clients to communicate with the server and so we need to consider every shared memory access or database interaction. At this point in our development there shouldn't be any shared memory resources, and so that only leaves the database requests.
+
+The obvious problem results from storing game state in a serialized representation. The database has no visibility into what the game object represents. That means that you cannot use the database to provide synchronization and therefore must synchronize the access on your server.
+
+There are several possible corruptions that we need to consider.
+
+1. Two users can both claim the same color if both request the color concurrently. The server will return affirmatively to both, but only record one player as claiming the color.
+1. A request to claim a color can be lost if two users make a concurrent join request.
+1. A single user can make multiple moves if executed from multiple threads.
+
+All of these problems can be mitigated by using atomic operations or thread synchronization to protect critical sections. The important first step is to recognize that you have a multithreaded application and to consider all of the ways your shared data needs to be protected.
 
 ## Things to Understand
 
