@@ -78,7 +78,6 @@ The course content is divided into multiple modules. Each module represents a we
 
 - [Console UI](console-ui/console-ui.md)
 - ♕ [Phase 5: Chess Pregame](../chess/5-pregame/pregame.md)
-- [WebSocket](websocket/websocket.md)
 - ☑ Phase 4: Chess Database (**Due Nov 7th**)
 
 ## Module 11
@@ -87,17 +86,18 @@ The course content is divided into multiple modules. Each module represents a we
 
 ## Module 12
 
-- [Concurrency](concurrency/concurrency.md)
+- [WebSocket](websocket/websocket.md)
 - ♕ [Phase 6: Chess Gameplay](../chess/6-gameplay/gameplay.md)
+- [Concurrency](concurrency/concurrency.md)
 
 ## Module 13
 
-- [Command line tools](command-line-builds/command-line-builds.md)
-- [Final Exam Review](final-exam-review/final-exam-review.md)
 - ☑ Phase 5: Chess Pregame (**Due Nov 27th**)
 
 ## Module 14
 
+- [Command line tools](command-line-builds/command-line-builds.md)
+- [Final Exam Review](final-exam-review/final-exam-review.md)
 - ☑ Phase 6: Chess Game Play (**Due Dec 14th**)
 - ☑ Final (**Exam**)
 
