@@ -394,9 +394,9 @@ public class AtomicServerExample {
     public static void main(String[] args) {
         Spark.port(8080);
         Spark.get("/toggle", (req, res) -> {
-            var v = value.compareAndExchange(true, false);
-            v = value.compareAndExchange(false, v);
-            return " " + !v;
+            value.compareAndExchange(true, false);
+            var v = value.compareAndExchange(false, true);
+            return " " + (v == false);
         });
     }
 }
@@ -406,7 +406,7 @@ There are other atomic classes in the JDK that you might find useful in order to
 
 | Class                | Description                                                                                                                                                                          |
 | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| AtomicInteger        | Add to the value of an integer atomically.                                                                                                                                           |
+| AtomicInteger        | Atomically add to the value of an integer.                                                                                                                                           |
 | BlockingQueue        | A thread-safe queue that allows threads to add and remove elements without worrying about synchronization. It is useful for implementing producer-consumer patterns.                 |
 | LinkedBlockingQueue  | An implementation of the BlockingQueue interface that uses a linked list to store its elements. It is a good choice for applications that require high throughput and low latency.   |
 | ArrayBlockingQueue   | An implementation of the BlockingQueue interface that uses an array to store its elements. It is a good choice for applications that require bounded capacity and fast access times. |
@@ -415,7 +415,7 @@ There are other atomic classes in the JDK that you might find useful in order to
 
 ## Database Transactions
 
-Memory is not the only resource that might be corrupted by unsynchronized thread access. It is common to have multiple threads accessing a database at the same time. If your application needs to read something from the database, modify it, and then write back to the database then you have an opportunity for corruption.
+Memory is not the only resource that might be corrupted by non-synchronized thread access. It is common to have multiple threads accessing a database at the same time. If your application needs to read something from the database, modify it, and then write back to the database then you have an opportunity for corruption.
 
 Consider an example where you have a table that stores a unique username along with their email address. When you try to add a new user, you first check to see if the username is already in the table. If it is then it returns an error, otherwise it writes the user to the table. Notice that this is the classic read/modify pattern that causes a problem for multithreaded applications. As long as only one thread can write to the database at a time then everything will be fine, but if you allow multiple users to make HTTP endpoint requests then you have the possibility of corruption.
 
