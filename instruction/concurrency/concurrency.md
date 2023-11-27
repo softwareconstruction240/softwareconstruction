@@ -356,8 +356,8 @@ public class MultithreadedServerExample {
 In this example, the `value` variable is read and modified in the endpoint handler. If you execute the following commands from your command console it will repeatedly try to toggle the value. After each call to toggle the value should return to true.
 
 ```sh
-while true; do curl localhost:8080/add/1; print "\n"; done &
-while true; do curl localhost:8080/add/-1; print "\n"; done &
+while true; do curl localhost:8080/toggle; print "\n"; done &
+while true; do curl localhost:8080/toggle; print "\n"; done &
 wait
 ```
 
