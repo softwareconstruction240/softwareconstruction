@@ -9,6 +9,15 @@
   - Section 9.1 Input/Output Streams, Readers, and Writers
   - Section 9.2 Paths, Files, and Directories
 
+## Why Java
+
+1. **Portable** - You can execute your Java program on a large variety of computing platforms without having to recompile or write platform specific code.
+1. **Object Oriented** - The Java language encourages the representation of real world and conceptual objects. This makes it easier to translate user requirements and developer expectations into the code's design.
+1. **Garbage Collection** - Java handles the allocation and deletion of memory.
+1. **Mature** - Java has been around for several decades, and has been used extensively for a wide variety of production applications. This includes desktop applications, websites, mobile applications, and embedded devices.
+1. **Rich Libraries** - There is a massive, publicly available, collection of Java Libraries that implements many common and obscure tasks.
+1. **Large Community** - Java is one of the world's most popular programming languages. You can easily find books, documentation, videos, articles, and user groups that will answer almost any question you might have.
+
 ## History
 
 While working at Sun Microsystems James Gosling formalized his idea of building a programming language that would compile to an intermediate format that could run on multiple operating systems. This became the foundation of the Java Programming language.
