@@ -118,25 +118,32 @@ If a `UserGameCommand` is invalid (e.g. invalid authToken or gameID doesn’t ex
 
 **Root Client sends JOIN_PLAYER**
 
-The server should send a `LOAD_GAME` message back to the root client, and a `Notification` message to all other players and observers in that game informing them what color the root client is joining as.
+1. Server sends a `LOAD_GAME` message back to the root client.
+1. Server sends a `Notification` message to all **other clients** in that game informing them what color the root client is joining as.
 
 **Root Client sends JOIN_OBSERVER**
 
-The server should send a `LOAD_GAME` message back to the root client, and a `Notification` message to all other players and observers in that game informing them the root client joined as an observer.
+1. Server sends a `LOAD_GAME` message back to the root client.
+1. Server sends a `Notification` message to all **other clients** in that game informing them the root client joined as an observer.
 
 **Root Client sends MAKE_MOVE**
 
-The server should send a `LOAD_GAME` message back to all clients in the game (including the root client) with an updated game. The server should also send a `Notification` message to all players and observers in the game other than the root client informing them what move was made.
+1. Server verifies the validity of the move.
+1. Game is updated to represent the move. Game is updated in the database.
+1. Server sends a `LOAD_GAME` message to all clients in the game (including the root client) with an updated game.
+1. Server sends a `Notification` message to all **other clients** in that game informing them what move was made.
 
 **Root Client sends LEAVE**
 
-The server should remove the root client from the game and send all remaining clients a `Notification` message informing them that the root client left. This applies to when a player leaves as well as when an observer leaves.
+1. If a player is leaving, than the game is updated to remove the root client. Game is updated in the database.
+1. Server sends a `Notification` message to all **other clients** in that game informing them that the root client left. This applies to both players and observers.
 
 **Root Client sends RESIGN**
 
-The server should mark the game as over (no more moves can be made) and send all other clients a `Notification` message informing them that the root client resigned. The server should also send a `Notification` message to the root user letting them know they resigned successfully.
+1. Server marks the game as over (no more moves can be made). Game is updated in the database.
+1. Server sends a `Notification` message to **all clients** in that game informing them that the root client left. This applies to both players and observers.
 
-Here is a [sequence diagram](https://sequencediagram.org/index.html?presentationMode=readOnly#initialData=C4S2BsFMAIHEEMC2MAK54E8BQWB2B7YGfAN0gCdoBlCs8gLmgCFwBXGcEXSAZ2nMgAHAT0i5g0ABIAVaSmjIePeAHNeAOgA6uWALHRO3PgOG8xEgOqQARlXwBjANaQJi5Wp45B8cqHshvcWpaCix4e2B8SjRMCgBGMIio6BiMCgAmRMjKAHlrUXI6BKwAXhKAGXwVLjKAYjTwcHwAdyw8gqKAWlrrNkgAPhpCinpK6txodpDyOOhvJWaogBMsVIzu3vZB6dGqrhT0NPJ0ufgF5dXD+I2+7eGGMf21mdPz8hXSkoRkaHsBeFA+FwdQaTVazziNy2Qzo9AAwv8iHAkJAEhCoQMYSMAFL4fbfVHMcoAQThAGlLrEZt0VHpcHdYdicgBJAByAH0UCSAJoAUQASlgseQaXT+hDRjliQARdmwYkAWV5lKO6QxDJG5RAPGAKvWPVuwvouPxKNmFkkzOkyueatqtMgYg1DCZbM5PIFQumosd9NtkplcsVyuFPqdEtZOWkzIAYsy4cTozlWdAABQAKzxE1t0F64UcAEo2vlppCDdCdlqdcWOtdy5idiaJgSElN7mWHU6ja6OTkmFQBQA1T2h+1ittFAOy+VKr33MN+q4zeiR6NxhNJlMZrOTEvt6D4Pd0IujzuLqnpFdR2PxxPM5NpzP7CfxA9HihFz4EuaHEGQRotHq1Jjr6zr0AqxJkry7IKjkw7QJA6SQAALHOdALuKS5xFOQazqeYr+uUUrTsGaEUBhL7LkRgYziG3ogeGWFXmut6bmmiCkDAiEoSe9FnphF7MTeG73luHFkAhSHIbx84MfSlHYauwl3g+qbiVxUmfmU372EC9hsDwIBAn+AHglhGFGvyvJUMysCsmRIpyQJRyKde64qVuIggCo2ZYTJ6FOf6SnuWxqZeT5BxUnE-nkU5ClCSFolpuFvlRZ+toWZWvLEsODkYRGbmsUlqZQPAEm2jFjn8fFwVFappXlUu6SfjWpaZfcozZblOA4EAA) that demonstrates the player communications.
+Here is a [sequence diagram](https://sequencediagram.org/index.html?presentationMode=readOnly#initialData=C4S2BsFMAIHEEMC2MAK54E8BQWB2B7YGfAN0gCdoBlCs8gLmgCFwBXGcEXSAZ2nMgAHAT0i5g0ABIAVaSmjIePeAHNeAOgA6uWALHRO3PgOG8xEgOqQARlXwBjANaQJi5Wp45B8cqHshvcWpaCix4e2B8SjRMCgBGMIio6BiMCgAmRMjKAHlrUXI6BKwAXhKAGXwVLjKAYjTwcHwAdyw8gqKAWlrrNkgAPhpCinpK6txodpDyOOhvJWaogBMsVIzu3vZB6dGqrhT0NPJ0ufgF5dXD+I2+7eGGMf21mdPz8hXSkoRkaHsBeFA+FwdQaTVazziNy2Qzo9AAwv8iHAkJAEhCoQMYSMAFL4fbfVHMcoAQThAGlLrEZt0VHpcHdYdicgBJAByAH0UCSAJoAUQASlgseQaXT+hDRjliQARdmwYkAWV5lKO6QxDJG5RAPGAKvWPVuwvouPxKNmFkkzOkyueatqtMgYg1DCZbM5PIFQumosd9NtkplcsVyuFPqdEtZOWkzIAYsy4cTozlWdAABQAKzxE1t0F64UcAEo2vlppCDdCdlqdcWOtdy5idiaJgSElN7mWHU6ja6OTkmFQBQA1T2h+1ittFAOy+VKr33MN+q4zeiR6NxhNJlMZrOTEvt6D4Pd0IujzuLqnpFdR2PxxPM5NpzP7CfxA9HihFz4EuaHEGQRotHq1Jjr6zr0AqxJkry7IKjkw7QJA6SQAALHOdALuKS5xFOQazqeYr+uUUrTsGaEUBhL7LkRgYziG3ogeGS6XquN4bveW6IKQMCIShJ70We-SUdhLHrneD6ppxZAIUhyGfmU372EC9hsDwIBAn+AHgkxGFGvyvJUMysCsmRIoMeeRzCdeombmmIggCo2ZMXx85mYJ77LiJt42amdkOQcF6fraOmVryxLDiZGERlZXnsWmUDwFJtrOehrlCVea4xeJ8WJU5OA1qWwX3KMoXhfhoFRRlbFZZACWoLleVYEAA) that demonstrates the player communications.
 
 ## Relevant Instruction Topics
 
