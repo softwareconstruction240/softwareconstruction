@@ -22,6 +22,9 @@ public class PetService {
         return dataAccess.listPets();
     }
 
+    public Pet getPet(int id) throws ResponseException {
+        return dataAccess.getPet(id);
+    }
 
     public void deletePet(Integer id) throws ResponseException {
         dataAccess.deletePet(id);

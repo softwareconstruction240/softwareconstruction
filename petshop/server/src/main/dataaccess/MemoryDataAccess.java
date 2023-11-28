@@ -1,5 +1,6 @@
 package dataaccess;
 
+import exception.ResponseException;
 import model.Pet;
 
 import java.util.Collection;
@@ -20,6 +21,10 @@ public class MemoryDataAccess implements DataAccess {
         return pets.values();
     }
 
+
+    public Pet getPet(int id) {
+        return pets.get(id);
+    }
 
     public void deletePet(Integer id) {
         pets.remove(id);
