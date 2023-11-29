@@ -17,7 +17,7 @@ public class PetServer {
 
     public PetServer(DataAccess dataAccess) {
         service = new PetService(dataAccess);
-        webSocketHandler = new WebSocketHandler(dataAccess);
+        webSocketHandler = new WebSocketHandler();
     }
 
     public PetServer run(int port) {
@@ -52,6 +52,7 @@ public class PetServer {
     private Object addPet(Request req, Response res) throws ResponseException {
         var pet = ModelSerializer.deserialize(req.body(), Pet.class);
         pet = service.addPet(pet);
+        webSocketHandler.makeNoise(pet.name(), pet.sound());
         return new Gson().toJson(pet);
     }
 
@@ -64,8 +65,14 @@ public class PetServer {
 
     private Object deletePet(Request req, Response res) throws ResponseException {
         var id = Integer.parseInt(req.params(":id"));
-        service.deletePet(id);
-        res.status(204);
+        var pet = service.getPet(id);
+        if (pet != null) {
+            service.deletePet(id);
+            webSocketHandler.makeNoise(pet.name(), pet.sound());
+            res.status(204);
+        } else {
+            res.status(404);
+        }
         return "";
     }
 
