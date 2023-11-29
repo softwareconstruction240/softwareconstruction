@@ -1,0 +1,23 @@
+classDiagram
+    class NotificationHandler {
+         <<interface>>
+    }
+
+    Repl-->PetClient
+    Repl--|> NotificationHandler
+    PetClient o-- ServerFacade
+    PetClient o-- WebSocketFacade
+    WebSocketFacade-->NotificationHandler
+
+    class DataAccess {
+        <<interface>>
+    }
+
+    PetService o-- DataAccess
+    MemoryDataAccess --|> DataAccess
+    SqlDataAccess --|> DataAccess
+
+    PetServer o-- PetService
+    PetServer o-- WebSocketHandler
+
+
