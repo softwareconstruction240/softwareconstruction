@@ -8,6 +8,7 @@ import org.junit.jupiter.api.*;
 import passoffTests.TestFactory;
 import passoffTests.obfuscatedTestClasses.TestServerFacade;
 import passoffTests.testClasses.TestClient;
+import passoffTests.testClasses.TestException;
 import passoffTests.testClasses.TestModels;
 
 import java.util.ArrayList;
@@ -45,7 +46,7 @@ public class WebSocketTests {
 
 
     @BeforeAll
-    public static void init() {
+    public static void init() throws TestException {
         serverFacade = new TestServerFacade("localhost", TestFactory.getServerPort());
         serverFacade.clear();
 
@@ -88,7 +89,7 @@ public class WebSocketTests {
 
 
     @BeforeEach
-    public void setup() {
+    public void setup() throws TestException {
         bobExecutor = Executors.newSingleThreadExecutor();
         jamesExecutor = Executors.newSingleThreadExecutor();
         alfredExecutor = Executors.newSingleThreadExecutor();
@@ -1934,6 +1935,5 @@ public class WebSocketTests {
         }
 
     }
-
 
 }

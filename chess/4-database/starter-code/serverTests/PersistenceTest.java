@@ -3,6 +3,7 @@ package passoffTests.serverTests;
 import chess.ChessGame;
 import org.junit.jupiter.api.*;
 import passoffTests.obfuscatedTestClasses.TestServerFacade;
+import passoffTests.testClasses.TestException;
 import passoffTests.testClasses.TestModels;
 
 import java.util.Objects;
@@ -33,7 +34,7 @@ public class PersistenceTest {
 
 
     @BeforeEach
-    public void setup() {
+    public void setup() throws TestException {
         serverFacade.clear();
 
         TestModels.TestRegisterRequest registerRequest = new TestModels.TestRegisterRequest();
@@ -56,7 +57,7 @@ public class PersistenceTest {
 
     @Test
     @DisplayName("Persistence Test")
-    public void persistenceTest() {
+    public void persistenceTest() throws TestException {
         //insert a bunch of data
         //-------------------------------------------------------------------------------------------------------------
         //register 2nd user
@@ -94,7 +95,7 @@ public class PersistenceTest {
         //Will wait on the statement scanner.nextLine() till you push enter in the terminal window.
         //You may need to follow the steps under the heading "Setting up for the Persistence Test" in the "How To Get Started"
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Shut down the server, wait a few seconds, then restart the server. Then press ENTER.");
+        System.out.println("Restart the server, then press ENTER.");
         scanner.nextLine();
 
 
@@ -104,7 +105,7 @@ public class PersistenceTest {
         //also checks that first user still has auth in database
         TestModels.TestListResult listResult = serverFacade.listGames(existingAuth);
 
-        Assertions.assertTrue(listResult.success, "User auth not found in database after restart");
+        Assertions.assertEquals(200, serverFacade.getStatusCode(), "Server response code was not 200 OK");
         Assertions.assertEquals(2, listResult.games.length, "Missing game(s) in database after restart");
 
         //set games & check if swapped
@@ -132,9 +133,9 @@ public class PersistenceTest {
         TestModels.TestLoginRequest loginRequest = new TestModels.TestLoginRequest();
         loginRequest.username = newUser.username;
         loginRequest.password = newUser.password;
-        TestModels.TestLoginRegisterResult loginResult = serverFacade.login(loginRequest);
+        serverFacade.login(loginRequest);
 
-        Assertions.assertTrue(loginResult.success, "Second user not able to log in after restart");
+        Assertions.assertEquals(200, serverFacade.getStatusCode(), "Second user not able to log in after restart");
         //-------------------------------------------------------------------------------------------------------------
     }
 
