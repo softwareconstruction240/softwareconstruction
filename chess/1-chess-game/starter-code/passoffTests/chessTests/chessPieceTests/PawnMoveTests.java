@@ -23,8 +23,8 @@ public class PawnMoveTests {
                         | | | | | | | | |
                         | | | | | | | | |
                         """,
-                getNewPosition(4, 4),
-                new int[][]{{5, 4}}
+                startPosition(4, 4),
+                endPositions(new int[][]{{5, 4}})
         );
     }
 
@@ -40,8 +40,8 @@ public class PawnMoveTests {
                         | | | | | | | | |
                         | | | | | | | | |
                         """,
-                getNewPosition(4, 4),
-                new int[][]{{3, 4}}
+                startPosition(4, 4),
+                endPositions(new int[][]{{3, 4}})
         );
     }
 
@@ -58,8 +58,8 @@ public class PawnMoveTests {
                         | | | | |P| | | |
                         | | | | | | | | |
                         """,
-                getNewPosition(2, 5),
-                new int[][]{{3, 5}, {4, 5}}
+                startPosition(2, 5),
+                endPositions(new int[][]{{3, 5}, {4, 5}})
         );
     }
 
@@ -75,8 +75,8 @@ public class PawnMoveTests {
                         | | | | | | | | |
                         | | | | | | | | |
                         """,
-                getNewPosition(7, 3),
-                new int[][]{{6, 3}, {5, 3}}
+                startPosition(7, 3),
+                endPositions(new int[][]{{6, 3}, {5, 3}})
         );
     }
 
@@ -93,8 +93,8 @@ public class PawnMoveTests {
                         | | | | | | | | |
                         | | | | | | | | |
                         """,
-                getNewPosition(7, 3),
-                new int[][]{{8, 3}}
+                startPosition(7, 3),
+                endPositions(new int[][]{{8, 3}})
         );
     }
 
@@ -111,8 +111,8 @@ public class PawnMoveTests {
                         | | |p| | | | | |
                         | | | | | | | | |
                         """,
-                getNewPosition(2, 3),
-                new int[][]{{1, 3}}
+                startPosition(2, 3),
+                endPositions(new int[][]{{1, 3}})
         );
     }
 
@@ -129,8 +129,8 @@ public class PawnMoveTests {
                         | |p| | | | | | |
                         |N| | | | | | | |
                         """,
-                getNewPosition(2, 2),
-                new int[][]{{1, 1}, {1, 2}}
+                startPosition(2, 2),
+                endPositions(new int[][]{{1, 1}, {1, 2}})
         );
     }
 
@@ -147,8 +147,8 @@ public class PawnMoveTests {
                         | | | | | | | | |
                         | | | | | | | | |
                         """,
-                getNewPosition(4, 4),
-                new int[][]{}
+                startPosition(4, 4),
+                endPositions(new int[][]{})
         );
     }
 
@@ -164,8 +164,8 @@ public class PawnMoveTests {
                         | | | | | | | | |
                         | | | | | | | | |
                         """,
-                getNewPosition(5, 4),
-                new int[][]{}
+                startPosition(5, 4),
+                endPositions(new int[][]{})
         );
     }
 
@@ -182,8 +182,8 @@ public class PawnMoveTests {
                         | | | | | | |P| |
                         | | | | | | | | |
                         """,
-                getNewPosition(2, 7),
-                new int[][]{{3, 7}}
+                startPosition(2, 7),
+                endPositions(new int[][]{{3, 7}})
         );
     }
 
@@ -199,8 +199,8 @@ public class PawnMoveTests {
                         | | | | | | | | |
                         | | | | | | | | |
                         """,
-                getNewPosition(7, 3),
-                new int[][]{}
+                startPosition(7, 3),
+                endPositions(new int[][]{})
         );
     }
 
@@ -217,8 +217,8 @@ public class PawnMoveTests {
                         | | | | | | | | |
                         | | | | | | | | |
                         """,
-                getNewPosition(4, 4),
-                new int[][]{{5, 3}, {5, 4}}
+                startPosition(4, 4),
+                endPositions(new int[][]{{5, 3}, {5, 4}})
         );
     }
 
@@ -234,8 +234,8 @@ public class PawnMoveTests {
                         | | | | | | | | |
                         | | | | | | | | |
                         """,
-                getNewPosition(4, 4),
-                new int[][]{{3, 5}}
+                startPosition(4, 4),
+                endPositions(new int[][]{{3, 5}})
         );
     }
 
@@ -245,7 +245,7 @@ public class PawnMoveTests {
         var testPiece = board.getPiece(start);
         var validMoves = new HashSet<ChessMove>();
         for (var endPosition : endPositions) {
-            var end = getNewPosition(endPosition[0], endPosition[1]);
+            var end = startPosition(endPosition[0], endPosition[1]);
             validMoves.add(TestFactory.getNewMove(start, end, ChessPiece.PieceType.QUEEN));
             validMoves.add(TestFactory.getNewMove(start, end, ChessPiece.PieceType.BISHOP));
             validMoves.add(TestFactory.getNewMove(start, end, ChessPiece.PieceType.ROOK));

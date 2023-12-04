@@ -18,10 +18,10 @@ public class KnightMoveTests {
                         | | | | | | | | |
                         | | | | | | | | |
                         """,
-                getNewPosition(5, 5),
-                new int[][]{
+                startPosition(5, 5),
+                endPositions(new int[][]{
                         {7, 6}, {6, 7}, {4, 7}, {3, 6}, {3, 4}, {4, 3}, {6, 3}, {7, 4},
-                }
+                })
         );
     }
 
@@ -37,10 +37,10 @@ public class KnightMoveTests {
                         | | | | | | | | |
                         | | | | | | | | |
                         """,
-                getNewPosition(5, 5),
-                new int[][]{
+                startPosition(5, 5),
+                endPositions(new int[][]{
                         {7, 6}, {6, 7}, {4, 7}, {3, 6}, {3, 4}, {4, 3}, {6, 3}, {7, 4},
-                }
+                })
         );
     }
 
@@ -57,8 +57,8 @@ public class KnightMoveTests {
                         | | | | | | | | |
                         | | | | | | | | |
                         """,
-                getNewPosition(4, 1),
-                new int[][]{{6, 2}, {5, 3}, {3, 3}, {2, 2}}
+                startPosition(4, 1),
+                endPositions(new int[][]{{6, 2}, {5, 3}, {3, 3}, {2, 2}})
         );
     }
 
@@ -74,8 +74,8 @@ public class KnightMoveTests {
                         | | | | | | | | |
                         | | | | | | | | |
                         """,
-                getNewPosition(3, 8),
-                new int[][]{{1, 7}, {2, 6}, {4, 6}, {5, 7}}
+                startPosition(3, 8),
+                endPositions(new int[][]{{1, 7}, {2, 6}, {4, 6}, {5, 7}})
         );
     }
 
@@ -91,8 +91,8 @@ public class KnightMoveTests {
                         | | | | | | | | |
                         | | | | | |N| | |
                         """,
-                getNewPosition(1, 6),
-                new int[][]{{2, 4}, {3, 5}, {3, 7}, {2, 8}}
+                startPosition(1, 6),
+                endPositions(new int[][]{{2, 4}, {3, 5}, {3, 7}, {2, 8}})
         );
     }
 
@@ -108,8 +108,8 @@ public class KnightMoveTests {
                         | | | | | | | | |
                         | | | | | | | | |
                         """,
-                getNewPosition(8, 3),
-                new int[][]{{7, 5}, {6, 4}, {6, 2}, {7, 1}}
+                startPosition(8, 3),
+                endPositions(new int[][]{{7, 5}, {6, 4}, {6, 2}, {7, 1}})
         );
     }
 
@@ -126,8 +126,8 @@ public class KnightMoveTests {
                         | | | | | | | | |
                         | | | | | | | |N|
                         """,
-                getNewPosition(1, 8),
-                new int[][]{{2, 6}, {3, 7}}
+                startPosition(1, 8),
+                endPositions(new int[][]{{2, 6}, {3, 7}})
         );
     }
 
@@ -143,8 +143,8 @@ public class KnightMoveTests {
                         | | | | | | | | |
                         | | | | | | | | |
                         """,
-                getNewPosition(8, 8),
-                new int[][]{{6, 7}, {7, 6}}
+                startPosition(8, 8),
+                endPositions(new int[][]{{6, 7}, {7, 6}})
         );
     }
 
@@ -160,8 +160,8 @@ public class KnightMoveTests {
                         | | | | | | | | |
                         | | | | | | | | |
                         """,
-                getNewPosition(8, 1),
-                new int[][]{{7, 3}, {6, 2}}
+                startPosition(8, 1),
+                endPositions(new int[][]{{7, 3}, {6, 2}})
         );
     }
 
@@ -177,8 +177,8 @@ public class KnightMoveTests {
                         | | | | | | | | |
                         |n| | | | | | | |
                         """,
-                getNewPosition(1, 1),
-                new int[][]{{2, 3}, {3, 2}}
+                startPosition(1, 1),
+                endPositions(new int[][]{{2, 3}, {3, 2}})
         );
     }
 
@@ -195,8 +195,8 @@ public class KnightMoveTests {
                         | | | | | | | | |
                         | | | | | | | | |
                         """,
-                getNewPosition(5, 5),
-                new int[][]{{3, 4}, {3, 6}, {4, 7}, {7, 6}, {6, 3}}
+                startPosition(5, 5),
+                endPositions(new int[][]{{3, 4}, {3, 6}, {4, 7}, {7, 6}, {6, 3}})
         );
     }
 
@@ -213,8 +213,8 @@ public class KnightMoveTests {
                         | | | | | | | | |
                         | | | | | | | | |
                         """,
-                getNewPosition(5, 5),
-                new int[][]{{7, 6}, {6, 7}, {4, 7}, {3, 6}, {3, 4}, {4, 3}, {6, 3}, {7, 4}}
+                startPosition(5, 5),
+                endPositions(new int[][]{{7, 6}, {6, 7}, {4, 7}, {3, 6}, {3, 4}, {4, 3}, {6, 3}, {7, 4}})
         );
     }
 }

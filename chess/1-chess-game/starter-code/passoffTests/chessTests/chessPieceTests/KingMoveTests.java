@@ -19,8 +19,8 @@ public class KingMoveTests {
                         | | | | | | | | |
                         | | | | | | | | |
                         """,
-                getNewPosition(3, 6),
-                new int[][]{{4, 6}, {4, 7}, {3, 7}, {2, 7}, {2, 6}, {2, 5}, {3, 5}, {4, 5}}
+                startPosition(3, 6),
+                endPositions(new int[][]{{4, 6}, {4, 7}, {3, 7}, {2, 7}, {2, 6}, {2, 5}, {3, 5}, {4, 5}})
         );
     }
 
@@ -37,8 +37,8 @@ public class KingMoveTests {
                         | | |P|b|p| | | |
                         | | | | | | | | |
                         """,
-                getNewPosition(3, 4),
-                new int[][]{{4, 4}, {3, 5}, {2, 3}, {3, 3}, {4, 3}}
+                startPosition(3, 4),
+                endPositions(new int[][]{{4, 4}, {3, 5}, {2, 3}, {3, 3}, {4, 3}})
         );
     }
 
@@ -55,8 +55,8 @@ public class KingMoveTests {
                         | | | | | | | | |
                         | | | | | | | | |
                         """,
-                getNewPosition(8, 8),
-                new int[][]{}
+                startPosition(8, 8),
+                endPositions(new int[][]{})
         );
     }
 

@@ -18,13 +18,13 @@ public class BishopMoveTests {
                         | | | | | | | | |
                         | | | | | | | | |
                         """,
-                getNewPosition(5, 4),
-                new int[][]{
+                startPosition(5, 4),
+                endPositions(new int[][]{
                         {6, 5}, {7, 6}, {8, 7},
                         {4, 5}, {3, 6}, {2, 7}, {1, 8},
                         {4, 3}, {3, 2}, {2, 1},
                         {6, 3}, {7, 2}, {8, 1},
-                }
+                })
         );
     }
 
@@ -41,13 +41,13 @@ public class BishopMoveTests {
                         | | | | |P| | | |
                         | | | | | | | | |
                         """,
-                getNewPosition(5, 2),
-                new int[][]{
+                startPosition(5, 2),
+                endPositions(new int[][]{
                         {6, 3}, {7, 4},
                         {4, 3}, {3, 4}, {2, 5},
                         // none
                         {6, 1},
-                }
+                })
         );
     }
 
@@ -64,8 +64,8 @@ public class BishopMoveTests {
                         | | | | |R| |P| |
                         | | | | | |B| | |
                         """,
-                getNewPosition(1, 6),
-                new int[][]{}
+                startPosition(1, 6),
+                endPositions(new int[][]{})
         );
     }
 

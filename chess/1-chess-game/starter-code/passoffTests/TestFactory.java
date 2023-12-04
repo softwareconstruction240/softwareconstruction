@@ -3,7 +3,9 @@ package passoffTests;
 import chess.*;
 import org.junit.jupiter.api.Assertions;
 
-import java.util.*;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * Used for testing your code
@@ -11,61 +13,69 @@ import java.util.*;
  */
 public class TestFactory {
 
-    //Chess Functions
-    //------------------------------------------------------------------------------------------------------------------
-    public static ChessBoard getNewBoard(){
+    // Chess Functions
+    // ------------------------------------------------------------------------------------------------------------------
+    public static ChessBoard getNewBoard() {
         // FIXME
-		return null;
+        return null;
     }
 
-    public static ChessGame getNewGame(){
+    public static ChessGame getNewGame() {
         // FIXME
-		return null;
+        return null;
     }
 
-    public static ChessPiece getNewPiece(ChessGame.TeamColor pieceColor, ChessPiece.PieceType type){
+    public static ChessPiece getNewPiece(ChessGame.TeamColor pieceColor, ChessPiece.PieceType type) {
         // FIXME
-		return null;
+        return null;
     }
 
-    public static ChessPosition getNewPosition(Integer row, Integer col){
+    public static ChessPosition getNewPosition(Integer row, Integer col) {
         // FIXME
-		return null;
+        return null;
     }
 
-    public static ChessMove getNewMove(ChessPosition startPosition, ChessPosition endPosition, ChessPiece.PieceType promotionPiece){
+    public static ChessMove getNewMove(ChessPosition startPosition, ChessPosition endPosition,
+            ChessPiece.PieceType promotionPiece) {
         // FIXME
-		return null;
+        return null;
     }
-    //------------------------------------------------------------------------------------------------------------------
+    // ------------------------------------------------------------------------------------------------------------------
 
-
-    //Server APIs
-    //------------------------------------------------------------------------------------------------------------------
-    public static String getServerPort(){
+    // Server APIs
+    // ------------------------------------------------------------------------------------------------------------------
+    public static String getServerPort() {
         return "8080";
     }
-    //------------------------------------------------------------------------------------------------------------------
+    // ------------------------------------------------------------------------------------------------------------------
 
-
-    //Websocket Tests
-    //------------------------------------------------------------------------------------------------------------------
-    public static Long getMessageTime(){
+    // Websocket Tests
+    // ------------------------------------------------------------------------------------------------------------------
+    public static Long getMessageTime() {
         /*
-        Changing this will change how long tests will wait for the server to send messages.
-        3000 Milliseconds (3 seconds) will be enough for most computers. Feel free to change as you see fit,
-        just know increasing it can make tests take longer to run.
-        (On the flip side, if you've got a good computer feel free to decrease it)
+         * Changing this will change how long tests will wait for the server to send
+         * messages.
+         * 3000 Milliseconds (3 seconds) will be enough for most computers. Feel free to
+         * change as you see fit,
+         * just know increasing it can make tests take longer to run.
+         * (On the flip side, if you've got a good computer feel free to decrease it)
          */
         return 3000L;
     }
-    //------------------------------------------------------------------------------------------------------------------
+    // ------------------------------------------------------------------------------------------------------------------
 
+    static public ChessPosition startPosition(int row, int col) {
+        return getNewPosition(row, col);
+    }
 
-    static public void validateMoves(String boardText, ChessPosition startPosition, int[][] moves) {
+    static public int[][] endPositions(int[][] endPos) {
+        return endPos;
+    }
+
+    static public void validateMoves(String boardText, ChessPosition startPosition, int[][] endPositions) {
         var board = loadBoard(boardText);
         var testPiece = board.getPiece(startPosition);
-        var validMoves = loadMoves(startPosition, moves);
+        var validMoves = loadMoves(startPosition, endPositions);
 
         Assertions.assertEquals(validMoves, testPiece.pieceMoves(board, startPosition), "Wrong moves");
     }
@@ -76,8 +86,7 @@ public class TestFactory {
             'r', ChessPiece.PieceType.ROOK,
             'q', ChessPiece.PieceType.QUEEN,
             'k', ChessPiece.PieceType.KING,
-            'b', ChessPiece.PieceType.BISHOP
-    );
+            'b', ChessPiece.PieceType.BISHOP);
 
     public static ChessBoard loadBoard(String boardText) {
         var board = getNewBoard();
@@ -93,7 +102,8 @@ public class TestFactory {
                 case '|' -> {
                 }
                 default -> {
-                    ChessGame.TeamColor color = Character.isLowerCase(c) ? ChessGame.TeamColor.BLACK : ChessGame.TeamColor.WHITE;
+                    ChessGame.TeamColor color = Character.isLowerCase(c) ? ChessGame.TeamColor.BLACK
+                            : ChessGame.TeamColor.WHITE;
                     var type = charToTypeMap.get(Character.toLowerCase(c));
                     var position = TestFactory.getNewPosition(row, column);
                     var piece = TestFactory.getNewPiece(color, type);
@@ -108,7 +118,8 @@ public class TestFactory {
     public static Set<ChessMove> loadMoves(ChessPosition startPosition, int[][] endPositions) {
         var validMoves = new HashSet<ChessMove>();
         for (var endPosition : endPositions) {
-            validMoves.add(TestFactory.getNewMove(startPosition, TestFactory.getNewPosition(endPosition[0], endPosition[1]), null));
+            validMoves.add(TestFactory.getNewMove(startPosition,
+                    TestFactory.getNewPosition(endPosition[0], endPosition[1]), null));
         }
         return validMoves;
     }

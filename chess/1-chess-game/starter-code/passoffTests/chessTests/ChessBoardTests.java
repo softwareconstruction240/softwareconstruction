@@ -7,32 +7,22 @@ import static passoffTests.TestFactory.*;
 
 public class ChessBoardTests {
 
-    private ChessBoard board;
-
-    @BeforeEach
-    public void setup() {
-        board = getNewBoard();
-    }
-
-
     @Test
     @DisplayName("Add and Get Piece")
     public void getAddPiece() {
-        ChessPosition addPosition = getNewPosition(4, 4);
+        ChessPosition position = getNewPosition(4, 4);
         ChessPiece piece = getNewPiece(ChessGame.TeamColor.BLACK, ChessPiece.PieceType.BISHOP);
 
-        board.addPiece(addPosition, piece);
+        var board = getNewBoard();
+        board.addPiece(position, piece);
 
-        ChessPosition getPosition = getNewPosition(4, 4);
-        ChessPiece foundPiece = board.getPiece(getPosition);
+        ChessPiece foundPiece = board.getPiece(position);
 
-        Assertions.assertNotNull(foundPiece, "Could not find added piece");
         Assertions.assertEquals(piece.getPieceType(), foundPiece.getPieceType(),
                 "ChessPiece returned by getPiece had the wrong piece type");
         Assertions.assertEquals(piece.getTeamColor(), foundPiece.getTeamColor(),
                 "ChessPiece returned by getPiece had the wrong team color");
     }
-
 
     @Test
     @DisplayName("Reset Board")
