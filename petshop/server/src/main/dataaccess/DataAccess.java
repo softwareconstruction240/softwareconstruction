@@ -10,6 +10,8 @@ public interface DataAccess {
 
     Collection<Pet> listPets() throws ResponseException;
 
+    Pet getPet(int id) throws ResponseException;
+    
     void deletePet(Integer id) throws ResponseException;
 
     void deleteAllPets() throws ResponseException;

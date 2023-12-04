@@ -30,6 +30,23 @@ public class MySqlDataAccess implements DataAccess {
         return new Pet(id, pet.name(), pet.type(), pet.friends());
     }
 
+    public Pet getPet(int id) throws ResponseException {
+        try (var conn = getConnection()) {
+            var statement = setDb("SELECT id, name, type, friends FROM %DB_NAME%.pet WHERE id=?");
+            try (var ps = conn.prepareStatement(statement)) {
+                ps.setInt(1, id);
+                try (var rs = ps.executeQuery()) {
+                    if (rs.next()) {
+                        return readPet(rs);
+                    }
+                }
+            }
+        } catch (Exception e) {
+            throw new ResponseException(500, String.format("Unable to read data: %s", e.getMessage()));
+        }
+        return null;
+    }
+
     public Collection<Pet> listPets() throws ResponseException {
         var result = new ArrayList<Pet>();
         try (var conn = getConnection()) {

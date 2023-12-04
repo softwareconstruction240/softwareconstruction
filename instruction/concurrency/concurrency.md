@@ -180,7 +180,9 @@ In addition to returning `Future` objects from the execution of a `Callable`, th
 
 In our example above we created a pool using the ExecutorService's factory `newSingleThreadExecutor` method. This creates a single thread and gives each Callable an equal chance to execute. You can also create a thread pool that allocates a fixed number of threads using the `newFixedThreadPool` method. This executor will block newly submitted tasks if there are no available threads in the pool. The `newCachedThreadPool` will grow the pool of threads when a new task is submitted if all of the current threads are in use.
 
-With all of the executors defined above, the threads in the pool are reused for each of the submitted tasks. This helps to decrease the overhead involved with creating and deleting threads.
+![Executor](executor.png)
+
+With all of the executors defined above, the threads in the pool are reused for each of the submitted tasks. This helps to decrease the overhead involved with creating and deleting threads. The following is a list of executors that are provided in the JDK concurrency package.
 
 | Pool Type               | Description                                                                                                       |
 | ----------------------- | ----------------------------------------------------------------------------------------------------------------- |
