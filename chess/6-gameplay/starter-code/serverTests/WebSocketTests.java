@@ -1929,7 +1929,13 @@ public class WebSocketTests {
 
         @Override
         public void notifyMessage(String message) {
-            messages.add(new Gson().fromJson(message, TestModels.TestMessage.class));
+            try {
+                messages.add(new Gson().fromJson(message, TestModels.TestMessage.class));
+            }
+            catch (Exception e) {
+                e.printStackTrace();
+            }
+
             latch.countDown();
         }
 
