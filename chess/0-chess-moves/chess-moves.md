@@ -14,29 +14,29 @@ Chess is a strategy game where 2 players take turn moving pieces and capturing e
 
 ### Movement
 
-**`King`**
+#### King
 
 Kings may move 1 square in any direction (including diagonal) to either a position occupied by an enemy piece (capturing the enemy piece), or to an unoccupied position. A player is not allowed to make any move that would allow the opponent to capture their King. If your King is in danger of being captured on your turn, you must make a move that removes your King from immediate danger.
 
-**`Pawn`**
+#### Pawn
 
 Pawns normally may move forward one square if that square is unoccupied, though if it is the first time that pawn is being moved, it may be moved forward 2 squares (provided both squares are unoccupied).
 Pawns cannot capture forward, but instead capture forward diagonally (1 square forward and 1 square sideways). They may only move diagonally like this if capturing an enemy piece.
 When a pawn moves to the end of the board (row 8 for white and row 1 for black), they get promoted and are replaced with the players choice of Rook, Knight, Bishop, or Queen (they cannot stay a Pawn or become King).
 
-**`Rook`**
+#### Rook
 
 Rooks may move in straight lines as far as there is open space. If there is an enemy piece at the end of the line, rooks may move to that position and capture the enemy piece.
 
-**`Knight`**
+#### Knight
 
 Knights move in an `L` shape, moving 2 squares in one direction and 1 square in the other direction. Knights are the only piece that can ignore pieces in the in-between squares (they can "jump" over other pieces). They can move to squares occupied by an enemy piece and capture the enemy piece, or to unoccupied squares.
 
-**`Bishop`**
+#### Bishop
 
 Bishops move in diagonal lines as far as there is open space. If there is an enemy piece at the end of the diagonal, the bishop may move to that position and capture the enemy piece.
 
-**`Queen`**
+#### Queen
 
 Queens are the most powerful piece and may move in straight lines and diagonals as far as there is open space. If there is an enemy piece at the end of the line, they may move to that position and capture the enemy piece. (In simpler terms, Queens can take all moves a Rook or Bishop could take from the Queens position).
 
@@ -73,9 +73,11 @@ To begin building your chess application, you must first following the instructi
 
 This provides you with an IntelliJ project that contains the following three modules.
 
-1. **Client** - The command line program that players use to create and play a game of chess. This communicates with your server over the network in order to play a game.
 1. **Server** - A program that handles network requests to create and play games. It stores games persistently in a database and sends out notifications to all the players of a game.
+1. **Client** - The command line program that players use to create and play a game of chess. The client communicates with your server over the network in order to play a game with other clients.
 1. **Shared** - A code library that contains the rules and representation of a chess game that both the `client` and `server` use to exercise and validate game play.
+
+![Modules](modules.png)
 
 In this phase you will implement the shared code that defines the board, pieces, and the rules of chess. In later phases you will use the code you create to create a fully playable game.
 
@@ -89,7 +91,7 @@ The starter code contains defines the classes defined by the following diagram. 
 
 ### ChessGame
 
-This class serves as the top-level management of the Chess Game. It is responsible for executing moves as well as reporting the game status.
+This class serves as the top-level management of the chess game. It is responsible for executing moves as well as recording the game status.
 
 You will not need to implement any code in this class for this phase.
 
@@ -122,7 +124,7 @@ public enum PieceType {
 
 #### Key Methods
 
-- **pieceMoves**: This method is similar to `ChessGame::validMoves`, except it does not check the turn or Check (king safety) constraints. This method does account for enemy and friendly pieces blocking movement paths. Each of the 6 different implementations of this class will need a unique pieceMoves method to calculate valid moves for that type of piece. See later in the specs for rules on how each piece moves, as well as a couple special moves that can be implemented for extra credit.
+- **pieceMoves**: This method is similar to `ChessGame.validMoves`, except it does not honor whose turn it is or check if the king is being attacked. This method does account for enemy and friendly pieces blocking movement paths. The `pieceMoves` method will need to take into account the type of piece, and the location of other pieces on the board.
 
 ### ChessMove
 
@@ -130,38 +132,36 @@ This class represents a possible move a chess piece could make. It contains the 
 
 ### ChessPosition
 
-This represents a location on the chessboard. This should be represented as a row number from 1-8, and a column number from 1-8. (1,1) corresponds to the bottom left corner (which in chess notation is denoted `a1`). (8,8) corresponds to the top right corner (`h8` in chess notation).
+This represents a location on the chessboard. This should be represented as a row number from 1-8, and a column number from 1-8. For example, (1,1) corresponds to the bottom left corner (which in chess notation is denoted `a1`). (8,8) corresponds to the top right corner (`h8` in chess notation).
 
 ## Testing
 
-The test cases in `passoffTests → chessTests.ChessPieceTests` has a collection of tests for the movement of individual pieces.
+The test cases in found in `src/test/java/passoffTests/chessTests/ChessPieceTests` contain a collection of tests that assert the correct movement of individual pieces.
 
 To run the tests, you can click the play icon next to an individual test, or you can right click on a package or class and select `Debug` or `Debug Tests in …`
 
 ![Debug Test](debug-test.png)
 
-## Recommended Order
+## Recommended Development Process
 
-For this project, you are free to implement the classes described above in whatever order makes sense to you. However, it is suggested that you follow the principles of test driven development.
+For this project, you are free to implement the classes described above in whatever order. However, it is suggested that you follow the principles of test driven development.
 
-- Execute the `BishopMoveTests.bishopMoveUntilEdge` test.
+- Start by executing the `BishopMoveTests.bishopMoveUntilEdge` test.
 - Observe what code is throwing a `Not implemented` exception.
 - Replace the code that is throwing the exception with something reasonable.
 - Rerun the test, debug, and continue implementing until the test passes.
 - Commit your changes to GitHub.
-- Repeat the above process for each of the other tests.
+- Repeat the above process for each of the movement tests.
 
 ## Object Overrides
 
-In order for the tests to pass, you are required to override the `equals()` and `hashCode()` methods in your ChessMove implementation and your ChessPosition implementation. To do this automatically in IntelliJ, select Code > Generate... > equals() and hashCode(). The default methods provided by IntelliJ should suffice. The `equals()` and `hashCode()` methods need to be more than merely a call to `super()`, and using 'Generate...' should do this correctly. Note, you must have already have finished implementing these classes before IntelliJ will be able to generate these methods.
+In order for the tests to pass, you are required to override the `equals()` and `hashCode()` methods in your class implementations as necessary. To do this automatically in IntelliJ, select `Code > Generate... > equals() and hashCode()`. The default methods provided by IntelliJ should suffice. The `equals()` and `hashCode()` methods need to be more than merely a call to `super()`, and using 'Generate...' should do this correctly. However, you must have already have finished implementing these classes before IntelliJ will be able to generate these methods.
 
 ⚠ NOTE: Although not required, debugging is often easier if you override the `toString()` method and return a concise representation of the object.
 
-### Pass Off Tests
-
-The `shared/src/test/java/passoffTests` directory contains unit tests that you will use to drive your development efforts. Once all the tests run successfully you are done with this phase.
-
 ## Pass Off and Grading
+
+The `shared/src/test/java/passoffTests` directory contains unit tests that you will use to drive your development efforts. Once all the tests run successfully, you are done with the development work for this phase.
 
 To pass off this assignment, meet with a TA and demonstrate that your code passes the provided test cases.
 
