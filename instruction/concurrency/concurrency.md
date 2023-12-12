@@ -24,13 +24,17 @@ We can solve this problem by hiring more workers so we can serve multiple custom
 
 The pattern of concurrently executing tasks is a foundational principle in computer science that enables increased throughput and performance.
 
-### Parallel vs Concurrent vs Sequential
+## Parallel vs Concurrent vs Sequential
 
-When you have multiple tasks and a single CPU, the operating system will swap which task is executing so that each task gets a chance to run. This allows the tasks to run concurrently. If you have multiple CPUs then the operating system can actually run the tasks at the **same time**, or in parallel. If each task has to run to completion before another task can start then you are running sequentially. When running sequentially you don't need to worry about data corruption, starvation, or deadlock because nothing can interupt a partial execution of a task.
+When you have multiple tasks and a single CPU, the operating system will swap which task is executing so that each task gets a chance to run. This allows the tasks to run concurrently. If you have multiple CPUs then the operating system can actually run the tasks at the **same time**, or in parallel. If each task has to run to completion before another task can start then you are running sequentially. When running sequentially you don't need to worry about data corruption, starvation, or deadlock because nothing can interrupt a partial execution of a task.
+
+The following diagram shows two tasks, one yellow and one blue, that need to execute. Depending how you write your code and what device your code runs on, it may run under any of the following models.
+
+![Models](models.png)
 
 ## Concurrency at the System Level
 
-When your computer runs, it has hundreds of tasks that it needs to execute. This includes each program you start, sending and receiving network communication, receiving input from your keyboard, rendering to your display, and storing information. A computer usually has multiple processing units (CPUs) that each can process one task at a time. When a CPU periodically switches tasks it gives the appearance that everything is running at the same time. If you have multiple CPUs, then the tasks are actually running in parallel. However no computer has enough CPUs for every task to run in parallel, and so the operating system spends much of its time scheduling and swapping tasks so that they run concurrently.
+When your computer runs, it has hundreds of tasks that it needs to execute. This includes each program you start, sending and receiving network communication, receiving input from your keyboard, rendering to your display, and storing information. A computer usually has multiple processing units (CPUs). Each CPU can process one task at a time. When a CPU periodically switches tasks they are running concurrently and it gives the appearance that everything is running at the same time. If you have multiple CPUs, then the tasks are actually running in parallel. However no computer has enough CPUs for every task to run in parallel, and so the operating system spends much of its time scheduling and swapping tasks so that they run concurrently and in parallel.
 
 ## Concurrency Complexities
 
