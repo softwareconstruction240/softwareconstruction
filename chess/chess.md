@@ -31,6 +31,7 @@ You are required to make multiple commits to your public Chess GitHub repository
 
 | Phase            | Deliverables                                                                                      |
 | ---------------- | ------------------------------------------------------------------------------------------------- |
+| 0. Chess moves   | Complete pass off tests for the chess moves code.                                                 |
 | 1. Chess game    | Complete pass off tests for the chess game code.                                                  |
 | 2. Server design | Create javadocs for the service and database components.                                          |
 | 3. Web API       | Complete pass off tests for the HTTP server<br/>Create and complete unit tests for chess service. |
