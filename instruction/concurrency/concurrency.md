@@ -24,9 +24,17 @@ We can solve this problem by hiring more workers so we can serve multiple custom
 
 The pattern of concurrently executing tasks is a foundational principle in computer science that enables increased throughput and performance.
 
+## Parallel vs Concurrent vs Sequential
+
+When you have multiple tasks and a single CPU, the operating system will swap which task is executing so that each task gets a chance to run. This allows the tasks to run concurrently. If you have multiple CPUs then the operating system can actually run the tasks at the **same time**, or in parallel. If each task has to run to completion before another task can start then you are running sequentially. When running sequentially you don't need to worry about data corruption, starvation, or deadlock because nothing can interrupt a partial execution of a task.
+
+The following diagram shows two tasks, one yellow and one blue, that need to execute. Depending how you write your code and what device your code runs on, it may run under any of the following models.
+
+![Models](models.png)
+
 ## Concurrency at the System Level
 
-When your computer runs, it has hundreds of tasks that it needs to execute. This includes each program you start, sending and receiving network communication, receiving input from your keyboard, rendering to your display, and storing information. A computer usually has multiple processing units (CPUs) that each can process one task at a time. When a CPU periodically switches tasks it gives the appearance that everything is running at the same time. If you have multiple CPUs, then the tasks are actually running concurrently. However no computer has enough CPUs for every task to run concurrently, and so the operating system spends much of its time scheduling and swapping tasks.
+When your computer runs, it has hundreds of tasks that it needs to execute. This includes each program you start, sending and receiving network communication, receiving input from your keyboard, rendering to your display, and storing information. A computer usually has multiple processing units (CPUs). Each CPU can process one task at a time. When a CPU periodically switches tasks they are running concurrently and it gives the appearance that everything is running at the same time. If you have multiple CPUs, then the tasks are actually running in parallel. However no computer has enough CPUs for every task to run in parallel, and so the operating system spends much of its time scheduling and swapping tasks so that they run concurrently and in parallel.
 
 ## Concurrency Complexities
 
@@ -55,10 +63,6 @@ Most computers only have one network card. If one task monopolizes the use of th
 In the pizza shop you need to have the paddle to pull a pizza out of the oven and use the box maker to create a pizza box to put it in. If one worker is holding the box maker while a different worker is holding the oven paddle, neither one can actually complete the pizza making process. When two workers each hold a resource that the other worker needs to get a job done, you end up with **deadlock** in your system. One of the workers must temporarily release the resource so that the work can move forward.
 
 If we look back to our computer example, we have two resources, memory and the network. When two processes want to read from memory and write to the network, the operating system must make sure that they are sharing nicely. If one process grabs the network, and the other process grabs the access to the memory, neither one will be able to complete their tasks. The operating system must step in and require one of them to release a resource.
-
-### Parallelism vs Concurrency
-
-When you have multiple tasks and a single CPU, the operating system will swap which task is executing so that each task gets a chance to run. This allows the tasks to run in parallel. If you have multiple CPUs then the operating system can actually run the tasks at the same time, or concurrently. If tasks are not actually running concurrently then you don't need to worry about starvation or deadlock because nothing actually runs at the same time. However, you must still consider the overhead involved with swapping tasks.
 
 ## Concurrent Programming in Java
 
