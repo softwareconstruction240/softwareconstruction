@@ -18,23 +18,15 @@ The term software engineering was first used in conjunction with the software cr
 >
 > — Margaret Hamilton
 
-## Projects
+## Chess Project
 
-There are two programming projects that you will complete for this course. The first program is a simple `spelling corrector`. This program takes as input, a dictionary and a candidate word. The corrector analyzes the word and then returns a corrected suggestion.
+We use the game of [chess](../../chess/chess.md) to help you develop and demonstrate mastery during this course. Your development work is divided into different phases. Each phase demonstrates a different architectural concept or technology. The first phases implements the rules of chess.
 
-```sh
-➜  java spell dictionary.txt truble
+After implementing the first phase of the chess project, you will rewrite the code, from the base project template, without external help or resources, during a timed exam. This demonstrates your ability to work independently under pressure. Being able to efficiently write code under a deadline is an essential skill that will prepare you for the realities of programming professionally.
 
-Suggestion: trouble
-```
-
-The purpose of the spelling corrector is to help you learn the basics of your development tools. After you have completed the spelling corrector you will take a timed exam during which you will reimplement the program without referencing your previous work. Being able to efficiently write code under a deadline will demonstrate your mastery, and prepare you for the realities of programming professionally.
-
-Once you have completed the spelling corrector, you can confidently assume that you have the basic skills necessary to complete the second, and much larger, `multi-player chess` program. This program consists of a chess server that allows multiple client player programs to connect, register users, and play games.
+The remainder of the chess phases implement a chess server that allows multiple client player programs to connect, register users, and play games.
 
 ![Chess game](highlight-moves.png)
-
-The chess program is broken up into [six different phases](../../chess/chess.md). Each phase teaches a different concept related to the construction of a large programming project. Once you have completed the final phase, you will have created a fully functional application that you can use to play chess with your friends.
 
 ## Java
 
@@ -89,11 +81,11 @@ Whenever you approach something new, approach it with the attitude that you will
 
 Your mastery of advanced software construction is demonstrated by the following three areas and percentages.
 
-| Area               | Percentage |
-| ------------------ | ---------- |
-| Spelling Corrector | 5%         |
-| Chess              | 75%        |
-| Exams              | 20%        |
+| Area         | Percentage |
+| ------------ | ---------- |
+| Chess        | 90%        |
+| Phase 0 exam | 5%         |
+| Final exam   | 5%         |
 
 More important than the actual grade you receive from this course is the degree to which you stretch yourself. Software construction is an area that takes decades of effort to master. If you approach this subject matter intentionally, with effort and curiosity, you will find your value as a software engineer greatly increased.
 
