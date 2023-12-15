@@ -73,9 +73,11 @@ To begin building your chess application, you must first following the instructi
 
 This provides you with an IntelliJ project that contains the following three modules.
 
-1. **Server** - A program that handles network requests to create and play games. It stores games persistently in a database and sends out notifications to all the players of a game.
-1. **Client** - The command line program that players use to create and play a game of chess. The client communicates with your server over the network in order to play a game with other clients.
-1. **Shared** - A code library that contains the rules and representation of a chess game that both the `client` and `server` use to exercise and validate game play.
+| Phase      | Description                                                                                                                                                                         |
+| ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Server** | A program that handles network requests to create and play games. It stores games persistently in a database and sends out notifications to all the players of a game.              |
+| **Client** | The command line program that players use to create and play a game of chess. The client communicates with your server over the network in order to play a game with other clients. |
+| **Shared** | A code library that contains the rules and representation of a chess game that both the `client` and `server` use to exercise and validate game play.                               |
 
 ![Modules](modules.png)
 
@@ -151,7 +153,7 @@ For this project, you are free to implement the classes described above in whate
 - Replace the code that is throwing the exception with something reasonable.
 - Rerun the test, debug, and continue implementing until the test passes.
 - Commit your changes to GitHub.
-- Repeat the above process for each of the movement tests.
+- Repeat the above process for each of the tests until they all pass.
 
 ## Object Overrides
 
@@ -166,6 +168,8 @@ The `shared/src/test/java/passoffTests` directory contains unit tests that you w
 To pass off this assignment, meet with a TA and demonstrate that your code passes the provided test cases.
 
 ### Grading Rubric
+
+**⚠ NOTE**: You are required to commit to GitHub with every minor milestone. For example, after you successfully pass a test. This should result in a commit history that clearly details your work on this phase. If your Git history does not demonstrate your efforts then your submission may be rejected.
 
 | Category      | Criteria                        | Points |
 | ------------- | ------------------------------- | -----: |
