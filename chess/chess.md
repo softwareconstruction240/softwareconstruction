@@ -25,19 +25,23 @@ git clone https://github.com/softwareconstruction240/softwareconstruction.git
 
 ## GitHub Commits
 
-You are required to make multiple commits to your public Chess GitHub repository for each phase. Each commit should represent a minor milestone within a phase. For example, after passing each test you should commit your code.
+Git is an essential software development tool. It allows you to quickly recover from mistakes, share your code with others, backup your code, and serve as a portfolio of your skills.
+
+⚠ You are required to make multiple commits to your public Chess GitHub repository for each phase. Each commit should represent a minor milestone within a phase. For example, after passing each test you should commit your code.
+
+Failure to properly document your efforts with your GitHub history may result in your assignment deliverables being rejected. So make sure you commit your changes consistently and often.
 
 ## Deliverables
 
-| Phase            | Deliverables                                                                                      |
-| ---------------- | ------------------------------------------------------------------------------------------------- |
-| 0. Chess moves   | Complete pass off tests for the chess moves code.                                                 |
-| 1. Chess game    | Complete pass off tests for the chess game code.                                                  |
-| 2. Server design | Create javadocs for the service and database components.                                          |
-| 3. Web API       | Complete pass off tests for the HTTP server<br/>Create and complete unit tests for chess service. |
-| 4. Database      | Complete serialization pass off test.<br/>Create and complete unit tests for the chess database.  |
-| 5. Pregame       | Create and complete client unit tests.                                                            |
-| 6. Gameplay      | Complete pass off tests for WebSocket server.                                                     |
+| Phase            | Deliverables                                                                                                                                  |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0. Chess moves   | 1. Complete pass off tests for the chess board and moves code.                                                                                |
+| 1. Chess game    | 1. Complete pass off tests for the chess game code.<br/>2. Optionally complete castling and en passant tests for extra credit.                |
+| 2. Server design | 1. Create javadocs for the service and database components.                                                                                   |
+| 3. Web API       | 1. Complete pass off tests for the HTTP server<br/>2. Create and complete unit tests for chess service.                                       |
+| 4. Database      | 1. Complete serialization pass off test.<br/>2. Create and complete unit tests for the chess database.                                        |
+| 5. Pregame       | 1. Create and complete client unit tests.                                                                                                     |
+| 6. Gameplay      | 1. Complete pass off tests for WebSocket server.<br/>2. Demonstrate that you can play a game of chess using your server and multiple clients. |
 
 The deliverables in blue represent tests provided by the course start up code that you must pass. The deliverables in green represent unit tests that you must write and pass.
 
@@ -45,6 +49,6 @@ The deliverables in blue represent tests provided by the course start up code th
 
 ## Example
 
-When you complete the entire project, you should have something similar to the following.
+When you complete the entire project, you should have something similar to the following where two client command line programs take turns playing a game of chess.
 
 ![chess board](chess-demo.gif)
