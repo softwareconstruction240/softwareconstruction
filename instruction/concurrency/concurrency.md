@@ -192,7 +192,7 @@ With all of the executors defined above, the threads in the pool are reused for 
 | ----------------------- | ----------------------------------------------------------------------------------------------------------------- |
 | newSingleThreadExecutor | Uses a single thread and switches the callable task. Good for removing thread context switching overhead.         |
 | newFixedThreadPool      | Reuses threads. Good for saving on thread creation overhead.                                                      |
-| new CachedThreadPool    | Reuses threads. Good for saving on thread creation overhead where the maximum number of needed thread is unknown. |
+| newCachedThreadPool    | Reuses threads. Good for saving on thread creation overhead where the maximum number of needed thread is unknown. |
 | newScheduledThreadPool  | Runs threads periodically. Good for scheduled tasks without creating a new thread every time.                     |
 
 ## Synchronizing Threads
@@ -248,7 +248,7 @@ Pizza-1 served
 Exception in thread "Thread-7" Exception in thread "Thread-6" java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
 ```
 
-This happens because a thread running the `makePizzas` function checks to see if there is a pizza in the list, but before it can pull it out of the list, another `makePizzas` thread pulls it out of the list and the first thread gets an array out of bounds exception when it tries to grab the order that is no longer in the list. Any piece of code that access a resource that can be manipulated by multiple threads is called a `critical section`. Usually this involves code that **reads** and **modifies** a resource over multiple non-atomic statements.
+This happens because a thread running the `makePizzas` function checks to see if there is a pizza in the list, but before it can pull it out of the list, another `makePizzas` thread pulls it out of the list and the first thread gets an array out of bounds exception when it tries to grab the order that is no longer in the list. Any piece of code that accesses a resource that can be manipulated by multiple threads is called a `critical section`. Usually this involves code that **reads** and **modifies** a resource over multiple non-atomic statements.
 
 In the pizza shop case, the critical sections are when we add to the order list,
 
