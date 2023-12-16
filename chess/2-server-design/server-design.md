@@ -71,9 +71,6 @@ This diagram represent the following sequence for registering and authorizing a 
 1. The `service` returns the authToken to the server.
 1. The `server` returns the authToken to the player.
 
-## SequenceDiagram.Org
-
-You will create each of your seven diagrams using a simple web based editing tool found at [sequencediagram.org](https://sequencediagram.org). The [instructions](https://sequencediagram.org/instructions.html) for using the tool document all of the basic elements necessary to draw your diagram. It is not necessary for you to fully understand all the details of UML sequence diagrams, but it should be obvious from your diagrams what you are application is designed to do.
 
 ## Classes
 
@@ -85,9 +82,29 @@ Once such possible example could be the following.
 
 This architecture includes a handler method for each server endpoint that calls a corresponding service method. The service method then interacts with the data access methods to store and retrieve data from the database. The application model objects serve as the primary data representations that are passed between the server, services, and data access components.
 
+
+## SequenceDiagram.Org
+
+You will create each of your seven diagrams using a simple web based editing tool found at [sequencediagram.org](https://sequencediagram.org). The [instructions](https://sequencediagram.org/instructions.html) for using the tool document all of the basic elements necessary to draw your diagram. It is not necessary for you to fully understand all the details of UML sequence diagrams, but it should be obvious from your diagrams what your application is designed to do.
+
+A basic sequence diagram uses objects names seperated by arrows that show the direction of the sequence. This is followed by a colon separated description of the sequence action.
+
+```uml
+title Registration
+
+client->server:register(name)
+server->server:createUser(name):user
+server->database:addUser(name)
+server->client:user
+```
+
+
 ## Submission and Grading
 
-Submit your Javadocs zip archive to the `Chess Server Design` Canvas Assignment.
+Once you have created your diagram you can create a URL that represents it by selecting the `export diagram` tool found on the toolbar to the left of the application. In the export dialog select `Presentation Mode Link` and copy the URL. Create one of these URLs for each of your endpoint sequence diagrams. Submit the URLs to the `Chess Server Design` Canvas Assignment.
+
+
+![sequencediagram.org](sequence-diagram-org.gif)
 
 ### Grading Rubric
 
