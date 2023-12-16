@@ -6,7 +6,7 @@
 
 🖥️ [Slides](https://docs.google.com/presentation/d/12zsEJ-at5DsbKNy7a0Eac0D1ZWa4RBIC/edit?usp=sharing&ouid=117271818978464480745&rtpof=true&sd=true)
 
-In this part of the Chess Project, you will create create a [sequence diagram](https://en.wikipedia.org/wiki/Sequence_diagram) that represents the design of your chess server. Your chess server exposes seven endpoints. An endpoint is URL that maps to a method that handle HTTP network requests. Your chess client calls the endpoints in order to play a game of chess. Each of these endpoints convert the HTTP network request into service object method calls, that in turn read and write data from data access objects. The data access objects persistently store data in a database. The service object method uses the information from the request and the data access objects to create a response that is sent back to the chess client through the HTTP server.
+In this part of the Chess Project, you will create a [sequence diagram](https://en.wikipedia.org/wiki/Sequence_diagram) that represents the design of your chess server. Your chess server exposes seven endpoints. An endpoint is a URL that maps to a method that handles HTTP network requests. Your chess client calls the endpoints in order to play a game of chess. Each of these endpoints convert the HTTP network request into service object method calls, that in turn read and write data from data access objects. The data access objects persistently store data in a database. The service object method uses the information from the request and the data access objects to create a response that is sent back to the chess client through the HTTP server.
 
 ## Application Components
 
@@ -46,7 +46,7 @@ The different components in your architecture will operate on three data model o
 | Object   | Description                                                                                                                                 |
 | -------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
 | UserData | A user is registered and authenticated as a player or observer in the application.                                                          |
-| AuthData | The association of a username and an authorization token that represents that the user has previous been authorized to use the application. |
+| AuthData | The association of a username and an authorization token that represents that the user has previously been authorized to use the application. |
 | GameData | The information about the state of a game. This includes the players, the board, and the outcome of the game.                               |s
 
 These objects represent the core of what you are passing between your server, service, and data access components.
@@ -57,11 +57,11 @@ Based upon your understanding of the requirements provided by [Phase 3](../3-web
 
 ### Register Example
 
-To get you started on creating your sequence diagram we have provided you with template that already contains a possible solution for the `register` endpoint, and place holders for the other six endpoints. You can view this diagram on [SequenceDiagram.Org](https://sequencediagram.org/index.html#initialData=IYYwLg9gTgBAwgGwJYFMB2YBQAHYUxIhK4YwDKKUAbpTngUSWDAEooDmSAzmFMARDQVqhFHXyFiwUgBF+wAIIgQKLl0wATeQCNgXFDA3bMmdlAgBXbDADEaYFQCerDt178kg2wHcAFkjAxRFRSAFoAPnJKGigALhgAbQAFAHkyABUAXRgAegt9KAAdNABvfMp7AFsUABoYXDVvaA06lErgJAQAX0xhGJgIl04ePgEhaNF4qFceSgAKcqgq2vq9LiaoFpg2joQASkw2YfcxvtEByLkwRWVVLnj2FDAAVQKFguWDq5uVNQvDbTxMgAUQAMsC4OkYItljAAGbmSrQgqYb5KX5cAaDI5uUaecYiFTxNAWBAIQ4zE74s4qf5o25qeIgab8FCveYw4DVOoNdbNL7ydF3f5GeIASQAciCWFDOdzVo1mq12p0YJL0ilkbQcSMPIIaQZBvSMUyWYEFBYwL53hUuSgBdchX9BqK1VLgTKtUs7XVgJbfOkIABrdBujUwP1W1GChmY0LYyl4-UTIkR-2BkNoCnHJMEqjneORPqUeKRgPB9C9aKULGRYLoMDxABMAAYW8USmWM+geugNCYzJZrDZoNJHjBQRBOGgfP5Aph62Ei9W4olUhlsjl9Gp8R25SteRsNL20P3TOYrLYzChQ5P2JZmDY-AEgsgG-9i6uEjIwcD0sDN23Lhd3sdMKyzPsBwvYdpg0Cc3BgABxO1MSfOdXxCZhBk-eIEkQv9N3YO1ii7cDMEg88h1sbALCgbAEAMOAzQMZDqlnF8FzfJcomoEs1zSLJciI6oSLAzMO2ElAJTtE8z0HS8bEcFAyQgbwYAAKQgJAZ1YgwbG0BBQCDTjMI-FdcKSZ5BJySTRKtbs0A7RcwDgCAEGgOpJLFGRZKgqibDMYBnEQFA8AjbB6MIPUZzQjjnLM3ivx-cF-03IxyNPTAgA).
+To get you started on creating your sequence diagram we have provided you with a template that already contains a possible solution for the `register` endpoint, and place holders for the other six endpoints. You can view this diagram on [SequenceDiagram.Org](https://sequencediagram.org/index.html#initialData=IYYwLg9gTgBAwgGwJYFMB2YBQAHYUxIhK4YwDKKUAbpTngUSWDAEooDmSAzmFMARDQVqhFHXyFiwUgBF+wAIIgQKLl0wATeQCNgXFDA3bMmdlAgBXbDADEaYFQCerDt178kg2wHcAFkjAxRFRSAFoAPnJKGigALhgAbQAFAHkyABUAXRgAegt9KAAdNABvfMp7AFsUABoYXDVvaA06lErgJAQAX0xhGJgIl04ePgEhaNF4qFceSgAKcqgq2vq9LiaoFpg2joQASkw2YfcxvtEByLkwRWVVLnj2FDAAVQKFguWDq5uVNQvDbTxMgAUQAMsC4OkYItljAAGbmSrQgqYb5KX5cAaDI5uUaecYiFTxNAWBAIQ4zE74s4qf5o25qeIgab8FCveYw4DVOoNdbNL7ydF3f5GeIASQAciCWFDOdzVo1mq12p0YJL0ilkbQcSMPIIaQZBvSMUyWYEFBYwL53hUuSgBdchX9BqK1VLgTKtUs7XVgJbfOkIABrdBujUwP1W1GChmY0LYyl4-UTIkR-2BkNoCnHJMEqjneORPqUeKRgPB9C9aKULGRYLoMDxABMAAYW8USmWM+geugNCYzJZrDZoNJHjBQRBOGgfP5Aph62Ei9W4olUhlsjl9Gp8R25SteRsNL20P3TOYrLYzChQ5P2JZmDY-AEgsgG-9i6uEjIwcD0sDN23Lhd3sdMKyzPsBwvYdpg0Cc3BgABxO1MSfOdXxCZhBk-eIEkQv9N3YO1ii7cDMEg88h1sbALCgbAEAMOAzQMZDqlnF8FzfJcomoEs1zSLJciI6oSLAzMO2ElAJTtE8z0HS8bEcFAyQgbwYAAKQgJAZ1YgwbG0BBQCDTjMI-FdcKSZ5BJySTRKtbs0A7RcwDgCAEGgOpJLFGRZKgqibDMYBnEQFA8AjbB6MIPUZzQjjnLM3ivx-cF-03IxyNPTAgA).
 
 ![Register Sequence Diagram](register-sequence-diagram.png)
 
-This diagram represent the following sequence for registering and authorizing a player.
+This diagram represents the following sequence for registering and authorizing a player.
 
 1. A `client`, acting as a chess player, calls the `register` endpoint. This request is made as an HTTP network request with the `/user` URL path and a body that contains her username, password, and email in a JSON representation.
 1. The `server` converts the HTTP request to an object representation that it passes to a registration service method.
@@ -93,7 +93,7 @@ You can decompose your handlers, services, and data access components into multi
 
 You will create your sequence diagram using a simple web based editing tool found at [sequencediagram.org](https://sequencediagram.org). The [instructions](https://sequencediagram.org/instructions.html) for using the tool document all of the basic elements necessary to create your diagram. It is not necessary for you to fully understand all the details of UML sequence diagrams, but it should be obvious from your diagrams what your application is designed to do.
 
-A basic sequence diagram uses objects names seperated by arrows that show the direction of the sequence. This is followed by a colon separated description of the sequence action. The following is a simple diagram for taking a class.
+A basic sequence diagram uses objects names separated by arrows that show the direction of the sequence. This is followed by a colon separated description of the sequence action. The following is a simple diagram for taking a class.
 
 ```uml
 actor Student
