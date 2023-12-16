@@ -118,9 +118,9 @@ The following sections describe the various classes that are depicted in the arc
 
 ### Model Classes
 
-Previously, you created a `chess` package that contains the model classes that represent the core data and algorithms for Chess. Now you need to create additional model classes that represent the core data and algorithms needed to implement a `chess server`, including: User, Game, and AuthToken.
+Previously, you created a `chess` package that contains the model classes that represent the core data and algorithms for Chess. Now you need to create additional model classes that represent the core data needed to implement a `chess server`. This includes the following.
 
-**User**
+**UserData**
 
 | Field    | Type   |
 | -------- | ------ |
@@ -128,7 +128,7 @@ Previously, you created a `chess` package that contains the model classes that r
 | password | String |
 | email    | String |
 
-**Game**
+**GameData**
 
 | Field         | Type                       |
 | ------------- | -------------------------- |
@@ -138,7 +138,7 @@ Previously, you created a `chess` package that contains the model classes that r
 | gameName      | String                     |
 | game          | `ChessGame` implementation |
 
-**AuthToken**
+**AuthData**
 
 | Field     | Type   |
 | --------- | ------ |
@@ -151,10 +151,10 @@ Data Access Classes (or Objects) are responsible for storing and retrieving the 
 
 Create a package of DAO classes that provide all data storage and retrieval operations needed by your server. For now your DAO classes will store your server’s data in main memory (RAM) using standard data structures (maps, sets, lists). Later in the project you will re-implement your DAO classes to store all data in an external database instead of in main memory. The method interfaces on your DAO classes shouldn’t need to change when they are re-implemented, because the rest of your server code should be unaware of where data is being stored (main memory vs. database).
 
-For the most part, the methods on your DAO classes will be `CRUD` operations that: 1) Create objects in the data store, 2) Read (or query) objects from the data store, 3) Update objects already in the data store, and 4) Delete objects from the data store. Often times, the parameters and return values of your DAO methods will be the model objects described in the previous section (User, Game, AuthToken). For example, your DAO classes will certainly need to provide a method for creating new User objects in the data store. This method might have a signature that looks like this:
+For the most part, the methods on your DAO classes will be `CRUD` operations that: 1) Create objects in the data store, 2) Read (or query) objects from the data store, 3) Update objects already in the data store, and 4) Delete objects from the data store. Often times, the parameters and return values of your DAO methods will be the model objects described in the previous section (UserData, GameData, AuthData). For example, your DAO classes will certainly need to provide a method for creating new UserData objects in the data store. This method might have a signature that looks like this:
 
 ```java
-void CreateUser(User u) throws DataAccessException
+void CreateUser(UserData u) throws DataAccessException
 ```
 
 One of the provided classes is dataAccess.DataAccessException. This exception should be thrown by DAO methods that could fail. For example, inserting a second user with the same username shouldn’t be allowed, so in your design add `throws DataAccessException` to the function stub for that method. Think about where you think this could happen and add it accordingly. Eventually, your DAO class methods will access a MySQL relational database, in which case any of your DAO methods could potentially fail. Therefore, you might want to add `throws DataAccessException` to all of your DAO methods now.
@@ -164,7 +164,7 @@ Here are some examples of the kinds of methods your DAO classes will need to sup
 - **Insert**: A method for inserting a new game into the database.
 - **Find**: A method for retrieving a specified game from the database by gameID.
 - **FindAll**: A method for retrieving all games from the database
-- **ClaimSpot**: A method/methods for claiming a spot in the game. The player's username is provied and should be saved as either the whitePlayer or blackPlayer in the database.
+- **ClaimSpot**: A method/methods for claiming a spot in the game. The player's username is provided and should be saved as either the whitePlayer or blackPlayer in the database.
 - **UpdateGame**: A method for updating a chessGame in the database. It should replace the chessGame string corresponding to a given gameID with a new chessGame string.
 - **Remove**: A method for removing a game from the database
 - **Clear**: A method for clearing all data from the database
@@ -270,9 +270,9 @@ For this phase the TAs will grade the quality of your project's source code. The
 
 ## Pass Off, Submission, and Grading
 
-To pass off this assignment, meet with a TA and demonstrate that your code passes the provided test cases and that your test web page loads correctly. You must pass this part to recieve credit for any part of the assignment.
+To pass off this assignment, meet with a TA and demonstrate that your code passes the provided test cases and that your test web page loads correctly. You must pass this part to receive credit for any part of the assignment.
 
-After checking the above, the TA will run and review the test cases your wrote for the Services classes and grade them accoridng to the rubric.
+After checking the above, the TA will run and review the test cases your wrote for the Services classes and grade them according to the rubric.
 
 After you pass off your project with a TA, you should immediately submit your project source code for grading. Your grade on the project will be determined by the date you submitted your source code after passing off, not the date that you passed off. If we never receive your source code, you will not receive credit for the assignment. Here are the instructions for submitting your project source code:
 
