@@ -37,7 +37,7 @@ This should result in the following additions to your project.
 
 ## Dependencies
 
-There is a lot of 3rd party code that you can download and include as a dependency for your project. We have already included packages that run your JUnit tests and process JSON  as part of the starter project you created in the initial phase. We now what to install another third party package to  help us create an HTTP server.
+There is a lot of 3rd party code that you can download and include as a dependency for your project. We have already included packages that run your JUnit tests and process JSON  as part of the starter project you created in the initial phase. We now need to install another third party package to  help us create an HTTP server.
 
 We are going to use a cloud based package repository called Maven as the source for our new dependency. You install a dependency with IntelliJ by opening the project settings and going to the `libraries` tab. Press the `+` button to add a dependency from Maven, and then supply the name of the library you want to add. You then specify which module will use the dependency.
 

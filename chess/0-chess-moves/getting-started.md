@@ -2,14 +2,14 @@
 
 📁 [Starter code](starter-code)
 
-Take the following steps to setup your Chess project.
+Take the following steps to set up your Chess project.
 
 ## Creating Your Chess GitHub Repository
 
 1. Create a GitHub repository for your chess project
 
    1. Name it `chess`.
-   1. Mark the repository as `public` so that it can be reviewed the TAs and instructors.
+   1. Mark the repository as `public` so that it can be reviewed by the TAs and instructors.
    1. Select the option to create a license file.
 
       ![create repo](create-repo.png)

@@ -23,7 +23,7 @@ This class serves as the top-level management of the Chess Game. It is responsib
 **Key Methods**:
 
 - **validMoves**: Takes as input a position on the chessboard and returns all moves the piece there can legally make. If there is no piece at that location, this method returns `null`.
-- **makeMove**: Receives a given move and executes it, provided it is a legal move. If the move is illegal, it throws a `InvalidMoveException`. A move is illegal if the chess piece cannot move there, if the move leaves the team’s king in danger, or if it’s not the corresponding teams turn.
+- **makeMove**: Receives a given move and executes it, provided it is a legal move. If the move is illegal, it throws an `InvalidMoveException`. A move is illegal if the chess piece cannot move there, if the move leaves the team’s king in danger, or if it’s not the corresponding team's turn.
 - **isInCheck**: Returns true if the specified team’s King could be captured by an opposing piece.
 - **isInCheckmate**: Returns true if the given team has no way to protect their king from being captured.
 - **isInStalemate**: Returns true if the given team has no legal moves and it is currently that team’s turn.
@@ -53,7 +53,7 @@ This is a special move taken by a Pawn in response to your opponent double movin
 
 The test cases for this assignment are in `passoffTests/chessTests/ChessGameTests.java` and represent the tests for the overall gameplay. You will need to pass all these tests to pass off this assignment.
 
-Additionally, the if you are implementing `Castling` and `En Passant` then include the tests from the starter code in the `ChessExtraCredit` package. Successfully passing these will earn you some extra credit on this assignment, but are not required for pass off.
+Additionally, if you are implementing `Castling` and `En Passant` then include the tests from the starter code in the `ChessExtraCredit` package. Successfully passing these will earn you some extra credit on this assignment, but are not required for pass off.
 
 To run the tests, you can click the play icon next to an individual test, or you can right click on a package or class and select `Run` or `Run Tests in …`
 

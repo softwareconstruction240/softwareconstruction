@@ -16,7 +16,7 @@ An endpoint is a URL that your server exposes so that clients can make Hypertext
 
 ## Endpoint specifications
 
-The follow define the endpoints that your server is required to implement. Your server must accept the URL, HTTP Method, Headers, and body that the endpoint defines. Likewise you must return the specified status codes and body for the endpoint.
+The following defines the endpoints that your server is required to implement. Your server must accept the URL, HTTP Method, Headers, and body that the endpoint defines. Likewise you must return the specified status codes and body for the endpoint.
 
 ### Clear application
 
@@ -114,7 +114,7 @@ The following sections describe the various classes that are depicted in the arc
 
 ### Data Model Classes
 
-The Java `chess` package in your project's `shared` module contains that represents all of the data and algorithmic classes that are used by your chess client and server.
+The Java `chess` package in your project's `shared` module contains classes that represents all of the data and algorithmic functionality that is shared by your chess client and server.
 
 As part of this phase, you need to create [record](../../instruction/records/records.md)  classes and add them to the shared `chess` package that represent the classes used for the chess application's core data objects. This includes the following.
 
@@ -149,7 +149,7 @@ As part of this phase, you need to create [record](../../instruction/records/rec
 
 Classes that represent the access to your database are often called `Data Access Objects` or DOAs. Create your data access classes in the `server/src/main/java/dataAccess` package. Data access classes are responsible for storing and retrieving the server’s data (users, games, etc.).
 
-For the most part, the methods on your DAO classes will be `CRUD` operations that: 1) Create objects in the data store, 2) Read (or query) objects from the data store, 3) Update objects already in the data store, and 4) Delete objects from the data store. Often times, the parameters and return values of your DAO methods will be the model objects described in the previous section (UserData, GameData, AuthData). For example, your DAO classes will certainly need to provide a method for creating new UserData objects in the data store. This method might have a signature that looks like this:
+For the most part, the methods on your DAO classes will be `CRUD` operations that: 1) Create objects in the data store, 2) Read (or query) objects from the data store, 3) Update objects already in the data store, and 4) Delete objects from the data store. Oftentimes, the parameters and return values of your DAO methods will be the model objects described in the previous section (UserData, GameData, AuthData). For example, your DAO classes will certainly need to provide a method for creating new UserData objects in the data store. This method might have a signature that looks like this:
 
 ```java
 void insertUser(UserData u) throws DataAccessException
@@ -175,7 +175,7 @@ The starter code includes a `dataAccess.DataAccessException`. This exception sho
 
 ### DataAccess Interface
 
- In order to abstract from your services where data is actually being store you must create a Java interface that hides all of the implementation details for accessing and retrieving data. In this phase you will create an implementation of your data access interface that stores your server’s data in main memory (RAM) using standard data structures (maps, sets, lists). In the next phase you will create an implementation of the data access interface that uses an external SQL database.
+ In order to abstract from your services where data is actually being stored, you must create a Java interface that hides all of the implementation details for accessing and retrieving data. In this phase you will create an implementation of your data access interface that stores your server’s data in main memory (RAM) using standard data structures (maps, sets, lists). In the next phase you will create an implementation of the data access interface that uses an external SQL database.
 
 ![data access classes](data-access-classes.png)
 
@@ -205,7 +205,7 @@ public class UserService {
 Each service method receives a Request object containing all the information it needs to do its work. After performing its function it returns a corresponding Result object containing the output of the method. To do their work, service classes need to make heavy use of the Model classes and Data Access classes described below.
 
 
-You must place your service classes in the a folder named `server/src/main/java/service`.
+⚠ You must place your service classes in a folder named `server/src/main/java/service`.
 
 
 ### Request and Result Classes
@@ -263,7 +263,7 @@ From this you can derive the following LoginResult class:
 	record LoginResult(String username, String authToken) {}
 ```
 
-and in the case where the service fails it can throw an exception that the server handles return return the proper error message and HTTP status code.
+and in the case where the service fails, it can throw an exception that the server handles by returning the proper error message and HTTP status code.
 
 ### Serialization
 
@@ -282,7 +282,7 @@ We install the third party package already in your project as part of its initia
 
 ### Handler Classes
 
-The server handler classes serve as a translator between HTTP and Java. Your handlers will convert an HTTP request into Java usable objects & data. The handler then call the appropriate service. When the service responds it converts the response object back to JSON and sends the HTTP response.
+The server handler classes serve as a translator between HTTP and Java. Your handlers will convert an HTTP request into Java usable objects & data. The handler then calls the appropriate service. When the service responds it converts the response object back to JSON and sends the HTTP response.
 
 You need to create the number of handler classes that are appropriate for your server design. For a simple server this could be a single class with a few handler methods, or for a complex application it could be dozens of classes each representing a different group of cohesive endpoints.
 
@@ -364,7 +364,7 @@ You can create and test your code in whatever order you would like. However, if 
 
 ## Pass Off Tests
 
-The provided tests for this assignment are in the StandardAPITests class. These test make HTTP requests to test your server.
+The provided tests for this assignment are in the `StandardAPITests` class. These tests make HTTP requests to test your server.
 
 
 ## Code Quality

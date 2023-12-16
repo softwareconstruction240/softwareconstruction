@@ -10,7 +10,7 @@ In this part of the Chess Project, you will implement a basic representation of 
 
 ## The Game of Chess
 
-Chess is a strategy game where 2 players take turn moving pieces and capturing enemy pieces with the goal of trapping the enemy king. Each of the 6 types of pieces has a unique way of moving/capturing. A piece captures an enemy piece when moving to the enemy piece’s location, after which the enemy piece is removed from the game. You win when your opponent has no way to avoid you being able to capture their king.
+Chess is a strategy game where 2 players take turns moving pieces and capturing enemy pieces with the goal of trapping the enemy king. Each of the 6 types of pieces has a unique way of moving/capturing. A piece captures an enemy piece when moving to the enemy piece’s location, after which the enemy piece is removed from the game. You win when your opponent has no way to avoid you being able to capture their king.
 
 ### Movement
 
@@ -22,7 +22,7 @@ Kings may move 1 square in any direction (including diagonal) to either a positi
 
 Pawns normally may move forward one square if that square is unoccupied, though if it is the first time that pawn is being moved, it may be moved forward 2 squares (provided both squares are unoccupied).
 Pawns cannot capture forward, but instead capture forward diagonally (1 square forward and 1 square sideways). They may only move diagonally like this if capturing an enemy piece.
-When a pawn moves to the end of the board (row 8 for white and row 1 for black), they get promoted and are replaced with the players choice of Rook, Knight, Bishop, or Queen (they cannot stay a Pawn or become King).
+When a pawn moves to the end of the board (row 8 for white and row 1 for black), they get promoted and are replaced with the player's choice of Rook, Knight, Bishop, or Queen (they cannot stay a Pawn or become King).
 
 #### Rook
 
@@ -38,7 +38,7 @@ Bishops move in diagonal lines as far as there is open space. If there is an ene
 
 #### Queen
 
-Queens are the most powerful piece and may move in straight lines and diagonals as far as there is open space. If there is an enemy piece at the end of the line, they may move to that position and capture the enemy piece. (In simpler terms, Queens can take all moves a Rook or Bishop could take from the Queens position).
+Queens are the most powerful piece and may move in straight lines and diagonals as far as there is open space. If there is an enemy piece at the end of the line, they may move to that position and capture the enemy piece. (In simpler terms, Queens can take all moves a Rook or Bishop could take from the Queen's position).
 
 ### Board Setup
 
@@ -69,7 +69,7 @@ Here are some guides that may help you learn the rules of chess:
 
 ## Starter Code
 
-To begin building your chess application, you must first following the instructions in the [Getting Started Document](getting-started.md).
+To begin building your chess application, you must first follow the instructions in the [Getting Started Document](getting-started.md).
 
 This provides you with an IntelliJ project that contains the following three modules.
 
@@ -83,7 +83,7 @@ This provides you with an IntelliJ project that contains the following three mod
 
 In this phase you will implement the shared code that defines the board, pieces, and the rules of chess. In later phases you will use the code you create to create a fully playable game.
 
-The starter code contains defines the classes defined by the following diagram. However, instead of a full implementation, the methods all simply throw an exception if invoked. The classes are found in the `shared/src/main/java/chess` directory.
+The starter code contains the classes defined by the following diagram. However, instead of a full implementation, the methods all simply throw an exception if invoked. The classes are found in the `shared/src/main/java/chess` directory.
 
 ![Class classes](chess-classes.png)
 
@@ -100,7 +100,7 @@ You will not need to implement any code in this class for this phase.
 #### Key Methods
 
 - **validMoves**: Takes as input a position on the chessboard and returns all moves the piece there can legally make. If there is no piece at that location, this method returns `null`.
-- **makeMove**: Receives a given move and executes it, provided it is a legal move. If the move is illegal, it throws a `InvalidMoveException`. A move is illegal if the chess piece cannot move there, if the move leaves the team’s king in danger, or if it’s not the corresponding teams turn.
+- **makeMove**: Receives a given move and executes it, provided it is a legal move. If the move is illegal, it throws an `InvalidMoveException`. A move is illegal if the chess piece cannot move there, if the move leaves the team’s king in danger, or if it’s not the corresponding team's turn.
 - **isInCheck**: Returns true if the specified team’s King could be captured by an opposing piece.
 - **isInCheckmate**: Returns true if the given team has no way to protect their king from being captured.
 - **isInStalemate**: Returns true if the given team has no legal moves and it is currently that team’s turn.
@@ -138,7 +138,7 @@ This represents a location on the chessboard. This should be represented as a ro
 
 ## Testing
 
-The test cases in found in `src/test/java/passoffTests/chessTests/ChessPieceTests` contain a collection of tests that assert the correct movement of individual pieces.
+The test cases found in `src/test/java/passoffTests/chessTests/ChessPieceTests` contain a collection of tests that assert the correct movement of individual pieces.
 
 To run the tests, you can click the play icon next to an individual test, or you can right click on a package or class and select `Debug` or `Debug Tests in …`
 
@@ -157,7 +157,7 @@ For this project, you are free to implement the classes described above in whate
 
 ## Object Overrides
 
-In order for the tests to pass, you are required to override the `equals()` and `hashCode()` methods in your class implementations as necessary. To do this automatically in IntelliJ, select `Code > Generate... > equals() and hashCode()`. The default methods provided by IntelliJ should suffice. The `equals()` and `hashCode()` methods need to be more than merely a call to `super()`, and using 'Generate...' should do this correctly. However, you must have already have finished implementing these classes before IntelliJ will be able to generate these methods.
+In order for the tests to pass, you are required to override the `equals()` and `hashCode()` methods in your class implementations as necessary. To do this automatically in IntelliJ, select `Code > Generate... > equals() and hashCode()`. The default methods provided by IntelliJ should suffice. The `equals()` and `hashCode()` methods need to be more than merely a call to `super()`, and using 'Generate...' should do this correctly. However, you must have already finished implementing these classes before IntelliJ will be able to generate these methods.
 
 ⚠ NOTE: Although not required, debugging is often easier if you override the `toString()` method and return a concise representation of the object.
 
