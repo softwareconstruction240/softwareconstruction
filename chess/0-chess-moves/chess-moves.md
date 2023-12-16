@@ -163,9 +163,10 @@ In order for the tests to pass, you are required to override the `equals()` and 
 
 ## Pass Off and Grading
 
-The `shared/src/test/java/passoffTests` directory contains unit tests that you will use to drive your development efforts. Once all the tests run successfully, you are done with the development work for this phase.
+All of the tests in your project must succeed in order to complete this phase.
 
-To pass off this assignment, meet with a TA and demonstrate that your code passes the provided test cases.
+To pass off this assignment use the course auto-grading tool. If your code passes then your grade will automatically be entered in Canvas.
+
 
 ### Grading Rubric
 

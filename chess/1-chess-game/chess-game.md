@@ -59,7 +59,9 @@ To run the tests, you can click the play icon next to an individual test, or you
 
 ## Pass Off and Grading
 
-To pass off this assignment, meet with a TA and demonstrate that your code passes the provided test cases.
+All of the tests in your project must succeed in order to complete this phase. If you do not want to complete the extra credit moves then remove those tests from your project.
+
+To pass off this assignment use the course auto-grading tool. If your code passes then your grade will automatically be entered in Canvas.
 
 ### Grading Rubric
 

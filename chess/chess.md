@@ -8,7 +8,7 @@ We use the game of chess to help you develop and demonstrate mastery during this
 | ---------------- | ----------------------------------------- | --------------------------------------- | ----------------------------------- | -------------------------------------------------------------- |
 | 0. Chess moves   | [doc](0-chess-moves/getting-started.md)   | [doc](0-chess-moves/chess-moves.md)     | [dir](0-chess-moves/starter-code)   | Initial chess project.                                         |
 | 1. Chess game    | [doc](1-chess-game/getting-started.md)    | [doc](1-chess-game/chess-game.md)       | [dir](1-chess-game/starter-code)    | Creating the game.                                             |
-| 2. Server design | [doc](2-server-design/getting-started.md) | [doc](2-server-design/server-design.md) | [dir](2-server-design/starter-code) | Designing the chess server.                                    |
+| 2. Server design | None | [doc](2-server-design/server-design.md) | None | Designing the chess server.                                    |
 | 3. Web API       | [doc](3-web-api/getting-started.md)       | [doc](3-web-api/web-api.md)             | [dir](3-web-api/starter-code)       | Creating an HTTP chess server.                                 |
 | 4. Database      | [doc](4-database/getting-started.md)      | [doc](4-database/database.md)           | [dir](4-database/starter-code)      | Persistently storing players, games, and authentication.       |
 | 5. Pregame       | [doc](5-pregame/getting-started.md)       | [doc](5-pregame/pregame.md)             | [dir](5-pregame/starter-code)       | Creating an command line interface (CLI) for the chess client. |

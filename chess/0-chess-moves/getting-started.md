@@ -41,3 +41,7 @@ Take the following steps to setup your Chess project.
 Open the project directory in IntelliJ start developing, running, and debugging your code using an IDE.
 
 ![open intellij](open-intellij.png)
+
+If you get a prompt asking you to build with Maven, then make sure you skip that action.
+
+![build with Maven](build-with-maven-prompt.png)
