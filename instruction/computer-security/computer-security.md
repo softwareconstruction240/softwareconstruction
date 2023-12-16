@@ -140,7 +140,7 @@ The following diagram demonstrates the flow necessary to use salted passwords.
 
 ![Salting](salting.png)
 
-Note that the salt is not encrypted. It can be simply stored in your database along with the hashed password. The idea is to simply make it difficult for the attacker to precompute the hashed value. With the salt you are making each hash unique. To do a brute for attack against that representation an attacker would have to compute a rainbow table against each salted password.
+Note that the salt is not encrypted. It can be simply stored in your database along with the hashed password. The idea is to simply make it difficult for the attacker to precompute the hashed value. With the salt you are making each hash unique. To do a brute force attack against that representation an attacker would have to compute a rainbow table against each salted password.
 
 | Representation    | Benefit                                                                           |
 | ----------------- | --------------------------------------------------------------------------------- |
