@@ -1,6 +1,6 @@
-# Instructional modules
+# Instructional topics
 
-The course content is divided into multiple modules. Each module represents a week of study during a normal semester. A module contains multiple topics that you should strive to master during that week of the course. The instruction for a topic includes classroom instruction, slide deck, and optional textual instruction, code examples, starter code, and assignments.
+The course content is divided into multiple topics that you should strive to master during that week of the course. The instruction for a topic includes classroom instruction, slide deck, and optional textual instruction, code examples, starter code, and assignments.
 
 ⚠ Make sure you observe the due dates specified in Canvas for each of the course assignments.
 

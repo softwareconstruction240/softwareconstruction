@@ -6,25 +6,26 @@
 
 🖥️ [Slides](https://docs.google.com/presentation/d/12zsEJ-at5DsbKNy7a0Eac0D1ZWa4RBIC/edit?usp=sharing&ouid=117271818978464480745&rtpof=true&sd=true)
 
-In this part of the Chess Project, you will create create a collection of sequence diagram that represents the design of your chess server. Your chess server exposes seven endpoints (methods that handle HTTP network requests). Your chess client calls the endpoints in order to play a game of chess. Each of these endpoints convert the HTTP network request into service object method calls, that in turn read and write data from data access objects. The data access objects persistently store data in a database. The service object method uses the information from the request and the data access objects to create a response that is sent back to the chess client through the HTTP server.
+In this part of the Chess Project, you will create create a [sequence diagram](https://en.wikipedia.org/wiki/Sequence_diagram) that represents the design of your chess server. Your chess server exposes seven endpoints. An endpoint is URL that maps to a method that handle HTTP network requests. Your chess client calls the endpoints in order to play a game of chess. Each of these endpoints convert the HTTP network request into service object method calls, that in turn read and write data from data access objects. The data access objects persistently store data in a database. The service object method uses the information from the request and the data access objects to create a response that is sent back to the chess client through the HTTP server.
 
 ## Application Components
 
-The application flow is demonstrated by the following component diagram and description.
+The chess application components are demonstrated by the following diagram and description.
 
 ![top level](top-level.png)
 
 | Component    | Sub-Component | Description                                                                                                                                                                                                                           |
 | ------------ | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Chess Client |               | Interactive command line program that allows a user to play a game of chess. User actions to login, create, and play games are sent over the network to the chess server.                                                             |
-| Chess Server |               | Program that accepts network requests from the chess client to login, create, and play games. Users and games are stored in the database. Game play commands are set out to other chess clients that are involved in a specific game. |
+| Chess Client |               | Provides the interactive interface that allows a user to play a game of chess. This includes actions to login, create, and play games. The client exchanges messages over the network with the chess server.                                                             |
+| Chess Server |               | Accepts network requests from the chess client to login, create, and play games. Users and games are stored in the database. The server also sends game play commands to the chess clients that are participating in a specific game. |
 |              | Server        | Receives network requests and deserializes them into service function requests.                                                                                                                                                       |
-|              | Services      | Provides the functions that process the business logic for the application. This includes registering and logging in users, creating, listing, and playing chess games.                                                               |
-|              | DataAccess    | Provides functions that the services can use to store and retrieve information about users and games persistently in a database.                                                                                                      |
+|              | Services      | Processes the business logic for the application. This includes registering and logging in users, creating, listing, and playing chess games.                                                               |
+|              | DataAccess    | Provides methods that persistently store the application data in a database.                                                                                                      |
+|Database||Stores data persistently.|
 
 ## Application Programming Interface (API)
 
-As a first step for creating your design, you need to carefully read the [Web API](../3-web-api/web-api.md) document for phase three of the project, so you can internalize what each of the server endpoints do. This will help you understand the purpose and structure of the classes you are designing in this phase.
+As a first step for creating your design diagram, you need to carefully read the [Web API](../3-web-api/web-api.md) document for phase three of the project, so you can internalize what each of the server endpoints do. This will help you understand the purpose and structure of the classes you are designing in this phase.
 
 The server endpoints are summarized below, but it is critical that you completely understand their purpose, the data they expect, and the data that they return.
 
@@ -40,7 +41,7 @@ The server endpoints are summarized below, but it is critical that you completel
 
 ## Data Model Classes
 
-The different components in your architecture will operate on three basic models that your application must implement. This includes the following.
+The different components in your architecture will operate on three data model objects that your application must implement. This includes the following.
 
 | Object   | Description                                                                                                                                 |
 | -------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -50,17 +51,17 @@ The different components in your architecture will operate on three basic models
 
 ## Creating Sequence Diagrams
 
-Based upon your understanding of the requirements provided by [Phase 3](../3-web-api/web-api.md) you now must create one or more sequence diagrams that demonstrates the flow of interactions between your application objects for each of the server endpoints.
+Based upon your understanding of the requirements provided by [Phase 3](../3-web-api/web-api.md) you now must create a sequence diagram that demonstrates the flow of interactions between your application objects for each of the server endpoints.
 
 ### Register Example
 
-An example of a sequence diagram for the `register` endpoint is given below. You can view this diagram on [SequenceDiagram.Org](https://sequencediagram.org/index.html?presentationMode=readOnly#initialData=IYYwLg9gTgBACgG2ATwKZQFAAdhTASxHxwDswYBldAN3W1wKNPICVUBzfAZzCmAIgkqUaoVT08hYsDIwAql3QARYBAmNpsgIIBXMAAsVagCb9gAI2CKYx8xgzsoEHVhgBiAEwAzD6gDs5jBsnDx8AiTuAO76+GCoMADaFDogIKhcXAC6GIgo6DAAtAB8lDToAFwwAPQ6ilAAOiQA3rXoJMAAtqgANDA4GZHQxr2oHcD4CAC+GMK0UMXB3Lz8+IKzYpVQHEvoABStUO1dvf1cg1DDMKPjCACUGIuhK2s0YsUKyqqV7KhgH1D7OpHVD3f5GYq2SoUACiABloQBhAAqMAOwIwYNUBQW2ye4XWaUqJB0CAQD1xy3xrzS7zqRkqIC2-FQ-0BbU6PT6VjOQ1BdKxRUhMAAkgA5GEsFFojknbnnS7XCbkkKU1ZCamoYq6Az0mCM1DM7X6NmHDn3I3gwXmSpiiVSoEckWipEAeRgwD0+gwFqxOJVYTVBNQlQ9BiREAA1qgSMqlgGXiI3sVZhV3Z7w1GYyn5sVcmgoJUPAAGIuNJqh-QZ6PTaPGeyOZyuNwBXwAZkCj1VgiiMTiiS0CCZxmQVwAHkssjkkPnCiVs5UanUy9LjlyBkMRmMJtNs364891YnCTAtiq9ivOad5ZubvdO-HD6IaUVMRBvr9WRe+Z8IBDrZQ4URe12S6DBbGxF9+TfVEHVA18IPvA8g0qA5YzxQMNQg+crigJxMF3XNp1TAAWItWzLAAiaFcOgENBwNYcYDAYBMwomsSGMIA).
+To get you started on creating your sequence diagram we have provided you with template that already contains a possible solution for the `register` endpoint, and place holders for the other six endpoints. You can view this diagram on [SequenceDiagram.Org](https://sequencediagram.org/index.html#initialData=IYYwLg9gTgBAwgGwJYFMB2YBQAHYUxIhK4YwDKKUAbpTngUSWDAEooDmSAzmFMARDQVqhFHXyFiwUgBF+wAIIgQKLl0wATeQCNgXFDA3bMmdlAgBXbDADEaYFQCerDt178kg2wHcAFkjAxRFRSAFoAPnJKGigALhgAbQAFAHkyABUAXRgAegt9KAAdNABvfMp7AFsUABoYXDVvaA06lErgJAQAX0xhGJgIl04ePgEhaNF4qFceSgAKcqgq2vq9LiaoFpg2joQASkw2YfcxvtEByLkwRWVVLnj2FDAAVQKFguWDq5uVNQvDbTxMgAUQAMsC4OkYItljAAGbmSrQgqYb5KX5cAaDI5uUaecYiFTxNAWBAIQ4zE74s4qf5o25qeIgab8FCveYw4DVOoNdbNL7ydF3f5GeIASQAciCWFDOdzVo1mq12p0YJL0ilkbQcSMPIIaQZBvSMUyWYEFBYwL53hUuSgBdchX9BqK1VLgTKtUs7XVgJbfOkIABrdBujUwP1W1GChmY0LYyl4-UTIkR-2BkNoCnHJMEqjneORPqUeKRgPB9C9aKULGRYLoMDxABMAAYW8USmWM+geugNCYzJZrDZoNJHjBQRBOGgfP5Aph62Ei9W4olUhlsjl9Gp8R25SteRsNL20P3TOYrLYzChQ5P2JZmDY-AEgsgG-9i6uEjIwcD0sDN23Lhd3sdMKyzPsBwvYdpg0Cc3BgABxO1MSfOdXxCZhBk-eIEkQv9N3YO1ii7cDMEg88h1sbALCgbAEAMOAzQMZDqlnF8FzfJcomoEs1zSLJciI6oSLAzMO2ElAJTtE8z0HS8bEcFAyQgbwYAAKQgJAZ1YgwbG0BBQCDTjMI-FdcKSZ5BJySTRKtbs0A7RcwDgCAEGgOpJLFGRZKgqibDMYBnEQFA8AjbB6MIPUZzQjjnLM3ivx-cF-03IxyNPTAgA).
 
 ![Register Sequence Diagram](register-sequence-diagram.png)
 
 This diagram represent the following sequence for registering and authorizing a player.
 
-1. A `player`, using the chess client, calls the `register` endpoint. This request is made as an HTTP network request with the `/user` URL path and a body that contains her username, password, and email in a JSON representation.
+1. A `client`, acting as a chess player, calls the `register` endpoint. This request is made as an HTTP network request with the `/user` URL path and a body that contains her username, password, and email in a JSON representation.
 1. The `server` converts the HTTP request to an object representation that it passes to a registration service method.
 1. The `service` calls a data access method in order to determine if there is already a user with that username.
 1. The `data access` method checks the database and returns that there is no user with that name (null).
@@ -69,39 +70,43 @@ This diagram represent the following sequence for registering and authorizing a 
 1. The `service` then calls another data access method to create and store an authorization token (authToken) for the user. The authToken can be used on subsequent endpoint calls to represent that the user has already been authenticated.
 1. The `data access` method stores the username and associated authToken in the database.
 1. The `service` returns the authToken to the server.
-1. The `server` returns the authToken to the player.
+1. The `server` returns the authToken to the client.
+
+⚠ Note that the diagram includes simple representations of HTTP and database requests. It is not important that you get the syntax correct in your diagrams. You will learn how to use these technologies in later phases. You just need to convey the idea of what they are doing.
 
 
 ## Classes
 
-Using the sequence diagrams that you create, you should be able to create Java classes that provide the necessary methods for handling the interactions between your server, services, and data access components. You will create and implement these classes in the next phase.
+Using your sequence diagram, you should be able to envision the Java classes and methods that are necessary for handling the interactions between your server, services, and data access components. You will create and implement these classes in the next phase.
 
-Once such possible example could be the following.
+Once such possible class architecture could be the following.
 
 ![sever design architecture](server-class-structure.png)
 
-This architecture includes a handler method for each server endpoint that calls a corresponding service method. The service method then interacts with the data access methods to store and retrieve data from the database. The application model objects serve as the primary data representations that are passed between the server, services, and data access components.
+This architecture includes a handler method for each server endpoint that calls a corresponding service method. Each service message takes a request object and returns a response object. The service method then interacts with the data access methods to store and retrieve data from the database. The application model objects serve as the primary data representations that are passed between the server, services, and data access components.
 
+You can decompose your handlers, services, and data access components into multiple classes or leave them as a single class as your design requires in order to meet the principles of good software design.
 
 ## SequenceDiagram.Org
 
-You will create each of your seven diagrams using a simple web based editing tool found at [sequencediagram.org](https://sequencediagram.org). The [instructions](https://sequencediagram.org/instructions.html) for using the tool document all of the basic elements necessary to draw your diagram. It is not necessary for you to fully understand all the details of UML sequence diagrams, but it should be obvious from your diagrams what your application is designed to do.
+You will create your sequence diagram using a simple web based editing tool found at [sequencediagram.org](https://sequencediagram.org). The [instructions](https://sequencediagram.org/instructions.html) for using the tool document all of the basic elements necessary to create your diagram. It is not necessary for you to fully understand all the details of UML sequence diagrams, but it should be obvious from your diagrams what your application is designed to do.
 
-A basic sequence diagram uses objects names seperated by arrows that show the direction of the sequence. This is followed by a colon separated description of the sequence action.
+A basic sequence diagram uses objects names seperated by arrows that show the direction of the sequence. This is followed by a colon separated description of the sequence action. The following is a simple diagram for taking a class.
 
 ```uml
-title Registration
+actor Student
 
-client->server:register(name)
-server->server:createUser(name):user
-server->database:addUser(name)
-server->client:user
+group #green Take class #white
+Student -> University:register(className)
+Student -> Class:attend(date)
+Class --> Student:knowledge
+end
 ```
 
 
 ## Submission and Grading
 
-Once you have created your diagram you can create a URL that represents it by selecting the `export diagram` tool found on the toolbar to the left of the application. In the export dialog select `Presentation Mode Link` and copy the URL. Create one of these URLs for each of your endpoint sequence diagrams. Submit the URLs to the `Chess Server Design` Canvas Assignment.
+Once you have created your diagram you can create a URL that represents it by selecting the `export diagram` tool found on the toolbar to the left of the application. In the export dialog select `Presentation Mode Link` and copy the URL. Submit the URLs to the `Chess Server Design` Canvas Assignment.
 
 
 ![sequencediagram.org](sequence-diagram-org.gif)

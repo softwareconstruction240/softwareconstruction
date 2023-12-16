@@ -1,0 +1,44 @@
+actor Client
+participant Server
+participant RegistrationService
+participant DataAccess
+database db
+
+group #navy Registration #white
+Client -> Server: [POST] /user\n{username, password, email}
+Server -> RegistrationService: register(username, password, email)
+RegistrationService -> DataAccess: getUser(username)
+DataAccess -> db: SELECT username from user
+DataAccess --> RegistrationService: null
+RegistrationService -> DataAccess: createUser(username, password, email)
+DataAccess -> db: INSERT username, password, email INTO user
+RegistrationService -> DataAccess: createAuth(username)
+DataAccess -> db: INSERT username, authToken INTO auth
+DataAccess --> RegistrationService: authToken
+RegistrationService --> Server: authToken
+Server --> Client: 200\n{authToken}
+end
+
+group #orange Login #white
+Client -> Server: [POST] /session\n{username, password}
+end
+
+group #green Logout #white
+Client -> Server: [DELETE] /session\nauthToken
+end
+
+group #red List Games #white
+Client -> Server: [GET] /game\nauthToken
+end
+
+group #purple Create Game #white
+Client -> Server: [POST] /game\nauthToken\n{gameName}
+end
+
+group #yellow Join Game #black
+Client -> Server: [PUT] /game\nauthToken\n{ClientColor, gameID}
+end
+
+group #gray Clear application #white
+Client -> Server: [DELETE] /db
+end
