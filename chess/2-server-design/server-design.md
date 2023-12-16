@@ -6,7 +6,7 @@
 
 🖥️ [Slides](https://docs.google.com/presentation/d/12zsEJ-at5DsbKNy7a0Eac0D1ZWa4RBIC/edit?usp=sharing&ouid=117271818978464480745&rtpof=true&sd=true)
 
-In this part of the Chess Project, you will create create a collection of sequence diagram that expresses your design for your chess server. Your chess server exposes seven endpoints (methods that handle HTTP network requests) that your chess client will call in order to play a game of chess. Each of these endpoints convert the HTTP network request into service object method calls, that in turn read and write data from data access objects. The data access objects persistently store data in a database. The service object method uses the information from the request and the data access objects to create a response that is sent back to the chess client through the HTTP server.
+In this part of the Chess Project, you will create create a collection of sequence diagram that represents the design of your chess server. Your chess server exposes seven endpoints (methods that handle HTTP network requests). Your chess client calls the endpoints in order to play a game of chess. Each of these endpoints convert the HTTP network request into service object method calls, that in turn read and write data from data access objects. The data access objects persistently store data in a database. The service object method uses the information from the request and the data access objects to create a response that is sent back to the chess client through the HTTP server.
 
 ## Application Components
 
