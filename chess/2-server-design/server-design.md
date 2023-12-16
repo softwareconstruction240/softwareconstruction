@@ -18,14 +18,14 @@ The chess application components are demonstrated by the following diagram and d
 | ------------ | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Chess Client |               | Provides the interactive interface that allows a user to play a game of chess. This includes actions to login, create, and play games. The client exchanges messages over the network with the chess server.                                                             |
 | Chess Server |               | Accepts network requests from the chess client to login, create, and play games. Users and games are stored in the database. The server also sends game play commands to the chess clients that are participating in a specific game. |
-|              | Server        | Receives network requests and deserializes them into service function requests.                                                                                                                                                       |
-|              | Services      | Processes the business logic for the application. This includes registering and logging in users, creating, listing, and playing chess games.                                                               |
-|              | DataAccess    | Provides methods that persistently store the application data in a database.                                                                                                      |
+|              | Server        | Receives network requests and deserializes them into service objects. Calls service methods to satisfy the  requests.                                                                                                                                                       |
+|              | Services      | Processes the business logic for the application. This includes registering and logging in users, creating, listing, and playing chess games.       Calls the data access methods to retrieve and persist application data data.                                                        |
+|              | DataAccess    | Provides methods that persistently store and retrieve the application data.                                                                                                      |
 |Database||Stores data persistently.|
 
 ## Application Programming Interface (API)
 
-As a first step for creating your design diagram, you need to carefully read the [Web API](../3-web-api/web-api.md) document for phase three of the project, so you can internalize what each of the server endpoints do. This will help you understand the purpose and structure of the classes you are designing in this phase.
+As a first step for creating your design diagram, you need to carefully read the [Web API](../3-web-api/web-api.md) document for phase three of the project so you can internalize what each of the server endpoints do. This will help you understand the purpose and structure of the classes you are designing in this phase.
 
 The server endpoints are summarized below, but it is critical that you completely understand their purpose, the data they expect, and the data that they return.
 
@@ -47,7 +47,9 @@ The different components in your architecture will operate on three data model o
 | -------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
 | UserData | A user is registered and authenticated as a player or observer in the application.                                                          |
 | AuthData | The association of a username and an authorization token that represents that the user has previous been authorized to use the application. |
-| GameData | The information about the state of a game. This includes the players, the board, and the outcome of the game.                               |
+| GameData | The information about the state of a game. This includes the players, the board, and the outcome of the game.                               |s
+
+These objects represent the core of what you are passing between your server, service, and data access components.
 
 ## Creating Sequence Diagrams
 
