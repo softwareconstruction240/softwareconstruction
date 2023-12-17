@@ -328,17 +328,23 @@ The service unit tests must directly call the methods on your service classes. T
 After you have created all the classes necessary for this phase you should have a server directory structure that looks like the following.
 
 ```txt
-└── src
-    ├── main
-    │   └── java
-    │       ├── dataAccess
-    │       ├── server
-    │       └── service
-    └── test
-        └── java
-            ├── passoffTests
-            │   └── serverTests
-            └── serviceTests
+├─ server
+|  └─ src
+|     ├─ main
+|     │  └─ java
+|     │     ├─ dataAccess
+|     │     ├─ server
+|     │     └─ service
+|     └─ test
+|        └─ java
+|           ├─ passoffTests
+|           │  └─ serverTests
+|           └─ serviceTests
+└─ shared
+   └─ src
+      └─ main
+         └─ java
+            └─ model
 ```
 
 ## Suggested Implementation Order
