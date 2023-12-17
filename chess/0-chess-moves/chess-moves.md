@@ -4,8 +4,6 @@
 - [Getting Started](getting-started.md)
 - [Starter Code](starter-code)
 
-- 🖥️ [Design Principles (Chess Examples)](https://docs.google.com/presentation/d/1dncxSAgnIqjV9RNzGR94EWVltJiCApqC3EvNPqz97-E/edit?usp=sharing)
-
 In this part of the Chess Project, you will implement a basic representation of the game of chess. This includes the setting up of the board and defining how pieces move.
 
 ## The Game of Chess
