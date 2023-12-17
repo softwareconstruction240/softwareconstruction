@@ -299,16 +299,19 @@ public class Server {
 		int desiredPort,
 		String dbConnectionUrl
 	) {
-		// Start up the server.
-		// Wait for it to finish initializing.
-		// Obtain the actual server port.
+		// If desiredPort is 0 the first open port is used
+		Spark.port(desiredPort);
 
-		return actualPort;
+		// Wait for the server to start
+		Spark.awaitInitialization();
+
+		// Return the actual port
+		return Spark.port();
 	}
 }
 ```
 
-This allows the tests to start up and shutdown the server as required by the tests.
+This allows the tests to start up and shutdown the server, and provide the database to talk to when running the pass of tests.
 
 ⚠ You must place your `Server` class in a folder named `server/src/main/java/server`.
 
