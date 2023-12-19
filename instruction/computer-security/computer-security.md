@@ -320,7 +320,7 @@ An alternative to symmetric key encryption is `asymmetric key encryption`. With 
 
 ![asymmetric encryption](asymmetric.png)
 
-In order for this exchange to work it is very important that you keep the private key secret. If the private key is every publicly released then the pair becomes worthless.
+In order for this exchange to work it is very important that you keep the private key secret. If the private key is ever publicly released then the pair becomes worthless.
 
 There are several implementations of asymmetric key encryption. Here are the two most popular ones.
 
