@@ -4,6 +4,8 @@
 
 The Starter Code has three folders: `dataAccess`, `serverTests`, and `web`. Do the following to move them into your project:
 
+1. Copy the [server](starter-code/server/) folder into the `server/src/main/java` folder. This contains a basic implementation of an HTTP server that allows the pass off tests to programatically start and stop your server, as well as the code to host a web browser interface for experimenting with your endpoints.
+1. Copy the [web](starter-code/web/) folder to the `server/src/main/resources` folder. The `web` folder contains the files that implement the web browser interface for experimenting with your endpoints.
 1. Copy the [dataAccess](starter-code/dataAccess/) folder into the `server/src/main/java` folder. This contains an exception class that you will throw whenever there is a data access error.
 1. Create the folder `server/src/test/java`. Right click on the folder and select the option to mark the directory as `test sources root`. This tells IntelliJ where to look for code to run as tests.
 
@@ -11,15 +13,6 @@ The Starter Code has three folders: `dataAccess`, `serverTests`, and `web`. Do t
 
 1. Copy the [serverTests](starter-code/serverTests/) folder to the `server/src/test/java/passoffTests` folder. The `serverTests` folder contains the server test cases.
 1. Create the folder `server/src/main/resources`. Right click on the folder and select the option to mark the directory as `resources root`. This tells IntelliJ that it should include the directory when it compiling the code to your `out` directory.
-1. Copy the [web](starter-code/web/) folder to the `server/src/main/resources` folder. The `web` folder contains the files that implement the server’s web page.
-
-START HERE: Match what is in the project. include reading the location of the web files.
-
-    NWhen you create your server class, you will need to specify the `web` folder’s path for static files, as shown below. In order for your code to find this directory
-
-```java
-Spark.externalStaticFileLocation("web");
-```
 
 This should result in the following additions to your project.
 
@@ -28,6 +21,8 @@ This should result in the following additions to your project.
     └── src
         ├── main
         │   ├── java
+        │   │   └── server
+        │   │   │   └── Server.java
         │   │   └── dataAccess
         │   │       └── DataAccessException.java
         │   └── resources

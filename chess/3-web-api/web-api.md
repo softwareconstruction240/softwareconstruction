@@ -291,30 +291,40 @@ You need to create the number of handler classes that are appropriate for your s
 The Server receives network HTTP requests and sends them to the correct handler for processing. The server should also handle all unhandled exceptions that your application generates and return the appropriate HTTP status code. 
 
 
-⚠ For the pass off tests to work properly, your server class must be named `Server` and provide a `run` method that conforms to the following signature.
+⚠ For the pass off tests to work properly, your server class must be named `Server` and provide a `run` method that has a desired port parameter, and a `stop` method that shuts your HTTP server down.
+
+The starter code contains the `Server` class that you should use as the base for your HTTP server. For the pass off tests to work properly, you must keep the `Server` class in a folder named `server/src/main/java/server`, and that you do not remove the provided code.
+
+The `Server` class provides a `run` method will start the HTTP server on a desired port parameter. From your main function you should start the server on port 8080. If the port is 0 then it will start the HTTP server on a random open port. The starter code also provides a `stop` method that shuts the HTTP server down. This is necessary to control the starting and stopping of your server when running pass off tests.
+
+
+### Web Browser Interface
+
+The starter code provides a simple web browser interface for calling your server endpoints. This is useful for experimentation while you are developing your endpoints. In order for your server to be able to load its web browser interface you need to determine the path where the web directory is located and then tell spark to load static web files from that directory. 
+
+### Server Starter Code
+
+The following is a copy of the Server code that you should have already copied to your application as directed by the [getting started](getting-started.md) instructions. It contains the code for starting and stopping your server, as well as loading the web browser interface. 
 
 ```java
 public class Server {
-	public int run(
-		int desiredPort,
-		String dbConnectionUrl
-	) {
-		// If desiredPort is 0 the first open port is used
-		Spark.port(desiredPort);
+    public int run(int desiredPort) {
+        Spark.port(desiredPort);
 
-		// Wait for the server to start
-		Spark.awaitInitialization();
+        var webDir = Paths.get(Server.class.getProtectionDomain().getCodeSource().getLocation().getPath(), "web");
+        Spark.externalStaticFileLocation(webDir.toString());
 
-		// Return the actual port
-		return Spark.port();
-	}
+        // Register your endpoints and handle exceptions here.
+
+        Spark.awaitInitialization();
+        return Spark.port();
+    }
+
+    public void stop() {
+        Spark.stop();
+    }
 }
 ```
-
-This allows the tests to start up and shutdown the server, and provide the database to talk to when running the pass of tests.
-
-⚠ You must place your `Server` class in a folder named `server/src/main/java/server`.
-
 
 ## Service Unit Tests
 
