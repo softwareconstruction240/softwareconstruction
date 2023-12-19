@@ -20,14 +20,14 @@ public class PersistenceTest {
     @BeforeAll
     public static void init() {
         existingUser = new TestModels.TestUser();
-        existingUser.username = "Joseph";
-        existingUser.password = "Smith";
-        existingUser.email = "urim@thummim.net";
+        existingUser.username = "ExistingUser";
+        existingUser.password = "existingUserPassword";
+        existingUser.email = "eu@mail.com";
 
         newUser = new TestModels.TestUser();
-        newUser.username = "testUsername";
-        newUser.password = "testPassword";
-        newUser.email = "testEmail";
+        newUser.username = "NewUser";
+        newUser.password = "newUserPassword";
+        newUser.email = "nu@mail.com";
 
         serverFacade = new TestServerFacade("localhost", passoffTests.TestFactory.getServerPort());
     }
