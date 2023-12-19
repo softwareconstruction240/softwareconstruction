@@ -4,15 +4,15 @@
 
 We use the game of chess to help you develop and demonstrate mastery during this course. Your development work is divided into different phases. Each phase demonstrates a different architectural concept or technology.
 
-| Phase            | Getting Started                           | Requirements                            | Starter Code                        | Description                                                    |
-| ---------------- | ----------------------------------------- | --------------------------------------- | ----------------------------------- | -------------------------------------------------------------- |
-| 0. Chess moves   | [doc](0-chess-moves/getting-started.md)   | [doc](0-chess-moves/chess-moves.md)     | [dir](0-chess-moves/starter-code)   | Initial chess project.                                         |
-| 1. Chess game    | [doc](1-chess-game/getting-started.md)    | [doc](1-chess-game/chess-game.md)       | [dir](1-chess-game/starter-code)    | Creating the game.                                             |
-| 2. Server design | None | [doc](2-server-design/server-design.md) | None | Designing the chess server.                                    |
-| 3. Web API       | [doc](3-web-api/getting-started.md)       | [doc](3-web-api/web-api.md)             | [dir](3-web-api/starter-code)       | Creating an HTTP chess server.                                 |
-| 4. Database      | [doc](4-database/getting-started.md)      | [doc](4-database/database.md)           | [dir](4-database/starter-code)      | Persistently storing players, games, and authentication.       |
-| 5. Pregame       | [doc](5-pregame/getting-started.md)       | [doc](5-pregame/pregame.md)             | [dir](5-pregame/starter-code)       | Creating an command line interface (CLI) for the chess client. |
-| 6. Gameplay      | [doc](6-gameplay/getting-started.md)      | [doc](6-gameplay/gameplay.md)           | [dir](6-gameplay/starter-code)      | Implementing gameplay with multiple players.                   |
+| Phase            | Getting Started                         | Requirements                            | Starter Code                      | Description                                                    |
+| ---------------- | --------------------------------------- | --------------------------------------- | --------------------------------- | -------------------------------------------------------------- |
+| 0. Chess moves   | [doc](0-chess-moves/getting-started.md) | [doc](0-chess-moves/chess-moves.md)     | [dir](0-chess-moves/starter-code) | Initial chess project.                                         |
+| 1. Chess game    | [doc](1-chess-game/getting-started.md)  | [doc](1-chess-game/chess-game.md)       | [dir](1-chess-game/starter-code)  | Creating the game.                                             |
+| 2. Server design | None                                    | [doc](2-server-design/server-design.md) | None                              | Designing the chess server.                                    |
+| 3. Web API       | [doc](3-web-api/getting-started.md)     | [doc](3-web-api/web-api.md)             | [dir](3-web-api/starter-code)     | Creating an HTTP chess server.                                 |
+| 4. Database      | [doc](4-database/getting-started.md)    | [doc](4-database/database.md)           | [dir](4-database/starter-code)    | Persistently storing players, games, and authentication.       |
+| 5. Pregame       | [doc](5-pregame/getting-started.md)     | [doc](5-pregame/pregame.md)             | [dir](5-pregame/starter-code)     | Creating an command line interface (CLI) for the chess client. |
+| 6. Gameplay      | [doc](6-gameplay/getting-started.md)    | [doc](6-gameplay/gameplay.md)           | [dir](6-gameplay/starter-code)    | Implementing gameplay with multiple players.                   |
 
 ## Starter Code
 
@@ -27,11 +27,13 @@ git clone https://github.com/softwareconstruction240/softwareconstruction.git
 
 Git is an essential software development tool. It allows you to quickly recover from mistakes, share your code with others, backup your code, and serve as a portfolio of your skills.
 
-⚠ You are required to make multiple commits to your public Chess GitHub repository for each phase. Each commit should represent a minor milestone within a phase. For example, after passing each test you should commit your code.
+⚠ You are required to make multiple commits to your public Chess GitHub repository for each phase. Each commit should represent a minor milestone within a phase. For example, after passing each test you should commit your code. Usually, you should have at least ten commits for each phase.
 
 Failure to properly document your efforts with your GitHub history may result in your assignment deliverables being rejected. So make sure you commit your changes consistently and often.
 
 ## Deliverables
+
+The follow summaries the deliverables you must provide for each of the different chess phases. Refer to the phase instructions for a full description.
 
 | Phase            | Deliverables                                                                                                                                  |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |

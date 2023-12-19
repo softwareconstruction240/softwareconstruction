@@ -7,34 +7,40 @@ The Starter Code has three folders: `dataAccess`, `serverTests`, and `web`. Do t
 1. Copy the [dataAccess](starter-code/dataAccess/) folder into the `server/src/main/java` folder. This contains an exception class that you will throw whenever there is a data access error.
 1. Create the folder `server/src/test/java`. Right click on the folder and select the option to mark the directory as `test sources root`. This tells IntelliJ where to look for code to run as tests.
 
-    ![mark test root](mark-test-root.png)
+   ![mark test root](mark-test-root.png)
 
 1. Copy the [serverTests](starter-code/serverTests/) folder to the `server/src/test/java/passoffTests` folder. The `serverTests` folder contains the server test cases.
-1. Copy the [web](starter-code/web/) folder to the root of your project. The `web` folder contains the files that implement the server’s test web page. When you create your server class, you will need to specify the `web` folder’s path for static files, as shown below.
+1. Create the folder `server/src/main/resources`. Right click on the folder and select the option to mark the directory as `resources root`. This tells IntelliJ that it should include the directory when it compiling the code to your `out` directory.
+1. Copy the [web](starter-code/web/) folder to the `server/src/main/resources` folder. The `web` folder contains the files that implement the server’s web page.
 
-   ```java
-   Spark.externalStaticFileLocation("web");
-   ```
+START HERE: Match what is in the project. include reading the location of the web files.
+
+    NWhen you create your server class, you will need to specify the `web` folder’s path for static files, as shown below. In order for your code to find this directory
+
+```java
+Spark.externalStaticFileLocation("web");
+```
 
 This should result in the following additions to your project.
 
 ```txt
-├── server
-│   └── src
-│       ├── main
-│       │   └── java
-│       │       └── dataAccess
-│       │           └── DataAccessException.java
-│       └── test
-│           └── java
-│               └── passoffTests
-│                   └── serverTests
-│                       └── StandardAPITests.java
-└── web
-    ├── favicon.ico
-    ├── index.css
-    ├── index.html
-    └── index.js
+└── server
+    └── src
+        ├── main
+        │   ├── java
+        │   │   └── dataAccess
+        │   │       └── DataAccessException.java
+        │   └── resources
+        │       └── web
+        │           ├── favicon.ico
+        │           ├── index.css
+        │           ├── index.html
+        │           └── index.js
+        └── test
+            └── java
+                └── passoffTests
+                    └── serverTests
+                        └── StandardAPITests.java
 ```
 
 ## Dependencies
@@ -45,15 +51,12 @@ We are going to use a cloud based package repository called Maven. Using Intelli
 
 ![Install dependency](install-dependency.gif)
 
-Install the following dependencies from Maven to your `server` module. 
-
+Add the dependencies for using JavaSpark and associate it with your `server` module.
 
 - `com.sparkjava:spark-core:2.9.3`
 
-    Handles HTTP requests and registers handlers for endpoints.
+  Handles HTTP requests and registers handlers for endpoints.
 
 - `org.slf4j:slf4j-simple:1.7.36`
 
-    Logger for SparkJava.
-
-
+  Logger for SparkJava.

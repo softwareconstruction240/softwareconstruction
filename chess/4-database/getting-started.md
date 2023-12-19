@@ -43,7 +43,7 @@ public boolean example(String selectStatement, Database db) throws DataAccessExc
 
 ## Dependencies
 
-The only additional dependency you’ll need to add for this project is the driver for connecting to MySQL.
+Add the dependency for the MySQL driver and associate it with your `server` module.
 
 - mysql:mysql-connector-java:8.0.29
   - Scope: Compile
