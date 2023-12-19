@@ -49,7 +49,9 @@ To Castle, the King moves 2 spaces towards the Rook, and the Rook "jumps" the ki
 
 This is a special move taken by a Pawn in response to your opponent double moving a Pawn. If your opponent double moves a pawn so it ends next to yours (skipping the position where your pawn could have captured their pawn), then on your immediately following turn your pawn may capture their pawn as if their pawn had only moved 1 square. This is as if your pawn is capturing their pawn mid motion, or `In Passing`.
 
-## Testing
+## Deliverables
+
+### Pass Off Tests
 
 The test cases for this assignment are in `passoffTests/chessTests/ChessGameTests.java` and represent the tests for the overall gameplay. You will need to pass all these tests to pass off this assignment.
 
@@ -57,7 +59,7 @@ Additionally, if you are implementing `Castling` and `En Passant` then include t
 
 To run the tests, you can click the play icon next to an individual test, or you can right click on a package or class and select `Run` or `Run Tests in …`
 
-## Pass Off and Grading
+### Pass Off and Grading
 
 All of the tests in your project must succeed in order to complete this phase. If you do not want to complete the extra credit moves then remove those tests from your project.
 

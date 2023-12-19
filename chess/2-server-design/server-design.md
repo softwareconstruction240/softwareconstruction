@@ -16,12 +16,12 @@ The chess application components are demonstrated by the following diagram and d
 
 | Component    | Sub-Component | Description                                                                                                                                                                                                                           |
 | ------------ | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Chess Client |               | Provides the interactive interface that allows a user to play a game of chess. This includes actions to login, create, and play games. The client exchanges messages over the network with the chess server.                                                             |
+| Chess Client |               | Provides the interactive interface that allows a user to play a game of chess. This includes actions to login, create, and play games. The client exchanges messages over the network with the chess server.                          |
 | Chess Server |               | Accepts network requests from the chess client to login, create, and play games. Users and games are stored in the database. The server also sends game play commands to the chess clients that are participating in a specific game. |
-|              | Server        | Receives network requests and deserializes them into service objects. Calls service methods to satisfy the  requests.                                                                                                                                                       |
-|              | Services      | Processes the business logic for the application. This includes registering and logging in users, creating, listing, and playing chess games.       Calls the data access methods to retrieve and persist application data data.                                                        |
-|              | DataAccess    | Provides methods that persistently store and retrieve the application data.                                                                                                      |
-|Database||Stores data persistently.|
+|              | Server        | Receives network requests and deserializes them into service objects. Calls service methods to satisfy the requests.                                                                                                                  |
+|              | Services      | Processes the business logic for the application. This includes registering and logging in users, creating, listing, and playing chess games. Calls the data access methods to retrieve and persist application data data.            |
+|              | DataAccess    | Provides methods that persistently store and retrieve the application data.                                                                                                                                                           |
+| Database     |               | Stores data persistently.                                                                                                                                                                                                             |
 
 ## Application Programming Interface (API)
 
@@ -43,11 +43,11 @@ The server endpoints are summarized below, but it is critical that you completel
 
 The different components in your architecture will operate on three data model objects that your application must implement. This includes the following.
 
-| Object   | Description                                                                                                                                 |
-| -------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| UserData | A user is registered and authenticated as a player or observer in the application.                                                          |
+| Object   | Description                                                                                                                                   |
+| -------- | --------------------------------------------------------------------------------------------------------------------------------------------- | --- |
+| UserData | A user is registered and authenticated as a player or observer in the application.                                                            |
 | AuthData | The association of a username and an authorization token that represents that the user has previously been authorized to use the application. |
-| GameData | The information about the state of a game. This includes the players, the board, and the outcome of the game.                               |s
+| GameData | The information about the state of a game. This includes the players, the board, and the outcome of the game.                                 | s   |
 
 These objects represent the core of what you are passing between your server, service, and data access components.
 
@@ -75,7 +75,6 @@ This diagram represents the following sequence for registering and authorizing a
 1. The `server` returns the authToken to the client.
 
 ⚠ Note that the diagram includes simple representations of HTTP and database requests. It is not important that you get the syntax correct in your diagrams. You will learn how to use these technologies in later phases. You just need to convey the idea of what they are doing.
-
 
 ## Classes
 
@@ -105,11 +104,11 @@ Class --> Student:knowledge
 end
 ```
 
+## Deliverables
 
-## Submission and Grading
+### Pass Off and Grading
 
 Once you have created your diagram you can create a URL that represents it by selecting the `export diagram` tool found on the toolbar to the left of the application. In the export dialog select `Presentation Mode Link` and copy the URL. Submit the URLs to the `Chess Server Design` Canvas Assignment.
-
 
 ![sequencediagram.org](sequence-diagram-org.gif)
 

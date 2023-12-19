@@ -4,41 +4,26 @@
 
 The Starter Code has two folders, `dataAccess` and `serverTests`. Do the following:
 
-1. Copy the `dataAccess` folder into your project’s `src/starter` folder. The `dataAccess` folder already exists in your project, but this will add more files to it.
-1. Copy the `serverTests` folder into your project’s `src/test/passoffTests` folder. The `serverTests` folder already exists in your project, but this will add more files to it.
+1. Copy the [resources/db.properties](starter-code/resources/db.properties) file into your project’s `server/src/main/java/resources` folder. This contains your database configuration settings. You will need to replace the values with your database username and password.
+1. Copy the [dataAccess/DatabaseManager.java](starter-code/dataAccess/DatabaseManager.java) file from the starter-code into your project's `server/src/main/java/dataAccess` folder. This contains code that will read your database configuration settings and create connections to your database server.
+1. Copy the [serverTests](starter-code/serverTests/PersistenceTests.java) file into your project’s `server/src/test/java/passoffTests/serverTests` folder. This contains a test that makes sure you are persisting information to your database.
 
-## Persistence Test
+This should result in the following additions to your project.
 
-In your project’s `src/test/passoffTests/serverTests` folder there will now be a new class named PersistenceTest. This class tests that your server properly saves and loads data to/from your MySQL database. When this test runs, it first creates some data in your database by calling your server’s web APIs. Then, you will see a prompt in the IntelliJ test console window asking you to shut down your server, restart it, and then press `Enter`. By default, the IntelliJ test console window does not allow user input. If your test console window does not allow user input, do the following:
-
-1. In IntelliJ go to the `Help` menu and select `Edit Custom VM Options…` This will load a text file in your editor that contains the Java virtual machine command line options that are used by IntelliJ.
-2. Add the following line to this file and save it:
-
-   ```sh
-   -Deditable.java.test.console=true
-   ```
-
-3. Restart IntelliJ
-
-Your test console window should now allow user input.
-
-## Connect Database class to MySQL
-
-Open to the `Database.java` file in your project’s `src/starter/dataAccess` folder and edit the `CONNECTION_URL`, `DB_USERNAME`, and `DB_PASSWORD` fields to match the configuration of your MySQL server. This class provides an example of how to manage a pool of database connections to your MySQL database. The usage of this class is completely optional, but if you do use it then here is an example of how you obtain and return connections.
-
-```java
-public boolean example(String selectStatement, Database db) throws DataAccessException{
-
-  var conn = db.getConnection();
-
-  try (var preparedStatement = conn.prepareStatement(selectStatement)) {
-      return preparedStatement.execute();
-  } catch (SQLException ex) {
-      throw new DataAccessException(ex.toString());
-  } finally {
-      db.returnConnection(conn);
-  }
-}
+```txt
+└── server
+    └── src
+        ├── main
+        │   ├── java
+        │   │   └── dataAccess
+        │   │       └── DatabaseManager.java
+        │   └── resources
+        │       └── db.properties
+        └── test
+            └── java
+                └── passoffTests
+                    └── serverTests
+                        └── PersistenceTests.java
 ```
 
 ## Dependencies

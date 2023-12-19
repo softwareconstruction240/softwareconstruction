@@ -116,7 +116,7 @@ The following sections describe the various classes that are depicted in the arc
 
 The Java `chess` package in your project's `shared` module contains classes that represents all of the data and algorithmic functionality that is shared by your chess client and server.
 
-As part of this phase, you need to create [record](../../instruction/records/records.md)  classes and add them to the shared `chess` package that represent the classes used for the chess application's core data objects. This includes the following.
+As part of this phase, you need to create [record](../../instruction/records/records.md) classes and add them to the shared `chess` package that represent the classes used for the chess application's core data objects. This includes the following.
 
 **UserData**
 
@@ -155,18 +155,17 @@ For the most part, the methods on your DAO classes will be `CRUD` operations tha
 void insertUser(UserData u) throws DataAccessException
 ```
 
-
 Here are some examples of the kinds of methods your DAO classes will need to support. If a method cannot be completed, it should throw a `DataAccessException` (e.g., trying to update a non-existent game). This list is not exhaustive.
 
 - **clear**: A method for clearing all data from the database. This is used during testing.
-- **createUser**: Create a new user. 
+- **createUser**: Create a new user.
 - **getUser**: Retrieve a user with the given username.
 - **createGame**: Create a new game.
 - **getGame**: Retrieve a specified game with the given game ID.
 - **listGames**: Retrieve all games.
 - **updateGame**: Updates a chess game. It should replace the chess game string corresponding to a given gameID. This is used when players join a game or when a move is made.
 - **createAuth**: Create a new authorization.
-- **getAuth**:  Retrieve an authorization given an authToken.
+- **getAuth**: Retrieve an authorization given an authToken.
 - **deleteAuth**: Delete an authorization so that it is no longer valid.
 
 ### DataAccessException
@@ -175,7 +174,7 @@ The starter code includes a `dataAccess.DataAccessException`. This exception sho
 
 ### DataAccess Interface
 
- In order to abstract from your services where data is actually being stored, you must create a Java interface that hides all of the implementation details for accessing and retrieving data. In this phase you will create an implementation of your data access interface that stores your server’s data in main memory (RAM) using standard data structures (maps, sets, lists). In the next phase you will create an implementation of the data access interface that uses an external SQL database.
+In order to abstract from your services where data is actually being stored, you must create a Java interface that hides all of the implementation details for accessing and retrieving data. In this phase you will create an implementation of your data access interface that stores your server’s data in main memory (RAM) using standard data structures (maps, sets, lists). In the next phase you will create an implementation of the data access interface that uses an external SQL database.
 
 ![data access classes](data-access-classes.png)
 
@@ -184,9 +183,7 @@ By using an interface you can hide, or encapsulate, how your data access works f
 1. You can quickly implement our services without having to implement a backing SQL database. This allows us to focus on the HTTP part of our server and then move over to SQL without changing any of our service code.
 2. You can write data access tests against the memory implementation of the interface and then reuse those tests when we create the SQL implementation.
 
-
 ⚠ You must place your data access classes in a folder named `server/src/test/java/dataAccess`.
-
 
 ### Service Classes
 
@@ -204,9 +201,7 @@ public class UserService {
 
 Each service method receives a Request object containing all the information it needs to do its work. After performing its function it returns a corresponding Result object containing the output of the method. To do their work, service classes need to make heavy use of the Model classes and Data Access classes described below.
 
-
 ⚠ You must place your service classes in a folder named `server/src/main/java/service`.
-
 
 ### Request and Result Classes
 
@@ -288,8 +283,7 @@ You need to create the number of handler classes that are appropriate for your s
 
 ### Server Class
 
-The Server receives network HTTP requests and sends them to the correct handler for processing. The server should also handle all unhandled exceptions that your application generates and return the appropriate HTTP status code. 
-
+The Server receives network HTTP requests and sends them to the correct handler for processing. The server should also handle all unhandled exceptions that your application generates and return the appropriate HTTP status code.
 
 ⚠ For the pass off tests to work properly, your server class must be named `Server` and provide a `run` method that has a desired port parameter, and a `stop` method that shuts your HTTP server down.
 
@@ -297,14 +291,13 @@ The starter code contains the `Server` class that you should use as the base for
 
 The `Server` class provides a `run` method will start the HTTP server on a desired port parameter. From your main function you should start the server on port 8080. If the port is 0 then it will start the HTTP server on a random open port. The starter code also provides a `stop` method that shuts the HTTP server down. This is necessary to control the starting and stopping of your server when running pass off tests.
 
-
 ### Web Browser Interface
 
-The starter code provides a simple web browser interface for calling your server endpoints. This is useful for experimentation while you are developing your endpoints. In order for your server to be able to load its web browser interface you need to determine the path where the web directory is located and then tell spark to load static web files from that directory. 
+The starter code provides a simple web browser interface for calling your server endpoints. This is useful for experimentation while you are developing your endpoints. In order for your server to be able to load its web browser interface you need to determine the path where the web directory is located and then tell spark to load static web files from that directory.
 
 ### Server Starter Code
 
-The following is a copy of the Server code that you should have already copied to your application as directed by the [getting started](getting-started.md) instructions. It contains the code for starting and stopping your server, as well as loading the web browser interface. 
+The following is a copy of the Server code that you should have already copied to your application as directed by the [getting started](getting-started.md) instructions. It contains the code for starting and stopping your server, as well as loading the web browser interface.
 
 ```java
 public class Server {
@@ -342,17 +335,17 @@ After you have created all the classes necessary for this phase you should have 
 
 ```txt
 ├─ server
-|  └─ src
-|     ├─ main
-|     │  └─ java
-|     │     ├─ dataAccess
-|     │     ├─ server
-|     │     └─ service
-|     └─ test
-|        └─ java
-|           ├─ passoffTests
-|           │  └─ serverTests
-|           └─ serviceTests
+│  └─ src
+│     ├─ main
+│     │  └─ java
+│     │     ├─ dataAccess
+│     │     ├─ server
+│     │     └─ service
+│     └─ test
+│        └─ java
+│           ├─ passoffTests
+│           │  └─ serverTests
+│           └─ serviceTests
 └─ shared
    └─ src
       └─ main
@@ -366,31 +359,35 @@ You can create and test your code in whatever order you would like. However, if 
 
 1. Use your sequence diagrams to guide the decision for what classes you need for your server, service, and data access objects.
 1. Implement your services
-	1. Create the classes you need to implement the `clear` service method.
-	1. Write a service test for `clear` to make sure the service and data access parts of your code are working properly.
-	1. Repeat writing and implementing service classes and tests until you have built all the required functionality. 
+   1. Create the classes you need to implement the `clear` service method.
+   1. Write a service test for `clear` to make sure the service and data access parts of your code are working properly.
+   1. Repeat writing and implementing service classes and tests until you have built all the required functionality.
 1. Create your server handler for a single endpoint that simply returns a string.
 1. Make sure you can hit your endpoint from a browser or Curl.
 1. Implement your server handlers
-	1. Convert your test server handler to implement the `clear` and `register` endpoints.
-	1. Run the pass off test for registration.
-	1. Repeat writing and implementing server handlers until you have completed all the pass off tests.
-
+   1. Convert your test server handler to implement the `clear` and `register` endpoints.
+   1. Run the pass off test for registration.
+   1. Repeat writing and implementing server handlers until you have completed all the pass off tests.
 
 ## Relevant Instruction Topics
 
 - [Web API](../../instruction/web-api/web-api.md): Creating an HTTP server.
 
-## Pass Off Tests
+## Deliverables
 
-The provided tests for this assignment are in the `StandardAPITests` class. These tests make HTTP requests to test your server.
+### Pass Off Tests
 
+Successfully run the provided tests for this assignment are in the `StandardAPITests` class. These tests make HTTP requests to test your server.
 
-## Code Quality
+### Service Unit Tests
+
+Successfully run the service unit tests that you created. They must directly call the methods on your service classes. They should not call your HTTP server. They should not use the HTTP server test code that is provided with the starter code.
+
+### Code Quality
 
 For this phase the TAs will grade the quality of your project's source code. The rubric used to evaluate code quality can be found here: [Rubric](../code-quality-rubric.md)
 
-## Pass Off and Grading
+### Pass Off and Grading
 
 All of the tests in your project must succeed in order to complete this phase.
 
@@ -398,8 +395,9 @@ To pass off this assignment use the course auto-grading tool. If your code passe
 
 After your code has successfully been auto-graded, a TA will review the code in your GitHub repository in order to determine its quality.
 
-
 ### Grading Rubric
+
+**⚠ NOTE**: You are required to commit to GitHub with every minor milestone. For example, after you successfully pass a test. This should result in a commit history that clearly details your work on this phase. If your Git history does not demonstrate your efforts then your submission may be rejected.
 
 | Category       | Criteria                                                                                                                                                                                         | Points |
 | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -----: |
