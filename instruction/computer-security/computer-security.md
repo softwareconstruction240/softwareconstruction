@@ -194,7 +194,7 @@ In Cryptography, `encryption` is the process of encoding data so that it is unre
 
 Unlike hashing passwords, many applications need to both encrypt and decrypt information. For example, when you have to save confidential information such as a user's medical or financial records, you want to encrypt that data so that it is difficult to compromise, but you also need to be able to decrypt it so that it can be returned to the user on request.
 
-In the world of cryptography, the unencrypted test is called plain text. The encrypted text is called a cipher. Algorithms that both encrypt and decrypt data utilize a sequence of bytes, called a key, that enable conversion. Typically, the longer the key size, the more difficult it will be to defeat the encryption.
+In the world of cryptography, the unencrypted text is called plain text. The encrypted text is called a cipher. Algorithms that both encrypt and decrypt data utilize a sequence of bytes, called a key, that enable conversion. Typically, the longer the key size, the more difficult it will be to defeat the encryption.
 
 | Term        | Purpose                                | Example             |
 | ----------- | -------------------------------------- | ------------------- |
