@@ -36,9 +36,9 @@ logger.addHandler(fileHandler);
 
 ### Log Levels
 
-Each log record specifying a `Level` that defines how important the record is. This can be anything from `SEVERE`, `WARNING`, or `INFO` down to the `FINEST` detail. You can then use the log levels to filter out details when you are looking for problems in your logs, or when you are generating alters. For example, you might want to automatically send an alert for anything that is `SEVERE`.
+Each log record specifies a `Level` that defines how important the record is. This can be anything from `SEVERE`, `WARNING`, or `INFO` down to the `FINEST` detail. You can then use the log levels to filter out details when you are looking for problems in your logs, or when you are generating alerts. For example, you might want to automatically send an alert for anything that is `SEVERE`.
 
-The level that you assign to your log records is dependent on what each log level means in the context of your application. With the chess program you might never publish a `SEVERE` log record. That is because the application could always fall back to some reasonable level of functionality. However, with an application that is protecting human safety, you might want to publish `SERVER` log records for anything that might conceivably endanger life.
+The level that you assign to your log records is dependent on what each log level means in the context of your application. With the chess program you might never publish a `SEVERE` log record. That is because the application could always fall back to some reasonable level of functionality. However, with an application that is protecting human safety, you might want to publish `SEVERE` log records for anything that might conceivably endanger life.
 
 You can also control how much logging your application is publishing by specifying a level on your logger. For example, when you are debugging you want to log the `FINEST` detail, but when you are running in production you only want to log `SEVERE`, `WARNING`, or `INFO`. When you restrict the handler to a certain level it will ignore any log requests that are below that level. This allows you to control how much logging is happening based upon an application configuration parameter. To set the level on a logger you use the `setLevel` method.
 
