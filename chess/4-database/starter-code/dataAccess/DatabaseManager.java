@@ -1,12 +1,7 @@
 package dataAccess;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.nio.file.Paths;
 import java.sql.*;
 import java.util.Properties;
-
-import static java.sql.Statement.RETURN_GENERATED_KEYS;
 
 public class DatabaseManager {
     private static final String databaseName;
@@ -19,11 +14,10 @@ public class DatabaseManager {
      */
     static {
         try {
-            var propsPath = Paths.get(DatabaseManager.class.getProtectionDomain().getCodeSource().getLocation().getPath(), "db.properties");
-            var propsFile = new File(propsPath.toString());
-            try (var in = new FileInputStream(propsFile)) {
+            try (var propStream = Thread.currentThread().getContextClassLoader().getResourceAsStream("db.properties")) {
+                if (propStream == null) throw new Exception("Unable to laod db.properties");
                 Properties props = new Properties();
-                props.load(in);
+                props.load(propStream);
                 databaseName = props.getProperty("db.name");
                 user = props.getProperty("db.user");
                 password = props.getProperty("db.password");
@@ -31,7 +25,6 @@ public class DatabaseManager {
                 var host = props.getProperty("db.host");
                 var port = Integer.parseInt(props.getProperty("db.port"));
                 connectionUrl = String.format("jdbc:mysql://%s:%d", host, port);
-
             }
         } catch (Exception ex) {
             throw new RuntimeException("unable to process db.properties. " + ex.getMessage());
@@ -45,7 +38,7 @@ public class DatabaseManager {
         try {
             var statement = "CREATE DATABASE IF NOT EXISTS " + databaseName;
             var conn = DriverManager.getConnection(connectionUrl, user, password);
-            try (var preparedStatement = conn.prepareStatement(statement, RETURN_GENERATED_KEYS)) {
+            try (var preparedStatement = conn.prepareStatement(statement)) {
                 preparedStatement.executeUpdate();
             }
         } catch (SQLException e) {
@@ -61,7 +54,7 @@ public class DatabaseManager {
      * <br/>
      * <code>
      * try (var conn = DbInfo.getConnection(databaseName)) {
-     *   // execute SQL statements.
+     * // execute SQL statements.
      * }
      * </code>
      */

@@ -4,7 +4,7 @@
 - [Getting Started](getting-started.md)
 - [Starter Code](starter-code)
 
-In this part of the Chess Project, you will create an initial version of your Chess client. Your Chess client will be a terminal-based (i.e., console-based) program that gives the user a simple interface for playing Chess. Your client should implement all user interactions that occur before and after actual gameplay (gameplay interactions will be implemented in the next part of the project). This includes allowing the user to display help text, register, login, list existing games, create a new game, join a game, observe a game, logout, and exit. You will also write the client code that draws the chessboard.
+In this part of the Chess Project, you will create an initial version of your Chess client. Your Chess client will be a terminal-based (i.e., console-based) program that gives the user a simple interface for playing Chess. Your client should implement all user interactions that occur outside of actually playing a game. Game play interactions will be implemented in the next phase. This includes allowing the user to display help text, register, login, list existing games, create a new game, join a game, observe a game, logout, and exit. You will also write the client code that draws the chessboard.
 
 ## Required Functionality
 
@@ -57,27 +57,29 @@ Should you choose to use the unicode Chess characters, some machines by default 
 
 Additionally, you may notice that the chess characters might render slightly wider than everything else. To balance this out, a wider version of a space called an em-space can be used. It is denoted by \u2003 and is currently being used as the middle space in the `EMPTY` escape sequence, so if you choose not to use the Unicode chess pieces, you will have to replace that with a regular space to get everything to line up vertically.
 
-## Unit Tests
+## Deliverables
 
-Write positive and negative unit tests for each method on your ServerFacade class (all the methods used to call your server).
-
-## Pass Off Tests
+### Pass Off Tests
 
 There are no new pass off test cases for this assignment.
 
-## Pass Off, Submission, and Grading
+### Unit Tests
+
+Write positive and negative unit tests for each method on your ServerFacade class (all the methods used to call your server).
+
+Place your unit tests in the provided starter code file `client/src/test/java/clientTests/ServerFacadeTests.java`.
+
+The starter code test file will automatically start and shutdown your server on a randomly assigned port as part of the test.
+
+### Pass Off, Submission, and Grading
+
+All of the tests in your project must succeed in order to complete this phase.
 
 To pass off this assignment, meet with a TA and demonstrate that your Chess client and server meet all requirements.
 
-After you pass off your project with a TA, you should immediately submit your project source code for grading. Your grade on the project will be determined by the date you submitted your source code after passing off, not the date that you passed off. If we never receive your source code, you will not receive credit for the assignment. Here are the instructions for submitting your project source code:
-
-- In Intellij, navigate to the "Build" menu at the top of the screen and select "Clean Project" to remove auto-generated build files (if this option is not available, you can skip this step).
-- Create a ZIP file containing your whole project folder (not just the Java source files).
-- Submit your ZIP file on Canvas under the `Chess Pregame` assignment.
-- To demonstrate that your test cases execute successfully, you should run your unit tests inside Intellij and take a screenshot of the successful test results displayed by Intellij. Please take one screenshot that shows the result of all of your tests passing. The tests used for the screenshot must be the same as the ones submitted in the Code Quality assignment ZIP file.
-- Submit your screenshot under the `Chess Pregame` assignment on Canvas. The screenshot is submitted separately from your code ZIP file.
-
 ### Grading Rubric
+
+**⚠ NOTE**: You are required to commit to GitHub with every minor milestone. For example, after you successfully pass a test. This should result in a commit history that clearly details your work on this phase. If your Git history does not demonstrate your efforts then your submission may be rejected.
 
 | Category      | Criteria                                                                                                                                                                                        | Points |
 | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -----: |
