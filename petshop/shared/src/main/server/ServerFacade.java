@@ -2,7 +2,6 @@ package server;
 
 import com.google.gson.Gson;
 import exception.ResponseException;
-import model.ModelSerializer;
 import model.Pet;
 
 import java.io.*;
@@ -80,7 +79,7 @@ public class ServerFacade {
             try (InputStream respBody = http.getInputStream()) {
                 InputStreamReader reader = new InputStreamReader(respBody);
                 if (responseClass != null) {
-                    response = ModelSerializer.deserialize(reader, responseClass);
+                    response = new Gson().fromJson(reader, responseClass);
                 }
             }
         }

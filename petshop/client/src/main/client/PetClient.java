@@ -3,7 +3,6 @@ package client;
 import java.util.Arrays;
 
 import com.google.gson.Gson;
-import model.ArrayFriendList;
 import model.Pet;
 import model.PetType;
 import exception.ResponseException;
@@ -61,13 +60,11 @@ public class PetClient {
         if (params.length >= 2) {
             var name = params[0];
             var type = PetType.valueOf(params[1].toUpperCase());
-            var friendArray = Arrays.copyOfRange(params, 2, params.length);
-            var friends = new ArrayFriendList(friendArray);
-            var pet = new Pet(0, name, type, friends);
+            var pet = new Pet(0, name, type);
             pet = server.addPet(pet);
             return String.format("You rescued %s. Assigned ID: %d", pet.name(), pet.id());
         }
-        throw new ResponseException(400, "Expected: <name> <CAT|DOG|FROG> [<friend name>]*");
+        throw new ResponseException(400, "Expected: <name> <CAT|DOG|FROG>");
     }
 
     public String listPets() throws ResponseException {
@@ -132,7 +129,7 @@ public class PetClient {
         return """
                 - list
                 - adopt <pet id>
-                - rescue <name> <CAT|DOG|FROG|FISH> [<friend name>]*
+                - rescue <name> <CAT|DOG|FROG|FISH>
                 - adoptAll
                 - signOut
                 - quit

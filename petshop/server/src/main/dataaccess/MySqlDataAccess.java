@@ -2,7 +2,6 @@ package dataaccess;
 
 import com.google.gson.Gson;
 import exception.ResponseException;
-import model.ArrayFriendList;
 import model.Pet;
 import model.PetType;
 
@@ -21,15 +20,15 @@ public class MySqlDataAccess implements DataAccess {
     }
 
     public Pet addPet(Pet pet) throws ResponseException {
-        var friendJson = new Gson().toJson(pet.friends());
-        var statement = "INSERT INTO pet (name, type, friends) VALUES (?, ?, ?)";
-        var id = executeUpdate(statement, pet.name(), pet.type(), friendJson);
-        return new Pet(id, pet.name(), pet.type(), pet.friends());
+        var statement = "INSERT INTO pet (name, type, json) VALUES (?, ?, ?)";
+        var json = new Gson().toJson(pet);
+        var id = executeUpdate(statement, pet.name(), pet.type(), json);
+        return new Pet(id, pet.name(), pet.type());
     }
 
     public Pet getPet(int id) throws ResponseException {
         try (var conn = DatabaseManager.getConnection()) {
-            var statement = "SELECT id, name, type, friends FROM pet WHERE id=?";
+            var statement = "SELECT json FROM pet WHERE id=?";
             try (var ps = conn.prepareStatement(statement)) {
                 ps.setInt(1, id);
                 try (var rs = ps.executeQuery()) {
@@ -47,7 +46,7 @@ public class MySqlDataAccess implements DataAccess {
     public Collection<Pet> listPets() throws ResponseException {
         var result = new ArrayList<Pet>();
         try (var conn = DatabaseManager.getConnection()) {
-            var statement = "SELECT id, name, type, friends FROM pet";
+            var statement = "SELECT json FROM pet";
             try (var ps = conn.prepareStatement(statement)) {
                 try (var rs = ps.executeQuery()) {
                     while (rs.next()) {
@@ -72,13 +71,8 @@ public class MySqlDataAccess implements DataAccess {
     }
 
     private Pet readPet(ResultSet rs) throws SQLException {
-        var id = rs.getInt("id");
-        var name = rs.getString("name");
-        var type = PetType.valueOf(rs.getString("type"));
-        var friendsJson = rs.getString("friends");
-        var friends = new Gson().fromJson(friendsJson, ArrayFriendList.class);
-
-        return new Pet(id, name, type, friends);
+        var json = rs.getString("json");
+        return new Gson().fromJson(json, Pet.class);
     }
 
     private int executeUpdate(String statement, Object... params) throws ResponseException {
@@ -111,7 +105,7 @@ public class MySqlDataAccess implements DataAccess {
               `id` int NOT NULL AUTO_INCREMENT,
               `name` varchar(256) NOT NULL,
               `type` ENUM('CAT', 'DOG', 'FISH', 'FROG', 'ROCK') DEFAULT 'CAT',
-              `friends` TEXT DEFAULT NULL,
+              `json` TEXT DEFAULT NULL,
               PRIMARY KEY (`id`),
               INDEX(type),
               INDEX(name)

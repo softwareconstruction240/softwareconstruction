@@ -3,7 +3,6 @@ package server;
 import com.google.gson.Gson;
 import dataaccess.DataAccess;
 import exception.ResponseException;
-import model.ModelSerializer;
 import model.Pet;
 import server.websocket.WebSocketHandler;
 import service.PetService;
@@ -50,7 +49,7 @@ public class PetServer {
     }
 
     private Object addPet(Request req, Response res) throws ResponseException {
-        var pet = ModelSerializer.deserialize(req.body(), Pet.class);
+        var pet = new Gson().fromJson(req.body(), Pet.class);
         pet = service.addPet(pet);
         webSocketHandler.makeNoise(pet.name(), pet.sound());
         return new Gson().toJson(pet);

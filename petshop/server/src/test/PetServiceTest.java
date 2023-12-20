@@ -1,6 +1,5 @@
 import dataaccess.MemoryDataAccess;
 import exception.ResponseException;
-import model.ArrayFriendList;
 import model.Pet;
 import model.PetType;
 import org.junit.jupiter.api.BeforeEach;
@@ -22,7 +21,7 @@ class PetServiceTest {
 
     @Test
     void addPet() throws ResponseException {
-        var pet = new Pet(0, "joe", PetType.FISH, null);
+        var pet = new Pet(0, "joe", PetType.FISH);
         pet = service.addPet(pet);
 
         var pets = service.listPets();
@@ -33,9 +32,9 @@ class PetServiceTest {
     @Test
     void listPets() throws ResponseException {
         List<Pet> expected = new ArrayList<>();
-        expected.add(service.addPet(new Pet(0, "joe", PetType.FISH, null)));
-        expected.add(service.addPet(new Pet(0, "sally", PetType.CAT, null)));
-        expected.add(service.addPet(new Pet(0, "fido", PetType.DOG, new ArrayFriendList("a", "b"))));
+        expected.add(service.addPet(new Pet(0, "joe", PetType.FISH)));
+        expected.add(service.addPet(new Pet(0, "sally", PetType.CAT)));
+        expected.add(service.addPet(new Pet(0, "fido", PetType.DOG)));
 
         var actual = service.listPets();
         assertIterableEquals(expected, actual);
@@ -44,9 +43,9 @@ class PetServiceTest {
     @Test
     void deletePet() throws ResponseException {
         List<Pet> expected = new ArrayList<>();
-        var pet = service.addPet(new Pet(0, "joe", PetType.FISH, null));
-        expected.add(service.addPet(new Pet(0, "sally", PetType.CAT, null)));
-        expected.add(service.addPet(new Pet(0, "fido", PetType.DOG, new ArrayFriendList("a", "b"))));
+        var pet = service.addPet(new Pet(0, "joe", PetType.FISH));
+        expected.add(service.addPet(new Pet(0, "sally", PetType.CAT)));
+        expected.add(service.addPet(new Pet(0, "fido", PetType.DOG)));
 
         service.deletePet(pet.id());
         var actual = service.listPets();
@@ -55,9 +54,9 @@ class PetServiceTest {
 
     @Test
     void deleteAllPets() throws ResponseException {
-        service.addPet(new Pet(0, "joe", PetType.FISH, null));
-        service.addPet(new Pet(0, "sally", PetType.CAT, null));
-        service.addPet(new Pet(0, "fido", PetType.DOG, new ArrayFriendList("a", "b")));
+        service.addPet(new Pet(0, "joe", PetType.FISH));
+        service.addPet(new Pet(0, "sally", PetType.CAT));
+        service.addPet(new Pet(0, "fido", PetType.DOG));
 
         service.deleteAllPets();
         assertEquals(0, service.listPets().size());

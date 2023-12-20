@@ -43,16 +43,6 @@ class PetClientTest {
         assertMatches("You rescued sally. Assigned ID: \\d+", result);
     }
 
-
-    @Test
-    void rescuePetWithFriends() {
-        assertDoesNotThrow(() -> client.rescuePet("joe", "fish", "a", "b"));
-        var result = assertDoesNotThrow(() -> client.listPets());
-        assertMatches("""
-                \\{'id':\\d+,'name':'joe','type':'FISH','friends':\\{'list':\\['a','b']}}
-                """, result);
-    }
-
     @Test
     void adoptPet() throws Exception {
         var id = getId(client.rescuePet("joe", "frog"));
@@ -85,15 +75,15 @@ class PetClientTest {
 
         var result = assertDoesNotThrow(() -> client.listPets());
         assertMatches("""
-                \\{'id':\\d+,'name':'joe','type':'FISH','friends':\\{'list':\\[]}}
-                \\{'id':\\d+,'name':'sally','type':'FISH','friends':\\{'list':\\[]}}
+                \\{'id':\\d+,'name':'joe','type':'FISH'}
+                \\{'id':\\d+,'name':'sally','type':'FISH'}
                 """, result);
     }
 
     private void assertMatches(String expected, String actual) {
         actual = actual.replace('"', '\'');
 
-        assertTrue(actual.matches(expected), actual);
+        assertTrue(actual.matches(expected), actual + "\n" + expected);
     }
 
     private static String getId(String text) {

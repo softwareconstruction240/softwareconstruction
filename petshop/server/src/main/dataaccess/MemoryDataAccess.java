@@ -1,6 +1,5 @@
 package dataaccess;
 
-import exception.ResponseException;
 import model.Pet;
 
 import java.util.Collection;
@@ -11,7 +10,7 @@ public class MemoryDataAccess implements DataAccess {
     final private HashMap<Integer, Pet> pets = new HashMap<>();
 
     public Pet addPet(Pet pet) {
-        pet = new Pet(nextId++, pet.name(), pet.type(), pet.friends());
+        pet = new Pet(nextId++, pet.name(), pet.type());
 
         pets.put(pet.id(), pet);
         return pet;
