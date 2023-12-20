@@ -16,23 +16,20 @@ import static java.sql.Types.NULL;
 
 public class MySqlDataAccess implements DataAccess {
 
-    private final MySqlDataAccessConfig config;
-
-    public MySqlDataAccess(MySqlDataAccessConfig config) throws ResponseException {
-        this.config = config;
+    public MySqlDataAccess() throws ResponseException {
         configureDatabase();
     }
 
     public Pet addPet(Pet pet) throws ResponseException {
         var friendJson = new Gson().toJson(pet.friends());
-        var statement = setDb("INSERT INTO %DB_NAME%.pet (name, type, friends) VALUES (?, ?, ?)");
+        var statement = "INSERT INTO pet (name, type, friends) VALUES (?, ?, ?)";
         var id = executeUpdate(statement, pet.name(), pet.type(), friendJson);
         return new Pet(id, pet.name(), pet.type(), pet.friends());
     }
 
     public Pet getPet(int id) throws ResponseException {
-        try (var conn = getConnection()) {
-            var statement = setDb("SELECT id, name, type, friends FROM %DB_NAME%.pet WHERE id=?");
+        try (var conn = DatabaseManager.getConnection()) {
+            var statement = "SELECT id, name, type, friends FROM pet WHERE id=?";
             try (var ps = conn.prepareStatement(statement)) {
                 ps.setInt(1, id);
                 try (var rs = ps.executeQuery()) {
@@ -49,8 +46,8 @@ public class MySqlDataAccess implements DataAccess {
 
     public Collection<Pet> listPets() throws ResponseException {
         var result = new ArrayList<Pet>();
-        try (var conn = getConnection()) {
-            var statement = setDb("SELECT id, name, type, friends FROM %DB_NAME%.pet");
+        try (var conn = DatabaseManager.getConnection()) {
+            var statement = "SELECT id, name, type, friends FROM pet";
             try (var ps = conn.prepareStatement(statement)) {
                 try (var rs = ps.executeQuery()) {
                     while (rs.next()) {
@@ -65,12 +62,12 @@ public class MySqlDataAccess implements DataAccess {
     }
 
     public void deletePet(Integer id) throws ResponseException {
-        var statement = setDb("DELETE FROM %DB_NAME%.pet WHERE id=?");
+        var statement = "DELETE FROM pet WHERE id=?";
         executeUpdate(statement, id);
     }
 
     public void deleteAllPets() throws ResponseException {
-        var statement = setDb("TRUNCATE %DB_NAME%.pet");
+        var statement = "TRUNCATE pet";
         executeUpdate(statement);
     }
 
@@ -84,16 +81,8 @@ public class MySqlDataAccess implements DataAccess {
         return new Pet(id, name, type, friends);
     }
 
-    private Connection getConnection() throws ResponseException {
-        try {
-            return DriverManager.getConnection(config.serverUrl(), config.username(), config.password());
-        } catch (SQLException ex) {
-            throw new ResponseException(500, String.format("Unable to create database connection: %s", ex.getMessage()));
-        }
-    }
-
     private int executeUpdate(String statement, Object... params) throws ResponseException {
-        try (var conn = getConnection()) {
+        try (var conn = DatabaseManager.getConnection()) {
             try (var ps = conn.prepareStatement(statement, RETURN_GENERATED_KEYS)) {
                 for (var i = 0; i < params.length; i++) {
                     var param = params[i];
@@ -118,10 +107,7 @@ public class MySqlDataAccess implements DataAccess {
 
     private final String[] createStatements = {
             """
-            CREATE DATABASE IF NOT EXISTS %DB_NAME%
-            """,
-            """
-            CREATE TABLE IF NOT EXISTS  %DB_NAME%.pet (
+            CREATE TABLE IF NOT EXISTS  pet (
               `id` int NOT NULL AUTO_INCREMENT,
               `name` varchar(256) NOT NULL,
               `type` ENUM('CAT', 'DOG', 'FISH', 'FROG', 'ROCK') DEFAULT 'CAT',
@@ -135,9 +121,9 @@ public class MySqlDataAccess implements DataAccess {
 
 
     private void configureDatabase() throws ResponseException {
-        try (var conn = getConnection()) {
+        DatabaseManager.createDatabase();
+        try (var conn = DatabaseManager.getConnection()) {
             for (var statement : createStatements) {
-                statement = setDb(statement);
                 try (var preparedStatement = conn.prepareStatement(statement)) {
                     preparedStatement.executeUpdate();
                 }
@@ -145,9 +131,5 @@ public class MySqlDataAccess implements DataAccess {
         } catch (SQLException ex) {
             throw new ResponseException(500, String.format("Unable to configure database: %s", ex.getMessage()));
         }
-    }
-
-    private String setDb(String statement) {
-        return statement.replace("%DB_NAME%", config.dbName());
     }
 }

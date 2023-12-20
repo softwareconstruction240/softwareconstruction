@@ -13,12 +13,11 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 class DataAccessTest {
-    public static MySqlDataAccessConfig testMySqlConfig = new MySqlDataAccessConfig("jdbc:mysql://localhost:3306", "root", "monkeypie", "testpetstore");
 
     private DataAccess getDataAccess(Class<? extends DataAccess> databaseClass) throws ResponseException {
         DataAccess db;
         if (databaseClass.equals(MySqlDataAccess.class)) {
-            db = new MySqlDataAccess(testMySqlConfig);
+            db = new MySqlDataAccess();
         } else {
             db = new MemoryDataAccess();
         }

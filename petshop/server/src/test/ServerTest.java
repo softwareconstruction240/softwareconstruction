@@ -1,3 +1,5 @@
+import dataaccess.MemoryDataAccess;
+import dataaccess.MySqlDataAccess;
 import model.ArrayFriendList;
 import model.Pet;
 import model.PetType;
@@ -6,7 +8,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import server.PetServer;
-import util.ServerFacade;
+import server.ServerFacade;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -19,8 +21,8 @@ class ServerTest {
     static ServerFacade server;
 
     @BeforeAll
-    static void startServer() {
-        petServer = new PetServer();
+    static void startServer() throws Exception {
+        petServer = new PetServer(new MySqlDataAccess());
         petServer.run(0);
         var url = "http://localhost:" + petServer.port();
         server = new ServerFacade(url);
