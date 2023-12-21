@@ -28,7 +28,12 @@ This should result in the following additions to your project.
 
 ## Dependencies
 
-Add the dependency for the MySQL driver and associate it with your `server` module.
+Add the dependency for the MySQL driver and BCrypt. Associate them with your `server` module.
 
-- mysql:mysql-connector-java:8.0.29
+- mysql:mysql-connector-java:8.0.2
+
+  - Scope: Compile
+
+- org.springframework.security:spring-security-core:5.7.1
+
   - Scope: Compile

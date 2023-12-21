@@ -40,6 +40,34 @@ As you design your database schema, carefully consider data types, primary and f
 
 The [Pet Shop](../../petshop/server/src/main/dataaccess/MySqlDataAccess.java) provides an example of how to initialize your database on start up if you are wondering how this is done.
 
+## Password Hashing
+
+In order to protect the security of your user's password, you must encrypt their password using the bcrypt algorithm. When a user provides a password, hash it before storing it in the database.
+
+```java
+void storeUserPassword(String username, String password) {
+   BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+   String hashedPassword = encoder.encode(clearTextPassword);
+
+   // write the hashed password in database along with the user's other information
+   writeHashedPasswordToDatabase(username, hashedPassword);
+}
+```
+
+Then when a user attempts to login, repeat the hashing process on the user supplied login password and then compare the resulting hash to the previously stored hash of the original password. If the two hashes match then you know the supplied password is correct.
+
+```java
+boolean verifyUser(String username, String providedClearTextPassword) {
+   // read the previously hashed password from the database
+   var hashedPassword = readHashedPasswordFromDatabase(username);
+
+   BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+   return encoder.matches(providedClearTextPassword, hashedPassword);
+}
+```
+
+The above code demonstrates the necessary concepts to implement secure password storage, but it will need to be adapted to your particular implementation. You do not need to create a different table to store your passwords. The hashed password may be store along with your other user information in your `user` table.
+
 ## ChessGame Serialization/Deserialization
 
 The easiest way to store the state of a ChessGame in MySQL is to serialize it to a JSON string, and then store the string in your database. Whenever your server needs to update the state of a game, it should:
