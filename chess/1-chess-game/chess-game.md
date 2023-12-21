@@ -59,7 +59,7 @@ Additionally, if you are implementing `Castling` and `En Passant` then include t
 
 To run the tests, you can click the play icon next to an individual test, or you can right click on a package or class and select `Run` or `Run Tests in …`
 
-### Pass Off and Grading
+### Pass Off, Submission, and Grading
 
 All of the tests in your project must succeed in order to complete this phase. If you do not want to complete the extra credit moves then remove those tests from your project.
 

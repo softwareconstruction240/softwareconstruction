@@ -106,7 +106,7 @@ end
 
 ## Deliverables
 
-### Pass Off and Grading
+### Pass Off, Submission, and Grading
 
 Once you have created your diagram you can create a URL that represents it by selecting the `export diagram` tool found on the toolbar to the left of the application. In the export dialog select `Presentation Mode Link` and copy the URL. Submit the URLs to the `Chess Server Design` Canvas Assignment.
 

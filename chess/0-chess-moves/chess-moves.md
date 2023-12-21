@@ -159,12 +159,13 @@ In order for the tests to pass, you are required to override the `equals()` and 
 
 ⚠ NOTE: Although not required, debugging is often easier if you override the `toString()` method and return a concise representation of the object.
 
-## Pass Off and Grading
+## Deliverables
+
+### Pass Off, Submission, and Grading
 
 All of the tests in your project must succeed in order to complete this phase.
 
 To pass off this assignment use the course auto-grading tool. If your code passes then your grade will automatically be entered in Canvas.
-
 
 ### Grading Rubric
 

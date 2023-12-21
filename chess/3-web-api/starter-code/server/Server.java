@@ -4,7 +4,7 @@ import spark.*;
 
 import java.nio.file.Paths;
 
-public class Ex {
+public class Server {
 
     public int run(int desiredPort) {
         Spark.port(desiredPort);

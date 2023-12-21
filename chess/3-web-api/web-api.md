@@ -387,7 +387,7 @@ Successfully run the service unit tests that you created. They must directly cal
 
 For this phase the TAs will grade the quality of your project's source code. The rubric used to evaluate code quality can be found here: [Rubric](../code-quality-rubric.md)
 
-### Pass Off and Grading
+### Pass Off, Submission, and Grading
 
 All of the tests in your project must succeed in order to complete this phase.
 

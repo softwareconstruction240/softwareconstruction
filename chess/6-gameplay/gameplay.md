@@ -4,7 +4,7 @@
 - [Getting Started](getting-started.md)
 - [Starter Code](starter-code)
 
-For the final part of the Chess Project, you will implement gameplay. Gameplay will use WebSocket to communicate between client and server (instead of Web APIs). When a user joins or observes a game, their client should establish a WebSocket connection with the server. This WebSocket will be used to exchange messages between client and server (and vice versa). Figure 1 shows a recommended design for the chess client.
+For the final part of the Chess Project, you will implement gameplay. Gameplay will use WebSocket to communicate between client and server (instead of Web APIs). When a user joins or observes a game, their client should establish a WebSocket connection with the server. The WebSocket connection exchanges messages between client and server (and vice versa). Figure 1 shows a recommended design for the chess client.
 
 ![client design](client-design.png)
 
@@ -150,24 +150,21 @@ Here is a [sequence diagram](https://sequencediagram.org/index.html?presentation
 - [Console UI](../../instruction/console-ui/console-ui.md): Reading from the keyboard and writing out fancy text.
 - [WebSocket](../../instruction/websocket/websocket.md): Making WebSocket client and server requests.
 
-## Pass Off Tests
+## Deliverables
+
+### Pass Off Tests
 
 The provided tests for this assignment are in the `WebSocketTests` class. These test the `WebSocket` interactions between client and server. To run the tests first start your server, and then run `WebSocketTests`.
 
-## Code Quality
+### Code Quality
 
 For this phase the TAs will grade the quality of your project's source code. The rubric used to evaluate code quality can be found here: [Rubric](../code-quality-rubric.md)
 
-## Pass Off, Submission, and Grading
+### Pass Off, Submission, and Grading
 
-To pass off this assignment, meet with a TA and demonstrate that your code passes the provided test cases.
-Also, demonstrate to the TA that your Chess client and server meet all requirements.
+All of the tests in your project must succeed in order to complete this phase.
 
-After you pass off your project with a TA, you should immediately submit your project source code for grading. Your grade on the project will be determined by the date you submitted your source code after passing off, not the date that you passed off. If we never receive your source code, you will not receive credit for the assignment. Here are the instructions for submitting your project source code:
-
-- In Intellij, navigate to the "Build" menu at the top of the screen and select "Clean Project" to remove auto-generated build files (if this option is not available, you can skip this step).
-- Create a ZIP file containing your whole project folder (not just the Java source files).
-- Submit your ZIP file on Canvas under the `Chess Gameplay` assignment.
+To pass off this assignment submit your work to the course auto-grading tool. When that is done, meet with a TA and demonstrate that your Chess client and server meet all requirements and assign you a final grade.
 
 ### Grading Rubric
 

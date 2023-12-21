@@ -67,15 +67,67 @@ There are no new pass off test cases for this assignment.
 
 Write positive and negative unit tests for each method on your ServerFacade class (all the methods used to call your server).
 
-Place your unit tests in the provided starter code file `client/src/test/java/clientTests/ServerFacadeTests.java`.
+Your tests must be located in the class provided starter code in the file `client/src/test/java/clientTests/ServerFacadeTests.java`
 
-The starter code test file will automatically start and shutdown your server on a randomly assigned port as part of the test.
+⚠ `ServerFacadedTests.java` contains code that will automatically start and shutdown your server on a randomly assigned port as part of the test. However, you will still need to start your server when you manually run your client.
+
+```java
+public class ServerFacadeTests {
+
+    private static Server server;
+
+    @BeforeAll
+    public static void init() {
+        server = new Server();
+        var port = server.run(0);
+        System.out.println("Started test HTTP server on " + port);
+    }
+
+    @AfterAll
+    static void stopServer() {
+        server.stop();
+    }
+
+
+    @Test
+    public void sampleTest() {
+        Assertions.assertTrue(true);
+    }
+}
+```
+
+Replace the `sampleTest` method and add your unit tests.
+
+Your server facade will need to take the port the server is running on as part of its initialization when running your tests. You can accomplish this by modifying the `init` function to create and initialize your server facade with code that is something like the following:
+
+```java
+private static Server server;
+static ServerFacade facade;
+
+@BeforeAll
+public static void init() {
+    server = new Server();
+    var port = server.run(0);
+    System.out.println("Started test HTTP server on " + port);
+    facade = new ServerFacade(port);
+}
+```
+
+You can then directly test your facade with tests such as:
+
+```java
+@Test
+void register() throws Exception {
+    var authData = facade.register("player1", "password", "p1@email.com");
+    assertTrue(authData.authToken().length() > 10);
+}
+```
 
 ### Pass Off, Submission, and Grading
 
 All of the tests in your project must succeed in order to complete this phase.
 
-To pass off this assignment, meet with a TA and demonstrate that your Chess client and server meet all requirements.
+To pass off this assignment submit your work to the course auto-grading tool. When that is done, meet with a TA and demonstrate that your Chess client and server meet all requirements and assign you a final grade.
 
 ### Grading Rubric
 
