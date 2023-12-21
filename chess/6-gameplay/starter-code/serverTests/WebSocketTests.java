@@ -3,86 +3,51 @@ package passoffTests.serverTests;
 import chess.ChessGame;
 import chess.ChessMove;
 import chess.ChessPosition;
-import com.google.gson.Gson;
 import org.junit.jupiter.api.*;
 import passoffTests.TestFactory;
 import passoffTests.obfuscatedTestClasses.TestServerFacade;
-import passoffTests.testClasses.TestClient;
 import passoffTests.testClasses.TestException;
 import passoffTests.testClasses.TestModels;
+import passoffTests.testClasses.WebsocketTestingEnvironment;
+import server.Server;
 
-import java.util.ArrayList;
+import java.net.URISyntaxException;
 import java.util.List;
-import java.util.concurrent.*;
+import java.util.Map;
+import java.util.Set;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class WebSocketTests {
 
-    private static TestClient bobClient;
-    private static TestClient jamesClient;
-    private static TestClient alfredClient;
-
-
-    private ExecutorService bobExecutor;
-    private ExecutorService jamesExecutor;
-    private ExecutorService alfredExecutor;
-    private ExecutorService testExecutor;
-
-    private static TestModels.TestUser userBob;
-    private static TestModels.TestUser userJames;
-    private static TestModels.TestUser userAlfred;
-
+    private static WebsocketTestingEnvironment environment;
     private static TestServerFacade serverFacade;
-
-    private static String bobAuth;
-    private static String jamesAuth;
-    private static String alfredAuth;
-
-    private static Integer emptyGame;
-    private static Integer fullGame;
-
+    private static Server server;
     private static Long waitTime;
+    private TestUser white;
+    private TestUser black;
+    private TestUser observer;
+    private Integer gameID;
+
+
+    @AfterAll
+    static void stopServer() {
+        server.stop();
+    }
 
 
     @BeforeAll
-    public static void init() throws TestException {
-        serverFacade = new TestServerFacade("localhost", TestFactory.getServerPort());
+    public static void init() throws URISyntaxException {
+        server = new Server();
+        var port = Integer.toString(server.run(0));
+        System.out.println("Started test HTTP server on " + port);
+
+        serverFacade = new TestServerFacade("localhost", port);
         serverFacade.clear();
 
-        bobClient = new TestClient();
-        bobClient.setServerHost("localhost");
-        bobClient.setServerPort(TestFactory.getServerPort());
-        bobClient.setContext("/connect");
-
-        jamesClient = new TestClient();
-        jamesClient.setServerHost("localhost");
-        jamesClient.setServerPort(TestFactory.getServerPort());
-        jamesClient.setContext("/connect");
-
-        alfredClient = new TestClient();
-        alfredClient.setServerHost("localhost");
-        alfredClient.setServerPort(TestFactory.getServerPort());
-        alfredClient.setContext("/connect");
-
-
-        //set Bob details
-        userBob = new TestModels.TestUser();
-        userBob.username = "bob";
-        userBob.password = "BOB";
-        userBob.email = "bob@BOB";
-
-        //set James details
-        userJames = new TestModels.TestUser();
-        userJames.username = "James";
-        userJames.password = "1234";
-        userJames.email = "pepporoni@pizza.net";
-
-        //set Alfred details
-        userAlfred = new TestModels.TestUser();
-        userAlfred.username = "Alfred";
-        userAlfred.password = "Bruce";
-        userAlfred.email = "Batman@Mr.Wayne";
+        environment = new WebsocketTestingEnvironment("localhost", port, "/connect");
 
         waitTime = TestFactory.getMessageTime();
     }
@@ -90,1856 +55,671 @@ public class WebSocketTests {
 
     @BeforeEach
     public void setup() throws TestException {
-        bobExecutor = Executors.newSingleThreadExecutor();
-        jamesExecutor = Executors.newSingleThreadExecutor();
-        alfredExecutor = Executors.newSingleThreadExecutor();
-        testExecutor = Executors.newSingleThreadExecutor();
-
         //populate database
-
         serverFacade.clear();
 
-        TestModels.TestRegisterRequest registerRequest = new TestModels.TestRegisterRequest();
-        TestModels.TestLoginRegisterResult result;
+        white = registerUser("white", "WHITE", "white@chess.com");
+        black = registerUser("black", "BLACK", "black@chess.com");
+        observer = registerUser("observer", "OBSERVER", "observer@chess.com");
 
-        //register bob
-        registerRequest.username = userBob.username;
-        registerRequest.password = userBob.password;
-        registerRequest.email = userBob.email;
-        result = serverFacade.register(registerRequest);
-        bobAuth = result.authToken;
+        gameID = createGame(white, "testGame");
 
-        //register james
-        registerRequest.username = userJames.username;
-        registerRequest.password = userJames.password;
-        registerRequest.email = userJames.email;
-        result = serverFacade.register(registerRequest);
-        jamesAuth = result.authToken;
-
-        //register alfred
-        registerRequest.username = userAlfred.username;
-        registerRequest.password = userAlfred.password;
-        registerRequest.email = userAlfred.email;
-        result = serverFacade.register(registerRequest);
-        alfredAuth = result.authToken;
-
-
-        //create games
-        TestModels.TestCreateRequest createRequest = new TestModels.TestCreateRequest();
-        createRequest.gameName = "testGame";
-        TestModels.TestJoinRequest joinRequest = new TestModels.TestJoinRequest();
-        TestModels.TestCreateResult createResult;
-
-        //emptyGame
-        createResult = serverFacade.createGame(createRequest, bobAuth);
-        emptyGame = createResult.gameID;
-
-        //full game
-        createRequest.gameName = "full";
-        createResult = serverFacade.createGame(createRequest, bobAuth);
-        fullGame = createResult.gameID;
-
-        joinRequest.gameID = createResult.gameID;
-        joinRequest.playerColor = ChessGame.TeamColor.WHITE;
-        serverFacade.verifyJoinPlayer(joinRequest, bobAuth);
-        joinRequest.playerColor = ChessGame.TeamColor.BLACK;
-        serverFacade.verifyJoinPlayer(joinRequest, jamesAuth);
+        joinGame(gameID, white, ChessGame.TeamColor.WHITE);
+        joinGame(gameID, black, ChessGame.TeamColor.BLACK);
+        joinGame(gameID, observer, null);
     }
-
 
     @AfterEach
     public void tearDown() {
-        bobClient.disconnect();
-        jamesClient.disconnect();
-        alfredClient.disconnect();
+        environment.disconnectAll();
     }
 
 
     @Test
     @Order(1)
     @DisplayName("Normal Join Player")
-    public void joinPlayerGood() throws InterruptedException, ExecutionException {
-
+    public void joinPlayerGood() {
         //try join valid reserved spot
-        TestModels.TestCommand joinCommand = new TestModels.TestCommand();
-        joinCommand.commandType = TestModels.TestCommandType.JOIN_PLAYER;
-        joinCommand.authToken = bobAuth;
-        joinCommand.playerColor = ChessGame.TeamColor.WHITE;
-        joinCommand.gameID = fullGame;
-
-        //make sure got load board message
-        CountDownLatch readyLatch = new CountDownLatch(1);
-        List<TestModels.TestMessage> bobMessages = new ArrayList<>();
-        bobClient.connect();
-        testExecutor.submit(bobClient.getSendMessageRunnable(joinCommand, readyLatch));
-        Future<List<TestModels.TestMessage>> bobResult =
-                bobExecutor.submit(new GetServerMessages(1, bobClient, readyLatch, waitTime));
-
-        try {
-            bobMessages = bobResult.get(waitTime * 2, TimeUnit.MILLISECONDS);
-        } catch (TimeoutException ignore) {}
+        Map<String, List<TestModels.TestMessage>> messages =
+                joinPlayer(white.user, white.authToken, gameID, ChessGame.TeamColor.WHITE, Set.of(), Set.of());
 
         //check received message
-        Assertions.assertEquals(1, bobMessages.size(),
-                "Expected 1 message for Bob, got " + bobMessages.size());
-        Assertions.assertEquals(TestModels.TestServerMessageType.LOAD_GAME, bobMessages.get(0).serverMessageType,
-                "Bob's message was not a LOAD_GAME message");
-        Assertions.assertNotNull(bobMessages.get(0).game, "Bob's LOAD_GAME message did not contain a game");
+        assertLoadGameMessage(messages.get(white.user));
+
 
         //join other spot on game
-        joinCommand = new TestModels.TestCommand();
-        joinCommand.commandType = TestModels.TestCommandType.JOIN_PLAYER;
-        joinCommand.authToken = jamesAuth;
-        joinCommand.playerColor = ChessGame.TeamColor.BLACK;
-        joinCommand.gameID = fullGame;
+        messages = joinPlayer(black.user, black.authToken, gameID, ChessGame.TeamColor.BLACK,
+                Set.of(white.user), Set.of());
 
-
-        //expect load board for james & Text message for bob
-        readyLatch = new CountDownLatch(2);
-        testExecutor.submit(jamesClient.getSendMessageRunnable(joinCommand, readyLatch));
-        Future<List<TestModels.TestMessage>> jamesResult =
-                jamesExecutor.submit(new GetServerMessages(1, jamesClient, readyLatch, waitTime));
-        bobResult = bobExecutor.submit(new GetServerMessages(1, bobClient, readyLatch, waitTime));
-
-        //get messages
-        List<TestModels.TestMessage> jamesMessages = new ArrayList<>();
-        try {
-            jamesMessages = jamesResult.get(waitTime * 3, TimeUnit.MILLISECONDS);
-            bobMessages = bobResult.get(waitTime * 3, TimeUnit.MILLISECONDS);
-        } catch (TimeoutException ignore) {}
-
-        //check james messages
-        Assertions.assertEquals(1, jamesMessages.size(),
-                "Expected 1 message for James, got " + jamesMessages.size());
-        Assertions.assertEquals(TestModels.TestServerMessageType.LOAD_GAME, jamesMessages.get(0).serverMessageType,
-                "James message was not a LOAD_GAME message");
-        Assertions.assertNotNull(jamesMessages.get(0).game, "James LOAD_GAME message did not contain a game");
-
-        //check bob messages
-        Assertions.assertEquals(1, bobMessages.size(),
-                "Expected 1 message for Bob, got " + bobMessages.size());
-        Assertions.assertEquals(TestModels.TestServerMessageType.NOTIFICATION, bobMessages.get(0).serverMessageType,
-                "Bob's message was not a NOTIFICATION message");
-        Assertions.assertNotNull(bobMessages.get(0).message,
-                "Bobs NOTIFICATION message did not contain a message");
+        //check received messages
+        assertLoadGameMessage(messages.get(black.user));
+        assertNotificationMessage(messages.get(white.user));
     }
 
 
     @Test
     @Order(2)
     @DisplayName("Join Player Wrong Team")
-    public void joinPlayerSteal() throws InterruptedException, ExecutionException {
+    public void joinPlayerSteal() {
         //try join someone else's reserved spot
-        TestModels.TestCommand joinCommand = new TestModels.TestCommand();
-        joinCommand.commandType = TestModels.TestCommandType.JOIN_PLAYER;
-        joinCommand.authToken = bobAuth;
-        joinCommand.playerColor = ChessGame.TeamColor.BLACK; //bob is playing white, but james is playing black
-        joinCommand.gameID = fullGame;
-
-        //make sure got load board message
-        CountDownLatch readyLatch = new CountDownLatch(1);
-        List<TestModels.TestMessage> bobMessages = new ArrayList<>();
-        bobClient.connect();
-        testExecutor.submit(bobClient.getSendMessageRunnable(joinCommand, readyLatch));
-        Future<List<TestModels.TestMessage>> bobResult =
-                bobExecutor.submit(new GetServerMessages(1, bobClient, readyLatch, waitTime));
-
-        try {
-            bobMessages = bobResult.get(waitTime * 2, TimeUnit.MILLISECONDS);
-        } catch (TimeoutException ignore) {}
+        Map<String, List<TestModels.TestMessage>> messages =
+                joinPlayer(white.user, white.authToken, gameID, ChessGame.TeamColor.BLACK, Set.of(), Set.of());
 
         //check received message
-        Assertions.assertEquals(1, bobMessages.size(),
-                "Expected 1 message for Bob, got " + bobMessages.size());
-        Assertions.assertEquals(TestModels.TestServerMessageType.ERROR, bobMessages.get(0).serverMessageType,
-                "Bob's message was not an ERROR message");
-        Assertions.assertNull(bobMessages.get(0).game, "Bob's ERROR message contained a game");
-        Assertions.assertNotNull(bobMessages.get(0).errorMessage,
-                "Bob's ERROR message did not contain an error message");
+        assertErrorMessage(messages.get(white.user));
     }
 
 
     @Test
     @Order(3)
     @DisplayName("Join Player Empty Team")
-    public void joinPlayerEmpty() throws InterruptedException, ExecutionException {
+    public void joinPlayerEmpty() {
+        //This test sends a JOIN_PLAYER message for a game without calling Http join endpoint first
+        //create empty game
+        TestModels.TestCreateRequest createRequest = new TestModels.TestCreateRequest();
+        createRequest.gameName = "testGameEmpty";
+        TestModels.TestCreateResult createResult = serverFacade.createGame(createRequest, white.authToken);
 
         //join empty game
-        TestModels.TestCommand joinCommand = new TestModels.TestCommand();
-        joinCommand.commandType = TestModels.TestCommandType.JOIN_PLAYER;
-        joinCommand.authToken = alfredAuth;
-        joinCommand.playerColor = ChessGame.TeamColor.BLACK;
-        joinCommand.gameID = emptyGame;
+        Map<String, List<TestModels.TestMessage>> messages =
+                joinPlayer(white.user, white.authToken, createResult.gameID, ChessGame.TeamColor.WHITE,
+                        Set.of(), Set.of());
 
-        //make sure got load board message
-        CountDownLatch readyLatch = new CountDownLatch(1);
-        List<TestModels.TestMessage> alfredMessages = new ArrayList<>();
-        testExecutor.submit(alfredClient.getSendMessageRunnable(joinCommand, readyLatch));
-        Future<List<TestModels.TestMessage>> alfredResult =
-                alfredExecutor.submit(new GetServerMessages(1, alfredClient, readyLatch, waitTime));
-        try{
-            alfredMessages = alfredResult.get(waitTime * 2, TimeUnit.MILLISECONDS);
-        } catch (TimeoutException ignore) {}
-
-        //check received messages
-        Assertions.assertEquals(1, alfredMessages.size(),
-                "Expected 1 message for Alfred, got " + alfredMessages.size());
-        Assertions.assertEquals(TestModels.TestServerMessageType.ERROR, alfredMessages.get(0).serverMessageType,
-                "Alfred's message was not an ERROR message");
-        Assertions.assertNull(alfredMessages.get(0).game, "Alfred's ERROR message contained a game");
-        Assertions.assertNotNull(alfredMessages.get(0).errorMessage,
-                "Alfred's ERROR message did not contain an error message");
+        assertErrorMessage(messages.get(white.user));
     }
 
 
     @Test
     @Order(4)
     @DisplayName("Join Player Bad GameID")
-    public void joinPlayerBadGameID() throws InterruptedException, ExecutionException {
+    public void joinPlayerBadGameID() {
+        Map<String, List<TestModels.TestMessage>> messages =
+                joinPlayer(white.user, white.authToken, gameID + 1, ChessGame.TeamColor.WHITE, Set.of(),
+                        Set.of());
 
-        //join empty game
-        TestModels.TestCommand joinCommand = new TestModels.TestCommand();
-        joinCommand.commandType = TestModels.TestCommandType.JOIN_PLAYER;
-        joinCommand.authToken = jamesAuth;
-        joinCommand.playerColor = ChessGame.TeamColor.BLACK;
-        joinCommand.gameID = fullGame + emptyGame; //invalid ID
-
-        //make sure got load board message
-        CountDownLatch readyLatch = new CountDownLatch(1);
-        List<TestModels.TestMessage> jamesMessages = new ArrayList<>();
-        testExecutor.submit(jamesClient.getSendMessageRunnable(joinCommand, readyLatch));
-        Future<List<TestModels.TestMessage>> jamesResult =
-                jamesExecutor.submit(new GetServerMessages(1, jamesClient, readyLatch, waitTime));
-        try{
-            jamesMessages = jamesResult.get(waitTime * 2, TimeUnit.MILLISECONDS);
-        } catch (TimeoutException ignore) {}
-
-        //check received messages
-        Assertions.assertEquals(1, jamesMessages.size(),
-                "Expected 1 message for James, got " + jamesMessages.size());
-        Assertions.assertEquals(TestModels.TestServerMessageType.ERROR, jamesMessages.get(0).serverMessageType,
-                "James's message was not an ERROR message");
-        Assertions.assertNull(jamesMessages.get(0).game, "James's ERROR message contained a game");
-        Assertions.assertNotNull(jamesMessages.get(0).errorMessage,
-                "James's ERROR message did not contain an error message");
+        assertErrorMessage(messages.get(white.user));
     }
 
 
     @Test
     @Order(5)
     @DisplayName("Join Player Bad AuthToken")
-    public void joinPlayerBadAuthtoken() throws InterruptedException, ExecutionException {
-        //try join someone else's reserved spot
-        TestModels.TestCommand joinCommand = new TestModels.TestCommand();
-        joinCommand.commandType = TestModels.TestCommandType.JOIN_PLAYER;
-        joinCommand.authToken = "badBobAuth";
-        joinCommand.playerColor = ChessGame.TeamColor.WHITE;
-        joinCommand.gameID = fullGame;
+    public void joinPlayerBadAuthToken() {
+        Map<String, List<TestModels.TestMessage>> messages =
+                joinPlayer(white.user, "badAuth", gameID, ChessGame.TeamColor.WHITE, Set.of(), Set.of());
 
-        //make sure got load board message
-        CountDownLatch readyLatch = new CountDownLatch(1);
-        List<TestModels.TestMessage> bobMessages = new ArrayList<>();
-        bobClient.connect();
-        testExecutor.submit(bobClient.getSendMessageRunnable(joinCommand, readyLatch));
-        Future<List<TestModels.TestMessage>> bobResult =
-                bobExecutor.submit(new GetServerMessages(1, bobClient, readyLatch, waitTime));
-
-        try {
-            bobMessages = bobResult.get(waitTime * 2, TimeUnit.MILLISECONDS);
-        } catch (TimeoutException ignore) {}
-
-        //check received message
-        Assertions.assertEquals(1, bobMessages.size(),
-                "Expected 1 message for Bob, got " + bobMessages.size());
-        Assertions.assertEquals(TestModels.TestServerMessageType.ERROR, bobMessages.get(0).serverMessageType,
-                "Bob's message was not an ERROR message");
-        Assertions.assertNull(bobMessages.get(0).game, "Bob's ERROR message contained a game");
-        Assertions.assertNotNull(bobMessages.get(0).errorMessage,
-                "Bob's ERROR message did not contain an error message");
+        assertErrorMessage(messages.get(white.user));
     }
 
 
     @Test
     @Order(6)
     @DisplayName("Normal Join Observer")
-    public void joinObserverGood() throws InterruptedException, ExecutionException {
-        //try to observe full game
-        TestModels.TestCommand joinCommand = new TestModels.TestCommand();
-        joinCommand.commandType = TestModels.TestCommandType.JOIN_OBSERVER;
-        joinCommand.authToken = bobAuth;
-        joinCommand.gameID = fullGame;
+    public void joinObserverGood() {
+        //have white player watch their own game
+        Map<String, List<TestModels.TestMessage>> messages =
+                joinObserver(white.user, white.authToken, gameID, Set.of(), Set.of());
 
-        //make sure got load board message
-        CountDownLatch readyLatch = new CountDownLatch(1);
-        List<TestModels.TestMessage> bobMessages = new ArrayList<>();
-        bobClient.connect();
-        testExecutor.submit(bobClient.getSendMessageRunnable(joinCommand, readyLatch));
-        Future<List<TestModels.TestMessage>> bobResult =
-                bobExecutor.submit(new GetServerMessages(1, bobClient, readyLatch));
+        //should get a load game message
+        assertLoadGameMessage(messages.get(white.user));
 
-        try {
-            bobMessages = bobResult.get(waitTime, TimeUnit.MILLISECONDS);
-        } catch (TimeoutException ignore) {}
+        //have player join
+        messages = joinPlayer(black.user, black.authToken, gameID, ChessGame.TeamColor.BLACK,
+                Set.of(white.user), Set.of());
 
-        //check received message
-        Assertions.assertEquals(1, bobMessages.size(),
-                "Expected 1 message for Bob, got " + bobMessages.size());
-        Assertions.assertEquals(TestModels.TestServerMessageType.LOAD_GAME, bobMessages.get(0).serverMessageType,
-                "Bob's message was not a LOAD_GAME message");
-        Assertions.assertNotNull(bobMessages.get(0).game, "Bob's LOAD_GAME message did not contain a game");
+        //observer should get a notification
+        assertNotificationMessage(messages.get(white.user));
 
+        //watch game
+        messages =
+                joinObserver(observer.user, observer.authToken, gameID, Set.of(white.user, black.user),
+                        Set.of());
 
-        //watch empty game
-        joinCommand = new TestModels.TestCommand();
-        joinCommand.commandType = TestModels.TestCommandType.JOIN_OBSERVER;
-        joinCommand.authToken = alfredAuth;
-        joinCommand.gameID = emptyGame;
-
-        //make sure got load board message
-        readyLatch = new CountDownLatch(1);
-        List<TestModels.TestMessage> alfredMessages = new ArrayList<>();
-        testExecutor.submit(alfredClient.getSendMessageRunnable(joinCommand, readyLatch));
-        Future<List<TestModels.TestMessage>> alfredResult =
-                bobExecutor.submit(new GetServerMessages(1, alfredClient, readyLatch, waitTime));
-        try {
-            alfredMessages = alfredResult.get(waitTime * 2, TimeUnit.MILLISECONDS);
-        } catch (TimeoutException ignore) {}
-
-        //check received messages
-        Assertions.assertEquals(1, alfredMessages.size(),
-                "Expected 1 message for Alfred, got " + alfredMessages.size());
-        Assertions.assertEquals(TestModels.TestServerMessageType.LOAD_GAME, alfredMessages.get(0).serverMessageType,
-                "Alfred's message was not a LOAD_GAME message");
-        Assertions.assertNotNull(alfredMessages.get(0).game,
-                "Alfred's LOAD_GAME message did not contain a game");
-
-
-        //watch game with active player
-        joinCommand = new TestModels.TestCommand();
-        joinCommand.commandType = TestModels.TestCommandType.JOIN_OBSERVER;
-        joinCommand.authToken = jamesAuth;
-        joinCommand.gameID = fullGame;
-
-
-        //expect load board for james & Text message for bob
-        readyLatch = new CountDownLatch(2);
-        testExecutor.submit(jamesClient.getSendMessageRunnable(joinCommand, readyLatch));
-        Future<List<TestModels.TestMessage>> jamesResult =
-                jamesExecutor.submit(new GetServerMessages(1, jamesClient, readyLatch, waitTime));
-        bobResult = bobExecutor.submit(new GetServerMessages(1, bobClient, readyLatch, waitTime));
-
-        //get messages
-        List<TestModels.TestMessage> jamesMessages = new ArrayList<>();
-        try {
-            jamesMessages = jamesResult.get(waitTime * 3, TimeUnit.MILLISECONDS);
-            bobMessages = bobResult.get(waitTime * 3, TimeUnit.MILLISECONDS);
-        } catch (TimeoutException ignore) {}
-
-        //check james messages
-        Assertions.assertEquals(1, jamesMessages.size(),
-                "Expected 1 message for James, got " + jamesMessages.size());
-        Assertions.assertEquals(TestModels.TestServerMessageType.LOAD_GAME, jamesMessages.get(0).serverMessageType,
-                "James' message was not a LOAD_GAME message");
-        Assertions.assertNotNull(jamesMessages.get(0).game,
-                "James LOAD_GAME message did not contain a game");
-
-        //check bob messages
-        Assertions.assertEquals(1, bobMessages.size(),
-                "Expected 1 message for Bob, got " + bobMessages.size());
-        Assertions.assertEquals(TestModels.TestServerMessageType.NOTIFICATION, bobMessages.get(0).serverMessageType,
-                "Bob's message was not a NOTIFICATION message");
-        Assertions.assertNotNull(bobMessages.get(0).message,
-                "Bob's NOTIFICATION message did not contain a message");
+        //check messages
+        assertLoadGameMessage(messages.get(observer.user));
+        assertNotificationMessage(messages.get(white.user));
+        assertNotificationMessage(messages.get(black.user));
     }
 
 
     @Test
     @Order(7)
-    @DisplayName("Multiple Observers")
-    public void multipleJoinObserver() throws InterruptedException, ExecutionException, TimeoutException {
-        //have bob join the game as a player
-        TestModels.TestCommand joinCommand = new TestModels.TestCommand();
-        joinCommand.commandType = TestModels.TestCommandType.JOIN_PLAYER;
-        joinCommand.authToken = bobAuth;
-        joinCommand.playerColor = ChessGame.TeamColor.WHITE;
-        joinCommand.gameID = fullGame;
+    @DisplayName("Join Observer Bad GameID")
+    public void joinObserverBadGameID() {
+        Map<String, List<TestModels.TestMessage>> messages =
+                joinObserver(observer.user, observer.authToken, gameID + 1, Set.of(), Set.of());
 
-        //wait for bob joining as a player to go through
-        bobClient.connect();
-        CountDownLatch readyLatch = new CountDownLatch(1);
-        testExecutor.submit(bobClient.getSendMessageRunnable(joinCommand, readyLatch));
-        bobExecutor.submit(new GetServerMessages(1, bobClient, readyLatch))
-                .get(waitTime, TimeUnit.MILLISECONDS);
-
-        //have james join as an observer
-        joinCommand = new TestModels.TestCommand();
-        joinCommand.commandType = TestModels.TestCommandType.JOIN_OBSERVER;
-        joinCommand.authToken = jamesAuth;
-        joinCommand.gameID = fullGame;
-
-        //wait for james joining as an observer to go through
-        jamesClient.connect();
-        readyLatch = new CountDownLatch(2);
-        testExecutor.submit(jamesClient.getSendMessageRunnable(joinCommand, readyLatch));
-        Future<List<TestModels.TestMessage>> jamesResult =
-                jamesExecutor.submit(new GetServerMessages(1, jamesClient, readyLatch));
-        Future<List<TestModels.TestMessage>> bobResult =
-                bobExecutor.submit(new GetServerMessages(1, bobClient, readyLatch));
-        jamesResult.get(2 * waitTime, TimeUnit.MILLISECONDS);
-        bobResult.get(2 * waitTime, TimeUnit.MILLISECONDS);
-
-        //have alfred observe game
-        joinCommand = new TestModels.TestCommand();
-        joinCommand.commandType = TestModels.TestCommandType.JOIN_OBSERVER;
-        joinCommand.authToken = alfredAuth;
-        joinCommand.gameID = fullGame;
-
-
-        //ready message
-        alfredClient.connect();
-        readyLatch = new CountDownLatch(3);
-        testExecutor.submit(alfredClient.getSendMessageRunnable(joinCommand, readyLatch));
-
-        //start getting messages
-        bobResult = bobExecutor.submit(new GetServerMessages(1, bobClient, readyLatch, waitTime));
-        jamesResult = jamesExecutor.submit(new GetServerMessages(1, jamesClient, readyLatch, waitTime));
-        Future<List<TestModels.TestMessage>> alfredResult =
-                alfredExecutor.submit(new GetServerMessages(1, alfredClient, readyLatch, waitTime));
-
-        //prep messages lists
-        List<TestModels.TestMessage> bobMessages = new ArrayList<>();
-        List<TestModels.TestMessage> jamesMessages = new ArrayList<>();
-        List<TestModels.TestMessage> alfredMessages = new ArrayList<>();
-
-        //wait to get all messages
-        try {
-            bobMessages = bobResult.get(waitTime * 4, TimeUnit.MILLISECONDS);
-            jamesMessages = jamesResult.get(waitTime * 4, TimeUnit.MILLISECONDS);
-            alfredMessages = alfredResult.get(waitTime * 4, TimeUnit.MILLISECONDS);
-
-        } catch (TimeoutException ignore) {}
-
-        //check message contents
-        //alfred gets Load Game, everyone else gets notification
-        Assertions.assertEquals(1, bobMessages.size(),
-                "Expected 1 message for Bob, got " + bobMessages.size());
-        Assertions.assertEquals(TestModels.TestServerMessageType.NOTIFICATION, bobMessages.get(0).serverMessageType,
-                "Bob's message was not a NOTIFICATION message");
-        Assertions.assertNotNull(bobMessages.get(0).message,
-                "Bob's NOTIFICATION message did not contain a message");
-
-        Assertions.assertEquals(1, jamesMessages.size(),
-                "Expected 1 message for James, got " + jamesMessages.size());
-        Assertions.assertEquals(TestModels.TestServerMessageType.NOTIFICATION, jamesMessages.get(0).serverMessageType,
-                "James' message was not a NOTIFICATION message");
-        Assertions.assertNotNull(jamesMessages.get(0).message,
-                "James' NOTIFICATION message didn't contain a message");
-
-        Assertions.assertEquals(1, alfredMessages.size(),
-                "Expected 1 message for Alfred, got " + alfredMessages.size());
-        Assertions.assertEquals(TestModels.TestServerMessageType.LOAD_GAME, alfredMessages.get(0).serverMessageType,
-                "Alfred's message was not a LOAD_GAME message");
-        Assertions.assertNotNull(alfredMessages.get(0).game,
-                "Alfred's LOAD_GAME message did not contain a message");
+        assertErrorMessage(messages.get(observer.user));
     }
 
 
     @Test
     @Order(8)
-    @DisplayName("Join Observer Bad GameID")
-    public void joinObserverBadGameID() throws InterruptedException, ExecutionException {
-        //try join someone else's reserved spot
-        TestModels.TestCommand joinCommand = new TestModels.TestCommand();
-        joinCommand.commandType = TestModels.TestCommandType.JOIN_OBSERVER;
-        joinCommand.authToken = bobAuth;
-        joinCommand.gameID = fullGame + emptyGame;
+    @DisplayName("Join Observer Bad AuthToken")
+    public void joinObserverBadAuthToken() {
+        Map<String, List<TestModels.TestMessage>> messages =
+                joinObserver(observer.user, "badAuth", gameID, Set.of(), Set.of());
 
-        //make sure got load board message
-        CountDownLatch readyLatch = new CountDownLatch(1);
-        List<TestModels.TestMessage> bobMessages = new ArrayList<>();
-        bobClient.connect();
-        testExecutor.submit(bobClient.getSendMessageRunnable(joinCommand, readyLatch));
-        Future<List<TestModels.TestMessage>> bobResult =
-                bobExecutor.submit(new GetServerMessages(1, bobClient, readyLatch, waitTime));
-
-        try {
-            bobMessages = bobResult.get(waitTime * 2, TimeUnit.MILLISECONDS);
-        } catch (TimeoutException ignore) {}
-
-        //check received message
-        Assertions.assertEquals(1, bobMessages.size(),
-                "Expected 1 message for Bob, got " + bobMessages.size());
-        Assertions.assertEquals(TestModels.TestServerMessageType.ERROR, bobMessages.get(0).serverMessageType,
-                "Bob's message was not an ERROR message");
-        Assertions.assertNull(bobMessages.get(0).game, "Bob's ERROR message contained a game");
-        Assertions.assertNotNull(bobMessages.get(0).errorMessage,
-                "Bob's ERROR message did not contain an error message");
+        assertErrorMessage(messages.get(observer.user));
     }
 
 
     @Test
     @Order(9)
-    @DisplayName("Join Observer Bad AuthToken")
-    public void joinObserverBadAuthtoken() throws InterruptedException, ExecutionException {
-        //try join someone else's reserved spot
-        TestModels.TestCommand joinCommand = new TestModels.TestCommand();
-        joinCommand.commandType = TestModels.TestCommandType.JOIN_OBSERVER;
-        joinCommand.authToken = "badAlfredAuth";
-        joinCommand.gameID = fullGame + emptyGame;
-
-        //make sure got load board message
-        CountDownLatch readyLatch = new CountDownLatch(1);
-        List<TestModels.TestMessage> alfredMessages = new ArrayList<>();
-        alfredClient.connect();
-        testExecutor.submit(alfredClient.getSendMessageRunnable(joinCommand, readyLatch));
-        Future<List<TestModels.TestMessage>> alfredResult =
-                alfredExecutor.submit(new GetServerMessages(1, alfredClient, readyLatch, waitTime));
-
-        try {
-            alfredMessages = alfredResult.get(waitTime * 2, TimeUnit.MILLISECONDS);
-        } catch (TimeoutException ignore) {
-        }
-
-        //check received message
-        Assertions.assertEquals(1, alfredMessages.size(),
-                "Expected 1 message for Alfred, got " + alfredMessages.size());
-        Assertions.assertEquals(TestModels.TestServerMessageType.ERROR, alfredMessages.get(0).serverMessageType,
-                "Alfred's message was not an ERROR message");
-        Assertions.assertNull(alfredMessages.get(0).game, "Alfred's ERROR message contained a game");
-        Assertions.assertNotNull(alfredMessages.get(0).errorMessage,
-                "Alfred's ERROR message did not contain an error message");
-    }
-
-
-    @Test
-    @Order(10)
     @DisplayName("Normal Make Move")
-    public void validMove() throws InterruptedException, ExecutionException, TimeoutException {
-        //have bob join the game as a player
-        TestModels.TestCommand joinCommand = new TestModels.TestCommand();
-        joinCommand.commandType = TestModels.TestCommandType.JOIN_PLAYER;
-        joinCommand.authToken = bobAuth;
-        joinCommand.playerColor = ChessGame.TeamColor.WHITE;
-        joinCommand.gameID = fullGame;
+    public void validMove() {
+        setupNormalGame();
 
-        //wait for bob joining as a player to go through
-        bobClient.connect();
-        CountDownLatch readyLatch = new CountDownLatch(1);
-        testExecutor.submit(bobClient.getSendMessageRunnable(joinCommand, readyLatch));
-        bobExecutor.submit(new GetServerMessages(1, bobClient, readyLatch))
-                .get(waitTime, TimeUnit.MILLISECONDS);
-
-        //have james join as a player
-        joinCommand = new TestModels.TestCommand();
-        joinCommand.commandType = TestModels.TestCommandType.JOIN_PLAYER;
-        joinCommand.playerColor = ChessGame.TeamColor.BLACK;
-        joinCommand.authToken = jamesAuth;
-        joinCommand.gameID = fullGame;
-
-        //wait for james joining as a player to go through
-        jamesClient.connect();
-        readyLatch = new CountDownLatch(2);
-        testExecutor.submit(jamesClient.getSendMessageRunnable(joinCommand, readyLatch));
-        Future<List<TestModels.TestMessage>> jamesResult =
-                jamesExecutor.submit(new GetServerMessages(1, jamesClient, readyLatch));
-        Future<List<TestModels.TestMessage>> bobResult =
-                bobExecutor.submit(new GetServerMessages(1, bobClient, readyLatch));
-        bobResult.get(2 * waitTime, TimeUnit.MILLISECONDS);
-        jamesResult.get(2 * waitTime, TimeUnit.MILLISECONDS);
-
-
-        //have alfred join as an observer
-        joinCommand = new TestModels.TestCommand();
-        joinCommand.commandType = TestModels.TestCommandType.JOIN_OBSERVER;
-        joinCommand.authToken = alfredAuth;
-        joinCommand.gameID = fullGame;
-
-
-        //wait for alfred joining as an observer to go through
-        alfredClient.connect();
-        readyLatch = new CountDownLatch(3);
-        testExecutor.submit(alfredClient.getSendMessageRunnable(joinCommand, readyLatch));
-        Future<List<TestModels.TestMessage>> alfredResult =
-                alfredExecutor.submit(new GetServerMessages(1, alfredClient, readyLatch));
-        bobResult = bobExecutor.submit(new GetServerMessages(1, bobClient, readyLatch));
-        jamesResult = jamesExecutor.submit(new GetServerMessages(1, jamesClient, readyLatch));
-        alfredResult.get(3 * waitTime, TimeUnit.MILLISECONDS);
-        bobResult.get(3 * waitTime, TimeUnit.MILLISECONDS);
-        jamesResult.get(3 * waitTime, TimeUnit.MILLISECONDS);
-
-
-        //have bob make a move
         //create pawn move
         ChessPosition startingPosition = TestFactory.getNewPosition(2, 5);
         ChessPosition endingPosition = TestFactory.getNewPosition(3, 5);
         ChessMove move = TestFactory.getNewMove(startingPosition, endingPosition, null);
 
-        //create command
-        TestModels.TestCommand moveCommand = new TestModels.TestCommand();
-        moveCommand.commandType = TestModels.TestCommandType.MAKE_MOVE;
-        moveCommand.authToken = bobAuth;
-        moveCommand.gameID = fullGame;
-        moveCommand.move = move;
+        //send command
+        Map<String, List<TestModels.TestMessage>> messages =
+                makeMove(white.user, white.authToken, gameID, move,
+                        Set.of(black.user, observer.user), Set.of());
 
-        //ready message
-        readyLatch = new CountDownLatch(3);
-        testExecutor.submit(bobClient.getSendMessageRunnable(moveCommand, readyLatch));
+        assertLoadGameMessage(messages.get(white.user));
+        assertMoveMadePair(messages.get(black.user));
+        assertMoveMadePair(messages.get(observer.user));
+    }
 
-        //start getting messages
-        jamesClient.connect();
-        alfredClient.connect();
-        bobResult = bobExecutor.submit(new GetServerMessages(1, bobClient, readyLatch, waitTime));
-        jamesResult = jamesExecutor.submit(new GetServerMessages(2, jamesClient, readyLatch, waitTime));
-        alfredResult = alfredExecutor.submit(new GetServerMessages(2, alfredClient, readyLatch, waitTime));
 
-        //prep messages lists
-        List<TestModels.TestMessage> bobMessages = new ArrayList<>();
-        List<TestModels.TestMessage> jamesMessages = new ArrayList<>();
-        List<TestModels.TestMessage> alfredMessages = new ArrayList<>();
+    @Test
+    @Order(10)
+    @DisplayName("Make Invalid Move")
+    public void invalidMoveBadMove() {
+        setupNormalGame();
 
-        //wait to get all messages
-        try {
-            bobMessages = bobResult.get(waitTime * 4, TimeUnit.MILLISECONDS);
-            jamesMessages = jamesResult.get(waitTime * 4, TimeUnit.MILLISECONDS);
-            alfredMessages = alfredResult.get(waitTime * 4, TimeUnit.MILLISECONDS);
+        //try to move rook - invalid move
+        ChessPosition startingPosition = TestFactory.getNewPosition(1, 1);
+        ChessPosition endingPosition = TestFactory.getNewPosition(1, 5);
+        ChessMove move = TestFactory.getNewMove(startingPosition, endingPosition, null);
 
-        } catch (TimeoutException ignore) {}
+        //send command
+        Map<String, List<TestModels.TestMessage>> messages =
+                makeMove(white.user, white.authToken, gameID, move, Set.of(),
+                        Set.of(black.user, observer.user));
 
-        //check message contents
-        //bob should get load game, everyone else should get load game & notification
-        Assertions.assertEquals(1, bobMessages.size(),
-                "Expected 1 message for Bob, got " + bobMessages.size());
-        Assertions.assertEquals(TestModels.TestServerMessageType.LOAD_GAME, bobMessages.get(0).serverMessageType,
-                "Bob's message was not a LOAD_GAME message");
-        Assertions.assertNotNull(bobMessages.get(0).game,
-                "Bob's LOAD_GAME message did not contain a game");
-
-        Assertions.assertEquals(2, jamesMessages.size(),
-                "Expected 2 messages for James, got " + jamesMessages.size());
-        boolean isLoadGameFirst = jamesMessages.get(0).serverMessageType == TestModels.TestServerMessageType.LOAD_GAME;
-        Assertions.assertEquals(TestModels.TestServerMessageType.LOAD_GAME,
-                jamesMessages.get(isLoadGameFirst ? 0 : 1).serverMessageType,
-                "James didn't get load game message");
-        Assertions.assertNotNull(jamesMessages.get(isLoadGameFirst ? 0 : 1).game,
-                "James LOAD_GAME message didn't contain a game");
-        Assertions.assertEquals(TestModels.TestServerMessageType.NOTIFICATION,
-                jamesMessages.get(isLoadGameFirst ? 1 : 0).serverMessageType,
-                "James didn't get notification");
-        Assertions.assertNotNull(jamesMessages.get(isLoadGameFirst ? 1 : 0).message,
-                "James NOTIFICATION message didn't contain a message");
-
-        Assertions.assertEquals(2, alfredMessages.size(),
-                "Expected 2 messages for Alfred, got " + alfredMessages.size());
-        isLoadGameFirst = alfredMessages.get(0).serverMessageType == TestModels.TestServerMessageType.LOAD_GAME;
-        Assertions.assertEquals(TestModels.TestServerMessageType.LOAD_GAME,
-                alfredMessages.get(isLoadGameFirst ? 0 : 1).serverMessageType,
-                "Alfred didn't get load game message");
-        Assertions.assertNotNull(alfredMessages.get(isLoadGameFirst ? 0 : 1).game,
-                "Alfred's LOAD_GAME message didn't contain a game");
-        Assertions.assertEquals(TestModels.TestServerMessageType.NOTIFICATION,
-                alfredMessages.get(isLoadGameFirst ? 1 : 0).serverMessageType,
-                "Alfred didn't get notification");
-        Assertions.assertNotNull(alfredMessages.get(isLoadGameFirst ? 1 : 0).message,
-                "Alfred's NOTIFICATION message didn't contain a message");
+        assertErrorMessage(messages.get(white.user));
+        Assertions.assertTrue(messages.get(black.user).isEmpty(),
+                "Player got a message after the other player sent an invalid command");
+        Assertions.assertTrue(messages.get(observer.user).isEmpty(),
+                "Observer got a message after player sent an invalid command");
     }
 
 
     @Test
     @Order(11)
-    @DisplayName("Make Invalid Move")
-    public void invalidMoveBadMove() throws ExecutionException, InterruptedException, TimeoutException {
-        //have bob join the game as a player
-        TestModels.TestCommand joinCommand = new TestModels.TestCommand();
-        joinCommand.commandType = TestModels.TestCommandType.JOIN_PLAYER;
-        joinCommand.authToken = bobAuth;
-        joinCommand.playerColor = ChessGame.TeamColor.WHITE;
-        joinCommand.gameID = fullGame;
+    @DisplayName("Make Move Wrong Turn")
+    public void invalidMoveWrongTurn() {
+        setupNormalGame();
 
-        //wait for bob joining as a player to go through
-        bobClient.connect();
-        CountDownLatch readyLatch = new CountDownLatch(1);
-        testExecutor.submit(bobClient.getSendMessageRunnable(joinCommand, readyLatch));
-        bobExecutor.submit(new GetServerMessages(1, bobClient, readyLatch))
-                .get(waitTime, TimeUnit.MILLISECONDS);
-
-        //have james join as a player
-        joinCommand = new TestModels.TestCommand();
-        joinCommand.commandType = TestModels.TestCommandType.JOIN_PLAYER;
-        joinCommand.playerColor = ChessGame.TeamColor.BLACK;
-        joinCommand.authToken = jamesAuth;
-        joinCommand.gameID = fullGame;
-
-        //wait for james joining as a player to go through
-        jamesClient.connect();
-        readyLatch = new CountDownLatch(2);
-        testExecutor.submit(jamesClient.getSendMessageRunnable(joinCommand, readyLatch));
-        Future<List<TestModels.TestMessage>> jamesResult =
-                jamesExecutor.submit(new GetServerMessages(1, jamesClient, readyLatch));
-        Future<List<TestModels.TestMessage>> bobResult =
-                bobExecutor.submit(new GetServerMessages(1, bobClient, readyLatch));
-        bobResult.get(2 * waitTime, TimeUnit.MILLISECONDS);
-        jamesResult.get(2 * waitTime, TimeUnit.MILLISECONDS);
-
-
-        //have alfred join as an observer
-        joinCommand = new TestModels.TestCommand();
-        joinCommand.commandType = TestModels.TestCommandType.JOIN_OBSERVER;
-        joinCommand.authToken = alfredAuth;
-        joinCommand.gameID = fullGame;
-
-
-        //wait for alfred joining as an observer to go through
-        alfredClient.connect();
-        readyLatch = new CountDownLatch(3);
-        testExecutor.submit(alfredClient.getSendMessageRunnable(joinCommand, readyLatch));
-        Future<List<TestModels.TestMessage>> alfredResult =
-                alfredExecutor.submit(new GetServerMessages(1, alfredClient, readyLatch));
-        bobResult = bobExecutor.submit(new GetServerMessages(1, bobClient, readyLatch));
-        jamesResult = jamesExecutor.submit(new GetServerMessages(1, jamesClient, readyLatch));
-        alfredResult.get(3 * waitTime, TimeUnit.MILLISECONDS);
-        bobResult.get(3 * waitTime, TimeUnit.MILLISECONDS);
-        jamesResult.get(3 * waitTime, TimeUnit.MILLISECONDS);
-
-        //have bob make an invalid move
-        //try to move rook
-        ChessPosition startingPosition = TestFactory.getNewPosition(1, 1);
-        ChessPosition endingPosition = TestFactory.getNewPosition(1, 5);
+        //try to move pawn out of turn
+        ChessPosition startingPosition = TestFactory.getNewPosition(7, 5);
+        ChessPosition endingPosition = TestFactory.getNewPosition(5, 5);
         ChessMove move = TestFactory.getNewMove(startingPosition, endingPosition, null);
 
-        //create command
-        TestModels.TestCommand moveCommand = new TestModels.TestCommand();
-        moveCommand.commandType = TestModels.TestCommandType.MAKE_MOVE;
-        moveCommand.authToken = bobAuth;
-        moveCommand.gameID = fullGame;
-        moveCommand.move = move;
+        Map<String, List<TestModels.TestMessage>> messages =
+                makeMove(black.user, black.authToken, gameID, move, Set.of(),
+                        Set.of(white.user, observer.user));
 
-        //ready message
-        readyLatch = new CountDownLatch(3);
-        testExecutor.submit(bobClient.getSendMessageRunnable(moveCommand, readyLatch));
-
-        //start getting messages
-        jamesClient.connect();
-        alfredClient.connect();
-        bobResult = bobExecutor.submit(new GetServerMessages(1, bobClient, readyLatch, waitTime));
-        jamesResult = jamesExecutor.submit(new GetServerMessages(0, jamesClient, readyLatch, waitTime));
-        alfredResult = alfredExecutor.submit(new GetServerMessages(0, alfredClient, readyLatch, waitTime));
-
-        //prep messages lists
-        List<TestModels.TestMessage> bobMessages = new ArrayList<>();
-        List<TestModels.TestMessage> jamesMessages = new ArrayList<>();
-        List<TestModels.TestMessage> alfredMessages = new ArrayList<>();
-
-        //wait to get all messages
-        //only bob should get a message
-        try {
-            bobMessages = bobResult.get(waitTime * 4, TimeUnit.MILLISECONDS);
-            jamesMessages = jamesResult.get(waitTime * 4, TimeUnit.MILLISECONDS);
-            alfredMessages = alfredResult.get(waitTime * 4, TimeUnit.MILLISECONDS);
-
-        } catch (TimeoutException ignore) {}
-
-        //check message contents
-        //bob should have gotten error message
-        Assertions.assertEquals(1, bobMessages.size(),
-                "Expected 1 message for Bob, got " + bobMessages.size());
-        Assertions.assertEquals(TestModels.TestServerMessageType.ERROR, bobMessages.get(0).serverMessageType,
-                "Bob's message wasn't an error message");
-
-        //everyone else should have gotten nothing
-        Assertions.assertTrue(jamesMessages.isEmpty(),
-                "James got a message after Bob sent an invalid command");
-        Assertions.assertTrue(alfredMessages.isEmpty(),
-                "Alfred got a message after Bob sent an invalid command");
+        assertErrorMessage(messages.get(black.user));
+        Assertions.assertTrue(messages.get(white.user).isEmpty(),
+                "Player got a message after the other player sent an invalid command");
+        Assertions.assertTrue(messages.get(observer.user).isEmpty(),
+                "Observer got a message after player sent an invalid command");
     }
 
 
     @Test
     @Order(12)
-    @DisplayName("Make Move Wrong Turn")
-    public void invalidMoveWrongTurn() throws ExecutionException, InterruptedException, TimeoutException {
-        //have bob join the game as a player
-        TestModels.TestCommand joinCommand = new TestModels.TestCommand();
-        joinCommand.commandType = TestModels.TestCommandType.JOIN_PLAYER;
-        joinCommand.authToken = bobAuth;
-        joinCommand.playerColor = ChessGame.TeamColor.WHITE;
-        joinCommand.gameID = fullGame;
+    @DisplayName("Make Move for Opponent")
+    public void invalidMoveOpponent() {
+        setupNormalGame();
 
-        //wait for bob joining as a player to go through
-        bobClient.connect();
-        CountDownLatch readyLatch = new CountDownLatch(1);
-        testExecutor.submit(bobClient.getSendMessageRunnable(joinCommand, readyLatch));
-        bobExecutor.submit(new GetServerMessages(1, bobClient, readyLatch))
-                .get(waitTime, TimeUnit.MILLISECONDS);
-
-        //have james join as a player
-        joinCommand = new TestModels.TestCommand();
-        joinCommand.commandType = TestModels.TestCommandType.JOIN_PLAYER;
-        joinCommand.playerColor = ChessGame.TeamColor.BLACK;
-        joinCommand.authToken = jamesAuth;
-        joinCommand.gameID = fullGame;
-
-        //wait for james joining as a player to go through
-        jamesClient.connect();
-        readyLatch = new CountDownLatch(2);
-        testExecutor.submit(jamesClient.getSendMessageRunnable(joinCommand, readyLatch));
-        Future<List<TestModels.TestMessage>> jamesResult =
-                jamesExecutor.submit(new GetServerMessages(1, jamesClient, readyLatch));
-        Future<List<TestModels.TestMessage>> bobResult =
-                bobExecutor.submit(new GetServerMessages(1, bobClient, readyLatch));
-        jamesResult.get(2 * waitTime, TimeUnit.MILLISECONDS);
-        bobResult.get(2 * waitTime, TimeUnit.MILLISECONDS);
-
-
-        //have alfred join as an observer
-        joinCommand = new TestModels.TestCommand();
-        joinCommand.commandType = TestModels.TestCommandType.JOIN_OBSERVER;
-        joinCommand.authToken = alfredAuth;
-        joinCommand.gameID = fullGame;
-
-
-        //wait for alfred joining as an observer to go through
-        alfredClient.connect();
-        readyLatch = new CountDownLatch(3);
-        testExecutor.submit(alfredClient.getSendMessageRunnable(joinCommand, readyLatch));
-        Future<List<TestModels.TestMessage>> alfredResult =
-                alfredExecutor.submit(new GetServerMessages(1, alfredClient, readyLatch));
-        bobResult = bobExecutor.submit(new GetServerMessages(1, bobClient, readyLatch));
-        jamesResult = jamesExecutor.submit(new GetServerMessages(1, jamesClient, readyLatch));
-        alfredResult.get(3 * waitTime, TimeUnit.MILLISECONDS);
-        bobResult.get(3 * waitTime, TimeUnit.MILLISECONDS);
-        jamesResult.get(3 * waitTime, TimeUnit.MILLISECONDS);
-
-        //have james make a valid move while it's not his turn
-        //try to move pawn
-        ChessPosition startingPosition = TestFactory.getNewPosition(7, 5);
-        ChessPosition endingPosition = TestFactory.getNewPosition(5, 5);
+        //try to move pawn of other player
+        ChessPosition startingPosition = TestFactory.getNewPosition(2, 5);
+        ChessPosition endingPosition = TestFactory.getNewPosition(4, 5);
         ChessMove move = TestFactory.getNewMove(startingPosition, endingPosition, null);
 
-        //create command
-        TestModels.TestCommand moveCommand = new TestModels.TestCommand();
-        moveCommand.commandType = TestModels.TestCommandType.MAKE_MOVE;
-        moveCommand.authToken = jamesAuth;
-        moveCommand.gameID = fullGame;
-        moveCommand.move = move;
+        Map<String, List<TestModels.TestMessage>> messages =
+                makeMove(black.user, black.authToken, gameID, move, Set.of(),
+                        Set.of(white.user, observer.user));
 
-        //ready message
-        readyLatch = new CountDownLatch(3);
-        testExecutor.submit(jamesClient.getSendMessageRunnable(moveCommand, readyLatch));
-
-        //start getting messages
-        bobClient.connect();
-        alfredClient.connect();
-        jamesResult = jamesExecutor.submit(new GetServerMessages(1, jamesClient, readyLatch, waitTime));
-        bobResult = bobExecutor.submit(new GetServerMessages(0, bobClient, readyLatch, waitTime));
-        alfredResult = alfredExecutor.submit(new GetServerMessages(0, alfredClient, readyLatch, waitTime));
-
-        //prep messages lists
-        List<TestModels.TestMessage> jamesMessages = new ArrayList<>();
-        List<TestModels.TestMessage> bobMessages = new ArrayList<>();
-        List<TestModels.TestMessage> alfredMessages = new ArrayList<>();
-
-        //wait to get all messages
-        //only james should get a message
-        try {
-            jamesMessages = jamesResult.get(waitTime * 4, TimeUnit.MILLISECONDS);
-            bobMessages = bobResult.get(waitTime * 4, TimeUnit.MILLISECONDS);
-            alfredMessages = alfredResult.get(waitTime * 4, TimeUnit.MILLISECONDS);
-
-        } catch (TimeoutException ignore) {}
-
-        //check message contents
-        //james should have gotten error message
-        Assertions.assertEquals(1, jamesMessages.size(),
-                "Expected 1 message for James, got " + jamesMessages.size());
-        Assertions.assertEquals(TestModels.TestServerMessageType.ERROR, jamesMessages.get(0).serverMessageType,
-                "James's message wasn't an error message");
-
-        //everyone else should have gotten nothing
-        Assertions.assertTrue(bobMessages.isEmpty(),
-                "Bob got a message after James sent an invalid command");
-        Assertions.assertTrue(alfredMessages.isEmpty(),
-                "Alfred got a message after James sent an invalid command");
+        assertErrorMessage(messages.get(black.user));
+        Assertions.assertTrue(messages.get(white.user).isEmpty(),
+                "Player got a message after the other player sent an invalid command");
+        Assertions.assertTrue(messages.get(observer.user).isEmpty(),
+                "Observer got a message after player sent an invalid command");
     }
 
 
     @Test
     @Order(13)
-    @DisplayName("Make Move for Opponent")
-    public void invalidMoveOpponent() throws ExecutionException, InterruptedException, TimeoutException {
-        //have bob join the game as a player
-        TestModels.TestCommand joinCommand = new TestModels.TestCommand();
-        joinCommand.commandType = TestModels.TestCommandType.JOIN_PLAYER;
-        joinCommand.authToken = bobAuth;
-        joinCommand.playerColor = ChessGame.TeamColor.WHITE;
-        joinCommand.gameID = fullGame;
+    @DisplayName("Make Move Observer")
+    public void invalidMoveObserver() {
+        setupNormalGame();
 
-        //wait for bob joining as a player to go through
-        bobClient.connect();
-        CountDownLatch readyLatch = new CountDownLatch(1);
-        testExecutor.submit(bobClient.getSendMessageRunnable(joinCommand, readyLatch));
-        bobExecutor.submit(new GetServerMessages(1, bobClient, readyLatch))
-                .get(waitTime, TimeUnit.MILLISECONDS);
-
-        //have james join as a player
-        joinCommand = new TestModels.TestCommand();
-        joinCommand.commandType = TestModels.TestCommandType.JOIN_PLAYER;
-        joinCommand.playerColor = ChessGame.TeamColor.BLACK;
-        joinCommand.authToken = jamesAuth;
-        joinCommand.gameID = fullGame;
-
-        //wait for james joining as a player to go through
-        jamesClient.connect();
-        readyLatch = new CountDownLatch(2);
-        testExecutor.submit(jamesClient.getSendMessageRunnable(joinCommand, readyLatch));
-        Future<List<TestModels.TestMessage>> jamesResult =
-                jamesExecutor.submit(new GetServerMessages(1, jamesClient, readyLatch));
-        Future<List<TestModels.TestMessage>> bobResult =
-                bobExecutor.submit(new GetServerMessages(1, bobClient, readyLatch));
-        jamesResult.get(2 * waitTime, TimeUnit.MILLISECONDS);
-        bobResult.get(2 * waitTime, TimeUnit.MILLISECONDS);
-
-
-        //have alfred join as an observer
-        joinCommand = new TestModels.TestCommand();
-        joinCommand.commandType = TestModels.TestCommandType.JOIN_OBSERVER;
-        joinCommand.authToken = alfredAuth;
-        joinCommand.gameID = fullGame;
-
-
-        //wait for alfred joining as an observer to go through
-        alfredClient.connect();
-        readyLatch = new CountDownLatch(3);
-        testExecutor.submit(alfredClient.getSendMessageRunnable(joinCommand, readyLatch));
-        Future<List<TestModels.TestMessage>> alfredResult =
-                alfredExecutor.submit(new GetServerMessages(1, alfredClient, readyLatch));
-        bobResult = bobExecutor.submit(new GetServerMessages(1, bobClient, readyLatch));
-        jamesResult = jamesExecutor.submit(new GetServerMessages(1, jamesClient, readyLatch));
-        alfredResult.get(3 * waitTime, TimeUnit.MILLISECONDS);
-        bobResult.get(3 * waitTime, TimeUnit.MILLISECONDS);
-        jamesResult.get(3 * waitTime, TimeUnit.MILLISECONDS);
-
-        //have james try to move a piece for bob
-        //try to move pawn
+        //have observer attempt to make a move
         ChessPosition startingPosition = TestFactory.getNewPosition(2, 5);
         ChessPosition endingPosition = TestFactory.getNewPosition(4, 5);
         ChessMove move = TestFactory.getNewMove(startingPosition, endingPosition, null);
 
-        //create command
-        TestModels.TestCommand moveCommand = new TestModels.TestCommand();
-        moveCommand.commandType = TestModels.TestCommandType.MAKE_MOVE;
-        moveCommand.authToken = jamesAuth;
-        moveCommand.gameID = fullGame;
-        moveCommand.move = move;
+        Map<String, List<TestModels.TestMessage>> messages =
+                makeMove(observer.user, observer.authToken, gameID, move, Set.of(),
+                        Set.of(white.user, black.user));
 
-        //ready message
-        readyLatch = new CountDownLatch(3);
-        testExecutor.submit(jamesClient.getSendMessageRunnable(moveCommand, readyLatch));
-
-        //start getting messages
-        bobClient.connect();
-        alfredClient.connect();
-        jamesResult = jamesExecutor.submit(new GetServerMessages(1, jamesClient, readyLatch, waitTime));
-        bobResult = bobExecutor.submit(new GetServerMessages(0, bobClient, readyLatch, waitTime));
-        alfredResult = alfredExecutor.submit(new GetServerMessages(0, alfredClient, readyLatch, waitTime));
-
-        //prep messages lists
-        List<TestModels.TestMessage> jamesMessages = new ArrayList<>();
-        List<TestModels.TestMessage> bobMessages = new ArrayList<>();
-        List<TestModels.TestMessage> alfredMessages = new ArrayList<>();
-
-        //wait to get all messages
-        //only james should get a message
-        try {
-            jamesMessages = jamesResult.get(waitTime * 4, TimeUnit.MILLISECONDS);
-            bobMessages = bobResult.get(waitTime * 4, TimeUnit.MILLISECONDS);
-            alfredMessages = alfredResult.get(waitTime * 4, TimeUnit.MILLISECONDS);
-
-        } catch (TimeoutException ignore) {}
-
-        //check message contents
-        //james should have gotten error message
-        Assertions.assertEquals(1, jamesMessages.size(),
-                "Expected 1 message for James, got " + jamesMessages.size());
-        Assertions.assertEquals(TestModels.TestServerMessageType.ERROR, jamesMessages.get(0).serverMessageType,
-                "James's message wasn't an error message");
-
-        //everyone else should have gotten nothing
-        Assertions.assertTrue(bobMessages.isEmpty(),
-                "Bob got a message after James sent an invalid command");
-        Assertions.assertTrue(alfredMessages.isEmpty(),
-                "Alfred got a message after James sent an invalid command");
+        assertErrorMessage(messages.get(observer.user));
+        Assertions.assertTrue(messages.get(white.user).isEmpty(),
+                "Player got a message after observer sent an invalid command");
+        Assertions.assertTrue(messages.get(black.user).isEmpty(),
+                "Player got a message after observer sent an invalid command");
     }
 
 
     @Test
     @Order(14)
-    @DisplayName("Make Move Observer")
-    public void invalidMoveObserver() throws ExecutionException, InterruptedException, TimeoutException {
-        //have bob join the game as a player
-        TestModels.TestCommand joinCommand = new TestModels.TestCommand();
-        joinCommand.commandType = TestModels.TestCommandType.JOIN_PLAYER;
-        joinCommand.authToken = bobAuth;
-        joinCommand.playerColor = ChessGame.TeamColor.WHITE;
-        joinCommand.gameID = fullGame;
+    @DisplayName("Make Move Game Over")
+    public void invalidMoveGameOver() {
+        setupNormalGame();
 
-        //wait for bob joining as a player to go through
-        bobClient.connect();
-        CountDownLatch readyLatch = new CountDownLatch(1);
-        testExecutor.submit(bobClient.getSendMessageRunnable(joinCommand, readyLatch));
-        bobExecutor.submit(new GetServerMessages(1, bobClient, readyLatch))
-                .get(waitTime, TimeUnit.MILLISECONDS);
-
-        //have james join as a player
-        joinCommand = new TestModels.TestCommand();
-        joinCommand.commandType = TestModels.TestCommandType.JOIN_PLAYER;
-        joinCommand.playerColor = ChessGame.TeamColor.BLACK;
-        joinCommand.authToken = jamesAuth;
-        joinCommand.gameID = fullGame;
-
-        //wait for james joining as a player to go through
-        jamesClient.connect();
-        readyLatch = new CountDownLatch(2);
-        testExecutor.submit(jamesClient.getSendMessageRunnable(joinCommand, readyLatch));
-        Future<List<TestModels.TestMessage>> jamesResult =
-                jamesExecutor.submit(new GetServerMessages(1, jamesClient, readyLatch));
-        Future<List<TestModels.TestMessage>> bobResult =
-                bobExecutor.submit(new GetServerMessages(1, bobClient, readyLatch));
-        jamesResult.get(2 * waitTime, TimeUnit.MILLISECONDS);
-        bobResult.get(2 * waitTime, TimeUnit.MILLISECONDS);
-
-
-        //have alfred join as an observer
-        joinCommand = new TestModels.TestCommand();
-        joinCommand.commandType = TestModels.TestCommandType.JOIN_OBSERVER;
-        joinCommand.authToken = alfredAuth;
-        joinCommand.gameID = fullGame;
-
-
-        //wait for alfred joining as an observer to go through
-        alfredClient.connect();
-        readyLatch = new CountDownLatch(3);
-        testExecutor.submit(alfredClient.getSendMessageRunnable(joinCommand, readyLatch));
-        Future<List<TestModels.TestMessage>> alfredResult =
-                alfredExecutor.submit(new GetServerMessages(1, alfredClient, readyLatch));
-        bobResult = bobExecutor.submit(new GetServerMessages(1, bobClient, readyLatch));
-        jamesResult = jamesExecutor.submit(new GetServerMessages(1, jamesClient, readyLatch));
-        alfredResult.get(3 * waitTime, TimeUnit.MILLISECONDS);
-        bobResult.get(3 * waitTime, TimeUnit.MILLISECONDS);
-        jamesResult.get(3 * waitTime, TimeUnit.MILLISECONDS);
-
-        //have alfred attempt to make a move
-        //try to move pawn
-        ChessPosition startingPosition = TestFactory.getNewPosition(2, 5);
-        ChessPosition endingPosition = TestFactory.getNewPosition(4, 5);
+        ChessPosition startingPosition = TestFactory.getNewPosition(2, 7);
+        ChessPosition endingPosition = TestFactory.getNewPosition(4, 7);
         ChessMove move = TestFactory.getNewMove(startingPosition, endingPosition, null);
+        makeMove(white.user, white.authToken, gameID, move, Set.of(black.user, observer.user),
+                Set.of());
 
-        //create command
-        TestModels.TestCommand moveCommand = new TestModels.TestCommand();
-        moveCommand.commandType = TestModels.TestCommandType.MAKE_MOVE;
-        moveCommand.authToken = alfredAuth;
-        moveCommand.gameID = fullGame;
-        moveCommand.move = move;
+        startingPosition = TestFactory.getNewPosition(7, 5);
+        endingPosition = TestFactory.getNewPosition(6, 5);
+        move = TestFactory.getNewMove(startingPosition, endingPosition, null);
+        makeMove(black.user, black.authToken, gameID, move, Set.of(white.user, observer.user),
+                Set.of());
 
-        //ready message
-        readyLatch = new CountDownLatch(3);
-        testExecutor.submit(alfredClient.getSendMessageRunnable(moveCommand, readyLatch));
+        startingPosition = TestFactory.getNewPosition(2, 6);
+        endingPosition = TestFactory.getNewPosition(3, 6);
+        move = TestFactory.getNewMove(startingPosition, endingPosition, null);
+        makeMove(white.user, white.authToken, gameID, move, Set.of(black.user, observer.user),
+                Set.of());
 
-        //start getting messages
-        bobClient.connect();
-        jamesClient.connect();
-        alfredResult = alfredExecutor.submit(new GetServerMessages(1, alfredClient, readyLatch, waitTime));
-        bobResult = bobExecutor.submit(new GetServerMessages(0, bobClient, readyLatch, waitTime));
-        jamesResult = jamesExecutor.submit(new GetServerMessages(0, jamesClient, readyLatch, waitTime));
+        startingPosition = TestFactory.getNewPosition(8, 4);
+        endingPosition = TestFactory.getNewPosition(4, 8);
+        move = TestFactory.getNewMove(startingPosition, endingPosition, null);
+        makeMove(black.user, black.authToken, gameID, move, Set.of(white.user, observer.user),
+                Set.of());
+        //checkmate
 
-        //prep messages lists
-        List<TestModels.TestMessage> jamesMessages = new ArrayList<>();
-        List<TestModels.TestMessage> bobMessages = new ArrayList<>();
-        List<TestModels.TestMessage> alfredMessages = new ArrayList<>();
+        //attempt another move
+        startingPosition = TestFactory.getNewPosition(2, 5);
+        endingPosition = TestFactory.getNewPosition(4, 5);
+        move = TestFactory.getNewMove(startingPosition, endingPosition, null);
+        Map<String, List<TestModels.TestMessage>> messages =
+                makeMove(white.user, white.authToken, gameID, move, Set.of(),
+                        Set.of(black.user, observer.user));
 
-        //wait to get all messages
-        //only alfred should get a message
-        try {
-            alfredMessages = alfredResult.get(waitTime * 4, TimeUnit.MILLISECONDS);
-            jamesMessages = jamesResult.get(waitTime * 4, TimeUnit.MILLISECONDS);
-            bobMessages = bobResult.get(waitTime * 4, TimeUnit.MILLISECONDS);
-        } catch (TimeoutException ignore) {}
 
-        //check message contents
-        //james should have gotten error message
-        Assertions.assertEquals(1, alfredMessages.size(),
-                "Expected 1 message for Alfred, got " + alfredMessages.size());
-        Assertions.assertEquals(TestModels.TestServerMessageType.ERROR, alfredMessages.get(0).serverMessageType,
-                "Alfred's message wasn't an error message");
-
-        //everyone else should have gotten nothing
-        Assertions.assertTrue(bobMessages.isEmpty(),
-                "Bob got a message after Alfred sent an invalid command");
-        Assertions.assertTrue(jamesMessages.isEmpty(),
-                "James got a message after Alfred sent an invalid command");
+        assertErrorMessage(messages.get(white.user));
+        Assertions.assertTrue(messages.get(black.user).isEmpty(),
+                "Player got a message after the other player sent an invalid command");
+        Assertions.assertTrue(messages.get(observer.user).isEmpty(),
+                "Observer got a message after player sent an invalid command");
     }
 
 
     @Test
     @Order(15)
-    @DisplayName("Make Move Game Over")
-    public void invalidMoveGameOver() throws ExecutionException, InterruptedException, TimeoutException {
-        //have bob join the game as a player
-        TestModels.TestCommand joinCommand = new TestModels.TestCommand();
-        joinCommand.commandType = TestModels.TestCommandType.JOIN_PLAYER;
-        joinCommand.authToken = bobAuth;
-        joinCommand.playerColor = ChessGame.TeamColor.WHITE;
-        joinCommand.gameID = fullGame;
+    @DisplayName("Normal Resign")
+    public void validResign() {
+        setupNormalGame();
 
-        //wait for bob joining as a player to go through
-        bobClient.connect();
-        CountDownLatch readyLatch = new CountDownLatch(1);
-        testExecutor.submit(bobClient.getSendMessageRunnable(joinCommand, readyLatch));
-        bobExecutor.submit(new GetServerMessages(1, bobClient, readyLatch))
-                .get(waitTime, TimeUnit.MILLISECONDS);
+        Map<String, List<TestModels.TestMessage>> messages =
+                resign(white.user, white.authToken, gameID, Set.of(black.user, observer.user),
+                        Set.of());
 
-        //have james join as a player
-        joinCommand = new TestModels.TestCommand();
-        joinCommand.commandType = TestModels.TestCommandType.JOIN_PLAYER;
-        joinCommand.playerColor = ChessGame.TeamColor.BLACK;
-        joinCommand.authToken = jamesAuth;
-        joinCommand.gameID = fullGame;
+        assertNotificationMessage(messages.get(white.user));
+        assertNotificationMessage(messages.get(black.user));
+        assertNotificationMessage(messages.get(observer.user));
 
-        //wait for james joining as a player to go through
-        jamesClient.connect();
-        readyLatch = new CountDownLatch(2);
-        testExecutor.submit(jamesClient.getSendMessageRunnable(joinCommand, readyLatch));
-        Future<List<TestModels.TestMessage>> jamesResult =
-                jamesExecutor.submit(new GetServerMessages(1, jamesClient, readyLatch));
-        Future<List<TestModels.TestMessage>> bobResult =
-                bobExecutor.submit(new GetServerMessages(1, bobClient, readyLatch));
-        jamesResult.get(2 * waitTime, TimeUnit.MILLISECONDS);
-        bobResult.get(2 * waitTime, TimeUnit.MILLISECONDS);
-
-
-        //have alfred join as an observer
-        joinCommand = new TestModels.TestCommand();
-        joinCommand.commandType = TestModels.TestCommandType.JOIN_OBSERVER;
-        joinCommand.authToken = alfredAuth;
-        joinCommand.gameID = fullGame;
-
-
-        //wait for alfred joining as an observer to go through
-        alfredClient.connect();
-        readyLatch = new CountDownLatch(3);
-        testExecutor.submit(alfredClient.getSendMessageRunnable(joinCommand, readyLatch));
-        Future<List<TestModels.TestMessage>> alfredResult =
-                alfredExecutor.submit(new GetServerMessages(1, alfredClient, readyLatch));
-        bobResult = bobExecutor.submit(new GetServerMessages(1, bobClient, readyLatch));
-        jamesResult = jamesExecutor.submit(new GetServerMessages(1, jamesClient, readyLatch));
-        alfredResult.get(3 * waitTime, TimeUnit.MILLISECONDS);
-        bobResult.get(3 * waitTime, TimeUnit.MILLISECONDS);
-        jamesResult.get(3 * waitTime, TimeUnit.MILLISECONDS);
-
-        //james resign
-        TestModels.TestCommand resignation = new TestModels.TestCommand();
-        resignation.commandType = TestModels.TestCommandType.RESIGN;
-        resignation.authToken = jamesAuth;
-        resignation.gameID = fullGame;
-
-        //wait for james resigning to go through
-        readyLatch = new CountDownLatch(3);
-        testExecutor.submit(jamesClient.getSendMessageRunnable(resignation, readyLatch));
-        jamesResult = jamesExecutor.submit(new GetServerMessages(1, jamesClient, readyLatch));
-        bobResult = bobExecutor.submit(new GetServerMessages(1, bobClient, readyLatch));
-        alfredResult = alfredExecutor.submit(new GetServerMessages(1, alfredClient, readyLatch));
-        jamesResult.get(3 * waitTime, TimeUnit.MILLISECONDS);
-        bobResult.get(3 * waitTime, TimeUnit.MILLISECONDS);
-        alfredResult.get(3 * waitTime, TimeUnit.MILLISECONDS);
-
-        //have bob attempt to make a move
-        //try to move pawn
-        ChessPosition startingPosition = TestFactory.getNewPosition(2, 5);
-        ChessPosition endingPosition = TestFactory.getNewPosition(4, 5);
-        ChessMove move = TestFactory.getNewMove(startingPosition, endingPosition, null);
-
-        //create command
-        TestModels.TestCommand moveCommand = new TestModels.TestCommand();
-        moveCommand.commandType = TestModels.TestCommandType.MAKE_MOVE;
-        moveCommand.authToken = bobAuth;
-        moveCommand.gameID = fullGame;
-        moveCommand.move = move;
-
-        //ready message
-        readyLatch = new CountDownLatch(3);
-        testExecutor.submit(bobClient.getSendMessageRunnable(moveCommand, readyLatch));
-
-        //start getting messages
-        jamesClient.connect();
-        alfredClient.connect();
-        bobResult = bobExecutor.submit(new GetServerMessages(1, bobClient, readyLatch, waitTime));
-        jamesResult = jamesExecutor.submit(new GetServerMessages(0, jamesClient, readyLatch, waitTime));
-        alfredResult = alfredExecutor.submit(new GetServerMessages(0, alfredClient, readyLatch, waitTime));
-
-        //prep messages lists
-        List<TestModels.TestMessage> bobMessages = new ArrayList<>();
-        List<TestModels.TestMessage> jamesMessages = new ArrayList<>();
-        List<TestModels.TestMessage> alfredMessages = new ArrayList<>();
-
-        //wait to get all messages
-        //only bob should get a message
-        try {
-            bobMessages = bobResult.get(waitTime * 4, TimeUnit.MILLISECONDS);
-            alfredMessages = alfredResult.get(waitTime * 4, TimeUnit.MILLISECONDS);
-            jamesMessages = jamesResult.get(waitTime * 4, TimeUnit.MILLISECONDS);
-        } catch (TimeoutException ignore) {}
-
-        //check message contents
-        //james should have gotten error message
-        Assertions.assertEquals(1, bobMessages.size(),
-                "Expected 1 message for Bob, got " + bobMessages.size());
-        Assertions.assertEquals(TestModels.TestServerMessageType.ERROR, bobMessages.get(0).serverMessageType,
-                "Bob's message wasn't an error message");
-
-        //everyone else should have gotten nothing
-        Assertions.assertTrue(jamesMessages.isEmpty(),
-                "James got a message after Bob sent an invalid command");
-        Assertions.assertTrue(alfredMessages.isEmpty(),
-                "Alfred got a message after Bob sent an invalid command");
     }
 
 
     @Test
     @Order(16)
-    @DisplayName("Normal Resign")
-    public void validResign() throws ExecutionException, InterruptedException, TimeoutException {
-        //have bob join the game as a player
-        TestModels.TestCommand joinCommand = new TestModels.TestCommand();
-        joinCommand.commandType = TestModels.TestCommandType.JOIN_PLAYER;
-        joinCommand.authToken = bobAuth;
-        joinCommand.playerColor = ChessGame.TeamColor.WHITE;
-        joinCommand.gameID = fullGame;
+    @DisplayName("Move After Resign")
+    public void moveAfterResign() {
+        setupNormalGame();
 
-        //wait for bob joining as a player to go through
-        bobClient.connect();
-        CountDownLatch readyLatch = new CountDownLatch(1);
-        testExecutor.submit(bobClient.getSendMessageRunnable(joinCommand, readyLatch));
-        bobExecutor.submit(new GetServerMessages(1, bobClient, readyLatch))
-                .get(waitTime, TimeUnit.MILLISECONDS);
+        resign(black.user, black.authToken, gameID, Set.of(white.user, observer.user), Set.of());
 
-        //have james join as a player
-        joinCommand = new TestModels.TestCommand();
-        joinCommand.commandType = TestModels.TestCommandType.JOIN_PLAYER;
-        joinCommand.playerColor = ChessGame.TeamColor.BLACK;
-        joinCommand.authToken = jamesAuth;
-        joinCommand.gameID = fullGame;
-
-        //wait for james joining as a player to go through
-        jamesClient.connect();
-        readyLatch = new CountDownLatch(2);
-        testExecutor.submit(jamesClient.getSendMessageRunnable(joinCommand, readyLatch));
-        Future<List<TestModels.TestMessage>> jamesResult =
-                jamesExecutor.submit(new GetServerMessages(1, jamesClient, readyLatch));
-        Future<List<TestModels.TestMessage>> bobResult =
-                bobExecutor.submit(new GetServerMessages(1, bobClient, readyLatch));
-        bobResult.get(2 * waitTime, TimeUnit.MILLISECONDS);
-        jamesResult.get(2 * waitTime, TimeUnit.MILLISECONDS);
+        //attempt to make a move after other player resigns
+        ChessPosition startingPosition = TestFactory.getNewPosition(2, 5);
+        ChessPosition endingPosition = TestFactory.getNewPosition(4, 5);
+        ChessMove move = TestFactory.getNewMove(startingPosition, endingPosition, null);
+        Map<String, List<TestModels.TestMessage>> messages =
+                makeMove(white.user, white.authToken, gameID, move, Set.of(),
+                        Set.of(black.user, observer.user));
 
 
-        //have alfred join as an observer
-        joinCommand = new TestModels.TestCommand();
-        joinCommand.commandType = TestModels.TestCommandType.JOIN_OBSERVER;
-        joinCommand.authToken = alfredAuth;
-        joinCommand.gameID = fullGame;
-
-
-        //wait for alfred joining as an observer to go through
-        alfredClient.connect();
-        readyLatch = new CountDownLatch(3);
-        testExecutor.submit(alfredClient.getSendMessageRunnable(joinCommand, readyLatch));
-        Future<List<TestModels.TestMessage>> alfredResult =
-                alfredExecutor.submit(new GetServerMessages(1, alfredClient, readyLatch));
-        bobResult = bobExecutor.submit(new GetServerMessages(1, bobClient, readyLatch));
-        jamesResult = jamesExecutor.submit(new GetServerMessages(1, jamesClient, readyLatch));
-        alfredResult.get(3 * waitTime, TimeUnit.MILLISECONDS);
-        bobResult.get(3 * waitTime, TimeUnit.MILLISECONDS);
-        jamesResult.get(3 * waitTime, TimeUnit.MILLISECONDS);
-
-        //have james resign
-        //create command
-        TestModels.TestCommand resignation = new TestModels.TestCommand();
-        resignation.commandType = TestModels.TestCommandType.RESIGN;
-        resignation.authToken = jamesAuth;
-        resignation.gameID = fullGame;
-
-        //ready message
-        readyLatch = new CountDownLatch(3);
-        testExecutor.submit(jamesClient.getSendMessageRunnable(resignation, readyLatch));
-
-        //start getting messages
-        bobResult = bobExecutor.submit(new GetServerMessages(1, bobClient, readyLatch, waitTime));
-        jamesResult = jamesExecutor.submit(new GetServerMessages(1, jamesClient, readyLatch, waitTime));
-        alfredResult = alfredExecutor.submit(new GetServerMessages(1, alfredClient, readyLatch, waitTime));
-
-        //prep messages lists
-        List<TestModels.TestMessage> bobMessages = new ArrayList<>();
-        List<TestModels.TestMessage> jamesMessages = new ArrayList<>();
-        List<TestModels.TestMessage> alfredMessages = new ArrayList<>();
-
-        //wait to get all messages
-        try {
-            bobMessages = bobResult.get(waitTime * 4, TimeUnit.MILLISECONDS);
-            jamesMessages = jamesResult.get(waitTime * 4, TimeUnit.MILLISECONDS);
-            alfredMessages = alfredResult.get(waitTime * 4, TimeUnit.MILLISECONDS);
-
-        } catch (TimeoutException ignore) {}
-
-        //check message contents
-        //everyone should have gotten a single NOTIFICATION
-        Assertions.assertEquals(1, bobMessages.size(),
-                "Expected 1 message for Bob, got " + bobMessages.size());
-        Assertions.assertEquals(TestModels.TestServerMessageType.NOTIFICATION, bobMessages.get(0).serverMessageType,
-                "Bob didn't get NOTIFICATION message");
-
-        Assertions.assertEquals(1, jamesMessages.size(),
-                "Expected 1 message for James, got " + jamesMessages.size());
-        Assertions.assertEquals(TestModels.TestServerMessageType.NOTIFICATION, jamesMessages.get(0).serverMessageType,
-                "James didn't get NOTIFICATION message");
-
-        Assertions.assertEquals(1, alfredMessages.size(),
-                "Expected 1 message for Alfred, got " + alfredMessages.size());
-        Assertions.assertEquals(TestModels.TestServerMessageType.NOTIFICATION, alfredMessages.get(0).serverMessageType,
-                "Alfred didn't get NOTIFICATION message");
+        assertErrorMessage(messages.get(white.user));
+        Assertions.assertTrue(messages.get(black.user).isEmpty(),
+                "Player got a message after the other player sent an invalid command");
+        Assertions.assertTrue(messages.get(observer.user).isEmpty(),
+                "Observer got a message after player sent an invalid command");
     }
 
 
     @Test
     @Order(17)
-    @DisplayName("Move After Resign")
-    public void moveAfterResign() throws ExecutionException, InterruptedException, TimeoutException {
-        //have bob join the game as a player
-        TestModels.TestCommand joinCommand = new TestModels.TestCommand();
-        joinCommand.commandType = TestModels.TestCommandType.JOIN_PLAYER;
-        joinCommand.authToken = bobAuth;
-        joinCommand.playerColor = ChessGame.TeamColor.WHITE;
-        joinCommand.gameID = fullGame;
+    @DisplayName("Observer Resign")
+    public void invalidResignObserver() {
+        setupNormalGame();
 
-        //wait for bob joining as a player to go through
-        bobClient.connect();
-        CountDownLatch readyLatch = new CountDownLatch(1);
-        testExecutor.submit(bobClient.getSendMessageRunnable(joinCommand, readyLatch));
-        bobExecutor.submit(new GetServerMessages(1, bobClient, readyLatch))
-                .get(waitTime, TimeUnit.MILLISECONDS);
+        //have observer try to resign
+        Map<String, List<TestModels.TestMessage>> messages = resign(observer.user, observer.authToken, gameID, Set.of(),
+                Set.of(white.user, black.user));
 
-        //have james join as a player
-        joinCommand = new TestModels.TestCommand();
-        joinCommand.commandType = TestModels.TestCommandType.JOIN_PLAYER;
-        joinCommand.playerColor = ChessGame.TeamColor.BLACK;
-        joinCommand.authToken = jamesAuth;
-        joinCommand.gameID = fullGame;
-
-        //wait for james joining as a player to go through
-        jamesClient.connect();
-        readyLatch = new CountDownLatch(2);
-        testExecutor.submit(jamesClient.getSendMessageRunnable(joinCommand, readyLatch));
-        Future<List<TestModels.TestMessage>> jamesResult =
-                jamesExecutor.submit(new GetServerMessages(1, jamesClient, readyLatch));
-        Future<List<TestModels.TestMessage>> bobResult =
-                bobExecutor.submit(new GetServerMessages(1, bobClient, readyLatch));
-        bobResult.get(2 * waitTime, TimeUnit.MILLISECONDS);
-        jamesResult.get(2 * waitTime, TimeUnit.MILLISECONDS);
-
-
-        //have alfred join as an observer
-        joinCommand = new TestModels.TestCommand();
-        joinCommand.commandType = TestModels.TestCommandType.JOIN_OBSERVER;
-        joinCommand.authToken = alfredAuth;
-        joinCommand.gameID = fullGame;
-
-
-        //wait for alfred joining as an observer to go through
-        alfredClient.connect();
-        readyLatch = new CountDownLatch(3);
-        testExecutor.submit(alfredClient.getSendMessageRunnable(joinCommand, readyLatch));
-        Future<List<TestModels.TestMessage>> alfredResult =
-                alfredExecutor.submit(new GetServerMessages(1, alfredClient, readyLatch));
-        bobResult = bobExecutor.submit(new GetServerMessages(1, bobClient, readyLatch));
-        jamesResult = jamesExecutor.submit(new GetServerMessages(1, jamesClient, readyLatch));
-        alfredResult.get(3 * waitTime, TimeUnit.MILLISECONDS);
-        bobResult.get(3 * waitTime, TimeUnit.MILLISECONDS);
-        jamesResult.get(3 * waitTime, TimeUnit.MILLISECONDS);
-
-        //have james resign
-        //create command
-        TestModels.TestCommand resignation = new TestModels.TestCommand();
-        resignation.commandType = TestModels.TestCommandType.RESIGN;
-        resignation.authToken = jamesAuth;
-        resignation.gameID = fullGame;
-
-        //ready message
-        readyLatch = new CountDownLatch(3);
-        testExecutor.submit(jamesClient.getSendMessageRunnable(resignation, readyLatch));
-
-        //start getting messages
-        bobResult = bobExecutor.submit(new GetServerMessages(1, bobClient, readyLatch, waitTime));
-        jamesResult = jamesExecutor.submit(new GetServerMessages(1, jamesClient, readyLatch, waitTime));
-        alfredResult = alfredExecutor.submit(new GetServerMessages(1, alfredClient, readyLatch, waitTime));
-
-        //prep messages lists
-        List<TestModels.TestMessage> bobMessages = new ArrayList<>();
-        List<TestModels.TestMessage> jamesMessages = new ArrayList<>();
-        List<TestModels.TestMessage> alfredMessages = new ArrayList<>();
-
-        //wait to get all messages
-        try {
-            bobMessages = bobResult.get(waitTime * 4, TimeUnit.MILLISECONDS);
-            jamesMessages = jamesResult.get(waitTime * 4, TimeUnit.MILLISECONDS);
-            alfredMessages = alfredResult.get(waitTime * 4, TimeUnit.MILLISECONDS);
-
-        } catch (TimeoutException ignore) {}
-
-        //bob attempts to make a move after james resigned
-        ChessPosition startingPosition = TestFactory.getNewPosition(2, 5);
-        ChessPosition endingPosition = TestFactory.getNewPosition(4, 5);
-        ChessMove move = TestFactory.getNewMove(startingPosition, endingPosition, null);
-
-        //create command
-        TestModels.TestCommand moveCommand = new TestModels.TestCommand();
-        moveCommand.commandType = TestModels.TestCommandType.MAKE_MOVE;
-        moveCommand.authToken = bobAuth;
-        moveCommand.gameID = fullGame;
-        moveCommand.move = move;
-
-        //ready message
-        readyLatch = new CountDownLatch(3);
-        testExecutor.submit(bobClient.getSendMessageRunnable(moveCommand, readyLatch));
-
-        //start getting messages
-        jamesClient.connect();
-        alfredClient.connect();
-        bobResult = bobExecutor.submit(new GetServerMessages(1, bobClient, readyLatch, waitTime));
-        jamesResult = jamesExecutor.submit(new GetServerMessages(0, jamesClient, readyLatch, waitTime));
-        alfredResult = alfredExecutor.submit(new GetServerMessages(0, alfredClient, readyLatch, waitTime));
-
-        //prep messages lists
-        bobMessages = new ArrayList<>();
-        jamesMessages = new ArrayList<>();
-        alfredMessages = new ArrayList<>();
-
-        //wait to get all messages
-        //only bob should get a message
-        try {
-            bobMessages = bobResult.get(waitTime * 4, TimeUnit.MILLISECONDS);
-            jamesMessages = jamesResult.get(waitTime * 4, TimeUnit.MILLISECONDS);
-            alfredMessages = alfredResult.get(waitTime * 4, TimeUnit.MILLISECONDS);
-
-        } catch (TimeoutException ignore) {}
-
-        //check message contents
-        //bob should have gotten error message
-        Assertions.assertEquals(1, bobMessages.size(),
-                "Expected 1 message for Bob, got " + bobMessages.size());
-        Assertions.assertEquals(TestModels.TestServerMessageType.ERROR, bobMessages.get(0).serverMessageType,
-                "Bob's message wasn't an error message");
-
-        //everyone else should have gotten nothing
-        Assertions.assertTrue(jamesMessages.isEmpty(),
-                "James got a message after Bob sent an invalid command");
-        Assertions.assertTrue(alfredMessages.isEmpty(),
-                "Alfred got a message after Bob sent an invalid command");
+        assertErrorMessage(messages.get(observer.user));
+        Assertions.assertTrue(messages.get(white.user).isEmpty(),
+                "Player got a message after observer sent an invalid command");
+        Assertions.assertTrue(messages.get(black.user).isEmpty(),
+                "Player got a message after observer sent an invalid command");
     }
 
 
     @Test
     @Order(18)
-    @DisplayName("Observer Resign")
-    public void invalidResignObserver() throws ExecutionException, InterruptedException, TimeoutException {
-        //have bob join the game as a player
-        TestModels.TestCommand joinCommand = new TestModels.TestCommand();
-        joinCommand.commandType = TestModels.TestCommandType.JOIN_PLAYER;
-        joinCommand.authToken = bobAuth;
-        joinCommand.playerColor = ChessGame.TeamColor.WHITE;
-        joinCommand.gameID = fullGame;
+    @DisplayName("Double Resign")
+    public void invalidResignGameOver() {
+        setupNormalGame();
 
-        //wait for bob joining as a player to go through
-        bobClient.connect();
-        CountDownLatch readyLatch = new CountDownLatch(1);
-        testExecutor.submit(bobClient.getSendMessageRunnable(joinCommand, readyLatch));
-        bobExecutor.submit(new GetServerMessages(1, bobClient, readyLatch))
-                .get(waitTime, TimeUnit.MILLISECONDS);
+        resign(black.user, black.authToken, gameID, Set.of(white.user, observer.user), Set.of());
 
-        //have james join as a player
-        joinCommand = new TestModels.TestCommand();
-        joinCommand.commandType = TestModels.TestCommandType.JOIN_PLAYER;
-        joinCommand.playerColor = ChessGame.TeamColor.BLACK;
-        joinCommand.authToken = jamesAuth;
-        joinCommand.gameID = fullGame;
+        //attempt to resign after other player resigns
+        Map<String, List<TestModels.TestMessage>> messages =
+                resign(white.user, white.authToken, gameID, Set.of(),
+                        Set.of(black.user, observer.user));
 
-        //wait for james joining as a player to go through
-        jamesClient.connect();
-        readyLatch = new CountDownLatch(2);
-        testExecutor.submit(jamesClient.getSendMessageRunnable(joinCommand, readyLatch));
-        Future<List<TestModels.TestMessage>> jamesResult =
-                jamesExecutor.submit(new GetServerMessages(1, jamesClient, readyLatch));
-        Future<List<TestModels.TestMessage>> bobResult =
-                bobExecutor.submit(new GetServerMessages(1, bobClient, readyLatch));
-        bobResult.get(2 * waitTime, TimeUnit.MILLISECONDS);
-        jamesResult.get(2 * waitTime, TimeUnit.MILLISECONDS);
-
-
-        //have alfred join as an observer
-        joinCommand = new TestModels.TestCommand();
-        joinCommand.commandType = TestModels.TestCommandType.JOIN_OBSERVER;
-        joinCommand.authToken = alfredAuth;
-        joinCommand.gameID = fullGame;
-
-
-        //wait for alfred joining as an observer to go through
-        alfredClient.connect();
-        readyLatch = new CountDownLatch(3);
-        testExecutor.submit(alfredClient.getSendMessageRunnable(joinCommand, readyLatch));
-        Future<List<TestModels.TestMessage>> alfredResult =
-                alfredExecutor.submit(new GetServerMessages(1, alfredClient, readyLatch));
-        bobResult = bobExecutor.submit(new GetServerMessages(1, bobClient, readyLatch));
-        jamesResult = jamesExecutor.submit(new GetServerMessages(1, jamesClient, readyLatch));
-        alfredResult.get(3 * waitTime, TimeUnit.MILLISECONDS);
-        bobResult.get(3 * waitTime, TimeUnit.MILLISECONDS);
-        jamesResult.get(3 * waitTime, TimeUnit.MILLISECONDS);
-
-        //have alfred try to resign
-        //create command
-        TestModels.TestCommand resignation = new TestModels.TestCommand();
-        resignation.commandType = TestModels.TestCommandType.RESIGN;
-        resignation.authToken = alfredAuth;
-        resignation.gameID = fullGame;
-
-        //ready message
-        readyLatch = new CountDownLatch(3);
-        testExecutor.submit(alfredClient.getSendMessageRunnable(resignation, readyLatch));
-
-        //start getting messages
-        alfredResult = alfredExecutor.submit(new GetServerMessages(1, alfredClient, readyLatch, waitTime));
-        bobResult = bobExecutor.submit(new GetServerMessages(0, bobClient, readyLatch, waitTime));
-        jamesResult = jamesExecutor.submit(new GetServerMessages(0, jamesClient, readyLatch, waitTime));
-
-        //prep messages lists
-        List<TestModels.TestMessage> alfredMessages = new ArrayList<>();
-        List<TestModels.TestMessage> bobMessages = new ArrayList<>();
-        List<TestModels.TestMessage> jamesMessages = new ArrayList<>();
-
-        //wait to get all messages
-        //only alfred should get a message
-        try {
-            alfredMessages = alfredResult.get(waitTime * 4, TimeUnit.MILLISECONDS);
-            bobMessages = bobResult.get(waitTime * 4, TimeUnit.MILLISECONDS);
-            jamesMessages = jamesResult.get(waitTime * 4, TimeUnit.MILLISECONDS);
-        } catch (TimeoutException ignore) {}
-
-        //check message contents
-        //bob should have gotten error message
-        Assertions.assertEquals(1, alfredMessages.size(), "Alfred didn't get a message");
-        Assertions.assertEquals(TestModels.TestServerMessageType.ERROR, alfredMessages.get(0).serverMessageType,
-                "Alfred didn't get an ERROR message");
-
-        //everyone else should have gotten nothing
-        Assertions.assertTrue(jamesMessages.isEmpty(),
-                "James got a message after Alfred sent an invalid command");
-        Assertions.assertTrue(bobMessages.isEmpty(),
-                "Bob got a message after Alfred sent an invalid command");
+        assertErrorMessage(messages.get(white.user));
+        Assertions.assertTrue(messages.get(black.user).isEmpty(),
+                "Player got a message after the other player sent an invalid command");
+        Assertions.assertTrue(messages.get(observer.user).isEmpty(),
+                "Observer got a message after player sent an invalid command");
     }
 
 
     @Test
     @Order(19)
-    @DisplayName("Game Over Resign")
-    public void invalidResignGameOver() throws ExecutionException, InterruptedException, TimeoutException {
-        //have bob join the game as a player
-        TestModels.TestCommand joinCommand = new TestModels.TestCommand();
-        joinCommand.commandType = TestModels.TestCommandType.JOIN_PLAYER;
-        joinCommand.authToken = bobAuth;
-        joinCommand.playerColor = ChessGame.TeamColor.WHITE;
-        joinCommand.gameID = fullGame;
+    @DisplayName("Leave Game")
+    public void leaveGame() {
+        setupNormalGame();
 
-        //wait for bob joining as a player to go through
-        bobClient.connect();
-        CountDownLatch readyLatch = new CountDownLatch(1);
-        testExecutor.submit(bobClient.getSendMessageRunnable(joinCommand, readyLatch));
-        bobExecutor.submit(new GetServerMessages(1, bobClient, readyLatch))
-                .get(waitTime, TimeUnit.MILLISECONDS);
+        //have white player leave
+        //all other players get notified, white player can but doesn't have to be
+        Map<String, List<TestModels.TestMessage>> messages =
+                leave(white.user, white.authToken, gameID, Set.of(black.user, observer.user),
+                        Set.of());
 
-        //have james join as a player
-        joinCommand = new TestModels.TestCommand();
-        joinCommand.commandType = TestModels.TestCommandType.JOIN_PLAYER;
-        joinCommand.playerColor = ChessGame.TeamColor.BLACK;
-        joinCommand.authToken = jamesAuth;
-        joinCommand.gameID = fullGame;
-
-        //wait for james joining as a player to go through
-        jamesClient.connect();
-        readyLatch = new CountDownLatch(2);
-        testExecutor.submit(jamesClient.getSendMessageRunnable(joinCommand, readyLatch));
-        Future<List<TestModels.TestMessage>> jamesResult =
-                jamesExecutor.submit(new GetServerMessages(1, jamesClient, readyLatch));
-        Future<List<TestModels.TestMessage>> bobResult =
-                bobExecutor.submit(new GetServerMessages(1, bobClient, readyLatch));
-        bobResult.get(2 * waitTime, TimeUnit.MILLISECONDS);
-        jamesResult.get(2 * waitTime, TimeUnit.MILLISECONDS);
+        assertNotificationMessage(messages.get(black.user));
+        assertNotificationMessage(messages.get(observer.user));
 
 
-        //have alfred join as an observer
-        joinCommand = new TestModels.TestCommand();
-        joinCommand.commandType = TestModels.TestCommandType.JOIN_OBSERVER;
-        joinCommand.authToken = alfredAuth;
-        joinCommand.gameID = fullGame;
+        //observer leaves
+        messages =
+                leave(observer.user, observer.authToken, gameID, Set.of(black.user), Set.of(white.user));
 
-
-        //wait for alfred joining as an observer to go through
-        alfredClient.connect();
-        readyLatch = new CountDownLatch(3);
-        testExecutor.submit(alfredClient.getSendMessageRunnable(joinCommand, readyLatch));
-        Future<List<TestModels.TestMessage>> alfredResult =
-                alfredExecutor.submit(new GetServerMessages(1, alfredClient, readyLatch));
-        bobResult = bobExecutor.submit(new GetServerMessages(1, bobClient, readyLatch));
-        jamesResult = jamesExecutor.submit(new GetServerMessages(1, jamesClient, readyLatch));
-        alfredResult.get(3 * waitTime, TimeUnit.MILLISECONDS);
-        bobResult.get(3 * waitTime, TimeUnit.MILLISECONDS);
-        jamesResult.get(3 * waitTime, TimeUnit.MILLISECONDS);
-
-        //bob resign
-        TestModels.TestCommand resignation = new TestModels.TestCommand();
-        resignation.commandType = TestModels.TestCommandType.RESIGN;
-        resignation.authToken = bobAuth;
-        resignation.gameID = fullGame;
-
-        //wait for bob resigning to go through
-        readyLatch = new CountDownLatch(3);
-        testExecutor.submit(bobClient.getSendMessageRunnable(resignation, readyLatch));
-        bobResult = bobExecutor.submit(new GetServerMessages(1, bobClient, readyLatch));
-        jamesResult = jamesExecutor.submit(new GetServerMessages(1, jamesClient, readyLatch));
-        alfredResult = alfredExecutor.submit(new GetServerMessages(1, alfredClient, readyLatch));
-
-
-        bobResult.get(3 * waitTime, TimeUnit.MILLISECONDS);
-        jamesResult.get(3 * waitTime, TimeUnit.MILLISECONDS);
-        alfredResult.get(3 * waitTime, TimeUnit.MILLISECONDS);
-
-
-        //have james try to resign
-        resignation.authToken = jamesAuth;
-
-        //ready message
-        readyLatch = new CountDownLatch(3);
-        testExecutor.submit(jamesClient.getSendMessageRunnable(resignation, readyLatch));
-
-        //start getting messages
-        jamesResult = jamesExecutor.submit(new GetServerMessages(1, jamesClient, readyLatch, waitTime));
-        bobResult = bobExecutor.submit(new GetServerMessages(0, bobClient, readyLatch, waitTime));
-        alfredResult = alfredExecutor.submit(new GetServerMessages(0, alfredClient, readyLatch, waitTime));
-
-        //prep messages lists
-        List<TestModels.TestMessage> jamesMessages = new ArrayList<>();
-        List<TestModels.TestMessage> bobMessages = new ArrayList<>();
-        List<TestModels.TestMessage> alfredMessages = new ArrayList<>();
-
-        //wait to get all messages
-        //only james should get a message
-        try {
-            jamesMessages = jamesResult.get(waitTime * 4, TimeUnit.MILLISECONDS);
-            bobMessages = bobResult.get(waitTime * 4, TimeUnit.MILLISECONDS);
-            alfredMessages = alfredResult.get(waitTime * 4, TimeUnit.MILLISECONDS);
-        } catch (TimeoutException ignore) {}
-
-        //check message contents
-        //bob should have gotten error message
-        Assertions.assertEquals(1, jamesMessages.size(),
-                "Expected 1 message for James, got " + jamesMessages.size());
-        Assertions.assertEquals(TestModels.TestServerMessageType.ERROR, jamesMessages.get(0).serverMessageType,
-                "James didn't get an ERROR message");
-
-        //everyone else should have gotten nothing
-        Assertions.assertTrue(bobMessages.isEmpty(),
-                "Bob got a message after James sent an invalid command");
-        Assertions.assertTrue(alfredMessages.isEmpty(),
-                "Alfred got a message after James sent an invalid command");
+        assertNotificationMessage(messages.get(black.user));
+        Assertions.assertTrue(messages.get(white.user).isEmpty(), "Player got a message after leaving");
     }
 
 
     @Test
     @Order(20)
-    @DisplayName("Leave Game")
-    public void leaveGame() throws ExecutionException, InterruptedException, TimeoutException {
-        //have bob join the game as a player
-        TestModels.TestCommand joinCommand = new TestModels.TestCommand();
-        joinCommand.commandType = TestModels.TestCommandType.JOIN_PLAYER;
-        joinCommand.authToken = bobAuth;
-        joinCommand.playerColor = ChessGame.TeamColor.WHITE;
-        joinCommand.gameID = fullGame;
+    @DisplayName("Multiple Lobbies")
+    public void multipleLobbies() {
+        var white2 = registerUser("white2", "WHITE", "white2@chess.com");
+        var black2 = registerUser("black2", "BLACK", "black2@chess.com");
+        var observer2 = registerUser("observer2", "OBSERVER", "observer2@chess.com");
 
-        //wait for bob joining as a player to go through
-        bobClient.connect();
-        CountDownLatch readyLatch = new CountDownLatch(1);
-        testExecutor.submit(bobClient.getSendMessageRunnable(joinCommand, readyLatch));
-        bobExecutor.submit(new GetServerMessages(1, bobClient, readyLatch))
-                .get(waitTime, TimeUnit.MILLISECONDS);
+        var otherGameID = createGame(white, "testGame2");
 
-        //have james join as a player
-        joinCommand = new TestModels.TestCommand();
-        joinCommand.commandType = TestModels.TestCommandType.JOIN_PLAYER;
-        joinCommand.playerColor = ChessGame.TeamColor.BLACK;
-        joinCommand.authToken = jamesAuth;
-        joinCommand.gameID = fullGame;
+        joinGame(otherGameID, white2, ChessGame.TeamColor.WHITE);
+        joinGame(otherGameID, black2, ChessGame.TeamColor.BLACK);
+        joinGame(otherGameID, observer2, null);
 
-        //wait for james joining as a player to go through
-        jamesClient.connect();
-        readyLatch = new CountDownLatch(2);
-        testExecutor.submit(jamesClient.getSendMessageRunnable(joinCommand, readyLatch));
-        Future<List<TestModels.TestMessage>> jamesResult =
-                jamesExecutor.submit(new GetServerMessages(1, jamesClient, readyLatch));
-        Future<List<TestModels.TestMessage>> bobResult =
-                bobExecutor.submit(new GetServerMessages(1, bobClient, readyLatch));
-        bobResult.get(2 * waitTime, TimeUnit.MILLISECONDS);
-        jamesResult.get(2 * waitTime, TimeUnit.MILLISECONDS);
+        setupNormalGame();
 
+        Map<String, List<TestModels.TestMessage>> messages =
+                joinPlayer(white2.user, white2.authToken, otherGameID, ChessGame.TeamColor.WHITE, Set.of(),
+                        Set.of(white.user, black.user, observer.user));
+        assertLoadGameMessage(messages.get(white2.user));
+        Assertions.assertTrue(messages.get(white.user).isEmpty(),
+                "Player got a message after player from another lobby sent a command");
+        Assertions.assertTrue(messages.get(black.user).isEmpty(),
+                "Player got a message after player from another lobby sent a command");
+        Assertions.assertTrue(messages.get(observer.user).isEmpty(),
+                "Observer got a message after player from another lobby sent a command");
 
-        //have alfred join as an observer
-        joinCommand = new TestModels.TestCommand();
-        joinCommand.commandType = TestModels.TestCommandType.JOIN_OBSERVER;
-        joinCommand.authToken = alfredAuth;
-        joinCommand.gameID = fullGame;
+        messages = joinPlayer(black2.user, black2.authToken, otherGameID, ChessGame.TeamColor.BLACK, Set.of(white2.user),
+                Set.of(white.user, black.user, observer.user));
+        assertLoadGameMessage(messages.get(black2.user));
+        assertNotificationMessage(messages.get(white2.user));
+        Assertions.assertTrue(messages.get(white.user).isEmpty(),
+                "Player got a message after player from another lobby sent a command");
+        Assertions.assertTrue(messages.get(black.user).isEmpty(),
+                "Player got a message after player from another lobby sent a command");
+        Assertions.assertTrue(messages.get(observer.user).isEmpty(),
+                "Observer got a message after player from another lobby sent a command");
 
+        messages = joinObserver(observer2.user, observer2.authToken, otherGameID, Set.of(white2.user, black2.user),
+                Set.of(white.user, black.user, observer.user));
+        assertLoadGameMessage(messages.get(observer2.user));
+        assertNotificationMessage(messages.get(white2.user));
+        assertNotificationMessage(messages.get(black2.user));
+        Assertions.assertTrue(messages.get(white.user).isEmpty(),
+                "Player got a message after player from another lobby sent a command");
+        Assertions.assertTrue(messages.get(black.user).isEmpty(),
+                "Player got a message after player from another lobby sent a command");
+        Assertions.assertTrue(messages.get(observer.user).isEmpty(),
+                "Observer got a message after player from another lobby sent a command");
 
-        //wait for alfred joining as an observer to go through
-        alfredClient.connect();
-        readyLatch = new CountDownLatch(3);
-        testExecutor.submit(alfredClient.getSendMessageRunnable(joinCommand, readyLatch));
-        Future<List<TestModels.TestMessage>> alfredResult =
-                alfredExecutor.submit(new GetServerMessages(1, alfredClient, readyLatch));
-        bobResult = bobExecutor.submit(new GetServerMessages(1, bobClient, readyLatch));
-        jamesResult = jamesExecutor.submit(new GetServerMessages(1, jamesClient, readyLatch));
-        alfredResult.get(3 * waitTime, TimeUnit.MILLISECONDS);
-        bobResult.get(3 * waitTime, TimeUnit.MILLISECONDS);
-        jamesResult.get(3 * waitTime, TimeUnit.MILLISECONDS);
+        ChessPosition startingPosition = TestFactory.getNewPosition(2, 5);
+        ChessPosition endingPosition = TestFactory.getNewPosition(3, 5);
+        ChessMove move = TestFactory.getNewMove(startingPosition, endingPosition, null);
+        messages = makeMove(white.user, white.authToken, gameID, move,
+                Set.of(black.user, observer.user), Set.of(white2.user, black2.user, observer2.user));
+        assertLoadGameMessage(messages.get(white.user));
+        assertMoveMadePair(messages.get(black.user));
+        assertMoveMadePair(messages.get(observer.user));
+        Assertions.assertTrue(messages.get(white2.user).isEmpty(),
+                "Player got a message after player from another lobby sent a command");
+        Assertions.assertTrue(messages.get(black2.user).isEmpty(),
+                "Player got a message after player from another lobby sent a command");
+        Assertions.assertTrue(messages.get(observer2.user).isEmpty(),
+                "Observer got a message after player from another lobby sent a command");
 
+        messages = resign(white2.user, white2.authToken, otherGameID, Set.of(black2.user, observer2.user),
+                Set.of(white.user, black.user, observer.user));
+        assertNotificationMessage(messages.get(white2.user));
+        assertNotificationMessage(messages.get(black2.user));
+        assertNotificationMessage(messages.get(observer2.user));
+        Assertions.assertTrue(messages.get(white.user).isEmpty(),
+                "Player got a message after player from another lobby sent a command");
+        Assertions.assertTrue(messages.get(black.user).isEmpty(),
+                "Player got a message after player from another lobby sent a command");
+        Assertions.assertTrue(messages.get(observer.user).isEmpty(),
+                "Observer got a message after player from another lobby sent a command");
 
-        //have bob leave game
-        //create command
-        TestModels.TestCommand leaveCommand = new TestModels.TestCommand();
-        leaveCommand.commandType = TestModels.TestCommandType.LEAVE;
-        leaveCommand.authToken = bobAuth;
-        leaveCommand.gameID = fullGame;
-
-        //ready message
-        readyLatch = new CountDownLatch(2);
-        testExecutor.submit(bobClient.getSendMessageRunnable(leaveCommand, readyLatch));
-
-        //start getting messages
-        jamesResult = jamesExecutor.submit(new GetServerMessages(1, jamesClient, readyLatch, waitTime));
-        alfredResult = alfredExecutor.submit(new GetServerMessages(1, alfredClient, readyLatch, waitTime));
-
-        //prep messages lists
-        List<TestModels.TestMessage> jamesMessages = new ArrayList<>();
-        List<TestModels.TestMessage> alfredMessages = new ArrayList<>();
-
-        //wait to get all messages
-        //Bob can get message if you want, but probably not. Everyone else needs to get notified
-        try {
-            jamesMessages = jamesResult.get(waitTime * 3, TimeUnit.MILLISECONDS);
-            alfredMessages = alfredResult.get(waitTime * 3, TimeUnit.MILLISECONDS);
-        } catch (TimeoutException ignore) {}
-
-        //check message contents
-        Assertions.assertEquals(1, alfredMessages.size(),
-                "Expected 1 message for Alfred, got " + alfredMessages.size());
-        Assertions.assertEquals(TestModels.TestServerMessageType.NOTIFICATION, alfredMessages.get(0).serverMessageType,
-                "Alfred didn't get a NOTIFICATION message");
-
-        //check message contents
-        //bob should have gotten error message
-        Assertions.assertEquals(1, jamesMessages.size(),
-                "Expected 1 message for James, got " + jamesMessages.size());
-        Assertions.assertEquals(TestModels.TestServerMessageType.NOTIFICATION, jamesMessages.get(0).serverMessageType,
-                "James didn't get NOTIFICATION message");
-
-
-        //now have alfred leave the match
-        //create command
-        leaveCommand = new TestModels.TestCommand();
-        leaveCommand.commandType = TestModels.TestCommandType.LEAVE;
-        leaveCommand.authToken = alfredAuth;
-        leaveCommand.gameID = fullGame;
-
-        //prep messages lists
-        List<TestModels.TestMessage> bobMessages = new ArrayList<>();
-        jamesMessages = new ArrayList<>();
-
-        //ready message
-        readyLatch = new CountDownLatch(2);
-        testExecutor.submit(alfredClient.getSendMessageRunnable(leaveCommand, readyLatch));
-
-        //start getting messages
-        jamesResult = jamesExecutor.submit(new GetServerMessages(1, jamesClient, readyLatch, waitTime));
-        bobResult = bobExecutor.submit(new GetServerMessages(0, bobClient, readyLatch, waitTime));
-
-        //wait to get all messages
-        //Bob should not get message (he already left). James must get notified
-        try {
-            jamesMessages = jamesResult.get(waitTime * 3, TimeUnit.MILLISECONDS);
-            bobMessages = bobResult.get(waitTime * 3, TimeUnit.MILLISECONDS);
-
-        } catch (TimeoutException ignore) {}
-
-
-        //try message contents
-        //james should have been notified
-        Assertions.assertEquals(1, jamesMessages.size(),
-                "Expected 1 message for James, got " + jamesMessages.size());
-        Assertions.assertEquals(TestModels.TestServerMessageType.NOTIFICATION, jamesMessages.get(0).serverMessageType,
-                "James didn't get a NOTIFICATION message");
-
-        //bob should have gotten nothing
-        Assertions.assertTrue(bobMessages.isEmpty(), "Bob got a message after leaving the game");
+        messages = leave(white.user, white.authToken, gameID, Set.of(black.user, observer.user),
+                Set.of(white2.user, black2.user, observer2.user));
+        assertNotificationMessage(messages.get(black.user));
+        assertNotificationMessage(messages.get(observer.user));
+        Assertions.assertTrue(messages.get(white2.user).isEmpty(),
+                "Player got a message after player from another lobby sent a command");
+        Assertions.assertTrue(messages.get(black2.user).isEmpty(),
+                "Player got a message after player from another lobby sent a command");
+        Assertions.assertTrue(messages.get(observer2.user).isEmpty(),
+                "Observer got a message after player from another lobby sent a command");
     }
 
 
-    //helper code
-    //------------------------------------------------------------------------------------------------------------------
-    public static class GetServerMessages implements Callable<List<TestModels.TestMessage>>, TestClient.TestListener {
+    record TestUser(String user, String authToken) {
+    }
 
-        Integer numMessagesExpected;
-        List<TestModels.TestMessage> messages;
-        CountDownLatch latch;
-        CountDownLatch readyLatch;
-        Long waitTime;
+    TestUser registerUser(String name, String password, String email) {
+        TestModels.TestRegisterRequest registerRequest = new TestModels.TestRegisterRequest();
+        TestModels.TestLoginRegisterResult result;
+        registerRequest.username = name;
+        registerRequest.password = password;
+        registerRequest.email = email;
+        result = serverFacade.register(registerRequest);
+        return new TestUser(result.username, result.authToken);
+    }
 
-        public GetServerMessages(Integer numMessagesExpected, TestClient socket,
-                                 CountDownLatch readyLatch) {
-            this.numMessagesExpected = numMessagesExpected;
-            messages = new ArrayList<>();
-            socket.registerListener(this);
-            this.readyLatch = readyLatch;
-        }
 
-        public GetServerMessages(Integer numMessagesExpected, TestClient socket,
-                                 CountDownLatch readyLatch, Long waitTime) {
-            this(numMessagesExpected, socket, readyLatch);
-            this.waitTime = waitTime;
-        }
+    int createGame(TestUser user, String name) {
+        TestModels.TestCreateRequest createRequest = new TestModels.TestCreateRequest();
+        createRequest.gameName = name;
+        TestModels.TestCreateResult createResult = serverFacade.createGame(createRequest, user.authToken);
+        return createResult.gameID;
+    }
 
-        @Override
-        public List<TestModels.TestMessage> call() throws Exception {
-            latch = new CountDownLatch(numMessagesExpected);
-            readyLatch.countDown();
-            if(waitTime != null) Thread.sleep(waitTime);
-            latch.await();
-            return messages;
-        }
+    void joinGame(int gameID, TestUser user, ChessGame.TeamColor color) {
+        TestModels.TestJoinRequest joinRequest = new TestModels.TestJoinRequest();
+        joinRequest.gameID = gameID;
+        joinRequest.playerColor = color;
+        serverFacade.verifyJoinPlayer(joinRequest, user.authToken);
+    }
 
-        @Override
-        public void notifyMessage(String message) {
-            try {
-                messages.add(new Gson().fromJson(message, TestModels.TestMessage.class));
-            }
-            catch (Exception e) {
-                e.printStackTrace();
-            }
+    private Map<String, List<TestModels.TestMessage>> joinPlayer(String sendingUsername, String sendingAuth, int gameID,
+                                                                 ChessGame.TeamColor playerColor,
+                                                                 Set<String> recipients, Set<String> others) {
+        TestModels.TestCommand joinCommand = new TestModels.TestCommand();
+        joinCommand.commandType = TestModels.TestCommandType.JOIN_PLAYER;
+        joinCommand.authToken = sendingAuth;
+        joinCommand.playerColor = playerColor;
+        joinCommand.gameID = gameID;
 
-            latch.countDown();
-        }
+        Map<String, Integer> expectedMessages =
+                recipients.stream().collect(Collectors.toMap(Function.identity(), s -> 1));
+        expectedMessages.putAll(others.stream().collect(Collectors.toMap(Function.identity(), s -> 0)));
+        expectedMessages.put(sendingUsername, 1);
+        return environment.exchange(sendingUsername, joinCommand, expectedMessages, waitTime);
+    }
 
+
+    private Map<String, List<TestModels.TestMessage>> joinObserver(String sendingUsername, String sendingAuth,
+                                                                   int gameID, Set<String> recipients,
+                                                                   Set<String> others) {
+        TestModels.TestCommand joinCommand = new TestModels.TestCommand();
+        joinCommand.commandType = TestModels.TestCommandType.JOIN_OBSERVER;
+        joinCommand.authToken = sendingAuth;
+        joinCommand.gameID = gameID;
+
+        Map<String, Integer> expectedMessages =
+                recipients.stream().collect(Collectors.toMap(Function.identity(), s -> 1));
+        expectedMessages.putAll(others.stream().collect(Collectors.toMap(Function.identity(), s -> 0)));
+        expectedMessages.put(sendingUsername, 1);
+        return environment.exchange(sendingUsername, joinCommand, expectedMessages, waitTime);
+    }
+
+
+    private Map<String, List<TestModels.TestMessage>> makeMove(String sendingUsername, String sendingAuth, int gameID,
+                                                               ChessMove move, Set<String> recipients,
+                                                               Set<String> others) {
+        TestModels.TestCommand joinCommand = new TestModels.TestCommand();
+        joinCommand.commandType = TestModels.TestCommandType.MAKE_MOVE;
+        joinCommand.authToken = sendingAuth;
+        joinCommand.move = move;
+        joinCommand.gameID = gameID;
+
+        Map<String, Integer> expectedMessages =
+                recipients.stream().collect(Collectors.toMap(Function.identity(), s -> 2));
+        expectedMessages.putAll(others.stream().collect(Collectors.toMap(Function.identity(), s -> 0)));
+        expectedMessages.put(sendingUsername, 1);
+        return environment.exchange(sendingUsername, joinCommand, expectedMessages, waitTime);
+    }
+
+
+    private Map<String, List<TestModels.TestMessage>> resign(String sendingUsername, String sendingAuth, int gameID,
+                                                             Set<String> recipients, Set<String> others) {
+        TestModels.TestCommand resignation = new TestModels.TestCommand();
+        resignation.commandType = TestModels.TestCommandType.RESIGN;
+        resignation.authToken = sendingAuth;
+        resignation.gameID = gameID;
+
+        Map<String, Integer> expectedMessages =
+                recipients.stream().collect(Collectors.toMap(Function.identity(), s -> 1));
+        expectedMessages.putAll(others.stream().collect(Collectors.toMap(Function.identity(), s -> 0)));
+        expectedMessages.put(sendingUsername, 1);
+        return environment.exchange(sendingUsername, resignation, expectedMessages, waitTime);
+    }
+
+
+    private Map<String, List<TestModels.TestMessage>> leave(String sendingUsername, String sendingAuth, int gameID,
+                                                            Set<String> recipients, Set<String> others) {
+        TestModels.TestCommand resignation = new TestModels.TestCommand();
+        resignation.commandType = TestModels.TestCommandType.LEAVE;
+        resignation.authToken = sendingAuth;
+        resignation.gameID = gameID;
+
+        Map<String, Integer> expectedMessages =
+                recipients.stream().collect(Collectors.toMap(Function.identity(), s -> 1));
+        expectedMessages.putAll(others.stream().collect(Collectors.toMap(Function.identity(), s -> 0)));
+        expectedMessages.put(sendingUsername, 0);
+        return environment.exchange(sendingUsername, resignation, expectedMessages, waitTime);
+    }
+
+
+    private void setupNormalGame() {
+        //join WHITE
+        joinPlayer(white.user, white.authToken, gameID, ChessGame.TeamColor.WHITE, Set.of(), Set.of());
+
+        //join BLACK
+        joinPlayer(black.user, black.authToken, gameID, ChessGame.TeamColor.BLACK, Set.of(white.user),
+                Set.of());
+
+        //observer
+        joinObserver(observer.user, observer.authToken, gameID, Set.of(white.user, black.user),
+                Set.of());
+    }
+
+
+    private void assertLoadGameMessage(List<TestModels.TestMessage> messages) {
+        Assertions.assertEquals(1, messages.size(), "Expected 1 message, got " + messages.size());
+        Assertions.assertEquals(TestModels.TestServerMessageType.LOAD_GAME, messages.get(0).serverMessageType,
+                "Message was not a LOAD_GAME message");
+        Assertions.assertNotNull(messages.get(0).game, "LOAD_GAME message did not contain a game");
+    }
+
+
+    private void assertNotificationMessage(List<TestModels.TestMessage> messages) {
+        Assertions.assertEquals(1, messages.size(), "Expected 1 message, got " + messages.size());
+        Assertions.assertEquals(TestModels.TestServerMessageType.NOTIFICATION, messages.get(0).serverMessageType,
+                "Message was not a NOTIFICATION message");
+        Assertions.assertNotNull(messages.get(0).message, "Bobs NOTIFICATION message did not contain a message");
+    }
+
+
+    private void assertErrorMessage(List<TestModels.TestMessage> messages) {
+        Assertions.assertEquals(1, messages.size(), "Expected 1 message, got " + messages.size());
+        Assertions.assertEquals(TestModels.TestServerMessageType.ERROR, messages.get(0).serverMessageType,
+                "Message was not an ERROR message");
+        Assertions.assertNull(messages.get(0).game, "ERROR message contained a game");
+        Assertions.assertNotNull(messages.get(0).errorMessage, "ERROR message did not contain an error message");
+    }
+
+
+    private void assertMoveMadePair(List<TestModels.TestMessage> messages) {
+        Assertions.assertEquals(2, messages.size(), "Expected 2 messages, got " + messages.size());
+        boolean isLoadGameFirst = messages.get(0).serverMessageType == TestModels.TestServerMessageType.LOAD_GAME;
+        Assertions.assertEquals(TestModels.TestServerMessageType.LOAD_GAME,
+                messages.get(isLoadGameFirst ? 0 : 1).serverMessageType, "Didn't get load game message");
+        Assertions.assertNotNull(messages.get(isLoadGameFirst ? 0 : 1).game, "LOAD_GAME message didn't contain a game");
+        Assertions.assertEquals(TestModels.TestServerMessageType.NOTIFICATION,
+                messages.get(isLoadGameFirst ? 1 : 0).serverMessageType, "Didn't get notification message");
+        Assertions.assertNotNull(messages.get(isLoadGameFirst ? 1 : 0).message,
+                "NOTIFICATION message didn't contain a message");
     }
 
 }
