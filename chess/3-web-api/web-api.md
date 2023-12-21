@@ -147,15 +147,28 @@ As part of this phase, you need to create [record](../../instruction/records/rec
 
 ### Data Access Classes
 
-Classes that represent the access to your database are often called `Data Access Objects` or DOAs. Create your data access classes in the `server/src/main/java/dataAccess` package. Data access classes are responsible for storing and retrieving the server’s data (users, games, etc.).
+Classes that represent the access to your database are often called `Data Access Objects` (DOAs). Create your data access classes in the `server/src/main/java/dataAccess` package. Data access classes are responsible for storing and retrieving the server’s data (users, games, etc.).
 
-For the most part, the methods on your DAO classes will be `CRUD` operations that: 1) Create objects in the data store, 2) Read (or query) objects from the data store, 3) Update objects already in the data store, and 4) Delete objects from the data store. Oftentimes, the parameters and return values of your DAO methods will be the model objects described in the previous section (UserData, GameData, AuthData). For example, your DAO classes will certainly need to provide a method for creating new UserData objects in the data store. This method might have a signature that looks like this:
+For the most part, the methods on your DAO classes will be `CRUD` operations that:
+
+- **Create** objects in the data store
+- **Read** objects from the data store
+- **Update** objects already in the data store
+- **Delete** objects from the data store
+
+Oftentimes, the parameters and return values of your DAO methods will be the model objects described in the previous section (UserData, GameData, and AuthData). For example, your DAO classes will certainly need to provide a method for creating new UserData objects in the data store. This method might have a signature that looks like this:
 
 ```java
 void insertUser(UserData u) throws DataAccessException
 ```
 
-Here are some examples of the kinds of methods your DAO classes will need to support. If a method cannot be completed, it should throw a `DataAccessException` (e.g., trying to update a non-existent game). This list is not exhaustive.
+### DataAccessException
+
+The starter code includes a `dataAccess.DataAccessException`. This exception should be thrown by data access methods that could fail. If a method call fails, it should throw a `DataAccessException`. For example, the `DataAccessException` is thrown if a user attempts to update a non-existent game.
+
+### Example Data Access Methods
+
+Here are some examples of the kinds of methods your DAOs will need to support. This list is not exhaustive. You should consult your server design in order to determine all of the methods you need to provide.
 
 - **clear**: A method for clearing all data from the database. This is used during testing.
 - **createUser**: Create a new user.
@@ -168,10 +181,6 @@ Here are some examples of the kinds of methods your DAO classes will need to sup
 - **getAuth**: Retrieve an authorization given an authToken.
 - **deleteAuth**: Delete an authorization so that it is no longer valid.
 
-### DataAccessException
-
-The starter code includes a `dataAccess.DataAccessException`. This exception should be thrown by DAO methods that could fail. For example, inserting a second user with the same username shouldn’t be allowed, and therefore should throw a `DataAccessException` in that case.
-
 ### DataAccess Interface
 
 In order to abstract from your services where data is actually being stored, you must create a Java interface that hides all of the implementation details for accessing and retrieving data. In this phase you will create an implementation of your data access interface that stores your server’s data in main memory (RAM) using standard data structures (maps, sets, lists). In the next phase you will create an implementation of the data access interface that uses an external SQL database.
@@ -180,8 +189,8 @@ In order to abstract from your services where data is actually being stored, you
 
 By using an interface you can hide, or encapsulate, how your data access works from the code that does not need to be aware of those details. This creates a flexible architecture that allows you to change how things work without rewriting all of your code. We see the benefits of this pattern in two ways.
 
-1. You can quickly implement our services without having to implement a backing SQL database. This allows us to focus on the HTTP part of our server and then move over to SQL without changing any of our service code.
-2. You can write data access tests against the memory implementation of the interface and then reuse those tests when we create the SQL implementation.
+1. You can quickly implement our services without having to implement a backing SQL database. This lets us focus on the HTTP part of our server during this phase and then move over to SQL without changing any of our service code.
+2. You can write data access tests against the memory implementation of the interface and then reuse those tests when you create the SQL implementation.
 
 ⚠ You must place your data access classes in a folder named `server/src/test/java/dataAccess`.
 
@@ -199,7 +208,7 @@ public class UserService {
 }
 ```
 
-Each service method receives a Request object containing all the information it needs to do its work. After performing its function it returns a corresponding Result object containing the output of the method. To do their work, service classes need to make heavy use of the Model classes and Data Access classes described below.
+Each service method receives a Request object containing all the information it needs to do its work. After performing its purpose, it returns a corresponding Result object containing the output of the method. To do their work, service classes need to make heavy use of the Model classes and Data Access classes described above.
 
 ⚠ You must place your service classes in a folder named `server/src/main/java/service`.
 
@@ -207,10 +216,10 @@ Each service method receives a Request object containing all the information it 
 
 As described in the previous section, service class methods receive request objects as input, and return result objects as output. The contents of these classes can be derived from the JSON inputs and outputs of the web endpoints documented above. For example, the `login` endpoint accepts the following JSON object as input:
 
-```java
+```json
 {
-    "username":"your_username",
-    "password": "your_password"
+  "username": "your_username",
+  "password": "your_password"
 }
 ```
 
@@ -223,7 +232,7 @@ From this you can derive the following LoginRequest class:
 	}
 ```
 
-Alternatively, you could use the model `UserData` object that you will also use when you call your data access layer. Reusing these objects can create confusion with what the method needs to operate, but it does simplify your architecture by reducing the duplication of model objects.
+Alternatively, you could use the model `UserData` object that you will also use when you call your data access layer. Reusing these objects can create confusion with what the method needs to operate, but it does simplify your architecture by reducing the duplication of primary model objects.
 
 ```java
 	record UserData(
@@ -252,7 +261,7 @@ Similarly, the `login` endpoint returns a JSON object of the following format, d
 }
 ```
 
-From this you can derive the following LoginResult class:
+From this you can derive the following LoginResult record class:
 
 ```java
 	record LoginResult(String username, String authToken) {}
@@ -267,15 +276,20 @@ You will be using the Gson library for serialization and deserialization. Gson c
 Here is an example of using Gson to serialize and deserialize a ChessGame.
 
 ```java
-var game = new ChessGame();
 var serializer = new Gson();
+
+var game = new ChessGame();
+
+// serialize to JSON
 var json = serializer.toJson(game);
+
+// deserialize back to ChessGame
 game = serializer.fromJson(json, ChessGame.class);
 ```
 
 We install the third party package already in your project as part of its initial configuration and so you are ready to start using Gson in your code.
 
-### Handler Classes
+### Server Handler Classes
 
 The server handler classes serve as a translator between HTTP and Java. Your handlers will convert an HTTP request into Java usable objects & data. The handler then calls the appropriate service. When the service responds it converts the response object back to JSON and sends the HTTP response.
 
@@ -287,17 +301,7 @@ The Server receives network HTTP requests and sends them to the correct handler 
 
 ⚠ For the pass off tests to work properly, your server class must be named `Server` and provide a `run` method that has a desired port parameter, and a `stop` method that shuts your HTTP server down.
 
-The starter code contains the `Server` class that you should use as the base for your HTTP server. For the pass off tests to work properly, you must keep the `Server` class in a folder named `server/src/main/java/server`, and that you do not remove the provided code.
-
-The `Server` class provides a `run` method will start the HTTP server on a desired port parameter. From your main function you should start the server on port 8080. If the port is 0 then it will start the HTTP server on a random open port. The starter code also provides a `stop` method that shuts the HTTP server down. This is necessary to control the starting and stopping of your server when running pass off tests.
-
-### Web Browser Interface
-
-The starter code provides a simple web browser interface for calling your server endpoints. This is useful for experimentation while you are developing your endpoints. In order for your server to be able to load its web browser interface you need to determine the path where the web directory is located and then tell spark to load static web files from that directory.
-
-### Server Starter Code
-
-The following is a copy of the Server code that you should have already copied to your application as directed by the [getting started](getting-started.md) instructions. It contains the code for starting and stopping your server, as well as loading the web browser interface.
+The starter code contains the `Server` class that you should use as the base for your HTTP server. For the pass off tests to work properly, you must keep the `Server` class in a folder named `server/src/main/java/server`, and do not remove the provided code.
 
 ```java
 public class Server {
@@ -319,13 +323,24 @@ public class Server {
 }
 ```
 
+The `Server` class provides a `run` method that attempts to start the HTTP server on a desired port parameter. From your main function you should start the server on port 8080. The unit tests will start the server on port is 0. This directs the Spark code to discover and use a random open port. The port that is actually used is returned by the `Spark.port` method after initialization has completed. The starter code also provides a `stop` method that shuts the HTTP server down. This is necessary to control the starting and stopping of your server when running tests.
+
+### Web Browser Interface
+
+The starter code provides a simple web browser interface for calling your server endpoints. This is useful for experimentation while you are developing your endpoints. In order for your server to be able to load its web browser interface you need to determine the path where the web directory is located and then tell spark to load static web files from that directory.
+
+```java
+var webDir = Paths.get(Server.class.getProtectionDomain().getCodeSource().getLocation().getPath(), "web");
+Spark.externalStaticFileLocation(webDir.toString());
+```
+
 ## Service Unit Tests
 
-In addition to the tests provided in the starter code, you need to write tests that execute directly against your service classes. These tests skip the HTTP server network communication and should help you in the development of your code for this phase.
+In addition to the HTTP server pass off tests provided in the starter code, you need to write tests that execute directly against your service classes. These tests skip the HTTP server network communication and will help you in the development of your service code for this phase.
 
 Good tests extensively show that we get the expected behavior. This could be asserting that data put into the database is really there, or that a function throws an error when it should. Write a positive and a negative JUNIT test case for each public method on your Service classes, except for Clear which only needs a positive test case. A positive test case is one for which the action happens successfully (e.g., successfully claiming a spot in a game). A negative test case is one for which the operation fails (e.g., trying to claim an already claimed spot).
 
-The service unit tests must directly call the methods on your service classes. They should not use the HTTP server test code that is provided with the starter code.
+The service unit tests must directly call the methods on your service classes. They should not use the HTTP server pass off test code that is provided with the starter code.
 
 ⚠ You must place your service test cases in a folder named `server/src/test/java/serviceTests`.
 
