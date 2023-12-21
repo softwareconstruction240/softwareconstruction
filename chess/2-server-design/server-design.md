@@ -104,7 +104,7 @@ Class --> Student:knowledge
 end
 ```
 
-## Deliverables
+## ☑ Deliverable
 
 ### Pass Off, Submission, and Grading
 

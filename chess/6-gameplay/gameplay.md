@@ -150,7 +150,7 @@ Here is a [sequence diagram](https://sequencediagram.org/index.html?presentation
 - [Console UI](../../instruction/console-ui/console-ui.md): Reading from the keyboard and writing out fancy text.
 - [WebSocket](../../instruction/websocket/websocket.md): Making WebSocket client and server requests.
 
-## Deliverables
+## ☑ Deliverable
 
 ### Pass Off Tests
 

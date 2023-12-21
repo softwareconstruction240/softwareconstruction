@@ -57,7 +57,7 @@ Should you choose to use the unicode Chess characters, some machines by default 
 
 Additionally, you may notice that the chess characters might render slightly wider than everything else. To balance this out, a wider version of a space called an em-space can be used. It is denoted by \u2003 and is currently being used as the middle space in the `EMPTY` escape sequence, so if you choose not to use the Unicode chess pieces, you will have to replace that with a regular space to get everything to line up vertically.
 
-## Deliverables
+## ☑ Deliverable
 
 ### Pass Off Tests
 

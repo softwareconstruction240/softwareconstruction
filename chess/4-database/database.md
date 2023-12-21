@@ -88,7 +88,7 @@ You will want to carefully consider the need for a Gson type adapter when you do
 - [SQL](../../instruction/db-sql/): Using SQL statements.
 - [JDBC](../../instruction/db-jdbc/): Using SQL from Java including type adapters.
 
-## Deliverables
+## ☑ Deliverable
 
 ### Pass Off Tests
 

@@ -159,7 +159,7 @@ In order for the tests to pass, you are required to override the `equals()` and 
 
 ⚠ NOTE: Although not required, debugging is often easier if you override the `toString()` method and return a concise representation of the object.
 
-## Deliverables
+## ☑ Deliverable
 
 ### Pass Off, Submission, and Grading
 
