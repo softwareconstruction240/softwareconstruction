@@ -34,6 +34,6 @@ Add the dependency for the MySQL driver and BCrypt. Associate them with your `se
 
   - Scope: Compile
 
-- org.springframework.security:spring-security-core:5.7.1
+- org.springframework.security:spring-security-core:6.2.1
 
   - Scope: Compile

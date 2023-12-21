@@ -30,12 +30,7 @@ This should result in the following additions to your project.
 
 ## Dependencies
 
-Add the following dependencies to the `client` module:
+Add the following dependencies to the `client` and `server` modules:
 
 - **org.glassfish.tyrus.bundles:tyrus-standalone-client:1.15**
   - Scope: Compile
-
-Add the following dependencies to the `server` module:
-
-- **org.glassfish.tyrus.bundles:tyrus-standalone-client:1.15**
-  - Scope: Test

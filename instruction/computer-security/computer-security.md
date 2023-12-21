@@ -155,7 +155,7 @@ As an additional protection for our user's passwords we want to use a hash algor
 You can experiment with `Bcrypt` using the following library.
 
 ```
-org.springframework.security:spring-security-core:5.7.1
+org.springframework.security:spring-security-core:6.2.1
 ```
 
 This implementation of Bcrypt makes it so you can hash and salt a password with one line of code, and then later compare the hash to a candidate password with another line of code. The following example first hashes the password `toomanysecrets` and then compares it to three possible candidates.

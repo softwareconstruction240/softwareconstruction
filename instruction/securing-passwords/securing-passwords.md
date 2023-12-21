@@ -2,7 +2,7 @@
 
 Whenever you accept personal information from a user, you become responsible for securing that information. One of the most critical pieces of information to protect is their password. If a password is exposed then you are exposing the ability to act as the user.
 
-We will describe the details of how cryptographic hash functions work in a later topic. However, for now we will discuss how to use the Bcrypt algorithm to securely hash and compare a user's password.
+We will describe the details of how cryptographic hash functions work in a later topic. However, for now we will demonstrate how to use the Bcrypt algorithm to securely hash and compare a user's password.
 
 It is vital that you use a secure method of storing passwords as part of your work to persistently store your application's data.
 
@@ -17,7 +17,7 @@ By hashing the passwords, your application never stores a password in the databa
 You can using `Bcrypt` in your application by using the following library.
 
 ```
-org.springframework.security:spring-security-core:5.7.1
+org.springframework.security:spring-security-core:6.2.1
 ```
 
 This implementation of Bcrypt makes it so you can hash a password with one line of code, and then later compare the hash to a candidate password with another line of code. The following example first hashes the password `toomanysecrets` and then compares it to three possible candidates.
@@ -49,6 +49,8 @@ cow != toomanysecrets
 toomanysecrets == toomanysecrets
 password != toomanysecrets
 ```
+
+With this example you can now security store and compare the passwords for your application.
 
 ## Things to Understand
 
