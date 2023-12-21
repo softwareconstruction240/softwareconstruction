@@ -117,7 +117,7 @@ To pass off this assignment use the course auto-grading tool. If your code passe
 
 | Category       | Criteria                                                                                                                                                                            |       Points |
 | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -----------: |
-| GitHub History | At least 10 GitHub commits demonstrating proof of work                                                                                                                              | Prerequisite |
+| GitHub History | At least 10 GitHub commits evenly spread over the assignment period that demonstrate proof of work                                                                                  | Prerequisite |
 | Functionality  | All pass off test cases succeed                                                                                                                                                     |          100 |
 | Unit Tests     | All test cases pass<br/>Each public method on DAO classes has two test cases, one positive test and one negative test<br/>Every test case includes an Assert statement of some type |           25 |
 |                | Total                                                                                                                                                                               |          125 |

@@ -137,7 +137,7 @@ To pass off this assignment submit your work to the course auto-grading tool. Wh
 
 | Category       | Criteria                                                                                                                                                                                        |       Points |
 | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -----------: |
-| GitHub History | At least 10 GitHub commits demonstrating proof of work                                                                                                                                          | Prerequisite |
+| GitHub History | At least 10 GitHub commits evenly spread over the assignment period that demonstrate proof of work                                                                                              | Prerequisite |
 | Functionality  | Program supports all required functionality                                                                                                                                                     |          100 |
 | Unit Tests     | All test cases pass<br/>Each public method on the Server Facade class has two test cases, one positive test and one negative test<br/>Every test case includes an Assert statement of some type |           25 |
 |                | Total                                                                                                                                                                                           |          125 |
