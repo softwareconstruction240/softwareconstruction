@@ -115,8 +115,9 @@ To pass off this assignment use the course auto-grading tool. If your code passe
 
 **⚠ NOTE**: You are required to commit to GitHub with every minor milestone. For example, after you successfully pass a test. This should result in a commit history that clearly details your work on this phase. If your Git history does not demonstrate your efforts then your submission may be rejected.
 
-| Category      | Criteria                                                                                                                                                                            | Points |
-| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -----: |
-| Functionality | All pass off test cases succeed                                                                                                                                                     |    100 |
-| Unit Tests    | All test cases pass<br/>Each public method on DAO classes has two test cases, one positive test and one negative test<br/>Every test case includes an Assert statement of some type |     25 |
-|               | Total                                                                                                                                                                               |    125 |
+| Category       | Criteria                                                                                                                                                                            |       Points |
+| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -----------: |
+| GitHub History | At least 10 GitHub commits demonstrating proof of work                                                                                                                              | Prerequisite |
+| Functionality  | All pass off test cases succeed                                                                                                                                                     |          100 |
+| Unit Tests     | All test cases pass<br/>Each public method on DAO classes has two test cases, one positive test and one negative test<br/>Every test case includes an Assert statement of some type |           25 |
+|                | Total                                                                                                                                                                               |          125 |

@@ -69,8 +69,9 @@ To pass off this assignment use the course auto-grading tool. If your code passe
 
 **⚠ NOTE**: You are required to commit to GitHub with every minor milestone. For example, after you successfully pass a test. This should result in a commit history that clearly details your work on this phase. If your Git history does not demonstrate your efforts then your submission may be rejected.
 
-| Category      | Criteria                              |    Points |
-| ------------- | ------------------------------------- | --------: |
-| Functionality | All pass off test cases succeed       |       125 |
-| Extra Credit  | `chessExtraCredit` test cases succeed | bonus +10 |
-|               | Total                                 |       125 |
+| Category       | Criteria                                               |       Points |
+| -------------- | ------------------------------------------------------ | -----------: |
+| GitHub History | At least 10 GitHub commits demonstrating proof of work | Prerequisite |
+| Functionality  | All pass off test cases succeed                        |          125 |
+| Extra Credit   | `chessExtraCredit` test cases succeed                  |    bonus +10 |
+|                | Total                                                  |          125 |

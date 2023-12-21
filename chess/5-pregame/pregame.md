@@ -96,9 +96,9 @@ public class ServerFacadeTests {
 }
 ```
 
-Replace the `sampleTest` method and add your unit tests.
+Replace the `sampleTest` method with your own unit tests.
 
-Your server facade will need to take the port the server is running on as part of its initialization when running your tests. You can accomplish this by modifying the `init` function to create and initialize your server facade with code that is something like the following:
+Your server facade will need to take the port that the server is running on as part of its initialization when running your tests. You can accomplish this by modifying the `init` method to create and initialize your server facade with code that is something like the following:
 
 ```java
 private static Server server;
@@ -113,7 +113,7 @@ public static void init() {
 }
 ```
 
-You can then directly test your facade with tests such as:
+You can then directly test your facade with tests such as demonstrated in the following `register` unit test example.
 
 ```java
 @Test
@@ -122,6 +122,8 @@ void register() throws Exception {
     assertTrue(authData.authToken().length() > 10);
 }
 ```
+
+Make sure you clear your database between each test. You can do this in a method that has the `@BeforeEach` annotation.
 
 ### Pass Off, Submission, and Grading
 
@@ -133,8 +135,9 @@ To pass off this assignment submit your work to the course auto-grading tool. Wh
 
 **⚠ NOTE**: You are required to commit to GitHub with every minor milestone. For example, after you successfully pass a test. This should result in a commit history that clearly details your work on this phase. If your Git history does not demonstrate your efforts then your submission may be rejected.
 
-| Category      | Criteria                                                                                                                                                                                        | Points |
-| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -----: |
-| Functionality | Program supports all required functionality                                                                                                                                                     |    100 |
-| Unit Tests    | All test cases pass<br/>Each public method on the Server Facade class has two test cases, one positive test and one negative test<br/>Every test case includes an Assert statement of some type |     25 |
-|               | Total                                                                                                                                                                                           |    125 |
+| Category       | Criteria                                                                                                                                                                                        |       Points |
+| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -----------: |
+| GitHub History | At least 10 GitHub commits demonstrating proof of work                                                                                                                                          | Prerequisite |
+| Functionality  | Program supports all required functionality                                                                                                                                                     |          100 |
+| Unit Tests     | All test cases pass<br/>Each public method on the Server Facade class has two test cases, one positive test and one negative test<br/>Every test case includes an Assert statement of some type |           25 |
+|                | Total                                                                                                                                                                                           |          125 |
