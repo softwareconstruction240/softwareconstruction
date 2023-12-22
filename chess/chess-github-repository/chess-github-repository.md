@@ -1,4 +1,4 @@
-# Chess GitHub Repository
+# ♕ Chess GitHub Repository
 
 In the following phases of the chess project you will add to, and enhance, the content you have created in a GitHub repository. The commit history that you establish through the course serves the following valuable purposes:
 
@@ -10,7 +10,7 @@ In the following phases of the chess project you will add to, and enhance, the c
 
 All of this requires that you commit often. You should get in the habit of consistently making a small stable change and then committing.
 
-1. Verify you have the lastest code (`git pull`)
+1. Verify you have the latest code (`git pull`)
 1. Refactor, test, and/or implement a small portion of cohesive code (`test` `code` `test`)
 1. Commit and push (`git commit` `git push`)
 1. Repeat
@@ -25,6 +25,7 @@ If you do not have the required number of commits, or if they are all clustered 
 
 ## Creating Your Chess GitHub Repository
 
+1. Open your web browser to [GitHub](https://github.com)
 1. Create a GitHub repository for your chess project
 
    1. Name it `chess`.
