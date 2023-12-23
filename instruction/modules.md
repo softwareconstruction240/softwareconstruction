@@ -27,11 +27,11 @@ The course content is divided into multiple topics that you should strive to mas
 - [Java Input and Output (IO)](io/io.md)
 - [Java Generics](generics/generics.md)
 - [Java Lambdas](lambdas/lambdas.md)
-- [JSON and Serialization](json/json.md)
-- ☑ [Phase 2: Chess Server Design](../chess/2-server-design/server-design.md)
 
 ## Server
 
+- [JSON and Serialization](json/json.md)
+- ☑ [Phase 2: Chess Server Design](../chess/2-server-design/server-design.md)
 - [HTTP](http/http.md)
 - [cURL](curl/curl.md)
 - [Web API](web-api/web-api.md)
