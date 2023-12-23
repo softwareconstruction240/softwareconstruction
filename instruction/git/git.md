@@ -286,7 +286,3 @@ If you already have a Git repo in your local development environment and you wan
    ```sh
    ➜  git push -u origin main
    ```
-
-# Course Navigation
-
-| ♕ [Phase 1: Chess Game](../../chess/1-chess-game/chess-game.md) | [Modules](../modules.md) | [Java Inner Classes](../inner-classes/inner-classes.md) |
