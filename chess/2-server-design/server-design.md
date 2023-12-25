@@ -25,7 +25,7 @@ The chess application components are demonstrated by the following diagram and d
 
 ## Application Programming Interface (API)
 
-As a first step for creating your design diagram, you need to carefully read the [Web API](../3-web-api/web-api.md) document for phase three of the project so you can internalize what each of the server endpoints do. This will help you understand the purpose and structure of the classes you are designing in this phase.
+As a first step for creating your design diagram, you need to carefully read the [Phase 3: Web API](../3-web-api/web-api.md) requirements so that you can internalize what each of the server endpoints do. This will help you understand the purpose and structure of the classes you are designing in this phase.
 
 The server endpoints are summarized below, but it is critical that you completely understand their purpose, the data they expect, and the data that they return.
 
@@ -44,10 +44,10 @@ The server endpoints are summarized below, but it is critical that you completel
 The different components in your architecture will operate on three data model objects that your application must implement. This includes the following.
 
 | Object   | Description                                                                                                                                   |
-| -------- | --------------------------------------------------------------------------------------------------------------------------------------------- | --- |
+| -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | UserData | A user is registered and authenticated as a player or observer in the application.                                                            |
 | AuthData | The association of a username and an authorization token that represents that the user has previously been authorized to use the application. |
-| GameData | The information about the state of a game. This includes the players, the board, and the outcome of the game.                                 | s   |
+| GameData | The information about the state of a game. This includes the players, the board, and the current state of the game.                           |
 
 These objects represent the core of what you are passing between your server, service, and data access components.
 
@@ -57,11 +57,11 @@ Based upon your understanding of the requirements provided by [Phase 3](../3-web
 
 ### Register Example
 
-To get you started on creating your sequence diagram we have provided you with a template that already contains a possible solution for the `register` endpoint, and place holders for the other six endpoints. You can view this diagram on [SequenceDiagram.Org](https://sequencediagram.org/index.html#initialData=IYYwLg9gTgBAwgGwJYFMB2YBQAHYUxIhK4YwDKKUAbpTngUSWDAEooDmSAzmFMARDQVqhFHXyFiwUgBF+wAIIgQKLl0wATeQCNgXFDA3bMmdlAgBXbDADEaYFQCerDt178kg2wHcAFkjAxRFRSAFoAPnJKGigALhgAbQAFAHkyABUAXRgAegt9KAAdNABvfMp7AFsUABoYXDVvaA06lErgJAQAX0xhGJgIl04ePgEhaNF4qFceSgAKcqgq2vq9LiaoFpg2joQASkw2YfcxvtEByLkwRWVVLnj2FDAAVQKFguWDq5uVNQvDbTxMgAUQAMsC4OkYItljAAGbmSrQgqYb5KX5cAaDI5uUaecYiFTxNAWBAIQ4zE74s4qf5o25qeIgab8FCveYw4DVOoNdbNL7ydF3f5GeIASQAciCWFDOdzVo1mq12p0YJL0ilkbQcSMPIIaQZBvSMUyWYEFBYwL53hUuSgBdchX9BqK1VLgTKtUs7XVgJbfOkIABrdBujUwP1W1GChmY0LYyl4-UTIkR-2BkNoCnHJMEqjneORPqUeKRgPB9C9aKULGRYLoMDxABMAAYW8USmWM+geugNCYzJZrDZoNJHjBQRBOGgfP5Aph62Ei9W4olUhlsjl9Gp8R25SteRsNL20P3TOYrLYzChQ5P2JZmDY-AEgsgG-9i6uEjIwcD0sDN23Lhd3sdMKyzPsBwvYdpg0Cc3BgABxO1MSfOdXxCZhBk-eIEkQv9N3YO1ii7cDMEg88h1sbALCgbAEAMOAzQMZDqlnF8FzfJcomoEs1zSLJciI6oSLAzMO2ElAJTtE8z0HS8bEcFAyQgbwYAAKQgJAZ1YgwbG0BBQCDTjMI-FdcKSZ5BJySTRKtbs0A7RcwDgCAEGgOpJLFGRZKgqibDMYBnEQFA8AjbB6MIPUZzQjjnLM3ivx-cF-03IxyNPTAgA).
+To get you started on creating your sequence diagram, we have provided you with a template that already contains a possible solution for the `register` endpoint. We also incuded place holders for the other six endpoints. You can view this diagram on [SequenceDiagram.Org](https://sequencediagram.org/index.html#initialData=IYYwLg9gTgBAwgGwJYFMB2YBQAHYUxIhK4YwDKKUAbpTngUSWDAEooDmSAzmFMARDQVqhFHXyFiwUgBF+wAIIgQKLl0wATeQCNgXFDA3bMmdlAgBXbDADEaYFQCerDt178kg2wHcAFkjAxRFRSAFoAPnJKGigALhgAbQAFAHkyABUAXRgAegt9KAAdNABvfMp7AFsUABoYXDVvaA06lErgJAQAX0xhGJgIl04ePgEhaNF4qFceSgAKcqgq2vq9LiaoFpg2joQASkw2YfcxvtEByLkwRWVVLnj2FDAAVQKFguWDq5uVNQvDbTxMgAUQAMsC4OkYItljAAGbmSrQgqYb5KX5cAaDI5uUaecYiFTxNAWBAIQ4zE74s4qf5o25qeIgab8FCveYw4DVOoNdbNL7ydF3f5GeIASQAciCWFDOdzVo1mq12p0YJL0ilkbQcSMPIIaQZBvSMUyWYEFBYwL53hUuSgBdchX9BqK1VLgTKtUs7XVgJbfOkIABrdBujUwP1W1GChmY0LYyl4-UTIkR-2BkNoCnHJMEqjneORPqUeKRgPB9C9aKULGRYLoMDxABMAAYW8USmWM+geugNCYzJZrDZoNJHjBQRBOGgfP5Aph62Ei9W4olUhlsjl9Gp8R25SteRsNL20P3TOYrLYzChQ5P2JZmDY-AEgsgG-9i6uEjIwcD0sDN23Lhd3sdMKyzPsBwvYdpg0Cc3BgABxO1MSfOdXxCZhBk-eIEkQv9N3YO1ii7cDMEg88h1sbALCgbAEAMOAzQMZDqlnF8FzfJcomoEs1zSLJciI6oSLAzMO2ElAJTtE8z0HS8bEcFAyQgbwYAAKQgJAZ1YgwbG0BBQCDTjMI-FdcKSZ5BJySTRKtbs0A7RcwDgCAEGgOpJLFGRZKgqibDMYBnEQFA8AjbB6MIPUZzQjjnLM3ivx-cF-03IxyNPTAgA).
 
 ![Register Sequence Diagram](register-sequence-diagram.png)
 
-This diagram represents the following sequence for registering and authorizing a player.
+This example diagram represents the following sequence for registering and authorizing a player.
 
 1. A `client`, acting as a chess player, calls the `register` endpoint. This request is made as an HTTP network request with the `/user` URL path and a body that contains her username, password, and email in a JSON representation.
 1. The `server` converts the HTTP request to an object representation that it passes to a registration service method.
@@ -74,7 +74,7 @@ This diagram represents the following sequence for registering and authorizing a
 1. The `service` returns the authToken to the server.
 1. The `server` returns the authToken to the client.
 
-⚠ Note that the diagram includes simple representations of HTTP and database requests. It is not important that you get the syntax correct in your diagrams. You will learn how to use these technologies in later phases. You just need to convey the idea of what they are doing.
+⚠ Note that the diagram includes simple representations of HTTP and database requests. You will learn how to use these technologies in later phases. You just need to understand that the `server` receives HTTP network requests and the database persistently stores your application data. It is also not important that you use correct UML Sequence diagram syntax for your diagrams. You just need to convey the idea of what each of the endpoints are are doing inside your code.
 
 ## Classes
 
@@ -84,7 +84,7 @@ Once such possible class architecture could be the following.
 
 ![sever design architecture](server-class-structure.png)
 
-This architecture includes a handler method for each server endpoint that calls a corresponding service method. Each service message takes a request object and returns a response object. The service method then interacts with the data access methods to store and retrieve data from the database. The application model objects serve as the primary data representations that are passed between the server, services, and data access components.
+This architecture includes a handler method for each server endpoint that call a corresponding service method. Each service method takes a request object and returns a response object. The service method then interacts with the data access methods to store and retrieve data from the database. The application model objects serve as the primary data representations that are passed between the server, services, and data access components.
 
 You can decompose your handlers, services, and data access components into multiple classes or leave them as a single class as your design requires in order to meet the principles of good software design.
 
