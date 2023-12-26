@@ -28,5 +28,6 @@
 |      | 26  | Thu Mar 28 | Security: Encrypting                             |                                         |
 |  13  | 27  | Tue Apr 2  | Concurrency                                      |                                         |
 |      | 28  | Thu Apr 4  | _No class_                                       |                                         |
-|  14  | 29  | Tue Apr 9  | _No class_                                       | _Due: Apr 9_ - Phase 6: Chess Gameplay  |
-|      | 30  | Thu Apr 11 | Command line tools, Final Exam Review            |                                         |
+|  14  | 29  | Tue Apr 9  | _No class_                                       |                                         |
+|      | 30  | Thu Apr 11 | _No class_                                       | _Due: Apr 11_ - Phase 6: Chess Gameplay |
+|  15  | 31  | Tue Apr 16 | Command line tools, Final Exam Review            |                                         |
