@@ -41,3 +41,11 @@ The course covers a full software stack of technologies and topics.
 - Application design
 
 _Image Source: [Christina Morillo](https://www.pexels.com/photo/close-up-photo-of-person-typing-on-laptop-1181675/)_
+
+## Course Schedule
+
+Although assignment due dates are the same for all sections, the lecture schedule may vary by instructor.
+
+- [Schedule for Professor Jensen's Sections](https://github.com/softwareconstruction240/softwareconstruction/blob/main/schedule/winter2024.md)
+- [Schedule for Dr. Rodham's Sections](https://github.com/softwareconstruction240/softwareconstruction/blob/main/schedule/winter2024.md)
+- [Schedule for Dr. Wilkerson's Sections](https://github.com/softwareconstruction240/softwareconstruction/blob/main/schedule/winter2024-wilkerson.md)
