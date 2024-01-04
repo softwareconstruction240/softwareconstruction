@@ -45,7 +45,7 @@ If you do not have the required number of commits, or if they are all clustered 
 
 ## Making Changes
 
-After you have clone your repository locally, you need to make a change so that you can demonstrate that things are working properly.
+After you have cloned your repository locally, you need to make a change so that you can demonstrate that things are working properly.
 
 1. Create a file in your repository directory named `notes.md`.
 1. Add some content to it.
