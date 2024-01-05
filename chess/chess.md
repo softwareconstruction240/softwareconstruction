@@ -39,7 +39,7 @@ The follow summaries the deliverables you must provide for each of the different
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | 0. Chess moves   | 1. Complete pass off tests for the chess board and moves code.                                                                                |
 | 1. Chess game    | 1. Complete pass off tests for the chess game code.<br/>2. Optionally complete castling and en passant tests for extra credit.                |
-| 2. Server design | 1. Create javadocs for the service and database components.                                                                                   |
+| 2. Server design | 1. Create sequence diagrams endpoints, services, and data access components.                                                                  |
 | 3. Web API       | 1. Complete pass off tests for the HTTP server<br/>2. Create and complete unit tests for chess service.                                       |
 | 4. Database      | 1. Complete serialization pass off test.<br/>2. Create and complete unit tests for the chess database.                                        |
 | 5. Pregame       | 1. Create and complete client unit tests.                                                                                                     |
