@@ -1,7 +1,9 @@
 # Introduction
 
-🖥️ [Slides - Jensen](https://docs.google.com/presentation/d/1hn9IpJT1DMQ1fECSt1CY7EdoDi4OQgRn/edit?usp=sharing&ouid=114081115660452804792&rtpof=true&sd=true)<br />
-🖥️ [Slides - Rodham](https://docs.google.com/presentation/d/1fbz2fJwlQGvG4V4FTyJsKeDWIl6J7DSx/edit)<br />
+🖥️ [Slides - Jensen](https://docs.google.com/presentation/d/1hn9IpJT1DMQ1fECSt1CY7EdoDi4OQgRn/edit?usp=sharing&ouid=114081115660452804792&rtpof=true&sd=true)
+
+🖥️ [Slides - Rodham](https://docs.google.com/presentation/d/1fbz2fJwlQGvG4V4FTyJsKeDWIl6J7DSx/edit)
+
 🖥️ [Slides - Wilkerson](https://docs.google.com/presentation/d/16w_6hFRhAnNUg20Cnq8HEEnBeLawh3Iw/edit?usp=sharing&ouid=110961336761942794636&rtpof=true&sd=true)
 
 Welcome to Computer Science 240: `Advanced Software Construction`. This course focuses on learning how professional software developers build applications. As part of this instruction you will gain experience with the skills and technologies used in the real world of software construction. This includes: Software design, data modeling, object oriented programming, distributed communication, relational databases, and testing.
