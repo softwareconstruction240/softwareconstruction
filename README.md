@@ -13,7 +13,7 @@ The content for this course is represented by the following parts.
 - [Instruction](instruction/modules.md#readme) - Course topics
 - [Chess](chess/chess.md#readme) - Instructions for building your application
 - [Pet Shop](petshop/petshop.md) - Demonstration application
-- Assignments, quizzes, and tests submitted through Canvas
+- **Canvas** - Submit assignments and tests 
 
 ## Course Schedule
 
