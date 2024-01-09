@@ -22,7 +22,7 @@ Although assignment due dates are the same for all sections, the lecture schedul
 - [Schedule for Professor Jensen's Sections](https://github.com/softwareconstruction240/softwareconstruction/blob/main/schedule/winter2024.md)
 - [Schedule for Dr. Rodham's Sections](https://github.com/softwareconstruction240/softwareconstruction/blob/main/schedule/winter2024.md)
 - [Schedule for Dr. Wilkerson's Sections](https://github.com/softwareconstruction240/softwareconstruction/blob/main/schedule/winter2024-wilkerson.md)
-- 
+ 
 ## Outcomes
 
 By the end of the course you should have experienced the following outcomes.
