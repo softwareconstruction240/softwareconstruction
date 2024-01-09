@@ -7,7 +7,7 @@ The course content is divided into multiple topics that you should strive to mas
 - [Schedule for Professor Jensen's Sections](https://github.com/softwareconstruction240/softwareconstruction/blob/main/schedule/winter2024.md)
 - [Schedule for Dr. Rodham's Sections](https://github.com/softwareconstruction240/softwareconstruction/blob/main/schedule/winter2024.md)
 - [Schedule for Dr. Wilkerson's Sections](https://github.com/softwareconstruction240/softwareconstruction/blob/main/schedule/winter2024-wilkerson.md)
-- 
+
 ## Object Oriented Programming
 
 - [Introduction](introduction/introduction.md)
