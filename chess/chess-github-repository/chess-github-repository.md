@@ -56,7 +56,7 @@ After you have cloned your repository locally, you need to make a change so that
 You can accomplish all of these changes with the following commands.
 
 ```sh
-printf "# My notes" > notes.md
+echo "# My notes" > notes.md
 git add notes.md
 git commit -am "initial(notes) creation"
 git push
