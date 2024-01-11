@@ -158,7 +158,7 @@ public class Person {
 }
 ```
 
-You create an object instance of a class with the `new` operator. This allocated the memory on the heap for the object. That memory is cleaned up once the last reference to the object goes out of scope.
+You create an object instance of a class with the `new` operator. This allocates the memory on the heap for the object. That memory is cleaned up once the last reference to the object goes out of scope.
 
 ```java
 var inventor = new Person("James Gosling");
