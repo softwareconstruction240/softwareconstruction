@@ -2,7 +2,7 @@
 
 | Week | Day | Date       | Discussion Topics                                                                                                                                                                     | Deliverable Due Dates              |
 | :--: | :-: | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------- |
-|  1   |  1  | Mon Jan 8  | [Introduction](../instruction/introduction/introduction.md), [Git](../instruction/git/git.md), [Chess GiWedb Repository](../chess/chess-giWedb-repository/chess-giWedb-repository.md) | _Jan 10_ - Chess GiWedb Repository |
+|  1   |  1  | Mon Jan 8  | [Introduction](../instruction/introduction/introduction.md), [Git](../instruction/git/git.md), [Chess Github Repository](../chess/chess-github-repository/chess-github-repository.md) | _Jan 10_ - Chess Github Repository |
 |      |  2  | Wed Jan 10 | Java Fundamentals<br/>`Phase 0: Chess Moves`                                                                                                                                          |                                    |
 |  2   |  3  | Mon Jan 15 | _Holiday - No class_                                                                                                                                                                  |                                    |
 |      |  4  | Wed Jan 17 | Object Class, Classes and Objects, Records                                                                                                                                            |                                    |
