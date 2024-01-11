@@ -16,11 +16,10 @@ We use the game of chess to help you develop and demonstrate mastery during this
 
 ## Starter Code
 
-⚠ Each phase of the project comes with `starter code`. In order to make it easy to copy the starter files to your personal project repository, you should clone the course repository to your development environment.
+⚠ Each phase of the project comes with `starter code` located in the [course instruction repository](https://github.com/softwareconstruction240). At the beginning of each phase, you will copy the phases's starter code from the course instruction repository and put it in your chess repository. In order to make it easy to copy the starter files to your chess repository, you should clone the course instruction repository to your development environment. Otherwise you will be individually downloading dozens of files directly from GitHub.
 
 ```sh
-git clone https://github.com/softwareconstruction240/softwareconstruction.git
-
+git clone https://github.com/softwareconstruction240/softwareconstruction.git softwareconstruction240
 ```
 
 ## GitHub Commits
