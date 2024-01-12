@@ -34,7 +34,7 @@ Take the following steps to set up your Chess project. Make sure you have alread
 
 ## Open With IntelliJ
 
-Open the project directory in IntelliJ start developing, running, and debugging your code using an IDE.
+Open the project directory in IntelliJ to start developing, running, and debugging your code using an IDE. Once you open IntelliJ, make sure you **OPEN** the project rather than creating a new project. The contents of the .zip file already contain IntelliJ configuration files and creating a new project rather than opening an existing one will cause various errors.
 
 ![open intellij](open-intellij.png)
 
