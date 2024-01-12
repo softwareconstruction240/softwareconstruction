@@ -10,6 +10,7 @@ Take the following steps to set up your Chess project. Make sure you have alread
    ```sh
    unzip <class-repo-dir>/chess/0-chess-moves/starter-code/chess.zip
    ```
+   ⚠ Note: `unzip` does not exist on Windows. You will need to unzip the file using a different utility or by extracting it in the Windows File Explorer. However, if you use the Windows File Explorer it will create an additional `chess` directory. Make sure you move the files out of the extra `chess` directory and then delete the extra `chess` directory before you proceed.
 1. Commit and push the changes to GitHub
    ```sh
    git add .
