@@ -32,7 +32,7 @@ Failure to properly document your efforts with your GitHub history may result in
 
 ## Deliverables
 
-The follow summaries the deliverables you must provide for each of the different chess phases. Refer to the phase instructions for a full description.
+The following summarizes the deliverables you must provide for each of the different chess phases. Refer to the phase instructions for a full description.
 
 | Phase            | Deliverables                                                                                                                                  |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
