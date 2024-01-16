@@ -10,7 +10,7 @@ In the previous phase you implemented the board and pieces along with the rules 
 
 ## Code Class Structure
 
-![Class structure](chess-classes.png)
+![Class structure](../0-chess-moves/chess-classes.png)
 
 **⚠ NOTE**: You are not limited to this representation. However, you must not change the existing class names or method signatures since they are used by the pass off tests. You will likely need to add new classes and methods to complete the work required by this phase.
 
