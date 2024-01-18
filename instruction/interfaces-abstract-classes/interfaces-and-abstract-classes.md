@@ -21,6 +21,16 @@ Polymorphism is the blanket term used in computer science to represent the idea 
 
 Interfaces allow you to define what something does, without specifying how it does it. It also allows you to create and supply alternative implementations for the interface. For example, you can have an interface that defines what a `List` can do, and then create classes that provide different implementations of the `List`. Perhaps one implementation uses less memory, and a different one is faster. You can then write code that uses the `List` interface and not have to think about if it is using the fast version or the memory efficient version.
 
+```java
+public interface List<E> extends SequencedCollection<E> {
+    void add(int index, E element);
+    E remove(int index);
+    int size();
+    void clear();
+    ListIterator<E> listIterator();
+}
+```
+
 The following example shows two implementations of a `List`. One that uses an array, and one that uses a linked list. The two lists can be passed to a function, `addAndPrint` in this case, that doesn't know anything about the implementation of the list, it just knows that it can call the interface's `add` method.
 
 ```java
@@ -84,11 +94,39 @@ public class AlphabetIterator implements CharIterator {
 }
 ```
 
+## Extending Classes
+
+In the discussion for classes and objects we showed how you can inherit code from another class and treat it as if the code was included in a derived class. By default, all classes in Java derive from the Object class. That means they `inherit` the Object classes fields and methods. You can also explicitly state what class you derive from by using the `extends` keyword. In the following example, the `SubClass` extends the `SuperClass` and uses the SuperClass's toString method to implement its toString method. SubClass can do this because everything in the derived class literally becomes part of the subclass just as if the code had been written in the subclass.
+
+```java
+public static class SuperClass extends Object {
+    String name = "super";
+
+    public String toString() {
+        return name;
+    }
+}
+
+public static class SubClass extends SuperClass {
+    public String toString() {
+        return "Sub-class of " + super.toString();
+    }
+}
+```
+
 ## Abstract Classes
 
 Abstract classes provide another type of polymorphism. However, unlike interfaces, where the subclass implements all of the functionality of the interface, a base class that is an abstract class provides some of the implementation and leaves other methods to be implemented by the subclass.
 
-Here is an example of an abstract class that implements the JDK's `Iterator` interface, but also defines a new abstract method for iterating with a string prefix. This is done by specifying the `abstract` keyword on the `nextWithPrefix` method, without providing an implementation of the method.
+The JDK's `Iterator` interface allows you to walk through, or iterate, through a collection of objects.
+
+```java
+public interface Iterator<E> {
+    boolean hasNext();
+    E next();
+```
+
+We can create a class that implements the iterator interface by returning the characters of a string, but also defines a new abstract method for iterating that allows for a string to be prefixed to each iteration result. This is done by specifying the `abstract` keyword on the `nextWithPrefix` method, without providing an implementation of the method.
 
 You can think of abstract classes as a class/interface hybrid.
 
