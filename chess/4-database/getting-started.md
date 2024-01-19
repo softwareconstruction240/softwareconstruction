@@ -30,7 +30,7 @@ This should result in the following additions to your project.
 
 Add the dependency for the MySQL driver and BCrypt. Associate them with your `server` module.
 
-- mysql:mysql-connector-java:8.0.2
+- mysql:mysql-connector-java:8.0.30
 
   - Scope: Compile
 
