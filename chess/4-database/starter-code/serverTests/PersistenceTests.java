@@ -58,6 +58,9 @@ public class PersistenceTests {
 
         // Restart the server to make sure it actually is persisted.
         stopServer();
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException ignored) {}
         startServer();
 
         //list games using the auth
