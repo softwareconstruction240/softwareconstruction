@@ -164,7 +164,7 @@ For this phase the TAs will grade the quality of your project's source code. The
 
 All of the tests in your project must succeed in order to complete this phase.
 
-To pass off this assignment submit your work to the course auto-grading tool. When that is done, meet with a TA and demonstrate that your Chess client and server meet all requirements and assign you a final grade.
+To pass off this assignment submit your work to the course [auto-grading](https://cs240.click/) tool. When that is done, meet with a TA and demonstrate that your Chess client and server meet all requirements and assign you a final grade.
 
 ### Grading Rubric
 

@@ -110,7 +110,7 @@ In order for the tests to pass, you are required to override the `equals()` and 
 
 All of the tests in your project must succeed in order to complete this phase.
 
-To pass off this assignment use the course auto-grading tool. If your code passes then your grade will automatically be entered in Canvas.
+To pass off this assignment use the course [auto-grading](https://cs240.click/) tool. If your code passes then your grade will automatically be entered in Canvas.
 
 ### Grading Rubric
 

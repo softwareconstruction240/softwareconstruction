@@ -63,7 +63,7 @@ To run the tests, you can click the play icon next to an individual test, or you
 
 All of the tests in your project must succeed in order to complete this phase. If you do not want to complete the extra credit moves then remove those tests from your project.
 
-To pass off this assignment use the course auto-grading tool. If your code passes then your grade will automatically be entered in Canvas.
+To pass off this assignment use the course [auto-grading](https://cs240.click/) tool. If your code passes then your grade will automatically be entered in Canvas.
 
 ### Grading Rubric
 
