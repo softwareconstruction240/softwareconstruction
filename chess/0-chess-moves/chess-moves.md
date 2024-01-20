@@ -100,9 +100,11 @@ For this project, you are free to implement the classes described above in whate
 
 ## Object Overrides
 
-In order for the tests to pass, you are required to override the `equals()` and `hashCode()` methods in your class implementations as necessary. To do this automatically in IntelliJ, select `Code > Generate... > equals() and hashCode()`. The default methods provided by IntelliJ should suffice. The `equals()` and `hashCode()` methods need to be more than merely a call to `super()`, and using 'Generate...' should do this correctly. However, you must have already finished implementing these classes before IntelliJ will be able to generate these methods.
+In order for the tests to pass, you are required to override the `equals()` and `hashCode()` methods in your class implementations as necessary. This includes the ChessPosition, ChessPiece, ChessMove, and ChessBoard classes in particular. To do this automatically in IntelliJ, right click on the class code and select `Code > Generate... > equals() and hashCode()`. It is a good idea to generate these methods fairly early. However, IntelliJ will not be able to generate them properly until you have added the required fields to the class.
 
-⚠ NOTE: Although not required, debugging is often easier if you override the `toString()` method and return a concise representation of the object.
+In most cases, the default methods provided by IntelliJ will suffice. However, there are cases when the generated code will not completely work. You should never include someone else's code in your application that you do not completely understand. Take the time to carefully review and debug what the generated code does. Add a breakpoint, inspect the variables, and step through each line.
+
+⚠ Protip: Debugging is often much easier if you also override the `toString()` method and return a concise representation of the object. This is not required, but highly recommended.
 
 ## ☑ Deliverable
 
