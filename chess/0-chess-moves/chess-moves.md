@@ -100,13 +100,11 @@ For this project, you are free to implement the classes described above in whate
 
 ## Object Overrides
 
-In order for the tests to pass, you are required to override the `equals()` and `hashCode()` methods in your class implementations as necessary (ChessPosition, ChessPiece, ChessMove, and ChessBoard in particular). To do this automatically in IntelliJ, select `Code > Generate... > equals() and hashCode()`. The default methods provided by IntelliJ should suffice. The `equals()` and `hashCode()` methods need to be more than merely a call to `super()`, and using `Generate...` should do this correctly.
+In order for the tests to pass, you are required to override the `equals()` and `hashCode()` methods in your class implementations as necessary. This includes the ChessPosition, ChessPiece, ChessMove, and ChessBoard classes in particular. To do this automatically in IntelliJ, right click on the class code and select `Code > Generate... > equals() and hashCode()`. It is a good idea to generate these methods fairly early. However, IntelliJ will not be able to generate them properly until you have added the required fields to the class.
 
-None of the tests will pass until this is done for all four classes, so it is a good idea to generate these methods fairly early. However, IntelliJ will not be able to generate them properly until it knows what fields the class will have. You do not need to fully implement the class before generating, but you do need to add every relevant field to the class first.
+In most cases, the default methods provided by IntelliJ will suffice. However, there are cases when the generated code will not completely work. You should never include someone else's code in your application that you do not completely understand. Take the time to carefully review and debug what the generated code does. Add a breakpoint, inspect the variables, and step through each line.
 
-⚠ NOTE 1: If one of your classes uses a two-dimensional array, then after generating, IntelliJ may mark part of the method with a yellow line and warn you to use a "deep" version of a function call, such as replacing `Arrays.equals()` with `Arrays.deepEquals()`. Using the deep version allows the method to handle the 2D array properly.
-
-⚠ NOTE 2: Debugging is often much easier if you also override the `toString()` method and return a concise representation of the object. This is not required, but highly recommended.
+⚠ Protip: Debugging is often much easier if you also override the `toString()` method and return a concise representation of the object. This is not required, but highly recommended.
 
 ## ☑ Deliverable
 
