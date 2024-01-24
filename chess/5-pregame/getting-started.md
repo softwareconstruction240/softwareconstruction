@@ -21,6 +21,6 @@ This should result in the following additions to your project.
         │           └── EscapeSequences.java
         └── test
             └── java
-                └── ClientTests
+                └── clientTests
                     └── ServerFacadeTests.java
 ```
