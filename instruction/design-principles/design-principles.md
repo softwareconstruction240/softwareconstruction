@@ -148,17 +148,17 @@ The SOLID principles of clean code were promoted by a popular software design co
 
 SOLID represent five key principles.
 
-1. Single Responsibility - Do only one thing
+1. Single Responsibility - An actor has only one reason to use you
 1. Open Closed - Open for extension, closed for modification
-1. Liskov Substitution - Interfaces can be backed by any concrete implementation
+1. Liskov Substitution - Actually implement the interface
 1. Interface Segregation - Keep interfaces cohesive
-1. Dependency Inversion - Reference interfaces, not concrete implementations
+1. Dependency Inversion - Make dependencies parameters
 
 Let's look at each of these in detail.
 
 ### Single Responsibility Principle
 
-The [Single Responsibility Principle](https://en.wikipedia.org/wiki/Single-responsibility_principle) represents the desirability of high cohesion. The idea here is that an object does one thing and does it well. You don't have a `Person` class that represents everything associated with a person. You have a `Person` class that represents the distinct attributes of a person such as `name` and `brithDate`, and then you have other classes that represent things associated with a Person.
+The [Single Responsibility Principle](https://en.wikipedia.org/wiki/Single-responsibility_principle) represents the desirability of high cohesion. The idea here is that an actor only has one reason to use an object. You don't have a `Person` class that represents everything associated with a person. You have a `Person` class that represents the distinct attributes of a person such as `name` and `brithDate`, and then you have other classes that represent things associated with a Person.
 
 ![single responsibility](single-responsibility.png)
 

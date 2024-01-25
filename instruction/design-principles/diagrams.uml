@@ -29,8 +29,8 @@ classDiagram
 
     Person <-- FoodConsumption : uses-a
     Person <-- OutdoorActivity : uses-a
-    Death --> Person : has-a 
-    Birth --> Person : has-a 
+    Death --* Person : has-a 
+    Birth --* Person : has-a 
     class Person{
       name
       birth
@@ -45,15 +45,27 @@ classDiagram
         play(Person, Game)
     }
 
+Date <|-- Death
+Date <|-- Birth
+OutdoorActivity --> Game : uses-a
+
     class Death {
-        Death(Person)
-        die(Event)
-        funeral(Event)
-        burial(Event)
     }
 
     class Birth {
-        Birth(Person)
-        conception(Event, Mother, Father)
-        born(Event, Doctor)
-    }    
+    }  
+
+
+   class FrankenPerson {
+     void drive()
+     void sleep()
+     void eat()
+     void work()
+     void die()
+     void play()
+     void setAlarm()
+     void planRoute()
+     void shopForFood()
+     void buyGymPass()
+   }
+

@@ -7,48 +7,12 @@ sequenceDiagram
     Person->>Fruit:eat
 
 classDiagram
-    Person <|-- Programmer : is-a
+    ChessBoard *-- ChessPiece : has-a
+    ChessPiece *-- PieceType : has-a
 
-    class Person{
-    name
-    birthPlace
-    }
+    ChessGame ..> ChessMove : uses-a
 
-    class Programmer {
-      GitHubRepo
-      Computer
-      writeCode()
-    }
-
-    class Computer {
-      type
-      save(code)
-      run(code)
-    }
-
-    Programmer *-- Computer : has-a
-    Programmer *-- GitHubRepo : has-a
-    Car ..> Person : uses-a
-    Car ..> Route : uses-a
-
-    class Car {
-            travel(Person, Route)
-    }
-
-    class GitHubRepo {
-        push()
-        pull()
-    }
-
-    class FrankenPerson {
-        car
-        route
-        person
-        driveCarByRoute()
-        eat()
-        sleep()
-        work()
-    }
+    Pawn --|> CheesePiece : is-a
 
     Object *-- Object : has-a
 
