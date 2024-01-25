@@ -8,7 +8,7 @@ In this part of the Chess Project, you will implement a basic representation of 
 
 ⚠ Review the [Game of Chess](the-game-of-chess.md) instruction to learn how to set up the board and how each of the pieces move.
 
-🖥️ This [video](https://www.youtube.com/watch?v=JRgx_HwvG7A) demonstrates the concepts discussed in this section.
+🖥️ This [video](https://youtu.be/N5oKyY1yQk0) demonstrates the concepts discussed in this section.
 
 ## Starter Code
 
