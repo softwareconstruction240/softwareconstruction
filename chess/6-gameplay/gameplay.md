@@ -135,7 +135,7 @@ If a `UserGameCommand` is invalid (e.g. invalid authToken or gameID doesn’t ex
 
 **Root Client sends LEAVE**
 
-1. If a player is leaving, than the game is updated to remove the root client. Game is updated in the database.
+1. If a player is leaving, then the game is updated to remove the root client. Game is updated in the database.
 1. Server sends a `Notification` message to all **other clients** in that game informing them that the root client left. This applies to both players and observers.
 
 **Root Client sends RESIGN**
