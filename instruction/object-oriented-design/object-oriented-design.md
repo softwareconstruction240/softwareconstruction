@@ -46,7 +46,7 @@ A good object oriented design will be easy to enhance or improve as time goes by
 
 We can always add functionality later that exposes that a `Programmer` has a computer, or pass the computer as part of the `writeCode` call, but if we keep that hidden then we are free to change the relationship with the computer and the programmer until it is necessary to expose it.
 
-In many ways encapsulation is preferable to inheriting functionality primarily because to is more extensible. This is primarily due to the fact that there is no immediate external exposure of the encapsulation. With inheritance (using `extends` for your object) you are explicitly, publicly, exposing both the methods and the implementation that the extended class provides.
+In many ways encapsulation is preferable to inheriting functionality primarily because it is more extensible. This is primarily due to the fact that there is no immediate external exposure of the encapsulation. With inheritance (using `extends` for your object) you are explicitly, publicly, exposing both the methods and the implementation that the extended class provides.
 
 ## Simplicity
 
