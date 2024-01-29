@@ -186,6 +186,9 @@ public class ChessGameTests {
         Assertions.assertThrows(InvalidMoveException.class, () -> game.makeMove(
                 getNewMove(getNewPosition(1, 1), getNewPosition(4, 1), null)));
 
+        //starting position does not have a piece
+        Assertions.assertThrows(InvalidMoveException.class, () -> game.makeMove(
+                getNewMove(getNewPosition(4, 4), getNewPosition(4, 5), null)));
 
         game.makeMove(getNewMove(getNewPosition(1, 1), getNewPosition(2, 1), null));
         Assertions.assertEquals(game.getBoard(),
