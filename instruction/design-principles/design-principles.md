@@ -314,7 +314,7 @@ public interface InterfaceSegregationExample {
 
 ### Dependency Inversion Principle
 
-The dependency inversion principle suggests the you should expose and use interfaces and not concrete classes. Interfaces enable the core abstraction necessary to make code extensible and maintainable. Whenever you expose a concrete class implementation you expose unintended coupling with the class. At very least you are exposing a specific implementation, constructor, and potentially extraneous methods that are unnecessary to the use of the interface that should represent the class.
+The dependency inversion principle suggests the you should expose and use interfaces and not concrete classes. Interfaces enable the core abstraction necessary to make code extensible and maintainable. Whenever you expose a concrete class implementation you expose unintended coupling with the class. At the very least you are exposing a specific implementation, constructor, and potentially extraneous methods that are unnecessary to the use of the interface that should represent the class.
 
 Put another way, the principle says that dependencies are made on aspects of functionality, not on implementations of the functionality. In the following example the high level `Route` class is highly coupled with the instantiation and use of the low level `Honda` object.
 
