@@ -408,7 +408,7 @@ class Correct {
 
 ```
 
-By inverting the dependencies, you can decouple the code and move the commitment to an algorithm to a higher level. Now you can execute the code with different parameters and completely modify how it works.
+By inverting the dependencies, you can decouple the code and move the commitment to an algorithm at a higher level. Now you can execute the code with different parameters and completely modify how it works.
 
 ## Immutability
 
