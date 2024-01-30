@@ -5,6 +5,9 @@ import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.EnumSource;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import static passoffTests.TestFactory.*;
 
 public class ChessGameTests {
@@ -647,15 +650,12 @@ public class ChessGameTests {
             // Knight moves
             ChessPosition knightPosition = getNewPosition(4, 3);
             var validMoves = loadMoves(knightPosition, new int[][]{{3, 5}, {6, 2}});
-            Assertions.assertEquals(validMoves, game.validMoves(knightPosition),
-                    "ChessGame validMoves did not return the correct moves");
+            assertMoves(game, validMoves, knightPosition);
 
             // Queen Moves
             ChessPosition queenPosition = getNewPosition(2, 4);
             validMoves = loadMoves(queenPosition, new int[][]{{3, 5}, {4, 4}});
-            Assertions.assertEquals(validMoves, game.validMoves(queenPosition),
-                    "ChessGame validMoves did not return the correct moves");
-
+            assertMoves(game, validMoves, queenPosition);
         }
 
 
@@ -680,10 +680,8 @@ public class ChessGameTests {
                     {5, 7}, {5, 5}, {5, 4}, {5, 3}, {5, 2}
             });
 
-            Assertions.assertEquals(validMoves, game.validMoves(rookPosition),
-                    "ChessGame validMoves did not return the correct moves");
+            assertMoves(game, validMoves, rookPosition);
         }
-
 
         @Test
         @DisplayName("Piece Completely Trapped")
@@ -734,8 +732,7 @@ public class ChessGameTests {
 
             var validMoves = loadMoves(kingPosition, new int[][]{{6, 5}});
 
-            Assertions.assertEquals(validMoves, game.validMoves(kingPosition),
-                    "ChessGame validMoves did not return the correct moves");
+            assertMoves(game, validMoves, kingPosition);
 
             //make sure teams other pieces are not allowed to move
             Assertions.assertTrue(game.validMoves(pawnPosition).isEmpty(),
@@ -771,12 +768,15 @@ public class ChessGameTests {
             var validMoves = loadMoves(position, new int[][]{
                     {1, 5}, {1, 6}, {1, 7}, {2, 5}, {2, 7},
             });
-
-            Assertions.assertEquals(validMoves, game.validMoves(position),
-                    "ChessGame validMoves did not return the correct moves");
+            assertMoves(game, validMoves, position);
         }
-
     }
 
+
+    private void assertMoves(ChessGame game, Set<ChessMove> validMoves, ChessPosition position) {
+        var actualMoves = new HashSet(game.validMoves(position));
+        Assertions.assertEquals(validMoves, actualMoves,
+                "ChessGame validMoves did not return the correct moves");
+    }
 }
 
