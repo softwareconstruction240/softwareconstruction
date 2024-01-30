@@ -12,7 +12,7 @@ classDiagram
 
     ChessGame ..> ChessMove : uses-a
 
-    Pawn --|> CheesePiece : is-a
+    Pawn --|> ChessPiece : is-a
 
     Object *-- Object : has-a
 
