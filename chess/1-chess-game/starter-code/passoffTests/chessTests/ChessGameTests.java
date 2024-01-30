@@ -774,7 +774,7 @@ public class ChessGameTests {
 
 
     private void assertMoves(ChessGame game, Set<ChessMove> validMoves, ChessPosition position) {
-        var actualMoves = new HashSet(game.validMoves(position));
+        var actualMoves = new HashSet<>(game.validMoves(position));
         Assertions.assertEquals(validMoves, actualMoves,
                 "ChessGame validMoves did not return the correct moves");
     }
