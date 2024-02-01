@@ -1,8 +1,11 @@
 # https://mermaid.live/edit
 
 classDiagram
+    OutputStream <|-- ObjectOutputStream
+    InputStream <|-- ByteArrayInputStream 
+
     class InputStream{
-      read(): byte
+      read() byte
     }
     class OutputStream{
       write(byte)
@@ -13,5 +16,3 @@ classDiagram
     class ByteArrayInputStream {
         ByteArrayInputStream(byte[])
     }
-    ObjectOutputStream --|> OutputStream
-    ByteArrayInputStream --|> InputStream
