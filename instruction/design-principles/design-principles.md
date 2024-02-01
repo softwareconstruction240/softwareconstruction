@@ -158,7 +158,7 @@ Let's look at each of these in detail.
 
 ### Single Responsibility Principle
 
-The [Single Responsibility Principle](https://en.wikipedia.org/wiki/Single-responsibility_principle) represents the desirability of high cohesion. The idea here is that an actor only has one reason to use an object. You don't have a `Person` class that represents everything associated with a person. You have a `Person` class that represents the distinct attributes of a person such as `name` and `brithDate`, and then you have other classes that represent things associated with a Person.
+The [Single Responsibility Principle](https://en.wikipedia.org/wiki/Single-responsibility_principle) represents the desirability of high cohesion. The idea here is that an actor only has one reason to use an object. You don't have a `Person` class that represents everything associated with a person. You have a `Person` class that represents the distinct attributes of a person such as `name` and `birthDate`, and then you have other classes that represent things associated with a Person.
 
 ![single responsibility](single-responsibility.png)
 
@@ -295,7 +295,7 @@ Violations of this principle cause unexpected behaviors within the application a
 
 When you define an interface you only include methods that work together as a cohesive whole. You don't add methods that are related, but not necessary for the consumption of the primary usage of the interface. Put another way, the interface segregation principle states that that no consumer of an interface should be forced to depend on methods it does not use.
 
-Exposing methods to all consumers of the interface, without regard for the user of the methods by all the consumers, creates a significant maintenance problem. If you want to alter the interface then you must examine all uses of the interface. Instead, the preferred approach is to create multiple interfaces that an object uses and only use the interface that is appropriate to the consumer.
+Exposing methods to all consumers of the interface, without regard for the use of the methods by all the consumers, creates a significant maintenance problem. If you want to alter the interface then you must examine all uses of the interface. Instead, the preferred approach is to create multiple interfaces that an object uses and only use the interface that is appropriate to the consumer.
 
 #### Violation Example
 
@@ -314,7 +314,7 @@ public interface InterfaceSegregationExample {
 
 ### Dependency Inversion Principle
 
-The dependency inversion principle suggests the you should expose and use interfaces and not concrete classes. Interfaces enable the core abstraction necessary to make code extensible and maintainable. Whenever you expose a concrete class implementation you expose unintended coupling with the class. At very least you are exposing a specific implementation, constructor, and potentially extraneous methods that are unnecessary to the use of the interface that should represent the class.
+The dependency inversion principle suggests the you should expose and use interfaces and not concrete classes. Interfaces enable the core abstraction necessary to make code extensible and maintainable. Whenever you expose a concrete class implementation you expose unintended coupling with the class. At the very least you are exposing a specific implementation, constructor, and potentially extraneous methods that are unnecessary to the use of the interface that should represent the class.
 
 Put another way, the principle says that dependencies are made on aspects of functionality, not on implementations of the functionality. In the following example the high level `Route` class is highly coupled with the instantiation and use of the low level `Honda` object.
 
@@ -408,7 +408,7 @@ class Correct {
 
 ```
 
-By inverting the dependencies, you can decouple the code and move the commitment to an algorithm to a higher level. Now you can execute the code with different parameters and completely modify how it works.
+By inverting the dependencies, you can decouple the code and move the commitment to an algorithm at a higher level. Now you can execute the code with different parameters and completely modify how it works.
 
 ## Immutability
 
