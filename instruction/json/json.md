@@ -86,7 +86,7 @@ When you call the `fromJson` method to deserializing JSON into an object, you pr
 
 However, if the class that you are attempting to create contains fields that are interfaces or derived classes, then you must help Gson know which class should be used when it creates the backing class for the interface or derived class.
 
-For example, consider the serializing the `ChessBoard` class. The chess board probably contains a field that contains a double array of `ChessPieces`. If you have created subclasses of `ChessPiece`, with things like `Rook` or `Knight`, and then you serialize out your board, the JSON will lose the representation of the derived `Rook` classes and the JSON will look something like the following.
+For example, consider serializing the `ChessBoard` class. The chess board probably contains a field that contains a double array of `ChessPieces`. If you have created subclasses of `ChessPiece`, with things like `Rook` or `Knight`, and when you serialize out your board, the JSON will lose the representation of the derived classes. The type of piece is still represented in the `type` field, but there is not `Rook` or `Knight` class representation and the JSON will look something like the following.
 
 ```json
 {
@@ -100,11 +100,11 @@ For example, consider the serializing the `ChessBoard` class. The chess board pr
 }
 ```
 
-You now have a problem when you deserialize the JSON, Gson won't know that it should turn the `ChessPiece` class described by the `ChessBoard` into specific `Rook`, `Knight` or the other classes that you had before you deserialized. So Gson will just create a bunch of `ChessPiece` objects in your board array.
+You now have a problem when you deserialize the JSON, Gson won't know that it should turn the `ChessPiece` class described by the `ChessBoard` into specific `Rook`, `Knight` or any other classes that you had before you serialized the board. So Gson will just create a bunch of `ChessPiece` objects in your board array.
 
-You can solve this by defining a Gson `TypeAdapter` that implements exactly how the JSON text should be serialized and deserialized.
+You can solve this by defining a Gson `TypeAdapter` that implements exactly how the JSON text should be deserialized.
 
-To use a `TypeAdapter` you create a `GsonBuilder`, register the type adapter with the builder, and create the Gson serializer from the builder with the `create` method. In the example below, we create a lambda function that implements the `JsonDeserializer` of the `TypeAdapter`. The function reads the JSON `type` attribute from the data contained in the JSON element represented by the `el` parameter. This allows the deserializer to switch on what class actually gets created for the JSON element.
+To use a `TypeAdapter` you create a `GsonBuilder`, register the type adapter with the builder, and create the Gson serializer from the builder with the `create` method. In the example below, we create a lambda function that implements the `JsonDeserializer` interface of the `TypeAdapter`. The function reads the JSON `type` attribute from the data contained in the JSON element represented by the `el` parameter. This allows the deserializer to switch on what class actually gets created form the JSON element.
 
 ```java
 public static Gson createSerializer() {
@@ -131,7 +131,7 @@ public static Gson createSerializer() {
 }
 ```
 
-Remember that you only need to use a GsonBuilder to override the default Gson serialization functionality if you want different classes to be used when you deserialize your JSON back into Java objects. This is usually because you are using interfaces, abstract classes, or derived classes in your serialized objects.
+Remember that you only need to use a GsonBuilder to override the default Gson serialization functionality if you want different classes to be used when you deserialize your JSON back into Java objects. This is usually because you are using interfaces, abstract classes, or derived classes in fields of your serialized object.
 
 ## Obtaining the Gson Dependency
 
