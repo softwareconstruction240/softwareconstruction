@@ -77,78 +77,61 @@ Object: {year=2264.0, pets=[cat, dog, fish], name=perry}
 
 ### Creating Gson TypeAdapters
 
-By default Gson will attempt to examine the class you are importing and exporting and properly represent all the fields of the class. However, if you are exporting or importing an abstract class then it will not export all of the fields of the subclass. You may also want to have control over what Gson imports and exports. In order to support these use cases, Gson provides the ability to supply a `TypeAdapter` that implements exactly how the JSON text should be serialized and deserialized.
-
-To define a `TypeAdapter` you write a class that implements a `write` and `read` method. The following is a simple type adapter that prefixes a string on output and removes the prefix on input.
+When you call the `fromJson` method to deserializing JSON into an object, you provide the class that it will use to rehydrate the JSON content.
 
 ```java
-public static TypeAdapter<String> createPrefixAdapter(String prefix) {
-    return new TypeAdapter<>() {
-        @Override
-        public void write(JsonWriter w, String text) throws IOException {
-            w.value(prefix + text);
-        }
+    var serializer = new Gson();
+    var objFromJson = serializer.fromJson(json, Map.class);
+```
 
-        @Override
-        public String read(JsonReader r) throws IOException {
-            var text = r.nextString().substring(prefix.length());
-            return text;
-        }
-    };
+However, if the class that you are attempting to create contains fields that are interfaces or derived classes, then you must help Gson know which class should be used when it creates the backing class for the interface or derived class.
+
+For example, consider the serializing the `ChessBoard` class. The chess board probably contains a field that contains a double array of `ChessPieces`. If you have created subclasses of `ChessPiece`, with things like `Rook` or `Knight`, and then you serialize out your board, the JSON will lose the representation of the derived `Rook` classes and the JSON will look something like the following.
+
+```json
+{
+   "squares":[
+       [{"color":"WHITE","type":"ROOK"},{"color":"WHITE","type":"KNIGHT"}, ... ]
+       [null,null,null,null,null,null,null,null],
+       [null,null,null,null,null,null,null,null],
+       ...
+       [{"color":"BLACK","type":"ROOK"},{"color":"BLACK","type":"KNIGHT"}, ...]
+   ]
 }
 ```
 
-You can then use the type adapter when you create your Gson serializer by creating a `GsonBuilder` and registering the type adapter. In the following example we register the adapter to work with any `String` objects.
+You now have a problem when you deserialize the JSON, Gson won't know that it should turn the `ChessPiece` class described by the `ChessBoard` into specific `Rook`, `Knight` or the other classes that you had before you deserialized. So Gson will just create a bunch of `ChessPiece` objects in your board array.
+
+You can solve this by defining a Gson `TypeAdapter` that implements exactly how the JSON text should be serialized and deserialized.
+
+To use a `TypeAdapter` you create a `GsonBuilder`, register the type adapter with the builder, and create the Gson serializer from the builder with the `create` method. In the example below, we create a lambda function that implements the `JsonDeserializer` of the `TypeAdapter`. The function reads the JSON `type` attribute from the data contained in the JSON element represented by the `el` parameter. This allows the deserializer to switch on what class actually gets created for the JSON element.
 
 ```java
-var builder = new GsonBuilder();
-builder.registerTypeAdapter(String.class, createPrefixAdapter("x-"));
-var serializer = builder.create();
-```
+public static Gson createSerializer() {
+    GsonBuilder gsonBuilder = new GsonBuilder();
 
-The new serializer will then call the adapter whenever it attempts to serialize objects of the type the adapter is registered for. Here is the full example.
+    gsonBuilder.registerTypeAdapter(ChessPiece.class,
+            (JsonDeserializer<ChessPiece>) (el, type, ctx) -> {
+                ChessPiece chessPiece = null;
+                if (el.isJsonObject()) {
+                    String pieceType = el.getAsJsonObject().get("type").getAsString();
+                    switch (ChessPiece.PieceType.valueOf(pieceType)) {
+                        case PAWN -> chessPiece = ctx.deserialize(el, Pawn.class);
+                        case ROOK -> chessPiece = ctx.deserialize(el, Rook.class);
+                        case KNIGHT -> chessPiece = ctx.deserialize(el, Knight.class);
+                        case BISHOP -> chessPiece = ctx.deserialize(el, Bishop.class);
+                        case QUEEN -> chessPiece = ctx.deserialize(el, Queen.class);
+                        case KING -> chessPiece = ctx.deserialize(el, King.class);
+                    }
+                }
+                return chessPiece;
+            });
 
-```java
-public class GsonAdapterExample {
-
-    public static void main(String[] args) {
-        var obj = new String[]{"cat", "dog", "cow"};
-
-        var builder = new GsonBuilder();
-        builder.registerTypeAdapter(String.class, createPrefixAdapter("x-"));
-        var serializer = builder.create();
-
-        var json = serializer.toJson(obj);
-        System.out.println("JSON:   " + json);
-
-        var objFromJson = serializer.fromJson(json, obj.getClass());
-        System.out.println("Object: " + Arrays.toString(objFromJson));
-    }
-
-
-    public static TypeAdapter<String> createPrefixAdapter(String prefix) {
-        return new TypeAdapter<>() {
-            @Override
-            public void write(JsonWriter w, String text) throws IOException {
-                w.value(prefix + text);
-            }
-
-            @Override
-            public String read(JsonReader r) throws IOException {
-                var text = r.nextString().substring(prefix.length());
-                return text;
-            }
-        };
-    }
+    return gsonBuilder.create();
 }
 ```
 
-The above code will output the following.
-
-```sh
-JSON:   ["x-cat","x-dog","x-cow"]
-Object: [cat, dog, cow]
-```
+Remember that you only need to use a GsonBuilder to override the default Gson serialization functionality if you want different classes to be used when you deserialize your JSON back into Java objects. This is usually because you are using interfaces, abstract classes, or derived classes in your serialized objects.
 
 ## Obtaining the Gson Dependency
 
