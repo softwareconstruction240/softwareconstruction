@@ -2,16 +2,16 @@
 
 classDiagram
     OutputStream <|-- ObjectOutputStream
-    InputStream <|-- ByteArrayInputStream 
+    InputStream <|-- ByteArrayInputStream
 
     class InputStream{
-      read() byte
+        read() byte
     }
     class OutputStream{
-      write(byte)
+        write(byte)
     }
     class ObjectOutputStream{
-      writeObject(Object)
+        writeObject(Object)
     }
     class ByteArrayInputStream {
         ByteArrayInputStream(byte[])
