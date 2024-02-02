@@ -1,18 +1,18 @@
 # https://mermaid.live/edit
 
-classDiagram
-    OutputStream <|-- ObjectOutputStream
-    InputStream <|-- ByteArrayInputStream
+        classDiagram
+        OutputStream <|-- ObjectOutputStream
+        InputStream <|-- ByteArrayInputStream
 
-    class InputStream{
-        read() byte
-    }
-    class OutputStream{
-        write(byte)
-    }
-    class ObjectOutputStream{
-        writeObject(Object)
-    }
-    class ByteArrayInputStream {
-        ByteArrayInputStream(byte[])
-    }
+class InputStream{
+    read() byte
+}
+class OutputStream{
+    write(byte)
+}
+class ObjectOutputStream{
+    writeObject(Object)
+}
+class ByteArrayInputStream {
+    ByteArrayInputStream(byte[])
+}
