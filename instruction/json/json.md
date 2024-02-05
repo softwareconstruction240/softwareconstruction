@@ -100,7 +100,7 @@ For example, consider serializing the `ChessBoard` class. The chess board probab
 }
 ```
 
-You now have a problem when you deserialize the JSON, Gson won't know that it should turn the `ChessPiece` class described by the `ChessBoard` into specific `Rook`, `Knight` or any other classes that you had before you serialized the board. So Gson will just create a bunch of `ChessPiece` objects in your board array.
+You now have a problem when you deserialize the JSON back into Java objects. Gson won't know that it should turn the `ChessPiece` class described by the `ChessBoard` squares field into a specific `Rook`, `Knight`, or any other classes that you had before you serialized the board. So Gson will just create a bunch of `ChessPiece` objects in your board array instead of a specific subclass.
 
 You can solve this by defining a Gson `TypeAdapter` that implements exactly how the JSON text should be deserialized.
 
