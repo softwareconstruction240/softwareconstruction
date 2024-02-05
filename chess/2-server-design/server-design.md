@@ -1,8 +1,8 @@
 # ♕ Phase 2: Chess Server Design
 
 - [Chess Application Overview](../chess.md)
-- [Getting Started](getting-started.md)
-- [Starter Code](starter-code)
+
+_This phase has no starter code._
 
 🖥️ [Slides](https://docs.google.com/presentation/d/12zsEJ-at5DsbKNy7a0Eac0D1ZWa4RBIC/edit?usp=sharing&ouid=117271818978464480745&rtpof=true&sd=true)
 
