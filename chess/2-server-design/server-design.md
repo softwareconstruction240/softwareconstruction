@@ -55,9 +55,29 @@ These objects represent the core of what you are passing between your server, se
 
 Based upon your understanding of the requirements provided by [Phase 3](../3-web-api/web-api.md) you now must create a sequence diagram that demonstrates the flow of interactions between your application objects for each of the server endpoints.
 
+### SequenceDiagram.Org
+
+You will create your sequence diagram using a simple web based editing tool found at [sequencediagram.org](https://sequencediagram.org). The [instructions](https://sequencediagram.org/instructions.html) for using the tool document all of the basic elements necessary to create your diagram. It is not necessary for you to fully understand all the details of UML sequence diagrams, but it should be obvious from your diagrams what your application is designed to do.
+
+A basic sequence diagram uses objects names separated by arrows that show the direction of the sequence. This is followed by a colon separated description of the sequence action. The following is a simple diagram for taking a class.
+
+```uml
+actor Student
+
+group #green Take class #white
+Student -> University:register(className)
+Student -> Class:attend(date)
+Class --> Student:knowledge
+end
+```
+
 ### Register Example
 
-To get you started on creating your sequence diagram, we have provided you with a template that already contains a possible solution for the `register` endpoint. We also included place holders for the other six endpoints. You can view this diagram on [SequenceDiagram.Org](https://sequencediagram.org/index.html#initialData=IYYwLg9gTgBAwgGwJYFMB2YBQAHYUxIhK4YwDKKUAbpTngUSWDAEooDmSAzmFMARDQVqhFHXyFiwUgBF+wAIIgQKLl0wATeQCNgXFDA3bMmdlAgBXbDADEaYFQCerDt178kg2wHcAFkjAxRFRSAFoAPnJKGigALhgAbQAFAHkyABUAXRgAegt9KAAdNABvfMp7AFsUABoYXDVvaA06lErgJAQAX0xhGJgIl04ePgEhaNF4qFceSgAKcqgq2vq9LiaoFpg2joQASkw2YfcxvtEByLkwRWVVLnj2FDAAVQKFguWDq5uVNQvDbTxMgAUQAMsC4OkYItljAAGbmSrQgqYb5KX5cAaDI5uUaecYiFTxNAWBAIQ4zE74s4qf5o25qeIgab8FCveYw4DVOoNdbNL7ydF3f5GeIASQAciCWFDOdzVo1mq12p0YJL0ilkbQcSMPIIaQZBvSMUyWYEFBYwL53hUuSgBdchX9BqK1VLgTKtUs7XVgJbfOkIABrdBujUwP1W1GChmY0LYyl4-UTIkR-2BkNoCnHJMEqjneORPqUeKRgPB9C9aKULGRYLoMDxABMAAYW8USmWM+geugNCYzJZrDZoNJHjBQRBOGgfP5Aph62Ei9W4olUhlsjl9Gp8R25SteRsNL20P3TOYrLYzChQ5P2JZmDY-AEgsgG-9i6uEjIwcD0sDN23Lhd3sdMKyzPsBwvYdpg0Cc3BgABxO1MSfOdXxCZhBk-eIEkQv9N3YO1ii7cDMEg88h1sbALCgbAEAMOAzQMZDqlnF8FzfJcomoEs1zSLJciI6oSLAzMO2ElAJTtE8z0HS8bEcFAyQgbwYAAKQgJAZ1YgwbG0BBQCDTjMI-FdcKSZ5BJySTRKtbs0A7RcwDgCAEGgOpJLFGRZKgqibDMYBnEQFA8AjbB6MIPUZzQjjnLM3ivx-cF-03IxyNPTAgA).
+To get you started on creating your sequence diagrams, we have provided you with a template that already contains a possible solution for the `register` endpoint and place holders for the other six endpoints.
+
+⚠ Here is a link to your [Starter Diagram](https://sequencediagram.org/index.html#initialData=IYYwLg9gTgBAwgGwJYFMB2YBQAHYUxIhK4YwDKKUAbpTngUSWDAEooDmSAzmFMARDQVqhFHXyFiwUgBF+wAIIgQKLl0wATeQCNgXFDA3bMmdlAgBXbDADEaYFQCerDt178kg2wHcAFkjAxRFRSAFoAPnJKGigALhgAbQAFAHkyABUAXRgAegt9KAAdNABvfMp7AFsUABoYXDVvaA06lErgJAQAX0xhGJgIl04ePgEhaNF4qFceSgAKcqgq2vq9LiaoFpg2joQASkw2YfcxvtEByLkwRWVVLnj2FDAAVQKFguWDq5uVNQvDbTxMgAUQAMsC4OkYItljAAGbmSrQgqYb5KX5cAaDI5uUaecYiFTxNAWBAIQ4zE74s4qf5o25qeIgab8FCveYw4DVOoNdbNL7ydF3f5GeIASQAciCWFDOdzVo1mq12p0YJL0ilkbQcSMPIIaQZBvSMUyWYEFBYwL53hUuSgBdchX9BqK1VLgTKtUs7XVgJbfOkIABrdBujUwP1W1GChmY0LYyl4-UTIkR-2BkNoCnHJMEqjneORPqUeKRgPB9C9aKULGRYLoMDxABMAAYW8USmWM+geugNCYzJZrDZoNJHjBQRBOGgfP5Aph62Ei9W4olUhlsjl9Gp8R25SteRsNL20P3TOYrLYzChQ5P2JZmDY-AEgsgG-9i6uEjIwcD0sDN23Lhd3sdMKyzPsBwvYdpg0Cc3BgABxO1MSfOdXxCZhBk-eIEkQv9N3YO1ii7cDMEg88h1sbALCgbAEAMOAzQMZDqlnF8FzfJcomoEs1zSLJciI6oSLAzMO2ElAJTtE8z0HS8bEcFAyQgbwYAAKQgJAZ1YgwbG0BBQCDTjMI-FdcKSZ5BJySTRKtbs0A7RcwDgCAEGgOpJLFGRZKgqibDMYBnEQFA8AjbB6MIPUZzQjjnLM3ivx-cF-03IxyNPTAgA) on SequenceDiagram.Org.
+
+When you are done editing your diagram make sure you export a link as described in the **Deliverable** section below.
 
 ![Register Sequence Diagram](register-sequence-diagram.png)
 
@@ -87,22 +107,6 @@ Once such possible class architecture could be the following.
 This architecture includes a handler method for each server endpoint that call a corresponding service method. Each service method takes a request object and returns a response object. The service method then interacts with the data access methods to store and retrieve data from the database. The application model objects serve as the primary data representations that are passed between the server, services, and data access components.
 
 You can decompose your handlers, services, and data access components into multiple classes or leave them as a single class as your design requires in order to meet the principles of good software design.
-
-## SequenceDiagram.Org
-
-You will create your sequence diagram using a simple web based editing tool found at [sequencediagram.org](https://sequencediagram.org). The [instructions](https://sequencediagram.org/instructions.html) for using the tool document all of the basic elements necessary to create your diagram. It is not necessary for you to fully understand all the details of UML sequence diagrams, but it should be obvious from your diagrams what your application is designed to do.
-
-A basic sequence diagram uses objects names separated by arrows that show the direction of the sequence. This is followed by a colon separated description of the sequence action. The following is a simple diagram for taking a class.
-
-```uml
-actor Student
-
-group #green Take class #white
-Student -> University:register(className)
-Student -> Class:attend(date)
-Class --> Student:knowledge
-end
-```
 
 ## ☑ Deliverable
 
