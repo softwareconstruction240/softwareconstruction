@@ -26,8 +26,8 @@
 |      | 22  | Thu Mar 21 | [`Phase 6: Chess Gameplay`](https://github.com/softwareconstruction240/softwareconstruction/blob/main/chess/6-gameplay/gameplay.md) | |  _Due: Mar 22_ - [Phase 5: Chess Pregame](https://github.com/softwareconstruction240/softwareconstruction/blob/main/chess/5-pregame/pregame.md)  |
 |  12  | 25  | Tue Mar 26 | [Security: Hashing](https://github.com/softwareconstruction240/softwareconstruction/blob/main/instruction/computer-security/computer-security.md) | | |
 |      | 26  | Thu Mar 28 | [Security: Encrypting](https://github.com/softwareconstruction240/softwareconstruction/blob/main/instruction/computer-security/computer-security.md) | | _Due: Mar 29_ - [Programming Exam - 2nd Retake](https://byu.instructure.com/courses/24410/assignments) (if needed) |
-|  13  | 27  | Tue Apr 2  | [Concurrency](https://github.com/softwareconstruction240/softwareconstruction/blob/main/instruction/concurrency/concurrency.md) | | |
+|  13  | 27  | Tue Apr 2  | [Concurrency](https://github.com/softwareconstruction240/softwareconstruction/blob/main/instruction/concurrency/concurrency.md) | | _Apr 3_ - Withdrawal Deadline |
 |      | 28  | Thu Apr 4  | _TBA_ | | |
 |  14  | 29  | Tue Apr 9  | _TBA_ | | |
 |      | 30  | Thu Apr 11 | _TBA_ | |  _Due: Apr 11_ - [Phase 6: Chess Gameplay](https://github.com/softwareconstruction240/softwareconstruction/blob/main/chess/6-gameplay/gameplay.md) |
-|  15  | 31  | Tue Apr 16 | [Command line tools](https://github.com/softwareconstruction240/softwareconstruction/blob/main/instruction/command-line-builds/command-line-builds.md)<br /> Final Exam Review | | Apr 18 - 24 - Final Exam |
+|  15  | 31  | Tue Apr 16 | [Command line tools](https://github.com/softwareconstruction240/softwareconstruction/blob/main/instruction/command-line-builds/command-line-builds.md)<br /> Final Exam Review | | _Apr 18 - 24_ - Final Exam |
