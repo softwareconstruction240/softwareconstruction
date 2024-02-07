@@ -32,7 +32,7 @@ public class ChessGameTests {
         var kingEndPosition = getNewPosition(1, 1);
         game.makeMove(getNewMove(kingStartPosition, kingEndPosition, null));
 
-        Assertions.assertEquals(game.getBoard(), loadBoard("""
+        Assertions.assertEquals(loadBoard("""
                 | | | | | | | | |
                 | | | | | | | |q|
                 | | |n| | | |p| |
@@ -41,14 +41,14 @@ public class ChessGameTests {
                 | | | | | | | | |
                 | | |B| | | | | |
                 |K| | | | | | |R|
-                """));
+                """), game.getBoard());
 
         //queen
         var queenStartPosition = getNewPosition(7, 8);
         var queenEndPosition = getNewPosition(8, 7);
         game.makeMove(getNewMove(queenStartPosition, queenEndPosition, null));
 
-        Assertions.assertEquals(game.getBoard(), loadBoard("""
+        Assertions.assertEquals(loadBoard("""
                 | | | | | | |q| |
                 | | | | | | | | |
                 | | |n| | | |p| |
@@ -57,14 +57,14 @@ public class ChessGameTests {
                 | | | | | | | | |
                 | | |B| | | | | |
                 |K| | | | | | |R|
-                """));
+                """), game.getBoard());
 
         //rook
         var rookStartPosition = getNewPosition(1, 8);
         ChessPosition rookEndPosition = getNewPosition(3, 8);
         game.makeMove(getNewMove(rookStartPosition, rookEndPosition, null));
 
-        Assertions.assertEquals(game.getBoard(), loadBoard("""
+        Assertions.assertEquals(loadBoard("""
                 | | | | | | |q| |
                 | | | | | | | | |
                 | | |n| | | |p| |
@@ -73,14 +73,14 @@ public class ChessGameTests {
                 | | | | | | | |R|
                 | | |B| | | | | |
                 |K| | | | | | | |
-                """));
+                """), game.getBoard());
 
         //knight
         var knightStartPosition = getNewPosition(6, 3);
         ChessPosition knightEndPosition = getNewPosition(7, 5);
         game.makeMove(getNewMove(knightStartPosition, knightEndPosition, null));
 
-        Assertions.assertEquals(game.getBoard(), loadBoard("""
+        Assertions.assertEquals(loadBoard("""
                 | | | | | | |q| |
                 | | | | |n| | | |
                 | | | | | | |p| |
@@ -89,7 +89,7 @@ public class ChessGameTests {
                 | | | | | | | |R|
                 | | |B| | | | | |
                 |K| | | | | | | |
-                """));
+                """), game.getBoard());
 
 
         //bishop
@@ -97,7 +97,7 @@ public class ChessGameTests {
         ChessPosition bishopEndPosition = getNewPosition(1, 2);
         game.makeMove(getNewMove(bishopStartPosition, bishopEndPosition, null));
 
-        Assertions.assertEquals(game.getBoard(), loadBoard("""
+        Assertions.assertEquals(loadBoard("""
                 | | | | | | |q| |
                 | | | | |n| | | |
                 | | | | | | |p| |
@@ -106,14 +106,14 @@ public class ChessGameTests {
                 | | | | | | | |R|
                 | | | | | | | | |
                 |K|B| | | | | | |
-                """));
+                """), game.getBoard());
 
         //pawn
         var pawnStartPosition = getNewPosition(6, 7);
         var pawnEndPosition = getNewPosition(5, 7);
         game.makeMove(getNewMove(pawnStartPosition, pawnEndPosition, null));
 
-        Assertions.assertEquals(game.getBoard(), loadBoard("""
+        Assertions.assertEquals(loadBoard("""
                 | | | | | | |q| |
                 | | | | |n| | | |
                 | | | | | | | | |
@@ -122,7 +122,7 @@ public class ChessGameTests {
                 | | | | | | | |R|
                 | | | | | | | | |
                 |K|B| | | | | | |
-                """));
+                """), game.getBoard());
     }
 
 
@@ -135,8 +135,7 @@ public class ChessGameTests {
         game.setBoard(board);
         game.setTeamTurn(ChessGame.TeamColor.WHITE);
 
-        Assertions.assertEquals(game.getBoard(),
-                loadBoard("""
+        Assertions.assertEquals(loadBoard("""
                         |r|n|b|q|k|b|n|r|
                         |p|p|p|p|p|p|p|p|
                         | | | | | | | | |
@@ -145,15 +144,14 @@ public class ChessGameTests {
                         | | | | | | | | |
                         |P|P|P|P|P|P|P|P|
                         |R|N|B|Q|K|B|N|R|
-                        """));
+                        """), game.getBoard());
 
         //move further than can go
         Assertions.assertThrows(InvalidMoveException.class, () -> game.makeMove(
                 getNewMove(getNewPosition(2, 1), getNewPosition(5, 1), null)));
 
         game.makeMove(getNewMove(getNewPosition(2, 1), getNewPosition(3, 1), null));
-        Assertions.assertEquals(game.getBoard(),
-                loadBoard("""
+        Assertions.assertEquals(loadBoard("""
                         |r|n|b|q|k|b|n|r|
                         |p|p|p|p|p|p|p|p|
                         | | | | | | | | |
@@ -162,15 +160,14 @@ public class ChessGameTests {
                         |P| | | | | | | |
                         | |P|P|P|P|P|P|P|
                         |R|N|B|Q|K|B|N|R|
-                        """));
+                        """), game.getBoard());
 
         //pawn diagonal when no capture
         Assertions.assertThrows(InvalidMoveException.class, () -> game.makeMove(
                 getNewMove(getNewPosition(7, 2), getNewPosition(6, 3), null)));
 
         game.makeMove(getNewMove(getNewPosition(7, 2), getNewPosition(6, 2), null));
-        Assertions.assertEquals(game.getBoard(),
-                loadBoard("""
+        Assertions.assertEquals(loadBoard("""
                         |r|n|b|q|k|b|n|r|
                         |p| |p|p|p|p|p|p|
                         | |p| | | | | | |
@@ -179,7 +176,7 @@ public class ChessGameTests {
                         |P| | | | | | | |
                         | |P|P|P|P|P|P|P|
                         |R|N|B|Q|K|B|N|R|
-                        """));
+                        """), game.getBoard());
 
         //make move out of turn
         Assertions.assertThrows(InvalidMoveException.class, () -> game.makeMove(
@@ -194,8 +191,7 @@ public class ChessGameTests {
                 getNewMove(getNewPosition(4, 4), getNewPosition(4, 5), null)));
 
         game.makeMove(getNewMove(getNewPosition(1, 1), getNewPosition(2, 1), null));
-        Assertions.assertEquals(game.getBoard(),
-                loadBoard("""
+        Assertions.assertEquals(loadBoard("""
                         |r|n|b|q|k|b|n|r|
                         |p| |p|p|p|p|p|p|
                         | |p| | | | | | |
@@ -204,7 +200,7 @@ public class ChessGameTests {
                         |P| | | | | | | |
                         |R|P|P|P|P|P|P|P|
                         | |N|B|Q|K|B|N|R|
-                        """));
+                        """), game.getBoard());
 
         //not a move the piece can ever take
         Assertions.assertThrows(InvalidMoveException.class, () -> game.makeMove(
@@ -212,8 +208,7 @@ public class ChessGameTests {
 
 
         game.makeMove(getNewMove(getNewPosition(8, 7), getNewPosition(6, 6), null));
-        Assertions.assertEquals(game.getBoard(),
-                loadBoard("""
+        Assertions.assertEquals(loadBoard("""
                         |r|n|b|q|k|b| |r|
                         |p| |p|p|p|p|p|p|
                         | |p| | | |n| | |
@@ -222,7 +217,7 @@ public class ChessGameTests {
                         |P| | | | | | | |
                         |R|P|P|P|P|P|P|P|
                         | |N|B|Q|K|B|N|R|
-                        """));
+                        """), game.getBoard());
 
         //same team at destination
         Assertions.assertThrows(InvalidMoveException.class, () -> game.makeMove(
@@ -230,8 +225,7 @@ public class ChessGameTests {
 
 
         game.makeMove(getNewMove(getNewPosition(2, 5), getNewPosition(4, 5), null));
-        Assertions.assertEquals(game.getBoard(),
-                loadBoard("""
+        Assertions.assertEquals(loadBoard("""
                         |r|n|b|q|k|b| |r|
                         |p| |p|p|p|p|p|p|
                         | |p| | | |n| | |
@@ -240,7 +234,7 @@ public class ChessGameTests {
                         |P| | | | | | | |
                         |R|P|P|P| |P|P|P|
                         | |N|B|Q|K|B|N|R|
-                        """));
+                        """), game.getBoard());
 
         //same team blocking path
         Assertions.assertThrows(InvalidMoveException.class, () -> game.makeMove(
@@ -248,8 +242,7 @@ public class ChessGameTests {
 
 
         game.makeMove(getNewMove(getNewPosition(6, 6), getNewPosition(4, 5), null));
-        Assertions.assertEquals(game.getBoard(),
-                loadBoard("""
+        Assertions.assertEquals(loadBoard("""
                         |r|n|b|q|k|b| |r|
                         |p| |p|p|p|p|p|p|
                         | |p| | | | | | |
@@ -258,7 +251,7 @@ public class ChessGameTests {
                         |P| | | | | | | |
                         |R|P|P|P| |P|P|P|
                         | |N|B|Q|K|B|N|R|
-                        """));
+                        """), game.getBoard());
 
         //try moving captured piece
         Assertions.assertThrows(InvalidMoveException.class, () -> game.makeMove(
@@ -266,8 +259,7 @@ public class ChessGameTests {
 
         game.makeMove(getNewMove(getNewPosition(1, 6), getNewPosition(3, 4), null));
         game.makeMove(getNewMove(getNewPosition(8, 3), getNewPosition(6, 1), null));
-        Assertions.assertEquals(game.getBoard(),
-                loadBoard("""
+        Assertions.assertEquals(loadBoard("""
                         |r|n| |q|k|b| |r|
                         |p| |p|p|p|p|p|p|
                         |b|p| | | | | | |
@@ -276,7 +268,7 @@ public class ChessGameTests {
                         |P| | |B| | | | |
                         |R|P|P|P| |P|P|P|
                         | |N|B|Q|K| |N|R|
-                        """));
+                        """), game.getBoard());
 
         //try moving through enemy piece
         Assertions.assertThrows(InvalidMoveException.class, () -> game.makeMove(
@@ -286,8 +278,7 @@ public class ChessGameTests {
         game.makeMove(getNewMove(getNewPosition(4, 5), getNewPosition(2, 4), null));
         Assertions.assertFalse(game.isInCheck(ChessGame.TeamColor.WHITE),
                 "White is not in check but isInCheck returned true");
-        Assertions.assertEquals(game.getBoard(),
-                loadBoard("""
+        Assertions.assertEquals(loadBoard("""
                         |r|n| |q|k|b| |r|
                         |p| |p|p|p|p|p|p|
                         |b|p| | | | | | |
@@ -296,14 +287,13 @@ public class ChessGameTests {
                         |P| | |B| |N| | |
                         |R|P|P|n| |P|P|P|
                         | |N|B|Q|K| | |R|
-                        """));
+                        """), game.getBoard());
 
         game.makeMove(getNewMove(getNewPosition(1, 8), getNewPosition(1, 7), null));
         game.makeMove(getNewMove(getNewPosition(2, 4), getNewPosition(3, 6), null));
         Assertions.assertTrue(game.isInCheck(ChessGame.TeamColor.WHITE),
                 "White is in check but isInCheck returned false");
-        Assertions.assertEquals(game.getBoard(),
-                loadBoard("""
+        Assertions.assertEquals(loadBoard("""
                         |r|n| |q|k|b| |r|
                         |p| |p|p|p|p|p|p|
                         |b|p| | | | | | |
@@ -312,7 +302,7 @@ public class ChessGameTests {
                         |P| | |B| |n| | |
                         |R|P|P| | |P|P|P|
                         | |N|B|Q|K| |R| |
-                        """));
+                        """), game.getBoard());
 
         //try not getting out of check
         Assertions.assertThrows(InvalidMoveException.class, () -> game.makeMove(
@@ -321,8 +311,7 @@ public class ChessGameTests {
         game.makeMove(getNewMove(getNewPosition(2, 7), getNewPosition(3, 6), null));
         Assertions.assertFalse(game.isInCheck(ChessGame.TeamColor.WHITE),
                 "White is not in check but isInCheck returned true");
-        Assertions.assertEquals(game.getBoard(),
-                loadBoard("""
+        Assertions.assertEquals(loadBoard("""
                         |r|n| |q|k|b| |r|
                         |p| |p|p|p|p|p|p|
                         |b|p| | | | | | |
@@ -331,7 +320,7 @@ public class ChessGameTests {
                         |P| | |B| |P| | |
                         |R|P|P| | |P| |P|
                         | |N|B|Q|K| |R| |
-                        """));
+                        """), game.getBoard());
 
         //try double-moving moved pawn
         Assertions.assertThrows(InvalidMoveException.class, () -> game.makeMove(
@@ -342,8 +331,7 @@ public class ChessGameTests {
         game.makeMove(getNewMove(getNewPosition(1, 7), getNewPosition(1, 8), null));
         game.makeMove(getNewMove(getNewPosition(5, 2), getNewPosition(4, 2), null));
 
-        Assertions.assertEquals(game.getBoard(),
-                loadBoard("""
+        Assertions.assertEquals(loadBoard("""
                         |r|n| |q|k|b| |r|
                         |p| |p|p|p|p|p|p|
                         |b| | | | | | | |
@@ -352,7 +340,7 @@ public class ChessGameTests {
                         |P| | |B| |P| | |
                         |R|P|P| | |P| |P|
                         | |N|B|Q|K| | |R|
-                        """));
+                        """), game.getBoard());
     }
 
 
@@ -782,4 +770,3 @@ public class ChessGameTests {
                 "ChessGame validMoves did not return the correct moves");
     }
 }
-
