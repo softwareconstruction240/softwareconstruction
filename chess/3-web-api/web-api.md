@@ -192,7 +192,7 @@ By using an interface you can hide, or encapsulate, how your data access works f
 1. You can quickly implement our services without having to implement a backing SQL database. This lets us focus on the HTTP part of our server during this phase and then move over to SQL without changing any of our service code.
 2. You can write data access tests against the memory implementation of the interface and then reuse those tests when you create the SQL implementation.
 
-⚠ You must place your data access classes in a folder named `server/src/test/java/dataAccess`.
+⚠ You must place your data access classes in a folder named `server/src/main/java/dataAccess`.
 
 ### Service Classes
 
