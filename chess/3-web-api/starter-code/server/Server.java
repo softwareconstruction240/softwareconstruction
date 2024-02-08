@@ -2,8 +2,6 @@ package server;
 
 import spark.*;
 
-import java.nio.file.Paths;
-
 public class Server {
 
     public int run(int desiredPort) {
