@@ -70,10 +70,10 @@ Spark.post("/name/:name", this::addName);
 
 ## Serving Static Files
 
-An HTTP resource can represent anything. In the above example we are representing an in memory representation of a name list, but we can also represent a directory structure of files in persistent storage. `JavaSpark` makes it easy to do this by calling a method named `externalStaticFileLocation` with the name of a storage directory that contains files we want to return over HTTP. Once the location is registered, Spark will look in the directory for a file that matches the URL path. If it is found then it returns the contents of the file. Spark will even examine the file to determine what `Content-Type` header to set.
+An HTTP resource can represent anything. In the above example we are representing an in memory representation of a name list, but we can also represent a directory structure of files in persistent storage. `JavaSpark` makes it easy to do this by calling a method named `staticFiles.location` with the name of a storage directory that contains files we want to return over HTTP. Once the location is registered, Spark will look in the directory for a file that matches the URL path. If it is found then it returns the contents of the file. Spark will even examine the file to determine what `Content-Type` header to set.
 
 ```java
-Spark.externalStaticFileLocation("public");
+Spark.staticFiles.location("web");
 ```
 
 By adding the above code to your server you can now make a request to the server with a path like `/index.html` and it will return the `index.html` file found in a directory named `public` that is found in your application directory.
