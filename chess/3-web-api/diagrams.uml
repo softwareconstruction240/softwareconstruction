@@ -1,14 +1,18 @@
 classDiagram
-    class DataAccess {
+    class UserDAO {
         <<interface>>
-        clear()
-        insertUser(userData)
-        getUser(username) userData
-        createGame(gameData)
-        updateGame(gameData)
-        listGames() gameData[]
-        createAuth(username) token
-        getAuth(token) authData
     }
-    DataAccess <|-- MemoryDataAccess
-    DataAccess <|-- SQLDataAccess
+    UserDAO <|-- MemoryUserDAO
+    UserDAO <|-- SQLUserDAO
+
+    class GameDAO {
+    <<interface>>
+    }
+    GameDAO <|-- MemoryGameDAO
+    GameDAO <|-- SQLGameDAO
+
+    class AuthDAO {
+    <<interface>>
+    }
+    AuthDAO <|-- MemoryAuthDAO
+    AuthDAO <|-- SQLAuthDAO
