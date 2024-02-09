@@ -14,11 +14,11 @@ For our server code, we will use a library called [JavaSpark](https://sparkjava.
 
 As an example, let's write an HTTP service named `name list` that maintains a list of names. To make the service useful we will provide the following endpoints.
 
-| Endpoint   | HTTP Method | HTTP path   | Purpose                                              |
-| ---------- | ----------- | ----------- | ---------------------------------------------------- |
-| addName    | POST        | /name/:name | Add the name represented by the `name` path variable |
-| listNames  | GET         | /name       | Get the list of names                                |
-| deleteName | DELETE      | /name/:name | Add the name represented by the `name` path variable |
+| Endpoint   | HTTP Method | HTTP path   | Purpose                                                 |
+| ---------- | ----------- | ----------- | ------------------------------------------------------- |
+| addName    | POST        | /name/:name | Add the name represented by the `name` path variable    |
+| listNames  | GET         | /name       | Get the list of names                                   |
+| deleteName | DELETE      | /name/:name | Delete the name represented by the `name` path variable |
 
 ### Implementing Endpoints
 
