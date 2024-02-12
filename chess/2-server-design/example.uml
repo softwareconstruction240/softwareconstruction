@@ -10,7 +10,7 @@ Server -> Service: register(username, password, email)
 Service -> DataAccess: getUser(username)
 DataAccess -> db: SELECT username from user
 DataAccess --> Service: null
-Service -> DataAccess: createUser(username, password)
+Service -> DataAccess: createUser(username, password, email)
 DataAccess -> db: INSERT username, password, email INTO user
 Service -> DataAccess: createAuth(username)
 DataAccess -> db: INSERT username, authToken INTO auth
