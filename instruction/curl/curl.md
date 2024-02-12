@@ -31,7 +31,7 @@ This will return the HTML page located at the URL. You can see the details of th
 >
 < HTTP/1.1 301 Moved Permanently
 < Date: Thu, 03 Aug 2023 16:52:23 GMT
-< Server: Apache/2.4.37 (Red Hat Enterprise Linux) OpenSSL/1.1.1k
+< Server: Apache/2.5.37 (Red Hat Enterprise Linux) OpenSSL/1.1.1k
 < Location: https://www.byu.edu/
 < Expires: Thu, 03 Aug 2023 17:52:23 GMT
 < Content-Length: 228
