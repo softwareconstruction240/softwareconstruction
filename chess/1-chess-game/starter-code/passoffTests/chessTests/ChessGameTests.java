@@ -765,7 +765,9 @@ public class ChessGameTests {
 
 
     private void assertMoves(ChessGame game, Set<ChessMove> validMoves, ChessPosition position) {
-        var actualMoves = new HashSet<>(game.validMoves(position));
+        var generatedMoves = game.validMoves(position);
+        var actualMoves = new HashSet<>(generatedMoves);
+        Assertions.assertEquals(generatedMoves.size(), actualMoves.size(), "Duplicate move");
         Assertions.assertEquals(validMoves, actualMoves,
                 "ChessGame validMoves did not return the correct moves");
     }
