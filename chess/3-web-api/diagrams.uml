@@ -16,3 +16,33 @@ classDiagram
     }
     AuthDAO <|-- MemoryAuthDAO
     AuthDAO <|-- SQLAuthDAO
+
+
+classDiagram
+    class DataAccess {
+        <<interface>>
+    }
+    DataAccess <|-- MemoryDataAccess
+    DataAccess <|-- SQLDataAccess
+
+
+classDiagram
+    class UserData {
+        username : String
+        password : String
+        email : String
+    }
+
+    class GameData {
+        gameID: int
+        whiteUsername : String
+        blackUsername : String
+        gameName : String
+        game : app-defined
+    }
+
+    class AuthData {
+        authToken : String
+        username : String
+    }
+
