@@ -2,6 +2,8 @@
 
 The Pet Shop application demonstrates many of the topics presented in this course and serves as an example of how the concepts work together as a complete application.
 
+🐈 🦎 🦜 🐠 🐰 🪨 🐢 🐀
+
 **Concepts Demonstrated**
 
 - Console client
@@ -18,7 +20,7 @@ You can use Pet Shop for inspiration on how to build your chess application, but
 
 ## Source Code
 
-[Pet Shop source code](.)
+The [Pet Shop source code](.) is found in the course instruction repository that you are currently viewing. If you haven't already cloned the repository to your development environment, then you should do so now. You can then open the IntelliJ Pet Shop project, study, run and debug the code.
 
 ## Architecture Diagram
 
