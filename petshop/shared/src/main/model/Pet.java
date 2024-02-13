@@ -16,6 +16,10 @@ public record Pet(int id, String name, PetType type) {
         };
     }
 
+    public Pet setId(int id) {
+        return new Pet(id, this.name, this.type);
+    }
+
     public String toString() {
         return new Gson().toJson(this);
     }
