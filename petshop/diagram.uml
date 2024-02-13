@@ -1,4 +1,13 @@
 classDiagram
+
+
+    PetServer o-- PetService
+    PetServer o-- WebSocketHandler
+
+    PetService o-- DataAccess
+    DataAccess <|-- MemoryDataAccess
+    DataAccess <|-- SqlDataAccess
+
     class NotificationHandler {
          <<interface>>
     }
@@ -13,11 +22,5 @@ classDiagram
         <<interface>>
     }
 
-    PetService o-- DataAccess
-    MemoryDataAccess --|> DataAccess
-    SqlDataAccess --|> DataAccess
-
-    PetServer o-- PetService
-    PetServer o-- WebSocketHandler
-
-
+    WebSocketHandler <..> WebSocketFacade
+    PetServer <.. ServerFacade
