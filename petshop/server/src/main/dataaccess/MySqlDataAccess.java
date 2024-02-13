@@ -28,7 +28,7 @@ public class MySqlDataAccess implements DataAccess {
 
     public Pet getPet(int id) throws ResponseException {
         try (var conn = DatabaseManager.getConnection()) {
-            var statement = "SELECT json FROM pet WHERE id=?";
+            var statement = "SELECT id, json FROM pet WHERE id=?";
             try (var ps = conn.prepareStatement(statement)) {
                 ps.setInt(1, id);
                 try (var rs = ps.executeQuery()) {
@@ -46,7 +46,7 @@ public class MySqlDataAccess implements DataAccess {
     public Collection<Pet> listPets() throws ResponseException {
         var result = new ArrayList<Pet>();
         try (var conn = DatabaseManager.getConnection()) {
-            var statement = "SELECT json FROM pet";
+            var statement = "SELECT id, json FROM pet";
             try (var ps = conn.prepareStatement(statement)) {
                 try (var rs = ps.executeQuery()) {
                     while (rs.next()) {
@@ -71,8 +71,10 @@ public class MySqlDataAccess implements DataAccess {
     }
 
     private Pet readPet(ResultSet rs) throws SQLException {
+        var id = rs.getInt("id");
         var json = rs.getString("json");
-        return new Gson().fromJson(json, Pet.class);
+        var pet = new Gson().fromJson(json, Pet.class);
+        return pet.setId(id);
     }
 
     private int executeUpdate(String statement, Object... params) throws ResponseException {

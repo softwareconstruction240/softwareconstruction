@@ -81,11 +81,14 @@ public class PetClient {
     public String adoptPet(String... params) throws ResponseException {
         assertSignedIn();
         if (params.length == 1) {
-            var id = Integer.parseInt(params[0]);
-            var pet = getPet(id);
-            if (pet != null) {
-                server.deletePet(id);
-                return String.format("%s says %s", pet.name(), pet.sound());
+            try {
+                var id = Integer.parseInt(params[0]);
+                var pet = getPet(id);
+                if (pet != null) {
+                    server.deletePet(id);
+                    return String.format("%s says %s", pet.name(), pet.sound());
+                }
+            } catch (NumberFormatException ignored) {
             }
         }
         throw new ResponseException(400, "Expected: <pet id>");

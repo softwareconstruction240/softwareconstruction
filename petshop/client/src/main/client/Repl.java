@@ -28,7 +28,8 @@ public class Repl implements NotificationHandler {
                 result = client.eval(line);
                 System.out.print(BLUE + result);
             } catch (Throwable e) {
-                System.out.print(e.getMessage());
+                var msg = e.toString();
+                System.out.print(msg);
             }
         }
         System.out.println();
