@@ -22,7 +22,7 @@ public class PetServer {
     public PetServer run(int port) {
         Spark.port(port);
 
-        Spark.externalStaticFileLocation("public");
+        Spark.staticFiles.location("public");
 
         Spark.webSocket("/connect", webSocketHandler);
 
