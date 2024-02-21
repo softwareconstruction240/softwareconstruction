@@ -2,9 +2,7 @@ package dataaccess;
 
 import exception.ResponseException;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.nio.file.Paths;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -23,9 +21,7 @@ public class DatabaseManager {
      */
     static {
         try {
-            var propsPath = Paths.get(DatabaseManager.class.getProtectionDomain().getCodeSource().getLocation().getPath(), "db.properties");
-            var propsFile = new File(propsPath.toString());
-            try (var in = new FileInputStream(propsFile)) {
+            try (InputStream in = DatabaseManager.class.getClassLoader().getResourceAsStream("db.properties")) {
                 Properties props = new Properties();
                 props.load(in);
                 databaseName = props.getProperty("db.name");
