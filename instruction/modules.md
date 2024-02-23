@@ -8,11 +8,14 @@ The course content is divided into multiple topics that you should strive to mas
 - [Schedule for Dr. Rodham's Sections](https://github.com/softwareconstruction240/softwareconstruction/blob/main/schedule/winter2024.md)
 - [Schedule for Dr. Wilkerson's Sections](https://github.com/softwareconstruction240/softwareconstruction/blob/main/schedule/winter2024-wilkerson.md)
 
-## Object Oriented Programming
+## Getting Started
 
 - [Introduction](introduction/introduction.md)
 - [Git](git/git.md)
 - ☑ [Chess GitHub Repository](../chess/chess-github-repository/chess-github-repository.md)
+
+## Object Oriented Programming
+
 - [Java Fundamentals](java-fundamentals/java-fundamentals.md)
 - ☑ [Phase 0: Chess Moves](../chess/0-chess-moves/chess-moves.md)
 - [Java Object Class](java-object-class/java-object-class.md)
@@ -64,6 +67,9 @@ The course content is divided into multiple topics that you should strive to mas
 - [Computer Security](computer-security/computer-security.md)
 - [Concurrency](concurrency/concurrency.md)
 - [Command line tools](command-line-builds/command-line-builds.md)
+
+## Final
+
 - [Final Exam Review](final-exam-review/final-exam-review.md)
 
 ### Legend

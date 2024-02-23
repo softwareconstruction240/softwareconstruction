@@ -308,8 +308,7 @@ public class Server {
     public int run(int desiredPort) {
         Spark.port(desiredPort);
 
-        var webDir = Paths.get(Server.class.getProtectionDomain().getCodeSource().getLocation().getPath(), "web");
-        Spark.externalStaticFileLocation(webDir.toString());
+        Spark.staticFiles.location("web");
 
         // Register your endpoints and handle exceptions here.
 
@@ -330,9 +329,10 @@ The `Server` class provides a `run` method that attempts to start the HTTP serve
 The starter code provides a simple web browser interface for calling your server endpoints. This is useful for experimentation while you are developing your endpoints. In order for your server to be able to load its web browser interface you need to determine the path where the web directory is located and then tell spark to load static web files from that directory.
 
 ```java
-var webDir = Paths.get(Server.class.getProtectionDomain().getCodeSource().getLocation().getPath(), "web");
-Spark.externalStaticFileLocation(webDir.toString());
+Spark.staticFiles.location("web");
 ```
+
+You will want to put the `web` directory in a `src/main/resources` directory and make the folder as `Resources Root` in IntelliJ. This location and distinction makes it so the JVM can file the directory at runtime.
 
 ## Service Unit Tests
 

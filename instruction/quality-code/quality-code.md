@@ -10,25 +10,25 @@ Despite stereotypes to the contrary, software engineering is an art form. It req
 
 ```java
 public class ComputeIt {
-public static void main(String[] args) {
-System.out.println(doIt(Integer.parseInt(args[0]), 0));
-}
+    public static void main(String[] args) {
+        System.out.println(doIt(Integer.parseInt(args[0]), 0));
+    }
 
     static int doIt(int ipt, int ftr)
-{
-    // initialize the base cases
-    var a = 0;
-    var othr = 0;
-    // for each x make sure it is less than ipt otherwise break
-    for (var x = 0; x < ipt; x++)
     {
-        if (x == 1) othr = 1;
-        else { var t = a + othr;
-            a = othr; ftr = ftr++; othr = t;
+        // initialize the base cases
+        var a = 0;
+        var othr = 0;
+        // for each x make sure it is less than ipt otherwise break
+        for (var x = 0; x < ipt; x++)
+        {
+            if (x == 1) othr = 1;
+            else { var t = a + othr;
+                a = othr; ftr = ftr++; othr = t;
+            }
         }
+        return a + othr;
     }
-    return a + othr;
-}
 }
 ```
 
@@ -213,7 +213,7 @@ Methods are a powerful coding abstraction. You can maximize the value of methods
 | Principle                            | Description                                                                                                                                                                                 |
 | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Appropriate method length**        | The method should be short enough that you can understand it with a quick scan. Usually this means less than 20 lines.                                                                      |
-| **Appropriate line length**          | Keep your line lengths short enough that you can understand it with out scrolling or parsing complex expressions                                                                            |
+| **Appropriate line length**          | Keep your line lengths short enough that you can understand it without scrolling or parsing complex expressions                                                                             |
 | **Embrace Decomposition**            | A method that contains code for doing multiple things should be broken into multiple submethods.                                                                                            |
 | **Self documentation**               | Decomposing a method into submethods reduces the need to insert comments. Instead create a method and allow the name of the method to document what the code does.                          |
 | **Avoiding duplication**             | If the same code appears in multiple places with slight variations, you should consider creating a method to replace the duplication and pass in a parameter that represents the variation. |

@@ -37,6 +37,8 @@ public class PersistenceTests {
     @Test
     @DisplayName("Persistence Test")
     public void persistenceTest() throws TestException {
+        validateDatabase(0, "Database not empty at start");
+
         TestModels.TestRegisterRequest registerRequest = new TestModels.TestRegisterRequest();
         registerRequest.username = "ExistingUser";
         registerRequest.password = "existingUserPassword";
@@ -56,9 +58,13 @@ public class PersistenceTests {
         joinRequest.playerColor = ChessGame.TeamColor.WHITE;
         serverFacade.verifyJoinPlayer(joinRequest, auth);
 
+        validateDatabase(3, "Database not populate after game play");
+
         // Restart the server to make sure it actually is persisted.
         stopServer();
         startServer();
+
+        validateDatabase(3, "Database not populated after restart");
 
         //list games using the auth
         TestModels.TestListResult listResult = serverFacade.listGames(auth);
@@ -78,5 +84,32 @@ public class PersistenceTests {
         serverFacade.login(loginRequest);
         Assertions.assertEquals(200, serverFacade.getStatusCode(), "Unable to login");
     }
+
+
+    private void validateDatabase(int expectedRows, String errorMsg) {
+        int actualRows = 0;
+        try {
+            Class<?> clazz = Class.forName("dataAccess.DatabaseManager");
+            Method getConnectionMethod = clazz.getDeclaredMethod("getConnection");
+            getConnectionMethod.setAccessible(true);
+
+            Object obj = clazz.getDeclaredConstructor().newInstance();
+            try (Connection conn = (Connection) getConnectionMethod.invoke(obj);) {
+                try (var preparedStatement = conn.prepareStatement("SELECT NAME, NUM_ROWS FROM INFORMATION_SCHEMA.INNODB_TABLESTATS WHERE NAME LIKE CONCAT(DATABASE(), '%')")) {
+                    try (var rs = preparedStatement.executeQuery()) {
+                        while (rs.next()) {
+                            var table = rs.getString("NAME");
+                            var count = rs.getInt("NUM_ROWS");
+                            actualRows += count;
+                        }
+                    }
+                }
+            }
+        } catch (Exception ex) {
+            Assertions.fail("Unable to load database in order to verify persistence");
+        }
+
+        Assertions.assertEquals(expectedRows, actualRows, errorMsg);
+    }   
 
 }
