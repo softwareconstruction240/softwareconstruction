@@ -48,7 +48,7 @@ Using this example you can map the Java record declaration directly to a relatio
 
 ## Table Relationships
 
-The term `relational` in relational databases refers to the relationships that exist between tables. Relational databases seek to strictly follow the single responsibility principle and only represent one type of data in every table. Once you have represented cohesive data into different tables, you then create relationships between tables by referencing keys between tables.
+The term `relational` in relational databases refers to the relationships that exist between tables. Relational databases seek to strictly promote cohesion and only represent one type of data in every table. Once you have represented cohesive data into different tables, you then create relationships between tables by referencing keys between tables.
 
 The following gives a simple visualization of a database named `pet-store` that contains a table for `pet`, `owner`, and `purchase`. The `pet` and `owner` tables are related to each other because of the key relationship defined in the `purchase` table. The purchase table maps what owner purchased which pet.
 
