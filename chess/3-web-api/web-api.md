@@ -114,9 +114,10 @@ The following sections describe the various classes that are depicted in the arc
 
 ### Data Model Classes
 
-The Java `chess` package in your project's `shared` module contains classes that represents all of the data and algorithmic functionality that is shared by your chess client and server.
+Your project's `shared` module contains classes that represent all of the data and algorithmic functionality that is shared by your chess client and server.
 
-As part of this phase, you need to create [record](../../instruction/records/records.md) classes and add them to the shared `chess` package that represent the classes used for the chess application's core data objects. This includes the following.
+As part of this phase, you need to create [record](../../instruction/records/records.md) classes and add them to the `shared` module that represent the classes used for the chess application's core data objects. This includes the following.
+
 
 **UserData**
 
@@ -143,7 +144,7 @@ As part of this phase, you need to create [record](../../instruction/records/rec
 | authToken | String |
 | username  | String |
 
-⚠ You must places these three records classes in a folder named `shared/src/main/java/model`.
+⚠ You must place these three record classes in a folder named `shared/src/main/java/model`.
 
 ### Data Access Classes
 
