@@ -60,7 +60,7 @@ Here are a list of common SQL commands that you can use to administrate a databa
 | drop database `name`   | Delete a database                                           | drop database student                         |
 | create table `name`    | Create a new table                                          | create table pet (name varchar(128), age int) |
 | Insert into `name`     | Insert data into a table                                    | insert into pet values ("zoe", 3)             |
-| select \_ from `name`  | Query a table                                               | select \_ from pet                            |
+| select \* from `name`  | Query a table                                               | select \* from pet                            |
 | drop table `name`      | Delete a table                                              | drop table pet                                |
 
 ## Experimenting
