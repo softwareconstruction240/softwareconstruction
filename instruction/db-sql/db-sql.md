@@ -198,7 +198,7 @@ SELECT purchase.id AS purchaseId, purchase.ownerId, pet.id AS petId, pet.name, p
  FROM purchase JOIN pet WHERE purchase.petId = pet.id;
 ```
 
-Given the follow source tables,
+Given the following source tables,
 
 **Source**
 
