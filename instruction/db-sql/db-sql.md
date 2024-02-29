@@ -2,7 +2,7 @@
 
 🖥️ [Slides](https://docs.google.com/presentation/d/19nC7v6SDqoEeK75Mb-f6L3QhnbuP6Xfo/edit?usp=sharing&ouid=114081115660452804792&rtpof=true&sd=true)
 
-`Structure Query Language` (SQL) is a programming language that is specifically designed to interact with relational databases. It contains statements for inserting, updating, reading, and deleting data. It also provides statements for managing the database and the users that have access to the database.
+`Structured Query Language` (SQL) is a programming language that is specifically designed to interact with relational databases. It contains statements for inserting, updating, reading, and deleting data. It also provides statements for managing the database and the users that have access to the database.
 
 You can categorizes the most commonly used SQL statements into the following buckets.
 
@@ -313,7 +313,7 @@ The follow table summaries all of the commands that were used in this instructio
 
 ## Videos
 
-- 🎥 [Structure Query Language](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=4f5a6bfe-5170-4c3c-97e8-ad660148d05a&start=0)
+- 🎥 [Structured Query Language](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=4f5a6bfe-5170-4c3c-97e8-ad660148d05a&start=0)
 - 🎥 [SQL Data Types](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=91cb451f-fc88-426d-9656-ad660149a253&start=0)
 - 🎥 [Creating and Dropping Tables](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=2b252adc-3c54-4f7e-bea0-ad66014b3c16&start=0)
 - 🎥 [Inserting, Updating, and Deleting Rows](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=02edabc8-3424-4d56-a86b-ad66014f13c3&start=0)
