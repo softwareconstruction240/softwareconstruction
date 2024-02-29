@@ -92,6 +92,14 @@ If you need to alter your table you can use an `ALTER TABLE` statement. The foll
 ALTER TABLE pet ADD COLUMN nickname VARCHAR(255);
 ```
 
+If you decide that you want to delete a table then you execute a `DROP TABLE` statement.
+
+```sql
+DROP TABLE pet;
+```
+
+Make sure you really want to drop the table before you execute the command, because there is no recovery from this one.
+
 ### Primary Keys and Indexes
 
 Along with specifying each field, the `CREATE TABLE` statement specifies which field is the primary key of the table. Primary keys are required to be unique. If you attempt to insert two rows with the same key, an error will occur. Primary keys are also indexed by default since it is assumed that you will use the key to query the table.
@@ -115,14 +123,6 @@ If you determine you need an index after you create a table, you can use the `CR
 ```sql
 CREATE INDEX index_name ON pet (name);
 ```
-
-If you decide that you want to delete a table then you execute a `DROP TABLE` statement.
-
-```sql
-DROP TABLE pet;
-```
-
-Make sure you really want to drop the table before you execute the command, because there is no recovery from this one.
 
 ### Types
 
