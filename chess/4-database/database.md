@@ -83,10 +83,10 @@ You will want to carefully consider the need for a Gson type adapter when you do
 ## Relevant Instruction Topics
 
 - [JSON and Serialization](../../instruction/json/json.md): Serialization objects to the database.
-- [Relational Databases](../../instruction/): How relational databases work.
+- [Relational Databases](../../instruction/db-model/db-model.md): How relational databases work.
 - [MYSQL](../../instruction/mysql/mysql.md): Getting MySQL installed.
-- [SQL](../../instruction/db-sql/): Using SQL statements.
-- [JDBC](../../instruction/db-jdbc/): Using SQL from Java including type adapters.
+- [SQL](../../instruction/db-sql/db-sql.md): Using SQL statements.
+- [JDBC](../../instruction/db-jdbc/db-jdbc.md): Using SQL from Java including type adapters.
 
 ## ☑ Deliverable
 
