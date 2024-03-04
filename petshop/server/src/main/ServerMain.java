@@ -1,5 +1,6 @@
 import dataaccess.MySqlDataAccess;
 import server.PetServer;
+import service.PetService;
 
 public class ServerMain {
 
@@ -13,7 +14,8 @@ public class ServerMain {
                 port = Integer.parseInt(args[0]);
             }
 
-            var server = new PetServer(new MySqlDataAccess()).run(port);
+            var service = new PetService(new MySqlDataAccess());
+            var server = new PetServer(service).run(port);
             port = server.port();
             System.out.printf("Server started on port %d%n", port);
             return;

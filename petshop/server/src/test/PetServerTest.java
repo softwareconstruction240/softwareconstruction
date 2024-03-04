@@ -7,6 +7,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import server.PetServer;
 import server.ServerFacade;
+import service.PetService;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -20,7 +21,8 @@ class PetServerTest {
 
     @BeforeAll
     static void startServer() {
-        petServer = new PetServer(new MemoryDataAccess());
+        var service = new PetService(new MemoryDataAccess());
+        petServer = new PetServer(service);
         petServer.run(0);
         var url = "http://localhost:" + petServer.port();
         server = new ServerFacade(url);
