@@ -4,6 +4,7 @@ import dataaccess.MemoryDataAccess;
 import exception.ResponseException;
 import org.junit.jupiter.api.*;
 import server.PetServer;
+import service.PetService;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -17,7 +18,8 @@ class PetClientTest {
 
     @BeforeAll
     static void startServer() throws Exception {
-        petServer = new PetServer(new MemoryDataAccess());
+        var service = new PetService(new MemoryDataAccess());
+        petServer = new PetServer(service);
         petServer.run(0);
         var url = "http://localhost:" + petServer.port();
         client = new PetClient(url, null);
