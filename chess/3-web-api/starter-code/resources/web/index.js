@@ -41,6 +41,10 @@ function displayRequest(method, endpoint, request) {
   document.getElementById('handleBox').value = endpoint;
   const body = request ? JSON.stringify(request, null, 2) : '';
   document.getElementById('requestBox').value = body;
+  window.scrollBy({
+    top: document.getElementById('execute').getBoundingClientRect().top,
+    behavior:"smooth"
+  });
 }
 
 function clearAll() {
