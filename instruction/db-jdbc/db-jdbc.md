@@ -274,7 +274,7 @@ Make sure that your wrap the result set returned from the query with a `try-with
 
 ## Text and Blob Types
 
-Sometimes you want to store large text or binary data in the database. In MySQL the `text` type can represent large textual sequences, and the `blob` type represents large binary sequences. These can be as large as 4 gigabytes. Blob and text data is not searchable, but it is convenient to associate it with some other indexed fields. For example, a commonly used pattern called a `key-value` store, associates a single key field with a blob field. This basically uses the database as a big persisted map.
+Sometimes you want to store large text or binary data in the database. In MySQL the `text` type can represent large textual sequences, and the `blob` type represents large binary sequences. These can be as large as 4 gigabytes. Blob and text data is not searchable, but it is convenient to associate it with some other indexed fields. For example, a commonly used pattern called a `key-value` store, associates a single key field with a blob field. This basically uses the database as a big persistent map.
 
 Another example of storing large text data comes from the chess application. With chess, you need to store your game board and make it searchable using the game ID. One way to do this is to serialize your board to JSON and then place the JSON data in a `text` field.
 
@@ -345,7 +345,7 @@ interface FriendList {
     FriendList add(String friend);
 }
 
-record Pet(String name, String type, List friends) {}
+record Pet(String name, String type, FriendList friends) {}
 ```
 
 Now that we have an interface in our record, Gson no longer knows what class to create in order to represent the `FriendList` interface. That means we must register an adapter that explicitly handles the conversion. Gson supports this with the `JsonDeserializer` interface. This interface defines a method named `deserialize` that takes a JSON element and converts it into the expected object. In the example below we take the element and use the `fromJson` method to do the explicit conversion for us.
