@@ -68,7 +68,7 @@ Once you have a connection you can use it to create databases and tables. It is 
 We can fully configure a theoretical pet store application by doing the following.
 
 1. Get a connection to the RDBMS.
-1. Create the the pet store database if it doesn't exist.
+1. Create the pet store database if it doesn't exist.
 1. Create the pet table if it doesn't exist.
 
 ```java
