@@ -268,7 +268,7 @@ void queryPets(Connection conn, String findType) throws SQLException {
 }
 ```
 
-When you call the result set `next` method it will advance the result to the next row. If it ever returns `false` then it means you have read all the matching rows. You can read the fields of the row with the result set `get` methods. There are methods for all of the basic SQL types. Make sure that the fields you get are represented in the fields that your `SELECT` statement requested.
+When you call the result set `next` method it will advance the result to the next row. If it ever returns `false` then it means you have read all the matching rows. You can read the fields of the row with the result set `get` methods. There are methods for all of the basic SQL types. Make sure that the fields you getting are represented in the fields that your `SELECT` statement requested.
 
 Make sure that your wrap the result set returned from the query with a `try-with-resource` block so that you release the resources associated with the result once you are done with them.
 
