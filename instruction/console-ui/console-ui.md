@@ -69,7 +69,7 @@ public class CalculatorExample {
 
 ## Outputting in Color
 
-Most command line consoles support a common set of escape codes that allow you to change the background and foreground colors of the characters that are output. You control the color changes by outputting a sequence of special escape characters. For example, if you run the following command in your console window you will see that the text `red on blue` is output with red text and a green background.
+Most command line consoles support a common set of escape codes that allow you to change the background and foreground colors of the characters that are output. You control the color changes by outputting a sequence of special escape characters. For example, if you run the following command in your console window you will see that the text `red on blue` is output with red text and a blue background.
 
 ```sh
 echo -e "\u001b[31;44;1m red on blue "
