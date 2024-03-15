@@ -51,7 +51,7 @@ As stated previously, gameplay will not be implemented until later. For now, whe
 ### Relevant Instruction Topics
 
 - [Console UI](../../instruction/console-ui/console-ui.md): Reading from the keyboard and writing out fancy text.
-- [Web API](../../instruction/web-api/web-api.md): Making HTTP client requests.
+- [Web API](../../instruction/web-api/web-api.md#web-client): Making HTTP client requests.
 
 ### Tips for using Unicode chess characters
 
