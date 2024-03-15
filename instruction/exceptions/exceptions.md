@@ -123,6 +123,10 @@ public class ExceptionExample {
 }
 ```
 
+## Custom Exception Types
+
+Java has many useful Exception types you can `throw`, but often you won't find one that matches what you need. You can create your own exception types by creating subclasses of the Exception class. Feel free to add fields to your custom classes to contain any information that might be useful about what went wrong. If you find yourself catching an exception and then checking the message string to see what kind of error it is, you may want to replace it with a custom exception type instead.
+
 ## Try with Resource
 
 Not closing resources, such as file handles or database connections, can lead to leaks that will cause your application to fail. The following example shows the allocation of an input stream that closes the stream after it is used. However, if an exception is thrown during the read operation the stream is not closed and the file handle is leaked. That means the resources associated with the file are never released and eventually that application will not be able to open files.
