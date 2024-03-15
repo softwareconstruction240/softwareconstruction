@@ -8,13 +8,17 @@
 
 Java exceptions allow you to escape out of the normal execution flow of a program when something exceptional happens. You can then centrally handle the exception at a location higher in the code execution stack.
 
-Java uses the standard `try`, `throw`, and `catch` syntax that are found in most programming languages. You define a block where exceptions can occur with the `try` statement. The `try` block is then followed by one or more `catch` blocks. For each `catch` block you can specify what exception the block handles. The runtime will pick the block that most specifically matches your exception. If you want to handle all exceptions, then you can specify the `Exception` base class in your catch block.
+Java uses the standard `try`, `throw`, and `catch` syntax that are found in most programming languages. You define a block where exceptions can occur with the `try` statement. The `try` block is then followed by one or more `catch` blocks. For each `catch` block you can specify what exception type(s) the block handles. That type and any types derived from it will also be caught by that block unless they also match a more specific block. The runtime will pick the block that most specifically matches your exception. If you want to handle all exceptions, then you can specify the `Exception` base class in your catch block. Keep in mind that it is often best to catch only the most specific exception type that will be thrown.
 
 ```java
 try {
     // Code that might throw an exception
 } catch (FileNotFoundException ex) {
     // Specific file error handling
+} catch (IOException ex) {
+    // Other IO error handling except file not found
+    /* FileNotFoundException is a subclass of
+       IOExeption, but won't trigger this block. */
 } catch (Exception ex) {
     // General error handling
 }
