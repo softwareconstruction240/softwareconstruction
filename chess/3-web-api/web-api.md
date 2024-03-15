@@ -25,7 +25,7 @@ The following defines the endpoints that your server is required to implement. Y
 | **URL path**         | `/db`                                                               |
 | **HTTP Method**      | `DELETE`                                                            |
 | **Success response** | [200] `{}`                                                          |
-| **Failure response** | [500] <code>{ "message": "Error: *(description of error)*" }</code> |
+| **Failure response** | [500] <code>{ "message": "Error: _(description of error)_" }</code> |
 
 ### Register
 
@@ -38,7 +38,7 @@ The following defines the endpoints that your server is required to implement. Y
 | **Success response** | [200] `{ "username":"", "authToken":"" }`                           |
 | **Failure response** | [400] `{ "message": "Error: bad request" }`                         |
 | **Failure response** | [403] `{ "message": "Error: already taken" }`                       |
-| **Failure response** | [500] <code>{ "message": "Error: *(description of error)*" }</code> |
+| **Failure response** | [500] <code>{ "message": "Error: _(description of error)_" }</code> |
 
 ### Login
 
@@ -50,7 +50,7 @@ The following defines the endpoints that your server is required to implement. Y
 | **Body**             | `{ "username":"", "password":"" }`                                  |
 | **Success response** | [200] `{ "username":"", "authToken":"" }`                           |
 | **Failure response** | [401] `{ "message": "Error: unauthorized" }`                        |
-| **Failure response** | [500] <code>{ "message": "Error: *(description of error)*" }</code> |
+| **Failure response** | [500] <code>{ "message": "Error: _(description of error)_" }</code> |
 
 ### Logout
 
@@ -62,7 +62,7 @@ The following defines the endpoints that your server is required to implement. Y
 | **Headers**          | `authorization: <authToken>`                                        |
 | **Success response** | [200] `{}`                                                          |
 | **Failure response** | [401] `{ "message": "Error: unauthorized" }`                        |
-| **Failure response** | [500] <code>{ "message": "Error: *(description of error)*" }</code> |
+| **Failure response** | [500] <code>{ "message": "Error: _(description of error)_" }</code> |
 
 ### List Games
 
@@ -76,26 +76,26 @@ Note that `whiteUsername` and `blackUsername` may be `null`.
 | **Headers**          | `authorization: <authToken>`                                                                  |
 | **Success response** | [200] `{ "games": [{"gameID": 1234, "whiteUsername":"", "blackUsername":"", "gameName:""} ]}` |
 | **Failure response** | [401] `{ "message": "Error: unauthorized" }`                                                  |
-| **Failure response** | [500] <code>{ "message": "Error: *(description of error)*" }</code>                           |
+| **Failure response** | [500] <code>{ "message": "Error: _(description of error)_" }</code>                           |
 
 ### Create Game
 
-| property             | value                                                                |
-| -------------------- | -------------------------------------------------------------------- |
-| **Description**      | Creates a new game.                                                  |
-| **URL path**         | `/game`                                                              |
-| **HTTP Method**      | `POST`                                                               |
-| **Headers**          | `authorization: <authToken>`                                         |
-| **Body**             | `{ "gameName":"" }`                                                  |
-| **Success response** | [200] `{ "gameID": 1234 }`                                           |
-| **Failure response** | [400] `{ "message": "Error: bad request" }`                          |
-| **Failure response** | [401] `{ "message": "Error: unauthorized" }`                         |
-| **Failure response** | [500] <code>{ "message": "Error: *(description of error)*" }</code>  |
+| property             | value                                                               |
+| -------------------- | ------------------------------------------------------------------- |
+| **Description**      | Creates a new game.                                                 |
+| **URL path**         | `/game`                                                             |
+| **HTTP Method**      | `POST`                                                              |
+| **Headers**          | `authorization: <authToken>`                                        |
+| **Body**             | `{ "gameName":"" }`                                                 |
+| **Success response** | [200] `{ "gameID": 1234 }`                                          |
+| **Failure response** | [400] `{ "message": "Error: bad request" }`                         |
+| **Failure response** | [401] `{ "message": "Error: unauthorized" }`                        |
+| **Failure response** | [500] <code>{ "message": "Error: _(description of error)_" }</code> |
 
 ### Join Game
 
 | property             | value                                                                                           |
-| -------------------- |-------------------------------------------------------------------------------------------------|
+| -------------------- | ----------------------------------------------------------------------------------------------- |
 | **Description**      | Verifies that the specified game exists and adds the caller as the requested color to the game. |
 | **URL path**         | `/game`                                                                                         |
 | **HTTP Method**      | `PUT`                                                                                           |
@@ -105,7 +105,7 @@ Note that `whiteUsername` and `blackUsername` may be `null`.
 | **Failure response** | [400] `{ "message": "Error: bad request" }`                                                     |
 | **Failure response** | [401] `{ "message": "Error: unauthorized" }`                                                    |
 | **Failure response** | [403] `{ "message": "Error: already taken" }`                                                   |
-| **Failure response** | [500] <code>{ "message": "Error: *(description of error)*" }</code>                             |
+| **Failure response** | [500] <code>{ "message": "Error: _(description of error)_" }</code>                             |
 
 ## Required Classes
 
@@ -163,7 +163,7 @@ void insertUser(UserData u) throws DataAccessException
 
 ### DataAccessException
 
-The starter code includes a `dataaccess.DataAccessException`. This exception should be thrown by data access methods that could fail. If a method call fails, it should throw a `DataAccessException`. For example, the `DataAccessException` is thrown if a user attempts to update a non-existent game.
+The starter code includes a `dataAccess.DataAccessException`. This exception should be thrown by data access methods that could fail. If a method call fails, it should throw a `DataAccessException`. For example, the `DataAccessException` is thrown if a user attempts to update a non-existent game. If you like, feel free to create subclasses of DataAccessException that represent more specific errors relating to data access.
 
 ### Example Data Access Methods
 
