@@ -171,6 +171,14 @@ public void tryWithResources() throws IOException {
 }
 ```
 
+## Where to Use `catch` and `throws`
+
+A significant part of exception handling is deciding where to handle exceptions. When an exception is thrown, at each level of the execution stack, you can either `catch` the error or use `throws` to pass it to the next level up. Consider what needs to happen when the exception is thrown. For example, do I want my program to halt? Does a message need to be sent back to the user? Which part of my program can do that?
+
+A good rule of thumb is to ask: after I'm done handling this exception, where can I resume normal execution? For example, a login screen might have a UI layer, which calls a login service layer, which calls a database layer. If someone tries to login with an incorrect username, the database throws an error: user not found. The login service layer can't continue its normal execution, so it `throws` the error to the UI layer. However, the UI layer knows how to display an "invalid username" message, so it can `catch` the exception and resume.
+
+Sometimes a layer cannot handle an exception, but does have additional information about what went wrong. Then you can catch the exception and simply throw another exception, possibly of a different type, that contains that information. For example, the database layer from the previous example might throw a ValueNotFoundException, but the login service layer knows it's really an InvalidCredentialsException, so it catches and re-throws a more useful exception type.
+
 ## Exceptions Should be Exceptional
 
 Remember that exceptions should be exceptional. Do not throw exceptions for things that happen in the normal flow of your code. For example, if it is expected that sometimes a file may not be found, then that is not exceptional. Also do not throw exceptions to return values from a function. For example, a token parser should not throw exceptions in order to return tokens that it parses to anyone with a catch block.
