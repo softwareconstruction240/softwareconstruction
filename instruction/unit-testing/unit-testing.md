@@ -54,6 +54,9 @@ public class ExampleTests {
         assertEquals(200, 100 + 100);
         assertTrue(100 == 2 * 50);
         assertNotNull(new Object(), "Response did not return authentication String");
+        assertThrows(InvalidArgumentException.class, () -> {
+            throw new InvalidArgumentException();
+        });
     }
 }
 ```
