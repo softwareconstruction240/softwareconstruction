@@ -35,7 +35,7 @@ You use the `throw` keyword followed by the allocation of a new exception in ord
 throw new IllegalArgumentException("Missing required parameter");
 ```
 
-When you throw an exception the normal flow of your code is interrupted and the execution pointer will skip to the closest catch block in the execution stack.
+When you throw an exception, the normal flow of your code is interrupted and the execution pointer skips to the closest catch block in the execution stack.
 
 You can throw any exception from a function, but Java requires that your function signature declares all of the exceptions that the function throws. Note that the declaration requirement propagates to any function that calls a function that can throw an exception.
 
@@ -129,7 +129,7 @@ public class ExceptionExample {
 
 Java has many useful Exception types you can `throw`, but often you won't find one that matches what you need. You can create your own exception types by creating subclasses of the Exception class. Feel free to add fields to your custom classes to contain any information that might be useful about what went wrong. If you find yourself catching an exception and then checking the message string to see what kind of error it is, you may want to replace it with a custom exception type instead.
 
-## Try with Resource
+## Try-With-Resources
 
 Not closing resources, such as file handles or database connections, can lead to leaks that will cause your application to fail. The following example shows the allocation of an input stream that closes the stream after it is used. However, if an exception is thrown during the read operation the stream is not closed and the file handle is leaked. That means the resources associated with the file are never released and eventually that application will not be able to open files.
 
@@ -160,7 +160,7 @@ public void TryWithFinally() throws IOException {
 }
 ```
 
-As you can see by the previous example, resource cleanup introduces a lot of boilerplate code. To make this common, necessary, activity easier to implement Java introduced the `try with resource` syntax. You can use this syntax with any class that implements the [closable](https://docs.oracle.com/javase/8/docs/api/java/io/Closeable.html) interface. This includes things like input and output streams, readers and writers, network connections, files, and channels.
+As you can see by the previous example, resource cleanup introduces a lot of boilerplate code. To make this common and necessary activity easier to implement, Java introduced the `try-with-resources` syntax. You can use this syntax with any class that implements the [closable](https://docs.oracle.com/javase/8/docs/api/java/io/Closeable.html) interface. This includes things like input and output streams, readers and writers, network connections, files, and channels.
 
 To use this syntax you place the allocation of the object as a parameter to the `try` keyword. The Java complier will automatically generate the finally block and call close for you.
 
