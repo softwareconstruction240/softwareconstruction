@@ -66,7 +66,7 @@ boolean verifyUser(String username, String providedClearTextPassword) {
 }
 ```
 
-The above code demonstrates the necessary concepts to implement secure password storage, but it will need to be adapted to your particular implementation. You do not need to create a different table to store your passwords. The hashed password may be store along with your other user information in your `user` table.
+The above code demonstrates the necessary concepts to implement secure password storage, but it will need to be adapted to your particular implementation. You do not need to create a different table to store your passwords. The hashed password may be stored along with your other user information in your `user` table.
 
 ## ChessGame Serialization/Deserialization
 
