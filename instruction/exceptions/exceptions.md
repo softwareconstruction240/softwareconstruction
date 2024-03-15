@@ -191,7 +191,8 @@ Using exceptions for non-exceptional cases makes debugging much more difficult a
 
 - The difference between checked and unchecked exceptions in Java
 - How and when to handle an exception in Java
-- How and when to declare an exception in Java
+- How and when to throw an exception in Java
+- How to create custom exception classes
 - How to use try/catch blocks
 - What finally blocks are and how to use them
 
