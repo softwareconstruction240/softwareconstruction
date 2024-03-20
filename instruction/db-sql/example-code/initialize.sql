@@ -1,7 +1,7 @@
-DROP DATABASE pet_store;
-CREATE DATABASE pet_store;
+DROP DATABASE pets;
+CREATE DATABASE pets;
 
-USE pet_store;
+USE pets;
 
 CREATE TABLE pet (
     id INT NOT NULL AUTO_INCREMENT,
@@ -34,12 +34,12 @@ CREATE TABLE purchase (
 INSERT INTO pet (name, type) VALUES ("Fido", "dog");
 INSERT INTO pet (name, type) VALUES ("Puddles", "cat");
 INSERT INTO pet (name, type) VALUES ("Chip", "bird");
-
-
 INSERT INTO owner (name, phoneNumber) VALUES ("Juan", "801-866-3333";
 INSERT INTO owner (name, phoneNumber) VALUES ("Pat", "619-583-9923");
 INSERT INTO owner (name, phoneNumber) VALUES ("Tessa", "217-360-3168");
+INSERT INTO purchase (ownerId, petId, price) VALUES(1, 1, 600);
+INSERT INTO purchase (ownerId, petId, price) VALUES(2, 2, 20);
+INSERT INTO purchase (ownerId, petId, price) VALUES(2, 3, 5);
 
-INSERT INTO purchase (ownerId, petId, price) VALUES(1, 14, 600);
-INSERT INTO purchase (ownerId, petId, price) VALUES(2, 93, 20);
-INSERT INTO purchase (ownerId, petId, price) VALUES(2, 100, 5);
+SELECT purchase.id, purchase.ownerId, pet.id, pet.name, pet.type FROM purchase JOIN pet WHERE purchase.petId = pet.id;
+

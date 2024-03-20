@@ -2,7 +2,7 @@
 
 🖥️ [Slides](https://docs.google.com/presentation/d/19nC7v6SDqoEeK75Mb-f6L3QhnbuP6Xfo/edit?usp=sharing&ouid=114081115660452804792&rtpof=true&sd=true)
 
-`Structure Query Language` (SQL) is a programming language that is specifically designed to interact with relational databases. It contains statements for inserting, updating, reading, and deleting data. It also provides statements for managing the database and the users that have access to the database.
+`Structured Query Language` (SQL) is a programming language that is specifically designed to interact with relational databases. It contains statements for inserting, updating, reading, and deleting data. It also provides statements for managing the database and the users that have access to the database.
 
 You can categorizes the most commonly used SQL statements into the following buckets.
 
@@ -38,9 +38,9 @@ The following demonstrates a simple query to read all of the pets in a database.
 +--------+----------+---------------+
 | id     | name     | type          |
 +--------+----------+---------------+
-| 93     | Fido|    | dog           |
+| 93     | Fido     | dog           |
 | 14     | Puddles  | cat           |
-| 77     | Chip|    | bird          |
+| 77     | Chip     | bird          |
 +--------+----------+---------------+
 ```
 
@@ -92,6 +92,14 @@ If you need to alter your table you can use an `ALTER TABLE` statement. The foll
 ALTER TABLE pet ADD COLUMN nickname VARCHAR(255);
 ```
 
+If you decide that you want to delete a table then you execute a `DROP TABLE` statement.
+
+```sql
+DROP TABLE pet;
+```
+
+Make sure you really want to drop the table before you execute the command, because there is no recovery from this one.
+
 ### Primary Keys and Indexes
 
 Along with specifying each field, the `CREATE TABLE` statement specifies which field is the primary key of the table. Primary keys are required to be unique. If you attempt to insert two rows with the same key, an error will occur. Primary keys are also indexed by default since it is assumed that you will use the key to query the table.
@@ -115,14 +123,6 @@ If you determine you need an index after you create a table, you can use the `CR
 ```sql
 CREATE INDEX index_name ON pet (name);
 ```
-
-If you decide that you want to delete a table then you execute a `DROP TABLE` statement.
-
-```sql
-DROP TABLE pet;
-```
-
-Make sure you really want to drop the table before you execute the command, because there is no recovery from this one.
 
 ### Types
 
@@ -198,7 +198,7 @@ SELECT purchase.id AS purchaseId, purchase.ownerId, pet.id AS petId, pet.name, p
  FROM purchase JOIN pet WHERE purchase.petId = pet.id;
 ```
 
-Given the follow source tables,
+Given the following source tables,
 
 **Source**
 
@@ -313,7 +313,7 @@ The follow table summaries all of the commands that were used in this instructio
 
 ## Videos
 
-- 🎥 [Structure Query Language](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=4f5a6bfe-5170-4c3c-97e8-ad660148d05a&start=0)
+- 🎥 [Structured Query Language](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=4f5a6bfe-5170-4c3c-97e8-ad660148d05a&start=0)
 - 🎥 [SQL Data Types](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=91cb451f-fc88-426d-9656-ad660149a253&start=0)
 - 🎥 [Creating and Dropping Tables](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=2b252adc-3c54-4f7e-bea0-ad66014b3c16&start=0)
 - 🎥 [Inserting, Updating, and Deleting Rows](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=02edabc8-3424-4d56-a86b-ad66014f13c3&start=0)

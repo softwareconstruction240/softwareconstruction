@@ -6,6 +6,8 @@
 
 In this part of the Chess Project, you will create an initial version of your Chess client. Your Chess client will be a terminal-based (i.e., console-based) program that gives the user a simple interface for playing Chess. Your client should implement all user interactions that occur outside of actually playing a game. Game play interactions will be implemented in the next phase. This includes allowing the user to display help text, register, login, list existing games, create a new game, join a game, observe a game, logout, and exit. You will also write the client code that draws the chessboard.
 
+To implement this, you will create a ServerFacade class to handle sending and recieving HTTP requests to and from your server. Your client code will then use your ServerFacade methods to make server API calls.
+
 ## Required Functionality
 
 ### Prelogin UI
@@ -49,7 +51,7 @@ As stated previously, gameplay will not be implemented until later. For now, whe
 ### Relevant Instruction Topics
 
 - [Console UI](../../instruction/console-ui/console-ui.md): Reading from the keyboard and writing out fancy text.
-- [Web API](../../instruction/web-api/web-api.md): Making HTTP client requests.
+- [Web API](../../instruction/web-api/web-api.md#web-client): Making HTTP client requests.
 
 ### Tips for using Unicode chess characters
 
@@ -67,9 +69,9 @@ There are no new pass off test cases for this assignment.
 
 Write positive and negative unit tests for each method on your ServerFacade class (all the methods used to call your server).
 
-Your tests must be located in the class provided starter code in the file `client/src/test/java/clientTests/ServerFacadeTests.java`
+Your tests must be located in the file `client/src/test/java/clientTests/ServerFacadeTests.java`, provided in the starter code.
 
-⚠ `ServerFacadedTests.java` contains code that will automatically start and shutdown your server on a randomly assigned port as part of the test. However, you will still need to start your server when you manually run your client.
+⚠ `ServerFacadeTests.java` contains code that will automatically start and shutdown your server on a randomly assigned port as part of the test. However, you will still need to start your server when you manually run your client.
 
 ```java
 public class ServerFacadeTests {

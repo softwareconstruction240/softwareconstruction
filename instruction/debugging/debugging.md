@@ -52,7 +52,7 @@ Collection<String> filterToCWordsAnyLengthAndAWordsGreaterThanFive(List<String> 
 }
 ```
 
-Sometime later we get a report from a user that says function it doesn't return the expected result. When they pass in:
+Sometime later we get a report from a user that says the function doesn't return the expected result. When they pass in:
 
 `"cattle", "dog", "appalachian", "apple", "pig", "cat"`
 

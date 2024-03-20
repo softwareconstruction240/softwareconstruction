@@ -68,7 +68,7 @@ Once you have a connection you can use it to create databases and tables. It is 
 We can fully configure a theoretical pet store application by doing the following.
 
 1. Get a connection to the RDBMS.
-1. Create the the pet store database if it doesn't exist.
+1. Create the pet store database if it doesn't exist.
 1. Create the pet table if it doesn't exist.
 
 ```java
@@ -268,13 +268,13 @@ void queryPets(Connection conn, String findType) throws SQLException {
 }
 ```
 
-When you call the result set `next` method it will advance the result to the next row. If it ever returns `false` then it means you have read all the matching rows. You can read the fields of the row with the result set `get` methods. There are methods for all of the basic SQL types. Make sure that the fields you get are represented in the fields that your `SELECT` statement requested.
+When you call the result set `next` method it will advance the result to the next row. If it ever returns `false` then it means you have read all the matching rows. You can read the fields of the row with the result set `get` methods. There are methods for all of the basic SQL types. Make sure that the fields you getting are represented in the fields that your `SELECT` statement requested.
 
 Make sure that your wrap the result set returned from the query with a `try-with-resource` block so that you release the resources associated with the result once you are done with them.
 
 ## Text and Blob Types
 
-Sometimes you want to store large text or binary data in the database. In MySQL the `text` type can represent large textual sequences, and the `blob` type represents large binary sequences. These can be as large as 4 gigabytes. Blob and text data is not searchable, but it is convenient to associate it with some other indexed fields. For example, a commonly used pattern called a `key-value` store, associates a single key field with a blob field. This basically uses the database as a big persisted map.
+Sometimes you want to store large text or binary data in the database. In MySQL the `text` type can represent large textual sequences, and the `blob` type represents large binary sequences. These can be as large as 4 gigabytes. Blob and text data is not searchable, but it is convenient to associate it with some other indexed fields. For example, a commonly used pattern called a `key-value` store, associates a single key field with a blob field. This basically uses the database as a big persistent map.
 
 Another example of storing large text data comes from the chess application. With chess, you need to store your game board and make it searchable using the game ID. One way to do this is to serialize your board to JSON and then place the JSON data in a `text` field.
 
@@ -345,7 +345,7 @@ interface FriendList {
     FriendList add(String friend);
 }
 
-record Pet(String name, String type, List friends) {}
+record Pet(String name, String type, FriendList friends) {}
 ```
 
 Now that we have an interface in our record, Gson no longer knows what class to create in order to represent the `FriendList` interface. That means we must register an adapter that explicitly handles the conversion. Gson supports this with the `JsonDeserializer` interface. This interface defines a method named `deserialize` that takes a JSON element and converts it into the expected object. In the example below we take the element and use the `fromJson` method to do the explicit conversion for us.

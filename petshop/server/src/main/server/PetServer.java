@@ -1,7 +1,6 @@
 package server;
 
 import com.google.gson.Gson;
-import dataaccess.DataAccess;
 import exception.ResponseException;
 import model.Pet;
 import server.websocket.WebSocketHandler;
@@ -14,8 +13,8 @@ public class PetServer {
     private final PetService service;
     private final WebSocketHandler webSocketHandler;
 
-    public PetServer(DataAccess dataAccess) {
-        service = new PetService(dataAccess);
+    public PetServer(PetService service) {
+        this.service = service;
         webSocketHandler = new WebSocketHandler();
     }
 
