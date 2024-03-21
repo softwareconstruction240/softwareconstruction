@@ -100,6 +100,36 @@ The following sections describe the server messages and user game command messag
 | **LEAVE**         | Integer gameID                                  | Tells the server you are leaving the game so it will stop sending you notifications. |
 | **RESIGN**        | Integer gameID                                  | Forfeits the match and ends the game (no more moves can be made).                    |
 
+```mermaid
+classDiagram
+    class UserGameCommand {
+        commandType: CommandType
+        authToken: String
+    }
+    class JoinPlayer {
+        gameID: Integer
+        playerColor: TeamColor
+    }
+    class JoinObserver {
+        gameID: Integer
+    }
+    class MakeMove {
+        gameID: Integer
+        move: ChessMove
+    }
+    class Leave {
+        gameID: Integer
+    }
+    class Resign {
+        gameID: Integer
+    }
+    UserGameCommand <|-- JoinPlayer
+    UserGameCommand <|-- JoinObserver
+    UserGameCommand <|-- MakeMove
+    UserGameCommand <|-- Leave
+    UserGameCommand <|-- Resign
+```
+
 ## Server Messages
 
 | Command          | Required Fields                                        | Description                                                                                                                         |
@@ -107,6 +137,26 @@ The following sections describe the server messages and user game command messag
 | **LOAD_GAME**    | game (can be any type, just needs to be called `game`) | Used by the server to send the current game state to a client. When a client receives this message, it will redraw the chess board. |
 | **ERROR**        | String errorMessage                                    | This message is sent to a client when it sends an invalid command. The message must include the word `Error`.                       |
 | **NOTIFICATION** | String message                                         | This is a message meant to inform a player when another player made an action.                                                      |
+
+```mermaid
+classDiagram
+    class ServerMessage {
+        commandType: CommandType
+        authToken: String
+    }
+    class LoadGame {
+        game: any
+    }
+    class Error {
+        errorMessage: String
+    }
+    class Notification {
+        message: String
+    }
+    ServerMessage <|-- LoadGame
+    ServerMessage <|-- Error
+    ServerMessage <|-- Notification
+```
 
 ## WebSocket Interactions
 
