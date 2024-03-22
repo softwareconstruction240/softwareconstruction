@@ -100,6 +100,36 @@ The following sections describe the server messages and user game command messag
 | **LEAVE**         | Integer gameID                                  | Tells the server you are leaving the game so it will stop sending you notifications. |
 | **RESIGN**        | Integer gameID                                  | Forfeits the match and ends the game (no more moves can be made).                    |
 
+```mermaid
+classDiagram
+    class UserGameCommand {
+        commandType: CommandType
+        authToken: String
+    }
+    class JoinPlayer {
+        gameID: Integer
+        playerColor: TeamColor
+    }
+    class JoinObserver {
+        gameID: Integer
+    }
+    class MakeMove {
+        gameID: Integer
+        move: ChessMove
+    }
+    class Leave {
+        gameID: Integer
+    }
+    class Resign {
+        gameID: Integer
+    }
+    UserGameCommand <|-- JoinPlayer
+    UserGameCommand <|-- JoinObserver
+    UserGameCommand <|-- MakeMove
+    UserGameCommand <|-- Leave
+    UserGameCommand <|-- Resign
+```
+
 ## Server Messages
 
 | Command          | Required Fields                                        | Description                                                                                                                         |
@@ -107,6 +137,26 @@ The following sections describe the server messages and user game command messag
 | **LOAD_GAME**    | game (can be any type, just needs to be called `game`) | Used by the server to send the current game state to a client. When a client receives this message, it will redraw the chess board. |
 | **ERROR**        | String errorMessage                                    | This message is sent to a client when it sends an invalid command. The message must include the word `Error`.                       |
 | **NOTIFICATION** | String message                                         | This is a message meant to inform a player when another player made an action.                                                      |
+
+```mermaid
+classDiagram
+    class ServerMessage {
+        commandType: CommandType
+        authToken: String
+    }
+    class LoadGame {
+        game: any
+    }
+    class Error {
+        errorMessage: String
+    }
+    class Notification {
+        message: String
+    }
+    ServerMessage <|-- LoadGame
+    ServerMessage <|-- Error
+    ServerMessage <|-- Notification
+```
 
 ## WebSocket Interactions
 
@@ -143,7 +193,7 @@ If a `UserGameCommand` is invalid (e.g. invalid authToken or gameID doesn’t ex
 1. Server marks the game as over (no more moves can be made). Game is updated in the database.
 1. Server sends a `Notification` message to **all clients** in that game informing them that the root client left. This applies to both players and observers.
 
-Here is a [sequence diagram](https://sequencediagram.org/index.html?presentationMode=readOnly#initialData=C4S2BsFMAIHEEMC2MAK54E8BQWB2B7YGfAN0gCdoBlCs8gLmgCFwBXGcEXSAZ2nMgAHAT0i5g0ABIAVaSmjIePeAHNeAOgA6uWALHRO3PgOG8xEgOqQARlXwBjANaQJi5Wp45B8cqHshvcWpaCix4e2B8SjRMCgBGMIio6BiMCgAmRMjKAHlrUXI6BKwAXhKAGXwVLjKAYjTwcHwAdyw8gqKAWlrrNkgAPhpCinpK6txodpDyOOhvJWaogBMsVIzu3vZB6dGqrhT0NPJ0ufgF5dXD+I2+7eGGMf21mdPz8hXSkoRkaHsBeFA+FwdQaTVazziNy2Qzo9AAwv8iHAkJAEhCoQMYSMAFL4fbfVHMcoAQThAGlLrEZt0VHpcHdYdicgBJAByAH0UCSAJoAUQASlgseQaXT+hDRjliQARdmwYkAWV5lKO6QxDJG5RAPGAKvWPVuwvouPxKNmFkkzOkyueatqtMgYg1DCZbM5PIFQumosd9NtkplcsVyuFPqdEtZOWkzIAYsy4cTozlWdAABQAKzxE1t0F64UcAEo2vlppCDdCdlqdcWOtdy5idiaJgSElN7mWHU6ja6OTkmFQBQA1T2h+1ittFAOy+VKr33MN+q4zeiR6NxhNJlMZrOTEvt6D4Pd0IujzuLqnpFdR2PxxPM5NpzP7CfxA9HihFz4EuaHEGQRotHq1Jjr6zr0AqxJkry7IKjkw7QJA6SQAALHOdALuKS5xFOQazqeYr+uUUrTsGaEUBhL7LkRgYziG3ogeGS6XquN4bveW6IKQMCIShJ70We-SUdhLHrneD6ppxZAIUhyGfmU372EC9hsDwIBAn+AHgkxGFGvyvJUMysCsmRIoMeeRzCdeombmmIggCo2ZMXx85mZhF5Xmut42amdkOQcF7OehrlCR5rFiVuvmOQFOC2jpla8sSw4mRhEZWV57FplA8BSbagXkcF77LiJ6XiVlOVOTgNalnF9yjAlSX4aBqWeWxpWQNlqAVZVWBAA) that demonstrates the player communications.
+Here is a [sequence diagram](https://sequencediagram.org/index.html?presentationMode=readOnly#initialData=C4S2BsFMAIHEEMC2MAK54E8BQWB2B7YGfAN0gCdoBlCs8gLmgCFwBXGcEXSAZ2nMgAHAT0i5g0ABIAVaSmjIePeAHNeAOgA6uWALHRO3PgOG8xEgOqQARlXwBjANaQJi5Wp45B8cqHshvcWpaCix4e2B8SjRMCgBGMIio6BiMCgAmRMjKAHlrUXI6BKwAXhKAGXwVLjKAYjTwcHwAdyw8gqKAWlrrNkgAPhpCinpK6txodpDyOOhvJWaogBMsVIzu3vZB6dGqrhT0NPJ0ufgF5dXD+I2+7eGGMf21mdPz8hXSkoRkaHsBeFA+FwdQaTVazziNy2Qzo9AAwv8iHAkJAEhCoQMYSMAFL4fbfVHMcoAQThAGlLrEZt0VHpcHdYdicgBJAByAH0UCSAJoAUQASlgseQaXT+hDRjliQARdmwYkAWV5lKO6QxDJG5RAPGAKvWPVuwvouPxKNmFkkzOkyueatqtMgYg1DCZbM5PIFQumosd9NtkplcsVyuFPqdEtZOWkzIAYsy4cTozlWdAABQAKzxE1t0F64UcAEo2vlppCDdCdlqdcWOtdy5idiaJgSElN7mWHU6ja6OTkmFQBQA1T2h+1ittFAOy+VKr33MN+q4zeiR6NxhNJlMZrOTEvt6D4Pd0IujzuLqnpFdR2PxxPM5NpzP7CfxA9HihFz4EuaHEGQRotHq1Jjr6zr0AqxJkry7IKjkw7QJA6SQAALHOdALuKS5xFOQazqeYr+uUUrTsGaEUBhL7LkRgYziG3ogeGS6XquN4bveW6IKQMCIShJ70We-SUdhLHrneD6ppxZAIUhyGfmU372EC9hsDwIBAn+AHgkxGFGvyvJUMysCsmRIoMeeRzCdeombmmIggCo2ZMXx85mZhF5Xmut42amdkOQcF7OehrlCR5rFiVuvmOQFOC2jpla8sSw4mRhEZWV57FplA8BSbagXkcF77LiJ6XiVlOVOTgNalnF9yjAlSX4aBqWeWxpWQNlMBCZ+lVAA) that demonstrates the player communications.
 
 ## Relevant Instruction Topics
 
