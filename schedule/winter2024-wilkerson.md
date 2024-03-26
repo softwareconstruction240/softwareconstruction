@@ -24,9 +24,9 @@
 |      | 19  | Thu Mar 14 | [Client HTTP](https://github.com/softwareconstruction240/softwareconstruction/blob/main/instruction/web-api/web-api.md)<br /> [Logging](https://github.com/softwareconstruction240/softwareconstruction/blob/main/instruction/logging/logging.md) | | |
 |  11  | 20  | Tue Mar 19 | [Defensive Programming](https://github.com/softwareconstruction240/softwareconstruction/blob/main/instruction/defensive-programming/defensive-programming.md)<br /> [WebSocket](https://github.com/softwareconstruction240/softwareconstruction/blob/main/instruction/websocket/websocket.md) | | |
 |      | 21  | Thu Mar 21 | [`Phase 6: Chess Gameplay`](https://github.com/softwareconstruction240/softwareconstruction/blob/main/chess/6-gameplay/gameplay.md) | |  _Due: Mar 22_ - [Phase 5: Chess Pregame](https://github.com/softwareconstruction240/softwareconstruction/blob/main/chess/5-pregame/pregame.md)  |
-|  12  | 22  | Tue Mar 26 | [Security: Hashing](https://github.com/softwareconstruction240/softwareconstruction/blob/main/instruction/computer-security/computer-security.md) | | |
-|      | 23  | Thu Mar 28 | [Security: Encrypting](https://github.com/softwareconstruction240/softwareconstruction/blob/main/instruction/computer-security/computer-security.md) | | _Due: Mar 29_ - [Programming Exam - 2nd Retake](https://byu.instructure.com/courses/24410/assignments) (if needed) |
-|  13  | 24  | Tue Apr 2  | [Concurrency](https://github.com/softwareconstruction240/softwareconstruction/blob/main/instruction/concurrency/concurrency.md) | | _Apr 3_ - Withdrawal Deadline |
+|  12  | 22  | Tue Mar 26 | [Security: Hashing](https://github.com/softwareconstruction240/softwareconstruction/blob/main/instruction/computer-security/computer-security.md)<br />[Security: Encrypting](https://github.com/softwareconstruction240/softwareconstruction/blob/main/instruction/computer-security/computer-security.md) | | |
+|      | 23  | Thu Mar 28 | [Concurrency](https://github.com/softwareconstruction240/softwareconstruction/blob/main/instruction/concurrency/concurrency.md) | | _Due: Mar 29_ - [Programming Exam - 2nd Retake](https://byu.instructure.com/courses/24410/assignments) (if needed) |
+|  13  | 24  | Tue Apr 2  | _TBA_ | | _Apr 3_ - Withdrawal Deadline |
 |      | 25  | Thu Apr 4  | _TBA_ | | |
 |  14  | 26  | Tue Apr 9  | _TBA_ | | |
 |      | 27  | Thu Apr 11 | _TBA_ | |  _Due: Apr 11_ - [Phase 6: Chess Gameplay](https://github.com/softwareconstruction240/softwareconstruction/blob/main/chess/6-gameplay/gameplay.md) |
