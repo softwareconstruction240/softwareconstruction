@@ -142,7 +142,6 @@ classDiagram
 classDiagram
     class ServerMessage {
         commandType: CommandType
-        authToken: String
     }
     class LoadGame {
         game: any
