@@ -219,17 +219,18 @@ You could implement this algorithm for both encryption and decryption with the f
 ```java
 public class SimpleExample {
   public static void main(String[] args) {
+      var key = 1;
       var plainText = "toomanysecrets".toCharArray();
 
       // encrypt
       var cipherText = new char[plainText.length];
       for (var i = 0; i < plainText.length; i++) {
-          cipherText[i] = (char) (plainText[i] + 1);
+          cipherText[i] = (char) (plainText[i] + key);
       }
 
       // decrypt
       for (var i = 0; i < cipherText.length; i++) {
-          plainText[i] = (char) (cipherText[i] - 1);
+          plainText[i] = (char) (cipherText[i] - key);
       }
 
       System.out.println(plainText);
