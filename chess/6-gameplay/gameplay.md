@@ -141,7 +141,7 @@ classDiagram
 ```mermaid
 classDiagram
     class ServerMessage {
-        commandType: CommandType
+        serverMessageType : ServerMessageType
     }
     class LoadGame {
         game: any
