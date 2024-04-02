@@ -16,7 +16,7 @@ In this part of the Chess project, you will create a MySQL implementation of you
 
 ## Making Database Connections
 
-The getting started code found in the `server/src/main/dataAccess/databaseManager.java` file reads the database configuration information from `db.properties` and contains a static function for creating database connections. The following code gives you an example of how you can use this code.
+The getting started code found in the `server/src/main/dataaccess/DatabaseManager.java` file reads the database configuration information from `db.properties` and contains a static function for creating database connections. The following code gives you an example of how you can use this code.
 
 ```java
 public void example() throws Exception {
