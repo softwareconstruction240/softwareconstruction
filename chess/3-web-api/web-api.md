@@ -148,7 +148,7 @@ As part of this phase, you need to create [record](../../instruction/records/rec
 
 ### Data Access Classes
 
-Classes that represent the access to your database are often called `Data Access Objects` (DOAs). Create your data access classes in the `server/src/main/java/dataAccess` package. Data access classes are responsible for storing and retrieving the server’s data (users, games, etc.).
+Classes that represent the access to your database are often called `Data Access Objects` (DOAs). Create your data access classes in the `server/src/main/java/dataaccess` package. Data access classes are responsible for storing and retrieving the server’s data (users, games, etc.).
 
 For the most part, the methods on your DAO classes will be `CRUD` operations that:
 
@@ -165,7 +165,7 @@ void insertUser(UserData u) throws DataAccessException
 
 ### DataAccessException
 
-The starter code includes a `dataAccess.DataAccessException`. This exception should be thrown by data access methods that could fail. If a method call fails, it should throw a `DataAccessException`. For example, the `DataAccessException` is thrown if a user attempts to update a non-existent game.
+The starter code includes a `dataaccess.DataAccessException`. This exception should be thrown by data access methods that could fail. If a method call fails, it should throw a `DataAccessException`. For example, the `DataAccessException` is thrown if a user attempts to update a non-existent game.
 
 ### Example Data Access Methods
 
@@ -193,7 +193,7 @@ By using an interface you can hide, or encapsulate, how your data access works f
 1. You can quickly implement our services without having to implement a backing SQL database. This lets us focus on the HTTP part of our server during this phase and then move over to SQL without changing any of our service code.
 2. You can write data access tests against the memory implementation of the interface and then reuse those tests when you create the SQL implementation.
 
-⚠ You must place your data access classes in a folder named `server/src/main/java/dataAccess`.
+⚠ You must place your data access classes in a folder named `server/src/main/java/dataaccess`.
 
 ### Service Classes
 
@@ -343,7 +343,7 @@ Good tests extensively show that we get the expected behavior. This could be ass
 
 The service unit tests must directly call the methods on your service classes. They should not use the HTTP server pass off test code that is provided with the starter code.
 
-⚠ You must place your service test cases in a folder named `server/src/test/java/serviceTests`.
+⚠ You must place your service test cases in a folder named `server/src/test/java/service`.
 
 ## Server Directory Structure
 
@@ -359,9 +359,9 @@ After you have created all the classes necessary for this phase you should have 
 │     │     └─ service
 │     └─ test
 │        └─ java
-│           ├─ passoffTests
-│           │  └─ serverTests
-│           └─ serviceTests
+│           ├─ passoff
+│           │  └─ server
+│           └─ service
 └─ shared
    └─ src
       └─ main
