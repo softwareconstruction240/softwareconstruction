@@ -29,15 +29,15 @@ As a first step for creating your design diagram, you need to carefully read the
 
 The server endpoints are summarized below, but it is critical that you completely understand their purpose, the data they expect, and the data that they return.
 
-| Endpoint    | Description                                                                                                                                                                                                                                      |
-| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Clear       | Clears the database. Removes all users, games, and authTokens.                                                                                                                                                                                   |
-| Register    | Register a new user.                                                                                                                                                                                                                             |
-| Login       | Logs in an existing user (returns a new authToken).                                                                                                                                                                                              |
-| Logout      | Logs out the user represented by the provided authToken.                                                                                                                                                                                         |
-| List Games  | Verifies the provided authToken and gives a list of all games.                                                                                                                                                                                   |
-| Create Game | Verifies the provided authToken and creates a new game.                                                                                                                                                                                          |
-| Join Game   | Verifies the provided authToken. Checks that the specified game exists, and if a color is specified, adds the caller as the requested color to the game. If no color is specified the user is joined as an observer. This request is idempotent. |
+| Endpoint    | Description                                                                                                                     |
+| ----------- |---------------------------------------------------------------------------------------------------------------------------------|
+| Clear       | Clears the database. Removes all users, games, and authTokens.                                                                  |
+| Register    | Register a new user.                                                                                                            |
+| Login       | Logs in an existing user (returns a new authToken).                                                                             |
+| Logout      | Logs out the user represented by the provided authToken.                                                                        |
+| List Games  | Verifies the provided authToken and gives a list of all games.                                                                  |
+| Create Game | Verifies the provided authToken and creates a new game.                                                                         |
+| Join Game   | Verifies the provided authToken. Checks that the specified game exists, and adds the caller as the requested color to the game. |
 
 ## Data Model Classes
 
