@@ -85,7 +85,7 @@ ALTER USER 'root'@'localhost' IDENTIFIED BY 'monkeypie';
 Use the following to install the latest version of Java on your EC2 server.
 
 1.  SSH into server as described above
-1.  Install java `sudo ynf install java`
+1.  Install java `sudo dnf install java`
 1.  Check that Java is running with `java --version`
 
 ## Modify your client code
