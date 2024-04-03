@@ -4,7 +4,7 @@
 - [Getting Started](getting-started.md)
 - [Starter Code](starter-code)
 
-For the final part of the Chess Project, you will implement gameplay. Gameplay will use WebSocket to communicate between client and server (instead of Web APIs). When a user joins or observes a game, their client should establish a WebSocket connection with the server. The WebSocket connection exchanges messages between client and server (and vice versa). Figure 1 shows a recommended design for the chess client.
+For the final part of the Chess Project, you will implement gameplay. Gameplay will use WebSocket to communicate between client and server (instead of Web APIs). When a user begins playing or observes a game, their client should establish a WebSocket connection with the server. The WebSocket connection exchanges messages between client and server (and vice versa). Figure 1 shows a recommended design for the chess client.
 
 ![client design](client-design.png)
 
@@ -33,8 +33,8 @@ _Figure 2: Example Highlight Move_
 
 When the following events occur, notification messages should be displayed on the screen of each player that is involved in the game (player or observer).
 
-1. A user joined the game as a player (black or white). The notification message should include the player’s name and which side they are playing (black or white).
-1. A user joined the game as an observer. The notification message should include the observer’s name.
+1. A user connected to the game as a player (black or white). The notification message should include the player’s name and which side they are playing (black or white).
+1. A user connected to the game as an observer. The notification message should include the observer’s name.
 1. A player made a move. The notification message should include the player’s name and a description of the move that was made. (This is in addition to the board being updated on each player’s screen.)
 1. A player left the game. The notification message should include the player’s name.
 1. A player resigned the game. The notification message should include the player’s name.
@@ -45,11 +45,11 @@ When the following events occur, notification messages should be displayed on th
 
 During gameplay all communication between client and server should be implemented using WebSocket.
 
-When a user joins or observes a game, their client should do the following:
+When a user begins playing or observing a game, their client should do the following:
 
-1. Call the server join API to join them to the game (or verify the game exists if they are observing).
-1. Open a WebSocket connection with the server (using the `/connect` endpoint) so it can send and receive gameplay messages.
-1. Send either a JOIN_PLAYER or JOIN_OBSERVER WebSocket message to the server.
+1. Call the server join API to join them to the game (ONLY in case of playing rather than observing).
+1. Open a WebSocket connection with the server (using the `/ws` endpoint) so it can send and receive gameplay messages.
+1. Send a CONNECT WebSocket message to the server.
 1. Transition to the gameplay UI. The gameplay UI draws the chess board and allows the user perform the gameplay commands described in the previous section.
 
 The following sections describe the messages that will be exchanged between client and server (or vice versa) to implement the gameplay functionality.
@@ -61,8 +61,7 @@ Some WebSocket messages will be sent from client to server. We call these `user 
 ```java
 public class UserGameCommand {
     public enum CommandType {
-        JOIN_PLAYER,
-        JOIN_OBSERVER,
+        CONNECT,
         MAKE_MOVE,
         LEAVE,
         RESIGN
@@ -92,13 +91,12 @@ The following sections describe the server messages and user game command messag
 
 ## User Game Commands
 
-| Command           | Required Fields                                 | Description                                                                          |
-| ----------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------ |
-| **JOIN_PLAYER**   | Integer gameID, ChessGame.TeamColor playerColor | Used for a user to request to join a game.                                           |
-| **JOIN_OBSERVER** | Integer gameID                                  | Used to request to start observing a game.                                           |
-| **MAKE_MOVE**     | Integer gameID, ChessMove move                  | Used to request to make a move in a game.                                            |
-| **LEAVE**         | Integer gameID                                  | Tells the server you are leaving the game so it will stop sending you notifications. |
-| **RESIGN**        | Integer gameID                                  | Forfeits the match and ends the game (no more moves can be made).                    |
+| Command           | Required Fields                | Description                                                                          |
+|-------------------|--------------------------------|--------------------------------------------------------------------------------------|
+| **CONNECT**       | Integer gameID                 | Used for a user to request to connect to a game as a player or observer.             |
+| **MAKE_MOVE**     | Integer gameID, ChessMove move | Used to request to make a move in a game.                                            |
+| **LEAVE**         | Integer gameID                 | Tells the server you are leaving the game so it will stop sending you notifications. |
+| **RESIGN**        | Integer gameID                 | Forfeits the match and ends the game (no more moves can be made).                    |
 
 ```mermaid
 classDiagram
@@ -106,11 +104,7 @@ classDiagram
         commandType: CommandType
         authToken: String
     }
-    class JoinPlayer {
-        gameID: Integer
-        playerColor: TeamColor
-    }
-    class JoinObserver {
+    class Connect {
         gameID: Integer
     }
     class MakeMove {
@@ -123,8 +117,7 @@ classDiagram
     class Resign {
         gameID: Integer
     }
-    UserGameCommand <|-- JoinPlayer
-    UserGameCommand <|-- JoinObserver
+    UserGameCommand <|-- Connect
     UserGameCommand <|-- MakeMove
     UserGameCommand <|-- Leave
     UserGameCommand <|-- Resign
@@ -165,15 +158,10 @@ When sending a `Notification` that refers to one of the clients, the message sho
 
 If a `UserGameCommand` is invalid (e.g. invalid authToken or gameID doesn’t exist) the server should only send an `Error` message informing the Root Client what went wrong. No messages should be sent to the other Clients. The Error message must contain the word `error` (case doesn’t matter).
 
-**Root Client sends JOIN_PLAYER**
+**Root Client sends CONNECT**
 
 1. Server sends a `LOAD_GAME` message back to the root client.
-1. Server sends a `Notification` message to all **other clients** in that game informing them what color the root client is joining as.
-
-**Root Client sends JOIN_OBSERVER**
-
-1. Server sends a `LOAD_GAME` message back to the root client.
-1. Server sends a `Notification` message to all **other clients** in that game informing them the root client joined as an observer.
+1. Server sends a `Notification` message to all **other clients** in that game informing them the root client connected to the game, either as a player (in which case their color must be specified) or as an observer.
 
 **Root Client sends MAKE_MOVE**
 
@@ -218,13 +206,13 @@ To pass off this assignment submit your work to the course [auto-grading](https:
 ### Grading Rubric
 
 | Category                      | Criteria                                                                                           |       Points |
-| ----------------------------- | -------------------------------------------------------------------------------------------------- | -----------: |
+|-------------------------------|----------------------------------------------------------------------------------------------------| -----------: |
 | GitHub History                | At least 10 GitHub commits evenly spread over the assignment period that demonstrate proof of work | Prerequisite |
 | Automated Pass Off Test Cases | There are 20 JUnit pass off test cases. Each successful test case is worth 2.5 points.             |           50 |
 | Help Text                     | Useful help text is displayed informing the user what actions they can take.                       |            5 |
-| Observer Join Game            | Observers can join a game. Notification sent and board drawn.                                      |            5 |
+| Observer Connect              | Observers can connect to a game. Notification sent and board drawn.                                |            5 |
 | Observer Leave Game           | Observers can leave games. Notification sent.                                                      |            5 |
-| Player Join Game              | Players can join a game as a specified color. Notification sent and board drawn.                   |            5 |
+| Player Connect                | Players can connect to a game as a specified color. Notification sent and board drawn.             |            5 |
 | Player Move Piece             | Players can move pieces. Illegal moves rejected. Notification sent and board drawn.                |           15 |
 | Player Leave Game             | Players can leave games. Notification sent.                                                        |            5 |
 | Player Resign Game            | Players can resign from games. Notification sent.                                                  |            5 |
