@@ -67,6 +67,7 @@ The course content is divided into multiple topics that you should strive to mas
 - [Computer Security](computer-security/computer-security.md)
 - [Concurrency](concurrency/concurrency.md)
 - [Command line tools](command-line-builds/command-line-builds.md)
+- [AWS Chess Server](aws-chess-server/aws-chess-server.md)
 
 ## Final
 

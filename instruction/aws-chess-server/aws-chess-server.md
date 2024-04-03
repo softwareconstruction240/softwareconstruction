@@ -1,6 +1,6 @@
 # AWS Chess Server
 
-Playing chess in your development environment by yourself can get old after a while. Wouldn't it be great if you could actually play with your friends or family? The great thing is that your code is already designed to allow any computer in the world to talk to your HTTP server, you just need to put it in a place where it is accessible. To do this, you need run your chess server on a device that has a public IP address and open up your network port so that it is externally accessible.
+Playing chess in your development environment by yourself can get old after a while. Wouldn't it be nice if you could actually play with your friends or family? The great thing is that your code is already designed to allow any computer in the world to talk to your HTTP server, you just need to put it in a place where it is accessible. To do this, you need to run your chess server on a device that has a public IP address and open up your network port so that it is externally accessible.
 
 There are lots of ways you can accomplish this. You could lease an IP address from your internet service provider (ISP) and assign it to your laptop, or you could lease a server from a cloud provider such as Digital Ocean, Azure, or Amazon Web Services (AWS).
 
@@ -18,23 +18,25 @@ The Amazon Elastic Compute Cloud (EC2) service provides all of the functionality
    ![EC2 service selection](awsEc2Selection.png)
 1. Create a security group
 
-   1. First we need to create a security group that will expose the ability to talk to our server over HTTP on the servers network port. This is usually port 8080. On the EC2 dashboard select the `Security Group` view and then select the security group from the options on the left.
-   1. Give it a meaningful name and description. Select the default VPN.
+   1. The security group will expose the ability to talk to our server over HTTP on the server's network port. This is usually port 8080. From the EC2 dashboard select the `Security Group` view from the options on the left.
+   1. Select the option to create a security group.
+   1. Give it a meaningful name and description. Select the default VPC.
       ![Create security group](createSecurityGroup.png)
    1. In the `Inbound rules` section, create a rule that opens port 22 and port 8080 to everywhere.
       ![Inbound rules](inboundRules.png)
+   1. Save the security group.
 
 1. Launch a server instance. Navigate back to the EC2 dashboard
 
-   1. Select the option to `Launch instance`
-   1. Give your instance a name like `cs240-chessserver`
-   1. Chose AWS linux for your Amazon Machine Image (AMI)
+   1. Select the option to `Launch instance`.
+   1. Give your instance a name like `cs240-chessserver`.
+   1. Chose AWS linux for your Amazon Machine Image (AMI).
       ![Amazon Machine Image](ami.png)
-   1. Specify the security group that opens port 8080, 22
+   1. Specify the security group that opens port 8080, 22.
    1. Set the instance type of t2.micro. If you are eligible for the free tier then you will not be billing for the first 12 months of your first t2.micro instance.
       ![Instance type](instanceType.png)
    1. In the Key pair input select an existing key pair if you have created one previously, or select the `Create new key pair` option. Make sure you save the key pair to a safe place in your development environment. You will need this to connect to your server, and you do not want to let anyone else have access to it. Do not check the key pair into GitHub or any other publicly available location.
-   1. In the `Network settings` you specify how the world can access your server. Choose the option to `Select existing security group` and pick the security group you created perviously.
+   1. In the `Network settings` you specify how the world can access your server. Choose the option to `Select existing security group` and pick the security group you created previously.
       ![Security group configuration](securityGroup.png)
 
    1. Scroll past the remaining options and press `Launch instance`. This will display a message saying that the instance has been successfully launched. You can then navigate to the `Instances` view and click on your newly created server to see all of the details.
@@ -70,10 +72,10 @@ mysql -u root -p
 ALTER USER 'root'@'localhost' IDENTIFIED BY 'yourpassword';
 ```
 
-If you password is not complicated enough to for the default MySQL password checker, you can disable the checker, but first you must change the password to something that is acceptable.
+If your password is not complicated enough for the default MySQL password checker, you can disable the checker, but first you must change the password to something that is acceptable.
 
 ```sh
-ALTER USER 'root'@'localhost' IDENTIFIED BY '1ReallyComplicated!!';
+ALTER USER 'root'@'localhost' IDENTIFIED BY '1Really~Complicated!!';
 UNINSTALL COMPONENT 'file://component_validate_password';
 ALTER USER 'root'@'localhost' IDENTIFIED BY 'monkeypie';
 ```
