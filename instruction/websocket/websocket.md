@@ -18,7 +18,7 @@ WebSocket connections are still only between two parties. So if you want to faci
 
 ## Creating a WebSocket Server Connection
 
-Here is an example of a basic HTTP server that uses the `JavaSpark` package to support upgrading to the WebSocket protocol when the `/connect` endpoint is called by a client.
+Here is an example of a basic HTTP server that uses the `JavaSpark` package to support upgrading to the WebSocket protocol when the `/ws` endpoint is called by a client.
 
 ```java
 import org.eclipse.jetty.websocket.api.annotations.*;
@@ -29,7 +29,7 @@ import spark.Spark;
 public class WSServer {
     public static void main(String[] args) {
         Spark.port(8080);
-        Spark.webSocket("/connect", WSServer.class);
+        Spark.webSocket("/ws", WSServer.class);
         Spark.get("/echo/:msg", (req, res) -> "HTTP response: " + req.params(":msg"));
     }
 
@@ -75,7 +75,7 @@ public class WSClient extends Endpoint {
     public Session session;
 
     public WSClient() throws Exception {
-        URI uri = new URI("ws://localhost:8080/connect");
+        URI uri = new URI("ws://localhost:8080/ws");
         WebSocketContainer container = ContainerProvider.getWebSocketContainer();
         this.session = container.connectToServer(this, uri);
 
