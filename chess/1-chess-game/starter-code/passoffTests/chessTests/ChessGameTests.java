@@ -482,6 +482,29 @@ public class ChessGameTests {
                 "White is not in checkmate but isInCheckmate returned true");
 
     }
+    
+    @Test
+    @DisplayName("Black can escape Check by capturing")
+    public void escapeCheckByCapturingThreateningPiece() {
+
+        var game = getNewGame();
+        game.setBoard(loadBoard("""
+                | | | | | |r|k| |
+                | | | | | |P| |p|
+                | | | |N| | | | |
+                | | | | |B| | | |
+                | | | | | | | | |
+                | | | | | | | | |
+                | | | | |n| | | |
+                |K| | | | | | | |
+                """));
+        game.setTeamTurn(ChessGame.TeamColor.BLACK);
+
+        Assertions.assertFalse(game.isInCheckmate(ChessGame.TeamColor.BLACK),
+                "Black is not in checkmate but isInCheckmate returned true");
+        Assertions.assertFalse(game.isInCheckmate(ChessGame.TeamColor.WHITE),
+                "White is not in checkmate but isInCheckmate returned true");
+    }
 
 
     @Test
