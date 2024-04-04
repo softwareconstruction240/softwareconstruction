@@ -532,6 +532,30 @@ public class ChessGameTests {
 
 
     @Test
+    @DisplayName("Checkmate, where blocking a threat reveals a new threat")
+    public void checkmateWhereBlockingThreateningPieceOpensNewThreat() {
+
+        var game = getNewGame();
+        game.setBoard(loadBoard("""
+                | | | | | | |r|k|
+                | | |R| | | | | |
+                | | | | | | | | |
+                | | | | |r| | | |
+                | | | | | | | | |
+                | | |B| | | | | |
+                | | | | | | | | |
+                |K| | | | | | |R|
+                """));
+        game.setTeamTurn(ChessGame.TeamColor.BLACK);
+
+        Assertions.assertTrue(game.isInCheckmate(ChessGame.TeamColor.BLACK),
+                "Black is in checkmate but isInCheckmate returned false");
+        Assertions.assertFalse(game.isInCheckmate(ChessGame.TeamColor.WHITE),
+                "White is not in checkmate but isInCheckmate returned true");
+    }
+
+
+    @Test
     @DisplayName("Pinned King Causes Stalemate")
     public void stalemate() {
         var game = getNewGame();
