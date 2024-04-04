@@ -508,6 +508,30 @@ public class ChessGameTests {
 
 
     @Test
+    @DisplayName("Black CANNOT escape Check by capturing")
+    public void cannotEscapeCheckByCapturingThreateningPiece() {
+
+        var game = getNewGame();
+        game.setBoard(loadBoard("""
+                | | | | | |r|k| |
+                | | | | | |P| |p|
+                | | | |N| | | | |
+                | | | | |B| | | |
+                | | | | | | | | |
+                | | | | | | | | |
+                | | | | |n| | | |
+                |K| | | | | |R| |
+                """));
+        game.setTeamTurn(ChessGame.TeamColor.BLACK);
+
+        Assertions.assertTrue(game.isInCheckmate(ChessGame.TeamColor.BLACK),
+                "Black is in checkmate but isInCheckmate returned false");
+        Assertions.assertFalse(game.isInCheckmate(ChessGame.TeamColor.WHITE),
+                "White is not in checkmate but isInCheckmate returned true");
+    }
+
+
+    @Test
     @DisplayName("Pinned King Causes Stalemate")
     public void stalemate() {
         var game = getNewGame();
