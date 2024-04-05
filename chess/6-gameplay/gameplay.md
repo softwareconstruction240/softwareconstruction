@@ -230,6 +230,6 @@ To pass off this assignment submit your work to the course [auto-grading](https:
 | Player Resign Game            | Players can resign from games. Notification sent.                                                  |            5 |
 | Display Legal Moves           | Any player or observer can display the legal moves available to the player whose turn it is.       |           10 |
 | Redraw Board                  | The board redraws when requested by the user (player or observer).                                 |            5 |
-| Game completion               | No moves after game completion due to resignation, checkmate, or stalemate.                        |           15 |
+| Game completion               | No moves after game completion due to resignation, checkmate, or stalemate. Check or checkmate notification sent.                        |           15 |
 | Code Quality                  | [Rubric](../code-quality-rubric.md)                                                                |           30 |
 |                               | Total                                                                                              |          155 |
