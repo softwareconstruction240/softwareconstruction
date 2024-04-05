@@ -26,8 +26,9 @@ The Amazon Elastic Compute Cloud (EC2) service provides all of the functionality
       ![Inbound rules](inboundRules.png)
    1. Save the security group.
 
-1. Launch a server instance. Navigate back to the EC2 dashboard
-
+1. Launch a server instance.
+   
+   1. Navigate back to the EC2 dashboard.
    1. Select the option to `Launch instance`.
    1. Give your instance a name like `cs240-chessserver`.
    1. Chose AWS linux for your Amazon Machine Image (AMI).
