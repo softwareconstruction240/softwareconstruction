@@ -37,7 +37,8 @@ The Amazon Elastic Compute Cloud (EC2) service provides all of the functionality
 
       ![Instance type](instanceType.png)
 
-   1. In the Key pair input select an existing key pair if you have created one previously, or select the `Create new key pair` option. Make sure you save the key pair to a safe place in your development environment. You will need this to connect to your server, and you do not want to let anyone else have access to it. Do not check the key pair into GitHub or any other publicly available location.
+   1. In the Key pair input select an existing key pair if you have created one previously, or select the `Create new key pair` option. Make sure you save the key pair to a safe place in your development environment. You will need this to connect to your server, and you do not want to let anyone else have access to it. Do not check the key pair into GitHub or any other publicly available location.<br/><br/>
+   **Note:** You may need to change the file permissions to protect your key file before you can use it to access your AWS instance. If using a Mac or Linux, use the command ```chmod 600 <path to your file>```. 
    1. In the `Network settings` you specify how the world can access your server. Choose the option to `Select existing security group` and pick the security group you created previously.
 
       ![Security group configuration](securityGroup.png)
@@ -84,6 +85,7 @@ ALTER USER 'root'@'localhost' IDENTIFIED BY '1Really~Complicated!!';
 UNINSTALL COMPONENT 'file://component_validate_password';
 ALTER USER 'root'@'localhost' IDENTIFIED BY 'monkeypie';
 ```
+**Note:** Make sure your password matches the root password specified in the db.properties file in your chess client.
 
 ## Install Java
 
@@ -165,5 +167,28 @@ java -jar client.jar youripaddress:8080
 ```
 
 ![Playing chess](playingChess.png)
+
+## Make your chess server start whenever you start the AWS instance
+
+Invoking your chess server from ssh will require you to keep the ssh terminal open. You can make your chess server start automatically every time your AWS instance is started by following these instructions:
+
+1. SSH into your server as described above
+2. Create and open a service description file: ```sudo nano /etc/systemd/system/chess_server.service```
+3. Enter and save the following in the Nano code editor window:
+```[Unit]
+Description=Chess Server
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=java -jar /home/ec2-user/server.jar
+
+[Install]
+WantedBy=multi-user.targetsudo systemctl enable chess_server
+```
+4. Enable the chess server service: ```sudo systemctl enable chess_server```
+5. Start the chess server service: ```sudo systemctl start chess_server```
+6. Check the status of the chess server service: ```sudo systemctl status chess_server```
+7. To confirm that the service starts whenever the AWS instance is started, stop and restart the AWS instance from the AWS console or use this command: ```sudo reboot```
 
 Have fun! You have just taken the first step in becoming the world's best chess server.
