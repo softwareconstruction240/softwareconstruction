@@ -27,7 +27,7 @@ The Amazon Elastic Compute Cloud (EC2) service provides all of the functionality
    1. Save the security group.
 
 1. Launch a server instance.
-   
+
    1. Navigate back to the EC2 dashboard.
    1. Select the option to `Launch instance`.
    1. Give your instance a name like `cs240-chessserver`.
@@ -36,6 +36,7 @@ The Amazon Elastic Compute Cloud (EC2) service provides all of the functionality
    1. Set the instance type of t2.micro. If you are eligible for the free tier then you will not be billing for the first 12 months of your first t2.micro instance.
 
       ![Instance type](instanceType.png)
+
    1. In the Key pair input select an existing key pair if you have created one previously, or select the `Create new key pair` option. Make sure you save the key pair to a safe place in your development environment. You will need this to connect to your server, and you do not want to let anyone else have access to it. Do not check the key pair into GitHub or any other publicly available location.
    1. In the `Network settings` you specify how the world can access your server. Choose the option to `Select existing security group` and pick the security group you created previously.
 
@@ -158,6 +159,10 @@ You can then click the link that you created to download the client. Note that y
 ![Ignore security warnings](ignoreSecurityWarnings.png)
 
 Now you can use the Java runtime to run your chess client. Make sure you provide the ip address and port number as parameters.
+
+```sh
+java -jar client.jar youripaddress:8080
+```
 
 ![Playing chess](playingChess.png)
 
