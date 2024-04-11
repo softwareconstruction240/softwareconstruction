@@ -181,10 +181,11 @@ After=network.target
 
 [Service]
 Type=simple
-ExecStart=java -jar /home/ec2-user/server.jar
+ExecStart=java -jar /home/ec2-user/server.jar 8080
 
 [Install]
-WantedBy=multi-user.targetsudo systemctl enable chess_server
+WantedBy=multi-user.target
+sudo systemctl enable chess_server
 ```
 4. Enable the chess server service: ```sudo systemctl enable chess_server```
 5. Start the chess server service: ```sudo systemctl start chess_server```
