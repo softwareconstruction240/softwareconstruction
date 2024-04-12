@@ -181,6 +181,7 @@ If a `UserGameCommand` is invalid (e.g. invalid authToken or gameID doesn’t ex
 1. Game is updated to represent the move. Game is updated in the database.
 1. Server sends a `LOAD_GAME` message to all clients in the game (including the root client) with an updated game.
 1. Server sends a `Notification` message to all **other clients** in that game informing them what move was made.
+1. If the move results in check or checkmate the server sends a `Notification` message to **all clients**.
 
 **Root Client sends LEAVE**
 
