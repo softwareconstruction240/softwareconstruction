@@ -150,29 +150,28 @@ Note that the salt is not encrypted. It can be simply stored in your database al
 
 ### Bcrypt
 
-As an additional protection for our user's passwords we want to use a hash algorithm that is expensive to calculate. That way it is difficult to create a table of precomputed passwords. With modern hardware that utilizes graphical processing units (GPUs), it is possible to try millions of possible hashes per second with the `SHA-256` algorithm. For this reason, algorithms such as `Bcrypt` were created to make it computationally expensive to generate a hash, while still maintaining all of the other desirable characteristics of a password hashing algorithm. That means that while `SHA-256` can create millions of hashes per second, `Bcrypt` will only generate a few thousand when running on the same hardware. The cost of generation it very difficult for an attacker to create a large rainbow table, and extremely difficult to do so with salted data.
+As an additional protection for our user's passwords we want to use a hash algorithm that is expensive to calculate. That way it is difficult to create a table of precomputed passwords. With modern hardware that utilizes graphical processing units (GPUs), it is possible to try millions of possible hashes per second with the `SHA-256` algorithm. For this reason, algorithms such as `Bcrypt` were created to make it computationally expensive to generate a hash, while still maintaining all of the other desirable characteristics of a password hashing algorithm. That means that while `SHA-256` can create millions of hashes per second, `Bcrypt` will only generate a few thousand when running on the same hardware. The cost of generation makes it very difficult for an attacker to create a large rainbow table, and extremely difficult to do so with salted data.
 
 You can experiment with `Bcrypt` using the following library.
 
 ```
-org.springframework.security:spring-security-core:6.2.1
+org.mindrot:jbcrypt:0.4
 ```
 
 This implementation of Bcrypt makes it so you can hash and salt a password with one line of code, and then later compare the hash to a candidate password with another line of code. The following example first hashes the password `toomanysecrets` and then compares it to three possible candidates.
 
 ```java
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.mindrot.jbcrypt.BCrypt;
 
 public class PasswordExample {
 
     public static void main(String[] args) {
-        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         String secret = "toomanysecrets";
-        String hash = encoder.encode(secret);
+        String hash = BCrypt.hashpw(secret, BCrypt.gensalt());
 
         String[] passwords = {"cow", "toomanysecrets", "password"};
         for (var pw : passwords) {
-            var match = encoder.matches(pw, hash) ? "==" : "!=";
+            var match = BCrypt.checkpw(pw, hash) ? "==" : "!=";
 
             System.out.printf("%s %s %s%n", pw, match, secret);
         }

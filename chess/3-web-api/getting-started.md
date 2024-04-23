@@ -5,12 +5,12 @@
 The Starter Code has three folders: `dataAccess`, `serverTests`, and `web`. Do the following to move them into your project:
 
 1. Copy the [server](starter-code/server/) folder into the `server/src/main/java` folder. This contains a basic implementation of an HTTP server that allows the pass off tests to programmatically start and stop your server, as well as the code to host a web browser interface for experimenting with your endpoints.
-1. Copy the [dataAccess](starter-code/dataAccess/) folder into the `server/src/main/java` folder. This contains an exception class that you will throw whenever there is a data access error.
+1. Copy the [dataAccess](starter-code/dataaccess/) folder into the `server/src/main/java` folder. This contains an exception class that you will throw whenever there is a data access error.
 1. Create the folder `server/src/test/java`. Right click on the folder and select the option to mark the directory as `test sources root`. This tells IntelliJ where to look for code to run as tests.
 
    ![mark test root](mark-test-root.png)
 
-1. Copy the [serverTests](starter-code/serverTests/) folder to the `server/src/test/java/passoffTests` folder. The `serverTests` folder contains the server test cases.
+1. Copy the [passoff](starter-code/passoff/) folder to the `server/src/test/java` folder. The `passoff/server` folder contains the server test cases.
 1. Create the folder `server/src/main/resources`. Right click on the folder and select the option to mark the directory as `resources root`. This tells IntelliJ that it should include the directory when compiling the code to your `out` directory.
 1. Copy the [resources/web](starter-code/resources/web/) folder to the `server/src/main/resources` folder. The `web` folder contains the files that implement the web browser interface for experimenting with your endpoints.
 
@@ -23,7 +23,7 @@ This should result in the following additions to your project.
         │   ├── java
         │   │   ├── server
         │   │   │   └── Server.java
-        │   │   └── dataAccess
+        │   │   └── dataaccess
         │   │       └── DataAccessException.java
         │   └── resources
         │       └── web
@@ -33,8 +33,8 @@ This should result in the following additions to your project.
         │           └── index.js
         └── test
             └── java
-                └── passoffTests
-                    └── serverTests
+                └── passoff
+                    └── server
                         └── StandardAPITests.java
 ```
 
