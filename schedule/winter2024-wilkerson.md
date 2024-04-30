@@ -29,5 +29,5 @@
 |  13  | 24  | Tue Apr 2  | _TBA_ | | _Apr 3_ - Withdrawal Deadline |
 |      | 25  | Thu Apr 4  | _TBA_ | | |
 |  14  | 26  | Tue Apr 9  | _TBA_ | | |
-|      | 27  | Thu Apr 11 | _TBA_ | |  _Due: Apr 11_ - [Phase 6: Chess Gameplay](https://github.com/softwareconstruction240/softwareconstruction/blob/main/chess/6-gameplay/gameplay.md) |
-|  15  | 28  | Tue Apr 16 | [Command line tools](https://github.com/softwareconstruction240/softwareconstruction/blob/main/instruction/command-line-builds/command-line-builds.md)<br /> Final Exam Review | | _Apr 18 - 24_ - Final Exam |
+|      | 27  | Thu Apr 11 | [Optional: Deploying Your Chess Server on AWS](https://github.com/softwareconstruction240/softwareconstruction/blob/main/instruction/aws-chess-server/aws-chess-server.md) | |  _Due: Apr 11_ - [Phase 6: Chess Gameplay](https://github.com/softwareconstruction240/softwareconstruction/blob/main/chess/6-gameplay/gameplay.md) |
+|  15  | 28  | Tue Apr 16 | [Command-Line Builds](https://github.com/softwareconstruction240/softwareconstruction/blob/main/instruction/command-line-builds/command-line-builds.md)<br/>Final Exam Review | | _Apr 18 - 24_ - Final Exam |

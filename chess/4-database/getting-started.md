@@ -2,11 +2,12 @@
 
 📁 [Starter code](starter-code)
 
-The Starter Code has two folders, `dataAccess` and `serverTests`. Do the following:
+The Starter Code has three folders, `resources`, `dataaccess`, and `passoff/server`. Complete the following steps to move the starter code into your project for this phase.
 
-1. Copy the [resources/db.properties](starter-code/resources/db.properties) file into your project’s `server/src/main/resources` folder. This contains your database configuration settings. You will need to replace the values with your database username and password.
-1. Copy the [dataAccess/DatabaseManager.java](starter-code/dataAccess/DatabaseManager.java) file from the starter-code into your project's `server/src/main/java/dataAccess` folder. This contains code that will read your database configuration settings and create connections to your database server.
-1. Copy the [PersistenceTests.java](starter-code/serverTests/PersistenceTests.java) file into your project’s `server/src/test/java/passoffTests/serverTests` folder. This contains a test that makes sure you are persisting information to your database.
+1. Open your chess project directory.
+1. Copy the `starter-code/4-database/resources/db.properties` file into your project’s `server/src/main/resources` folder. This contains your database configuration settings. You will need to replace the values with your database username and password.
+1. Copy the `starter-code/4-database/dataaccess/DatabaseManager.java` file from the starter-code into your project's `server/src/main/java/dataAccess` folder. This contains code that will read your database configuration settings and create connections to your database server.
+1. Copy the `starter-code/4-database/passoff/server/PersistenceTests.java` file into your project’s `server/src/test/java/passoff/server` folder. This contains a test that makes sure you are persisting information to your database.
 
 This should result in the following additions to your project.
 
@@ -15,14 +16,14 @@ This should result in the following additions to your project.
     └── src
         ├── main
         │   ├── java
-        │   │   └── dataAccess
+        │   │   └── dataaccess
         │   │       └── DatabaseManager.java
         │   └── resources
         │       └── db.properties
         └── test
             └── java
-                └── passoffTests
-                    └── serverTests
+                └── passoff
+                    └── server
                         └── PersistenceTests.java
 ```
 
@@ -34,6 +35,6 @@ Add the dependency for the MySQL driver and BCrypt. Associate them with your `se
 
   - Scope: Compile
 
-- org.springframework.security:spring-security-core:6.2.1
+- org.mindrot:jbcrypt:0.4
 
   - Scope: Compile

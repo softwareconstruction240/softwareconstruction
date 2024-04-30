@@ -71,7 +71,7 @@ There are no new pass off test cases for this assignment.
 
 Write positive and negative unit tests for each method on your ServerFacade class (all the methods used to call your server).
 
-Your tests must be located in the file `client/src/test/java/clientTests/ServerFacadeTests.java`, provided in the starter code.
+Your tests must be located in the file `client/src/test/java/client/ServerFacadeTests.java`, provided in the starter code.
 
 ⚠ `ServerFacadeTests.java` contains code that will automatically start and shutdown your server on a randomly assigned port as part of the test. However, you will still need to start your server when you manually run your client.
 

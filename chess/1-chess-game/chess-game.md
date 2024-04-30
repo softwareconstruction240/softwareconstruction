@@ -53,9 +53,9 @@ This is a special move taken by a Pawn in response to your opponent double movin
 
 ### Pass Off Tests
 
-The test cases for this assignment are in `passoffTests/chessTests/ChessGameTests.java` and represent the tests for the overall gameplay. You will need to pass all these tests to pass off this assignment.
+The test cases for this assignment are in `passoff/chess/ChessGameTests.java` and represent the tests for the overall gameplay. You will need to pass all these tests to pass off this assignment.
 
-Additionally, if you are implementing `Castling` and `En Passant` then include the tests from the starter code in the `ChessExtraCredit` package. Successfully passing these will earn you some extra credit on this assignment, but are not required for pass off.
+Additionally, if you are implementing `Castling` and `En Passant` then include the tests from the starter code in the `extracredit` package. Successfully passing these will earn you some extra credit on this assignment, but are not required for pass off.
 
 To run the tests, you can click the play icon next to an individual test, or you can right click on a package or class and select `Run` or `Run Tests in …`
 
@@ -70,8 +70,8 @@ To pass off this assignment use the course [auto-grading](https://cs240.click/) 
 **⚠ NOTE**: You are required to commit to GitHub with every minor milestone. For example, after you successfully pass a test. This should result in a commit history that clearly details your work on this phase. If your Git history does not demonstrate your efforts then your submission may be rejected.
 
 | Category       | Criteria                                                                                           |       Points |
-| :------------- | :------------------------------------------------------------------------------------------------- | -----------: |
+| :------------- |:---------------------------------------------------------------------------------------------------| -----------: |
 | GitHub History | At least 10 GitHub commits evenly spread over the assignment period that demonstrate proof of work | Prerequisite |
 | Functionality  | All pass off test cases succeed                                                                    |          125 |
-| Extra Credit   | `chessExtraCredit` test cases succeed                                                              |    bonus +10 |
+| Extra Credit   | `extracredit` test cases succeed                                                                   |    bonus +10 |
 |                | Total                                                                                              |          125 |

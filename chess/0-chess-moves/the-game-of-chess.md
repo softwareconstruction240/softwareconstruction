@@ -47,7 +47,7 @@ Below is the setup using the first letter to denote each piece (using `n` for kn
 |R|N|B|Q|K|B|N|R|
 ```
 
-Here is what the board would look like graphically.
+Here is what the board would look like graphically. Notice that there should be a white square on the right of each player and the queen should be placed on a square that matches her color.
 
 ![chessboard](chess-board.png)
 

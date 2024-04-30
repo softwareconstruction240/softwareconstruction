@@ -81,7 +81,7 @@ This represents a location on the chessboard. This should be represented as a ro
 
 ## Testing
 
-The test cases found in `src/test/java/passoffTests/chessTests/ChessPieceTests` contain a collection of tests that assert the correct movement of individual pieces.
+The test cases found in `src/test/java/passoff/chess/piece` contain a collection of tests that assert the correct movement of individual pieces.
 
 To run the tests, you can click the play icon next to an individual test, or you can right click on a package or class and select `Debug` or `Debug Tests in …`
 

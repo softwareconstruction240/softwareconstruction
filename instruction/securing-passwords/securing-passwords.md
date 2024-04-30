@@ -10,31 +10,30 @@ It is vital that you use a secure method of storing passwords as part of your wo
 
 The Bcrypt algorithm enables you to take clear text password and irreversibly hash it to a deterministic representation. This allows you to hash the same password a second time and compare the result to the first password hash. If they are equal then you know that both hashes originated from the same password.
 
-By hashing the passwords, your application never stores a password in the database. You can still use the hash to verify a user's identity, but if a nefarious party gains access to your database, then still cannot retrieve your user's clear text password.
+By hashing the passwords, your application never stores a password in the database. You can still use the hash to verify a user's identity, but if a nefarious party gains access to your database, they still cannot retrieve your user's clear text password.
 
 ## Implementing BCrypt
 
 You can using `Bcrypt` in your application by using the following library.
 
 ```
-org.springframework.security:spring-security-core:6.2.1
+org.mindrot:jbcrypt:0.4
 ```
 
 This implementation of Bcrypt makes it so you can hash a password with one line of code, and then later compare the hash to a candidate password with another line of code. The following example first hashes the password `toomanysecrets` and then compares it to three possible candidates.
 
 ```java
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.mindrot.jbcrypt.BCrypt;
 
 public class PasswordExample {
 
     public static void main(String[] args) {
-        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         String secret = "toomanysecrets";
-        String hash = encoder.encode(secret);
+        String hash = BCrypt.hashpw(secret, BCrypt.gensalt());
 
         String[] passwords = {"cow", "toomanysecrets", "password"};
         for (var pw : passwords) {
-            var match = encoder.matches(pw, hash) ? "==" : "!=";
+            var match = BCrypt.checkpw(pw, hash) ? "==" : "!=";
 
             System.out.printf("%s %s %s%n", pw, match, secret);
         }
