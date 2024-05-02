@@ -1,6 +1,6 @@
 # Getting Started
 
-📁 [Starter code](starter-code)
+📁 Starter Code in Phase 0 Zip
 
 The Starter Code has 2 folders, `client` and `ui`. Complete the following steps to move the starter code into your project for this phase.
 
