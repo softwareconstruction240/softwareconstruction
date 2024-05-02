@@ -2,7 +2,7 @@
 
 - [Chess Application Overview](../chess.md)
 - [Getting Started](getting-started.md)
-- [Starter Code](starter-code)
+- Starter Code in Phase 0 Zip
 
 In this part of the Chess project, you will create a MySQL implementation of your Data Access interface and start calling it from your services. This enables the ability to store data persistently in a MySQL database instead of storing data in main memory. You will also write unit tests using JUnit for your DAO classes. This involves the following steps:
 
