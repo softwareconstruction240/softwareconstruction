@@ -105,7 +105,7 @@ As part of your unit test deliverable you need to meet the following requirement
 1. Write a positive and a negative JUNIT test case for each public method on your DAO classes, except for Clear methods which only need a positive test case. A positive test case is one for which the action happens successfully (e.g., creating a new user in the database). A negative test case is one for which the operation fails (e.g., creating a User that has the same username as an existing user).
 1. Ensure that all of your unit tests work, including the new DAO tests and the Service tests you wrote in the previous assignment.
 
-⚠ You must place your data access test cases in a folder named server/src/test/java/dataAccessTests.
+⚠ You must place your data access test cases in a folder named server/src/test/java/dataaccess.
 
 ### Pass Off, Submission, and Grading
 
