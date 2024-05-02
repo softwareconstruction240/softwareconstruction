@@ -2,7 +2,7 @@
 
 - [Chess Application Overview](../chess.md)
 - [Getting Started](getting-started.md)
-- [Starter Code](starter-code)
+- Starter Code in Phase 0 Zip
 
 🖥️ [Slides: Server Implementation Tips](https://docs.google.com/presentation/d/1hORd88ej8W-nqHgEpYU2GmPcrSrHew1V/edit?usp=drive_link&ouid=110961336761942794636&rtpof=true&sd=true)
 
