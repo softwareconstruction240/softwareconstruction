@@ -2,7 +2,6 @@
 
 - [Chess Application Overview](../chess.md)
 - [Getting Started](getting-started.md)
-- [Starter Code](starter-code)
 
 In this part of the Chess Project, you will implement a basic representation of the game of chess. This includes the setting up of the board and defining how pieces move.
 
@@ -102,7 +101,7 @@ For this project, you are free to implement the classes described above in whate
 
 In order for the tests to pass, you are required to override the `equals()` and `hashCode()` methods in your class implementations as necessary. This includes the ChessPosition, ChessPiece, ChessMove, and ChessBoard classes in particular. To do this automatically in IntelliJ, right click on the class code and select `Code > Generate... > equals() and hashCode()`. It is a good idea to generate these methods fairly early. However, IntelliJ will not be able to generate them properly until you have added the required fields to the class.
 
-In most cases, the default methods provided by IntelliJ will suffice. However, there are cases when the generated code will not completely work. You should never include someone else's code in your application that you do not completely understand. Take the time to carefully review and debug what the generated code does. Add a breakpoint, inspect the variables, and step through each line.
+In most cases, the default methods provided by IntelliJ will suffice. However, there are cases when the generated code will not completely work. You should fully understand all code in your project. Even code that was generated for you. Take the time to carefully review and debug what the generated code does. Add a breakpoint, inspect the variables, and step through each line.
 
 ⚠ Protip: Debugging is often much easier if you also override the `toString()` method and return a concise representation of the object. This is not required, but highly recommended.
 

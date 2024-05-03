@@ -9,7 +9,7 @@ The Starter Code has three folders: `dataAccess`, `serverTests`, and `web`. Comp
 
    ![mark test root](mark-test-root.png)
 
-1. Copy the `starter-code/3-web-api/passoff/server` folder into the `server/src/test/java` folder. The `passoff/server` folder contains the server test cases.
+1. Copy the `starter-code/3-web-api/passoff` folder into the `server/src/test/java` folder. The `passoff/server` folder contains the server test cases.
 1. Create the folder `server/src/main/resources`. Right click on the folder and select the option to mark the directory as `resources root`. This tells IntelliJ that it should include the directory when compiling the code to your `out` directory.
 1. Copy the `starter-code/3-web-api/resources/web` folder to the `server/src/main/resources` folder. The `web` folder contains the files that implement the web browser interface for experimenting with your endpoints.
 

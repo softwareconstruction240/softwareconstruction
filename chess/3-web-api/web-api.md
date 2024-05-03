@@ -2,7 +2,6 @@
 
 - [Chess Application Overview](../chess.md)
 - [Getting Started](getting-started.md)
-- [Starter Code](starter-code)
 
 🖥️ [Slides: Server Implementation Tips](https://docs.google.com/presentation/d/1hORd88ej8W-nqHgEpYU2GmPcrSrHew1V/edit?usp=drive_link&ouid=110961336761942794636&rtpof=true&sd=true)
 
@@ -117,7 +116,6 @@ The following sections describe the various classes that are depicted in the arc
 Your project's `shared` module contains classes that represent all of the data and algorithmic functionality that is shared by your chess client and server.
 
 As part of this phase, you need to create [record](../../instruction/records/records.md) classes and add them to the `shared` module that represent the classes used for the chess application's core data objects. This includes the following.
-
 
 **UserData**
 
