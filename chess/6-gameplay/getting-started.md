@@ -1,7 +1,5 @@
 # Getting Started
 
-📁 [Starter code](starter-code)
-
 The Starter Code has 3 folders, `server` and `websocket`. Complete the following steps to move the starter code into your project for this phase.
 
 1. Open your chess project directory.

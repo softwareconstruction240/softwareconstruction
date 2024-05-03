@@ -2,7 +2,6 @@
 
 - [Chess Application Overview](../chess.md)
 - [Getting Started](getting-started.md)
-- [Starter Code](starter-code)
 
 In this part of the Chess Project, you will implement a basic representation of the game of chess. This includes the setting up of the board and defining how pieces move.
 
