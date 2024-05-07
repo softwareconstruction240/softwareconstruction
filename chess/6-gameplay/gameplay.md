@@ -213,7 +213,7 @@ To pass off this assignment submit your work to the course [auto-grading](https:
 | Observer Connect              | Observers can connect to a game. Notification sent and board drawn.                                |            5 |
 | Observer Leave Game           | Observers can leave games. Notification sent.                                                      |            5 |
 | Player Connect                | Players can connect to a game as a specified color. Notification sent and board drawn.             |            5 |
-| Player Move Piece             | Players can move pieces. Illegal moves rejected. Notification sent and board drawn.                |           15 |
+| Player Move Piece             | Players can move pieces. Illegal moves rejected. Notification sent (including check or checkmate notification if applicable) and board drawn. |           15 |
 | Player Leave Game             | Players can leave games. Notification sent.                                                        |            5 |
 | Player Resign Game            | Players can resign from games. Notification sent.                                                  |            5 |
 | Display Legal Moves           | Any player or observer can display the legal moves available to the player whose turn it is.       |           10 |
