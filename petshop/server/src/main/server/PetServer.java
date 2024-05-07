@@ -23,7 +23,7 @@ public class PetServer {
 
         Spark.staticFiles.location("public");
 
-        Spark.webSocket("/connect", webSocketHandler);
+        Spark.webSocket("/ws", webSocketHandler);
 
         Spark.post("/pet", this::addPet);
         Spark.get("/pet", this::listPets);

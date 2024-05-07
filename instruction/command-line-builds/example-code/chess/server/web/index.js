@@ -62,5 +62,5 @@ function createGame() {
   displayRequest('POST', '/game', { gameName: 'gameName' });
 }
 function joinGame() {
-  displayRequest('PUT', '/game', { playerColor: 'WHITE/BLACK/empty', gameID: 0 });
+  displayRequest('PUT', '/game', { playerColor: 'WHITE/BLACK', gameID: 0 });
 }
