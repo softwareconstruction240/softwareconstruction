@@ -1,6 +1,6 @@
 # Interfaces and Abstract Classes
 
-🖥️ [Slides](https://docs.google.com/presentation/d/17S-Y7Og08S9kRWHZfnH8k2wTBht39aCd/edit?usp=sharing&ouid=114081115660452804792&rtpof=true&sd=true)
+🖥️ [Slides](https://docs.google.com/presentation/d/1eaSGnq2FCGd7jNWve1W-LSNrERGUj7nT)
 
 📖 **Required Reading**: Core Java for the Impatient
 
@@ -249,5 +249,3 @@ public class FinalExample {
 - 🎥 [Polymorphism Example Part 3](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=f451dd38-e32d-445f-be0d-ad6401470c45&start=0)
 - 🎥 [Creating an Interface](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=2da0fb3a-7aca-4344-a42b-ad640149f9e2&start=0)
 - 🎥 [Implementing an Interface](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=f7ec17c1-c815-429b-8ffd-ad64014b0921&start=0)
-- 🎥 [Inheritance](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=74faf0ca-9a24-4800-8ded-ad5d014f9493&start=0)
-- 🎥 [The Final Keyword](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=c8298a1a-b65c-43bd-8928-ad64013a3b89&start=0)
