@@ -1,4 +1,4 @@
-package generator.json;
+package generator;
 
 import domain.CDFactory;
 import domain.Catalog;
