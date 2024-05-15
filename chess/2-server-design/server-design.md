@@ -18,10 +18,14 @@ The chess application components are demonstrated by the following diagram and d
 | ------------ | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Chess Client |               | A terminal based program that allows a user to play a game of chess. This includes actions to login, create, and play games. The client exchanges messages over the network with the chess server.                                                                |
 | Chess Server |               | A command line program that accepts network requests from the chess client to login, create, and play games. Users and games are stored in the database. The server also sends game play commands to the chess clients that are participating in a specific game. |
-|              | Server        | Receives network requests and deserializes them into service objects. Calls service methods to satisfy the requests.                                                                                                                                              |
+|              | Server        | Receives network requests and locates correct endpoints.                                                                                                                                                                                                          |
+|              | Handlers      | Deserialize information into java objects. Call service methods sending the objects to satisfy requests.                                                                                                                                                                       |
 |              | Services      | Processes the business logic for the application. This includes registering and logging in users, creating, listing, and playing chess games. Calls the data access methods to retrieve and persist application data data.                                        |
 |              | DataAccess    | Provides methods that persistently store and retrieve the application data.                                                                                                                                                                                       |
 | Database     |               | Stores data persistently.                                                                                                                                                                                                                                         |
+
+
+**⚠ Note** that while we have the Handlers as distinct components here and later in the diagram, it is not required to have a specific Handler class. It can be a part of the Server class using lamba functions or methods. 
 
 ## Application Programming Interface (API)
 
@@ -75,8 +79,7 @@ end
 
 To get you started on creating your sequence diagrams, we have provided you with a template that already contains a possible solution for the `register` endpoint and place holders for the other six endpoints.
 
-⚠ Here is a link to your [Starter Diagram](https://sequencediagram.org/index.html#initialData=IYYwLg9gTgBAwgGwJYFMB2YBQAHYUxIhK4YwDKKUAbpTngUSWOZVYSnfoccKQCLAwwAIIgQKAM4TMAE0HAARsAkoYMhZkwBzKBACu2GAGI0wKgE8YAJRRakEsFEFIIaYwHcAFkjAdEqUgBaAD4WakoALhgAbQAFAHkyABUAXRgAej0VKAAdNABvLMpTAFsUABoYXCl3aBlKlBLgJAQAX0wKcNgQsLZxKKhbe18oAAoiqFKKquUJWqh6mEbmhABKDtZ2GB6BIVFxKSitFDAAVWzx7Kn13ZExSQlt0PUosgBRABk3uCSYCamYAAzXQlP7ZTC3fYPbY9Tp9FBRNB6BAIDbULY7eRQw4wECDQQoc6US7FYBlSrVOZ1BpNFo3LH3KRPNQKKIASQAcu8rL9-mTppT5otli0YJykvEwbQ4RjQpDGRIoniUAThHowJ4SZN+fS9grmS8xVy3jypdryTBgOrPEkIABrdBGiWW60QhkHR6BWGbfoujW2h1oNHwmGhOGRP02+3oYOUUPwZDoMBRABMAAY03lCld+ZUrf7o2h2ugZJodPpDEZoLxjjAPhA7G4jF4fH5E0Ew6wI3FEqkMiopC40Fm+RbBXVi2hS9pdAZjDoUI761p9Mxm95fJh-EnmeGoFFonxPm8km80ukBxIh3l81HA5gS2XZ5XBjI68MYABxfmPdetrftsw3pdAen4nueWj8je1oBjGj4zhWxjYHoUDYAgqhwPivhfvyHgbm2ARAZ2IExAkyQQVBpgwYWWaQWUHL8pO07lnORjmCgKIQO4MAAFIQEgbjfmUxgKAgoB2gBhG7l2+6kacfbpHRKDQQWgZZmhwDsVAcAQAg0CVEpbJ8ExT6IUYOiaQmKqwMA2BoYQziuHh-7bh2vTdkeXynue6gPlOmBAA) on SequenceDiagram.Org.
-
+⚠ Here is a link to your [Starter Diagram](https://sequencediagram.org/index.html#initialData=IYYwLg9gTgBAwgGwJYFMB2YBQAHYUxIhK4YwDKKUAbpTngUSWDABLBoAmCtu+hx7ZhWqEUdPo0EwAIsDDAAgiBAoAzqswc5wAEbBVKGBx2ZM6MFACeq3ETQBzGAAYAdAE5M9qBACu2GADEaMBUljAASij2SKoWckgQaIEA7gAWSGBiiKikALQAfOSUNFAAXDAA2gAKAPJkACoAujAA9D4GUAA6aADeAETtlMEAtih9pX0wfQA0U7jqydAc45MzUyjDwEgIK1MAvpjCJTAFrOxclOX9g1AjYxNTs33zqotQyw9rfRtbO58HbE43FgpyOonKUCiMUyUAAFJForFKJEAI4+NRgACUh2KohOhVk8iUKnU5XsKDAAFUOrCbndsYTFMo1Kp8UYdOUyABRAAyXLg9RgdOAoxgADNvMMhR1MIziSyTqDcSpymgfAgEDiRCo2XLmaSYCBIXIUNTKLSOndZi83hxZj9tgztPL1GzjOUAJIAOW54UFwtG1v0ryW9s22xg3vqNWltDBOtOepJqnKRpQJoUPjAqQtQxFKCdRP1rNO7sjPq5ftjt3zs2AWdS9QgAGt0OXozB69nZc7i4rCvGUOUu42W+gtVQ8blToCLmUIlCkVBIqp1VhZ8D+0VqJcYNdLfnJuVVk8R03W2gj1N9hPKFvsuZygAmJxObr7vOjK8nqZnseXmBjxvdAOFMLxfH8AJoHYckYB5CBoiSAI0gyLJkHMNkjl3ao6iaVoDHUBI0HfAMUCDBYlgOECwO8PxAi8FA23g+xfGYZD0kyTAHzyAdimw6ReS5eouWaFoCNUIjuj-C8zE4GiIMCSEODg6EYAAcXzVl2NQrj0J47cSnKCo1KE0T7HzKSG3PcdqM8WjIOwHwoGwbh4GNTJ1PzFIOLQnJmCVHd5xwhozIs4IrP-d9zNGL18youS7IUgJLBQDUIGSGAACkICQJINNFAIdAQUBm10vzML4oKqkpPCWmilBLOzaziN6FzgBSqA4AgBBoFmeqPWkeLQMSuiAi8dr4G4PBO2wFzCHiRJvJ07j-N4wKjIEvlhNE4xZNAoA)
 When you are done editing your diagram make sure you export a link as described in the **Deliverable** section below.
 
 ![Register Sequence Diagram](register-sequence-diagram.png)
@@ -84,17 +87,19 @@ When you are done editing your diagram make sure you export a link as described 
 This example diagram represents the following sequence for registering and authorizing a player.
 
 1. A `client`, acting as a chess player, calls the `register` endpoint. This request is made as an HTTP network request with the `/user` URL path and a body that contains her username, password, and email in a JSON representation.
-1. The `server` converts the HTTP request to an object representation that it passes to a registration service method.
-1. The `service` calls a data access method in order to determine if there is already a user with that username.
-1. The `data access` method checks the database and returns that there is no user with that name (null).
-1. The `service` then calls another data access method to create a new user with the given name and password.
-1. The `data access` method inserts the user into the database.
-1. The `service` then calls another data access method to create and store an authorization token (authToken) for the user. The authToken can be used on subsequent endpoint calls to represent that the user has already been authenticated.
-1. The `data access` method stores the username and associated authToken in the database.
-1. The `service` returns the authToken to the server.
-1. The `server` returns the authToken to the client.
+2. The `server` gets the body with its information from the HTTP request and matches it to the correct handler.
+3. The `handler` takes the JSON information and creates an object to hold it and sends it to the correct service class. ⚠ Note: in your code the handlers do not need to be their own distinct classes, they can be contained in your server class using methods or lamba functions. 
+4. The `service` calls a data access method in order to determine if there is already a user with that username.
+5. The `data access` method checks the database and returns that there is no user with that name (null).
+6. The `service` then calls another data access method to create a new user with the given name and password.
+7. The `data access` method inserts the user into the database.
+8. The `service` then calls another data access method to create and store an authorization token (authToken) for the user. The authToken can be used on subsequent endpoint calls to represent that the user has already been authenticated.
+9. The `data access` method stores the username and associated authToken in the database.
+10. The `service` returns a result object containing the username and authToken.
+11. The `handler` converts the object into JSON text.
+12. The `server` returns this to the client.
 
-⚠ Note that the diagram includes simple representations of HTTP and database requests. You will learn how to use these technologies in later phases. You just need to understand that the `server` receives HTTP network requests and the database persistently stores your application data. It is also not important that you use correct UML Sequence diagram syntax for your diagrams. You just need to convey the idea of what each of the endpoints are are doing inside your code.
+⚠ Note that the diagram includes simple representations of HTTP and database requests. You will learn how to use these technologies in later phases. You just need to understand that the `server` receives HTTP network requests and the database persistently stores your application data. It is also not important that you use correct UML Sequence diagram syntax for your diagrams. You just need to show that you understand what each of the endpoints are doing inside your code. 
 
 ## Classes
 
@@ -127,3 +132,4 @@ When initially graded, your design will be given one of three scores:
 | Your design is mostly correct with only minor adjustments needed. Read TA suggestions for improvement in Canvas.                                                                                                                                  |    50 |
 | Your design has significant deficiencies. Meet with a TA to discuss your design, ideally the same TA who originally graded your design. Improve and resubmit your design within one week of initial grading, and receive a maximum score of 100%. |    25 |
 | The submitted design was not a serious attempt at doing the assignment correctly. Resubmit your design within one week of initial grading and receive a maximum score of 50%.                                                                     |     0 |
+

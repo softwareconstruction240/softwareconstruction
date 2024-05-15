@@ -227,7 +227,7 @@ From this you can derive the following LoginRequest class:
 ```java
 	record LoginRequest(
 		String username,
-		String password;
+		String password){
 	}
 ```
 
@@ -236,8 +236,8 @@ Alternatively, you could use the model `UserData` object that you will also use 
 ```java
 	record UserData(
 		String username,
-		String password;
-		String email;
+		String password,
+		String email){
 	}
 ```
 
