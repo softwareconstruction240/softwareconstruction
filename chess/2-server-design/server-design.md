@@ -20,12 +20,12 @@ The chess application components are demonstrated by the following diagram and d
 | Chess Server |               | A command line program that accepts network requests from the chess client to login, create, and play games. Users and games are stored in the database. The server also sends game play commands to the chess clients that are participating in a specific game. |
 |              | Server        | Receives network requests and locates correct endpoints.                                                                                                                                                                                                          |
 |              | Handlers      | Deserialize information into java objects. Call service methods sending the objects to satisfy requests.                                                                                                                                                                       |
-|              | Services      | Processes the business logic for the application. This includes registering and logging in users, creating, listing, and playing chess games. Calls the data access methods to retrieve and persist application data data.                                        |
-|              | DataAccess    | Provides methods that persistently store and retrieve the application data.                                                                                                                                                                                       |
+|              | Services      | Process the business logic for the application. This includes registering and logging in users and creating, listing, and playing chess games. Call the data access methods to retrieve and persist application data.                                        |
+|              | DataAccess    | Provide methods that persistently store and retrieve the application data.                                                                                                                                                                                       |
 | Database     |               | Stores data persistently.                                                                                                                                                                                                                                         |
 
 
-**⚠ Note** that while we have the Handlers as distinct components here and later in the diagram, it is not required to have a specific Handler class. It can be a part of the Server class using lamba functions or methods. 
+**⚠ Note** that while we have the Handlers as distinct components here and later in the diagram, it is not required to have specific handler classes. You may implement this functionality directly in the lambda functions for the endpoints of your server. 
 
 ## Application Programming Interface (API)
 
@@ -57,13 +57,13 @@ These objects represent the core of what you are passing between your server, se
 
 ## Creating Sequence Diagrams
 
-Based upon your understanding of the requirements provided by [Phase 3](../3-web-api/web-api.md) you now must create a sequence diagram that demonstrates the flow of interactions between your application objects for each of the server endpoints.
+Based upon your understanding of the requirements provided by [Phase 3](../3-web-api/web-api.md) you now must create a sequence diagram for each endpoint that demonstrates the flow of interactions between your application objects.
 
 ### SequenceDiagram.Org
 
 You will create your sequence diagram using a simple web based editing tool found at [sequencediagram.org](https://sequencediagram.org). The [instructions](https://sequencediagram.org/instructions.html) for using the tool document all of the basic elements necessary to create your diagram. It is not necessary for you to fully understand all the details of UML sequence diagrams, but it should be obvious from your diagrams what your application is designed to do.
 
-A basic sequence diagram uses objects names separated by arrows that show the direction of the sequence. This is followed by a colon separated description of the sequence action. The following is a simple diagram for taking a class.
+A basic sequence diagram uses object names separated by arrows that show the direction of the sequence. This is followed by a colon separated description of the sequence action. The following is a simple diagram for taking a class.
 
 ```uml
 actor Student
@@ -79,7 +79,7 @@ end
 
 To get you started on creating your sequence diagrams, we have provided you with a template that already contains a possible solution for the `register` endpoint and place holders for the other six endpoints.
 
-⚠ Here is a link to your [Starter Diagram](https://sequencediagram.org/index.html#initialData=IYYwLg9gTgBAwgGwJYFMB2YBQAHYUxIhK4YwDKKUAbpTngUSWDABLBoAmCtu+hx7ZhWqEUdPo0EwAIsDDAAgiBAoAzqswc5wAEbBVKGBx2ZM6MFACeq3ETQBzGAAYAdAE5M9qBACu2GADEaMBUljAASij2SKoWckgQaIEA7gAWSGBiiKikALQAfOSUNFAAXDAA2gAKAPJkACoAujAA9D4GUAA6aADeAETtlMEAtih9pX0wfQA0U7jqydAc45MzUyjDwEgIK1MAvpjCJTAFrOxclOX9g1AjYxNTs33zqotQyw9rfRtbO58HbE43FgpyOonKUCiMUyUAAFJForFKJEAI4+NRgACUh2KohOhVk8iUKnU5XsKDAAFUOrCbndsYTFMo1Kp8UYdOUyABRAAyXLg9RgdOAoxgADNvMMhR1MIziSyTqDcSpymgfAgEDiRCo2XLmaSYCBIXIUNTKLSOndZi83hxZj9tgztPL1GzjOUAJIAOW54UFwtG1v0ryW9s22xg3vqNWltDBOtOepJqnKRpQJoUPjAqQtQxFKCdRP1rNO7sjPq5ftjt3zs2AWdS9QgAGt0OXozB69nZc7i4rCvGUOUu42W+gtVQ8blToCLmUIlCkVBIqp1VhZ8D+0VqJcYNdLfnJuVVk8R03W2gj1N9hPKFvsuZygAmJxObr7vOjK8nqZnseXmBjxvdAOFMLxfH8AJoHYckYB5CBoiSAI0gyLJkHMNkjl3ao6iaVoDHUBI0HfAMUCDBYlgOECwO8PxAi8FA23g+xfGYZD0kyTAHzyAdimw6ReS5eouWaFoCNUIjuj-C8zE4GiIMCSEODg6EYAAcXzVl2NQrj0J47cSnKCo1KE0T7HzKSG3PcdqM8WjIOwHwoGwbh4GNTJ1PzFIOLQnJmCVHd5xwhozIs4IrP-d9zNGL18youS7IUgJLBQDUIGSGAACkICQJINNFAIdAQUBm10vzML4oKqkpPCWmilBLOzaziN6FzgBSqA4AgBBoFmeqPWkeLQMSuiAi8dr4G4PBO2wFzCHiRJvJ07j-N4wKjIEvlhNE4xZNAoA)
+⚠ Here is a link to your [Starter Diagram](https://sequencediagram.org/index.html#initialData=IYYwLg9gTgBAwgGwJYFMB2YBQAHYUxIhK4YwDKKUAbpTngUSWDABLBoAmCtu+hx7ZhWqEUdPo0EwAIsDDAAgiBAoAzqswc5wAEbBVKGBx2ZM6MFACeq3ETQBzGAAYAdAE5M9qBACu2GADEaMBUljAASij2SKoWckgQaIEA7gAWSGBiiKikALQAfOSUNFAAXDAA2gAKAPJkACoAujAA9D4GUAA6aADeAETtlMEAtih9pX0wfQA0U7jqydAc45MzUyjDwEgIK1MAvpjCJTAFrOxclOX9g1AjYxNTs33zqotQyw9rfRtbO58HbE43FgpyOonKUCiMUyUAAFJForFKJEAI4+NRgACUh2KohOhVk8iUKnU5XsKDAAFUOrCbndsYTFMo1Kp8UYdOUyABRAAyXLg9RgdOAoxgADNvMMhR1MIziSyTqDcSpymgfAgEDiRCo2XLmaSYCBIXIUNTKLSOndZi83hxZj9tgztPL1GzjOUAJIAOW54UFwtG1v0ryW9s22xg3vqNWltDBOtOepJqnKRpQJoUPjAqQtQxFKCdRP1rNO7sjPq5ftjt3zs2AWdS9QgAGt0OXozB69nZc7i4rCvGUOUu42W+gtVQ8blToCLmUIlCkVBIqp1VhZ8D+0VqJcYNdLfnJuVVk8R03W2gj1N9hPKFvsuZygAmJxObr7vOjK8nqZnseXmBjxvdAOFMLxfH8AJoHYckYB5CBoiSAI0gyLJkHMNkjl3ao6iaVoDHUBI0HfAMUCDBYlgOECwO8PxAi8FA23g+xfGYZD0kyTAHzyAdimw6ReS5eouWaFoCNUIjuj-C8zE4GiIMCSEODg6EYAAcXzVl2NQrj0J47cSnKCo1KE0T7HzKSG3PcdqM8WjIOwHwoGwbh4GNTJ1PzFIOLQnJmCVHd5xwhozIs4IrP-d9zNGL18youS7IUgJLBQDUIGSGAACkICQJINNFAIdAQUBm10vzML4oKqkpPCWmilBLOzaziN6FzgBSqA4AgBBoFmeqPWkeLQMSuiAi8dr4G4PBO2wFzCHiRJvJ07j-N4wKjIEvlhNE4xZNAoA).
 When you are done editing your diagram make sure you export a link as described in the **Deliverable** section below.
 
 ![Register Sequence Diagram](register-sequence-diagram.png)
@@ -88,7 +88,7 @@ This example diagram represents the following sequence for registering and autho
 
 1. A `client`, acting as a chess player, calls the `register` endpoint. This request is made as an HTTP network request with the `/user` URL path and a body that contains her username, password, and email in a JSON representation.
 2. The `server` gets the body with its information from the HTTP request and matches it to the correct handler.
-3. The `handler` takes the JSON information and creates an object to hold it and sends it to the correct service class. ⚠ Note: in your code the handlers do not need to be their own distinct classes, they can be contained in your server class using methods or lamba functions. 
+3. The `handler` takes the JSON information and creates an object to hold it and sends it to the correct service class. ⚠ Note: in your code the handlers are not required to be their own distinct classes. You may implement this functionality directly in the lambda functions for the endpoints of your server. 
 4. The `service` calls a data access method in order to determine if there is already a user with that username.
 5. The `data access` method checks the database and returns that there is no user with that name (null).
 6. The `service` then calls another data access method to create a new user with the given name and password.
@@ -105,11 +105,11 @@ This example diagram represents the following sequence for registering and autho
 
 Using your sequence diagram, you should be able to envision the Java classes and methods that are necessary for handling the interactions between your server, services, and data access components. You will create and implement these classes in the next phase.
 
-Once such possible class architecture could be the following.
+The following is a recommended class structure:
 
 ![sever design architecture](server-class-structure.png)
 
-This architecture includes a handler method for each server endpoint that call a corresponding service method. Each service method takes a request object and returns a response object. The service method then interacts with the data access methods to store and retrieve data from the database. The application model objects serve as the primary data representations that are passed between the server, services, and data access components.
+This architecture includes a handler method for each server endpoint that calls a corresponding service method. Each service method takes a request object and returns a response object. The service method interacts with the data access methods to store and retrieve data from the database. The application model objects serve as the primary data representations that are passed between the server, services, and data access components.
 
 You can decompose your handlers, services, and data access components into multiple classes or leave them as a single class as your design requires in order to meet the principles of good software design.
 
@@ -117,7 +117,7 @@ You can decompose your handlers, services, and data access components into multi
 
 ### Pass Off, Submission, and Grading
 
-Once you have created your diagram you can create a URL that represents it by selecting the `export diagram` tool found on the toolbar to the left of the application. In the export dialog select `Presentation Mode Link` and copy the URL. Submit the URLs to the `Chess Server Design` Canvas Assignment.
+Once you have created your diagram you can create a URL that represents it by selecting the `export diagram` tool found on the toolbar to the left of the application. In the export dialog select `Presentation Mode Link` and copy the URL. Submit the URL to the `Chess Server Design` Canvas Assignment.
 
 ![sequencediagram.org](sequence-diagram-org.gif)
 
