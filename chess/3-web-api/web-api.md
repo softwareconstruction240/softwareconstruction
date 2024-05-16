@@ -127,13 +127,13 @@ As part of this phase, you need to create [record](../../instruction/records/rec
 
 **GameData**
 
-| Field         | Type                       |
-| ------------- | -------------------------- |
-| gameID        | int                        |
-| whiteUsername | String                     |
-| blackUsername | String                     |
-| gameName      | String                     |
-| game          | `ChessGame` implementation |
+| Field         | Type      |
+| ------------- | --------- |
+| gameID        | int       |
+| whiteUsername | String    |
+| blackUsername | String    |
+| gameName      | String    |
+| game          | ChessGame |
 
 **AuthData**
 
