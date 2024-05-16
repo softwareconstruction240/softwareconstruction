@@ -25,7 +25,7 @@ This class serves as the top-level management of the Chess Game. It is responsib
 - **makeMove**: Receives a given move and executes it, provided it is a legal move. If the move is illegal, it throws an `InvalidMoveException`. A move is illegal if the chess piece cannot move there, if the move leaves the team’s king in danger, or if it’s not the corresponding team's turn.
 - **isInCheck**: Returns true if the specified team’s King could be captured by an opposing piece.
 - **isInCheckmate**: Returns true if the given team has no way to protect their king from being captured.
-- **isInStalemate**: Returns true if the given team has no legal moves and it is currently that team’s turn.
+- **isInStalemate**: Returns true if the given team has no legal moves but their king is not in immediate danger.
 
 ## Extra Credit Moves
 
