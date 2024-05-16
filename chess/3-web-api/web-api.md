@@ -24,7 +24,7 @@ The following defines the endpoints that your server is required to implement. Y
 | **Description**      | Clears the database. Removes all users, games, and authTokens. |
 | **URL path**         | `/db`                                                          |
 | **HTTP Method**      | `DELETE`                                                       |
-| **Success response** | [200]                                                          |
+| **Success response** | [200] `{}`                                                     |
 | **Failure response** | [500] `{ "message": "Error: description" }`                    |
 
 ### Register
@@ -60,7 +60,7 @@ The following defines the endpoints that your server is required to implement. Y
 | **URL path**         | `/session`                                      |
 | **HTTP Method**      | `DELETE`                                        |
 | **Headers**          | `authorization: <authToken>`                    |
-| **Success response** | [200]                                           |
+| **Success response** | [200] `{}`                                      |
 | **Failure response** | [401] `{ "message": "Error: unauthorized" }`    |
 | **Failure response** | [500] `{ "message": "Error: description" }`     |
 
@@ -101,7 +101,7 @@ Note that `whiteUsername` and `blackUsername` may be `null`.
 | **HTTP Method**      | `PUT`                                                                                           |
 | **Headers**          | `authorization: <authToken>`                                                                    |
 | **Body**             | `{ "playerColor":"WHITE/BLACK", "gameID": 1234 }`                                               |
-| **Success response** | [200]                                                                                           |
+| **Success response** | [200] `{}`                                                                                      |
 | **Failure response** | [400] `{ "message": "Error: bad request" }`                                                     |
 | **Failure response** | [401] `{ "message": "Error: unauthorized" }`                                                    |
 | **Failure response** | [403] `{ "message": "Error: already taken" }`                                                   |
