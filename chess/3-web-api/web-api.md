@@ -19,50 +19,50 @@ The following defines the endpoints that your server is required to implement. Y
 
 ### Clear application
 
-| property             | value                                                          |
-| -------------------- | -------------------------------------------------------------- |
-| **Description**      | Clears the database. Removes all users, games, and authTokens. |
-| **URL path**         | `/db`                                                          |
-| **HTTP Method**      | `DELETE`                                                       |
-| **Success response** | [200]                                                          |
-| **Failure response** | [500] `{ "message": "Error: description" }`                    |
+| property             | value                                                               |
+| -------------------- | ------------------------------------------------------------------- |
+| **Description**      | Clears the database. Removes all users, games, and authTokens.      |
+| **URL path**         | `/db`                                                               |
+| **HTTP Method**      | `DELETE`                                                            |
+| **Success response** | [200] `{}`                                                          |
+| **Failure response** | [500] <code>{ "message": "Error: *(description of error)*" }</code> |
 
 ### Register
 
-| property             | value                                          |
-| -------------------- | ---------------------------------------------- |
-| **Description**      | Register a new user.                           |
-| **URL path**         | `/user`                                        |
-| **HTTP Method**      | `POST`                                         |
-| **Body**             | `{ "username":"", "password":"", "email":"" }` |
-| **Success response** | [200] `{ "username":"", "authToken":"" }`      |
-| **Failure response** | [400] `{ "message": "Error: bad request" }`    |
-| **Failure response** | [403] `{ "message": "Error: already taken" }`  |
-| **Failure response** | [500] `{ "message": "Error: description" }`    |
+| property             | value                                                               |
+| -------------------- | ------------------------------------------------------------------- |
+| **Description**      | Register a new user.                                                |
+| **URL path**         | `/user`                                                             |
+| **HTTP Method**      | `POST`                                                              |
+| **Body**             | `{ "username":"", "password":"", "email":"" }`                      |
+| **Success response** | [200] `{ "username":"", "authToken":"" }`                           |
+| **Failure response** | [400] `{ "message": "Error: bad request" }`                         |
+| **Failure response** | [403] `{ "message": "Error: already taken" }`                       |
+| **Failure response** | [500] <code>{ "message": "Error: *(description of error)*" }</code> |
 
 ### Login
 
-| property             | value                                               |
-| -------------------- | --------------------------------------------------- |
-| **Description**      | Logs in an existing user (returns a new authToken). |
-| **URL path**         | `/session`                                          |
-| **HTTP Method**      | `POST`                                              |
-| **Body**             | `{ "username":"", "password":"" }`                  |
-| **Success response** | [200] `{ "username":"", "authToken":"" }`           |
-| **Failure response** | [401] `{ "message": "Error: unauthorized" }`        |
-| **Failure response** | [500] `{ "message": "Error: description" }`         |
+| property             | value                                                               |
+| -------------------- | ------------------------------------------------------------------- |
+| **Description**      | Logs in an existing user (returns a new authToken).                 |
+| **URL path**         | `/session`                                                          |
+| **HTTP Method**      | `POST`                                                              |
+| **Body**             | `{ "username":"", "password":"" }`                                  |
+| **Success response** | [200] `{ "username":"", "authToken":"" }`                           |
+| **Failure response** | [401] `{ "message": "Error: unauthorized" }`                        |
+| **Failure response** | [500] <code>{ "message": "Error: *(description of error)*" }</code> |
 
 ### Logout
 
-| property             | value                                           |
-| -------------------- | ----------------------------------------------- |
-| **Description**      | Logs out the user represented by the authToken. |
-| **URL path**         | `/session`                                      |
-| **HTTP Method**      | `DELETE`                                        |
-| **Headers**          | `authorization: <authToken>`                    |
-| **Success response** | [200]                                           |
-| **Failure response** | [401] `{ "message": "Error: unauthorized" }`    |
-| **Failure response** | [500] `{ "message": "Error: description" }`     |
+| property             | value                                                               |
+| -------------------- | ------------------------------------------------------------------- |
+| **Description**      | Logs out the user represented by the authToken.                     |
+| **URL path**         | `/session`                                                          |
+| **HTTP Method**      | `DELETE`                                                            |
+| **Headers**          | `authorization: <authToken>`                                        |
+| **Success response** | [200] `{}`                                                          |
+| **Failure response** | [401] `{ "message": "Error: unauthorized" }`                        |
+| **Failure response** | [500] <code>{ "message": "Error: *(description of error)*" }</code> |
 
 ### List Games
 
@@ -76,21 +76,21 @@ Note that `whiteUsername` and `blackUsername` may be `null`.
 | **Headers**          | `authorization: <authToken>`                                                                  |
 | **Success response** | [200] `{ "games": [{"gameID": 1234, "whiteUsername":"", "blackUsername":"", "gameName:""} ]}` |
 | **Failure response** | [401] `{ "message": "Error: unauthorized" }`                                                  |
-| **Failure response** | [500] `{ "message": "Error: description" }`                                                   |
+| **Failure response** | [500] <code>{ "message": "Error: *(description of error)*" }</code>                           |
 
 ### Create Game
 
-| property             | value                                        |
-| -------------------- | -------------------------------------------- |
-| **Description**      | Creates a new game.                          |
-| **URL path**         | `/game`                                      |
-| **HTTP Method**      | `POST`                                       |
-| **Headers**          | `authorization: <authToken>`                 |
-| **Body**             | `{ "gameName":"" }`                          |
-| **Success response** | [200] `{ "gameID": 1234 }`                   |
-| **Failure response** | [400] `{ "message": "Error: bad request" }`  |
-| **Failure response** | [401] `{ "message": "Error: unauthorized" }` |
-| **Failure response** | [500] `{ "message": "Error: description" }`  |
+| property             | value                                                                |
+| -------------------- | -------------------------------------------------------------------- |
+| **Description**      | Creates a new game.                                                  |
+| **URL path**         | `/game`                                                              |
+| **HTTP Method**      | `POST`                                                               |
+| **Headers**          | `authorization: <authToken>`                                         |
+| **Body**             | `{ "gameName":"" }`                                                  |
+| **Success response** | [200] `{ "gameID": 1234 }`                                           |
+| **Failure response** | [400] `{ "message": "Error: bad request" }`                          |
+| **Failure response** | [401] `{ "message": "Error: unauthorized" }`                         |
+| **Failure response** | [500] <code>{ "message": "Error: *(description of error)*" }</code>  |
 
 ### Join Game
 
@@ -101,11 +101,11 @@ Note that `whiteUsername` and `blackUsername` may be `null`.
 | **HTTP Method**      | `PUT`                                                                                           |
 | **Headers**          | `authorization: <authToken>`                                                                    |
 | **Body**             | `{ "playerColor":"WHITE/BLACK", "gameID": 1234 }`                                               |
-| **Success response** | [200]                                                                                           |
+| **Success response** | [200] `{}`                                                                                      |
 | **Failure response** | [400] `{ "message": "Error: bad request" }`                                                     |
 | **Failure response** | [401] `{ "message": "Error: unauthorized" }`                                                    |
 | **Failure response** | [403] `{ "message": "Error: already taken" }`                                                   |
-| **Failure response** | [500] `{ "message": "Error: description" }`                                                     |
+| **Failure response** | [500] <code>{ "message": "Error: *(description of error)*" }</code>                             |
 
 ## Required Classes
 
@@ -127,13 +127,13 @@ As part of this phase, you need to create [record](../../instruction/records/rec
 
 **GameData**
 
-| Field         | Type                       |
-| ------------- | -------------------------- |
-| gameID        | int                        |
-| whiteUsername | String                     |
-| blackUsername | String                     |
-| gameName      | String                     |
-| game          | `ChessGame` implementation |
+| Field         | Type      |
+| ------------- | --------- |
+| gameID        | int       |
+| whiteUsername | String    |
+| blackUsername | String    |
+| gameName      | String    |
+| game          | ChessGame |
 
 **AuthData**
 
