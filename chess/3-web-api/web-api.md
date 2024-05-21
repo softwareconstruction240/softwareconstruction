@@ -146,7 +146,7 @@ As part of this phase, you need to create [record](../../instruction/records/rec
 
 ### Data Access Classes
 
-Classes that represent the access to your database are often called `Data Access Objects` (DOAs). Create your data access classes in the `server/src/main/java/dataaccess` package. Data access classes are responsible for storing and retrieving the server’s data (users, games, etc.).
+Classes that represent the access to your database are often called `Data Access Objects` (DAOs). Create your data access classes in the `server/src/main/java/dataaccess` package. Data access classes are responsible for storing and retrieving the server’s data (users, games, etc.).
 
 For the most part, the methods on your DAO classes will be `CRUD` operations that:
 
