@@ -54,3 +54,18 @@ Add the dependencies for using JavaSpark and associate it with your `server` mod
 - `org.slf4j:slf4j-simple:1.7.36`
 
   Logger for SparkJava.
+
+
+## Getting the Webpage for Testing Setup
+
+Once you have completed **all** of the previous steps you should be able to launch your server and access a testing page. 
+
+Inside of `server/src/main/java/main` in the main fuction create a Server object then call run on it. The run function needs a port that you will run your server on, which typically for testing you is 8080. When you run the main function it will start the server. Intelij will give you several lines of red text, but if the last line says started then the server is active.
+
+Open a browser you choose and go to `localhost:8080` (If you picked another port replace 8080 with that instead). If everything is setup correctly you should be able to see this webpage. 
+
+![Webpage](chess-server-webpage.png)
+
+You can use this to test out your endpoints as you are coding the project. 
+
+If you want to see you this works in greater depth or need help troubleshooting take a look at [this page](../../instruction/web-api/web-api.md). 
