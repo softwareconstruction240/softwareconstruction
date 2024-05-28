@@ -88,6 +88,9 @@ All server messages must include a `serverMessageType` field and should inherit 
 
 The following sections describe the server messages and user game command messages.
 
+**Note**: When making the server messages and user game commands, make sure that the field (variable) names in your classes match exactly the names used in the specification (including capitalization). Not doing this will cause bugs as Gson and Json require the fields to be exact to serialize and deserialize the object.
+
+
 ## User Game Commands
 
 | Command           | Required Fields                | Description                                                                          |
