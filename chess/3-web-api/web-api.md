@@ -13,6 +13,8 @@ In this phase, you will create your Chess server and implement seven HTTP endpoi
 
 An endpoint is a URL that your server exposes so that clients can make Hypertext Transfer Protocol (HTTP) requests to your server. Often the server requires some data when a client calls an endpoint. For an HTTP request this data can be stored in HTTP Headers, in the URL, and/or in the request body. The Server then sends back data to the client, including a value in the HTTP Response Code (indicating if the command was completed successfully), and any needed information in the HTTP Response Body. For your server, you will use JSON strings to encode the objects we include in the Request and Response bodies.
 
+**Note**: When creating Request and Response classes, Make sure that the field (variable) names in your Request and Response classes match exactly the names used in the specification (including capitalization). Not doing this will cause bugs.
+
 ## Endpoint specifications
 
 The following defines the endpoints that your server is required to implement. Your server must accept the URL, HTTP Method, Headers, and body that the endpoint defines. Likewise you must return the specified status codes and body for the endpoint.
