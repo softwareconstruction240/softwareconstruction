@@ -8,7 +8,7 @@ In this part of the Chess project, you will create a MySQL implementation of you
 1. Install the MYSQL database management system (DBMS) on your development machine.
 1. Modify `db.properties` to contain your username and password.
 1. Design your database tables (i.e., your database `schema`)
-1. Implement a MySQL implementation your Data Access Interface. Initially you can just stub out all of the methods.
+1. Implement a MySQL implementation of your Data Access Interface. Initially you can just stub out all of the methods.
 1. Add the ability to create your database and tables, if they don't exist, when your server starts up.
 1. Iteratively write a test for each of your Data Access interface methods along with the backing MySQL code.
 1. Ensure that all provided pass off tests work properly, including the PersistenceTests added for this assignment, and the StandardAPITests from the previous assignment.
