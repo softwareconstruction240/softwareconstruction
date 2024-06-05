@@ -193,10 +193,6 @@ Here is a [sequence diagram](https://sequencediagram.org/index.html?presentation
 
 The provided tests for this assignment are in the `WebSocketTests` class. These test the `WebSocket` interactions between client and server. To run the tests first start your server, and then run `WebSocketTests`.
 
-### Code Quality
-
-For this phase the TAs will grade the quality of your project's source code. The rubric used to evaluate code quality can be found here: [Rubric](../code-quality-rubric.md)
-
 ### Pass Off, Submission, and Grading
 
 All of the tests in your project must succeed in order to complete this phase.
