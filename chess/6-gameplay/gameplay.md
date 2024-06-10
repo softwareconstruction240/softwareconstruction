@@ -49,7 +49,7 @@ When a user begins playing or observing a game, their client should do the follo
 1. Call the server join API to join them to the game (ONLY in case of playing rather than observing).
 1. Open a WebSocket connection with the server (using the `/ws` endpoint) so it can send and receive gameplay messages.
 1. Send a CONNECT WebSocket message to the server.
-1. Transition to the gameplay UI. The gameplay UI draws the chess board and allows the user perform the gameplay commands described in the previous section.
+1. Transition to the gameplay UI. The gameplay UI draws the chess board and allows the user to perform the gameplay commands described in the previous section.
 
 The following sections describe the messages that will be exchanged between client and server (or vice versa) to implement the gameplay functionality.
 
