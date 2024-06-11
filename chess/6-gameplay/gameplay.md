@@ -90,37 +90,28 @@ The following sections describe the server messages and user game command messag
 
 ## User Game Commands
 
-| Command           | Required Fields                | Description                                                                          |
-|-------------------|--------------------------------|--------------------------------------------------------------------------------------|
-| **CONNECT**       | Integer gameID                 | Used for a user to request to connect to a game as a player or observer.             |
-| **MAKE_MOVE**     | Integer gameID, ChessMove move | Used to request to make a move in a game.                                            |
-| **LEAVE**         | Integer gameID                 | Tells the server you are leaving the game so it will stop sending you notifications. |
-| **RESIGN**        | Integer gameID                 | Forfeits the match and ends the game (no more moves can be made).                    |
+| Command           | Required Additional Fields | Description                                                                          |
+|-------------------|----------------------------|--------------------------------------------------------------------------------------|
+| **CONNECT**       |                            | Used for a user to request to connect to a game as a player or observer.             |
+| **MAKE_MOVE**     | ChessMove move             | Used to request to make a move in a game.                                            |
+| **LEAVE**         |                            | Tells the server you are leaving the game so it will stop sending you notifications. |
+| **RESIGN**        |                            | Forfeits the match and ends the game (no more moves can be made).                    |
 
 ```mermaid
 classDiagram
     class UserGameCommand {
         commandType: CommandType
         authToken: String
-    }
-    class Connect {
         gameID: Integer
     }
-    class MakeMove {
-        gameID: Integer
+    class MakeMoveCommand {
         move: ChessMove
     }
-    class Leave {
-        gameID: Integer
-    }
-    class Resign {
-        gameID: Integer
-    }
-    UserGameCommand <|-- Connect
-    UserGameCommand <|-- MakeMove
-    UserGameCommand <|-- Leave
-    UserGameCommand <|-- Resign
+    UserGameCommand <|-- MakeMoveCommand
+    
 ```
+Note: You may make additional subclasses for commands other than `MAKE_MOVE` but they are not required
+
 
 ## Server Messages
 
@@ -135,18 +126,19 @@ classDiagram
     class ServerMessage {
         serverMessageType : ServerMessageType
     }
-    class LoadGame {
+    class LoadGameMessage {
         game: any
     }
-    class Error {
+    class ErrorMessage {
         errorMessage: String
     }
-    class Notification {
+    class NotificationMessage {
         message: String
     }
-    ServerMessage <|-- LoadGame
-    ServerMessage <|-- Error
-    ServerMessage <|-- Notification
+    ServerMessage <|-- LoadGameMessage
+    ServerMessage <|-- ErrorMessage
+    ServerMessage <|-- NotificationMessage
+   
 ```
 
 ## WebSocket Interactions
