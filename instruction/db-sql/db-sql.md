@@ -1,6 +1,6 @@
 # Relational Databases - SQL
 
-🖥️ [Slides](https://docs.google.com/presentation/d/19nC7v6SDqoEeK75Mb-f6L3QhnbuP6Xfo/edit?usp=sharing&ouid=114081115660452804792&rtpof=true&sd=true)
+🖥️ [Slides](https://docs.google.com/presentation/d/1_kGyItbM3fp0PQSemvBocclT8EU87rBX)
 
 `Structured Query Language` (SQL) is a programming language that is specifically designed to interact with relational databases. It contains statements for inserting, updating, reading, and deleting data. It also provides statements for managing the database and the users that have access to the database.
 
