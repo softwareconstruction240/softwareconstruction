@@ -70,7 +70,7 @@ To pass off this assignment use the course [auto-grading](https://cs240.click/) 
 
 | Category       | Criteria                                                                                           |       Points |
 | :------------- | :------------------------------------------------------------------------------------------------- | -----------: |
-| GitHub History | At least 10 GitHub commits evenly spread over the assignment period that demonstrate proof of work | Prerequisite |
+| GitHub History | At least 8 GitHub commits evenly spread over the assignment period that demonstrate proof of work  | Prerequisite |
 | Functionality  | All pass off test cases succeed                                                                    |          125 |
 | Extra Credit   | `extracredit` test cases succeed                                                                   |    bonus +10 |
 |                | Total                                                                                              |          125 |

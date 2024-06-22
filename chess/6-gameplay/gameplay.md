@@ -207,7 +207,7 @@ To pass off this assignment submit your work to the course [auto-grading](https:
 
 | Category                      | Criteria                                                                                           |       Points |
 |-------------------------------|----------------------------------------------------------------------------------------------------| -----------: |
-| GitHub History                | At least 10 GitHub commits evenly spread over the assignment period that demonstrate proof of work | Prerequisite |
+| GitHub History                | At least 12 GitHub commits evenly spread over the assignment period that demonstrate proof of work | Prerequisite |
 | Automated Pass Off Test Cases | There are 20 JUnit pass off test cases. Each successful test case is worth 2.5 points.             |           50 |
 | Help Text                     | Useful help text is displayed informing the user what actions they can take.                       |            5 |
 | Observer Connect              | Observers can connect to a game. Notification sent and board drawn.                                |            5 |
