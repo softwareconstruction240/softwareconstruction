@@ -50,7 +50,7 @@ After you have cloned your repository locally, you need to make a change so that
 1. Create a file in your repository directory named `notes.md`.
 1. Add some content to it.
 1. Add the `notes.md` file to the repo.
-1. Create the changes.
+1. Commit the changes.
 1. Push the changes to GitHub.
 
 You can accomplish all of these changes with the following commands.
