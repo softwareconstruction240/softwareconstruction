@@ -88,14 +88,17 @@ To run the tests, you can click the play icon next to an individual test, or you
 
 ## Recommended Development Process
 
-For this project, you are free to implement the classes described above in whatever order. However, it is suggested that you follow the principles of test driven development.
+For this project, you are free to implement the classes described above in whatever order you choose. However, it is suggested that you follow the principles of test driven development. Each test is designed for a specific aspect of the overall project. You should look at what each test needs to function, and build piece by piece to the functionality of the project.
+A good process for this is to:
 
-- Start by executing the `BishopMoveTests.bishopMoveUntilEdge` test.
-- Observe what code is throwing a `Not implemented` exception.
-- Replace the code that is throwing the exception with something reasonable.
-- Rerun the test, debug, and continue implementing until the test passes.
-- Commit your changes to GitHub.
+- Identify a test that you feel is the simplest or next in the process.
+- Add the code for the functionality
+- Run the test, debug, and continue implementing until the test passes.
+- Ensure you did not break any tests you previously passed.
+- Commit your changes to GitHub. Smaller changes will be much easier to follow and verify for this project.
 - Repeat the above process for each of the tests until they all pass.
+
+If you are confused at what a test is doing reread the specs to understand what functionality it is looking for, and you can ask for clarification on Slack or to a TA.
 
 ## Object Overrides
 
