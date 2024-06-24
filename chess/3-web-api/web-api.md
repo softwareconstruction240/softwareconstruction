@@ -415,7 +415,7 @@ After your code has successfully been auto-graded, a TA will review the code in 
 
 | Category       | Criteria                                                                                                                                                                                         |       Points |
 | :------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -----------: |
-| GitHub History | At least 10 GitHub commits evenly spread over the assignment period that demonstrate proof of work                                                                                               | Prerequisite |
+| GitHub History | At least 12 GitHub commits evenly spread over the assignment period that demonstrate proof of work                                                                                               | Prerequisite |
 | Web API Works  | All pass off test cases in `StandardAPITests.java` succeed                                                                                                                                       |          115 |
 | Web Page Loads | Test web page properly loads in browser (including all files linked to by the test page: favicon.ico, index.css, index.js)                                                                       |           10 |
 | Code Quality   | [Rubric](../code-quality-rubric.md)                                                                                                                                                              |           30 |
