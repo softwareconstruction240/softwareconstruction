@@ -2,6 +2,8 @@
 
 🖥️ [Slides](https://docs.google.com/presentation/d/19nC7v6SDqoEeK75Mb-f6L3QhnbuP6Xfo/edit?usp=sharing&ouid=114081115660452804792&rtpof=true&sd=true)
 
+🖥️ [Lecture Videos](#videos)
+
 ![Edgar Cobb](edgar-codd.png)
 
 > _source: [Wikipedia](https://en.wikipedia.org/wiki/Edgar_F._Codd)_
@@ -116,7 +118,7 @@ In practical terms, relational data is stored in a Relational Database Managemen
 - How to model inheritance relationships in the relational model
 - How to represent a data model in an ERD
 
-## Videos
+## <a name="videos"></a>Videos
 
 - 🎥 [Relational Databases Overview](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=10667c35-dea3-4f1e-8c91-ad66013d553b&start=0)
 - 🎥 [Understanding the Relational Model](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=3ec3f6de-a112-4e0a-a0af-ad66013f8bc7&start=0)

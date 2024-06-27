@@ -2,6 +2,8 @@
 
 🖥️ [Slides](https://docs.google.com/presentation/d/1_kGyItbM3fp0PQSemvBocclT8EU87rBX)
 
+🖥️ [Lecture Videos](#videos)
+
 `Structured Query Language` (SQL) is a programming language that is specifically designed to interact with relational databases. It contains statements for inserting, updating, reading, and deleting data. It also provides statements for managing the database and the users that have access to the database.
 
 You can categorizes the most commonly used SQL statements into the following buckets.
@@ -311,7 +313,7 @@ The follow table summaries all of the commands that were used in this instructio
 - How to retrieve data from multiple related tables using a join
 - What database transactions are and why we need them
 
-## Videos
+## <a name="videos"></a>Videos
 
 - 🎥 [Structured Query Language](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=4f5a6bfe-5170-4c3c-97e8-ad660148d05a&start=0)
 - 🎥 [SQL Data Types](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=91cb451f-fc88-426d-9656-ad660149a253&start=0)

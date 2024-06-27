@@ -6,6 +6,8 @@
 
 - Chapter 5: Exceptions, Assertions, and Logging. _Only Section 5.3 Logging - Section 5.3.7 Filters and Formatters_
 
+🖥️ [Lecture Videos](#videos)
+
 Logging is a critical piece of advanced software construction. Without logging your application is a black box where only your users know if it is working or not. By recording, or logging, what is happening within your application you create a persistent record of what users are doing and how the application is responding to their requests. Logging works by recording entries in a log that describes what is happening at key points in your application. Typically this includes the request and response of HTTP endpoints, authentication and authorization requests, and exceptional errors. You can then query your logs to view events, graphs, and reports that give you insight into what the system is doing. You can also set up your logging system to automatically alert you when things seem exceptional.
 
 ![logging flow](logging-flow.png)
@@ -223,7 +225,7 @@ Java's direct support for logging, with the `java.util.logging` package, was not
 - How do you configure logging from a configuration file?
 - Why do we have Log4J is Java has a built-in logging API?
 
-## Videos
+## <a name="videos"></a>Videos
 
 - 🎥 [Logging](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=014ade75-f4ad-4119-95c1-ad6d0147c217&start=0)
 - 🎥 [Logging: Configuration](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=5c08583a-579d-452e-88d6-ad6d0149e2cc&start=0)

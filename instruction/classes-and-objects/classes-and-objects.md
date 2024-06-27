@@ -4,6 +4,8 @@
 
 📖 **Required Reading**: Core Java for the Impatient Chapter 2: Object-Oriented Programming
 
+🖥️ [Lecture Videos](#videos)
+
 Classes are the primary programming construct for Java. A class contains fields and methods. Fields represent variables within the class and methods represent operations that the class performs. For example, if we had a class that represents a person, we might have a field called `name` that contains the person's name, and a method called `sayName` that outputs the name. An object is an instantiation, or instance, of a class that has been initialized to contain values. A class may also have a constructor that provides the default values for the fields when the class is instantiated into an object.
 
 ```java
@@ -179,7 +181,7 @@ public static void main(String[] args) {
 - What an enum is and how to implement one
 - The standard order of elements in a Java class
 
-## Videos
+## <a name="videos"></a>Videos
 
 - 🎥 [Overview](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=8248d213-ef10-44e1-8dbf-ad5d0143c0f8&start=0)
 - 🎥 [Object References](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=cd1007ae-04da-4311-9e2d-ad5d0144b41a&start=0)

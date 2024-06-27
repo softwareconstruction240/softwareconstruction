@@ -10,6 +10,8 @@
 >
 > — Tim Berners-Lee, (**Source**: _Answers for Young People_)
 
+🖥️ [Lecture Videos](#videos)
+
 ## URL
 
 The Uniform Resource Locator (URL) represents the location of a web resource. A web resource can be anything, such as a web page, font, image, video stream, database record, or JSON object. It can also be completely ephemeral, such as a visitation counter, or gaming session.
@@ -179,6 +181,6 @@ The format of the body of an HTTP request or response is defined by the `Content
 - Web basics: URLs, the HTTP protocol (Headers, methods, and body)
 - URL schema
 
-## Videos
+## <a name="videos"></a>Videos
 
 - 🎥 [The HTTP Protocol](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=3640012d-bd4d-4d9f-8169-ad720112e7af&start=0)

@@ -8,6 +8,8 @@
   - section 1: Input, Output Streams, Readers, and Writers
   - section 2: Paths, Files and Directories
 
+🖥️ [Lecture Videos](#videos)
+
 Input refers to when you read data in from some source of data. Output is the opposite, where you write data out to some destination. Sources and destinations commonly represent devices such as persistent storage, the network, a keyboard, or a printer. It can also represent bytes being pulled from, or written to, an array or some other memory based structure.
 
 The [java.io](https://docs.oracle.com/javase/20/docs/api/java/io/package-summary.html) package contains many classes and interfaces for working with I/O. The following table gives examples of some of the more commonly used `java.io` classes.
@@ -122,7 +124,7 @@ public class ReadFile {
 - How to use the scanner class
 - Uses of the file class
 
-## Videos
+## <a name="videos"></a>Videos
 
 - 🎥 [Overview](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=9c064639-8e05-4d4c-b458-ad64014cbb24&start=0)
 - 🎥 [Streams](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=8db201b9-9a04-4cbf-8a99-ad64014ddd56&start=0)

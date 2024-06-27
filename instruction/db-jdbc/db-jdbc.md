@@ -2,6 +2,8 @@
 
 🖥️ [Slides - JDBC](https://docs.google.com/presentation/d/12XS7en64-oQYivKayGyNGueWphiL6mm5)
 
+🖥️ [Lecture Videos](#videos)
+
 Now that we have covered what relational databases are and how to use SQL to interact with them, it is time to discuss how to use SQL from a Java program. Java uses a standard interface library called Java Database Connector (JDBC). This library provides you with classes to connect to a database, execute SQL queries, and process the results.
 
 We also discuss using the popular open source relational database software MySQL. You will install a MySQL server in your development environment and use it as the persistent data store for your chess program.
@@ -387,7 +389,7 @@ With the Chess application you may have a similar situation with the game interf
 - How to retrieve auto-increment primary keys that were generate by the database on an insert
 - How to get a JDBC driver for MySQL and make it available to your Java project/code
 
-## Videos
+## <a name="videos"></a>Videos
 
 - 🎥 [Java Database Access with JDBC](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=cabe9971-3ff7-4579-be2e-ad660156090a&start=0)
 - 🎥 [JDBC - Putting it All Together](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=e5d62c40-3494-4ff9-9558-ad6b013cdfb6&start=0)

@@ -2,6 +2,8 @@
 
 🖥️ [Slides](https://docs.google.com/presentation/d/1TAl9a41zLMyQmuQTYgxmYct6gsWgWopc/edit?usp=sharing&ouid=114081115660452804792&rtpof=true&sd=true)
 
+🖥️ [Lecture Videos](#videos)
+
 ## Copy Constructors
 
 An easy way to provide the ability to make a copy of your object is to create a constructor that takes an object you want to copy. This is commonly called a `Copy Constructor`.
@@ -119,7 +121,7 @@ However, overriding `clone` requires that you implement the `Cloneable` marker i
 - How to use `copy constructors` to implement deep copies
 - How to use `clone` methods to implement deep copies
 
-## Videos
+## <a name="videos"></a>Videos
 
 - 🎥 [Copying Objects - Theory](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=9c3422bf-3b1e-40f0-b221-ad6b011daa82&start=0)
 - 🎥 [Copying Objects - Implementation](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=102c1fdc-516f-4058-957b-ad6b011ff9f4&start=0)

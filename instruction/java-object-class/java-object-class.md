@@ -2,6 +2,8 @@
 
 🖥️ [Slides](https://docs.google.com/presentation/d/17S-Y7Og08S9kRWHZfnH8k2wTBht39aCd/edit?usp=sharing&ouid=114081115660452804792&rtpof=true&sd=true)
 
+🖥️ [Lecture Videos](#videos)
+
 All classes in Java can have a single base class that they extend. When you extend another class you inherit all of the public and protected methods and fields that the class provides. The default Java base class is called the `Object` class. If you do not explicitly specify what base class your class extends then you will automatically inherit the `Object` class.
 
 When one class extends another class it can override, or overload, the base classes methods in order to alter, or extend, its functionality. The base `Object` class contains the following methods that you can override.
@@ -115,7 +117,7 @@ When an object overrides both the `equals` and `hashCode` methods, you can use i
 - How to override the `hashCode()` method
 - How hash tables work and why we need a `hashCode()` method
 
-## Videos
+## <a name="videos"></a>Videos
 
 - 🎥 [Classes and Objects Overview](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=8d7440ec-313d-45d1-891f-ad5f01307ab8&start=0)
 - 🎥 [The `Object` Super Class](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=1de40809-379f-44fd-8ffe-ad5f01307a86&start=0)
