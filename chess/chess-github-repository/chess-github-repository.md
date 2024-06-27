@@ -73,3 +73,5 @@ Submit the URL of your repository to the canvas assignment. The URL should look 
 ```txt
 https://github.com/<youraccount>/chess
 ```
+
+After submitting to Canvas, pass off with the course [auto-grading](https://cs240.click/) tool. If you created your repository correctly then your grade will automatically be entered in Canvas.
