@@ -14,7 +14,7 @@ public class Team implements Cloneable {
         Team t = new Team("Original Team", List.of(p));
         System.out.println("Original Team:\n\t" + t);
 
-        Team t2 = (Team) t.clone();
+        Team t2 = t.clone();
         t2.setName("Cloned Team");
         List<Person> cloneMembers = t2.getMembers();
         cloneMembers.get(0).setFirstName("Changed First Name");
@@ -58,17 +58,22 @@ public class Team implements Cloneable {
     }
 
     @Override
-    public Object clone() throws CloneNotSupportedException {
-        Team clone = (Team) super.clone();
+    public Team clone() {
+        try {
+            Team clone = (Team) super.clone();
 
-        // Comment these lines out to see what happens with a shallow copy that contains a mutable instance variable
-        List<Person> cloneMembers = new ArrayList<>();
-        for(Person person : members) {
-            Person personClone = (Person) person.clone();
-            cloneMembers.add(personClone);
+            // Comment these lines out to see what happens with a shallow copy that contains a mutable instance variable
+            List<Person> cloneMembers = new ArrayList<>();
+            for(Person person : members) {
+                Person personClone = person.clone();
+                cloneMembers.add(personClone);
+            }
+
+            clone.members = cloneMembers;
+
+            return clone;
+        } catch (CloneNotSupportedException e) {
+            throw new RuntimeException(e);
         }
-        clone.members = cloneMembers;
-
-        return clone;
     }
 }
