@@ -52,7 +52,7 @@ This is a special move taken by a Pawn in response to your opponent double movin
 
 ### Pass Off Tests
 
-The test cases for this assignment are in `passoff/chess/ChessGameTests.java` and represent the tests for the overall gameplay. You will need to pass all these tests to pass off this assignment.
+The test cases for this assignment are in the `passoff/chess/game` directory and represent the tests for the overall gameplay. You will need to pass all these tests to pass off this assignment.
 
 Additionally, if you are implementing `Castling` and `En Passant` then include the tests from the starter code in the `extracredit` package. Successfully passing these will earn you some extra credit on this assignment, but are not required for pass off.
 
@@ -70,7 +70,7 @@ To pass off this assignment use the course [auto-grading](https://cs240.click/) 
 
 | Category       | Criteria                                                                                           |       Points |
 | :------------- | :------------------------------------------------------------------------------------------------- | -----------: |
-| GitHub History | At least 10 GitHub commits evenly spread over the assignment period that demonstrate proof of work | Prerequisite |
+| GitHub History | At least 8 GitHub commits evenly spread over the assignment period that demonstrate proof of work  | Prerequisite |
 | Functionality  | All pass off test cases succeed                                                                    |          125 |
 | Extra Credit   | `extracredit` test cases succeed                                                                   |    bonus +10 |
 |                | Total                                                                                              |          125 |

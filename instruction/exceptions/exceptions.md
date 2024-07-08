@@ -6,6 +6,8 @@
 
 - Chapter 5: Exceptions, Assertions, And Logging. (_Only read sections 5.1-5.1.9: Exception Handling_)
 
+🖥️ [Lecture Videos](#videos)
+
 Java exceptions allow you to escape out of the normal execution flow of a program when something exceptional happens. You can then centrally handle the exception at a location higher in the code execution stack.
 
 Java uses the standard `try`, `throw`, and `catch` syntax that are found in most programming languages. You define a block where exceptions can occur with the `try` statement. The `try` block is then followed by one or more `catch` blocks. For each `catch` block you can specify what exception the block handles. The runtime will pick the block that most specifically matches your exception. If you want to handle all exceptions, then you can specify the `Exception` base class in your catch block.
@@ -173,7 +175,7 @@ Using exceptions for non-exceptional cases makes debugging much more difficult a
 - How to use try/catch blocks
 - What finally blocks are and how to use them
 
-## Videos
+## <a name="videos"></a>Videos
 
 - 🎥 [Exceptions](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=83d5acf8-12b7-473d-919d-ad6b0124631b&start=0)
 - 🎥 [Checked vs. Unchecked Exceptions](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=3e7b6f62-13e5-41e6-9a81-ad6b012e8b25&start=0)

@@ -22,7 +22,7 @@ The gameplay UI should support the following user commands:
 | **Leave**                 | Removes the user from the game (whether they are playing or observing the game). The client transitions back to the Post-Login UI.                                                                                                                  |
 | **Make Move**             | Allow the user to input what move they want to make. The board is updated to reflect the result of the move, and the board automatically updates on all clients involved in the game.                                                               |
 | **Resign**                | Prompts the user to confirm they want to resign. If they do, the user forfeits the game and the game is over. Does not cause the user to leave the game.                                                                                            |
-| **Highlight Legal Moves** | Allows the user to input what piece for which they want to highlight legal moves. The selected piece’s current square and all squares it can legally move to are highlighted. This is a local operation and has no effect on remote users’ screens. |
+| **Highlight Legal Moves** | Allows the user to input the piece for which they want to highlight legal moves. The selected piece’s current square and all squares it can legally move to are highlighted. This is a local operation and has no effect on remote users’ screens. |
 
 ![highlight moves](highlight-moves.png)
 
@@ -49,7 +49,7 @@ When a user begins playing or observing a game, their client should do the follo
 1. Call the server join API to join them to the game (ONLY in case of playing rather than observing).
 1. Open a WebSocket connection with the server (using the `/ws` endpoint) so it can send and receive gameplay messages.
 1. Send a CONNECT WebSocket message to the server.
-1. Transition to the gameplay UI. The gameplay UI draws the chess board and allows the user perform the gameplay commands described in the previous section.
+1. Transition to the gameplay UI. The gameplay UI draws the chess board and allows the user to perform the gameplay commands described in the previous section.
 
 The following sections describe the messages that will be exchanged between client and server (or vice versa) to implement the gameplay functionality.
 
@@ -90,37 +90,28 @@ The following sections describe the server messages and user game command messag
 
 ## User Game Commands
 
-| Command           | Required Fields                | Description                                                                          |
-|-------------------|--------------------------------|--------------------------------------------------------------------------------------|
-| **CONNECT**       | Integer gameID                 | Used for a user to request to connect to a game as a player or observer.             |
-| **MAKE_MOVE**     | Integer gameID, ChessMove move | Used to request to make a move in a game.                                            |
-| **LEAVE**         | Integer gameID                 | Tells the server you are leaving the game so it will stop sending you notifications. |
-| **RESIGN**        | Integer gameID                 | Forfeits the match and ends the game (no more moves can be made).                    |
+| Command           | Required Additional Fields | Description                                                                          |
+|-------------------|----------------------------|--------------------------------------------------------------------------------------|
+| **CONNECT**       |                            | Used for a user to request to connect to a game as a player or observer.             |
+| **MAKE_MOVE**     | ChessMove move             | Used to request to make a move in a game.                                            |
+| **LEAVE**         |                            | Tells the server you are leaving the game so it will stop sending you notifications. |
+| **RESIGN**        |                            | Forfeits the match and ends the game (no more moves can be made).                    |
 
 ```mermaid
 classDiagram
     class UserGameCommand {
         commandType: CommandType
         authToken: String
-    }
-    class Connect {
         gameID: Integer
     }
-    class MakeMove {
-        gameID: Integer
+    class MakeMoveCommand {
         move: ChessMove
     }
-    class Leave {
-        gameID: Integer
-    }
-    class Resign {
-        gameID: Integer
-    }
-    UserGameCommand <|-- Connect
-    UserGameCommand <|-- MakeMove
-    UserGameCommand <|-- Leave
-    UserGameCommand <|-- Resign
+    UserGameCommand <|-- MakeMoveCommand
+    
 ```
+Note: You may make additional subclasses for commands other than `MAKE_MOVE` but they are not required
+
 
 ## Server Messages
 
@@ -135,18 +126,19 @@ classDiagram
     class ServerMessage {
         serverMessageType : ServerMessageType
     }
-    class LoadGame {
+    class LoadGameMessage {
         game: any
     }
-    class Error {
+    class ErrorMessage {
         errorMessage: String
     }
-    class Notification {
+    class NotificationMessage {
         message: String
     }
-    ServerMessage <|-- LoadGame
-    ServerMessage <|-- Error
-    ServerMessage <|-- Notification
+    ServerMessage <|-- LoadGameMessage
+    ServerMessage <|-- ErrorMessage
+    ServerMessage <|-- NotificationMessage
+   
 ```
 
 ## WebSocket Interactions
@@ -168,7 +160,7 @@ If a `UserGameCommand` is invalid (e.g. invalid authToken or gameID doesn’t ex
 1. Game is updated to represent the move. Game is updated in the database.
 1. Server sends a `LOAD_GAME` message to all clients in the game (including the root client) with an updated game.
 1. Server sends a `Notification` message to all **other clients** in that game informing them what move was made.
-1. If the move results in check or checkmate the server sends a `Notification` message to **all clients**.
+1. If the move results in check, checkmate or stalemate the server sends a `Notification` message to **all clients**.
 
 **Root Client sends LEAVE**
 
@@ -203,7 +195,7 @@ To pass off this assignment submit your work to the course [auto-grading](https:
 
 | Category                      | Criteria                                                                                           |       Points |
 |-------------------------------|----------------------------------------------------------------------------------------------------| -----------: |
-| GitHub History                | At least 10 GitHub commits evenly spread over the assignment period that demonstrate proof of work | Prerequisite |
+| GitHub History                | At least 12 GitHub commits evenly spread over the assignment period that demonstrate proof of work | Prerequisite |
 | Automated Pass Off Test Cases | There are 20 JUnit pass off test cases. Each successful test case is worth 2.5 points.             |           50 |
 | Help Text                     | Useful help text is displayed informing the user what actions they can take.                       |            5 |
 | Observer Connect              | Observers can connect to a game. Notification sent and board drawn.                                |            5 |

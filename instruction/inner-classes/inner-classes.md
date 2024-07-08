@@ -5,6 +5,8 @@
 - Chapter 2 section 2.7 Nested Classes
 - Chapter 3 section 3.9 Local and Anonymous Classes
 
+🖥️ [Lecture Videos](#videos)
+
 Normally in Java, a class must be defined at the top level of a file that has the same name as the class. However, there are times when a class is only used within the context of another class, method, or scope. This is where inner, or nested, classes come into play.
 
 There are four types of Inner (Nested) Classes in Java.
@@ -194,7 +196,7 @@ public class AnonymousExample {
 - Why do local inner classes have a restriction on which local variables they can access?
 - How do you define an anonymous inner class and what benefit does it provide over a local inner class?
 
-## Videos
+## <a name="videos"></a>Videos
 
 - 🎥 [Introduction](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=1a6ec347-24b8-41db-9dd8-ad72014f1ec1&start=0)
 - 🎥 [Static Inner-Classes](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=c02cdeb8-5929-4b80-b83a-ad72015107bc&start=0)

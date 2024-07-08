@@ -4,6 +4,8 @@
 
 📖 **Optional Reading**: [Clean Code](https://www.oreilly.com/library/view/clean-code-a/9780136083238/)
 
+🖥️ [Lecture Videos](#videos)
+
 Despite stereotypes to the contrary, software engineering is an art form. It requires significant creativity to envision, architect, and create quality user experiences. That same care and artistic expression should be reflected in how your organize and write your code. One quality of a distinguished engineer is that they write code that is easy to discover, read, comprehend, manipulate, and extend. Take for example the following two small programs.
 
 **Example 1**
@@ -350,7 +352,7 @@ client make move
 - How to refactor your code.
 - Writing pseudo-code.
 
-## Videos
+## <a name="videos"></a>Videos
 
 - 🎥 [Introduction](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=ea73fd31-9c36-40d5-9e46-ad6b0151100a&start=0)
 - 🎥 [Cohesion and Method Naming](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=776f9b2c-49ce-4645-93eb-ad6b015221a7&start=0)

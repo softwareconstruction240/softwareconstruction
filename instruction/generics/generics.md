@@ -6,6 +6,8 @@
 
 - Chapter 6: Generic Programming. _Only_ Sections 6.1-6.4
 
+🖥️ [Lecture Videos](#videos)
+
 `Generic Programming` is a common programming language technique that is useful for strongly typed languages such as C++, C#, or Java. You can use generic programming to reuse class or function code that only differs by the type of variables they operate on.
 
 For example, consider the standard JDK object `ArrayList<T>`. The `<T>` part of the class name refers to the `type parameter` for the class. When you create an object based on this class you specify what type you want the generic to use. This means you can create an `ArrayList` that only contains `String` objects or one that only contains `Integer` objects.
@@ -60,7 +62,7 @@ var intStorage = new Storage<Integer>();
 var stringStorage = new Storage<String>();
 ```
 
-## Videos (12:48)
+## <a name="videos"></a>Videos (12:48)
 
 - 🎥 [Generic Types Overview (4:00)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=15993248-1fa0-47fa-ba6f-b0530109e081)
 - 🎥 [Using Generic Classes (6:49)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=ced1be5e-61a3-4dfd-b03f-b053010b6950)

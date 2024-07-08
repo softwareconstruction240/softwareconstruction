@@ -13,6 +13,8 @@
   - Section 2 - Object: The Cosmic Superclass
   - Section 3 - Enumerations
 
+🖥️ [Lecture Videos](#videos)
+
 ## Polymorphism
 
 Polymorphism is the blanket term used in computer science to represent the idea of morphing an object to fit into many (i.e. poly) different contexts. In Java, the use of inheritance and abstract classes are the primary ways to provide polymorphism. You use the `extends` keyword to inherit another class's functionality, and you use the `implements` keyword to inherit an interface definition. Polymorphism allows you to decouple, or abstract, a class's internals, from how it is used. That makes it so you can significantly alter the class without having to change how the class is used.
@@ -241,7 +243,7 @@ public class FinalExample {
 - How to create an interface
 - How to do inheritance in Java
 
-## Videos (30:35)
+## <a name="videos"></a>Videos (30:35)
 
 - 🎥 [Polymorphism (5:53)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=23d2e58e-9628-43a4-9aaa-ad640141e7dc&start=0)
 - 🎥 [Polymorphism Example Part 1 (3:33)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=88adc709-e900-47d6-9e9a-ad64014400ad&start=0)

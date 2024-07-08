@@ -31,13 +31,17 @@ public class Person2 implements Cloneable {
     }
 
     @Override
-    public Object clone() throws CloneNotSupportedException {
-        Person2 clone = (Person2) super.clone();
+    public Person2 clone() {
+        try {
+            Person2 clone = (Person2) super.clone();
 
-        // Clone / copy the birthdate. Not safe to share because it's mutable.
-        Date clonedBirthdate = (Date) getBirthdate().clone();
-        clone.setBirthdate(clonedBirthdate);
+            // Clone / copy the birthdate. Not safe to share because it's mutable.
+            Date clonedBirthdate = (Date) getBirthdate().clone();
+            clone.setBirthdate(clonedBirthdate);
 
-        return clone;
+            return clone;
+        } catch (CloneNotSupportedException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

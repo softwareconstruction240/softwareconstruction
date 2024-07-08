@@ -6,6 +6,8 @@
 
 - Chapter 3: Interfaces and Lambda Expressions. _Only_: section 3.4
 
+🖥️ [Lecture Videos](#videos)
+
 The Java programming language originally required everything to be defined within the scope of a class. That meant that defining a simple utility, or one off function, outside of a class was not allowed. This becomes problematic when you wanted to write small one line functions that do things like handle a mouse click event, or run a simple concurrent task. By forcing all functions to be defined in a class, Java effectively forced developers to new class, in a new file, for each single line function they wanted to implement. You can image hundreds or even thousands of these little files cluttering up a large sized application.
 
 Consider the following `Speaker` interface,
@@ -150,7 +152,7 @@ Just like anonymous classes, lambda functions also support closure. That means y
     }
 ```
 
-## Videos (34:42)
+## <a name="videos"></a>Videos (34:42)
 
 - 🎥 [Lambda Expressions Overview (6:47)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=6cfff192-6903-40b0-bacb-b053010e7658)
 - 🎥 [How Java Lambdas Work (7:14)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=30d50a0f-b462-4d41-b7c6-b05301107ef8)

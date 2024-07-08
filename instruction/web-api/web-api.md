@@ -6,6 +6,8 @@
 
 🖥️ [Slides: Client](https://docs.google.com/presentation/d/1P-qIn-6mrZ28UuRFtFMIvGnjygOtOzZ5/edit?usp=sharing&ouid=114081115660452804792&rtpof=true&sd=true)
 
+🖥️ [Lecture Videos](#videos)
+
 Now that you understand how HTTP works at a theoretical level you can write Java code to make requests from an HTTP client and respond from an HTTP server.
 
 ## Web Server
@@ -362,7 +364,7 @@ java -cp ../../lib/gson-2.10.1.jar ClientCurlExample.java POST 'http://localhost
 - Implementing the Test Web Page using a FileHandler
 - Writing a web client
 
-## Videos
+## <a name="videos"></a>Videos
 
 ⚠ These videos use an application called Family Map to demonstrate the concepts of implementing HTTP for a client and server. This course no longer uses this application, but you may still find the concepts that they present of interest.
 

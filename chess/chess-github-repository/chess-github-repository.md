@@ -50,7 +50,7 @@ After you have cloned your repository locally, you need to make a change so that
 1. Create a file in your repository directory named `notes.md`.
 1. Add some content to it.
 1. Add the `notes.md` file to the repo.
-1. Create the changes.
+1. Commit the changes.
 1. Push the changes to GitHub.
 
 You can accomplish all of these changes with the following commands.
@@ -73,3 +73,5 @@ Submit the URL of your repository to the canvas assignment. The URL should look 
 ```txt
 https://github.com/<youraccount>/chess
 ```
+
+After submitting to Canvas, pass off with the course [auto-grading](https://cs240.click/) tool. If you created your repository correctly then your grade will automatically be entered in Canvas.
