@@ -106,6 +106,10 @@ As part of your unit test deliverable you need to meet the following requirement
 
 ⚠ You must place your data access test cases in a folder named server/src/test/java/dataaccess.
 
+### Code Quality
+
+For this phase the TAs will grade the quality of your project's source code. The rubric used to evaluate code quality can be found here: [Rubric](../code-quality-rubric.md)
+
 ### Pass Off, Submission, and Grading
 
 All of the tests in your project must succeed in order to complete this phase.
