@@ -1,3 +1,5 @@
+package deserializer;
+
 public interface Automobile {
     enum AutomobileType {
         Car, Truck

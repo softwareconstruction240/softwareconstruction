@@ -78,6 +78,9 @@ public class JsonDomParserExample {
 
                 cds.add(new CD(title, artist, country, company, price, year));
             }
+
+            String json = rootObj.toString(4);
+            System.out.println(json);
         }
 
         return cds;

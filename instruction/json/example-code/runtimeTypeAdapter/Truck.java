@@ -1,3 +1,5 @@
+package runtimeTypeAdapter;
+
 public class Truck extends AutomobileImpl {
     private final boolean fourWheelDrive;
 
