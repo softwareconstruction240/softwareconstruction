@@ -387,21 +387,20 @@ public class ScannerExample {
 1. The relationship between Packages, Imports and the CLASSPATH environment variable
 1. How to use a Scanner to read a text file of words, separated by whitespace
 
-## <a name="videos"></a>Videos (1:46:09)
+## <a name="videos"></a>Videos (1:38:13)
 
 - 🎥 [Java History and Overview (10:13)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=cb99566e-3a9d-40c9-86c0-ad56013f4a64)
 - 🎥 [Installing Java (2:32)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=0c39ffac-a1b2-4fa3-bb1e-ad560142a73b)
 - 🎥 [Java Architecture (9:48)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=e9ff3ffe-ce6e-4bba-b363-ad560143be64)
 - 🎥 [Writing, Compiling, and Running Java Code (9:01)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=6e020a04-00fd-40cf-95dc-ad560146bbd8&start=0)
-- 🎥 [Javadoc (7:16)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=2a12a261-6e95-4e97-a838-ad56014c1ceb&start=0)
+- 🎥 [Javadoc (6:57)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=2a12a261-6e95-4e97-a838-ad56014c1ceb&start=0)
 - 🎥 [Primitive Data Types (10:10)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=5d673b50-c9a2-465e-8d5c-ad56014eaeed&start=0)
-- 🎥 [Working with Strings (10:33)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=f77e9a7f-36b2-40c8-8fa3-ad5601520775&start=0)
-- 🎥 [Combining Strings with StringBuilder (2:58)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=b7d693f9-a705-42f4-98f4-adf8015c3166&start=0)
+- 🎥 [Working with Strings (10:25)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=f77e9a7f-36b2-40c8-8fa3-ad5601520775&start=0)
+- 🎥 [Combining Strings with StringBuilder (2:48)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=b7d693f9-a705-42f4-98f4-adf8015c3166&start=0)
 - 🎥 [Arrays (15:16)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=4d122f41-6fd6-4e78-bb3e-ad8e013d82c0&start=0)
 - 🎥 [Arrays of Arrays (5:51)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=71826d41-0b65-4b98-903f-ad8e014772e0&start=0)
 - 🎥 [Command Line Arguments (3:24)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=ddfefe0e-442d-4c56-8f60-ad5d013b4005&start=0)
 - 🎥 [Packages, Imports, and the CLASSPATH Environment Variable (11:48)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=c52bc183-f041-42c6-8e36-ad5d013d318f&start=0)
-- 🎥 [How to use a Scanner to read a text file of words separated by whitespace (7:19)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=3501b44d-296c-40b8-aee1-ad5d014138c8&start=0)
 
 ## Demonstration code
 
