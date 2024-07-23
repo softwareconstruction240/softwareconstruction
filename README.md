@@ -13,16 +13,16 @@ The content for this course is represented by the following parts.
 - [Instruction](instruction/modules.md#readme) - Course topics
 - [Chess](chess/chess.md#readme) - Instructions for building your application
 - [Pet Shop](petshop/petshop.md) - Demonstration application
-- **Canvas** - Submit assignments and tests 
+- **Canvas** - Submit assignments and tests
 
 ## Course Schedule
 
 Although assignment due dates are the same for all sections, the lecture schedule may vary by instructor.
 
-- [Schedule for Professor Jensen's Sections](https://github.com/softwareconstruction240/softwareconstruction/blob/main/schedule/winter2024.md)
+- [Schedule for Professor Jensen's Sections](https://github.com/softwareconstruction240/softwareconstruction/blob/main/schedule/fall2024.md)
 - [Schedule for Dr. Rodham's Sections](https://github.com/softwareconstruction240/softwareconstruction/blob/main/schedule/summer2024-rodham.md)
 - [Schedule for Dr. Wilkerson's Sections](https://github.com/softwareconstruction240/softwareconstruction/blob/main/schedule/spring2024-wilkerson.md)
- 
+
 ## Outcomes
 
 By the end of the course you should have experienced the following outcomes.
@@ -49,4 +49,3 @@ The course covers a full software stack of technologies and topics.
 - Application design
 
 _Image Source: [Christina Morillo](https://www.pexels.com/photo/close-up-photo-of-person-typing-on-laptop-1181675/)_
-
