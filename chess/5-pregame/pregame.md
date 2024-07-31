@@ -33,7 +33,7 @@ After the user has registered or logged in they can then execute any of the Post
 | **Help**         | Displays text informing the user what actions they can take.                                                                                                                                                                                                                                                                         |
 | **Logout**       | Logs out the user. Calls the server logout API to logout the user. After logging out with the server, the client should transition to the Prelogin UI.                                                                                                                                                                               |
 | **Create Game**  | Allows the user to input a name for the new game. Calls the server create API to create the game. This does not join the player to the created game; it only creates the new game in the server.                                                                                                                                     |
-| **List Games**   | Lists all the games that currently exist on the server. Calls the server list API to get all the game data, and displays the games in a numbered list, including the game name and players (not observers) in the game. The numbering for the list should be independent of the game IDs.                                            |
+| **List Games**   | Lists all the games that currently exist on the server. Calls the server list API to get all the game data, and displays the games in a numbered list, including the game name and players (not observers) in the game. The numbering for the list should be independent of the game IDs and should start at 1.                      |
 | **Play Game**    | Allows the user to specify which game they want to join and what color they want to play. They should be able to enter the number of the desired game. Your client will need to keep track of which number corresponds to which game from the last time it listed the games. Calls the server join API to join the user to the game. |
 | **Observe Game** | Allows the user to specify which game they want to observe. They should be able to enter the number of the desired game. Your client will need to keep track of which number corresponds to which game from the last time it listed the games. Functionality will be added in Phase 6.                                               |
 
@@ -48,6 +48,18 @@ As stated previously, gameplay will not be implemented until later. For now, whe
 An example of what the chessboard might look like is given below. You are free to make your chessboard look different as long as the essential information is displayed in an easily readable way, but it must "look like a chess board." You must have different colors for alternating squares, but they don't have to be white and black. Light and dark, or white and brown, or whatever you'd like is fine. Per official chess rules, the bottom-right and top-left squares (h1 and a8) must be the "lighter" color. This will mean each queen is "on her color" (white queen on a light square, black queen on a dark square). In addition, you must show the correct row numbers and column letters, but can do so however you would like.
 
 ![chessboard](ChessBoard.png)
+
+Note that in the above image, the blue letters are black pieces and the red letters are white pieces. In this example the black team's perspective is shown before the white team's perspective. You can show the perspectives in either order, just make sure you can tell which is which.
+
+### UI Requirements
+
+As with any software project with a UI component, there are certain implementation details you should not display to users. These include:
+- Anything in JSON - If you have something in JSON, parse it and then print out only the information you want the user to see.
+- Authtokens and Game IDs - These are important to keep track of but the user should not be aware of these internal variables. See the requirements for the [Postlogin UI](#postlogin-ui) for what to display instead of Game IDs.
+- HTTP status codes - The user should not be made aware of internal details like this. Ask yourself, apart from 404, when was the last time you saw a status code on a professional website?
+- Exception stack traces - Hackers love these kinds of internal details as they show how your code works. These should never be displayed to users, although logging them to a place users will not find may be useful. Instead of a stack trace, a simple message informing the user an error occurred (and hopefully why the error occurred without too many details) should be sufficient.
+
+Make sure that your client doesn't crash. If an exception occurs, catch it. A user may mistakenly put in all kinds of bad input and your client should be able to handle bad input without crashing. This includes incorrect number of arguments (too few or too many), wrong types of arguments (a word when the code expects a number, arguments in the wrong order, etc.), and arguments that the server rejects (register with an existing username, login with incorrect username/password, etc.). When you go to pass off, the TA will test for bad inputs, so please test all of these examples on your own first and ensure the program does not crash and provides reasonable error messages when each error occurs.
 
 ### Relevant Instruction Topics
 
