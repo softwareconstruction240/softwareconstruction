@@ -4,6 +4,8 @@
 
 🖥️ [Slides](https://docs.google.com/presentation/d/1y4u5y9uNiekYcubilyhYLjUGVoYBqs4q/edit?usp=sharing&ouid=114081115660452804792&rtpof=true&sd=true)
 
+🖥️ [Lecture Videos](#videos)
+
 📖 **Required reading**:
 
 - [GitHub create a repo](https://docs.github.com/en/get-started/quickstart/create-a-repo)
@@ -286,3 +288,19 @@ If you already have a Git repo in your local development environment and you wan
    ```sh
    ➜  git push -u origin main
    ```
+
+## <a name="videos"></a>Videos (76:49)
+
+- 🎥 [Git Overview (4:50)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=57cf5ee3-521c-470e-987b-b169014cdec4)
+- 🎥 [Install and Configure Git (5:11)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=87ddb22d-729b-44ec-a476-b169014e892b)
+- 🎥 [Creating a Local Git Repository (6:56)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=dfad1615-37dd-4416-b22c-b16901505d17)
+- 🎥 [Commits (5:44)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=99d9a734-fcc7-4b21-b312-b1690152b5a0)
+- 🎥 [Basic Git Commands (9:34)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=fce3f593-caa1-4c76-9327-b1690154d107)
+- 🎥 [.gitignore (5:14)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=0963f0ab-08ef-48e8-88c6-b1690157c264)
+- 🎥 [Renaming, Moving, and Deleting Files (4:44)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=164be31f-0638-4517-afd7-b16901599a70)
+- 🎥 [IntelliJ Git Integration (5:05)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=99d7bc8f-4605-4948-87ee-b169015b41d1)
+- 🎥 [Git Tips (3:41)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=cd651660-5fcd-4249-950d-b169015ddf09)
+- 🎥 [GitHub Overview (11:22)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=1750077c-a834-437e-86ef-b169015f60d8)
+- 🎥 [GitHub Set Up (9:59)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=27cf1095-6538-4ff2-a12f-b16901630775)
+- 🎥 [GitHub Demo (4:29)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=1bd5974c-a15b-45ef-b3df-b16901665e90)
+
