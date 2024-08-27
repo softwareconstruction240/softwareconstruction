@@ -2,6 +2,8 @@
 
 🖥️ [Slides](https://docs.google.com/presentation/d/1Li3p-74-4LoosHmyB_u2b5kpi_vkNgz6/edit#slide=id.p1)
 
+🖥️ [Lecture Videos](#videos)
+
 📖 **Required Reading**:
 
 - [Maven in 5 Minutes](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)
@@ -327,6 +329,13 @@ Once you press `Add` your `pom.xml` file will be updated and you are ready to go
 - Typical features of command-line build tools, such as dependency management
 - Have a general understanding of how Maven can be used to create a command-line build for a Java project
 - Have a general understanding of how Maven can be used with IntelliJ
+
+## <a name="videos"></a>Videos (25:44)
+
+- 🎥 [Command-line Builds (5:45)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=96027f51-b4f0-4d5b-8f32-b19a015a9d4b)
+- 🎥 [Maven (7:10)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=f64c2663-19d9-411d-9f65-b19a015d6350)
+- 🎥 [Maven Project Structure (8:45)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=e282502e-0b40-4c40-99c1-b19a015ff622)
+- 🎥 [IDE + Automated Builds (4:04)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=98bcf610-19d1-46ef-bd61-b19a0162f956)
 
 ## Demonstration code
 

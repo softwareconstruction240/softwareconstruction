@@ -422,6 +422,7 @@ After your code has successfully been auto-graded, a TA will review the code in 
 | Unit Tests     | All test cases pass<br/>Each public method on your **Service classes** has two test cases, one positive test and one negative test<br/>Every test case includes an Assert statement of some type |           25 |
 |                | Total                                                                                                                                                                                            |          180 |
 
-## <a name="videos"></a>Videos (19:30)
+## <a name="videos"></a>Videos (38:14)
 
 - 🎥 [Phase 3 Overview (19:30)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=a02a9929-b886-4a69-aa8b-b18c015d3e63)
+- 🎥 [Chess Server Implementation Tips (18:44)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=17194b50-e6a2-46eb-bf11-b1af0151af43)

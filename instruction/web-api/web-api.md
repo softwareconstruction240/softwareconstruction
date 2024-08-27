@@ -364,7 +364,7 @@ java -cp ../../lib/gson-2.10.1.jar ClientCurlExample.java POST 'http://localhost
 - Implementing the Test Web Page using a FileHandler
 - Writing a web client
 
-## <a name="videos"></a>Videos (1:02:16)
+## <a name="videos"></a>Videos (1:14:27)
 
 - 🎥 [Web API Implementation (16:27)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=00a1b38c-8d1c-41ba-b2f5-b18c014994a1)
 - 🎥 [Spark Routes (16:40)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=85543d10-c532-4cab-9e0c-b18c014e60d5)
@@ -372,6 +372,7 @@ java -cp ../../lib/gson-2.10.1.jar ClientCurlExample.java POST 'http://localhost
 - 🎥 [Filters (6:26)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=041911bf-8f6f-44d9-a1e9-b18c01570c85)
 - 🎥 [Spark Installation (2:11)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=aa878216-922c-43ca-ae25-b18c0159089a)
 - 🎥 [Pet Shop Demo (9:43)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=751fc126-9541-485a-b712-b18c0159fe8c)
+- 🎥 [Client HTTP (12:11)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=781ae49b-6284-4e1a-836b-b1930162c54b)
 
 ## Demonstration code
 
