@@ -2,11 +2,11 @@
 
 🖥️ [Slides](https://docs.google.com/presentation/d/1CIyKxxGhJXUCQvwsJT64Oaao0p9LcBIZ/edit?usp=sharing&ouid=114081115660452804792&rtpof=true&sd=true)
 
+🖥️ [Lecture Videos](#videos)
+
 📖 **Required Reading**: Core Java for the Impatient
 
 - Chapter 5: Exceptions, Assertions, And Logging. (_Only read sections 5.1-5.1.9: Exception Handling_)
-
-🖥️ [Lecture Videos](#videos)
 
 Java exceptions allow you to escape out of the normal execution flow of a program when something exceptional happens. You can then centrally handle the exception at a location higher in the code execution stack.
 
@@ -175,10 +175,10 @@ Using exceptions for non-exceptional cases makes debugging much more difficult a
 - How to use try/catch blocks
 - What finally blocks are and how to use them
 
-## <a name="videos"></a>Videos
+## <a name="videos"></a>Videos (40:07)
 
-- 🎥 [Exceptions](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=83d5acf8-12b7-473d-919d-ad6b0124631b&start=0)
-- 🎥 [Checked vs. Unchecked Exceptions](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=3e7b6f62-13e5-41e6-9a81-ad6b012e8b25&start=0)
+- 🎥 [Exceptions (35:32)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=83d5acf8-12b7-473d-919d-ad6b0124631b&start=0)
+- 🎥 [Checked vs. Unchecked Exceptions (4:35)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=3e7b6f62-13e5-41e6-9a81-ad6b012e8b25&start=0)
 
 ## Demonstration code
 
