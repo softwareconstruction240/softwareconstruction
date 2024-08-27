@@ -289,7 +289,7 @@ If you already have a Git repo in your local development environment and you wan
    ➜  git push -u origin main
    ```
 
-## <a name="videos"></a>Videos (76:49)
+## <a name="videos"></a>Videos (1:16:49)
 
 - 🎥 [Git Overview (4:50)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=57cf5ee3-521c-470e-987b-b169014cdec4)
 - 🎥 [Install and Configure Git (5:11)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=87ddb22d-729b-44ec-a476-b169014e892b)

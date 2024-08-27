@@ -2,12 +2,11 @@
 
 - [Chess Application Overview](../chess.md)
 - [Getting Started](getting-started.md)
+- 🖥️ [Videos](#videos)
 
 In this part of the Chess Project, you will implement a basic representation of the game of chess. This includes the setting up of the board and defining how pieces move.
 
 ⚠ Review the [Game of Chess](the-game-of-chess.md) instruction to learn how to set up the board and how each of the pieces move.
-
-🖥️ This [video](https://youtu.be/N5oKyY1yQk0) demonstrates the concepts discussed in this section.
 
 ## Starter Code
 
@@ -125,3 +124,9 @@ To pass off this assignment use the course [auto-grading](https://cs240.click/) 
 | GitHub History | At least 8 GitHub commits evenly spread over the assignment period that demonstrate proof of work | Prerequisite |
 | Functionality  | All pass off test cases succeed                                                                    |          125 |
 |                | Total                                                                                              |          125 |
+
+## <a name="videos"></a>Videos (21:22)
+
+- 🎥 [Phase 0 Overview (15:51)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=be427737-b0b5-4aec-bb15-b177014da69c)
+
+- 🎥 [Phase 0 Design Tips (5:31)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=88653eac-78a8-4f59-a12a-b170014f61f1)
