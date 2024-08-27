@@ -2,6 +2,8 @@
 
 🖥️ [Slides](https://docs.google.com/presentation/d/1f1X706vwJKqBRPhlB-yBF7-059--6DoF/edit#slide=id.p1)
 
+🖥️ [Lecture Videos](#videos)
+
 📖 **Required Reading**: None
 
 Software design is the process of defining, architecting, and creating an application. The primary goal of any application is to satisfy a customer's requirements. With a firm focus on the customer, you then apply the principles of good software design to identify the important actors, objects, and interactions necessary to represent the application's domain. This naturally leads to a code architecture that is easy to understand, debug, enhance, and maintain as requirements change.
@@ -459,3 +461,15 @@ You can reduce duplicated code by:
 - Good algorithm and data structure selection
 - Encapsulation - Information hiding
 - DRY - Avoiding code duplication
+
+## <a name="videos"></a>Videos (42:17)
+
+- 🎥 [Design Principles - Introduction (2:27)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=3e09338f-77ca-4465-bebc-b17e014a8118)
+- 🎥 [Design Principles - Design Is Inherently Iterative (3:12)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=86a379ac-0a85-4843-9e3e-b17e014ba495)
+- 🎥 [Design Principles - Abstraction (8:29)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=0fa47857-e09e-47c7-8af1-b17e014cb378)
+- 🎥 [Design Principles - Good Naming (4:24)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=93653a93-9f2a-4550-89d5-b17e01513ccc)
+- 🎥 [Design Principles - Single Responsibility Principle (2:44)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=551b4011-c9c5-44b6-a190-b17e0152b18a)
+- 🎥 [Design Principles - Decomposition (5:25)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=8ebca729-bde2-43a3-a031-b17e015394f6)
+- 🎥 [Design Principles - Good Algorithm and Data Structure Selection (2:25)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=2356c7a4-3702-49c4-8c1d-b17e0155485a)
+- 🎥 [Design Principles - Low Coupling (9:37)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=b1c2ca29-d89f-44a5-9e82-b17e01562e89)
+- 🎥 [Design Principles - Avoid Code Duplication (3:34)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=81229b4c-251d-4aaa-a2c6-b17e0158fe0b)
