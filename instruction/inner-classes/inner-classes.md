@@ -196,13 +196,13 @@ public class AnonymousExample {
 - Why do local inner classes have a restriction on which local variables they can access?
 - How do you define an anonymous inner class and what benefit does it provide over a local inner class?
 
-## <a name="videos"></a>Videos
+## <a name="videos"></a>Videos (26:49)
 
-- 🎥 [Introduction](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=1a6ec347-24b8-41db-9dd8-ad72014f1ec1&start=0)
-- 🎥 [Static Inner-Classes](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=c02cdeb8-5929-4b80-b83a-ad72015107bc&start=0)
-- 🎥 [Inner-Classes](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=201871e8-f294-40d4-944c-ad720152d070&start=0)
-- 🎥 [Local Inner-Classes](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=817e3e88-8d19-4ffa-85b4-ad7201539033&start=0)
-- 🎥 [Anonymous Inner-Classes](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=7faf22b0-00df-4429-818f-ad720155ad20&start=0)
+- 🎥 [Introduction (6:23)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=1a6ec347-24b8-41db-9dd8-ad72014f1ec1&start=0)
+- 🎥 [Static Inner Classes (5:55)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=c02cdeb8-5929-4b80-b83a-ad72015107bc&start=0)
+- 🎥 [Inner Classes (2:06)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=201871e8-f294-40d4-944c-ad720152d070&start=0)
+- 🎥 [Local Inner Classes (7:09)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=817e3e88-8d19-4ffa-85b4-ad7201539033&start=0)
+- 🎥 [Anonymous Inner Classes (5:16)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=7faf22b0-00df-4429-818f-ad720155ad20&start=0)
 
 ## Demonstration code
 

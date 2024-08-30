@@ -94,7 +94,7 @@ public class DefensiveExample {
 - How and when to write assertions.
 - How and when to use parameter checking instead of assertions.
 
-## <a name="videos"></a>Videos
+## <a name="videos"></a>Videos (14:15)
 
-- 🎥 [Assertions](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=934d5be6-15b3-4213-a25b-ad6d01430c86&start=0)
-- 🎥 [Parameter Checking](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=4d06fa38-cf64-4dc2-ace5-ad6d0146799a&start=0)
+- 🎥 [Assertions (11:48)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=934d5be6-15b3-4213-a25b-ad6d01430c86&start=0)
+- 🎥 [Parameter Checking (2:27)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=4d06fa38-cf64-4dc2-ace5-ad6d0146799a&start=0)

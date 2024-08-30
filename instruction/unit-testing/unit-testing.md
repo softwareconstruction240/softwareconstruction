@@ -108,13 +108,12 @@ With IntelliJ, you can autogenerate your unit tests. To use this tool open up an
 - How to run Junit tests from Intellij
 - Special considerations for testing database code
 
-## <a name="videos"></a>Videos
+## <a name="videos"></a>Videos (25:05)
 
-- 🎥 [Why We Need Unit Testing](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=c5707c4c-77d9-43d7-b96b-ad6b014612ca&start=0)
-- 🎥 [Unit Testing Overview](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=bb1884b3-55ab-4a8b-be05-ad6b01477df8&start=0)
-- 🎥 [The JUnit Testing Framework](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=071e47be-a746-4e74-afd5-ad6b0149b2b8&start=0)
-- 🎥 [Unit Testing Database Code](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=6d8bf3b3-3ddd-4f3d-b90d-ad6b014f2bb7&start=0)
-- 🎥 [Correction - Unit Testing Database Code](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=9178d92a-e41b-48f4-8e68-adf8015d7a91&start=0)
+- 🎥 [Why We Need Unit Testing (4:30)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=c5707c4c-77d9-43d7-b96b-ad6b014612ca&start=0)
+- 🎥 [Unit Testing Overview (5:10)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=bb1884b3-55ab-4a8b-be05-ad6b01477df8&start=0)
+- 🎥 [The JUnit Testing Framework (15:25)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=071e47be-a746-4e74-afd5-ad6b0149b2b8&start=0)
+
 
 ## Demonstration code
 

@@ -313,14 +313,14 @@ The follow table summaries all of the commands that were used in this instructio
 - How to retrieve data from multiple related tables using a join
 - What database transactions are and why we need them
 
-## <a name="videos"></a>Videos
+## <a name="videos"></a>Videos (42:05)
 
-- 🎥 [Structured Query Language](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=4f5a6bfe-5170-4c3c-97e8-ad660148d05a&start=0)
-- 🎥 [SQL Data Types](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=91cb451f-fc88-426d-9656-ad660149a253&start=0)
-- 🎥 [Creating and Dropping Tables](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=2b252adc-3c54-4f7e-bea0-ad66014b3c16&start=0)
-- 🎥 [Inserting, Updating, and Deleting Rows](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=02edabc8-3424-4d56-a86b-ad66014f13c3&start=0)
-- 🎥 [Retrieving Data with SQL Queries](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=e7083e5f-66a8-425f-be92-ad6601513cbd&start=0)
-- 🎥 [Database Transactions](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=6e75d23e-4075-4a27-85d0-ad6601548134&start=0)
+- 🎥 [Structured Query Language (2:14)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=4f5a6bfe-5170-4c3c-97e8-ad660148d05a&start=0)
+- 🎥 [SQL Data Types (3:48)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=91cb451f-fc88-426d-9656-ad660149a253&start=0)
+- 🎥 [Creating and Dropping Tables (14:22)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=1f257807-3728-4239-a82b-b1a0011ad706&start=0)
+- 🎥 [Inserting, Updating, and Deleting Rows (6:40)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=203b8c65-d726-4282-8912-b1a0011f18e5&start=0)
+- 🎥 [Retrieving Data with SQL Queries (11:15)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=e7083e5f-66a8-425f-be92-ad6601513cbd&start=0)
+- 🎥 [Database Transactions (3:46)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=6e75d23e-4075-4a27-85d0-ad6601548134&start=0)
 
 ## Demonstration code
 
