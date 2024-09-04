@@ -48,4 +48,4 @@ The course covers a full software stack of technologies and topics.
 - Testing
 - Application design
 
-_Image Source: [Christina Morillo](https://www.pexels.com/photo/close-up-photo-of-person-typing-on-laptop-1181675/)_
+_Image Source: Dall-E_
