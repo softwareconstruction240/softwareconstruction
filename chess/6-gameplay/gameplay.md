@@ -198,23 +198,24 @@ To pass off this assignment submit your work to the course [auto-grading](https:
 
 ### Grading Rubric
 
-| Category                      | Criteria                                                                                           |       Points |
-|-------------------------------|----------------------------------------------------------------------------------------------------| -----------: |
-| GitHub History                | At least 12 GitHub commits evenly spread over the assignment period that demonstrate proof of work | Prerequisite |
-| Automated Pass Off Test Cases | There are 20 JUnit pass off test cases. Each successful test case is worth 2.5 points.             |           50 |
-| Help Text                     | Useful help text is displayed informing the user what actions they can take.                       |            5 |
-| Observer Connect              | Observers can connect to a game. Notification sent and board drawn.                                |            5 |
-| Observer Leave Game           | Observers can leave games. Notification sent.                                                      |            5 |
-| Player Connect                | Players can connect to a game as a specified color. Notification sent and board drawn.             |            5 |
+| Category                      | Criteria                                                                                                                                      |       Points |
+|-------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|-------------:|
+| GitHub History                | At least 12 GitHub commits evenly spread over the assignment period that demonstrate proof of work.                                           | Prerequisite |
+| Automated Pass Off Test Cases | Each provided test case passed is worth a proportional number of points ((passed / total) * 50).                                              |           50 |
+| Help Text                     | Useful help text is displayed informing the user what actions they can take.                                                                  |            5 |
+| Observer Connect              | Observers can connect to a game. Notification sent and board drawn.                                                                           |            5 |
+| Observer Leave Game           | Observers can leave games. Notification sent.                                                                                                 |            5 |
+| Player Connect                | Players can connect to a game as a specified color. Notification sent and board drawn.                                                        |            5 |
 | Player Move Piece             | Players can move pieces. Illegal moves rejected. Notification sent (including check or checkmate notification if applicable) and board drawn. |           15 |
-| Player Leave Game             | Players can leave games. Notification sent.                                                        |            5 |
-| Player Resign Game            | Players can resign from games. Notification sent.                                                  |            5 |
-| Display Legal Moves           | Any player or observer can display the legal moves available to the player whose turn it is.       |           10 |
-| Redraw Board                  | The board redraws when requested by the user (player or observer).                                 |            5 |
-| Game completion               | No moves after game completion due to resignation, checkmate, or stalemate.                        |           15 |
-| Code Quality                  | [Rubric](../code-quality-rubric.md)                                                                |           30 |
-|                               | Total                                                                                              |          155 |
+| Player Leave Game             | Players can leave games. Notification sent.                                                                                                   |            5 |
+| Player Resign Game            | Players can resign from games. Notification sent.                                                                                             |            5 |
+| Display Legal Moves           | Any player or observer can display the legal moves available to any piece on the board regardless of whose turn it is.                        |           10 |
+| Redraw Board                  | The board redraws when requested by the user (player or observer).                                                                            |            5 |
+| Game completion               | No moves after game completion due to resignation, checkmate, or stalemate.                                                                   |           15 |
+| Code Quality                  | [Rubric](../code-quality-rubric.md)                                                                                                           |           30 |
+|                               | Total                                                                                                                                         |          155 |
 
 ## <a name="videos"></a>Videos (10:39)
 
 - 🎥 [Phase 6 Overview (10:39)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=46d6e11c-7744-450d-964e-b1a10160f0c7)
+
