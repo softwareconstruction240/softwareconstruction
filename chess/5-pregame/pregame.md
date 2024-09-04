@@ -2,6 +2,7 @@
 
 - [Chess Application Overview](../chess.md)
 - [Getting Started](getting-started.md)
+- 🖥️ [Videos](#videos)
 
 In this part of the Chess Project, you will create an initial version of your Chess client. Your Chess client will be a terminal-based (i.e., console-based) program that gives the user a simple interface for playing Chess. Your client should implement all user interactions that occur outside of actually playing a game. Game play interactions will be implemented in the next phase. This includes allowing the user to display help text, register, login, list existing games, create a new game, play a game, observe a game, logout, and exit. You will also write the client code that draws the chessboard.
 
@@ -161,3 +162,12 @@ To pass off this assignment submit your work to the course [auto-grading](https:
 | Code Quality   | [Rubric](../code-quality-rubric.md)                                                                                                                                                             |           30 |
 | Unit Tests     | All test cases pass<br/>Each public method on the Server Facade class has two test cases, one positive test and one negative test<br/>Every test case includes an Assert statement of some type |           25 |
 |                | Total                                                                                                                                                                                           |          155 |
+
+## <a name="videos"></a>Videos (38:10)
+
+- 🎥 [Phase 5 Introduction (8:11)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=6e2c9d2f-5a74-4b60-989e-b19a0150a134)
+- 🎥 [Read-Eval-Print-Loop (REPL) (8:11)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=29364420-9c98-4778-ba7a-b19a015380c7)
+- 🎥 [Drawing the Board (1:26)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=6a77c895-f2b8-49d9-8b11-b19a0156aef8)
+- 🎥 [Server Facade (5:00)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=6f02ff21-d6bd-47f3-bddd-b19a01578159)
+- 🎥 [Phase 5 Requirements (3:11)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=1a171c4d-c7dc-41d0-828f-b19a01594498)
+- 🎥 [Client HTTP (12:11)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=781ae49b-6284-4e1a-836b-b1930162c54b)

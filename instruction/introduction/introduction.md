@@ -6,6 +6,8 @@
 
 🖥️ [Slides - Wilkerson](https://docs.google.com/presentation/d/16w_6hFRhAnNUg20Cnq8HEEnBeLawh3Iw/edit?usp=sharing&ouid=110961336761942794636&rtpof=true&sd=true)
 
+🖥️ [Lecture Videos](#videos)
+
 Welcome to Computer Science 240: `Advanced Software Construction`. This course focuses on learning how professional software developers build applications. As part of this instruction you will gain experience with the skills and technologies used in the real world of software construction. This includes: Software design, data modeling, object oriented programming, distributed communication, relational databases, and testing.
 
 In previous courses you have probably focused on building small programs that targeted learning a particular concept. While these programs teach you a specific concept, they fail to provide you with the skills necessary to create applications that require careful design, engineering, and tooling.
@@ -107,3 +109,10 @@ Your mastery of advanced software construction is demonstrated by the following 
 More important than the actual grade you receive from this course is the degree to which you stretch yourself. Software construction is an area that takes decades of effort to master. If you approach this subject matter intentionally, with effort and curiosity, you will find your value as a software engineer greatly increased.
 
 Take the time during the course to dive deeper into topics that you find interesting. Learn from external sources and gain a wide perspective of understanding. Question what is being taught and seek to find a better way to construct software. With this attitude, **you** might be the next leader of a new revolution in software construction.
+
+## <a name="videos"></a>Videos (45:15)
+
+- 🎥 [Course Overview (10:34)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=080df794-9d59-426b-b7c8-b19c0109e6f1)
+- 🎥 [Course Policies (14:19)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=ac43c852-5712-4dca-9003-b19c010d56e7)
+- 🎥 [Keys to Success (5:53)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=4eba6882-83ff-4e95-b498-b19c0111a009)
+- 🎥 [Github Site Review (14:29)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=07624a65-7b70-4198-904b-b19c0113f64a)

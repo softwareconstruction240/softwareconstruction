@@ -1,10 +1,9 @@
 # ♕ Phase 2: Chess Server Design
 
 - [Chess Application Overview](../chess.md)
-
-_This phase has no starter code._
-
-🖥️ [Slides](https://docs.google.com/presentation/d/12zsEJ-at5DsbKNy7a0Eac0D1ZWa4RBIC/edit?usp=sharing&ouid=117271818978464480745&rtpof=true&sd=true)
+- _This phase has no starter code._
+- 🖥️ [Slides](https://docs.google.com/presentation/d/12zsEJ-at5DsbKNy7a0Eac0D1ZWa4RBIC/edit?usp=sharing&ouid=117271818978464480745&rtpof=true&sd=true)
+- 🖥️ [Videos](#videos)
 
 In this part of the Chess Project, you will create a [sequence diagram](https://en.wikipedia.org/wiki/Sequence_diagram) that represents the design of your chess server. Your chess server exposes seven endpoints. An endpoint is a URL that maps to a method that handles HTTP network requests. Your chess client calls the endpoints in order to play a game of chess. Each of these endpoints convert the HTTP network request into service object method calls, that in turn read and write data from data access objects. The data access objects persistently store data in a database. The service object method uses the information from the request and the data access objects to create a response that is sent back to the chess client through the HTTP server.
 
@@ -133,3 +132,14 @@ When initially graded, your design will be given one of three scores:
 | Your design has significant deficiencies. Meet with a TA to discuss your design, ideally the same TA who originally graded your design. Improve and resubmit your design within one week of initial grading, and receive a maximum score of 100%. |    25 |
 | The submitted design was not a serious attempt at doing the assignment correctly. Resubmit your design within one week of initial grading and receive a maximum score of 50%.                                                                     |     0 |
 
+## <a name="videos"></a>Videos (1:31:43)
+
+- 🎥 [Chess Server Design - Introduction (16:15)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=bd253d7a-375d-4833-87e0-b17e015a6b7f)
+- 🎥 [Chess Server Design - Software Design Principles (2:16)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=c8afd967-18dc-4396-b92e-b17e015f13b9)
+- 🎥 [Chess Server Design - Web API Functions (10:49)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=c5c80f46-0abc-4f9d-bb19-b17e015ffab0)
+- 🎥 [Chess Server Design - Model Classes (7:43)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=789ab87f-a7b7-4b71-b8cd-b17e016353d9)
+- 🎥 [Chess Server Design - Data Access Classes (14:31)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=b9cdbf1f-e8de-4da4-ad17-b17e0165ee50)
+- 🎥 [Chess Server Design - Service and Request/Result Classes (11:25)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=983ebf64-8210-454c-b28d-b17e016a588a)
+- 🎥 [Chess Server Design - Server Class and HTTP Handler Classes (7:24)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=8f6c6bb0-5528-4a0b-a6c0-b17e016deda3)
+- 🎥 [Chess Server Design - Frequently Asked Questions (6:55)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=89324a09-d550-4fbd-8d9f-b17e01704a5a)
+- 🎥 [Phase 2 Overview (14:25)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=1b3ed136-4ef1-41d0-8e6c-b17e0172c0bf)

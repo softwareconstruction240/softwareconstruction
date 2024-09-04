@@ -1,5 +1,7 @@
 # AWS Chess Server
 
+🖥️ [Lecture Videos](#videos)
+
 Playing chess in your development environment by yourself can get old after a while. Wouldn't it be nice if you could actually play with your friends or family? The great thing is that your code is already designed to allow any computer in the world to talk to your HTTP server, you just need to put it in a place where it is accessible. To do this, you need to run your chess server on a device that has a public IP address and open up your network port so that it is externally accessible.
 
 There are lots of ways you can accomplish this. You could lease an IP address from your internet service provider (ISP) and assign it to your laptop, or you could lease a server from a cloud provider such as Digital Ocean, Azure, or Amazon Web Services (AWS).
@@ -193,3 +195,12 @@ sudo systemctl enable chess_server
 7. To confirm that the service starts whenever the AWS instance is started, stop and restart the AWS instance from the AWS console or use this command: ```sudo reboot```
 
 Have fun! You have just taken the first step in becoming the world's best chess server.
+
+## <a name="videos"></a>Videos (64:23)
+- 🎥 [Overview (1:41)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=10672ba0-ba2d-4c9b-b6c1-b1ae01071d55&start=0)
+- 🎥 [Launch an EC2 Instance (14:42)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=feea3668-a904-402d-97d1-b1ae0107c46d&start=0)
+- 🎥 [Setup Your EC2 Instance (13:42)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=a5252593-01e6-479b-8532-b1ae010c4e9b&start=0)
+- 🎥 [Modify Your Client Code (7:50)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=c20793cb-452e-4a52-bf1d-b1ae01121603&start=0)
+- 🎥 [Deploy Code and Start the Server (17:49)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=d0fcb3f4-5aea-44b1-af53-b1ae01149092&start=0)
+- 🎥 [Configure Your Chess Server to Start When Your EC2 Instance Starts (8:39)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=56af2673-5e59-4019-8e49-b1ae0119d612&start=0)
+

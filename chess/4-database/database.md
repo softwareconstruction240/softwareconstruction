@@ -2,6 +2,7 @@
 
 - [Chess Application Overview](../chess.md)
 - [Getting Started](getting-started.md)
+- 🖥️ [Videos](#videos)
 
 In this part of the Chess project, you will create a MySQL implementation of your Data Access interface and start calling it from your services. This enables the ability to store data persistently in a MySQL database instead of storing data in main memory. You will also write unit tests using JUnit for your DAO classes. This involves the following steps:
 
@@ -133,3 +134,13 @@ If your tests are passing locally but not on the autograder, here are some thing
 | Code Quality   | [Rubric](../code-quality-rubric.md)                                                                                                                                                 |           30 |
 | Unit Tests     | All test cases pass<br/>Each public method on DAO classes has two test cases, one positive test and one negative test<br/>Every test case includes an Assert statement of some type |           25 |
 |                | Total                                                                                                                                                                               |          155 |
+
+## <a name="videos"></a>Videos (29:30)
+
+- 🎥 [Phase 4 Introduction (4:21)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=1d2253eb-f42c-4091-8d6f-b19301573278)
+- 🎥 [Making Database Connections (6:22)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=9eb42a5d-6770-4d1a-a3ab-b1930158f0d3)
+- 🎥 [Initializing Your Database and Tables (4:22)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=953900dc-0b8e-4ed8-a732-b193015b7e64)
+- 🎥 [Password Hashing (4:14)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=671b0db7-323b-4bec-b0b7-b193015cf733)
+- 🎥 [ChessGame Serialization/Deserialization (6:17)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=5b9f4b5e-a3ae-442f-a311-b193015f1b34)
+- 🎥 [Database Unit Tests (1:52)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=ab5a02c1-bf04-4514-afc0-b19301611d40)
+- 🎥 [Grading Rubric (2:02)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=1b8d4c3b-1e76-4474-9007-b19301620058)

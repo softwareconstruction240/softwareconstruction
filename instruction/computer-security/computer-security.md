@@ -2,6 +2,8 @@
 
 🖥️ [Slides](https://docs.google.com/presentation/d/1pUU4DDACUndgj_ij7bbKOUY8cxmGinZq/edit#slide=id.p1)
 
+🖥️ [Lecture Videos](#videos)
+
 📖 **Required Reading**: None
 
 Software systems conduct trillions of dollars in daily transactions, and manage access to billions of personal records. This makes these systems a valuable target for attack. Bad actors try to compromise systems in a variety of ways. They may try to gain unauthorized access to data and computers for the purposes of stealing, monitoring, damaging, or otherwise misusing these assets. In order to mitigate their efforts you must include security as a primary design criteria, understand historical and current attack vectors, vigilantly monitor for intrusion, and continually enhance your systems as new threats evolve.
@@ -461,6 +463,20 @@ This demonstrates how modern cryptography forms the foundation of web security b
   - Public key certificates
 - Secure password storage and verification
 - Secure network communication using HTTPS
+
+## <a name="videos"></a>Videos (1:43:20)
+
+- 🎥 [Computer Security Overview (7:49)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=f60bd2e6-9aec-44ba-8e48-b1a8014a2efe)
+- 🎥 [Cryptographic Hash Functions (10:05)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=e54b188b-89a4-4f51-be13-b1a8014d0a7b)
+- 🎥 [Cryptographic Hashing Applications (5:29)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=44f59163-ab0a-410b-a8bb-b1a8015012bf)
+- 🎥 [Secure Password Storage (15:06)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=f977577d-6fec-45a9-8e80-b1a80151efc1)
+- 🎥 [Data Encryption (4:27)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=bd28a2d9-adec-4c2b-b78f-b1a8015667b9)
+- 🎥 [Symmetric Key Encryption (11:37)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=0537f4f0-5ef2-4534-9564-b1a80157e780)
+- 🎥 [Asymmetric Key Encryption (15:01)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=aad832e9-0621-4a6d-b389-b1a8015b6ffc)
+- 🎥 [Encryption Applications (6:28)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=cb8ef70e-52fd-4390-9ae9-b1a8015fcac1)
+- 🎥 [Secure Key Exchange (4:51)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=a466805a-7a15-4859-b84e-b1af0148e79d)
+- 🎥 [Secure Communication with HTTPS (14:17)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=f02e79ed-fcca-4549-a8b7-b1af014aa782)
+- 🎥 [Digital Signatures (8:10)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=93205b28-04ef-4e11-b939-b1af014ef686)
 
 ## Demonstration code
 

@@ -2,6 +2,8 @@
 
 🖥️ [Slides](https://docs.google.com/presentation/d/1jNPLDXYxK7kMvui4WvK0bshU076_OTQ1/edit?usp=sharing&ouid=114081115660452804792&rtpof=true&sd=true)
 
+🖥️ [Lecture Videos](#videos)
+
 ![webSocket](webServicesWebSocketsLogo.png)
 
 HTTP is based on a client-server architecture. A client always initiates the request and the server responds. This is great if you are building a global document library connected by hyperlinks, but for many other use cases it just doesn't work. Applications for notifications, distributed task processing, peer-to-peer communication, or asynchronous events need communication that is initiated by two or more connected devices.
@@ -100,3 +102,11 @@ public class WSClient extends Endpoint {
 📁 [Simple echo Client and Server](example-code)
 
 This code provides an IntelliJ project that contains modules for a WebSocket Client and Server. Examples for both HTTP and WebSocket communication is provided. This allows you to compare and contrast how to use these protocols.
+
+## <a name="videos"></a>Videos (1:11:36)
+
+- 🎥 [WebSocket Introduction (10:45)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=fcd3b045-d06e-41f7-8a0e-b1a1014a7b97)
+- 🎥 [WebSocket Protocol (7:06)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=91c23bc0-410b-4848-be81-b1a1014dab96)
+- 🎥 [Simple WebSocket Example (12:39)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=5ea47462-3100-4597-a7ce-b1a1014ffd34)
+- 🎥 [Pet Shop WebSocket Example (26:08)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=155aeaa0-e35e-40fe-94bd-b1a10153d812)
+- 🎥 [Chess WebSocket (14:58)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=fe962f4a-4e75-47f4-ba91-b1a1015b7928)

@@ -1,5 +1,7 @@
 # ♕ Chess GitHub Repository
 
+- 🖥️ [Videos](#videos)
+
 In the following phases of the chess project you will add to, and enhance, the content you have created in a GitHub repository. The commit history that you establish through the course serves the following valuable purposes:
 
 1. **Backup** - Every semester at least one student's computer dies. Having the ability to clone the repo to a new computer could save your grade in the course.
@@ -75,3 +77,7 @@ https://github.com/<youraccount>/chess
 ```
 
 After submitting to Canvas, pass off with the course [auto-grading](https://cs240.click/) tool. If you created your repository correctly then your grade will automatically be entered in Canvas.
+
+## <a name="videos"></a>Videos (3:31)
+
+- 🎥 [Chess GitHub Repository (3:31)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=9603dd36-5c9b-4705-aa3d-b169016801a3)

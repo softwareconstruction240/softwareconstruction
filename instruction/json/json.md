@@ -2,11 +2,12 @@
 
 🖥️ [Slides](https://docs.google.com/presentation/d/19KUDyTUNK_CUFjRQCSkOLtKEbgiLOiQS/edit?usp=sharing&ouid=114081115660452804792&rtpof=true&sd=true)
 
+🖥️ [Lecture Videos](#videos)
+
 📖 **Required Reading**: [Learn Gson](https://www.tutorialspoint.com/gson/index.htm)
 
 📖 **Optional Reading**: [Douglas Crockford: The JSON Saga](https://www.youtube.com/watch?v=-C-JoyNuQJs)
 
-🖥️ [Lecture Videos](#videos)
 
 ## JSON
 
@@ -163,12 +164,16 @@ There are three main ways to make the Gson library available to your project:
 - Different ways to generate and parse JSON objects and the pros and cons of each
 - How to use the Gson library to serialize and deserialize a Java object
 
-## <a name="videos"></a>Videos
+## <a name="videos"></a>Videos (1:12:15)
 
-⚠ Note: The following videos reference XML. This data format is no longer used in this class and so you can skip past those parts.
-
-- 🎥 [Data Formats]()
-- 🎥 [Parsing and Serializing]()
+- 🎥 [JSON Introduction (8:44)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=68705db1-09e9-401a-899a-b170015429ca)
+- 🎥 [Parsing JSON (3:02)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=84e10091-df45-42e8-a244-b1700156f7c0)
+- 🎥 [JSON Stream Parser (14:09)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=ce33cc30-4265-4b3c-8cf1-b1700158857a)
+- 🎥 [JSON DOM Parser(9:24)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=799da5b0-57ad-4f43-adac-b170015d3c9e)
+- 🎥 [JSON Object Serialization (12:50)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=11bfdcea-647b-49a2-9c4f-b170016048d5)
+- 🎥 [Creating GSON Project Dependency (6:06)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=7d951c28-2f7e-4e0f-ab83-b1700164a7a7)
+- 🎥 [GSON Type Adapters (6:01)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=5d389661-eda2-4d90-8168-b17001668914)
+- 🎥 [Complex Type Adapters (11:59)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=5e845943-a45f-430b-8510-b1700168544d)
 
 ## Demonstration code
 

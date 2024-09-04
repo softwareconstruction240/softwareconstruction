@@ -1,5 +1,9 @@
 # Chess
 
+🖥️ [Videos](#videos)
+
+---
+   
 ![chess board](6-gameplay/highlight-moves.png)
 
 We use the game of chess to help you develop and demonstrate mastery during this course. Your development work is divided into different phases. Each phase demonstrates a different architectural concept or technology.
@@ -53,3 +57,7 @@ The deliverables in blue represent tests provided by the course start up code th
 When you complete the entire project, you should have something similar to the following where two client command line programs take turns playing a game of chess.
 
 ![chess board](chess-demo.gif)
+
+## <a name="videos"></a>Videos (10:25)
+
+- 🎥 [Chess Project Overview (10:25)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=eea6cf56-8979-4c5c-8bb6-b170014c3c02)
