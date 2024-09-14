@@ -217,6 +217,25 @@ public static void main(String[] args) {
 }
 ```
 
+Starting in Java version 17 the pattern matching version of instanceof that automatically casts the object if it is of the specified type. This makes it very convenient to both test and cast in the one statement.
+
+```java
+public class PatternMatchInstanceOfExample {
+    public static void main(String[] args) {
+        List<Object> list = List.of('a', "b", 3);
+        for (var item : list) {
+            if (item instanceof String stringItem) {
+                System.out.println(stringItem.toUpperCase());
+            } else if (item instanceof Integer intItem) {
+                System.out.println(intItem + 100);
+            } else if (item instanceof Character charItem) {
+                System.out.println(charItem.compareTo('a'));
+            }
+        }
+    }
+}
+```
+
 ## final
 
 If you don't want a subclass to override a method in a base class then you can prefix the method with the keyword `final`. You can also use the final keyword to make a class's field value immutable. (You can still call methods on final fields, however, so it's not the same as the C++ `const`.)
