@@ -252,6 +252,77 @@ public class FinalExample {
 }
 ```
 
+## Thinking about Chess
+
+WIth what you have learned here, consider the Chess program. How should chess pieces be abstracted? Should the piece type be represented as a data field?
+
+```mermaid
+classDiagram
+
+    class ChessPiece {
+        TeamColor
+        PieceType
+        pieceMoves()
+    }
+```
+
+Or would it be more appropriate to represent it using abstract class inheritance?
+
+```mermaid
+classDiagram
+
+    class ChessPiece {
+        TeamColor
+    }
+
+    ChessPiece --|> King
+    ChessPiece --|> Queen
+    ChessPiece --|> Pawn
+
+    class King {
+        pieceMoves()
+    }
+    class Queen {
+        pieceMoves()
+    }
+
+    class Pawn {
+        pieceMoves()
+    }
+
+```
+
+Or should the rules be abstracted out of the chess so that the chess piece only represents the properties of the piece and not the rules of a game?
+
+```mermaid
+classDiagram
+
+    class PieceRule {
+        pieceMoves()
+    }
+
+    PieceRule --|> KingRule
+    PieceRule --|> QueenRule
+    PieceRule --|> PawnRule
+
+    class KingRule {
+        pieceMoves()
+    }
+    class QueenRule {
+        pieceMoves()
+    }
+
+    class PawnRule {
+        pieceMoves()
+    }
+
+    class ChessPiece {
+        TeamColor
+    }
+
+
+```
+
 ## Things to Understand
 
 - What polymorphism is
