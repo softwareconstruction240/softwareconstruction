@@ -273,6 +273,7 @@ classDiagram
 
     class ChessPiece {
         TeamColor
+        pieceMoves()
     }
 
     ChessPiece --|> King
@@ -297,13 +298,27 @@ Or should the rules be abstracted out of the chess so that the chess piece only 
 ```mermaid
 classDiagram
 
-    class PieceRule {
+    class Rules {
+        getRule()
+    }
+
+    Rules --> MovementRule
+
+    class MovementRule {
+        <<interface>>
         pieceMoves()
     }
 
-    PieceRule --|> KingRule
-    PieceRule --|> QueenRule
-    PieceRule --|> PawnRule
+    class BaseMovementRule {
+        <<abstract>>
+        private calculateMoves()
+        pieceMoves()
+    }
+    BaseMovementRule --|> MovementRule
+
+    KingRule  --|> BaseMovementRule
+    QueenRule --|>  BaseMovementRule
+    PawnRule  --|> BaseMovementRule
 
     class KingRule {
         pieceMoves()
@@ -315,12 +330,6 @@ classDiagram
     class PawnRule {
         pieceMoves()
     }
-
-    class ChessPiece {
-        TeamColor
-    }
-
-
 ```
 
 ## Things to Understand
