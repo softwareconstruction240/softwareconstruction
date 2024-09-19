@@ -325,7 +325,9 @@ classDiagram
     }
 ```
 
-Can I also use abstract classes, interface, and inheritance and build something that turns the dial even more. Or is this taking things too far? All of these questions are part of learning how to design software.
+Can I also use abstract classes, interfaces, and inheritances to build something that turns the dial even more? Or is this taking things too far? All of these questions are part of learning how to design software.
+
+Here is a possible design to incorporates all of the abstraction concepts into an architecture for representing rules.
 
 ```mermaid
 classDiagram
