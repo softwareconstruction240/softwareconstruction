@@ -276,9 +276,9 @@ classDiagram
         pieceMoves()
     }
 
-    ChessPiece --|> King
-    ChessPiece --|> Queen
-    ChessPiece --|> Pawn
+    ChessPiece <|-- King
+    ChessPiece <|-- Queen
+    ChessPiece <|-- Pawn
 
     class King {
         pieceMoves()
@@ -294,6 +294,38 @@ classDiagram
 ```
 
 Or should the rules be abstracted out of the chess so that the chess piece only represents the properties of the piece and not the rules of a game?
+
+```mermaid
+classDiagram
+
+    class ChessPiece {
+        TeamColor
+        pieceMoves()
+    }
+
+
+    class Rule {
+        <<interface>>
+        pieceMoves()
+    }
+
+    KingRule  --|> Rule
+    QueenRule --|>  Rule
+    PawnRule  --|> Rule
+
+    class KingRule {
+        pieceMoves()
+    }
+    class QueenRule {
+        pieceMoves()
+    }
+
+    class PawnRule {
+        pieceMoves()
+    }
+```
+
+Can I also use abstract classes, interface, and inheritance and build something that turns the dial even more. Or is this taking things too far? All of these questions are part of learning how to design software.
 
 ```mermaid
 classDiagram
