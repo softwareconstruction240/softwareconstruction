@@ -2,7 +2,7 @@
 
 🖥️ [Lecture Video](#videos)
 
-This programming exam is a recreation of your [chess phase-0](https://github.com/softwareconstruction240/softwareconstruction/blob/main/chess/0-chess-moves/chess-moves.md) assignment, but under time constraints and without TA support.
+This programming exam is a re-creation of your [chess phase-0](https://github.com/softwareconstruction240/softwareconstruction/blob/main/chess/0-chess-moves/chess-moves.md) assignment, but under time constraints and without TA support.
 
 You will take the exam as a Canvas quiz and will have 4 hours to complete the exam and answer the quiz questions, which consist mostly of uploading code and screenshots to demonstrate your work.
 
