@@ -9,7 +9,52 @@ In the previous phase you implemented the board and pieces along with the rules 
 
 ## Code Class Structure
 
-![Class structure](../0-chess-moves/chess-classes.png)
+```mermaid
+
+classDiagram
+
+    class ChessGame {
+        getTeamTurn():TeamColor
+        validMoves(ChessPosition):Collection~ChessMove~
+        makeMove(ChessMove)
+
+        isInCheck(TeamColor):Boolean
+        isInCheckmate(TeamColor):Boolean
+        isInStalemate(TeamColor):Boolean
+
+        setBoard(ChessBoard)
+        getBoard():ChessBoard
+    }
+    ChessGame --> InvalidMoveException
+
+
+    class ChessBoard {
+        addPiece(ChessPosition, ChessPiece)
+        getPiece(ChessPosition):ChessPiece
+        resetBoard()
+    }
+    ChessGame "1" o-- ChessBoard
+
+    class ChessMove {
+        getStartPosition():ChessPosition
+        getEndPosition():ChessPosition
+        getPromotionPiece():PieceType
+    }
+
+    class ChessPosition {
+        getRow():int
+        getColumn():int
+    }
+    ChessMove o-- "2" ChessPosition
+
+    class ChessPiece {
+        getTeamColor():TeamColor
+        getPieceType():PieceType
+        pieceMoves(ChessBoard, ChessPosition):Collection~ChessMove~
+    }
+
+    ChessBoard o-- "*" ChessPiece
+```
 
 **⚠ NOTE**: You are not limited to this representation. However, you must not change the existing class names or method signatures since they are used by the pass off tests. You will likely need to add new classes and methods to complete the work required by this phase.
 
@@ -68,12 +113,12 @@ To pass off this assignment use the course [auto-grading](https://cs240.click/) 
 
 **⚠ NOTE**: You are required to commit to GitHub with every minor milestone. For example, after you successfully pass a test. This should result in a commit history that clearly details your work on this phase. If your Git history does not demonstrate your efforts then your submission may be rejected.
 
-| Category       | Criteria                                                                                           |       Points |
-| :------------- | :------------------------------------------------------------------------------------------------- | -----------: |
-| GitHub History | At least 8 GitHub commits evenly spread over the assignment period that demonstrate proof of work  | Prerequisite |
-| Functionality  | All pass off test cases succeed                                                                    |          125 |
-| Extra Credit   | `extracredit` test cases succeed                                                                   |    bonus +10 |
-|                | Total                                                                                              |          125 |
+| Category       | Criteria                                                                                          |       Points |
+| :------------- | :------------------------------------------------------------------------------------------------ | -----------: |
+| GitHub History | At least 8 GitHub commits evenly spread over the assignment period that demonstrate proof of work | Prerequisite |
+| Functionality  | All pass off test cases succeed                                                                   |          125 |
+| Extra Credit   | `extracredit` test cases succeed                                                                  |    bonus +10 |
+|                | Total                                                                                             |          125 |
 
 ## <a name="videos"></a>Videos (6:13)
 

@@ -1,4 +1,4 @@
-package domain.gson.complex;
+package domain.gson;
 
 import com.google.gson.annotations.SerializedName;
 

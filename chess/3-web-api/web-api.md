@@ -25,7 +25,7 @@ The following defines the endpoints that your server is required to implement. Y
 | **URL path**         | `/db`                                                               |
 | **HTTP Method**      | `DELETE`                                                            |
 | **Success response** | [200] `{}`                                                          |
-| **Failure response** | [500] <code>{ "message": "Error: *(description of error)*" }</code> |
+| **Failure response** | [500] <code>{ "message": "Error: _(description of error)_" }</code> |
 
 ### Register
 
@@ -38,7 +38,7 @@ The following defines the endpoints that your server is required to implement. Y
 | **Success response** | [200] `{ "username":"", "authToken":"" }`                           |
 | **Failure response** | [400] `{ "message": "Error: bad request" }`                         |
 | **Failure response** | [403] `{ "message": "Error: already taken" }`                       |
-| **Failure response** | [500] <code>{ "message": "Error: *(description of error)*" }</code> |
+| **Failure response** | [500] <code>{ "message": "Error: _(description of error)_" }</code> |
 
 ### Login
 
@@ -50,7 +50,7 @@ The following defines the endpoints that your server is required to implement. Y
 | **Body**             | `{ "username":"", "password":"" }`                                  |
 | **Success response** | [200] `{ "username":"", "authToken":"" }`                           |
 | **Failure response** | [401] `{ "message": "Error: unauthorized" }`                        |
-| **Failure response** | [500] <code>{ "message": "Error: *(description of error)*" }</code> |
+| **Failure response** | [500] <code>{ "message": "Error: _(description of error)_" }</code> |
 
 ### Logout
 
@@ -62,7 +62,7 @@ The following defines the endpoints that your server is required to implement. Y
 | **Headers**          | `authorization: <authToken>`                                        |
 | **Success response** | [200] `{}`                                                          |
 | **Failure response** | [401] `{ "message": "Error: unauthorized" }`                        |
-| **Failure response** | [500] <code>{ "message": "Error: *(description of error)*" }</code> |
+| **Failure response** | [500] <code>{ "message": "Error: _(description of error)_" }</code> |
 
 ### List Games
 
@@ -76,26 +76,26 @@ Note that `whiteUsername` and `blackUsername` may be `null`.
 | **Headers**          | `authorization: <authToken>`                                                                  |
 | **Success response** | [200] `{ "games": [{"gameID": 1234, "whiteUsername":"", "blackUsername":"", "gameName:""} ]}` |
 | **Failure response** | [401] `{ "message": "Error: unauthorized" }`                                                  |
-| **Failure response** | [500] <code>{ "message": "Error: *(description of error)*" }</code>                           |
+| **Failure response** | [500] <code>{ "message": "Error: _(description of error)_" }</code>                           |
 
 ### Create Game
 
-| property             | value                                                                |
-| -------------------- | -------------------------------------------------------------------- |
-| **Description**      | Creates a new game.                                                  |
-| **URL path**         | `/game`                                                              |
-| **HTTP Method**      | `POST`                                                               |
-| **Headers**          | `authorization: <authToken>`                                         |
-| **Body**             | `{ "gameName":"" }`                                                  |
-| **Success response** | [200] `{ "gameID": 1234 }`                                           |
-| **Failure response** | [400] `{ "message": "Error: bad request" }`                          |
-| **Failure response** | [401] `{ "message": "Error: unauthorized" }`                         |
-| **Failure response** | [500] <code>{ "message": "Error: *(description of error)*" }</code>  |
+| property             | value                                                               |
+| -------------------- | ------------------------------------------------------------------- |
+| **Description**      | Creates a new game.                                                 |
+| **URL path**         | `/game`                                                             |
+| **HTTP Method**      | `POST`                                                              |
+| **Headers**          | `authorization: <authToken>`                                        |
+| **Body**             | `{ "gameName":"" }`                                                 |
+| **Success response** | [200] `{ "gameID": 1234 }`                                          |
+| **Failure response** | [400] `{ "message": "Error: bad request" }`                         |
+| **Failure response** | [401] `{ "message": "Error: unauthorized" }`                        |
+| **Failure response** | [500] <code>{ "message": "Error: _(description of error)_" }</code> |
 
 ### Join Game
 
 | property             | value                                                                                           |
-| -------------------- |-------------------------------------------------------------------------------------------------|
+| -------------------- | ----------------------------------------------------------------------------------------------- |
 | **Description**      | Verifies that the specified game exists and adds the caller as the requested color to the game. |
 | **URL path**         | `/game`                                                                                         |
 | **HTTP Method**      | `PUT`                                                                                           |
@@ -105,7 +105,7 @@ Note that `whiteUsername` and `blackUsername` may be `null`.
 | **Failure response** | [400] `{ "message": "Error: bad request" }`                                                     |
 | **Failure response** | [401] `{ "message": "Error: unauthorized" }`                                                    |
 | **Failure response** | [403] `{ "message": "Error: already taken" }`                                                   |
-| **Failure response** | [500] <code>{ "message": "Error: *(description of error)*" }</code>                             |
+| **Failure response** | [500] <code>{ "message": "Error: _(description of error)_" }</code>                             |
 
 ## Required Classes
 
@@ -163,7 +163,7 @@ void insertUser(UserData u) throws DataAccessException
 
 ### DataAccessException
 
-The starter code includes a `dataaccess.DataAccessException`. This exception should be thrown by data access methods that could fail. If a method call fails, it should throw a `DataAccessException`. For example, the `DataAccessException` is thrown if a user attempts to update a non-existent game.
+The starter code includes a `dataAccess.DataAccessException`. This exception should be thrown by data access methods that could fail. If a method call fails, it should throw a `DataAccessException`. For example, the `DataAccessException` is thrown if a user attempts to update a non-existent game. If you like, feel free to create subclasses of DataAccessException that represent more specific errors relating to data access.
 
 ### Example Data Access Methods
 
@@ -290,7 +290,7 @@ We install the third party package already in your project as part of its initia
 
 ### Server Handler Classes
 
-The server handler classes serve as a translator between HTTP and Java. Your handlers will convert an HTTP request into Java usable objects & data. The handler then calls the appropriate service. When the service responds it converts the response object back to JSON and sends the HTTP response.
+The server handler classes serve as a translator between HTTP and Java. Your handlers will convert an HTTP request into Java usable objects & data. The handler then calls the appropriate service. When the service responds, the handler converts the response object back to JSON and sends the HTTP response. This could include converting thrown exception types into the appropriate HTTP status codes if necessary.
 
 You need to create the number of handler classes that are appropriate for your server design. For a simple server this could be a single class with a few handler methods, or for a complex application it could be dozens of classes each representing a different group of cohesive endpoints.
 
@@ -416,8 +416,7 @@ After your code has successfully been auto-graded, a TA will review the code in 
 | Category       | Criteria                                                                                                                                                                                         |       Points |
 | :------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -----------: |
 | GitHub History | At least 12 GitHub commits evenly spread over the assignment period that demonstrate proof of work                                                                                               | Prerequisite |
-| Web API Works  | All pass off test cases in `StandardAPITests.java` succeed                                                                                                                                       |          115 |
-| Web Page Loads | Test web page properly loads in browser (including all files linked to by the test page: favicon.ico, index.css, index.js)                                                                       |           10 |
+| Web API Works  | All pass off test cases succeed                                                                                                                                                                  |          125 |
 | Code Quality   | [Rubric](../code-quality-rubric.md)                                                                                                                                                              |           30 |
 | Unit Tests     | All test cases pass<br/>Each public method on your **Service classes** has two test cases, one positive test and one negative test<br/>Every test case includes an Assert statement of some type |           25 |
 |                | Total                                                                                                                                                                                            |          180 |

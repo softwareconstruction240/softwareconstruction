@@ -217,6 +217,25 @@ public static void main(String[] args) {
 }
 ```
 
+Starting in Java version 17 the pattern matching version of instanceof that automatically casts the object if it is of the specified type. This makes it very convenient to both test and cast in the one statement.
+
+```java
+public class PatternMatchInstanceOfExample {
+    public static void main(String[] args) {
+        List<Object> list = List.of('a', "b", 3);
+        for (var item : list) {
+            if (item instanceof String stringItem) {
+                System.out.println(stringItem.toUpperCase());
+            } else if (item instanceof Integer intItem) {
+                System.out.println(intItem + 100);
+            } else if (item instanceof Character charItem) {
+                System.out.println(charItem.compareTo('a'));
+            }
+        }
+    }
+}
+```
+
 ## final
 
 If you don't want a subclass to override a method in a base class then you can prefix the method with the keyword `final`. You can also use the final keyword to make a class's field value immutable. (You can still call methods on final fields, however, so it's not the same as the C++ `const`.)
@@ -231,6 +250,120 @@ public class FinalExample {
         return PI;
     }
 }
+```
+
+## Thinking about Chess
+
+WIth what you have learned here, consider the Chess program. How should chess pieces be abstracted? Should the piece type be represented as a data field?
+
+```mermaid
+classDiagram
+
+    class ChessPiece {
+        TeamColor
+        PieceType
+        pieceMoves()
+    }
+```
+
+Or would it be more appropriate to represent it using abstract class inheritance?
+
+```mermaid
+classDiagram
+
+    class ChessPiece {
+        TeamColor
+        pieceMoves()
+    }
+
+    ChessPiece <|-- King
+    ChessPiece <|-- Queen
+    ChessPiece <|-- Pawn
+
+    class King {
+        pieceMoves()
+    }
+    class Queen {
+        pieceMoves()
+    }
+
+    class Pawn {
+        pieceMoves()
+    }
+
+```
+
+Or should the rules be abstracted out of the chess so that the chess piece only represents the properties of the piece and not the rules of a game?
+
+```mermaid
+classDiagram
+
+    class ChessPiece {
+        TeamColor
+        pieceMoves()
+    }
+
+
+    class Rule {
+        <<interface>>
+        pieceMoves()
+    }
+
+    KingRule  --|> Rule
+    QueenRule --|>  Rule
+    PawnRule  --|> Rule
+
+    class KingRule {
+        pieceMoves()
+    }
+    class QueenRule {
+        pieceMoves()
+    }
+
+    class PawnRule {
+        pieceMoves()
+    }
+```
+
+Can I also use abstract classes, interfaces, and inheritances to build something that turns the dial even more? Or is this taking things too far? All of these questions are part of learning how to design software.
+
+Here is a possible design to incorporates all of the abstraction concepts into an architecture for representing rules.
+
+```mermaid
+classDiagram
+
+    class Rules {
+        getRule()
+    }
+
+    Rules --> MovementRule
+
+    class MovementRule {
+        <<interface>>
+        pieceMoves()
+    }
+
+    class BaseMovementRule {
+        <<abstract>>
+        private calculateMoves()
+        pieceMoves()
+    }
+    BaseMovementRule --|> MovementRule
+
+    KingRule  --|> BaseMovementRule
+    QueenRule --|>  BaseMovementRule
+    PawnRule  --|> BaseMovementRule
+
+    class KingRule {
+        pieceMoves()
+    }
+    class QueenRule {
+        pieceMoves()
+    }
+
+    class PawnRule {
+        pieceMoves()
+    }
 ```
 
 ## Things to Understand

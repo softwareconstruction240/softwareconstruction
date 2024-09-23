@@ -1,4 +1,4 @@
-package generator.json;
+package generator;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -6,8 +6,8 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonPrimitive;
 import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
-import domain.gson.complex.CDFactory;
-import domain.gson.complex.Catalog;
+import domain.gson.CDFactory;
+import domain.gson.Catalog;
 
 import java.io.BufferedWriter;
 import java.io.File;

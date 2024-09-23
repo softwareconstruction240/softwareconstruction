@@ -1,8 +1,8 @@
-package parser.json;
+package parser;
 
 import com.google.gson.Gson;
-import domain.gson.complex.CD;
-import domain.gson.complex.Catalog;
+import domain.gson.CD;
+import domain.gson.Catalog;
 
 import java.io.BufferedReader;
 import java.io.File;
