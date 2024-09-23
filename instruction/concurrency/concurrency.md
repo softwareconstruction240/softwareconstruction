@@ -360,15 +360,15 @@ public class MultithreadedServerExample {
 }
 ```
 
-In this example, the `value` variable is read and modified in the endpoint handler. If you execute the following commands from your command console it will repeatedly try to toggle the value. After each call to toggle the value should return to true.
+In this example, the `sum` variable is read and modified in the endpoint handler. If you execute the the following commands from your command console, it will rapidly send 100 add requests and 100 subtract requests to the server. The requests may not fire at exactly the same rate so the intermediate values may fluctuate. By the end of the operation, once all the operations have completed, we would expect for the sum to be back at 0.
 
 ```sh
-while true; do curl localhost:8080/add/1; print "\n"; done &
-while true; do curl localhost:8080/add/-1; print "\n"; done &
+for i in {1..100}; do curl localhost:8080/add/1; print ""; done &
+for i in {1..100}; do curl localhost:8080/add/-1; print ""; done &
 wait
 ```
 
-However, because we read and write `value` as two different statements, we have a race condition where we occasionally lose what one thread assigned. That means the `value` will often appear as false.
+However, because the `sum += ...` command executes as separate read and write statements, a race condition exists which results in one of the thread's values being overwritten by another value. This effectively discards the change and causes our system to lose information; these losses accumulate and vary from run to run based on the way the requests are received from the network and scheduled by the kernel. Repeatedly testing this sample provided final sums between -30 and +24 (when the answer should always be _zero_). That's a lot of variance for a system that people expect to "just work."
 
 We can solve this by synchronizing the access to the critical section of code.
 
