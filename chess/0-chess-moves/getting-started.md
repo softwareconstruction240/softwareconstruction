@@ -8,7 +8,7 @@ Take the following steps to set up your Chess project.
 
 ## Adding the Template Chess Project
 
-1. Unzip the [starter-code/chess.zip](starter-code/chess.zip) file to the directory where you cloned the Chess GitHub Repository.
+1. Unzip the [starter-code/chess.zip](starter-code/chess.zip) file to the directory where you cloned the Chess GitHub Repository. You should run this command from inside of your your personal projects directory. 
 
    ```sh
    unzip <class-repo-dir>/chess/0-chess-moves/starter-code/chess.zip
@@ -28,6 +28,14 @@ Take the following steps to set up your Chess project.
    └── starter-code
    ```
 
+   ⚠ If you do not see all of these files in your folder go make sure that you moved all the hidden files.
+
+1. Check that git registers all the files
+   ```sh
+   git status
+   ```
+   You should see all the new files in a long list marked as untracked.
+   
 1. Commit and push the changes to GitHub
    ```sh
    git add .
@@ -37,13 +45,13 @@ Take the following steps to set up your Chess project.
 
 ## Open With IntelliJ
 
-Open the project directory in IntelliJ to start developing, running, and debugging your code using an IDE. Make sure you **OPEN** the project rather than creating a new project. The contents of the .zip file already contain IntelliJ configuration files and creating a new project rather than opening an existing one will cause various errors.
+Open the project directory in IntelliJ to start developing, running, and debugging your code using an IDE. Make sure you **OPEN** the project rather than creating a new project. The contents of the folder already contain IntelliJ configuration files and creating a new project rather than opening an existing one will cause various errors.
 
  ⚠ If you get a prompt asking you to build with Maven, then make sure you skip that action.
 
 ![build with Maven](build-with-maven-prompt.png)
 
-Your project should look like this when it opens with the client, server, and shared folders having a blue square and being at the root level. 
+Your project should look like this when it opens with the client, server, and shared folders having a blue square and being at the root level. There should be no folder called chess showing up in your Intelij project. 
 
 ![open intellij](open-intellij.png)
 
