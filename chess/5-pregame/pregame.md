@@ -6,6 +6,8 @@
 
 In this part of the Chess Project, you will create an initial version of your Chess client. Your Chess client will be a terminal-based (i.e., console-based) program that gives the user a simple interface for playing Chess. Your client should implement all user interactions that occur outside of actually playing a game. Game play interactions will be implemented in the next phase. This includes allowing the user to display help text, register, login, list existing games, create a new game, join a game, observe a game, logout, and exit. You will also write the client code that draws the chessboard.
 
+To implement this, you will create a ServerFacade class to handle sending and recieving HTTP requests to and from your server. Your client code will then use your ServerFacade methods to make server API calls.
+
 ## Required Functionality
 
 ### Prelogin UI
@@ -42,14 +44,16 @@ After the user has registered or logged in they can then execute any of the Post
 
 ### Gameplay UI
 
-As stated previously, gameplay will not be implemented until later. For now, when a user joins or observes a game, the client should draw the initial state of a Chess game in the terminal, but not actually enter gameplay mode. The chessboard should be drawn twice, once in each orientation (i.e., once with white pieces at the bottom and once with black pieces at the bottom). An example of what the chessboard might look like is given below. You are free to make your chessboard look different as long as the essential information is displayed in an easily readable way.
+As stated previously, gameplay will not be implemented until later. For now, when a user joins or observes a game, the client should draw the initial state of a Chess game in the terminal, but not actually enter gameplay mode. The chessboard should be drawn twice, once in each orientation (i.e., once with white pieces at the bottom and once with black pieces at the bottom).
+
+An example of what the chessboard might look like is given below.You are free to make your chessboard look different as long as the essential information is displayed in an easily readable way, but it must "look like a chess board." You must have different colors for alternating squares, but they don't have to be white and black. Light and dark, or white and brown, or whatever you'd like is fine. Per official chess rules, the bottom-right and top-left squares (h1 and a8) must be the "lighter" color. This will mean each queen is "on her color" (white queen on a light square, black queen on a dark square). In addition, you must show the correct row numbers and column letters, but can do so however you would like.
 
 ![chessboard](ChessBoard.png)
 
 ### Relevant Instruction Topics
 
 - [Console UI](../../instruction/console-ui/console-ui.md): Reading from the keyboard and writing out fancy text.
-- [Web API](../../instruction/web-api/web-api.md): Making HTTP client requests.
+- [Web API](../../instruction/web-api/web-api.md#web-client): Making HTTP client requests.
 
 ### Tips for using Unicode chess characters
 
@@ -67,9 +71,9 @@ There are no new pass off test cases for this assignment.
 
 Write positive and negative unit tests for each method on your ServerFacade class (all the methods used to call your server).
 
-Your tests must be located in the class provided starter code in the file `client/src/test/java/clientTests/ServerFacadeTests.java`
+Your tests must be located in the file `client/src/test/java/client/ServerFacadeTests.java`, provided in the starter code.
 
-⚠ `ServerFacadedTests.java` contains code that will automatically start and shutdown your server on a randomly assigned port as part of the test. However, you will still need to start your server when you manually run your client.
+⚠ `ServerFacadeTests.java` contains code that will automatically start and shutdown your server on a randomly assigned port as part of the test. However, you will still need to start your server when you manually run your client.
 
 ```java
 public class ServerFacadeTests {

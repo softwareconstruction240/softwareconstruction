@@ -1,10 +1,9 @@
-package domain.gson.complex;
+package domain.gson;
 
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Catalog {
 

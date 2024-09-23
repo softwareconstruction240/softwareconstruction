@@ -1,9 +1,9 @@
-package parser.json;
+package parser;
 
 import domain.CD;
+import jakarta.json.Json;
+import jakarta.json.stream.JsonParser;
 
-import javax.json.Json;
-import javax.json.stream.JsonParser;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -12,20 +12,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Requires the javax.json library (.jar file) from glassfish.org. Get the .jar from Maven or Gradle:
+ * Requires the jakarta.json-api and jakarta.json libraries. Get the .jars from Maven or Gradle:
  *
  * Maven
  *
  * <dependency>
- *     <groupId>org.glassfish</groupId>
- *     <artifactId>javax.json</artifactId>
- *     <version>1.1.4</version>
+ *     <groupId>jakarta.json</groupId>
+ *     <artifactId>jakarta.json-api</artifactId>
+ *     <version>2.1.3</version>
+ * </dependency>
+ *
+ * <dependency>
+ *     <groupId>org.eclipse.parsson</groupId>
+ *     <artifactId>jakarta.json</artifactId>
+ *     <version>1.1.6</version>
  * </dependency>
  *
  *
  * Gradle
  *
- * compile group: 'org.glassfish', name: 'javax.json', version: '1.1.4'
+ * implementation group: 'jakarta.json', name: 'jakarta.json-api', version: '2.1.3'
+ * implementation group: 'org.eclipse.parsson', name: 'jakarta.json', version: '1.1.6'
  *
  */
 public class JsonStreamParserExample {
