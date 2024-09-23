@@ -76,7 +76,23 @@ Whenever you program you should try and abstract things into the following parts
 1. What interface does the my abstraction need to provide
 1. What class will implement the interface
 
-![diagrams](abstraction.png)
+```mermaid
+classDiagram
+    MyAbstraction <-- Input
+    MyAbstraction --> Output
+    class Input{
+      getA()
+      getB()
+    }
+    class MyAbstraction{
+      -private encapsulatedData
+      -private encapsulatedMethods()
+      process(Input):Output
+    }
+    class Output{
+      setC(c)
+    }
+```
 
 Note that sometimes it is not necessary to create an interface when a single class representation can simply expose public methods and abstract away the details. Interfaces are useful when there are multiple different algorithms that can be used to satisfy the interface, or when there are classes that implement multiple interfaces.
 
@@ -105,7 +121,20 @@ The basic idea of decomposition is to create another level of abstraction that r
 
 The advantage of decomposition is that you only need to think about the details of the layer when you are actually working on it. This includes defining its interfaces, implementing the details, and writing tests for that layer. For example, when defining the `Participant` layer, you only need to think about how a participant interacts with the `Game` and is represented by a `Player` or `Observer`. At the player level, you don't need to worry about what a `Board` is comprised of, or what the rules for moving a `King` are.
 
-![diagrams](decomposition.png)
+```mermaid
+classDiagram
+    Game *-- Board
+    Game *-- Piece
+    Game *-- Participant
+
+    Board *-- Square
+    Participant <|-- Player
+    Participant <|-- Observer
+
+    Piece <|-- King
+    Piece <|-- Rook
+    Piece <|-- Pawn
+```
 
 Programming languages themselves utilize decomposition to represent different parts of a program. When using Java we use the following decompositions:
 
@@ -162,7 +191,36 @@ Let's look at each of these in detail.
 
 The [Single Responsibility Principle](https://en.wikipedia.org/wiki/Single-responsibility_principle) represents the desirability of high cohesion. The idea here is that an actor only has one reason to use an object. You don't have a `Person` class that represents everything associated with a person. You have a `Person` class that represents the distinct attributes of a person such as `name` and `birthDate`, and then you have other classes that represent things associated with a Person.
 
-![single responsibility](single-responsibility.png)
+```mermaid
+classDiagram
+    Person <-- FoodConsumption : uses-a
+    Person <-- OutdoorActivity : uses-a
+    Death --* Person : has-a
+    Birth --* Person : has-a
+    class Person{
+      name
+      birth
+      death
+    }
+
+    class FoodConsumption {
+        eat(Person, Meal)
+    }
+
+    class OutdoorActivity {
+        play(Person, Game)
+    }
+
+    Date <|-- Death
+    Date <|-- Birth
+    OutdoorActivity --> Game : uses-a
+
+    class Death {
+    }
+
+    class Birth {
+    }
+```
 
 Following the single responsibility principle makes it so there is only one reason to manipulate the class. You manipulate the `Person` class to represent the person and the `Death` class to represent a death. If you find yourself making a `FrankenObject` that represents multiple objects, or responsibilities, then you should consider refactoring your code into multiple classes.
 
@@ -191,7 +249,7 @@ public interface FrankenPerson {
 ```
 
 ```java
-public interface SOPViolation {
+public interface SRPViolation {
     /**
      * i < 0 delete the key and the empty string if successful
      * i == 0 return the old value if different

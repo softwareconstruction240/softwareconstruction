@@ -45,9 +45,9 @@ classDiagram
         play(Person, Game)
     }
 
-Date <|-- Death
-Date <|-- Birth
-OutdoorActivity --> Game : uses-a
+    Date <|-- Death
+    Date <|-- Birth
+    OutdoorActivity --> Game : uses-a
 
     class Death {
     }
