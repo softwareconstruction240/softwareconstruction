@@ -13,6 +13,7 @@ You will use Examity to record both video and audio while taking the exam.
 ## Examity Exam Requirements
 You must meet the following requirements for taking Examity exams:
 
+- Have a [supported device](https://www.examity.com/test-taker-systems-requirements/). Note that Examity does not support Linux devices.
 - Have a relatively new version of the Chrome web browser (other browsers will not work)
 - Have only one monitor attached to your computer (if you have additional monitors, you will need to unplug them)
 - Have a working video camera and microphone
