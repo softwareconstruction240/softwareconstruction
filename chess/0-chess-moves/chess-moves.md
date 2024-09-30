@@ -85,8 +85,8 @@ You will not need to implement any code in this class for this phase.
 
 #### Key Methods
 
-- **validMoves**: Takes as input a position on the chessboard and returns all moves the piece there can legally make. If there is no piece at that location, this method returns `null`. A move is valid if is a "piece move" for the piece at the input location _and_ making that move would not leave the team’s king in danger of check. 
-- **makeMove**: Receives a given move and executes it, provided it is a legal move. If the move is illegal, it throws an `InvalidMoveException`. A move is illegal if it is not a "valid" move for the piece at the starting location, _or_ if it’s not the corresponding team's turn.
+- **validMoves**: Takes as input a position on the chessboard and returns all moves the piece there can legally make. If there is no piece at that location, this method returns `null`.
+- **makeMove**: Receives a given move and executes it, provided it is a legal move. If the move is illegal, it throws an `InvalidMoveException`. A move is illegal if the chess piece cannot move there, if the move leaves the team’s king in danger, or if it’s not the corresponding team's turn.
 - **isInCheck**: Returns true if the specified team’s King could be captured by an opposing piece.
 - **isInCheckmate**: Returns true if the given team has no way to protect their king from being captured.
 - **isInStalemate**: Returns true if the given team has no legal moves and it is currently that team’s turn.
