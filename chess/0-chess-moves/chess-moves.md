@@ -82,7 +82,7 @@ classDiagram
 This class serves as the top-level management of the chess game. It is responsible for executing moves as well as recording the game status.
 
 > [!IMPORTANT]
-> The ChessGame class is presented now, but will not be used until Phase 1.
+> Although the `ChessGame` class is presented now, it will not be used until Phase 1.\
 > ChessGame related tests will be [added to the working directory](../1-chess-game/getting-started.md#chess-game---getting-started) later.
 
 
