@@ -64,7 +64,9 @@ classDiagram
 
 This class serves as the top-level management of the Chess Game. It is responsible for executing moves as well as reporting the game status.
 
-`ChessGame` will now implement the rules of Chess not handled by the `ChessPiece` class. This will involve removing moves returned from `ChessPiece.validMoves()` that violate game rules.
+By default, a new `ChessGame` represents an immediately playable board with the pieces in their default locations and the starting player set to WHITE.
+
+`ChessGame` functionality will now implement the rules of Chess not handled by the `ChessPiece` class. This will involve removing moves returned from `ChessPiece.validMoves()` that violate game rules.
 
 **Key Methods**:
 
