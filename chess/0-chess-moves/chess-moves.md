@@ -81,15 +81,10 @@ classDiagram
 
 This class serves as the top-level management of the chess game. It is responsible for executing moves as well as recording the game status.
 
-You will not need to implement any code in this class for this phase.
+> [!IMPORTANT]
+> Although the `ChessGame` class is presented now, it will not be used until Phase 1.\
+> ChessGame related tests will be [added to the working directory](../1-chess-game/getting-started.md#chess-game---getting-started) later.
 
-#### Key Methods
-
-- **validMoves**: Takes as input a position on the chessboard and returns all moves the piece there can legally make. If there is no piece at that location, this method returns `null`.
-- **makeMove**: Receives a given move and executes it, provided it is a legal move. If the move is illegal, it throws an `InvalidMoveException`. A move is illegal if the chess piece cannot move there, if the move leaves the team’s king in danger, or if it’s not the corresponding team's turn.
-- **isInCheck**: Returns true if the specified team’s King could be captured by an opposing piece.
-- **isInCheckmate**: Returns true if the given team has no way to protect their king from being captured.
-- **isInStalemate**: Returns true if the given team has no legal moves and it is currently that team’s turn.
 
 ### ChessBoard
 
@@ -109,6 +104,8 @@ public enum PieceType {
     PAWN
 }
 ```
+
+`ChessPiece` implements rules that define how a piece moves independent of other chess rules such as check, stalement, or checkmate.
 
 #### Key Methods
 
