@@ -56,7 +56,7 @@ These objects represent the core of what you are passing between your server, se
 
 ## Creating Sequence Diagrams
 
-Based upon your understanding of the requirements provided by [Phase 3](../3-web-api/web-api.md) you now must create a sequence diagram for each endpoint that demonstrates the flow of interactions between your application objects.
+Based upon your understanding of the requirements provided by [Phase 3](../3-web-api/web-api.md) you now must create a sequence diagram for each endpoint that demonstrates the flow of interactions between your application objects. The diagram must include the successful happy path flow for each endpoint, but should also include the error paths so that you can fully design your server.
 
 ### SequenceDiagram.Org
 
