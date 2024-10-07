@@ -128,7 +128,7 @@ public class ServerExample {
 
 You can experiment with this code by doing the following.
 
-1. Create a directory name `public` and put an `index.html` file in it that contains some simple text.
+1. Create a directory name `public` and put an `index.html` file in it that contains the text: `<h1>Hello World</h1>`.
 1. Run the code from a directory relative to the directory that contains the `public` directory.
 1. Open your browser and point it to `localhost:8080`. This should display the contents of your `index.html` file.
 1. Run the following commands with Curl
