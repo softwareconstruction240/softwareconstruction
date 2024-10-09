@@ -14,6 +14,10 @@ public class PetService {
         this.dataAccess = dataAccess;
     }
 
+    // Pet Shop is very simple.
+    // A more complicated application would do the business logic in this
+    // service.
+
     public Pet addPet(Pet pet) throws ResponseException {
         return dataAccess.addPet(pet);
     }
