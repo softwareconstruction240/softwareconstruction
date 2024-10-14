@@ -61,4 +61,10 @@ class PetServiceTest {
         service.deleteAllPets();
         assertEquals(0, service.listPets().size());
     }
+
+    @Test
+    void noDogsWithFleas() {
+        assertThrows(ResponseException.class, () ->
+        service.addPet(new Pet(0, "fleas", PetType.DOG)));
+    }
 }
