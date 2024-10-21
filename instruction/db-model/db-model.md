@@ -86,6 +86,18 @@ A good primary key has the following characteristics.
 - **Stable** - The key doesn't change over time. For example, a person's name would be considered unstable because it could change during the person's life.
 - **Simple** - Sometimes multiple fields must be combined to create a unique key that is representative of the row. However, you should attempt to keep the key as simple as possible because you reference the key so often when working with relational databases.
 
+## Decomposition
+
+All of the same principles of good software design also apply when creating representations in a relational model. For example, you don't want to create a single relational table that contains all of the properties for your entire application. Doing so would create a table that lacks cohesion.
+
+| ownerId | ownerName | petId | petName | petStore  | storeCity | vaccinated | purchaseDate |
+| ------- | --------- | ----- | ------- | --------- | --------- | ---------- | ------------ |
+| 81      | Juan      | 93    | Fido    | Pets4You  | Provo     | true       | 2026         |
+| 82      | Bud       | 77    | Chip    | DoggyTown | Orem      | false      | 2027         |
+| 83      | Bud       | 56    | Puddles | DoggyTown | Orem      | false      | 2027         |
+
+Additoinally, large, non-cohesive tables, force you to represent the same data in multiple rows which violates the DRY principle. Notice in the above example that the store information is repeated in multiple rows. Instead you want to `normalize` a table like this into multiple tables that each represent a single cohesive object. You then use relationships between the tables to create aggregations, or views as they are called in the relational model, as desired.
+
 ## Views
 
 You can create new views of the relational data by specifying queries that `join` data from different tables based upon matching keys.
