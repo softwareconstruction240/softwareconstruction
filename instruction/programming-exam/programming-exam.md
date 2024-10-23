@@ -2,7 +2,7 @@
 
 🖥️ [Lecture Video](#videos)
 
-This programming exam is a re-creation of your [chess phase-0](https://github.com/softwareconstruction240/softwareconstruction/blob/main/chess/0-chess-moves/chess-moves.md) assignment, but under time constraints and without TA or other support. No notes or resources are allowed except those described here.
+This programming exam is a re-creation of your [chess phase-0](https://github.com/softwareconstruction240/softwareconstruction/blob/main/chess/0-chess-moves/chess-moves.md) assignment, but under time constraints and without TA or other support. No resources are allowed except those described here.
 
 You will take the exam as a Canvas quiz and will have 4 hours to complete the exam and answer the quiz questions, which consist mostly of uploading code and screenshots to demonstrate your work.
 
@@ -16,7 +16,7 @@ The purpose of this exam is really to show that you are able to tackle large and
 
 1. Read **All** of the instructions here. If you have questions please ask them early. If you wait to ask questions right before the deadline it will be more difficult and you may lose time while taking the exam.
 
-1. Watch the video about the exam.
+1. Watch the video about the exam linked at the top of the page.
 
 1. Figure out your plan of how, where, and when you will take the exam. After reviewing the instructions and getting setup, make sure you have a device and place where you can take the exam. Also prepare a time to sit down to do it.
 
@@ -75,7 +75,7 @@ Make sure that you take time to do all of these steps before you start the actua
 
 Before taking the exam you should complete all of the steps in the chess phase-0 [getting started](https://github.com/softwareconstruction240/softwareconstruction/blob/main/chess/0-chess-moves/getting-started.md) document, except you will not put the project in a GitHub repo. Just create a folder and set it up with the starter code, and open it in Intellij. This will mean you will have an Intellij project with the provided starter code. You should make sure the project is able to compile and the tests run (but still all fail) before starting. Do not add any code, psuedocode, or notes to your project anywhere, this will be treated as cheating.
 
-You should also open the Javadoc in a web browser tab and the [chess phase-0 specification](https://github.com/softwareconstruction240/softwareconstruction/blob/main/chess/0-chess-moves/chess-moves.md) in another browser tab. If you are taking the test during TA hours you can also have the help queue open. If you need to talk with a TA you can open Zoom for that purpose. All other programs should be closed so that you have only the approved programs open on your computer during the exam. .
+You should also open the Javadoc in a web browser tab and the [chess phase-0 specification](https://github.com/softwareconstruction240/softwareconstruction/blob/main/chess/0-chess-moves/chess-moves.md) in another browser tab. If you are taking the test during TA hours you can also have the help queue open. If you need to talk with a TA you can open Zoom for that purpose. All other programs should be closed so that you have only the approved programs open on your computer during the exam.
 
 You may not open other tabs or access other information during the exam. This is designed to truly test that you have the capability to program the project.
 
@@ -85,7 +85,7 @@ When planning your time out allow yourself at least 20 minutes at the end of the
 
 You will need to upload:
 - A zip of your entire project
-- A screenshot of all your tests passing (right click passoff, click “run tests in passoff”). There should be 46 tests passing. If you don't have this number you are not running all of the tests.
+- A screenshot of all your tests passing (right click passoff, click “run tests in passoff”).
 
 Make sure you know how to do both of these things before the exam starts so you don't lose time.
 
@@ -97,8 +97,6 @@ Make sure you know how to do both of these things before the exam starts so you 
 Once you start the exam, do not close any web browser tabs. Sometimes closing a tab causes Examity to terminate the exam.
 
 You may take the exam at any time during the exam period. Just make sure you give yourself enough time to complete the exam by the end of the exam period.
-
-⚠ The exam is not open until midnight the day of the exam. It closes at 5, so make sure that you start with enough time.
 
 You can take the exam whenever you want during the exam period, however, we recommend taking it during TA hours. TAs will not be able to help you with programming or debugging during the exam, however, sometimes they can help with Examity or other issues that occur during the exam, but only if you take it during their office hours.
 
