@@ -219,13 +219,13 @@ A simple implementation of this is to have a separate Service class for each gro
 
 ```java
 public class UserService {
-	public AuthData register(UserData user) {}
-	public AuthData login(UserData user) {}
-	public void logout(AuthData auth) {}
+	public RegisterResult register(RegisterRequest registerRequest) {}
+	public LoginResult login(LoginRequest loginRequest) {}
+	public void logout(LogoutRequest logoutRequest) {}
 }
 ```
 
-Each service method receives a Request object containing all the information it needs to do its work. After performing its purpose, it returns a corresponding Result object containing the output of the method. To do their work, service classes need to make heavy use of the Model classes and Data Access classes described above.
+Each service method receives a Request object containing all the information it needs to do its work. After performing its purpose, it returns a corresponding Result object containing the output of the method. These request and result objects would contain fields pertaining to each of the endpoints above. (Note: request and result classes do not need to be specifically created to what is shown in the specifications, it is up to your design on how you want to implement these methods). To do their work, service classes need to make heavy use of the Model classes and Data Access classes described above.
 
 ⚠ You must place your service classes in a folder named `server/src/main/java/service`.
 
