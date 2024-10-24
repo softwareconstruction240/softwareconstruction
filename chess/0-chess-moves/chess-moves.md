@@ -85,7 +85,6 @@ This class serves as the top-level management of the chess game. It is responsib
 > Although the `ChessGame` class is presented now, it will not be used until Phase 1.\
 > ChessGame related tests will be [added to the working directory](../1-chess-game/getting-started.md#chess-game---getting-started) later.
 
-
 ### ChessBoard
 
 This class stores all the uncaptured pieces in a Game. It needs to support adding and removing pieces for testing, as well as a `resetBoard()` method that sets the standard Chess starting configuration.
@@ -150,6 +149,12 @@ A good process for this is to:
 - Repeat the above process for each of the tests until they all pass.
 
 If you are confused at what a test is doing reread the specs to understand what functionality it is looking for, and you can ask for clarification on Slack or to a TA.
+
+## Code Quality
+
+You want to write quality code that promotes consistency and readability for all team members. Code quality is discussed in a future [instruction topic](../../instruction/quality-code/quality-code.md), and you will be graded on quality starting with phase 3. However, you can use the auto grader at any time to check your chess repositories quality. The rubric used to evaluate code quality is found here: [Rubric](../code-quality-rubric.md).
+
+![Code Quality](../codeQuality.png)
 
 ## ☑ Deliverable
 

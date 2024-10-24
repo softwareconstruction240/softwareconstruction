@@ -417,7 +417,9 @@ Successfully run the service unit tests that you created. They must directly cal
 
 ### Code Quality
 
-For this phase the TAs will grade the quality of your project's source code. The rubric used to evaluate code quality can be found here: [Rubric](../code-quality-rubric.md)
+For this phase the auto grader will grade the quality of all your project's source code. The rubric used to evaluate code quality can be found here: [Rubric](../code-quality-rubric.md). You can also test your quality with the auto grader independent of a specific phase submission.
+
+![Code Quality](../codeQuality.png)
 
 ### Pass Off, Submission, and Grading
 
