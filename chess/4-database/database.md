@@ -12,7 +12,7 @@ In this part of the Chess project, you will create a MySQL implementation of you
 1. Implement a MySQL implementation of your Data Access Interface. Initially you can just stub out all of the methods.
 1. Add the ability to create your database and tables, if they don't exist, when your server starts up.
 1. Iteratively write a test for each of your Data Access interface methods along with the backing MySQL code.
-1. Ensure that all provided pass off tests work properly, including the PersistenceTests added for this assignment, and the StandardAPITests from the previous assignment.
+1. Ensure that all provided pass off tests work properly, including the DatabaseTests added for this assignment, and the StandardAPITests from the previous assignment.
 
 ## Making Database Connections
 
@@ -92,7 +92,7 @@ You will want to carefully consider the need for a Gson type adapter when you do
 
 ### Pass Off Tests
 
-The tests provided for this assignment are in the PersistenceTests class. These tests make HTTP requests to test your server.
+The tests provided for this assignment are in the DatabaseTests class. These tests make HTTP requests to test your server.
 
 Additionally, run the StandardAPITests from the previous phase to make sure they still run successfully.
 
