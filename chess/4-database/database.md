@@ -47,7 +47,7 @@ The [Pet Shop](../../petshop/server/src/main/dataaccess/MySqlDataAccess.java) pr
 In order to protect the security of your user's password, you must encrypt their password using the bcrypt algorithm. When a user provides a password, hash it before storing it in the database.
 
 ```java
-void storeUserPassword(String username, String password) {
+void storeUserPassword(String username, String clearTextPassword) {
    String hashedPassword = BCrypt.hashpw(clearTextPassword, BCrypt.gensalt());
 
    // write the hashed password in database along with the user's other information
