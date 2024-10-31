@@ -21,7 +21,8 @@ You will be most successful in this course if you set aside time each day, or ev
 
 For all of the above reasons, it is required that you use GitHub for your chess project. Additionally, you must use it consistently and frequently.
 
-⚠ **IMPORTANT**: **It is a prerequisite for all deliverables that you have at least 10 commits evenly spread across the assignment period for the deliverable.**
+> [!IMPORTANT]
+> It is a prerequisite for all deliverables that you have at least 10 commits evenly spread across the assignment period for the deliverable.
 
 If you do not have the required number of commits, or if they are all clustered in a single burst of activity, then you will need to justify the discrepancy before the deliverable will be accepted.
 

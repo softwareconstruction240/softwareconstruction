@@ -160,7 +160,8 @@ As part of this phase, you need to create [record](../../instruction/records/rec
 | authToken | String |
 | username  | String |
 
-⚠ You must place these three record classes in a folder named `shared/src/main/java/model`.
+> [!IMPORTANT]
+> You must place these three record classes in a folder named `shared/src/main/java/model`.
 
 ### Data Access Classes
 
@@ -209,7 +210,8 @@ By using an interface you can hide, or encapsulate, how your data access works f
 1. You can quickly implement our services without having to implement a backing SQL database. This lets us focus on the HTTP part of our server during this phase and then move over to SQL without changing any of our service code.
 2. You can write data access tests against the memory implementation of the interface and then reuse those tests when you create the SQL implementation.
 
-⚠ You must place your data access classes in a folder named `server/src/main/java/dataaccess`.
+> [!IMPORTANT]
+> You must place your data access classes in a folder named `server/src/main/java/dataaccess`.
 
 ### Service Classes
 
@@ -227,7 +229,8 @@ public class UserService {
 
 Each service method receives a Request object containing all the information it needs to do its work. After performing its purpose, it returns a corresponding Result object containing the output of the method. These request and result objects would contain fields pertaining to each of the endpoints above. (Note: request and result classes do not need to be specifically created to what is shown in the specifications, it is up to your design on how you want to implement these methods). To do their work, service classes need to make heavy use of the Model classes and Data Access classes described above.
 
-⚠ You must place your service classes in a folder named `server/src/main/java/service`.
+> [!IMPORTANT]
+> You must place your service classes in a folder named `server/src/main/java/service`.
 
 ### Request and Result Classes
 
@@ -316,7 +319,8 @@ You need to create the number of handler classes that are appropriate for your s
 
 The Server receives network HTTP requests and sends them to the correct handler for processing. The server should also handle all unhandled exceptions that your application generates and return the appropriate HTTP status code.
 
-⚠ For the pass off tests to work properly, your server class must be named `Server` and provide a `run` method that has a desired port parameter, and a `stop` method that shuts your HTTP server down.
+> [!IMPORTANT]
+> For the pass off tests to work properly, your server class must be named `Server` and provide a `run` method that has a desired port parameter, and a `stop` method that shuts your HTTP server down.
 
 The starter code contains the `Server` class that you should use as the base for your HTTP server. For the pass off tests to work properly, you must keep the `Server` class in a folder named `server/src/main/java/server`, and do not remove the provided code.
 
@@ -359,7 +363,8 @@ Good tests extensively show that we get the expected behavior. This could be ass
 
 The service unit tests must directly call the methods on your service classes. They should not use the HTTP server pass off test code that is provided with the starter code.
 
-⚠ You must place your service test cases in a folder named `server/src/test/java/service`.
+> [!IMPORTANT]
+> You must place your service test cases in a folder named `server/src/test/java/service`.
 
 ## Server Directory Structure
 
@@ -431,7 +436,8 @@ After your code has successfully been auto-graded, a TA will review the code in 
 
 ### Grading Rubric
 
-**⚠ NOTE**: You are required to commit to GitHub with every minor milestone. For example, after you successfully pass a test. This should result in a commit history that clearly details your work on this phase. If your Git history does not demonstrate your efforts then your submission may be rejected.
+> [!IMPORTANT]
+> You are required to commit to GitHub with every minor milestone. For example, after you successfully pass a test. This should result in a commit history that clearly details your work on this phase. If your Git history does not demonstrate your efforts then your submission may be rejected.
 
 | Category       | Criteria                                                                                                                                                                                         |       Points |
 | :------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -----------: |

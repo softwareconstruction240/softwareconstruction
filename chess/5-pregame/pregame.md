@@ -30,7 +30,7 @@ When the user first opens your Chess client application they can execute any of 
 After the user has registered or logged in they can then execute any of the Postlogin commands.
 
 | Command          | Description                                                                                                                                                                                                                                                                                                                          |
-|------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **Help**         | Displays text informing the user what actions they can take.                                                                                                                                                                                                                                                                         |
 | **Logout**       | Logs out the user. Calls the server logout API to logout the user. After logging out with the server, the client should transition to the Prelogin UI.                                                                                                                                                                               |
 | **Create Game**  | Allows the user to input a name for the new game. Calls the server create API to create the game. This does not join the player to the created game; it only creates the new game in the server.                                                                                                                                     |
@@ -55,6 +55,7 @@ Note that in the above image, the blue letters are black pieces and the red lett
 ### UI Requirements
 
 As with any software project with a UI component, there are certain implementation details you should not display to users. These include:
+
 - Anything in JSON - If you have something in JSON, parse it and then print out only the information you want the user to see.
 - Authtokens and Game IDs - These are important to keep track of but the user should not be aware of these internal variables. See the requirements for the [Postlogin UI](#postlogin-ui) for what to display instead of Game IDs.
 - HTTP status codes - The user should not be made aware of internal details like this. Ask yourself, apart from 404, when was the last time you saw a status code on a professional website?
@@ -85,7 +86,8 @@ Write positive and negative unit tests for each method on your ServerFacade clas
 
 Your tests must be located in the file `client/src/test/java/client/ServerFacadeTests.java`, provided in the starter code.
 
-⚠ `ServerFacadeTests.java` contains code that will automatically start and shutdown your server on a randomly assigned port as part of the test. However, you will still need to start your server when you manually run your client.
+> [!TIP]
+> `ServerFacadeTests.java` contains code that will automatically start and shutdown your server on a randomly assigned port as part of the test. However, you will still need to start your server using the `Main.main` function when you manually run your client.
 
 ```java
 public class ServerFacadeTests {
@@ -153,7 +155,8 @@ To pass off this assignment submit your work to the course [auto-grading](https:
 
 ### Grading Rubric
 
-**⚠ NOTE**: You are required to commit to GitHub with every minor milestone. For example, after you successfully pass a test. This should result in a commit history that clearly details your work on this phase. If your Git history does not demonstrate your efforts then your submission may be rejected.
+> [!IMPORTANT]
+> You are required to commit to GitHub with every minor milestone. For example, after you successfully pass a test. This should result in a commit history that clearly details your work on this phase. If your Git history does not demonstrate your efforts then your submission may be rejected.
 
 | Category       | Criteria                                                                                                                                                                                        |       Points |
 | :------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -----------: |

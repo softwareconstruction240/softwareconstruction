@@ -60,7 +60,8 @@ Putting this all together in a single request would look like the following if y
 
 Take some time to get familiar with Curl. You can use it to test your server, programmatically make batch requests, or to probe and debug how other web services work.
 
-⚠ Note that when running under Windows Powershell `curl` is mapped to the `Invoke-WebRequest` command. You don't want to use that. Instead type `curl.exe` to actually access Curl.
+> [!NOTE]
+> Note that when running under Windows Powershell `curl` is mapped to the `Invoke-WebRequest` command. You don't want to use that. Instead type `curl.exe` to actually access Curl.
 
 ## <a name="videos"></a>Videos (19:26)
 

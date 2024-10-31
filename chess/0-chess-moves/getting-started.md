@@ -4,17 +4,19 @@
 
 Take the following steps to set up your Chess project.
 
-⚠ Make sure you have already completed the deliverable for creating your [Chess GitHub Repository](../chess-github-repository/chess-github-repository.md).
+> [!NOTE]
+> Make sure you have already completed the deliverable for creating your [Chess GitHub Repository](../chess-github-repository/chess-github-repository.md).
 
 ## Adding the Template Chess Project
 
-1. Unzip the [starter-code/chess.zip](starter-code/chess.zip) file to the directory where you cloned the Chess GitHub Repository. You should run this command from inside of your personal projects directory. 
+1. Unzip the [starter-code/chess.zip](starter-code/chess.zip) file to the directory where you cloned the Chess GitHub Repository. You should run this command from inside of your personal projects directory.
 
    ```sh
    unzip <class-repo-dir>/chess/0-chess-moves/starter-code/chess.zip
    ```
 
-   ⚠ Note: `unzip` does not exist on Windows. You will need to unzip the file using a different utility, such as using the Windows File Explorer. However, if you use the Windows File Explorer it may create an duplicate parent `chess` directory. Make sure you move the files out of the extra `chess` directory and then delete the extra `chess` directory before you proceed. Make sure you are also moving hidden files (files that start with a '.'). There should be a .idea and .gitignore file that are with the other project files. 
+   > [!NOTE]
+   > `unzip` does not exist on Windows. You will need to unzip the file using a different utility, such as using the Windows File Explorer. However, if you use the Windows File Explorer it may create an duplicate parent `chess` directory. Make sure you move the files out of the extra `chess` directory and then delete the extra `chess` directory before you proceed. Make sure you are also moving hidden files (files that start with a '.'). There should be a .idea and .gitignore file that are with the other project files.
 
    With the chess starter code unzipped, your chess repository top level directory structure should look like the following:
 
@@ -28,14 +30,14 @@ Take the following steps to set up your Chess project.
    └── starter-code
    ```
 
-   ⚠ If you do not see all of these files in your folder go make sure that you moved all the hidden files.
+   > [!TIP]
+   > If you do not see all of these files in your folder go make sure that you moved all the hidden files.
 
 1. Check that git registers all the files
    ```sh
    git status
    ```
    You should see all the new files in a long list marked as untracked.
-   
 1. Stage and Commit changes
    ```sh
    git add .
@@ -50,12 +52,11 @@ Take the following steps to set up your Chess project.
 
 Open the project directory in IntelliJ to start developing, running, and debugging your code using an IDE. Make sure you **OPEN** the project rather than creating a new project. The contents of the folder already contain IntelliJ configuration files and creating a new project rather than opening an existing one will cause various errors.
 
- ⚠ If you get a prompt asking you to build with Maven, then make sure you skip that action.
+> [!NOTE]
+> If you get a prompt asking you to build with Maven, then make sure you skip that action.
 
 ![build with Maven](build-with-maven-prompt.png)
 
-Your project should look like this when it opens with the client, server, and shared folders having a blue square and being at the root level. There should be no folder called chess showing up in your Intelij project, only the items inside of the chess folder should be visible. 
+Your project should look like this when it opens with the client, server, and shared folders having a blue square and being at the root level. There should be no folder called chess showing up in your Intelij project, only the items inside of the chess folder should be visible.
 
 ![open intellij](open-intellij.png)
-
-

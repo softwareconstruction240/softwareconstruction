@@ -6,7 +6,8 @@
 
 In this part of the Chess Project, you will implement a basic representation of the game of chess. This includes the setting up of the board and defining how pieces move.
 
-⚠ Review the [Game of Chess](the-game-of-chess.md) instruction to learn how to set up the board and how each of the pieces move.
+> [!NOTE]
+> Review the [Game of Chess](the-game-of-chess.md) instruction to learn how to set up the board and how each of the pieces move.
 
 ## Starter Code
 
@@ -73,7 +74,8 @@ classDiagram
     ChessBoard o-- "*" ChessPiece
 ```
 
-**⚠ NOTE**: You are not limited to this representation. However, you must not change the existing class names or method signatures since they are used by the pass off tests. You will likely need to add new classes and methods to complete the work required by this phase.
+> [!NOTE]
+> You are not limited to this representation. However, you must not change the existing class names or method signatures since they are used by the pass off tests. You will likely need to add new classes and methods to complete the work required by this phase.
 
 ## Chess Classes
 
@@ -126,7 +128,8 @@ In most cases, the default methods provided by IntelliJ will suffice. However, t
 
 The tests and autograder rely on these methods in order to compare your objects. If you can't pass any tests even though the output seems the same check to make sure that these methods are created and working properly.
 
-⚠ Protip: Debugging is often much easier if you also override the `toString()` method and return a concise representation of the object. This is not required, but highly recommended. This can be generated in the same way that the `equals()` and `hashcode()` were.
+> [!TIP]
+> Debugging is often much easier if you also override the `toString()` method and return a concise representation of the object. This is not required, but highly recommended. This can be generated in the same way that the `equals()` and `hashcode()` were.
 
 ## Testing
 
@@ -166,7 +169,8 @@ To pass off this assignment use the course [auto-grading](https://cs240.click/) 
 
 ### Grading Rubric
 
-**⚠ NOTE**: You are required to commit to GitHub with every minor milestone. For example, after you successfully pass a test. This should result in a commit history that clearly details your work on this phase. If your Git history does not demonstrate your efforts then your submission may be rejected.
+> [!IMPORTANT]
+> You are required to commit to GitHub with every minor milestone. For example, after you successfully pass a test. This should result in a commit history that clearly details your work on this phase. If your Git history does not demonstrate your efforts then your submission may be rejected.
 
 | Category       | Criteria                                                                                          |       Points |
 | :------------- | :------------------------------------------------------------------------------------------------ | -----------: |

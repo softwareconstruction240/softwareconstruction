@@ -16,13 +16,13 @@ The gameplay UI should draw the current state of the chess board from the side t
 
 The gameplay UI should support the following user commands:
 
-| Command                   | Description                                                                                                                                                                                                                                         |
-| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Help**                  | Displays text informing the user what actions they can take.                                                                                                                                                                                        |
-| **Redraw Chess Board**    | Redraws the chess board upon the user’s request.                                                                                                                                                                                                    |
-| **Leave**                 | Removes the user from the game (whether they are playing or observing the game). The client transitions back to the Post-Login UI.                                                                                                                  |
-| **Make Move**             | Allow the user to input what move they want to make. The board is updated to reflect the result of the move, and the board automatically updates on all clients involved in the game.                                                               |
-| **Resign**                | Prompts the user to confirm they want to resign. If they do, the user forfeits the game and the game is over. Does not cause the user to leave the game.                                                                                            |
+| Command                   | Description                                                                                                                                                                                                                                        |
+| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Help**                  | Displays text informing the user what actions they can take.                                                                                                                                                                                       |
+| **Redraw Chess Board**    | Redraws the chess board upon the user’s request.                                                                                                                                                                                                   |
+| **Leave**                 | Removes the user from the game (whether they are playing or observing the game). The client transitions back to the Post-Login UI.                                                                                                                 |
+| **Make Move**             | Allow the user to input what move they want to make. The board is updated to reflect the result of the move, and the board automatically updates on all clients involved in the game.                                                              |
+| **Resign**                | Prompts the user to confirm they want to resign. If they do, the user forfeits the game and the game is over. Does not cause the user to leave the game.                                                                                           |
 | **Highlight Legal Moves** | Allows the user to input the piece for which they want to highlight legal moves. The selected piece’s current square and all squares it can legally move to are highlighted. This is a local operation and has no effect on remote users’ screens. |
 
 ![highlight moves](highlight-moves.png)
@@ -91,12 +91,12 @@ The following sections describe the server messages and user game command messag
 
 ## User Game Commands
 
-| Command           | Required Additional Fields | Description                                                                          |
-|-------------------|----------------------------|--------------------------------------------------------------------------------------|
-| **CONNECT**       |                            | Used for a user to request to connect to a game as a player or observer.             |
-| **MAKE_MOVE**     | ChessMove move             | Used to request to make a move in a game.                                            |
-| **LEAVE**         |                            | Tells the server you are leaving the game so it will stop sending you notifications. |
-| **RESIGN**        |                            | Forfeits the match and ends the game (no more moves can be made).                    |
+| Command       | Required Additional Fields | Description                                                                          |
+| ------------- | -------------------------- | ------------------------------------------------------------------------------------ |
+| **CONNECT**   |                            | Used for a user to request to connect to a game as a player or observer.             |
+| **MAKE_MOVE** | ChessMove move             | Used to request to make a move in a game.                                            |
+| **LEAVE**     |                            | Tells the server you are leaving the game so it will stop sending you notifications. |
+| **RESIGN**    |                            | Forfeits the match and ends the game (no more moves can be made).                    |
 
 ```mermaid
 classDiagram
@@ -109,10 +109,10 @@ classDiagram
         move: ChessMove
     }
     UserGameCommand <|-- MakeMoveCommand
-    
-```
-Note: You may make additional subclasses for commands other than `MAKE_MOVE` but they are not required
 
+```
+
+Note: You may make additional subclasses for commands other than `MAKE_MOVE` but they are not required
 
 ## Server Messages
 
@@ -139,7 +139,7 @@ classDiagram
     ServerMessage <|-- LoadGameMessage
     ServerMessage <|-- ErrorMessage
     ServerMessage <|-- NotificationMessage
-   
+
 ```
 
 ## WebSocket Interactions
@@ -182,6 +182,9 @@ Here is a [sequence diagram](https://sequencediagram.org/index.html?presentation
 
 ## ☑ Deliverable
 
+> [!IMPORTANT]
+> You are required to commit to GitHub with every minor milestone. For example, after you implement each player action. This should result in a commit history that clearly details your work on this phase. If your Git history does not demonstrate your efforts then your submission may be rejected.
+
 ### Pass Off Tests
 
 The provided tests for this assignment are in the `WebSocketTests` class. These test the `WebSocket` interactions between client and server. To run the tests first start your server, and then run `WebSocketTests`.
@@ -199,9 +202,9 @@ To pass off this assignment submit your work to the course [auto-grading](https:
 ### Grading Rubric
 
 | Category                      | Criteria                                                                                                                                      |       Points |
-|-------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|-------------:|
+| ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | -----------: |
 | GitHub History                | At least 12 GitHub commits evenly spread over the assignment period that demonstrate proof of work.                                           | Prerequisite |
-| Automated Pass Off Test Cases | Each provided test case passed is worth a proportional number of points ((passed / total) * 50).                                              |           50 |
+| Automated Pass Off Test Cases | Each provided test case passed is worth a proportional number of points ((passed / total) \* 50).                                             |           50 |
 | Help Text                     | Useful help text is displayed informing the user what actions they can take.                                                                  |            5 |
 | Observer Connect              | Observers can connect to a game. Notification sent and board drawn.                                                                           |            5 |
 | Observer Leave Game           | Observers can leave games. Notification sent.                                                                                                 |            5 |
@@ -218,4 +221,3 @@ To pass off this assignment submit your work to the course [auto-grading](https:
 ## <a name="videos"></a>Videos (10:39)
 
 - 🎥 [Phase 6 Overview (10:39)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=46d6e11c-7744-450d-964e-b1a10160f0c7)
-
