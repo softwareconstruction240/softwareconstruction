@@ -108,7 +108,7 @@ As part of your unit test deliverable you need to meet the following requirement
 1. Ensure that all of your unit tests work, including the new DAO tests and the Service tests you wrote in the previous assignment.
 
 > [!IMPORTANT]
-> You must place your data access test cases in a folder named server/src/test/java/dataaccess.
+> You must place your data access test cases in a folder named `server/src/test/java/dataaccess`.
 
 ### Code Quality
 
