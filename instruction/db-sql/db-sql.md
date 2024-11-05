@@ -86,7 +86,7 @@ CREATE TABLE pet (
 
 Notice that each field is followed by the `NOT NULL` clause. That means each of the fields must be provided for every row that is inserted.
 
-The `id` field is also annotated with the `AUTO_INCREMENT` keyword. This means that you don't actually provide the `id` field when you insert a row. The database will do that for you using an automatically increase integer.
+The `id` field is also annotated with the `AUTO_INCREMENT` keyword. This means that you don't actually provide the `id` field when you insert a row. The database will do that for you using an automatically increasing integer.
 
 If you need to alter your table you can use an `ALTER TABLE` statement. The following example shows you how to add a `nickname` field after the table is created. This alteration does not use the `NOT NULL` clause and so all of the existing nickname fields will be set to NULL. If a new row is added without specifying the nickname field, it will also be set to NULL.
 
