@@ -65,7 +65,10 @@ All databases have a default character set that is used for representing bytes a
 ALTER DATABASE pet_store CHARACTER SET utf8mb4;
 ```
 
-If you want to delete a database, and all of the data it represents, you use the `DROP DATABASE` statement. Be careful with this statement. Once you run it there is no going back. The data is gone forever.
+If you want to delete a database, and all of the data it represents, you use the `DROP DATABASE` statement. While this should rarely be used in a production environment, it is common to drop databases in development environments so that changes to tables can be observed (see ["Changing Tables"](#changing-tables) for more info.)
+
+> [!CAUTION]
+> Be careful with this statement. Once you run it there is no going back. The data is gone forever.
 
 ```sql
 DROP DATABASE pet_store
@@ -88,19 +91,27 @@ Notice that each field is followed by the `NOT NULL` clause. That means each of 
 
 The `id` field is also annotated with the `AUTO_INCREMENT` keyword. This means that you don't actually provide the `id` field when you insert a row. The database will do that for you using an automatically increasing integer.
 
+### Changing Tables
+
+> [!IMPORTANT]
+> Simply changing a "Create Table" statement stored in the code **does not** change the database. Read on to understand valid ways to change a SQL table.
+
+A `CREATE TABLE` statement _only_ does the action implicit in its name. If the table already exists (a common scenario), this command will throw an error; its sister, `CREATE TABLE IF NOT EXISTS`, will suppress the error and perform a no-op operation on the database.
+
 If you need to alter your table you can use an `ALTER TABLE` statement. The following example shows you how to add a `nickname` field after the table is created. This alteration does not use the `NOT NULL` clause and so all of the existing nickname fields will be set to NULL. If a new row is added without specifying the nickname field, it will also be set to NULL.
 
 ```sql
 ALTER TABLE pet ADD COLUMN nickname VARCHAR(255);
 ```
 
-If you decide that you want to delete a table then you execute a `DROP TABLE` statement.
+If you decide that you want to delete a table then you execute a `DROP TABLE` statement. In a development environment where no meaningful data exists to lose, this kind of command is commonly used to allow changes in `CREATE TABLE` statements to take effect.
+
+> [!CAUTION]
+> Data loss alert! Make sure you really want to drop the table before you execute the command, because there is no recovery from this one.
 
 ```sql
 DROP TABLE pet;
 ```
-
-Make sure you really want to drop the table before you execute the command, because there is no recovery from this one.
 
 ### Primary Keys and Indexes
 
