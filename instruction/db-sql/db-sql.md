@@ -271,6 +271,13 @@ When we discuss the Java Database Connector (JDBC) we will demonstrate how to in
 
 You can also write a text file that contains SQL statements and execute them using the MySQL client shell (mysqlsh). For example, if you had an initialization SQL script that contained the following.
 
+> [!NOTE]
+> One of the key features of this script is the first line that `DROP`s the entire database, which includes all the tables and the data within them.
+>
+> This choice makes it easy to use in a development environment since changes the `CREATE TABLE` statements will be automatically applied; however, it comes with risks if the code were to be accidentally applied to a production database.
+>
+> You are free to use pattern for this project, but a mechanism for automatically dropping your existing tables **is not** included in the starter code in any way. You will likely need to devise your own mechanism for applying changes to tables.
+
 ```sql
 DROP DATABASE pet_store;
 CREATE DATABASE pet_store;
