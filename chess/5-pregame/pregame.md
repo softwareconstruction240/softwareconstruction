@@ -44,13 +44,17 @@ After the user has registered or logged in they can then execute any of the Post
 
 ### Gameplay UI
 
-As stated previously, gameplay will not be implemented until later. For now, when a user plays or observes a game, the client should draw the initial state of a Chess game in the terminal, but not actually enter gameplay mode. The chessboard should be drawn twice, once in each orientation (i.e., once with white pieces at the bottom and once with black pieces at the bottom).
+As stated previously, gameplay will not be implemented until later. For now, when a user plays or observes a game, the client should draw the initial state of a Chess game in the terminal, but not actually enter gameplay mode. If you join the game either as the white player or as an observer then the chessboard must be drawn from the perspective of the white player. That means that the first row and column of the board (a1) should be displayed in the **bottom left** corner.
 
-An example of what the chessboard might look like is given below. You are free to make your chessboard look different as long as the essential information is displayed in an easily readable way, but it must "look like a chess board." You must have different colors for alternating squares, but they don't have to be white and black. Light and dark, or white and brown, or whatever you'd like is fine. Per official chess rules, the bottom-right and top-left squares (h1 and a8) must be the "lighter" color. This will mean each queen is "on her color" (white queen on a light square, black queen on a dark square). In addition, you must show the correct row numbers and column letters, but can do so however you would like.
+![White board](whiteBoard.png)
 
-![chessboard](ChessBoard.png)
+If you join as the black player then the board should be drawn from the perspective of the black player. That means that the first row and column of the board (a1) should be displayed in the **upper right** corner.
 
-Note that in the above image, the blue letters are black pieces and the red letters are white pieces. In this example the black team's perspective is shown before the white team's perspective. You can show the perspectives in either order, just make sure you can tell which is which.
+![Black board](blackBoard.png)
+
+You are free to make your chessboard look different as long as the essential information is displayed in an easily readable way, but it must "look like a chess board." You must have different colors for alternating squares, but they don't have to be white and black. Light and dark, or white and brown, or whatever you'd like is fine. Per official chess rules, the bottom-right and top-left squares (h1 and a8) must be the "lighter" color. This will mean each queen is "on her color" (white queen on a light square, black queen on a dark square). The boarder of the board must show the correct row numbers and column letters.
+
+Note that in the above images, the blue letters are black pieces and the red letters are white pieces.
 
 ### UI Requirements
 
@@ -86,8 +90,7 @@ Write positive and negative unit tests for each method on your ServerFacade clas
 
 Your tests must be located in the file `client/src/test/java/client/ServerFacadeTests.java`, provided in the starter code.
 
-> [!TIP]
-> `ServerFacadeTests.java` contains code that will automatically start and shutdown your server on a randomly assigned port as part of the test. However, you will still need to start your server using the `Main.main` function when you manually run your client.
+> [!TIP] > `ServerFacadeTests.java` contains code that will automatically start and shutdown your server on a randomly assigned port as part of the test. However, you will still need to start your server using the `Main.main` function when you manually run your client.
 
 ```java
 public class ServerFacadeTests {
