@@ -151,10 +151,7 @@ For this phase the TAs will grade the quality of your project's source code. The
 
 All of the tests in your project must succeed in order to complete this phase.
 
-To pass off this assignment submit your work to the course [auto-grading](https://cs240.click/) tool. When that is done, meet with a TA and demonstrate that your Chess client and server meet all requirements and they will assign you a final grade.
-
-> [!IMPORTANT]
-> You must completely pass the autograder first, including fixing any code style issues, before the TAs will grade your work.
+To pass off this assignment, first submit your work to the course [auto-grading](https://cs240.click/) tool. Once it completely passes the autograder, meet with a TA and demonstrate that your Chess client and server meet all requirements and they will assign you a final grade.
 
 ### Grading Rubric
 
@@ -162,7 +159,7 @@ To pass off this assignment submit your work to the course [auto-grading](https:
 > You are required to commit to GitHub with every minor milestone. For example, after you successfully pass a test. This should result in a commit history that clearly details your work on this phase. If your Git history does not demonstrate your efforts then your submission may be rejected.
 
 > [!NOTE]
-> You can receive 4 points of extra credit by completing this phase early. This means receiving 100% from the autograder, then completing an in-person passoff, before the day it is due.
+> You can receive 4 points of extra credit by first receiving 100% from the autograder and then completing an in-person passoff before the final due date.
 
 | Category       | Criteria                                                                                                                                                                                        |       Points |
 | :------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -----------: |
