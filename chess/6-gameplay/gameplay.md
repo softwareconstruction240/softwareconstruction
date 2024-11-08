@@ -204,22 +204,13 @@ To pass off this assignment submit your work to the course [auto-grading](https:
 > [!NOTE]
 > You can receive 3 points of extra credit by completing this phase early. This means receiving 100% from the autograder, then completing an in-person passoff, before the day it is due.
 
-| Category                      | Criteria                                                                                                                                      |       Points |
-| ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | -----------: |
-| GitHub History                | At least 12 GitHub commits evenly spread over the assignment period that demonstrate proof of work.                                           | Prerequisite |
-| Automated Pass Off Test Cases | Each provided test case passed is worth a proportional number of points ((passed / total) \* 50).                                             |           50 |
-| Help Text                     | Useful help text is displayed informing the user what actions they can take.                                                                  |            5 |
-| Observer Connect              | Observers can connect to a game. Notification sent and board drawn.                                                                           |            5 |
-| Observer Leave Game           | Observers can leave games. Notification sent.                                                                                                 |            5 |
-| Player Connect                | Players can connect to a game as a specified color. Notification sent and board drawn.                                                        |            5 |
-| Player Move Piece             | Players can move pieces. Illegal moves rejected. Notification sent (including check or checkmate notification if applicable) and board drawn. |           15 |
-| Player Leave Game             | Players can leave games. Notification sent.                                                                                                   |            5 |
-| Player Resign Game            | Players can resign from games. Notification sent.                                                                                             |            5 |
-| Display Legal Moves           | Any player or observer can display the legal moves available to any piece on the board regardless of whose turn it is.                        |           10 |
-| Redraw Board                  | The board redraws when requested by the user (player or observer).                                                                            |            5 |
-| Game completion               | No moves after game completion due to resignation, checkmate, or stalemate.                                                                   |           15 |
-| Code Quality                  | [Rubric](../code-quality-rubric.md)                                                                                                           |           30 |
-|                               | Total                                                                                                                                         |          155 |
+| Category                      |             Criteria                                                                                                                                                                                      |       Points |
+| ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -----------: |
+| GitHub History                | At least 12 GitHub commits evenly spread over the assignment period that demonstrate proof of work.                                                                                                       | Prerequisite |
+| Test Cases                    | All passoff and unit tests pass.                                                                                                                                                                          |           50 |
+| Functionality                 | Help text. Check/checkmate/stalemate. Notifications as described in the specs. Players and observers: connect and leave games, display legal moves, redraw board. Players only: resign, make legal moves. |           75 |
+| Code Quality                  | [Rubric](../code-quality-rubric.md)                                                                                                                                                                       |           30 |
+|                               | Total                                                                                                                                                                                                     |          155 |
 
 ## <a name="videos"></a>Videos (10:39)
 
