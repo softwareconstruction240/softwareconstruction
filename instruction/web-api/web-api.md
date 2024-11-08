@@ -256,8 +256,31 @@ public class ClientExample {
 }
 ```
 
-> [!TIP]
-> If you need to retrieve the response body when the status code is not 200 (which can be checked with `http.getResponseCode() != HttpURLConnection.HTTP_OK`), you may need to use `http.getErrorStream()` to read the body instead of `http.getInputStream()`. See the [JavaDocs](https://docs.oracle.com/javase/8/docs/api/java/net/HttpURLConnection.html#getErrorStream--) for more info.
+We can handle different HTTP response codes by checking the result from http.getResponseCode(). Additionally, you will need to read the response from `getErrorStream()` instead of `getInputStream()` if you receive a non-success status code. This is demonstrated in the following example:
+
+```java
+public class ClientAdvancedExample {
+    public static void main(String[] args) throws Exception {
+        URI uri = new URI("http://localhost:8080/error");
+        HttpURLConnection http = (HttpURLConnection) uri.toURL().openConnection();
+        http.setRequestMethod("GET");
+
+        http.connect();
+
+        // Handle bad HTTP status
+       var status = http.getResponseCode();
+        if ( status >= 200 && status < 300) {
+            try (InputStream in = http.getInputStream()) {
+                System.out.println(new Gson().fromJson(new InputStreamReader(in), Map.class));
+            }
+        } else {
+            try (InputStream in = http.getErrorStream()) {
+                System.out.println(new Gson().fromJson(new InputStreamReader(in), Map.class));
+            }
+        }
+    }
+}
+```
 
 If you first run the `name list` service defined above, then you can run the `ClientExample` and see the full round trip HTTP request being handled by your Java code.
 
