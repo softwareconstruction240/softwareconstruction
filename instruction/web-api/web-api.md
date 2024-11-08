@@ -256,6 +256,9 @@ public class ClientExample {
 }
 ```
 
+> [!TIP]
+> When the response code is not 200 (which can be checked with `http.getResponseCode() != HttpURLConnection.HTTP_OK`), you will need to use `http.getErrorStream()` to read the response body instead of `http.getInputStream()`.
+
 If you first run the `name list` service defined above, then you can run the `ClientExample` and see the full round trip HTTP request being handled by your Java code.
 
 ```sh
