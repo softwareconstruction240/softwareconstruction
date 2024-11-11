@@ -33,5 +33,8 @@ With all of that said, code coverage does provide a important indicator of the v
 ## <a name="videos"></a>Videos (13:45)
 
 - 🎥 [Code Coverage Overview (8:18)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=5fc1d70d-9c34-41f1-b195-b1a001161540&start=0)
+- [CS_240_Code_Coverage_Overview_Transcript.pdf](https://github.com/user-attachments/files/17707673/CS_240_Code_Coverage_Overview_Transcript.pdf)
 - 🎥 [Code Coverage Tools (1:38)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=c58109b6-ea78-4e98-8554-b1a001187fdb&start=0)
+- [CS_240_Code_Coverage_Tools_Transcript.pdf](https://github.com/user-attachments/files/17707688/CS_240_Code_Coverage_Tools_Transcript.pdf)
 - 🎥 [Intellij Code Coverage (3:49)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=cbb47ecd-2023-4911-933b-b1a001195835&start=0)
+- [CS_240_IntelliJ_Code_Coverage_Transcript.pdf](https://github.com/user-attachments/files/17707699/CS_240_IntelliJ_Code_Coverage_Transcript.pdf)
