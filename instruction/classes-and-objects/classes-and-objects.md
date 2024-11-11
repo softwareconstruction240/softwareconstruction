@@ -191,6 +191,7 @@ public static void main(String[] args) {
 - 🎥 [Inheritance (4:10)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=74faf0ca-9a24-4800-8ded-ad5d014f9493&start=0)
 - 🎥 [Method Overriding (9:36)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=d47ce0c1-85e5-45a7-b56d-ad5d01512d78&start=0)
 - 🎥 [Implementing a Hashcode Method (9:46)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=a486e175-a53f-4aed-b436-ad5d015744ac&start=0)
+- [CS_240_Implementing_a_Hashcode_Method_Transcript.pdf](https://github.com/user-attachments/files/17707561/CS_240_Implementing_a_Hashcode_Method_Transcript.pdf)
 - 🎥 [Method Overloading (1:57)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=7bec5f67-10c3-4b19-a0fc-ad640139627a&start=0)
 - 🎥 [The Final Keyword (2:10)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=c8298a1a-b65c-43bd-8928-ad64013a3b89&start=0)
 - 🎥 [The `this` Reference (3:21)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=4d34dffd-7fec-4c10-b15a-ad64013b245c&start=0)
