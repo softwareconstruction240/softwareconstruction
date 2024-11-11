@@ -198,9 +198,14 @@ Have fun! You have just taken the first step in becoming the world's best chess 
 
 ## <a name="videos"></a>Videos (64:23)
 - 🎥 [Overview (1:41)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=10672ba0-ba2d-4c9b-b6c1-b1ae01071d55&start=0)
+- [CS_240_Deploying_your_Chess_Server_on_AWS_Overview_Transcript.pdf](https://github.com/user-attachments/files/17707228/CS_240_Deploying_your_Chess_Server_on_AWS_Overview_Transcript.pdf)
 - 🎥 [Launch an EC2 Instance (14:42)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=feea3668-a904-402d-97d1-b1ae0107c46d&start=0)
+- [CS_240_Launch_an_EC2_Instance_Transcript.pdf](https://github.com/user-attachments/files/17707232/CS_240_Launch_an_EC2_Instance_Transcript.pdf)
 - 🎥 [Setup Your EC2 Instance (13:42)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=a5252593-01e6-479b-8532-b1ae010c4e9b&start=0)
+- [CS_240_Set_Up_Your_EC2_Instance_Transcript.pdf](https://github.com/user-attachments/files/17707242/CS_240_Set_Up_Your_EC2_Instance_Transcript.pdf)
 - 🎥 [Modify Your Client Code (7:50)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=c20793cb-452e-4a52-bf1d-b1ae01121603&start=0)
+- [CS_240_Modify_Your_Client_Code_Transcript.pdf](https://github.com/user-attachments/files/17707251/CS_240_Modify_Your_Client_Code_Transcript.pdf)
 - 🎥 [Deploy Code and Start the Server (17:49)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=d0fcb3f4-5aea-44b1-af53-b1ae01149092&start=0)
+- [CS_240_Deploy_Code_and_Start_the_Server_Transcript.pdf](https://github.com/user-attachments/files/17707258/CS_240_Deploy_Code_and_Start_the_Server_Transcript.pdf)
 - 🎥 [Configure Your Chess Server to Start When Your EC2 Instance Starts (8:39)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=56af2673-5e59-4019-8e49-b1ae0119d612&start=0)
-
+- [CS_240_Configure_Your_Chess_Server_to_Start_When_Your_EC2_Instance_Starts_Transcript.pdf](https://github.com/user-attachments/files/17707267/CS_240_Configure_Your_Chess_Server_to_Start_When_Your_EC2_Instance_Starts_Transcript.pdf)
