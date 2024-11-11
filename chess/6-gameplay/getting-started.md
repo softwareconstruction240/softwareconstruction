@@ -15,7 +15,7 @@ This should result in the following additions to your project.
 │           └── java
 │               └── passoff
 │                   └── server
-│                       └── WebSocketTests.java
+│                       ├── WebSocketTests.java
 │                       └── TestFactory.java
 └── shared
     └── src
