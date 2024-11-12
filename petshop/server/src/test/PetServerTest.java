@@ -69,7 +69,7 @@ class PetServerTest {
     void receiveErrorMessage() throws Exception {
         // Dogs with fleas are not allowed
         ResponseException error = Assertions.assertThrows(ResponseException.class,
-                () ->server.addPet(new Pet(-1, "fleas", PetType.DOG)),
+                () -> server.addPet(new Pet(-1, "fleas", PetType.DOG)),
                 "Inserting an invalid pet should throw an error");
 
         Assertions.assertEquals(418, error.StatusCode(),
