@@ -46,7 +46,7 @@ public class PetServer {
 
     private void exceptionHandler(ResponseException ex, Request req, Response res) {
         res.status(ex.StatusCode());
-        ErrorResponse errorResponse = new ErrorResponse(ex.getMessage());
+        ErrorResponse errorResponse = new ErrorResponse("Error: " + ex.getMessage());
         res.body(new Gson().toJson(errorResponse));
     }
 
