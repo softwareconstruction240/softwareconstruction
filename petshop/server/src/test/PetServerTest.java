@@ -1,10 +1,8 @@
 import dataaccess.MemoryDataAccess;
+import exception.ResponseException;
 import model.Pet;
 import model.PetType;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import server.PetServer;
 import server.ServerFacade;
 import service.PetService;
@@ -65,6 +63,19 @@ class PetServerTest {
 
         var result = assertDoesNotThrow(() -> server.listPets());
         assertPetCollectionEqual(expected, List.of(result));
+    }
+
+    @Test
+    void receiveErrorMessage() throws Exception {
+        // Dogs with fleas are not allowed
+        ResponseException error = Assertions.assertThrows(ResponseException.class,
+                () ->server.addPet(new Pet(-1, "fleas", PetType.DOG)),
+                "Inserting an invalid pet should throw an error");
+
+        Assertions.assertEquals(418, error.StatusCode(),
+                "Thrown exception should have the 418 status code specified by the server.");
+        Assertions.assertEquals("Error: no dogs with fleas", error.getMessage(),
+                "Thrown exception should contain the full, detailed error message");
     }
 
     public static void assertPetEqual(Pet expected, Pet actual) {
