@@ -1,6 +1,7 @@
 package server;
 
 import com.google.gson.Gson;
+import exception.ErrorResponse;
 import exception.ResponseException;
 import model.Pet;
 
@@ -50,6 +51,8 @@ public class ServerFacade {
             http.connect();
             throwIfNotSuccessful(http);
             return readBody(http, responseClass);
+        } catch (ResponseException ex) {
+            throw ex;
         } catch (Exception ex) {
             throw new ResponseException(500, ex.getMessage());
         }
@@ -68,9 +71,19 @@ public class ServerFacade {
 
     private void throwIfNotSuccessful(HttpURLConnection http) throws IOException, ResponseException {
         var status = http.getResponseCode();
-        if (!isSuccessful(status)) {
-            throw new ResponseException(status, "failure: " + status);
+        if (isSuccessful(status)) {
+            return;
         }
+
+        try (InputStream respErr = http.getErrorStream()) {
+            if (respErr != null) {
+                InputStreamReader reader = new InputStreamReader(respErr);
+                ErrorResponse errorResponse = new Gson().fromJson(reader, ErrorResponse.class);
+                throw new ResponseException(status, errorResponse.message());
+            }
+        }
+
+        throw new ResponseException(status, "other failure: " + status);
     }
 
     private static <T> T readBody(HttpURLConnection http, Class<T> responseClass) throws IOException {
