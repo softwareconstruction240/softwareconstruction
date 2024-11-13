@@ -66,5 +66,8 @@ Take some time to get familiar with Curl. You can use it to test your server, pr
 ## <a name="videos"></a>Videos (19:26)
 
 - 🎥 [cURL: Client for URLs (9:17)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=16506fca-9d4b-4f5e-89ad-b185015d13e5)
+- [CS_240_cURL_Client_for_URLs_Transcript.pdf](https://github.com/user-attachments/files/17737197/CS_240_cURL_Client_for_URLs_Transcript.pdf)
 - 🎥 [cURL for Chess (4:24)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=07ab3fff-d972-45b1-9f9f-b185015fdf9f)
+- [CS_240_cURL_for_Chess_Transcript.pdf](https://github.com/user-attachments/files/17737202/CS_240_cURL_for_Chess_Transcript.pdf)
 - 🎥 [cURL Alternatives (5:45)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=10dd7fb8-74c3-4b05-a2db-b18501615517)
+- [CS_240_cURL_Alternatives_Transcript.pdf](https://github.com/user-attachments/files/17737211/CS_240_cURL_Alternatives_Transcript.pdf)
