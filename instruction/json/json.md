@@ -194,3 +194,5 @@ There are three main ways to make the Gson library available to your project:
 📁 [typeAdapter](example-code/typeAdapter)
 
 📁 [runtimeTypeAdapter](example-code/runtimeTypeAdapter)
+
+📁 [deserializer](example-code/deserializer)
