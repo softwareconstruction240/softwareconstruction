@@ -46,7 +46,7 @@ After the user has registered or logged in they can then execute any of the Post
 
 As stated previously, gameplay will not be implemented until later. For now, when a user plays or observes a game, the client should draw the initial state of a Chess game in the terminal, but not actually enter gameplay mode. The chessboard should be drawn twice, once in each orientation (i.e., once with white pieces at the bottom and once with black pieces at the bottom).
 
-An example of what the chessboard might look like is given below. You are free to make your chessboard look different as long as the essential information is displayed in an easily readable way, but it must "look like a chess board." You must have different colors for alternating squares, but they don't have to be white and black. Light and dark, or white and brown, or whatever you'd like is fine. Per official chess rules, the bottom-right and top-left squares (h1 and a8) must be the "lighter" color. This will mean each queen is "on her color" (white queen on a light square, black queen on a dark square). In addition, you must show the correct row numbers and column letters, but can do so however you would like.
+An example of what the chessboard might look like is given below. You are free to make your chessboard look different as long as the essential information is displayed in an **easily readable way**, but it must **look like a chess board** and make it easy to play the game. For example, you must have different colors for alternating squares, but they don't have to be white and black. Light and dark, or white and brown, or whatever you'd like is fine. Per official chess rules, the bottom-right and top-left squares (h1 and a8) must be the "lighter" color. The pieces must be recognizable. This will mean each queen is "on her color" (white queen on a light square, black queen on a dark square). In addition, you must show the correct row numbers and column letters, but can do so however you would like.
 
 ![chessboard](ChessBoard.png)
 
@@ -54,7 +54,7 @@ Note that in the above image, the blue letters are black pieces and the red lett
 
 ### UI Requirements
 
-As with any software project with a UI component, there are certain implementation details you should not display to users. These include:
+When developing a UI you should focus on the user experience and only present things in a way that the user can relate to. This means that you should not display programming jargon or debugging information. For example, you should avoid:
 
 - Anything in JSON - If you have something in JSON, parse it and then print out only the information you want the user to see.
 - Authtokens and Game IDs - These are important to keep track of but the user should not be aware of these internal variables. See the requirements for the [Postlogin UI](#postlogin-ui) for what to display instead of Game IDs.
