@@ -130,7 +130,9 @@ public class ReadFile {
 - 🎥 [Streams (14:51)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=8db201b9-9a04-4cbf-8a99-ad64014ddd56&start=0)
 - 🎥 [Readers and Writers (5:15)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=66d67329-cc52-4533-a2b4-ad64015237cf&start=0)
 - 🎥 [The Scanner Class (5:54)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=d2b32cd5-aa33-47fc-b261-b1a001104cde&start=0)
+- [CS_240_The_Scanner_Class_Tokenizing_Input_Transcript.pdf](https://github.com/user-attachments/files/17750511/CS_240_The_Scanner_Class_Tokenizing_Input_Transcript.pdf)
 - 🎥 [Other Ways to Read and Write Files (3:57)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=442ead32-4f14-461c-aec5-b1a001122096&start=0)
+- [CS_240_Other_Ways_to_Read_and_Write_Files_Transcript.pdf](https://github.com/user-attachments/files/17750517/CS_240_Other_Ways_to_Read_and_Write_Files_Transcript.pdf)
 
 ## Demonstration code
 
