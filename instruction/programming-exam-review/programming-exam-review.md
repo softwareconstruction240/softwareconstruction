@@ -60,3 +60,4 @@ You are required to meet with your instructor before your final attempt if you d
 
 ## <a name="videos"></a>Videos (14:58)
 - 🎥 [Programming Exam (14:58)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=e84e0cd3-0bf7-43b9-9578-b19c012838b1&start=0)
+- [CS_240_Programming_Exam_Overview_Transcript.pdf](https://github.com/user-attachments/files/17751812/CS_240_Programming_Exam_Overview_Transcript.pdf)
