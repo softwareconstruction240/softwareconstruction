@@ -167,13 +167,21 @@ There are three main ways to make the Gson library available to your project:
 ## <a name="videos"></a>Videos (1:12:15)
 
 - 🎥 [JSON Introduction (8:44)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=68705db1-09e9-401a-899a-b170015429ca)
+- [CS_240_JSON_Introduction_Transcript.pdf](https://github.com/user-attachments/files/17751128/CS_240_JSON_Introduction_Transcript.pdf)
 - 🎥 [Parsing JSON (3:02)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=84e10091-df45-42e8-a244-b1700156f7c0)
+- [CS_240_Parsing_JSON_Transcript.pdf](https://github.com/user-attachments/files/17751145/CS_240_Parsing_JSON_Transcript.pdf)
 - 🎥 [JSON Stream Parser (14:09)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=ce33cc30-4265-4b3c-8cf1-b1700158857a)
+- [CS_240_JSON_Stream_Parser_Transcript.pdf](https://github.com/user-attachments/files/17751156/CS_240_JSON_Stream_Parser_Transcript.pdf)
 - 🎥 [JSON DOM Parser(9:24)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=799da5b0-57ad-4f43-adac-b170015d3c9e)
+- [CS_240_JSON_DOM_Parser_Transcript.pdf](https://github.com/user-attachments/files/17751163/CS_240_JSON_DOM_Parser_Transcript.pdf)
 - 🎥 [JSON Object Serialization (12:50)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=11bfdcea-647b-49a2-9c4f-b170016048d5)
+- [CS_240_JSON_Object_Serialization_Transcript.pdf](https://github.com/user-attachments/files/17751171/CS_240_JSON_Object_Serialization_Transcript.pdf)
 - 🎥 [Creating GSON Project Dependency (6:06)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=7d951c28-2f7e-4e0f-ab83-b1700164a7a7)
+- [CS_240_Creating_Gson_Project _Dependency_Transcript.pdf](https://github.com/user-attachments/files/17751202/CS_240_Creating_Gson_Project._Dependency_Transcript.pdf)
 - 🎥 [GSON Type Adapters (6:01)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=5d389661-eda2-4d90-8168-b17001668914)
+- [CS_240_Gson_Type_Adapters_Transcript.pdf](https://github.com/user-attachments/files/17751233/CS_240_Gson_Type_Adapters_Transcript.pdf)
 - 🎥 [Complex Type Adapters (11:59)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=5e845943-a45f-430b-8510-b1700168544d)
+- [CS_240_Complex_Type_Adapter_Transcript.pdf](https://github.com/user-attachments/files/17751262/CS_240_Complex_Type_Adapter_Transcript.pdf)
 
 ## Demonstration code
 
