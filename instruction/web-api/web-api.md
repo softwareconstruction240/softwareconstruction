@@ -367,12 +367,19 @@ java -cp ../../lib/gson-2.10.1.jar ClientCurlExample.java POST 'http://localhost
 ## <a name="videos"></a>Videos (1:14:27)
 
 - 🎥 [Web API Implementation (16:27)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=00a1b38c-8d1c-41ba-b2f5-b18c014994a1)
+- [CS_240_Web_API_Implementation_Transcript.pdf](https://github.com/user-attachments/files/17753672/CS_240_Web_API_Implementation_Transcript.pdf)
 - 🎥 [Spark Routes (16:40)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=85543d10-c532-4cab-9e0c-b18c014e60d5)
+- [CS_240_Spark_Routes_Transcript.pdf](https://github.com/user-attachments/files/17753680/CS_240_Spark_Routes_Transcript.pdf)
 - 🎥 [Serving Static Files (10:49)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=9b13ee82-87e5-4d9f-9adb-b18c0153bbe3)
+- [CS_240_Serving_Static_Files_Transcript.pdf](https://github.com/user-attachments/files/17753691/CS_240_Serving_Static_Files_Transcript.pdf)
 - 🎥 [Filters (6:26)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=041911bf-8f6f-44d9-a1e9-b18c01570c85)
+- [CS_240_Filters_Transcript.pdf](https://github.com/user-attachments/files/17753735/CS_240_Filters_Transcript.pdf)
 - 🎥 [Spark Installation (2:11)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=aa878216-922c-43ca-ae25-b18c0159089a)
+- [CS_240_Installation_Transcript.pdf](https://github.com/user-attachments/files/17753801/CS_240_Installation_Transcript.pdf)
 - 🎥 [Pet Shop Demo (9:43)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=751fc126-9541-485a-b712-b18c0159fe8c)
+- [CS_240_Petshop_Demo_Transcript.pdf](https://github.com/user-attachments/files/17753811/CS_240_Petshop_Demo_Transcript.pdf)
 - 🎥 [Client HTTP (12:11)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=781ae49b-6284-4e1a-836b-b1930162c54b)
+- [CS_240_Client_HTTP_Transcript.pdf](https://github.com/user-attachments/files/17753820/CS_240_Client_HTTP_Transcript.pdf)
 
 ## Demonstration code
 
