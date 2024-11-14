@@ -120,10 +120,13 @@ When an object overrides both the `equals` and `hashCode` methods, you can use i
 ## <a name="videos"></a>Videos
 
 - 🎥 [Classes and Objects Overview](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=8d7440ec-313d-45d1-891f-ad5f01307ab8&start=0)
+- [CS_240_Classes_and_Objects_Overview_Transcript (1).pdf](https://github.com/user-attachments/files/17750879/CS_240_Classes_and_Objects_Overview_Transcript.1.pdf)
 - 🎥 [The `Object` Super Class](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=1de40809-379f-44fd-8ffe-ad5f01307a86&start=0)
+- [CS_240_Classes_and_Objects_The_Object_Super_Class_Transcript.pdf](https://github.com/user-attachments/files/17750887/CS_240_Classes_and_Objects_The_Object_Super_Class_Transcript.pdf)
 - 🎥 [Method Overriding](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=d47ce0c1-85e5-45a7-b56d-ad5d01512d78&start=0)
 - 🎥 [Overriding toString()](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=cc129f1b-ae0f-44b0-a424-ad5f01307ae4&start=0)
 - 🎥 [Overriding equals()](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=7ecb0a44-16bc-4fa7-b924-ad5f01307b29&start=0)
 - 🎥 [Implementing a Hashcode Method](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=a486e175-a53f-4aed-b436-ad5d015744ac&start=0)
+- [CS_240_Implementing_a_Hashcode_Method_Transcript (1).pdf](https://github.com/user-attachments/files/17750911/CS_240_Implementing_a_Hashcode_Method_Transcript.1.pdf)
 - 🎥 [Method Overloading](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=7bec5f67-10c3-4b19-a0fc-ad640139627a&start=0)
 - 🎥 [Hash Tables](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=42265b8a-aced-457d-a494-ad5f0130d9a9&start=0)
