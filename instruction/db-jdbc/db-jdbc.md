@@ -406,4 +406,6 @@ With the Chess application you may have a similar situation with the game interf
 - 🎥 [JDBC - Putting It All Together (9:48)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=a882dded-56a9-43ff-b4fe-b1a0012e6341&start=0)
 - [CS_240_JDBC_Putting_It_All_Together_Transcript.pdf](https://github.com/user-attachments/files/17737311/CS_240_JDBC_Putting_It_All_Together_Transcript.pdf)
 - 🎥 [Unit Testing Database Code (5:12)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=6d8bf3b3-3ddd-4f3d-b90d-ad6b014f2bb7&start=0)
+- [CS_240_Unit_Testing_Database_Code.pdf](https://github.com/user-attachments/files/17780620/CS_240_Unit_Testing_Database_Code.pdf)
 - 🎥 [Correction - Unit Testing Database Code (3:52)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=9178d92a-e41b-48f4-8e68-adf8015d7a91&start=0)
+- [CS_240_Unit_Testing_Database_Code_Correction.pdf](https://github.com/user-attachments/files/17780623/CS_240_Unit_Testing_Database_Code_Correction.pdf)
