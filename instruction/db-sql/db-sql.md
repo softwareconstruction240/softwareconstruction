@@ -316,6 +316,7 @@ The follow table summaries all of the commands that were used in this instructio
 ## <a name="videos"></a>Videos (42:05)
 
 - 🎥 [Structured Query Language (2:14)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=4f5a6bfe-5170-4c3c-97e8-ad660148d05a&start=0)
+- [CS_240_Structured_Query_Language_(SQL).pdf](https://github.com/user-attachments/files/17780823/CS_240_Structured_Query_Language_.SQL.pdf)
 - 🎥 [SQL Data Types (3:48)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=91cb451f-fc88-426d-9656-ad660149a253&start=0)
 - [CS_240_SQL_Data_Types_Transcript.pdf](https://github.com/user-attachments/files/17737747/CS_240_SQL_Data_Types_Transcript.pdf)
 - 🎥 [Creating and Dropping Tables (14:22)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=1f257807-3728-4239-a82b-b1a0011ad706&start=0)
@@ -323,7 +324,9 @@ The follow table summaries all of the commands that were used in this instructio
 - 🎥 [Inserting, Updating, and Deleting Rows (6:40)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=203b8c65-d726-4282-8912-b1a0011f18e5&start=0)
 - [CS_240_Inserting_Updating_and_Deleting_Rows_Transcript.pdf](https://github.com/user-attachments/files/17737783/CS_240_Inserting_Updating_and_Deleting_Rows_Transcript.pdf)
 - 🎥 [Retrieving Data with SQL Queries (11:15)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=e7083e5f-66a8-425f-be92-ad6601513cbd&start=0)
+- [CS_240_Retrieving_Data_with_SQL_Queries.pdf](https://github.com/user-attachments/files/17780824/CS_240_Retrieving_Data_with_SQL_Queries.pdf)
 - 🎥 [Database Transactions (3:46)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=6e75d23e-4075-4a27-85d0-ad6601548134&start=0)
+- [CS_240_Database_Transactions.pdf](https://github.com/user-attachments/files/17780825/CS_240_Database_Transactions.pdf)
 
 ## Demonstration code
 
