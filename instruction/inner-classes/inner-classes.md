@@ -199,7 +199,9 @@ public class AnonymousExample {
 ## <a name="videos"></a>Videos (26:49)
 
 - 🎥 [Introduction (6:23)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=1a6ec347-24b8-41db-9dd8-ad72014f1ec1&start=0)
+- [CS_240_Inner_Class_Introduction.pdf](https://github.com/user-attachments/files/17780969/CS_240_Inner_Class_Introduction.pdf)
 - 🎥 [Static Inner Classes (5:55)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=c02cdeb8-5929-4b80-b83a-ad72015107bc&start=0)
+- [CS_240_Static_Inner_Classes.pdf](https://github.com/user-attachments/files/17780972/CS_240_Static_Inner_Classes.pdf)
 - 🎥 [Inner Classes (2:06)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=201871e8-f294-40d4-944c-ad720152d070&start=0)
 - 🎥 [Local Inner Classes (7:09)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=817e3e88-8d19-4ffa-85b4-ad7201539033&start=0)
 - 🎥 [Anonymous Inner Classes (5:16)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=7faf22b0-00df-4429-818f-ad720155ad20&start=0)
