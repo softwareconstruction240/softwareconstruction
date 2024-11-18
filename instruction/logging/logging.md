@@ -228,8 +228,11 @@ Java's direct support for logging, with the `java.util.logging` package, was not
 ## <a name="videos"></a>Videos (29:35)
 
 - 🎥 [Logging (6:47)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=014ade75-f4ad-4119-95c1-ad6d0147c217&start=0)
+- [CS_240_Java_Logging.pdf](https://github.com/user-attachments/files/17805093/CS_240_Java_Logging.pdf)
 - 🎥 [Logging: Configuration (13:44)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=5c08583a-579d-452e-88d6-ad6d0149e2cc&start=0)
+- [CS_240_Logging_Configuration.pdf](https://github.com/user-attachments/files/17805094/CS_240_Logging_Configuration.pdf)
 - 🎥 [Logging: Messages (9:04)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=e1afdb4c-bb5f-42cc-ad6c-ad6d014dd97d&start=0)
+- [CS_240_Logging_Messages.pdf](https://github.com/user-attachments/files/17805096/CS_240_Logging_Messages.pdf)
 
 ## Demonstration code
 
