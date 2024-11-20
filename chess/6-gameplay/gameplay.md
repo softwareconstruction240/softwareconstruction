@@ -43,11 +43,11 @@ When the following events occur, notification messages should be displayed on th
 
 ## WebSocket
 
-During gameplay all communication between client and server should be implemented using WebSocket.
+During gameplay all communication between the players is implemented by sending WebSocket messages between clients and the server. Using WebSocket allows the server to send a message at anytime to any of the connected clients. For example, a player sends a move message to the server. The server then asynchronously broadcast the move to everyone in the game.
 
-When a user begins playing or observing a game, their client should do the following:
+When a user begins playing or observing a game, their **client** will do the following:
 
-1. Call the server join API to join them to the game (ONLY in case of playing rather than observing).
+1. Call the server join HTTP API to join them to the game. This step is only done for players. Observers do not need to make the join HTTP API request.
 1. Open a WebSocket connection with the server (using the `/ws` endpoint) so it can send and receive gameplay messages.
 1. Send a CONNECT WebSocket message to the server.
 1. Transition to the gameplay UI. The gameplay UI draws the chess board and allows the user to perform the gameplay commands described in the previous section.
@@ -56,7 +56,13 @@ The following sections describe the messages that will be exchanged between clie
 
 ## WebSocket Messages
 
-Some WebSocket messages will be sent from client to server. We call these `user game commands`. Other WebSocket messages will be sent from server to client. We call these `server messages`. In code, each of these message types will be represented as a Java class that can be easily serialized and deserialized to/from JSON (similar to the Request and Result classes you created for the server’s Web API). The provided starter code includes a class named `UserGameCommand` which serves as a superclass for all user game command messages, and a class named `ServerMessage` which serves as a superclass for all server messages. These superclasses define fields that are needed by all messages, as follows:
+Some WebSocket messages are sent from the client to server. As defined by the Chess application design, these are called `user game commands`. Other WebSocket messages are sent from the server to client. These are called `server messages`. In code, each of these message types are represented as a Java class that can be serialized and deserialized to and from JSON (similar to the Request and Result classes you created for the server’s Web API). The provided starter code includes a class named `UserGameCommand` which provides the required messages that originate from the client, and a class named `ServerMessage` which provides the required messages that originate from the server.
+
+The `UserGameCommand` and `ServerMessage` classes are provided in the starter code, but you can extend these classes to provide functionality according the specifics of your design.
+
+## User Game Commands
+
+The following is a simplified representation of the `UserGameCommand` found in the starter code.
 
 ```java
 public class UserGameCommand {
@@ -67,36 +73,22 @@ public class UserGameCommand {
         RESIGN
     }
 
-    protected CommandType commandType;
-
-    private String authToken;
-}
-
-public class ServerMessage {
-    public enum ServerMessageType {
-        LOAD_GAME,
-        ERROR,
-        NOTIFICATION
-    }
-
-    ServerMessageType serverMessageType;
+    public CommandType commandType;
+    public String authToken;
+    public Integer gameID;
 }
 ```
 
-Each user game command class must include the `authToken` field and the `commandType` field and should inherit from the `UserGameCommand` class. The `commandType` field must be set to the corresponding `CommandType`.
-
-All server messages must include a `serverMessageType` field and should inherit from the `ServerMessage` class. This field must be set to the corresponding `ServerMessageType`.
-
-The following sections describe the server messages and user game command messages.
-
-## User Game Commands
+Here are the different command types that a user game command can represent.
 
 | Command       | Required Additional Fields | Description                                                                          |
 | ------------- | -------------------------- | ------------------------------------------------------------------------------------ |
-| **CONNECT**   |                            | Used for a user to request to connect to a game as a player or observer.             |
+| **CONNECT**   |                            | Used for a user to make a WebSocket connection as a player or observer.              |
 | **MAKE_MOVE** | ChessMove move             | Used to request to make a move in a game.                                            |
 | **LEAVE**     |                            | Tells the server you are leaving the game so it will stop sending you notifications. |
 | **RESIGN**    |                            | Forfeits the match and ends the game (no more moves can be made).                    |
+
+The following diagram represents a possible extension of the `UserGameCommand` class that you could make in order to support the required `ChessMove` field of the MAKE_MOVE command. You are free to follow this design, or come up with a representation of your own.
 
 ```mermaid
 classDiagram
@@ -112,15 +104,42 @@ classDiagram
 
 ```
 
-Note: You may make additional subclasses for commands other than `MAKE_MOVE` but they are not required
+The important thing is that along with the fields that are generally required for a `UserGameCommand`, that there is also an additional field named `move` that contains the fields of a `ChessMove` object in your JSON serialization.
+
+```json
+{
+  "commandType": "MAKE_MOVE",
+  "authToken": "tokengoeshere",
+  "gameID": "337",
+  "move": { "start": { "row": 3, "col": 3 }, "end": { "row": 5, "col": 5 } }
+}
+```
 
 ## Server Messages
+
+The following is a simplified representation of the `ServerMessage` found in the starter code.
+
+```java
+public class ServerMessage {
+   public enum ServerMessageType {
+       LOAD_GAME,
+       ERROR,
+       NOTIFICATION
+   }
+
+   ServerMessageType serverMessageType;
+}
+```
+
+Here are the different command types that a user game command can represent.
 
 | Command          | Required Fields                                        | Description                                                                                                                         |
 | ---------------- | ------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------- |
 | **LOAD_GAME**    | game (can be any type, just needs to be called `game`) | Used by the server to send the current game state to a client. When a client receives this message, it will redraw the chess board. |
 | **ERROR**        | String errorMessage                                    | This message is sent to a client when it sends an invalid command. The message must include the word `Error`.                       |
 | **NOTIFICATION** | String message                                         | This is a message meant to inform a player when another player made an action.                                                      |
+
+The following diagram represents a possible extensions of the `ServerMessage` class that you could use to support the different `ServerMessage` commands. You are free to follow this design, or come up with a representation of your own. Just make sure the the required fields are included in your JSON serialization.
 
 ```mermaid
 classDiagram
@@ -139,12 +158,11 @@ classDiagram
     ServerMessage <|-- LoadGameMessage
     ServerMessage <|-- ErrorMessage
     ServerMessage <|-- NotificationMessage
-
 ```
 
 ## WebSocket Interactions
 
-A client will instigate all interactions by sending a `UserGameCommand` to the server. We refer to the instigating client as the `Root Client`. The server will receive this Command and send appropriate `ServerMessages` to all clients connected to that game.
+A client will instigate all gameplay interactions by sending a CONNECT `UserGameCommand` to the server. We refer to the instigating client as the `Root Client`. The server will receive this Command and send appropriate `ServerMessages` to all clients connected to that game.
 
 When sending a `Notification` that refers to one of the clients, the message should use the Clients username. (E.g., `Bob left the game`).
 
