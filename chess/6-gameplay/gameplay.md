@@ -56,7 +56,7 @@ The following sections describe the messages that will be exchanged between clie
 
 ## WebSocket Messages
 
-Some WebSocket messages are sent from the client to server. As defined by the Chess application design, these are called `user game commands`. Other WebSocket messages are sent from the server to client. These are called `server messages`. In code, each of these message types are represented as a Java class that can be serialized and deserialized to and from JSON (similar to the Request and Result classes you created for the server’s Web API). The provided starter code includes a class named `UserGameCommand` which provides the required messages that originate from the client, and a class named `ServerMessage` which provides the required messages that originate from the server.
+Some WebSocket messages are sent from the client to server. As defined by the Chess application design, these are called `user game commands`. Other WebSocket messages are sent from the server to client. These are called `server messages`. In code, each of these message types are represented as a Java class that can be serialized and deserialized to and from JSON (similar to the Request and Result classes you created for the server’s Web API). The provided starter code includes a class named `UserGameCommand` which defines the required messages that originate from the client, and a class named `ServerMessage` which defines the required messages that originate from the server.
 
 The `UserGameCommand` and `ServerMessage` classes are provided in the starter code, but you can extend these classes to provide functionality according the specifics of your design.
 
@@ -104,7 +104,7 @@ classDiagram
 
 ```
 
-The important thing is that along with the fields that are generally required for a `UserGameCommand`, that there is also an additional field named `move` that contains the fields of a `ChessMove` object in your JSON serialization.
+In the end, the important thing is that you design supports the additional `move` field when serializing the `MAKE_MOVE` command over the WebSocket. This must looks something like the following:
 
 ```json
 {
@@ -139,7 +139,7 @@ Here are the different command types that a user game command can represent.
 | **ERROR**        | String errorMessage                                    | This message is sent to a client when it sends an invalid command. The message must include the word `Error`.                       |
 | **NOTIFICATION** | String message                                         | This is a message meant to inform a player when another player made an action.                                                      |
 
-The following diagram represents a possible extensions of the `ServerMessage` class that you could use to support the different `ServerMessage` commands. You are free to follow this design, or come up with a representation of your own. Just make sure the the required fields are included in your JSON serialization.
+The following diagram represents possible extensions of the `ServerMessage` class that you could use to support the different `ServerMessage` commands. You are free to follow this design, or come up with a representation of your own. Just make sure the the required fields are included in your JSON serialization.
 
 ```mermaid
 classDiagram
