@@ -104,7 +104,7 @@ classDiagram
 
 ```
 
-In the end, the important thing is that you design supports the additional `move` field when serializing the `MAKE_MOVE` command over the WebSocket. This must looks something like the following:
+In the end, the important thing is that your design supports the additional `move` field when serializing the `MAKE_MOVE` command over the WebSocket. This must result in something like the following:
 
 ```json
 {
