@@ -9,7 +9,7 @@ In this part of the Chess project, you will create a MySQL implementation of you
 1. Install the MYSQL database management system (DBMS) on your development machine.
 1. Modify `db.properties` to contain your username and password.
 1. Design your database tables (i.e., your database `schema`)
-1. Implement a MySQL implementation of your Data Access Interface. Initially you can just stub out all of the methods.
+1. Implement a MySQL implementation of your Data Access Interface. Initially you can just stub out all the methods.
 1. Add the ability to create your database and tables, if they don't exist, when your server starts up.
 1. Iteratively write a test for each of your Data Access interface methods along with the backing MySQL code.
 1. Ensure that all provided pass off tests work properly, including the DatabaseTests added for this assignment, and the StandardAPITests from the previous assignment.
@@ -57,7 +57,7 @@ void storeUserPassword(String username, String clearTextPassword) {
 }
 ```
 
-Then when a user attempts to login, repeat the hashing process on the user supplied login password and then compare the resulting hash to the previously stored hash of the original password. If the two hashes match then you know the supplied password is correct.
+Then when a user attempts to log in, repeat the hashing process on the user supplied login password and then compare the resulting hash to the previously stored hash of the original password. If the two hashes match then you know the supplied password is correct.
 
 ```java
 boolean verifyUser(String username, String providedClearTextPassword) {
@@ -167,7 +167,7 @@ On the AutoGrader, SQL table names and SQL column names are **case-sensitive**. 
 
 ### Pass Off, Submission, and Grading
 
-All of the tests in your project must succeed in order to complete this phase.
+All the tests in your project must succeed in order to complete this phase.
 
 To pass off this assignment use the course [auto-grading](https://cs240.click/) tool. If your code passes then your grade will automatically be entered in Canvas.
 
