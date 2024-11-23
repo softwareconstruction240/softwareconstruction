@@ -116,8 +116,7 @@ For this phase the auto grader will grade the quality of your project's source c
 
 ### Common Submission Issues
 
-Since you're adding code that acts with an external program in Phase 4, the likelihood of having auto-grader test
-output different from your local output is higher than previous phases.
+Since you're adding code that acts with an external program in Phase 4, the likelihood of having auto-grader test output different from your local output is higher than previous phases.
 
 If you encounter this, here are some common things to try (expand the collapsible section).
 
@@ -126,9 +125,7 @@ If you encounter this, here are some common things to try (expand the collapsibl
 <summary>Tips for resolving AutoGrader submission issues when local tests pass</summary>
 
 > [!IMPORTANT]
-> This guide assumes that your tests **are passing locally**.\
-> If your tests are not passing on your own computer,\
-> then you should definitely not assume they will pass on the AutoGrader.
+> This guide assumes that your tests **are passing locally**. If your tests are not passing on your own computer, then you should definitely not assume they will pass on the AutoGrader.
 
 #### Database and Table Creation
 
@@ -155,13 +152,9 @@ Run through the following verifications in your code:
 #### CasE SEnSiTiVitY
 
 > [!CAUTION]
-> **Windows** users are especially susceptible to this issue since
-> Windows machines behave differently than the AutoGrader.\
-> Read this section carefully.
+> **Windows** users are especially susceptible to this issue since Windows machines behave differently than the AutoGrader. Read this section carefully.
 
-On the AutoGrader, SQL table names and SQL column names are **case-sensitive**.
-Some personal computers treat SQL names with case insensitivity;
-this leads to disparities when submitting your code.
+On the AutoGrader, SQL table names and SQL column names are **case-sensitive**. Some personal computers treat SQL names with case insensitivity; this leads to disparities when submitting your code.
 
 - Double-check the casing in all of your SQL statements.
   - For example, if you have table `foobar`,
