@@ -29,13 +29,15 @@ Run through the following verifications in your code:
 
 #### CasE SEnSiTiVitY
 
-> [!CAUTION]
-> **Windows** users are especially susceptible to this issue since Windows machines behave differently than the AutoGrader. Read this section carefully.
-
-On the AutoGrader, SQL table names and SQL column names are **case-sensitive**. Some personal computers treat SQL names with case insensitivity; this leads to disparities when submitting your code.
+SQL table and column names are **case-sensitive** on the AutoGrader. However, some operating systems, like Windows, treat names as **case-insensitive**, which can cause issues when submitting your project. Double-check capitalization in your SQL code to avoid errors.
 
 - Double-check the casing in all of your SQL statements.
-  - For example, if you have table `foobar`,
-  - your machine may accept `INSERT INTO FooBar`,
-  - but the auto-grader machine will not.
-- Make sure each table and column name uses the same casing each time you use it.
+  - For example, if you have table named `foobar`, then you cannot later attempt to access it as `FooBar` (notice the capitalization change).
+- Make sure each **table** and **column** name uses the same casing each time you use it.
+  - Verify that the capitalization used in your `CREATE TABLE tablename` statements exactly matches all other uses, like in `INSERT INTO tablename`.
+  - Verify that the capitalization used in all references to table names are exactly the same. This includes references in:
+    - `CREATE TABLE` statement
+    - `INSERT INTO` statements
+    - Any other statements making reference to column names like `SELECT` or `WHERE` clauses.
+    - `ResultSet.get*()` or similar functions which require a column name
+- Storing table names and/or column names in **variables** gives a reliable foundation to avoid this kind of problem.
