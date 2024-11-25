@@ -66,16 +66,14 @@ class PetServerTest {
     }
 
     @Test
-    void receiveErrorMessage() throws Exception {
+    void invalidPetAddition() throws Exception {
         // Dogs with fleas are not allowed
         ResponseException error = Assertions.assertThrows(ResponseException.class,
                 () -> server.addPet(new Pet(-1, "fleas", PetType.DOG)),
                 "Inserting an invalid pet should throw an error");
 
-        Assertions.assertEquals(418, error.StatusCode(),
-                "Thrown exception should have the 418 status code specified by the server.");
-        Assertions.assertEquals("Error: no dogs with fleas", error.getMessage(),
-                "Thrown exception should contain the full, detailed error message");
+        Assertions.assertEquals(400, error.StatusCode());
+        Assertions.assertEquals("Error: no dogs with fleas", error.getMessage());
     }
 
     public static void assertPetEqual(Pet expected, Pet actual) {

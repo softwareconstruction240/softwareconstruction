@@ -21,7 +21,7 @@ public class PetService {
 
     public Pet addPet(Pet pet) throws ResponseException {
         if (pet.type() == PetType.DOG && pet.name().equals("fleas")) {
-            throw new ResponseException(418, "no dogs with fleas");
+            throw new ResponseException(400, "Error: no dogs with fleas");
         }
         return dataAccess.addPet(pet);
     }
