@@ -130,12 +130,12 @@ To pass off this assignment use the course [auto-grading](https://cs240.click/) 
 > You are required to commit to GitHub with every minor milestone. For example, after you successfully pass a test. This should result in a commit history that clearly details your work on this phase. If your Git history does not demonstrate your efforts then your submission may be rejected.
 
 | Category       | Criteria                                                                                                                                                                            |       Points |
-| :------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -----------: |
+|:---------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------:|
 | GitHub History | At least 12 GitHub commits evenly spread over the assignment period that demonstrate proof of work                                                                                  | Prerequisite |
 | Functionality  | All pass off test cases succeed                                                                                                                                                     |          100 |
 | Code Quality   | [Rubric](../code-quality-rubric.md)                                                                                                                                                 |           30 |
 | Unit Tests     | All test cases pass<br/>Each public method on DAO classes has two test cases, one positive test and one negative test<br/>Every test case includes an Assert statement of some type |           25 |
-|                | Total                                                                                                                                                                               |          155 |
+|                | **Total**                                                                                                                                                                           |      **155** |
 
 ## <a name="videos"></a>Videos (29:30)
 

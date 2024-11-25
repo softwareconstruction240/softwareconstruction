@@ -221,7 +221,7 @@ To pass off this assignment submit your work to the course [auto-grading](https:
 ### Grading Rubric
 
 | Category                      | Criteria                                                                                                                                                             |       Points |
-| ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -----------: |
+|:------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------:|
 | GitHub History                | At least 12 GitHub commits evenly spread over the assignment period that demonstrate proof of work.                                                                  | Prerequisite |
 | Automated Pass Off Test Cases | Each provided test case passed is worth a proportional number of points ((passed / total) \* 50).                                                                    |           50 |
 | Program Functionality         | All-or-nothing rubric item. Complete all of the following behaviors:                                                                                                 |           75 |
@@ -236,7 +236,7 @@ To pass off this assignment submit your work to the course [auto-grading](https:
 |                               | **Redraw Board**: The board redraws when requested by the user (player or observer).                                                                                 |              |
 |                               | **Game completion**: No moves after game completion due to resignation, checkmate, or stalemate.                                                                     |              |
 | Code Quality                  | [Rubric](../code-quality-rubric.md)                                                                                                                                  |           30 |
-|                               | Total                                                                                                                                                                |          155 |
+|                               | **Total**                                                                                                                                                            |      **155** |
 
 ## <a name="videos"></a>Videos (10:39)
 
