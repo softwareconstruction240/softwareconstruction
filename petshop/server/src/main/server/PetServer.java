@@ -1,7 +1,6 @@
 package server;
 
 import com.google.gson.Gson;
-import exception.ErrorResponse;
 import exception.ResponseException;
 import model.Pet;
 import server.websocket.WebSocketHandler;
@@ -46,8 +45,7 @@ public class PetServer {
 
     private void exceptionHandler(ResponseException ex, Request req, Response res) {
         res.status(ex.StatusCode());
-        ErrorResponse errorResponse = new ErrorResponse("Error: " + ex.getMessage());
-        res.body(new Gson().toJson(errorResponse));
+        res.body(ex.toJson());
     }
 
     private Object addPet(Request req, Response res) throws ResponseException {

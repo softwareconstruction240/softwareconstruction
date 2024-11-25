@@ -71,19 +71,15 @@ public class ServerFacade {
 
     private void throwIfNotSuccessful(HttpURLConnection http) throws IOException, ResponseException {
         var status = http.getResponseCode();
-        if (isSuccessful(status)) {
-            return;
-        }
-
-        try (InputStream respErr = http.getErrorStream()) {
-            if (respErr != null) {
-                InputStreamReader reader = new InputStreamReader(respErr);
-                ErrorResponse errorResponse = new Gson().fromJson(reader, ErrorResponse.class);
-                throw new ResponseException(status, errorResponse.message());
+        if (!isSuccessful(status)) {
+            try (InputStream respErr = http.getErrorStream()) {
+                if (respErr != null) {
+                    throw ResponseException.fromJson(respErr);
+                }
             }
-        }
 
-        throw new ResponseException(status, "other failure: " + status);
+            throw new ResponseException(status, "other failure: " + status);
+        }
     }
 
     private static <T> T readBody(HttpURLConnection http, Class<T> responseClass) throws IOException {
