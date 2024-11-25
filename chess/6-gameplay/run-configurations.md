@@ -28,4 +28,5 @@ It may become tedious to manually run the server main and the client main when t
 7. If you want to run two or more clients, you'll want to create additional application configurations that are the same as the first client configuration for each additional client you want to run.
 > [!IMPORTANT]
 > You will be required to run three clients for passing off phase 6, one for playing white, one for playing black, and one for observing.
+> 
 > The compound configuration will open the applications alphabetically, if you want to open the server before the client you can add a number at the start of the name in the order that you want.
