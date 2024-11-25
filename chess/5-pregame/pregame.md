@@ -158,12 +158,12 @@ To pass off this assignment submit your work to the course [auto-grading](https:
 > You are required to commit to GitHub with every minor milestone. For example, after you successfully pass a test. This should result in a commit history that clearly details your work on this phase. If your Git history does not demonstrate your efforts then your submission may be rejected.
 
 | Category       | Criteria                                                                                                                                                                                        |       Points |
-| :------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -----------: |
+|:---------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------:|
 | GitHub History | At least 12 GitHub commits evenly spread over the assignment period that demonstrate proof of work                                                                                              | Prerequisite |
 | Functionality  | Program supports all required functionality                                                                                                                                                     |          100 |
 | Code Quality   | [Rubric](../code-quality-rubric.md)                                                                                                                                                             |           30 |
 | Unit Tests     | All test cases pass<br/>Each public method on the Server Facade class has two test cases, one positive test and one negative test<br/>Every test case includes an Assert statement of some type |           25 |
-|                | Total                                                                                                                                                                                           |          155 |
+|                | **Total**                                                                                                                                                                                       |      **155** |
 
 ## <a name="videos"></a>Videos (38:10)
 
