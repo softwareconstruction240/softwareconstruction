@@ -197,6 +197,7 @@ Here is a [sequence diagram](https://sequencediagram.org/index.html?presentation
 
 - [Console UI](../../instruction/console-ui/console-ui.md): Reading from the keyboard and writing out fancy text.
 - [WebSocket](../../instruction/websocket/websocket.md): Making WebSocket client and server requests.
+- [Debugging](../../instruction/debugging/debugging.md): Debugging multiple applications that communication over the network is a critical software engineering skill that you will need to master to complete this phase. Make sure you review the topics on how to debug both [multiple applications](../../instruction/debugging/debugging.md#executing-multiple-processes) and also how to debug multiple concurrent instances of [same application](../../instruction/debugging/debugging.md#executing-the-same-process-multiple-times).
 
 ## ☑ Deliverable
 

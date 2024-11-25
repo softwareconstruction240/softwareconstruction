@@ -230,6 +230,20 @@ Sometimes you need to debug/run multiple processes at the same time. For example
 
 ![debug multiple processes](debug-multiple-processes.gif)
 
+## Executing the Same Process Multiple Times
+
+Sometimes you need to have multiple copies of the same application running. For example, when you deploy your client chess application you will need a client application running for each of the players and observers. By default, IntelliJ only allows a single instance of an application to execute. In order to enable multiple instances to run concurrently take the following steps.
+
+1. Right click on the `Run` icon next to the main function of your application.
+1. Choose the `Modify run configuration` option.
+1. Select the `Modify options` dropdown.
+1. Click on `Allow multiple instances`.
+1. Save the changes.
+
+   ![Multiple instances](multipleInstances.gif)
+
+Now every time you launch the application it will run an additional instance. This also means that you will need to shut each of them down when you are finished debugging them.
+
 ## Enhancing Tests
 
 As you fix bugs you will often discover other problems that haven't been reported yet. You can also discover that the tests have a bug in them and the code is actually running fine. It is also possible that the test is succeeding, but not actually testing anything of value.
