@@ -1,7 +1,7 @@
 # Run Configurations
 Testing Phase 6 is important!
 
-You’ll need to make additional changes to your settings to allow Intelli-J to start multiple instances of your client (you’ll still only need at most 1 server running) to properly test the websocket notifications. By this time, you should have already disconnected entirely your client from your server so that starting a client does not start the server automatically (this begins to be important now).
+You’ll need to make additional changes to your settings to allow Intelli-J to start multiple instances of your client (you’ll still only need at most 1 server running) to properly test the websocket notifications. By this time, you should have already disconnected your client entirely from your server so that starting a client does not start the server automatically (this begins to be important now).
 
 There are multiple approaches for doing this, here are a few approaches which we will go into more detail for:
 1. Allowing Multiple Instances.
@@ -19,11 +19,12 @@ It may become tedious to manually run the server main and the client main when t
 1. Go to the top of the window in Intelli-J and click on the current configuration. Then, click on "Edit Configurations..." and a new window should open up.
 ![Compound Configuration 1](Compound1.png)
 2. Click on the + sign on the top left of the new window, then click on "Compound".
-3. Add the appropriate applications for the compound configuration. This is done by clicking on the Application tab in the window. If you do not see the configurations for both the client and the server then rerun both the server and the client main. Name the configurations appropriately. If done correctly, it will look like this:
+3. Make sure you have the appropriate applications for the compound configuration. This is checked by clicking on the Application tab in the window. If you do not see the configurations for both the client and the server then rerun both the server main and the client main.
+4. Name each configuration appropriately. If done correctly, it will look like this:
 ![Compound Configuration 2](Compound2.png)
-4. Go back to the compound configuration and add the application configurations by clicking the + sign underneath the compound configuration's name. 
-5. Add the server and the client configuration. If done correctly, it will look like this:
+5. Go back to the compound configuration and add the application configurations by clicking the + sign underneath the compound configuration's name. 
+6. Add the server and the client configuration. If done correctly, it will look like this:
 ![Compound Configuration 3](Compound3.png)
-6. If you want to run two or more clients, you'll simply have to create more application configurations that are the same as the first client configuration for each additional client you want to run.
+7. If you want to run two or more clients, you'll want to create additional application configurations that are the same as the first client configuration for each additional client you want to run.
 > [!IMPORTANT]
 > The compound configuration will open the applications alphabetically, if you want to open the server before the client you can add a number at the start of the name in the order that you want.
