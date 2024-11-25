@@ -219,23 +219,23 @@ To pass off this assignment submit your work to the course [auto-grading](https:
 
 ### Grading Rubric
 
-| Category                      | Criteria                                                                                                                                      |       Points |
-| ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | -----------: |
-| GitHub History                | At least 12 GitHub commits evenly spread over the assignment period that demonstrate proof of work.                                           | Prerequisite |
-| Automated Pass Off Test Cases | Each provided test case passed is worth a proportional number of points ((passed / total) \* 50).                                             |           50 |
-| Program Functionality         | All-or-nothing rubric item. Complete all of the following behaviors:                                                                          |           75 |
-| Feat: **Help Text**           | Useful help text is displayed informing the user what actions they can take.                                                                  |            - |
-| Feat: **Observer Connect**    | Observers can connect to a game. Notification sent and board drawn.                                                                           |            - |
-| Feat: **Observer Leave Game** | Observers can leave games. Notification sent.                                                                                                 |            - |
-| Feat: **Player Connect**      | Players can connect to a game as a specified color. Notification sent and board drawn.                                                        |            - |
-| Feat: **Player Move Piece**   | Players can move pieces. Illegal moves rejected. Notification sent (including check or checkmate notification if applicable) and board drawn. |            - |
-| Feat: **Player Leave Game**   | Players can leave games. Notification sent.                                                                                                   |            - |
-| Feat: **Player Resign Game**  | Players can resign from games. Notification sent.                                                                                             |            - |
-| Feat: **Display Legal Moves** | Any player or observer can display the legal moves available to any piece on the board regardless of whose turn it is.                        |            - |
-| Feat: **Redraw Board**        | The board redraws when requested by the user (player or observer).                                                                            |            - |
-| Feat: **Game completion**     | No moves after game completion due to resignation, checkmate, or stalemate.                                                                   |            - |
-| Code Quality                  | [Rubric](../code-quality-rubric.md)                                                                                                           |           30 |
-|                               | Total                                                                                                                                         |          155 |
+| Category                      | Criteria                                                                                                                                                             |       Points |
+| ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -----------: |
+| GitHub History                | At least 12 GitHub commits evenly spread over the assignment period that demonstrate proof of work.                                                                  | Prerequisite |
+| Automated Pass Off Test Cases | Each provided test case passed is worth a proportional number of points ((passed / total) \* 50).                                                                    |           50 |
+| Program Functionality         | All-or-nothing rubric item. Complete all of the following behaviors:                                                                                                 |           75 |
+|                               | **Help Text**: Useful help text is displayed informing the user what actions they can take.                                                                          |              |
+|                               | **Observer Connect**: Observers can connect to a game. Notification sent and board drawn.                                                                            |              |
+|                               | **Observer Leave Game**: Observers can leave games. Notification sent.                                                                                               |              |
+|                               | **Player Connect**: Players can connect to a game as a specified color. Notification sent and board drawn.                                                           |              |
+|                               | **Player Move Piece**: Players can move pieces. Illegal moves rejected. Notification sent (including check or checkmate notification if applicable) and board drawn. |              |
+|                               | **Player Leave Game**: Players can leave games. Notification sent.                                                                                                   |              |
+|                               | **Player Resign Game**: Players can resign from games. Notification sent.                                                                                            |              |
+|                               | **Display Legal Moves**: Any player or observer can display the legal moves available to any piece on the board regardless of whose turn it is.                      |              |
+|                               | **Redraw Board**: The board redraws when requested by the user (player or observer).                                                                                 |              |
+|                               | **Game completion**: No moves after game completion due to resignation, checkmate, or stalemate.                                                                     |              |
+| Code Quality                  | [Rubric](../code-quality-rubric.md)                                                                                                                                  |           30 |
+|                               | Total                                                                                                                                                                |          155 |
 
 ## <a name="videos"></a>Videos (10:39)
 
