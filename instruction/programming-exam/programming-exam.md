@@ -6,21 +6,24 @@ This programming exam is a re-creation of your [chess phase-0](https://github.co
 
 You will take the exam as a Canvas quiz and will have 4 hours to complete the exam and answer the quiz questions, which consist mostly of uploading code and screenshots to demonstrate your work.
 
-The exam is pass/fail. You must pass all of the test cases in order to get a grade.
+**The exam is pass/fail.** You must pass all of the test cases in order to get a grade.
 
-You will use Examity to proctor both video and audio while taking the exam.
+[Examity](https://www.examity.com/) will to proctor both your video and your audio while taking the exam.
 
 The purpose of this exam is really to show that you are able to tackle large and difficult programming projects without too much difficulty. If you aren't able to complete the phase-0 code on your own that typically means that you won't be able to do some of the later phases in the class. It also means that you probably need more time before you are ready to take the majority of the higher level CS classes which have harder concepts and more difficult code.
 
 ## What You Need To Do
 
-1. Read **All** of the instructions here. If you have questions please ask them early. If you wait to ask questions right before the deadline it will be more difficult and you may lose time while taking the exam.
+1. Read **All** of the instructions on this page. If you have questions please ask them early. If you wait to ask questions right before the deadline it will be more difficult and you may lose time while taking the exam.
 
-1. Watch the video about the exam linked at the top of the page.
+1. Watch the video about the [exam](#videos) (previously mentioned)
 
 1. Figure out your plan of how, where, and when you will take the exam. After reviewing the instructions and getting setup, make sure you have a device and place where you can take the exam. Also prepare a time to sit down to do it.
 
-1. Do the setup including taking the Examity Setup Quiz and the Practice Programming Exam to understand the exam better.
+1. Do the exam setup:
+    * Create a new clean project from starter code
+    * Take the Examity Setup Quiz 
+    * Take Practice Programming Exam (optional)
 
 1. Review and Practice, make sure you have some time to review after Phase 0 before taking the exam.
 
