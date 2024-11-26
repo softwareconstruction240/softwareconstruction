@@ -158,7 +158,7 @@ To pass off this assignment, first submit your work to the course [auto-grading]
 ### Grading Rubric
 
 > [!NOTE]
-> You can receive 4 points of extra credit by first receiving 100% from the autograder and then completing an in-person passoff before the final due date.
+> You can receive 4 points of extra credit by first receiving 100% from the autograder and then completing an in-person pass off before the final due date.
 
 | Category       | Criteria                                                                                                                                                                                        |       Points |
 | :------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -----------: |
