@@ -183,7 +183,7 @@ Build this code and try it out. Use curl to make your requests. Set breakpoints 
 
 Experiment with writing a Gson type adapter to control how objects are serialized.
 
-### Error Handling
+### Server Error Handling
 
 In addition to representing endpoints, Spark provides methods for handling error cases. This includes the `Spark.exception` method for when an unhandled exception is thrown, and the `Spark.notFound` for when an unknown request is made. With both methods you provide the implementation of a functional interface for handling the error. The following code demonstrates how this is done.
 
@@ -256,7 +256,17 @@ public class ClientExample {
 }
 ```
 
-We can handle different HTTP response codes by checking the result from http.getResponseCode(). Additionally, you will need to read the response from `getErrorStream()` instead of `getInputStream()` if you receive a non-success status code. This is demonstrated in the following example:
+If you first run the `name list` service defined above, then you can run the `ClientExample` and see the full round trip HTTP request being handled by your Java code.
+
+```sh
+➜  java -cp ../../lib/gson-2.10.1.jar ClientExample.java
+
+{name=["dog", "cat"]}
+```
+
+### Client Error Handling
+
+The `http.getResponseCode()` method tells us what the HTTP status code was for the response. If you receive a non-2XX response then you need to use the `getErrorStream()` method instead of `getInputStream()` to read the response body. This is demonstrated in the following example:
 
 ```java
 public class ClientAdvancedExample {
@@ -280,14 +290,6 @@ public class ClientAdvancedExample {
         }
     }
 }
-```
-
-If you first run the `name list` service defined above, then you can run the `ClientExample` and see the full round trip HTTP request being handled by your Java code.
-
-```sh
-➜  java -cp ../../lib/gson-2.10.1.jar ClientExample.java
-
-{name=["dog", "cat"]}
 ```
 
 ### Writing a Request Body and Headers
