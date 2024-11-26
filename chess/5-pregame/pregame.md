@@ -150,15 +150,18 @@ For this phase the auto grader will grade the quality of your project's source c
 
 All of the tests in your project must succeed in order to complete this phase.
 
-To pass off this assignment submit your work to the course [auto-grading](https://cs240.click/) tool. When that is done, meet with a TA and demonstrate that your Chess client and server meet all requirements and assign you a final grade.
+To pass off this assignment, first submit your work to the course [auto-grading](https://cs240.click/) tool. Once it completely passes the autograder, meet with a TA and demonstrate that your Chess client and server meet all requirements and they will assign you a final grade.
 
 ### Grading Rubric
 
 > [!IMPORTANT]
 > You are required to commit to GitHub with every minor milestone. For example, after you successfully pass a test. This should result in a commit history that clearly details your work on this phase. If your Git history does not demonstrate your efforts then your submission may be rejected.
 
+> [!NOTE]
+> You can receive 4 points of extra credit by first receiving 100% from the autograder and then completing an in-person passoff before the final due date.
+
 | Category       | Criteria                                                                                                                                                                                        |       Points |
-|:---------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------:|
+| :------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -----------: |
 | GitHub History | At least 12 GitHub commits evenly spread over the assignment period that demonstrate proof of work                                                                                              | Prerequisite |
 | Functionality  | Program supports all required functionality                                                                                                                                                     |          100 |
 | Code Quality   | [Rubric](../code-quality-rubric.md)                                                                                                                                                             |           30 |
@@ -170,7 +173,7 @@ To pass off this assignment submit your work to the course [auto-grading](https:
 - 🎥 [Phase 5 Introduction (8:11)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=6e2c9d2f-5a74-4b60-989e-b19a0150a134)
 - [CS_240_Phase_5_Chess_UI_Demo_Transcript.pdf](https://github.com/user-attachments/files/17805362/CS_240_Phase_5_Chess_UI_Demo_Transcript.pdf)
 - 🎥 [Read-Eval-Print-Loop (REPL) (8:11)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=29364420-9c98-4778-ba7a-b19a015380c7)
-- [CS_240_Read_Eval_Print_Loop_(REPL)_Transcript.pdf](https://github.com/user-attachments/files/17805365/CS_240_Read_Eval_Print_Loop_.REPL._Transcript.pdf)
+- [CS*240_Read_Eval_Print_Loop*(REPL)\_Transcript.pdf](https://github.com/user-attachments/files/17805365/CS_240_Read_Eval_Print_Loop_.REPL._Transcript.pdf)
 - 🎥 [Drawing the Board (1:26)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=6a77c895-f2b8-49d9-8b11-b19a0156aef8)
 - [CS_240_Drawing_the_Board_Transcript.pdf](https://github.com/user-attachments/files/17805392/CS_240_Drawing_the_Board_Transcript.pdf)
 - 🎥 [Server Facade (5:00)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=6f02ff21-d6bd-47f3-bddd-b19a01578159)
