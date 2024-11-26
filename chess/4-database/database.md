@@ -9,7 +9,7 @@ In this part of the Chess project, you will create a MySQL implementation of you
 1. Install the MYSQL database management system (DBMS) on your development machine.
 1. Modify `db.properties` to contain your username and password.
 1. Design your database tables (i.e., your database `schema`)
-1. Implement a MySQL implementation of your Data Access Interface. Initially you can just stub out all of the methods.
+1. Implement a MySQL implementation of your Data Access Interface. Initially you can just stub out all the methods.
 1. Add the ability to create your database and tables, if they don't exist, when your server starts up.
 1. Iteratively write a test for each of your Data Access interface methods along with the backing MySQL code.
 1. Ensure that all provided pass off tests work properly, including the DatabaseTests added for this assignment, and the StandardAPITests from the previous assignment.
@@ -58,7 +58,7 @@ void storeUserPassword(String username, String clearTextPassword) {
 }
 ```
 
-Then when a user attempts to login, repeat the hashing process on the user supplied login password and then compare the resulting hash to the previously stored hash of the original password. If the two hashes match then you know the supplied password is correct.
+Then when a user attempts to log in, repeat the hashing process on the user supplied login password and then compare the resulting hash to the previously stored hash of the original password. If the two hashes match then you know the supplied password is correct.
 
 ```java
 boolean verifyUser(String username, String providedClearTextPassword) {
@@ -109,24 +109,21 @@ As part of your unit test deliverable you need to meet the following requirement
 1. Ensure that all of your unit tests work, including the new DAO tests and the Service tests you wrote in the previous assignment.
 
 > [!IMPORTANT]
-> You must place your data access test cases in a folder named server/src/test/java/dataaccess.
+> You must place your data access test cases in a folder named `server/src/test/java/dataaccess`.
 
 ### Code Quality
 
 For this phase the auto grader will grade the quality of your project's source code. The rubric used to evaluate code quality can be found here: [Rubric](../code-quality-rubric.md)
 
+### Common Submission Issues
+
+Since you're adding code that acts with an external program in Phase 4, the likelihood of having auto-grader test output different from your local output is higher than previous phases. See our collection of [Phase 4 Debugging Tips](./debugging-tips.md) for approaches to resolve common issues.
+
 ### Pass Off, Submission, and Grading
 
-All of the tests in your project must succeed in order to complete this phase.
+All the tests in your project must succeed in order to complete this phase.
 
 To pass off this assignment use the course [auto-grading](https://cs240.click/) tool. If your code passes then your grade will automatically be entered in Canvas.
-
-If your tests are passing locally but not on the autograder, here are some things to try:
-
-- It's possible your server doesn't create the database and tables correctly when starting up. Drop your database/schema using an external tool (MySQL shell or workbench) and rerun the tests locally. If they fail, double check the code for creating the database and tables.
-- Check for any place you may have hardcoded any values from db.properties. The auto-grader inserts a db.properties file with most of the values different from your file. The most common hardcoded value is the database name (commonly called `chess`). Check each SQL statement, including where you create tables, for the database name.
-  For example, use `INSERT INTO table` instead of `INSERT INTO database.table`. The `getConnection` method inside `DatabaseManager` already sets up the connection to use your database so you shouldn't need to specify the database name if you are using that method to obtain your connections.
-- If you develop on a machine running a Windows OS, double check the casing in all of your SQL statements. For example, if you have table `foobar`, your machine may accept `INSERT INTO FooBar`, but the auto-grader machine will not. Make sure each table and column name uses the same casing each time you use it.
 
 ### Grading Rubric
 
