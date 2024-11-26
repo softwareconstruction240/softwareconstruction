@@ -220,8 +220,11 @@ To pass off this assignment submit your work to the course [auto-grading](https:
 
 ### Grading Rubric
 
+> [!NOTE]
+> You can receive 4 points of extra credit by first receiving 100% from the autograder and then completing an in-person passoff before the final due date.
+
 | Category                      | Criteria                                                                                                                                                             |       Points |
-|:------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------:|
+| :---------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -----------: |
 | GitHub History                | At least 12 GitHub commits evenly spread over the assignment period that demonstrate proof of work.                                                                  | Prerequisite |
 | Automated Pass Off Test Cases | Each provided test case passed is worth a proportional number of points ((passed / total) \* 50).                                                                    |           50 |
 | Program Functionality         | All-or-nothing rubric item. Complete all of the following behaviors:                                                                                                 |           75 |
