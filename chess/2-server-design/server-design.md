@@ -147,3 +147,4 @@ When initially graded, your design will be given one of three scores:
 - 🎥 [Chess Server Design - Server Class and HTTP Handler Classes (7:24)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=8f6c6bb0-5528-4a0b-a6c0-b17e016deda3) - [[transcript]](https://github.com/user-attachments/files/17706963/CS_240_Chess_Server_Design_Server_Class_and_http_Handler_Classes_Transcript.pdf)
 - 🎥 [Chess Server Design - Frequently Asked Questions (6:55)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=89324a09-d550-4fbd-8d9f-b17e01704a5a)- [[transcript]](https://github.com/user-attachments/files/17706972/CS_240_Chess_Server_Design._Frequently_Asked_Questions_Transcript.pdf)
 - 🎥 [Phase 2 Overview (14:25)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=1b3ed136-4ef1-41d0-8e6c-b17e0172c0bf)- [[transcript]](https://github.com/user-attachments/files/17706974/CS_240_Chess_Server_Design_Phase_2_Transcript.pdf)
+
