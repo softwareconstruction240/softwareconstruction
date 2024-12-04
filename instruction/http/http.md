@@ -183,13 +183,8 @@ The format of the body of an HTTP request or response is defined by the `Content
 
 ## <a name="videos"></a>Videos (49:22)
 
-- 🎥 [Chess Server Review (3:39)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=a3d5b141-7756-4b0f-8912-b185014dbd5e)
-- [CS_240_Chess_Server_Review_Transcript.pdf](https://github.com/user-attachments/files/17738495/CS_240_Chess_Server_Review_Transcript.pdf)
-- 🎥 [HTTP Overview (10:42)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=ef2d29d2-72af-4d8f-9cdc-b185014f4fe5)
-- [CS_240_HTTP_Overview_Transcript.pdf](https://github.com/user-attachments/files/17738497/CS_240_HTTP_Overview_Transcript.pdf)
-- 🎥 [HTTP GET Requests (23:29)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=ea7a075b-a516-40f2-b17b-b185015286d8)
-- [CS_240_HTTP_GET_Requests_Transcript.pdf](https://github.com/user-attachments/files/17738504/CS_240_HTTP_GET_Requests_Transcript.pdf)
-- 🎥 [HTTP POST Requests (8:43)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=90dad290-87d6-44c5-9aa5-b185015930a1)
-- [CS_240_HTTP_POST_Requests_Transcript.pdf](https://github.com/user-attachments/files/17738509/CS_240_HTTP_POST_Requests_Transcript.pdf)
-- 🎥 [HTTP Methods (2:49)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=50ec71e4-a0d9-4f55-853e-b185015bd652)
-- [CS_240_HTTP_Methods_Transcript.pdf](https://github.com/user-attachments/files/17738511/CS_240_HTTP_Methods_Transcript.pdf)
+- 🎥 [Chess Server Review (3:39)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=a3d5b141-7756-4b0f-8912-b185014dbd5e) - [[transcript]](https://github.com/user-attachments/files/17738495/CS_240_Chess_Server_Review_Transcript.pdf)
+- 🎥 [HTTP Overview (10:42)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=ef2d29d2-72af-4d8f-9cdc-b185014f4fe5) - [[transcript]](https://github.com/user-attachments/files/17738497/CS_240_HTTP_Overview_Transcript.pdf)
+- 🎥 [HTTP GET Requests (23:29)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=ea7a075b-a516-40f2-b17b-b185015286d8) - [[transcript]](https://github.com/user-attachments/files/17738504/CS_240_HTTP_GET_Requests_Transcript.pdf)
+- 🎥 [HTTP POST Requests (8:43)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=90dad290-87d6-44c5-9aa5-b185015930a1) - [[transcript]](https://github.com/user-attachments/files/17738509/CS_240_HTTP_POST_Requests_Transcript.pdf)
+- 🎥 [HTTP Methods (2:49)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=50ec71e4-a0d9-4f55-853e-b185015bd652) - [[transcript]](https://github.com/user-attachments/files/17738511/CS_240_HTTP_Methods_Transcript.pdf)
