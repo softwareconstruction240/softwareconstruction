@@ -134,5 +134,4 @@ To pass off this assignment use the course [auto-grading](https://cs240.click/) 
 
 ## <a name="videos"></a>Videos (6:13)
 
-- 🎥 [Phase 1 Overview (6:13)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=f2342f5a-8513-44fe-b5cc-b1700151beac)
-- [CS_240_Phase_1_Overview_Transcript.pdf](https://github.com/user-attachments/files/17706850/CS_240_Phase_1_Overview_Transcript.pdf)
+- 🎥 [Phase 1 Overview (6:13)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=f2342f5a-8513-44fe-b5cc-b1700151beac) - [[transcript]](https://github.com/user-attachments/files/17706850/CS_240_Phase_1_Overview_Transcript.pdf)
