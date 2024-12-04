@@ -183,12 +183,9 @@ Input your numbers
 
 ## <a name="videos"></a>Videos (17:49)
 
-- 🎥 [Console User Interfaces (3:02)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=363561fc-a6f6-49ad-8d10-b19a0149fe26)
-- [CS_240_Console_User_Interfaces_Transcript.pdf](https://github.com/user-attachments/files/17736991/CS_240_Console_User_Interfaces_Transcript.pdf)
-- 🎥 [Terminal Control Codes (10:53)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=46e4a217-ef9c-4950-8b35-b19a014b2881)
-- [CS_240_Terminal_Control_Codes_Transcript.pdf](https://github.com/user-attachments/files/17737000/CS_240_Terminal_Control_Codes_Transcript.pdf)
-- 🎥 [Drawing the Chess Board (3:54)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=35f1e7b0-1ff0-4e59-932b-b19a014e9192)
-- [CS_240_Drawing_The_Chess_Board_Transcript.pdf](https://github.com/user-attachments/files/17737013/CS_240_Drawing_The_Chess_Board_Transcript.pdf)
+- 🎥 [Console User Interfaces (3:02)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=363561fc-a6f6-49ad-8d10-b19a0149fe26) - [[transcript]](https://github.com/user-attachments/files/17736991/CS_240_Console_User_Interfaces_Transcript.pdf)
+- 🎥 [Terminal Control Codes (10:53)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=46e4a217-ef9c-4950-8b35-b19a014b2881) - [[transcript]](https://github.com/user-attachments/files/17737000/CS_240_Terminal_Control_Codes_Transcript.pdf)
+- 🎥 [Drawing the Chess Board (3:54)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=35f1e7b0-1ff0-4e59-932b-b19a014e9192) - [[transcript]](https://github.com/user-attachments/files/17737013/CS_240_Drawing_The_Chess_Board_Transcript.pdf)
 
 ## Demonstration code
 
