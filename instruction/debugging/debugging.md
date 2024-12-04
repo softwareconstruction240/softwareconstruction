@@ -300,9 +300,6 @@ A quick change to our regular expression corrects the problem.
 
 ## <a name="videos"></a>Videos (27:56)
 
-- 🎥 [Introduction (6:07)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=f2279dc0-fd71-46af-ab7a-ad6d01516f20&start=0)
-- [CS_240_Java_Debugging_Introduction.pdf](https://github.com/user-attachments/files/17780854/CS_240_Java_Debugging_Introduction.pdf)
-- 🎥 [Debugging in IntelliJ (10:17)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=6ff3df28-71f9-435e-915e-ad6d01535f13&start=0)
-- [CS_240_Debugging_in_InteliJ.pdf](https://github.com/user-attachments/files/17780859/CS_240_Debugging_in_InteliJ.pdf)
-- 🎥 [Advanced Breakpoint Settings (11:32)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=a0c39358-184c-4290-ace7-b1aa010a61f2&start=0)
-- [CS_240_Advanced_Breakpoint_Settings_Transcript.pdf](https://github.com/user-attachments/files/17737928/CS_240_Advanced_Breakpoint_Settings_Transcript.pdf)
+- 🎥 [Introduction (6:07)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=f2279dc0-fd71-46af-ab7a-ad6d01516f20&start=0) - [[transcript]](https://github.com/user-attachments/files/17780854/CS_240_Java_Debugging_Introduction.pdf)
+- 🎥 [Debugging in IntelliJ (10:17)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=6ff3df28-71f9-435e-915e-ad6d01535f13&start=0) - [[transcript]](https://github.com/user-attachments/files/17780859/CS_240_Debugging_in_InteliJ.pdf)
+- 🎥 [Advanced Breakpoint Settings (11:32)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=a0c39358-184c-4290-ace7-b1aa010a61f2&start=0) - [[transcript]](https://github.com/user-attachments/files/17737928/CS_240_Advanced_Breakpoint_Settings_Transcript.pdf)
