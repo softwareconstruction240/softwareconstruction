@@ -96,7 +96,5 @@ public class DefensiveExample {
 
 ## <a name="videos"></a>Videos (14:15)
 
-- 🎥 [Assertions (11:48)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=934d5be6-15b3-4213-a25b-ad6d01430c86&start=0)
-- [CS_240_Defensive_Programming_Assertions.pdf](https://github.com/user-attachments/files/17780884/CS_240_Defensive_Programming_Assertions.pdf)
-- 🎥 [Parameter Checking (2:27)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=4d06fa38-cf64-4dc2-ace5-ad6d0146799a&start=0)
-- [CS_240_Defensive_Programming_Parameter_Checking.pdf](https://github.com/user-attachments/files/17780887/CS_240_Defensive_Programming_Parameter_Checking.pdf)
+- 🎥 [Assertions (11:48)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=934d5be6-15b3-4213-a25b-ad6d01430c86&start=0) - [[transcript]](https://github.com/user-attachments/files/17780884/CS_240_Defensive_Programming_Assertions.pdf)
+- 🎥 [Parameter Checking (2:27)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=4d06fa38-cf64-4dc2-ace5-ad6d0146799a&start=0) - [[transcript]](https://github.com/user-attachments/files/17780887/CS_240_Defensive_Programming_Parameter_Checking.pdf)
