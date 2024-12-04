@@ -13,5 +13,4 @@ The format is multiple choice, multiple answer, and true/false. No external docu
 For in-person students, it is strongly recommended that you attend the in-class final exam review. For online students, you should watch the final exam review video and take and study the Kahoot that your instructor will make avilable to you.
 
 ## <a name="videos"></a>Videos (3:40)
-- 🎥 [Final Exam Review (3:40)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=d35c30fd-b1c6-47dc-ad31-b1aa0126a444&start=0)
-- [CS_240_Final_Exam_Review_Transcript.pdf](https://github.com/user-attachments/files/17738250/CS_240_Final_Exam_Review_Transcript.pdf)
+- 🎥 [Final Exam Review (3:40)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=d35c30fd-b1c6-47dc-ad31-b1aa0126a444&start=0) - [[transcript]](https://github.com/user-attachments/files/17738250/CS_240_Final_Exam_Review_Transcript.pdf)
