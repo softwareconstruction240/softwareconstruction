@@ -333,10 +333,10 @@ Once you press `Add` your `pom.xml` file will be updated and you are ready to go
 
 ## <a name="videos"></a>Videos (25:44)
 
-- 🎥 [Command-line Builds (5:45)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=96027f51-b4f0-4d5b-8f32-b19a015a9d4b)
-- 🎥 [Maven (7:10)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=f64c2663-19d9-411d-9f65-b19a015d6350)
-- 🎥 [Maven Project Structure (8:45)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=e282502e-0b40-4c40-99c1-b19a015ff622)
-- 🎥 [IDE + Automated Builds (4:04)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=98bcf610-19d1-46ef-bd61-b19a0162f956)
+- 🎥 [Command-line Builds (5:45)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=96027f51-b4f0-4d5b-8f32-b19a015a9d4b) - [[transcript]](https://github.com/user-attachments/files/17707795/CS_240_Command_line_Builds_Transcript.pdf)
+- 🎥 [Maven (7:10)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=f64c2663-19d9-411d-9f65-b19a015d6350) - [[transcript]](https://github.com/user-attachments/files/17707798/CS_240_Maven_Transcript.pdf)
+- 🎥 [Maven Project Structure (8:45)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=e282502e-0b40-4c40-99c1-b19a015ff622) - [[transcript]](https://github.com/user-attachments/files/17707802/CS_240_Maven_Project_Structure_Transcript.pdf)
+- 🎥 [IDE + Automated Builds (4:04)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=98bcf610-19d1-46ef-bd61-b19a0162f956) - [[transcript]](https://github.com/user-attachments/files/17707804/CS_240_IDE_Automated_Builds_Transcript.pdf)
 
 ## Demonstration code
 

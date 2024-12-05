@@ -81,4 +81,4 @@ After submitting to Canvas, pass off with the course [auto-grading](https://cs24
 
 ## <a name="videos"></a>Videos (3:31)
 
-- 🎥 [Chess GitHub Repository (3:31)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=9603dd36-5c9b-4705-aa3d-b169016801a3)
+- 🎥 [Chess GitHub Repository (3:31)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=9603dd36-5c9b-4705-aa3d-b169016801a3) - [[transcript]](https://github.com/user-attachments/files/17707180/CS_240_Chess_GitHub_Repository_Transcript.pdf)

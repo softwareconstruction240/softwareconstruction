@@ -101,7 +101,7 @@ At this point you should just make sure your MySQL server is up and running, and
 
 ## <a name="videos"></a>Videos (29:03)
 
-- 🎥 [MySQL Overview (9:03)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=04f231f1-6f05-497a-a1d9-b193014cc8ad)
-- 🎥 [MySQL Console Client (6:27)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=10cb6b55-b954-4c1b-b483-b193014f9b90)
-- 🎥 [MySQL GUI Client (7:39)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=f5b49e24-99cd-4fe3-854f-b1930151b044)
-- 🎥 [SQL Commands (5:54)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=e70a8f18-dd11-4684-ad08-b1930154623d)
+- 🎥 [MySQL Overview (9:03)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=04f231f1-6f05-497a-a1d9-b193014cc8ad) - [[transcript]](https://github.com/user-attachments/files/17751649/CS_240_MySQL_Overview_Transcript.pdf)
+- 🎥 [MySQL Console Client (6:27)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=10cb6b55-b954-4c1b-b483-b193014f9b90) - [[transcript]](https://github.com/user-attachments/files/17751661/CS_240_MySQL_Console_Client_Transcript.pdf)
+- 🎥 [MySQL GUI Client (7:39)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=f5b49e24-99cd-4fe3-854f-b1930151b044) - [[transcript]](https://github.com/user-attachments/files/17751704/CS_240_GUI_Client_.Workbench._Transcript.pdf)
+- 🎥 [SQL Commands (5:54)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=e70a8f18-dd11-4684-ad08-b1930154623d) - [[transcript]](https://github.com/user-attachments/files/17751710/CS_240_SQL_Commands_Transcript.pdf)

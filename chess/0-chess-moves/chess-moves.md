@@ -173,13 +173,12 @@ To pass off this assignment use the course [auto-grading](https://cs240.click/) 
 > You are required to commit to GitHub with every minor milestone. For example, after you successfully pass a test. This should result in a commit history that clearly details your work on this phase. If your Git history does not demonstrate your efforts then your submission may be rejected.
 
 | Category       | Criteria                                                                                          |       Points |
-| :------------- | :------------------------------------------------------------------------------------------------ | -----------: |
+|:---------------|:--------------------------------------------------------------------------------------------------|-------------:|
 | GitHub History | At least 8 GitHub commits evenly spread over the assignment period that demonstrate proof of work | Prerequisite |
 | Functionality  | All pass off test cases succeed                                                                   |          125 |
-|                | Total                                                                                             |          125 |
+|                | **Total**                                                                                         |      **125** |
 
 ## <a name="videos"></a>Videos (21:22)
 
-- 🎥 [Phase 0 Overview (15:51)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=be427737-b0b5-4aec-bb15-b177014da69c)
-
-- 🎥 [Phase 0 Design Tips (5:31)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=88653eac-78a8-4f59-a12a-b170014f61f1)
+- 🎥 [Phase 0 Overview (15:51)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=be427737-b0b5-4aec-bb15-b177014da69c) - [[transcript]](https://github.com/user-attachments/files/17706801/CS_240_Chess_Phase_0_Transcript.pdf)
+- 🎥 [Phase 0 Design Tips (5:31)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=88653eac-78a8-4f59-a12a-b170014f61f1) - [[transcript]](https://github.com/user-attachments/files/17706812/CS_240_Phase_0_Design_Tips_Transcript.pdf)

@@ -126,12 +126,13 @@ To pass off this assignment use the course [auto-grading](https://cs240.click/) 
 > You are required to commit to GitHub with every minor milestone. For example, after you successfully pass a test. This should result in a commit history that clearly details your work on this phase. If your Git history does not demonstrate your efforts then your submission may be rejected.
 
 | Category       | Criteria                                                                                          |       Points |
-| :------------- | :------------------------------------------------------------------------------------------------ | -----------: |
+|:---------------|:--------------------------------------------------------------------------------------------------|-------------:|
 | GitHub History | At least 8 GitHub commits evenly spread over the assignment period that demonstrate proof of work | Prerequisite |
 | Functionality  | All pass off test cases succeed                                                                   |          125 |
 | Extra Credit   | `extracredit` test cases succeed                                                                  |    bonus +10 |
-|                | Total                                                                                             |          125 |
+|                | **Total**                                                                                         |      **125** |
 
 ## <a name="videos"></a>Videos (6:13)
 
-- 🎥 [Phase 1 Overview (6:13)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=f2342f5a-8513-44fe-b5cc-b1700151beac)
+
+- 🎥 [Phase 1 Overview (6:13)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=f2342f5a-8513-44fe-b5cc-b1700151beac) - [[transcript]](https://github.com/user-attachments/files/17706850/CS_240_Phase_1_Overview_Transcript.pdf)

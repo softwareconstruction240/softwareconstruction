@@ -45,6 +45,7 @@ public class PetServer {
 
     private void exceptionHandler(ResponseException ex, Request req, Response res) {
         res.status(ex.StatusCode());
+        res.body(ex.toJson());
     }
 
     private Object addPet(Request req, Response res) throws ResponseException {

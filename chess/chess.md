@@ -62,4 +62,4 @@ When you complete the entire project, you should have something similar to the f
 
 ## <a name="videos"></a>Videos (10:25)
 
-- 🎥 [Chess Project Overview (10:25)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=eea6cf56-8979-4c5c-8bb6-b170014c3c02)
+- 🎥 [Chess Project Overview (10:25)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=eea6cf56-8979-4c5c-8bb6-b170014c3c02) - [[transcript]](https://github.com/user-attachments/files/17707199/CS_240_Chess_Project_Overview_Transcript.pdf)

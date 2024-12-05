@@ -440,14 +440,14 @@ After your code has successfully been auto-graded, a TA will review the code in 
 > You are required to commit to GitHub with every minor milestone. For example, after you successfully pass a test. This should result in a commit history that clearly details your work on this phase. If your Git history does not demonstrate your efforts then your submission may be rejected.
 
 | Category       | Criteria                                                                                                                                                                                         |       Points |
-| :------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -----------: |
+|:---------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------:|
 | GitHub History | At least 12 GitHub commits evenly spread over the assignment period that demonstrate proof of work                                                                                               | Prerequisite |
 | Web API Works  | All pass off test cases succeed                                                                                                                                                                  |          125 |
 | Code Quality   | [Rubric](../code-quality-rubric.md)                                                                                                                                                              |           30 |
 | Unit Tests     | All test cases pass<br/>Each public method on your **Service classes** has two test cases, one positive test and one negative test<br/>Every test case includes an Assert statement of some type |           25 |
-|                | Total                                                                                                                                                                                            |          180 |
+|                | **Total**                                                                                                                                                                                        |      **180** |
 
 ## <a name="videos"></a>Videos (38:14)
 
-- 🎥 [Phase 3 Overview (19:30)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=a02a9929-b886-4a69-aa8b-b18c015d3e63)
-- 🎥 [Chess Server Implementation Tips (18:44)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=17194b50-e6a2-46eb-bf11-b1af0151af43)
+- 🎥 [Phase 3 Overview (19:30)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=a02a9929-b886-4a69-aa8b-b18c015d3e63) - [[transcript]](https://github.com/user-attachments/files/17707002/CS_240_Chess_Phase_3_Transcript.pdf)
+- 🎥 [Chess Server Implementation Tips (18:44)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=17194b50-e6a2-46eb-bf11-b1af0151af43) - [[transcript]](https://github.com/user-attachments/files/17707009/CS_240_Chess_Server_Implementation_Tips_Transcript.pdf)

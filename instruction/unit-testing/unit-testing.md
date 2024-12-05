@@ -113,9 +113,9 @@ With IntelliJ, you can autogenerate your unit tests. To use this tool open up an
 
 ## <a name="videos"></a>Videos (25:05)
 
-- 🎥 [Why We Need Unit Testing (4:30)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=c5707c4c-77d9-43d7-b96b-ad6b014612ca&start=0)
-- 🎥 [Unit Testing Overview (5:10)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=bb1884b3-55ab-4a8b-be05-ad6b01477df8&start=0)
-- 🎥 [The JUnit Testing Framework (15:25)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=071e47be-a746-4e74-afd5-ad6b0149b2b8&start=0)
+- 🎥 [Why We Need Unit Testing (4:30)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=c5707c4c-77d9-43d7-b96b-ad6b014612ca&start=0) - [[transcript]](https://github.com/user-attachments/files/17805242/CS_240_Why_We_Need_Unit_Testing.pdf)
+- 🎥 [Unit Testing Overview (5:10)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=bb1884b3-55ab-4a8b-be05-ad6b01477df8&start=0) - [[transcript]](https://github.com/user-attachments/files/17805243/CS_240_Unit_Testing_Overview.pdf)
+- 🎥 [The JUnit Testing Framework (15:25)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=071e47be-a746-4e74-afd5-ad6b0149b2b8&start=0) - [[transcript]](https://github.com/user-attachments/files/17805245/CS_240_The_JUnit_Testing_Framework.pdf)
 
 
 ## Demonstration code

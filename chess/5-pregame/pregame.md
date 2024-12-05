@@ -52,13 +52,13 @@ If you join as the black player then the board should be drawn from the perspect
 
 ![Black board](blackBoard.png)
 
-You are free to make your chessboard look different as long as the essential information is displayed in an easily readable way, but it must "look like a chess board." You must have different colors for alternating squares, but they don't have to be white and black. Light and dark, or white and brown, or whatever you'd like is fine. Per official chess rules, the bottom-right and top-left squares (h1 and a8) must be the "lighter" color. This will mean each queen is "on her color" (white queen on a light square, black queen on a dark square). The boarder of the board must show the correct row numbers and column letters.
+You are free to make your chessboard look different as long as the essential information is displayed in an **easily readable way**, but it must **look like a chess board**. You must have different colors for alternating squares, but they don't have to be white and black. Light and dark, or white and brown, or whatever you'd like is fine. Per official chess rules, the bottom-right and top-left squares (h1 and a8) must be the "lighter" color. This will mean each queen is "on her color" (white queen on a light square, black queen on a dark square). The boarder of the board must show the correct row numbers and column letters.
 
 Note that in the above images, the blue letters are black pieces and the red letters are white pieces.
 
 ### UI Requirements
 
-As with any software project with a UI component, there are certain implementation details you should not display to users. These include:
+When developing a UI you should focus on the user experience and only present things in a way that the user can relate to. This means that you should not display programming jargon or debugging information. For example, you should avoid:
 
 - Anything in JSON - If you have something in JSON, parse it and then print out only the information you want the user to see.
 - Authtokens and Game IDs - These are important to keep track of but the user should not be aware of these internal variables. See the requirements for the [Postlogin UI](#postlogin-ui) for what to display instead of Game IDs.
@@ -79,6 +79,9 @@ Should you choose to use the unicode Chess characters, some machines by default 
 Additionally, you may notice that the chess characters might render slightly wider than everything else. To balance this out, a wider version of a space called an em-space can be used. It is denoted by \u2003 and is currently being used as the middle space in the `EMPTY` escape sequence, so if you choose not to use the Unicode chess pieces, you will have to replace that with a regular space to get everything to line up vertically.
 
 ## ☑ Deliverable
+
+> [!IMPORTANT]
+> You are required to commit to GitHub with every minor milestone. For example, after you successfully pass a test. This should result in a commit history that clearly details your work on this phase. If your Git history does not demonstrate your efforts then your submission may be rejected.
 
 ### Pass Off Tests
 
@@ -148,18 +151,18 @@ Make sure you clear your database between each test. You can do this in a method
 
 ### Code Quality
 
-For this phase the TAs will grade the quality of your project's source code. The rubric used to evaluate code quality can be found here: [Rubric](../code-quality-rubric.md)
+For this phase the auto grader will grade the quality of your project's source code. The rubric used to evaluate code quality can be found here: [Rubric](../code-quality-rubric.md)
 
 ### Pass Off, Submission, and Grading
 
 All of the tests in your project must succeed in order to complete this phase.
 
-To pass off this assignment submit your work to the course [auto-grading](https://cs240.click/) tool. When that is done, meet with a TA and demonstrate that your Chess client and server meet all requirements and assign you a final grade.
+To pass off this assignment, first submit your work to the course [auto-grading](https://cs240.click/) tool. Once it completely passes the autograder, meet with a TA and demonstrate that your Chess client and server meet all requirements and they will assign you a final grade.
 
 ### Grading Rubric
 
-> [!IMPORTANT]
-> You are required to commit to GitHub with every minor milestone. For example, after you successfully pass a test. This should result in a commit history that clearly details your work on this phase. If your Git history does not demonstrate your efforts then your submission may be rejected.
+> [!NOTE]
+> You can receive 4 points of extra credit by first receiving 100% from the autograder and then completing an in-person pass off before the final due date.
 
 | Category       | Criteria                                                                                                                                                                                        |       Points |
 | :------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -----------: |
@@ -167,13 +170,13 @@ To pass off this assignment submit your work to the course [auto-grading](https:
 | Functionality  | Program supports all required functionality                                                                                                                                                     |          100 |
 | Code Quality   | [Rubric](../code-quality-rubric.md)                                                                                                                                                             |           30 |
 | Unit Tests     | All test cases pass<br/>Each public method on the Server Facade class has two test cases, one positive test and one negative test<br/>Every test case includes an Assert statement of some type |           25 |
-|                | Total                                                                                                                                                                                           |          155 |
+|                | **Total**                                                                                                                                                                                       |      **155** |
 
 ## <a name="videos"></a>Videos (38:10)
 
-- 🎥 [Phase 5 Introduction (8:11)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=6e2c9d2f-5a74-4b60-989e-b19a0150a134)
-- 🎥 [Read-Eval-Print-Loop (REPL) (8:11)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=29364420-9c98-4778-ba7a-b19a015380c7)
-- 🎥 [Drawing the Board (1:26)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=6a77c895-f2b8-49d9-8b11-b19a0156aef8)
-- 🎥 [Server Facade (5:00)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=6f02ff21-d6bd-47f3-bddd-b19a01578159)
-- 🎥 [Phase 5 Requirements (3:11)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=1a171c4d-c7dc-41d0-828f-b19a01594498)
-- 🎥 [Client HTTP (12:11)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=781ae49b-6284-4e1a-836b-b1930162c54b)
+- 🎥 [Phase 5 Introduction (8:11)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=6e2c9d2f-5a74-4b60-989e-b19a0150a134) - [[transcript]](https://github.com/user-attachments/files/17805362/CS_240_Phase_5_Chess_UI_Demo_Transcript.pdf)
+- 🎥 [Read-Eval-Print-Loop (REPL) (8:11)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=29364420-9c98-4778-ba7a-b19a015380c7) - [[transcript]](https://github.com/user-attachments/files/17805365/CS_240_Read_Eval_Print_Loop_.REPL._Transcript.pdf)
+- 🎥 [Drawing the Board (1:26)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=6a77c895-f2b8-49d9-8b11-b19a0156aef8) - [[transcript]](https://github.com/user-attachments/files/17805392/CS_240_Drawing_the_Board_Transcript.pdf)
+- 🎥 [Server Facade (5:00)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=6f02ff21-d6bd-47f3-bddd-b19a01578159)- [[transcript]](https://github.com/user-attachments/files/17805395/CS_240_Server_Facade_Transcript.pdf)
+- 🎥 [Phase 5 Requirements (3:11)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=1a171c4d-c7dc-41d0-828f-b19a01594498) - [[transcript]](https://github.com/user-attachments/files/17805398/CS_240_Phase_5_Requirements_Transcript.pdf)
+- 🎥 [Client HTTP (12:11)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=781ae49b-6284-4e1a-836b-b1930162c54b) - [[transcript]](https://github.com/user-attachments/files/17805399/CS_240_Client_HTTP_Transcript.pdf)
