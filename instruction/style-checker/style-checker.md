@@ -38,5 +38,4 @@ IntelliJ also contains many tools for refactoring your code. Using these tools w
 
 ## <a name="videos"></a>Videos (5:44)
 
-- 🎥 [Code Style Checker (5:44)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=20337bb3-64b5-4203-942f-b1a001136761&start=0)
-- [CS_240_Code_Style_Checking_Transcript.pdf](https://github.com/user-attachments/files/17752074/CS_240_Code_Style_Checking_Transcript.pdf)
+- 🎥 [Code Style Checker (5:44)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=20337bb3-64b5-4203-942f-b1a001136761&start=0) - [[transcript]](https://github.com/user-attachments/files/17752074/CS_240_Code_Style_Checking_Transcript.pdf)
