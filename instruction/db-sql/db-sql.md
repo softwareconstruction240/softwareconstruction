@@ -65,7 +65,7 @@ All databases have a default character set that is used for representing bytes a
 ALTER DATABASE pet_store CHARACTER SET utf8mb4;
 ```
 
-If you want to delete a database, and all of the data it represents, you use the `DROP DATABASE` statement. Be careful with this statement. Once you run it there is no going back. The data is gone forever.
+If you want to delete a database, and all of the data it represents, you use the `DROP DATABASE` statement. While this should rarely be used in a production environment, it is common to drop a database in a development environment while you are experimenting with creating working table schemas.
 
 ```sql
 DROP DATABASE pet_store
@@ -86,7 +86,9 @@ CREATE TABLE pet (
 
 Notice that each field is followed by the `NOT NULL` clause. That means each of the fields must be provided for every row that is inserted.
 
-The `id` field is also annotated with the `AUTO_INCREMENT` keyword. This means that you don't actually provide the `id` field when you insert a row. The database will do that for you using an automatically increase integer.
+The `id` field is also annotated with the `AUTO_INCREMENT` keyword. This means that you don't actually provide the `id` field when you insert a row. The database will do that for you using an automatically increasing integer.
+
+### Altering tables
 
 If you need to alter your table you can use an `ALTER TABLE` statement. The following example shows you how to add a `nickname` field after the table is created. This alteration does not use the `NOT NULL` clause and so all of the existing nickname fields will be set to NULL. If a new row is added without specifying the nickname field, it will also be set to NULL.
 
@@ -101,6 +103,8 @@ DROP TABLE pet;
 ```
 
 Make sure you really want to drop the table before you execute the command, because there is no recovery from this one.
+
+It is important to note that changing and rerunning a `CREATE TABLE` statement does not change an existing table. A `CREATE TABLE` statement only creates a table. If the table already exists this command will throw an error. You can use `CREATE TABLE IF NOT EXISTS` qualifier in order to not throw an error if it already exists, but if you want to change an existing table definition you must either drop the table and recreate it, or use an `ALTER TABLE` statement.
 
 ### Primary Keys and Indexes
 
@@ -258,7 +262,7 @@ By following this pattern, your application will always work even when it starts
 
 When we discuss the Java Database Connector (JDBC) we will demonstrate how to initialize your database from your Java code.
 
-You can also write a text file that contains SQL statements and execute them using the MySQL client shell (mysqlsh). For example, if you had an initialization SQL script that contained the following.
+You can also write a text file that contains SQL statements and execute them using the MySQL client shell (mysqlsh). For example, while you are trying to figure out what you want your final database schema to look like, you could use an initialization SQL script that deletes the database, recreates it, and creates all of the tables.
 
 ```sql
 DROP DATABASE pet_store;
@@ -315,12 +319,12 @@ The follow table summaries all of the commands that were used in this instructio
 
 ## <a name="videos"></a>Videos (42:05)
 
-- 🎥 [Structured Query Language (2:14)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=4f5a6bfe-5170-4c3c-97e8-ad660148d05a&start=0)
-- 🎥 [SQL Data Types (3:48)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=91cb451f-fc88-426d-9656-ad660149a253&start=0)
-- 🎥 [Creating and Dropping Tables (14:22)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=1f257807-3728-4239-a82b-b1a0011ad706&start=0)
-- 🎥 [Inserting, Updating, and Deleting Rows (6:40)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=203b8c65-d726-4282-8912-b1a0011f18e5&start=0)
-- 🎥 [Retrieving Data with SQL Queries (11:15)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=e7083e5f-66a8-425f-be92-ad6601513cbd&start=0)
-- 🎥 [Database Transactions (3:46)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=6e75d23e-4075-4a27-85d0-ad6601548134&start=0)
+- 🎥 [Structured Query Language (2:14)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=4f5a6bfe-5170-4c3c-97e8-ad660148d05a&start=0) - [[transcript]](https://github.com/user-attachments/files/17780823/CS_240_Structured_Query_Language_.SQL.pdf)
+- 🎥 [SQL Data Types (3:48)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=91cb451f-fc88-426d-9656-ad660149a253&start=0) - [[transcript]](https://github.com/user-attachments/files/17737747/CS_240_SQL_Data_Types_Transcript.pdf)
+- 🎥 [Creating and Dropping Tables (14:22)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=1f257807-3728-4239-a82b-b1a0011ad706&start=0) - [[transcript]](https://github.com/user-attachments/files/17737753/CS_240_Creating_and_Dropping_Tables_Transcript.pdf)
+- 🎥 [Inserting, Updating, and Deleting Rows (6:40)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=203b8c65-d726-4282-8912-b1a0011f18e5&start=0) - [[transcript]](https://github.com/user-attachments/files/17737783/CS_240_Inserting_Updating_and_Deleting_Rows_Transcript.pdf)
+- 🎥 [Retrieving Data with SQL Queries (11:15)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=e7083e5f-66a8-425f-be92-ad6601513cbd&start=0) - [[transcript]](https://github.com/user-attachments/files/17780824/CS_240_Retrieving_Data_with_SQL_Queries.pdf)
+- 🎥 [Database Transactions (3:46)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=6e75d23e-4075-4a27-85d0-ad6601548134&start=0)- [[transcrip]](https://github.com/user-attachments/files/17780825/CS_240_Database_Transactions.pdf)
 
 ## Demonstration code
 

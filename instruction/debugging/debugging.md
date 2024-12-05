@@ -230,6 +230,20 @@ Sometimes you need to debug/run multiple processes at the same time. For example
 
 ![debug multiple processes](debug-multiple-processes.gif)
 
+## Executing the Same Process Multiple Times
+
+Sometimes you need to have multiple copies of the same application running. For example, when you deploy your client chess application you will need a client application running for each of the players and observers. By default, IntelliJ only allows a single instance of an application to execute. In order to enable multiple instances to run concurrently take the following steps.
+
+1. Right click on the `Run` icon next to the main function of your application.
+1. Choose the `Modify run configuration` option.
+1. Select the `Modify options` dropdown.
+1. Click on `Allow multiple instances`.
+1. Save the changes.
+
+   ![Multiple instances](multipleInstances.gif)
+
+Now every time you launch the application it will run an additional instance. This also means that you will need to shut each of them down when you are finished debugging them.
+
 ## Enhancing Tests
 
 As you fix bugs you will often discover other problems that haven't been reported yet. You can also discover that the tests have a bug in them and the code is actually running fine. It is also possible that the test is succeeding, but not actually testing anything of value.
@@ -286,6 +300,6 @@ A quick change to our regular expression corrects the problem.
 
 ## <a name="videos"></a>Videos (27:56)
 
-- 🎥 [Introduction (6:07)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=f2279dc0-fd71-46af-ab7a-ad6d01516f20&start=0)
-- 🎥 [Debugging in IntelliJ (10:17)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=6ff3df28-71f9-435e-915e-ad6d01535f13&start=0)
-- 🎥 [Advanced Breakpoint Settings (11:32)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=a0c39358-184c-4290-ace7-b1aa010a61f2&start=0)
+- 🎥 [Introduction (6:07)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=f2279dc0-fd71-46af-ab7a-ad6d01516f20&start=0) - [[transcript]](https://github.com/user-attachments/files/17780854/CS_240_Java_Debugging_Introduction.pdf)
+- 🎥 [Debugging in IntelliJ (10:17)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=6ff3df28-71f9-435e-915e-ad6d01535f13&start=0) - [[transcript]](https://github.com/user-attachments/files/17780859/CS_240_Debugging_in_InteliJ.pdf)
+- 🎥 [Advanced Breakpoint Settings (11:32)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=a0c39358-184c-4290-ace7-b1aa010a61f2&start=0) - [[transcript]](https://github.com/user-attachments/files/17737928/CS_240_Advanced_Breakpoint_Settings_Transcript.pdf)

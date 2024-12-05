@@ -44,7 +44,8 @@ In order to properly learn Java, you will need to reference selected chapters of
 
 ![Java for the Impatient](CoreJavaForTheImpatient3rdEdition.jpg)
 
-⚠ Note that it is critical that you reserve a significant amount of your time to learn Java outside of class. In class we focus on concepts that are needed for the projects, hard concepts, and things that tend to confuse students. It is assumed that you already learned the basics of Java on your own.
+> [!NOTE]
+> Note that it is critical that you reserve a significant amount of your time to learn Java outside of class. In class we focus on concepts that are needed for the projects, hard concepts, and things that tend to confuse students. It is assumed that you already learned the basics of Java on your own.
 
 ## Enrichment Lectures
 
@@ -56,7 +57,8 @@ All of the course instruction is represented on GitHub, however we use Canvas to
 
 ![Canvas](canvasCourse.jpg)
 
-⚠ Make sure you have enabled Canvas to send notifications to an email account that you monitor regularly. Failure to do this will mean that you miss important notifications that could impact your efforts and grade.
+> [!IMPORTANT]
+> Make sure you have enabled Canvas to send notifications to an email account that you monitor regularly. Failure to do this will mean that you miss important notifications that could impact your efforts and grade.
 
 ## Well Rounded Software Engineers
 
@@ -112,7 +114,7 @@ Take the time during the course to dive deeper into topics that you find interes
 
 ## <a name="videos"></a>Videos (45:15)
 
-- 🎥 [Course Overview (10:34)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=080df794-9d59-426b-b7c8-b19c0109e6f1)
-- 🎥 [Course Policies (14:19)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=ac43c852-5712-4dca-9003-b19c010d56e7)
-- 🎥 [Keys to Success (5:53)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=4eba6882-83ff-4e95-b498-b19c0111a009)
-- 🎥 [Github Site Review (14:29)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=07624a65-7b70-4198-904b-b19c0113f64a)
+- 🎥 [Course Overview (10:34)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=080df794-9d59-426b-b7c8-b19c0109e6f1) - [[transcript]](https://github.com/user-attachments/files/17738690/CS_240_Course_Overview_Transcript.pdf)
+- 🎥 [Course Policies (14:19)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=ac43c852-5712-4dca-9003-b19c010d56e7) - [[transcript]](https://github.com/user-attachments/files/17738697/CS_240_Course_Policies_Transcript.pdf)
+- 🎥 [Keys to Success (5:53)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=4eba6882-83ff-4e95-b498-b19c0111a009) - [[transcript]](https://github.com/user-attachments/files/17738704/CS_240_Keys_to_Success_in_CS_240_Transcript.pdf)
+- 🎥 [Github Site Review (14:29)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=07624a65-7b70-4198-904b-b19c0113f64a) - [[transcript]](https://github.com/user-attachments/files/17738706/CS_240_Github_Site_Review_Transcript.pdf)

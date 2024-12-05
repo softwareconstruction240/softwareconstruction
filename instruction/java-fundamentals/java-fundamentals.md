@@ -8,7 +8,7 @@
 - Chapter 9:
   - Section 9.1 Input/Output Streams, Readers, and Writers
   - Section 9.2 Paths, Files, and Directories
- 
+
 🖥️ [Lecture Videos](#videos)
 
 ## Why Java
@@ -85,8 +85,7 @@ The downside is that you need to install the JRE on all target devices, and the 
 
 To get started developing with Java, you need to install the Java Developer Kit (JDK) and the IntelliJ integrated development environment (IDE). The easiest way to do this is to follow the instructions for installing the IntelliJ IDE and then using IntelliJ to install the version of the JDK that you want to use.
 
-⚠ [IntelliJ Installation Instructions](https://www.jetbrains.com/help/idea/installation-guide.html) - Make sure you choose the free Community Edition. Do this by selecting the `Standalone installation`, picking your operating system, clicking on the download link, and then scrolling down to the `Community
-Edition` option.
+[IntelliJ Installation Instructions](https://www.jetbrains.com/help/idea/installation-guide.html) - Make sure you choose the free Community Edition. Do this by selecting the `Standalone installation`, picking your operating system, clicking on the download link, and then scrolling down to the `Community Edition` option. You can install the `Ultimate Edition`, but you will have to provide your BYU credentials in order to enable free usage.
 
 After you have installed IntelliJ take some time to get familiar with the environment. Create a new project and, if you don't already have a JDK downloaded, download the latest version as part of creating the project. Additionally, if you select the `Add sample code` option it will create a simple `hello world` application for you.
 
@@ -389,18 +388,18 @@ public class ScannerExample {
 
 ## <a name="videos"></a>Videos (1:38:13)
 
-- 🎥 [Java History and Overview (10:13)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=cb99566e-3a9d-40c9-86c0-ad56013f4a64)
-- 🎥 [Installing Java (2:32)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=0c39ffac-a1b2-4fa3-bb1e-ad560142a73b)
-- 🎥 [Java Architecture (9:48)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=e9ff3ffe-ce6e-4bba-b363-ad560143be64)
-- 🎥 [Writing, Compiling, and Running Java Code (9:01)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=6e020a04-00fd-40cf-95dc-ad560146bbd8&start=0)
-- 🎥 [Javadoc (6:57)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=2a12a261-6e95-4e97-a838-ad56014c1ceb&start=0)
-- 🎥 [Primitive Data Types (10:10)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=5d673b50-c9a2-465e-8d5c-ad56014eaeed&start=0)
-- 🎥 [Working with Strings (10:25)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=f77e9a7f-36b2-40c8-8fa3-ad5601520775&start=0)
-- 🎥 [Combining Strings with StringBuilder (2:48)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=b7d693f9-a705-42f4-98f4-adf8015c3166&start=0)
-- 🎥 [Arrays (15:16)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=4d122f41-6fd6-4e78-bb3e-ad8e013d82c0&start=0)
-- 🎥 [Arrays of Arrays (5:51)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=71826d41-0b65-4b98-903f-ad8e014772e0&start=0)
-- 🎥 [Command Line Arguments (3:24)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=ddfefe0e-442d-4c56-8f60-ad5d013b4005&start=0)
-- 🎥 [Packages, Imports, and the CLASSPATH Environment Variable (11:48)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=c52bc183-f041-42c6-8e36-ad5d013d318f&start=0)
+- 🎥 [Java History and Overview (10:13)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=cb99566e-3a9d-40c9-86c0-ad56013f4a64) - [[transcript]](https://github.com/user-attachments/files/17804894/CS_240_Java_History_and_Overview.pdf)
+- 🎥 [Installing Java (2:32)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=0c39ffac-a1b2-4fa3-bb1e-ad560142a73b) - [[transcript]](https://github.com/user-attachments/files/17750636/CS_240_Installing_Java_Transcript.pdf)
+- 🎥 [Java Architecture (9:48)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=e9ff3ffe-ce6e-4bba-b363-ad560143be64) - [[transcript]](https://github.com/user-attachments/files/17804895/CS_240_Java_Architecture.pdf)
+- 🎥 [Writing, Compiling, and Running Java Code (9:01)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=6e020a04-00fd-40cf-95dc-ad560146bbd8&start=0) - [[transcript]](https://github.com/user-attachments/files/17804898/CS_240_Writing_Compiling_and_Running_Java_Code.pdf)
+- 🎥 [Javadoc (6:57)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=2a12a261-6e95-4e97-a838-ad56014c1ceb&start=0) - [[transcript]](https://github.com/user-attachments/files/17750673/CS_240_Javadoc_Transcript.pdf)
+- 🎥 [Primitive Data Types (10:10)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=5d673b50-c9a2-465e-8d5c-ad56014eaeed&start=0) - [[transcript]](https://github.com/user-attachments/files/17804901/CS_240_Primitive_Data_Types.pdf)
+- 🎥 [Working with Strings (10:25)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=f77e9a7f-36b2-40c8-8fa3-ad5601520775&start=0) - [[transcript]](https://github.com/user-attachments/files/17750685/CS_240_Working_with_Strings_Transcript.pdf)
+- 🎥 [Combining Strings with StringBuilder (2:48)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=b7d693f9-a705-42f4-98f4-adf8015c3166&start=0) - [[transcript]](https://github.com/user-attachments/files/17750706/CS_240_Combining_Strings_with_StringBuilder_Transcript.pdf)
+- 🎥 [Arrays (15:16)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=4d122f41-6fd6-4e78-bb3e-ad8e013d82c0&start=0) - [[transcript]](https://github.com/user-attachments/files/17804902/CS_240_Arrays.pdf)
+- 🎥 [Arrays of Arrays (5:51)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=71826d41-0b65-4b98-903f-ad8e014772e0&start=0) - [[transcript]](https://github.com/user-attachments/files/17804904/CS_240_Arrays_of_Arrays.pdf)
+- 🎥 [Command Line Arguments (3:24)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=ddfefe0e-442d-4c56-8f60-ad5d013b4005&start=0) - [[transcript]](https://github.com/user-attachments/files/17804907/CS_240_Command_Line_Arguments.pdf)
+- 🎥 [Packages, Imports, and the CLASSPATH Environment Variable (11:48)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=c52bc183-f041-42c6-8e36-ad5d013d318f&start=0) - [[transcript]](https://github.com/user-attachments/files/17804908/CS_240_Packages_Imports_and_CLASSPATH.pdf)
 
 ## Demonstration code
 

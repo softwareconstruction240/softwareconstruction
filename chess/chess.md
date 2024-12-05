@@ -3,7 +3,7 @@
 🖥️ [Videos](#videos)
 
 ---
-   
+
 ![chess board](6-gameplay/highlight-moves.png)
 
 We use the game of chess to help you develop and demonstrate mastery during this course. Your development work is divided into different phases. Each phase demonstrates a different architectural concept or technology.
@@ -20,7 +20,8 @@ We use the game of chess to help you develop and demonstrate mastery during this
 
 ## Starter Code
 
-⚠ Each phase of the project comes with `starter code` located in the [course instruction repository](https://github.com/softwareconstruction240). At the beginning of each phase, you will copy the phases's starter code from the course instruction repository and put it in your chess repository. In order to make it easy to copy the starter files to your chess repository, you should clone the course instruction repository to your development environment. Otherwise you will be individually downloading dozens of files directly from GitHub.
+> [!NOTE]
+> Each phase of the project comes with `starter code` located in the [course instruction repository](https://github.com/softwareconstruction240). At the beginning of each phase, you will copy the phases's starter code from the course instruction repository and put it in your chess repository. In order to make it easy to copy the starter files to your chess repository, you should clone the course instruction repository to your development environment. Otherwise you will be individually downloading dozens of files directly from GitHub.
 
 ```sh
 git clone https://github.com/softwareconstruction240/softwareconstruction.git softwareconstruction240
@@ -30,7 +31,8 @@ git clone https://github.com/softwareconstruction240/softwareconstruction.git so
 
 Git is an essential software development tool. It allows you to quickly recover from mistakes, share your code with others, backup your code, and serve as a portfolio of your skills.
 
-⚠ You are required to make multiple commits to your public Chess GitHub repository for each phase. Each commit should represent a minor milestone within a phase. For example, after passing each test you should commit your code. Usually, you should have at least ten commits for each phase.
+> [!NOTE]
+> You are required to make multiple commits to your public Chess GitHub repository for each phase. Each commit should represent a minor milestone within a phase. For example, after passing each test you should commit your code. Usually, you should have at least ten commits for each phase.
 
 Failure to properly document your efforts with your GitHub history may result in your assignment deliverables being rejected. So make sure you commit your changes consistently and often.
 
@@ -60,4 +62,4 @@ When you complete the entire project, you should have something similar to the f
 
 ## <a name="videos"></a>Videos (10:25)
 
-- 🎥 [Chess Project Overview (10:25)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=eea6cf56-8979-4c5c-8bb6-b170014c3c02)
+- 🎥 [Chess Project Overview (10:25)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=eea6cf56-8979-4c5c-8bb6-b170014c3c02) - [[transcript]](https://github.com/user-attachments/files/17707199/CS_240_Chess_Project_Overview_Transcript.pdf)

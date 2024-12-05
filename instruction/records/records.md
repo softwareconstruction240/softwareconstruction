@@ -93,4 +93,4 @@ public record PetRecord(int id, String name, String type) {
 
 ## <a name="videos"></a>Videos (6:19)
 
-- 🎥 [Java Records (6:19)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=1f70d34e-b330-4e45-9df0-b19c011a79bc)
+- 🎥 [Java Records (6:19)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=1f70d34e-b330-4e45-9df0-b19c011a79bc) - [[transcript]](https://github.com/user-attachments/files/17752045/CS_240_Java_Records_Transcript.pdf)

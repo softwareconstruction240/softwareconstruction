@@ -56,7 +56,8 @@ classDiagram
     ChessBoard o-- "*" ChessPiece
 ```
 
-**⚠ NOTE**: You are not limited to this representation. However, you must not change the existing class names or method signatures since they are used by the pass off tests. You will likely need to add new classes and methods to complete the work required by this phase.
+> [!NOTE]
+> You are not limited to this representation. However, you must not change the existing class names or method signatures since they are used by the pass off tests. You will likely need to add new classes and methods to complete the work required by this phase.
 
 ## Class Summaries
 
@@ -97,6 +98,12 @@ To Castle, the King moves 2 spaces towards the Rook, and the Rook "jumps" the ki
 
 This is a special move taken by a Pawn in response to your opponent double moving a Pawn. If your opponent double moves a pawn so it ends next to yours (skipping the position where your pawn could have captured their pawn), then on your immediately following turn your pawn may capture their pawn as if their pawn had only moved 1 square. This is as if your pawn is capturing their pawn mid motion, or `In Passing`.
 
+## Code Quality
+
+You want to write quality code that promotes consistency and readability for all team members. Code quality is discussed in a future [instruction topic](../../instruction/quality-code/quality-code.md), and you will be graded on quality starting with phase 3. However, you can use the auto grader at any time to check your chess repositories quality. The rubric used to evaluate code quality is found here: [Rubric](../code-quality-rubric.md).
+
+![Code Quality](../codeQuality.png)
+
 ## ☑ Deliverable
 
 ### Pass Off Tests
@@ -115,15 +122,17 @@ To pass off this assignment use the course [auto-grading](https://cs240.click/) 
 
 ### Grading Rubric
 
-**⚠ NOTE**: You are required to commit to GitHub with every minor milestone. For example, after you successfully pass a test. This should result in a commit history that clearly details your work on this phase. If your Git history does not demonstrate your efforts then your submission may be rejected.
+> [!IMPORTANT]
+> You are required to commit to GitHub with every minor milestone. For example, after you successfully pass a test. This should result in a commit history that clearly details your work on this phase. If your Git history does not demonstrate your efforts then your submission may be rejected.
 
 | Category       | Criteria                                                                                          |       Points |
-| :------------- | :------------------------------------------------------------------------------------------------ | -----------: |
+|:---------------|:--------------------------------------------------------------------------------------------------|-------------:|
 | GitHub History | At least 8 GitHub commits evenly spread over the assignment period that demonstrate proof of work | Prerequisite |
 | Functionality  | All pass off test cases succeed                                                                   |          125 |
 | Extra Credit   | `extracredit` test cases succeed                                                                  |    bonus +10 |
-|                | Total                                                                                             |          125 |
+|                | **Total**                                                                                         |      **125** |
 
 ## <a name="videos"></a>Videos (6:13)
 
-- 🎥 [Phase 1 Overview (6:13)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=f2342f5a-8513-44fe-b5cc-b1700151beac)
+
+- 🎥 [Phase 1 Overview (6:13)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=f2342f5a-8513-44fe-b5cc-b1700151beac) - [[transcript]](https://github.com/user-attachments/files/17706850/CS_240_Phase_1_Overview_Transcript.pdf)

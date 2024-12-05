@@ -16,13 +16,13 @@ The gameplay UI should draw the current state of the chess board from the side t
 
 The gameplay UI should support the following user commands:
 
-| Command                   | Description                                                                                                                                                                                                                                         |
-| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Help**                  | Displays text informing the user what actions they can take.                                                                                                                                                                                        |
-| **Redraw Chess Board**    | Redraws the chess board upon the user’s request.                                                                                                                                                                                                    |
-| **Leave**                 | Removes the user from the game (whether they are playing or observing the game). The client transitions back to the Post-Login UI.                                                                                                                  |
-| **Make Move**             | Allow the user to input what move they want to make. The board is updated to reflect the result of the move, and the board automatically updates on all clients involved in the game.                                                               |
-| **Resign**                | Prompts the user to confirm they want to resign. If they do, the user forfeits the game and the game is over. Does not cause the user to leave the game.                                                                                            |
+| Command                   | Description                                                                                                                                                                                                                                        |
+| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Help**                  | Displays text informing the user what actions they can take.                                                                                                                                                                                       |
+| **Redraw Chess Board**    | Redraws the chess board upon the user’s request.                                                                                                                                                                                                   |
+| **Leave**                 | Removes the user from the game (whether they are playing or observing the game). The client transitions back to the Post-Login UI.                                                                                                                 |
+| **Make Move**             | Allow the user to input what move they want to make. The board is updated to reflect the result of the move, and the board automatically updates on all clients involved in the game.                                                              |
+| **Resign**                | Prompts the user to confirm they want to resign. If they do, the user forfeits the game and the game is over. Does not cause the user to leave the game.                                                                                           |
 | **Highlight Legal Moves** | Allows the user to input the piece for which they want to highlight legal moves. The selected piece’s current square and all squares it can legally move to are highlighted. This is a local operation and has no effect on remote users’ screens. |
 
 ![highlight moves](highlight-moves.png)
@@ -43,11 +43,11 @@ When the following events occur, notification messages should be displayed on th
 
 ## WebSocket
 
-During gameplay all communication between client and server should be implemented using WebSocket.
+During gameplay all communication between the players is implemented by sending WebSocket messages between clients and the server. Using WebSocket allows the server to send a message at anytime to any of the connected clients. For example, a player sends a move message to the server. The server then asynchronously broadcast the move to everyone in the game.
 
-When a user begins playing or observing a game, their client should do the following:
+When a user begins playing or observing a game, their **client** will do the following:
 
-1. Call the server join API to join them to the game (ONLY in case of playing rather than observing).
+1. Call the server join HTTP API to join them to the game. This step is only done for players. Observers do not need to make the join HTTP API request.
 1. Open a WebSocket connection with the server (using the `/ws` endpoint) so it can send and receive gameplay messages.
 1. Send a CONNECT WebSocket message to the server.
 1. Transition to the gameplay UI. The gameplay UI draws the chess board and allows the user to perform the gameplay commands described in the previous section.
@@ -56,7 +56,13 @@ The following sections describe the messages that will be exchanged between clie
 
 ## WebSocket Messages
 
-Some WebSocket messages will be sent from client to server. We call these `user game commands`. Other WebSocket messages will be sent from server to client. We call these `server messages`. In code, each of these message types will be represented as a Java class that can be easily serialized and deserialized to/from JSON (similar to the Request and Result classes you created for the server’s Web API). The provided starter code includes a class named `UserGameCommand` which serves as a superclass for all user game command messages, and a class named `ServerMessage` which serves as a superclass for all server messages. These superclasses define fields that are needed by all messages, as follows:
+Some WebSocket messages are sent from the client to server. As defined by the Chess application design, these are called `user game commands`. Other WebSocket messages are sent from the server to client. These are called `server messages`. In code, each of these message types are represented as a Java class that can be serialized and deserialized to and from JSON (similar to the Request and Result classes you created for the server’s Web API). The provided starter code includes a class named `UserGameCommand` which defines the required messages that originate from the client, and a class named `ServerMessage` which defines the required messages that originate from the server.
+
+The `UserGameCommand` and `ServerMessage` classes are provided in the starter code, but you can extend these classes to provide functionality according the specifics of your design.
+
+## User Game Commands
+
+The following is a simplified representation of the `UserGameCommand` found in the starter code.
 
 ```java
 public class UserGameCommand {
@@ -67,36 +73,22 @@ public class UserGameCommand {
         RESIGN
     }
 
-    protected CommandType commandType;
-
-    private String authToken;
-}
-
-public class ServerMessage {
-    public enum ServerMessageType {
-        LOAD_GAME,
-        ERROR,
-        NOTIFICATION
-    }
-
-    ServerMessageType serverMessageType;
+    public CommandType commandType;
+    public String authToken;
+    public Integer gameID;
 }
 ```
 
-Each user game command class must include the `authToken` field and the `commandType` field and should inherit from the `UserGameCommand` class. The `commandType` field must be set to the corresponding `CommandType`.
+Here are the different command types that a user game command can represent.
 
-All server messages must include a `serverMessageType` field and should inherit from the `ServerMessage` class. This field must be set to the corresponding `ServerMessageType`.
+| Command       | Required Additional Fields | Description                                                                          |
+| ------------- | -------------------------- | ------------------------------------------------------------------------------------ |
+| **CONNECT**   |                            | Used for a user to make a WebSocket connection as a player or observer.              |
+| **MAKE_MOVE** | ChessMove move             | Used to request to make a move in a game.                                            |
+| **LEAVE**     |                            | Tells the server you are leaving the game so it will stop sending you notifications. |
+| **RESIGN**    |                            | Forfeits the match and ends the game (no more moves can be made).                    |
 
-The following sections describe the server messages and user game command messages.
-
-## User Game Commands
-
-| Command           | Required Additional Fields | Description                                                                          |
-|-------------------|----------------------------|--------------------------------------------------------------------------------------|
-| **CONNECT**       |                            | Used for a user to request to connect to a game as a player or observer.             |
-| **MAKE_MOVE**     | ChessMove move             | Used to request to make a move in a game.                                            |
-| **LEAVE**         |                            | Tells the server you are leaving the game so it will stop sending you notifications. |
-| **RESIGN**        |                            | Forfeits the match and ends the game (no more moves can be made).                    |
+The following diagram represents a possible extension of the `UserGameCommand` class that you could make in order to support the required `ChessMove` field of the MAKE_MOVE command. You are free to follow this design, or come up with a representation of your own.
 
 ```mermaid
 classDiagram
@@ -109,18 +101,45 @@ classDiagram
         move: ChessMove
     }
     UserGameCommand <|-- MakeMoveCommand
-    
-```
-Note: You may make additional subclasses for commands other than `MAKE_MOVE` but they are not required
 
+```
+
+In the end, the important thing is that your design supports the additional `move` field when serializing the `MAKE_MOVE` command over the WebSocket. This must result in something like the following:
+
+```json
+{
+  "commandType": "MAKE_MOVE",
+  "authToken": "tokengoeshere",
+  "gameID": "337",
+  "move": { "start": { "row": 3, "col": 3 }, "end": { "row": 5, "col": 5 } }
+}
+```
 
 ## Server Messages
+
+The following is a simplified representation of the `ServerMessage` found in the starter code.
+
+```java
+public class ServerMessage {
+   public enum ServerMessageType {
+       LOAD_GAME,
+       ERROR,
+       NOTIFICATION
+   }
+
+   ServerMessageType serverMessageType;
+}
+```
+
+Here are the different command types that a user game command can represent.
 
 | Command          | Required Fields                                        | Description                                                                                                                         |
 | ---------------- | ------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------- |
 | **LOAD_GAME**    | game (can be any type, just needs to be called `game`) | Used by the server to send the current game state to a client. When a client receives this message, it will redraw the chess board. |
 | **ERROR**        | String errorMessage                                    | This message is sent to a client when it sends an invalid command. The message must include the word `Error`.                       |
 | **NOTIFICATION** | String message                                         | This is a message meant to inform a player when another player made an action.                                                      |
+
+The following diagram represents possible extensions of the `ServerMessage` class that you could use to support the different `ServerMessage` commands. You are free to follow this design, or come up with a representation of your own. Just make sure the the required fields are included in your JSON serialization.
 
 ```mermaid
 classDiagram
@@ -139,12 +158,11 @@ classDiagram
     ServerMessage <|-- LoadGameMessage
     ServerMessage <|-- ErrorMessage
     ServerMessage <|-- NotificationMessage
-   
 ```
 
 ## WebSocket Interactions
 
-A client will instigate all interactions by sending a `UserGameCommand` to the server. We refer to the instigating client as the `Root Client`. The server will receive this Command and send appropriate `ServerMessages` to all clients connected to that game.
+A client will instigate all gameplay interactions by sending a CONNECT `UserGameCommand` to the server. We refer to the instigating client as the `Root Client`. The server will receive this Command and send appropriate `ServerMessages` to all clients connected to that game.
 
 When sending a `Notification` that refers to one of the clients, the message should use the Clients username. (E.g., `Bob left the game`).
 
@@ -173,14 +191,18 @@ If a `UserGameCommand` is invalid (e.g. invalid authToken or gameID doesn’t ex
 1. Server marks the game as over (no more moves can be made). Game is updated in the database.
 1. Server sends a `Notification` message to **all clients** in that game informing them that the root client resigned. This applies to both players and observers.
 
-Here is a [sequence diagram](https://sequencediagram.org/index.html?presentationMode=readOnly#initialData=C4S2BsFMAIHEEMC2MAK54E8BQWB2B7YGfAN0gCdoBlCs8gLmgCFwBXGcEXSAZ2nMgAHAT0i5g0ABIAVaSmjIePeAHNeAOgA6uWALHRO3PgOG8xEgOqQARlXwBjANaQJi5Wp45B8cqHshvcWpaCix4e2B8SjRMCgBGMIio6BiMCgAmRMjKAHlrUXI6BKwAXhKAGXwVLjKAYjTwcHwAdyw8gqKAWlrrNkgAPhpCinpK6txodpDyOOhvJWaogBMsVIzu3vZB6dGqrhT0NPJ0ufgF5dXD+I2+7eGGMf21mdPz8hXSkoRkaHsBeFA+FwdQaTVazziNy2Qzo9AAwv8iHAkJAEhCoQMYSMAFL4fbfVHMcoAQThAGlLrEZt0VHpcHdYdicgBJAByAH0UCSAJoAUQASlgseQaXT+hDRjliQARdmwYkAWV5lKO6QxDJG5RAPGAKvWPVuwvouPxKNmFkkzOkyueatqtMgYg1DCZbM5PIFQumosd9NtkplcsVyuFPqdEtZOWkzIAYsy4cTozlWdAABQAKzxE1t0F64UcAEo2vlppCDdCdlqdcWOtdy5idiaJgSElN7mWHU6ja6OTkmFQBQA1T2h+1ittFAOy+VKr33MN+q4zeiR6NxhNJlMZrOTEvt6D4Pd0IujzuLqnpFdR2PxxPM5NpzP7CfxA9HihFz4EuaHEGQRotHq1Jjr6zr0AqxJkry7IKjkw7QJA6SQAALHOdALuKS5xFOQazqeYr+uUUrTsGaEUBhL7LkRgYziG3ogeGS6XquN4bveW6IKQMCIShJ70We-SUdhLHrneD6ppxZAIUhyGfmU372EC9hsDwIBAn+AHgkxGFGvyvJUMysCsmRIoMeeRzCdeombmmIggCo2ZMXx85mZhF5Xmut42amdkOQcF7OehrlCR5rFiVuvmOQFOC2jpla8sSw4mRhEZWV57FplA8BSbagXkcF77LiJ6XiVlOVOTgNalnF9yjAlSX4aBqWeWxpWQNlMBCZ+lVAA) that demonstrates the player communications.
+Here is a [sequence diagram](https://sequencediagram.org/index.html?presentationMode=readOnly#initialData=C4S2BsFMAIHEEMC2MAK54E8BQWB2B7YGfAN0gCdoBlCs8gLmgCFwBXGcEXSAZ2nMgAHAT0i5g0ABIAVaSmjIePeAHNeAOgA6uWALHRO3PgOG8xEgOqQARlXwBjANaQJi5Wp45B8cqHshvcWpaCix4e2B8SjRMCgBGMIio6BiMCgAmRMjKAHlrUXI6BKwAXhKAGXwVLjKAYjTwcHwAdyw8gqKAWlrrNkgAPhpCinpK6txodpDyOOhvJWaogBMsVIzu3vZB6dGqrhT0NPJ0ufgF5dXD+I2+7eGGMf21mdPz8hXSkoRkaHsBeFA+FwdQaTVazziNy2Qzo9AAwv8iHAkJAEhCoQMYSMAFL4fbfVHQCySACS0gAopdYjNuio9Lg7rC4TkAHIs8lw6RYLHkWn0-oQ0Y5ACCABEAPqwYUAWUpz3SGMZI3KIB4wCpRwVPVuPPouPxKNmTHKwrhAGkNetanTIGIlQxmWyOVyeXzbQz5UKxZKZZTXdb+YKWTlpCSAGIkuHC0Os6AACgAVniJvLoL1wo4AJRtfLTSHa6E7FVqnMda4FzHTUt5t123WO9mc7nTWsMqb3OJeiVS2XN+6tgVXGb0YOhiNRmMs+NJ-btorQfC5+7Z-02u2e0fhyPRkmxxPJyZL+eLsvkbOfAlzQ4gyCNFqWmkB932+jS4Vm8ni6U5ABq5OgkDpJAAAsfZ0AOgrlCK3a+mBFAQUO6Rdj6varvyc7xMhPZ+i2T7rohI4hluE67lOcaIKQMCASBK64WubZHphm7jjue4UWQAFAcB55lJe9hAvYbA8CAQI3ne4KIQOuoAErklQJKwCycG8nhHpDp2zHbpO8YiCAKgpohtH9qpg7UkhmkkXuun6QcZlGeBJkYcOFmsWR1kGXZODylJRbksKf7KQh1IaURLHaXGUDwBx8r2fBjmMc5oVaaR8aRdFhk4NWHY+fcox+QFaHPkGSWWWRaUwE5cTnplQA) that demonstrates the player communications.
 
 ## Relevant Instruction Topics
 
 - [Console UI](../../instruction/console-ui/console-ui.md): Reading from the keyboard and writing out fancy text.
 - [WebSocket](../../instruction/websocket/websocket.md): Making WebSocket client and server requests.
+- [Debugging](../../instruction/debugging/debugging.md): Debugging multiple applications that communication over the network is a critical software engineering skill that you will need to master to complete this phase. Make sure you review the topics on how to debug both [multiple applications](../../instruction/debugging/debugging.md#executing-multiple-processes) and also how to debug multiple concurrent instances of [same application](../../instruction/debugging/debugging.md#executing-the-same-process-multiple-times).
 
 ## ☑ Deliverable
+
+> [!IMPORTANT]
+> You are required to commit to GitHub with every minor milestone. For example, after you implement each player action. This should result in a commit history that clearly details your work on this phase. If your Git history does not demonstrate your efforts then your submission may be rejected.
 
 ### Pass Off Tests
 
@@ -188,7 +210,7 @@ The provided tests for this assignment are in the `WebSocketTests` class. These 
 
 ### Code Quality
 
-For this phase the TAs will grade the quality of your project's source code. The rubric used to evaluate code quality can be found here: [Rubric](../code-quality-rubric.md)
+For this phase the auto grader will grade the quality of your project's source code. The rubric used to evaluate code quality can be found here: [Rubric](../code-quality-rubric.md)
 
 ### Pass Off, Submission, and Grading
 
@@ -198,24 +220,27 @@ To pass off this assignment submit your work to the course [auto-grading](https:
 
 ### Grading Rubric
 
-| Category                      | Criteria                                                                                                                                      |       Points |
-|-------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|-------------:|
-| GitHub History                | At least 12 GitHub commits evenly spread over the assignment period that demonstrate proof of work.                                           | Prerequisite |
-| Automated Pass Off Test Cases | Each provided test case passed is worth a proportional number of points ((passed / total) * 50).                                              |           50 |
-| Help Text                     | Useful help text is displayed informing the user what actions they can take.                                                                  |            5 |
-| Observer Connect              | Observers can connect to a game. Notification sent and board drawn.                                                                           |            5 |
-| Observer Leave Game           | Observers can leave games. Notification sent.                                                                                                 |            5 |
-| Player Connect                | Players can connect to a game as a specified color. Notification sent and board drawn.                                                        |            5 |
-| Player Move Piece             | Players can move pieces. Illegal moves rejected. Notification sent (including check or checkmate notification if applicable) and board drawn. |           15 |
-| Player Leave Game             | Players can leave games. Notification sent.                                                                                                   |            5 |
-| Player Resign Game            | Players can resign from games. Notification sent.                                                                                             |            5 |
-| Display Legal Moves           | Any player or observer can display the legal moves available to any piece on the board regardless of whose turn it is.                        |           10 |
-| Redraw Board                  | The board redraws when requested by the user (player or observer).                                                                            |            5 |
-| Game completion               | No moves after game completion due to resignation, checkmate, or stalemate.                                                                   |           15 |
-| Code Quality                  | [Rubric](../code-quality-rubric.md)                                                                                                           |           30 |
-|                               | Total                                                                                                                                         |          155 |
+> [!NOTE]
+> You can receive 4 points of extra credit by first receiving 100% from the autograder and then completing an in-person pass off before the final due date.
+
+| Category                      | Criteria                                                                                                                                                             |       Points |
+| :---------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -----------: |
+| GitHub History                | At least 12 GitHub commits evenly spread over the assignment period that demonstrate proof of work.                                                                  | Prerequisite |
+| Automated Pass Off Test Cases | Each provided test case passed is worth a proportional number of points ((passed / total) \* 50).                                                                    |           50 |
+| Program Functionality         | All-or-nothing rubric item. Complete all of the following behaviors:                                                                                                 |           75 |
+|                               | **Help Text**: Useful help text is displayed informing the user what actions they can take.                                                                          |              |
+|                               | **Observer Connect**: Observers can connect to a game. Notification sent and board drawn.                                                                            |              |
+|                               | **Observer Leave Game**: Observers can leave games. Notification sent.                                                                                               |              |
+|                               | **Player Connect**: Players can connect to a game as a specified color. Notification sent and board drawn.                                                           |              |
+|                               | **Player Move Piece**: Players can move pieces. Illegal moves rejected. Notification sent (including check or checkmate notification if applicable) and board drawn. |              |
+|                               | **Player Leave Game**: Players can leave games. Notification sent.                                                                                                   |              |
+|                               | **Player Resign Game**: Players can resign from games. Notification sent.                                                                                            |              |
+|                               | **Display Legal Moves**: Any player or observer can display the legal moves available to any piece on the board regardless of whose turn it is.                      |              |
+|                               | **Redraw Board**: The board redraws when requested by the user (player or observer).                                                                                 |              |
+|                               | **Game completion**: No moves after game completion due to resignation, checkmate, or stalemate.                                                                     |              |
+| Code Quality                  | [Rubric](../code-quality-rubric.md)                                                                                                                                  |           30 |
+|                               | **Total**                                                                                                                                                            |      **155** |
 
 ## <a name="videos"></a>Videos (10:39)
 
-- 🎥 [Phase 6 Overview (10:39)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=46d6e11c-7744-450d-964e-b1a10160f0c7)
-
+- 🎥 [Phase 6 Overview (10:39)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=46d6e11c-7744-450d-964e-b1a10160f0c7) - [[transcript]](https://github.com/user-attachments/files/17707162/CS_240_Phase_6_Chess_Gameplay_Transcript.pdf)

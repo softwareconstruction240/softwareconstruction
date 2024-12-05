@@ -30,7 +30,7 @@ When the user first opens your Chess client application they can execute any of 
 After the user has registered or logged in they can then execute any of the Postlogin commands.
 
 | Command          | Description                                                                                                                                                                                                                                                                                                                          |
-|------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **Help**         | Displays text informing the user what actions they can take.                                                                                                                                                                                                                                                                         |
 | **Logout**       | Logs out the user. Calls the server logout API to logout the user. After logging out with the server, the client should transition to the Prelogin UI.                                                                                                                                                                               |
 | **Create Game**  | Allows the user to input a name for the new game. Calls the server create API to create the game. This does not join the player to the created game; it only creates the new game in the server.                                                                                                                                     |
@@ -46,7 +46,7 @@ After the user has registered or logged in they can then execute any of the Post
 
 As stated previously, gameplay will not be implemented until later. For now, when a user plays or observes a game, the client should draw the initial state of a Chess game in the terminal, but not actually enter gameplay mode. The chessboard should be drawn twice, once in each orientation (i.e., once with white pieces at the bottom and once with black pieces at the bottom).
 
-An example of what the chessboard might look like is given below. You are free to make your chessboard look different as long as the essential information is displayed in an easily readable way, but it must "look like a chess board." You must have different colors for alternating squares, but they don't have to be white and black. Light and dark, or white and brown, or whatever you'd like is fine. Per official chess rules, the bottom-right and top-left squares (h1 and a8) must be the "lighter" color. This will mean each queen is "on her color" (white queen on a light square, black queen on a dark square). In addition, you must show the correct row numbers and column letters, but can do so however you would like.
+An example of what the chessboard might look like is given below. You are free to make your chessboard look different as long as the essential information is displayed in an **easily readable way**, but it must **look like a chess board** and make it easy to play the game. For example, you must have different colors for alternating squares, but they don't have to be white and black. Light and dark, or white and brown, or whatever you'd like is fine. Per official chess rules, the bottom-right and top-left squares (h1 and a8) must be the "lighter" color. The pieces must be recognizable. This will mean each queen is "on her color" (white queen on a light square, black queen on a dark square). In addition, you must show the correct row numbers and column letters, but can do so however you would like.
 
 ![chessboard](ChessBoard.png)
 
@@ -54,7 +54,8 @@ Note that in the above image, the blue letters are black pieces and the red lett
 
 ### UI Requirements
 
-As with any software project with a UI component, there are certain implementation details you should not display to users. These include:
+When developing a UI you should focus on the user experience and only present things in a way that the user can relate to. This means that you should not display programming jargon or debugging information. For example, you should avoid:
+
 - Anything in JSON - If you have something in JSON, parse it and then print out only the information you want the user to see.
 - Authtokens and Game IDs - These are important to keep track of but the user should not be aware of these internal variables. See the requirements for the [Postlogin UI](#postlogin-ui) for what to display instead of Game IDs.
 - HTTP status codes - The user should not be made aware of internal details like this. Ask yourself, apart from 404, when was the last time you saw a status code on a professional website?
@@ -75,6 +76,9 @@ Additionally, you may notice that the chess characters might render slightly wid
 
 ## ☑ Deliverable
 
+> [!IMPORTANT]
+> You are required to commit to GitHub with every minor milestone. For example, after you successfully pass a test. This should result in a commit history that clearly details your work on this phase. If your Git history does not demonstrate your efforts then your submission may be rejected.
+
 ### Pass Off Tests
 
 There are no new pass off test cases for this assignment.
@@ -85,7 +89,7 @@ Write positive and negative unit tests for each method on your ServerFacade clas
 
 Your tests must be located in the file `client/src/test/java/client/ServerFacadeTests.java`, provided in the starter code.
 
-⚠ `ServerFacadeTests.java` contains code that will automatically start and shutdown your server on a randomly assigned port as part of the test. However, you will still need to start your server when you manually run your client.
+> [!TIP] > `ServerFacadeTests.java` contains code that will automatically start and shutdown your server on a randomly assigned port as part of the test. However, you will still need to start your server using the `Main.main` function when you manually run your client.
 
 ```java
 public class ServerFacadeTests {
@@ -143,17 +147,18 @@ Make sure you clear your database between each test. You can do this in a method
 
 ### Code Quality
 
-For this phase the TAs will grade the quality of your project's source code. The rubric used to evaluate code quality can be found here: [Rubric](../code-quality-rubric.md)
+For this phase the auto grader will grade the quality of your project's source code. The rubric used to evaluate code quality can be found here: [Rubric](../code-quality-rubric.md)
 
 ### Pass Off, Submission, and Grading
 
 All of the tests in your project must succeed in order to complete this phase.
 
-To pass off this assignment submit your work to the course [auto-grading](https://cs240.click/) tool. When that is done, meet with a TA and demonstrate that your Chess client and server meet all requirements and assign you a final grade.
+To pass off this assignment, first submit your work to the course [auto-grading](https://cs240.click/) tool. Once it completely passes the autograder, meet with a TA and demonstrate that your Chess client and server meet all requirements and they will assign you a final grade.
 
 ### Grading Rubric
 
-**⚠ NOTE**: You are required to commit to GitHub with every minor milestone. For example, after you successfully pass a test. This should result in a commit history that clearly details your work on this phase. If your Git history does not demonstrate your efforts then your submission may be rejected.
+> [!NOTE]
+> You can receive 4 points of extra credit by first receiving 100% from the autograder and then completing an in-person pass off before the final due date.
 
 | Category       | Criteria                                                                                                                                                                                        |       Points |
 | :------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -----------: |
@@ -161,13 +166,13 @@ To pass off this assignment submit your work to the course [auto-grading](https:
 | Functionality  | Program supports all required functionality                                                                                                                                                     |          100 |
 | Code Quality   | [Rubric](../code-quality-rubric.md)                                                                                                                                                             |           30 |
 | Unit Tests     | All test cases pass<br/>Each public method on the Server Facade class has two test cases, one positive test and one negative test<br/>Every test case includes an Assert statement of some type |           25 |
-|                | Total                                                                                                                                                                                           |          155 |
+|                | **Total**                                                                                                                                                                                       |      **155** |
 
 ## <a name="videos"></a>Videos (38:10)
 
-- 🎥 [Phase 5 Introduction (8:11)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=6e2c9d2f-5a74-4b60-989e-b19a0150a134)
-- 🎥 [Read-Eval-Print-Loop (REPL) (8:11)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=29364420-9c98-4778-ba7a-b19a015380c7)
-- 🎥 [Drawing the Board (1:26)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=6a77c895-f2b8-49d9-8b11-b19a0156aef8)
-- 🎥 [Server Facade (5:00)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=6f02ff21-d6bd-47f3-bddd-b19a01578159)
-- 🎥 [Phase 5 Requirements (3:11)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=1a171c4d-c7dc-41d0-828f-b19a01594498)
-- 🎥 [Client HTTP (12:11)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=781ae49b-6284-4e1a-836b-b1930162c54b)
+- 🎥 [Phase 5 Introduction (8:11)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=6e2c9d2f-5a74-4b60-989e-b19a0150a134) - [[transcript]](https://github.com/user-attachments/files/17805362/CS_240_Phase_5_Chess_UI_Demo_Transcript.pdf)
+- 🎥 [Read-Eval-Print-Loop (REPL) (8:11)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=29364420-9c98-4778-ba7a-b19a015380c7) - [[transcript]](https://github.com/user-attachments/files/17805365/CS_240_Read_Eval_Print_Loop_.REPL._Transcript.pdf)
+- 🎥 [Drawing the Board (1:26)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=6a77c895-f2b8-49d9-8b11-b19a0156aef8) - [[transcript]](https://github.com/user-attachments/files/17805392/CS_240_Drawing_the_Board_Transcript.pdf)
+- 🎥 [Server Facade (5:00)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=6f02ff21-d6bd-47f3-bddd-b19a01578159)- [[transcript]](https://github.com/user-attachments/files/17805395/CS_240_Server_Facade_Transcript.pdf)
+- 🎥 [Phase 5 Requirements (3:11)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=1a171c4d-c7dc-41d0-828f-b19a01594498) - [[transcript]](https://github.com/user-attachments/files/17805398/CS_240_Phase_5_Requirements_Transcript.pdf)
+- 🎥 [Client HTTP (12:11)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=781ae49b-6284-4e1a-836b-b1930162c54b) - [[transcript]](https://github.com/user-attachments/files/17805399/CS_240_Client_HTTP_Transcript.pdf)

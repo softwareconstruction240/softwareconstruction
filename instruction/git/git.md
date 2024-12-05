@@ -192,7 +192,7 @@ Here is a demonstration of this working on the visualization tool provided by [g
 
 ## Commit often
 
-You will be required to have at least 4 commits for each project that you submit in order to get full credit. Commonly, this will be an initial commit that contains empty project files, followed by commits at each functional milestone, and then a final commit for the working project. Committing your code often is an important practice for you to develop. It protects you from losing your work, allows access from anywhere, makes it so you can quickly share changes, reduces conflicts with your peers, and enables you to efficiently explore different possibilities. This also enables others to review the progression of your development efforts in order to prove the originality of your work.
+You will be required to commit frequently and consistently as you work on each phase of the chess project in order to get credit for the assignment. Commonly, this will be an initial commit that contains the set up for the phase, followed by commits at each working piece (test case, endpoint, sql query), and then a final commit for the working phase. Committing your code often is an important practice for you to develop. This protects you from losing your work, allows access from anywhere, makes it so you can quickly share changes, reduces conflicts with your peers, and enables you to efficiently explore different possibilities. This also enables others to review the progression of your development efforts in order to prove the originality of your work.
 
 Remember to make meaningful commit messages that describe the **what** and **why** of the changes made. Here is a [good post](https://www.freecodecamp.org/news/how-to-write-better-git-commit-messages/) on how make meaningful commit messages.
 
@@ -291,16 +291,15 @@ If you already have a Git repo in your local development environment and you wan
 
 ## <a name="videos"></a>Videos (1:16:49)
 
-- 🎥 [Git Overview (4:50)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=57cf5ee3-521c-470e-987b-b169014cdec4)
-- 🎥 [Install and Configure Git (5:11)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=87ddb22d-729b-44ec-a476-b169014e892b)
-- 🎥 [Creating a Local Git Repository (6:56)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=dfad1615-37dd-4416-b22c-b16901505d17)
-- 🎥 [Commits (5:44)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=99d9a734-fcc7-4b21-b312-b1690152b5a0)
-- 🎥 [Basic Git Commands (9:34)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=fce3f593-caa1-4c76-9327-b1690154d107)
-- 🎥 [.gitignore (5:14)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=0963f0ab-08ef-48e8-88c6-b1690157c264)
-- 🎥 [Renaming, Moving, and Deleting Files (4:44)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=164be31f-0638-4517-afd7-b16901599a70)
-- 🎥 [IntelliJ Git Integration (5:05)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=99d7bc8f-4605-4948-87ee-b169015b41d1)
-- 🎥 [Git Tips (3:41)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=cd651660-5fcd-4249-950d-b169015ddf09)
-- 🎥 [GitHub Overview (11:22)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=1750077c-a834-437e-86ef-b169015f60d8)
-- 🎥 [GitHub Set Up (9:59)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=27cf1095-6538-4ff2-a12f-b16901630775)
-- 🎥 [GitHub Demo (4:29)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=1bd5974c-a15b-45ef-b3df-b16901665e90)
-
+- 🎥 [Git Overview (4:50)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=57cf5ee3-521c-470e-987b-b169014cdec4) - [[transcript]](https://github.com/user-attachments/files/17738322/CS_240_Git_Overview_Transcript.pdf)
+- 🎥 [Install and Configure Git (5:11)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=87ddb22d-729b-44ec-a476-b169014e892b) - [[transcript]](https://github.com/user-attachments/files/17738329/CS_240_Install_and_Configure_Git_Transcript.pdf)
+- 🎥 [Creating a Local Git Repository (6:56)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=dfad1615-37dd-4416-b22c-b16901505d17) - [[transcript]](https://github.com/user-attachments/files/17738340/CS_240_Creating_a_Local_Git_Repository_Transcript.pdf)
+- 🎥 [Commits (5:44)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=99d9a734-fcc7-4b21-b312-b1690152b5a0) - [[transcript]](https://github.com/user-attachments/files/17738354/CS_240_Commits_Transcript.pdf)
+- 🎥 [Basic Git Commands (9:34)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=fce3f593-caa1-4c76-9327-b1690154d107) - [[transcript]](https://github.com/user-attachments/files/17738363/CS_240_Basic_Git_Commands_Transcript.pdf)
+- 🎥 [.gitignore (5:14)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=0963f0ab-08ef-48e8-88c6-b1690157c264) - [[transcript]](https://github.com/user-attachments/files/17738368/CS_240_.gitignore_Transcript.pdf)
+- 🎥 [Renaming, Moving, and Deleting Files (4:44)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=164be31f-0638-4517-afd7-b16901599a70) - [[transcript]](https://github.com/user-attachments/files/17738375/CS_240_Renaming_Moving_and_Deleting_Files_Transcript.pdf)
+- 🎥 [IntelliJ Git Integration (5:05)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=99d7bc8f-4605-4948-87ee-b169015b41d1) - [[transcript]](https://github.com/user-attachments/files/17738392/CS_240_IntelliJ_Git_Integration_Transcript.pdf)
+- 🎥 [Git Tips (3:41)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=cd651660-5fcd-4249-950d-b169015ddf09) - [[transcript]](https://github.com/user-attachments/files/17738394/CS_240_Git_Tips_Transcript.pdf)
+- 🎥 [GitHub Overview (11:22)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=1750077c-a834-437e-86ef-b169015f60d8) - [[transcript]](https://github.com/user-attachments/files/17738402/CS_240_GitHub_Overview_Transcript.pdf)
+- 🎥 [GitHub Set Up (9:59)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=27cf1095-6538-4ff2-a12f-b16901630775) - [[transcript]](https://github.com/user-attachments/files/17738408/CS_240_GitHub_Set_Up_Transcript.pdf)
+- 🎥 [GitHub Demo (4:29)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=1bd5974c-a15b-45ef-b3df-b16901665e90) - [[transcript]](https://github.com/user-attachments/files/17738411/CS_240_GitHub_Demo_Transcript.pdf)

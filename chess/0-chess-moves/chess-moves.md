@@ -6,7 +6,8 @@
 
 In this part of the Chess Project, you will implement a basic representation of the game of chess. This includes the setting up of the board and defining how pieces move.
 
-⚠ Review the [Game of Chess](the-game-of-chess.md) instruction to learn how to set up the board and how each of the pieces move.
+> [!NOTE]
+> Review the [Game of Chess](the-game-of-chess.md) instruction to learn how to set up the board and how each of the pieces move.
 
 ## Starter Code
 
@@ -73,7 +74,8 @@ classDiagram
     ChessBoard o-- "*" ChessPiece
 ```
 
-**⚠ NOTE**: You are not limited to this representation. However, you must not change the existing class names or method signatures since they are used by the pass off tests. You will likely need to add new classes and methods to complete the work required by this phase.
+> [!NOTE]
+> You are not limited to this representation. However, you must not change the existing class names or method signatures since they are used by the pass off tests. You will likely need to add new classes and methods to complete the work required by this phase.
 
 ## Chess Classes
 
@@ -84,7 +86,6 @@ This class serves as the top-level management of the chess game. It is responsib
 > [!IMPORTANT]
 > Although the `ChessGame` class is presented now, it will not be used until Phase 1.\
 > ChessGame related tests will be [added to the working directory](../1-chess-game/getting-started.md#chess-game---getting-started) later.
-
 
 ### ChessBoard
 
@@ -127,7 +128,8 @@ In most cases, the default methods provided by IntelliJ will suffice. However, t
 
 The tests and autograder rely on these methods in order to compare your objects. If you can't pass any tests even though the output seems the same check to make sure that these methods are created and working properly.
 
-⚠ Protip: Debugging is often much easier if you also override the `toString()` method and return a concise representation of the object. This is not required, but highly recommended. This can be generated in the same way that the `equals()` and `hashcode()` were.
+> [!TIP]
+> Debugging is often much easier if you also override the `toString()` method and return a concise representation of the object. This is not required, but highly recommended. This can be generated in the same way that the `equals()` and `hashcode()` were.
 
 ## Testing
 
@@ -151,6 +153,12 @@ A good process for this is to:
 
 If you are confused at what a test is doing reread the specs to understand what functionality it is looking for, and you can ask for clarification on Slack or to a TA.
 
+## Code Quality
+
+You want to write quality code that promotes consistency and readability for all team members. Code quality is discussed in a future [instruction topic](../../instruction/quality-code/quality-code.md), and you will be graded on quality starting with phase 3. However, you can use the auto grader at any time to check your chess repositories quality. The rubric used to evaluate code quality is found here: [Rubric](../code-quality-rubric.md).
+
+![Code Quality](../codeQuality.png)
+
 ## ☑ Deliverable
 
 ### Pass Off, Submission, and Grading
@@ -161,16 +169,16 @@ To pass off this assignment use the course [auto-grading](https://cs240.click/) 
 
 ### Grading Rubric
 
-**⚠ NOTE**: You are required to commit to GitHub with every minor milestone. For example, after you successfully pass a test. This should result in a commit history that clearly details your work on this phase. If your Git history does not demonstrate your efforts then your submission may be rejected.
+> [!IMPORTANT]
+> You are required to commit to GitHub with every minor milestone. For example, after you successfully pass a test. This should result in a commit history that clearly details your work on this phase. If your Git history does not demonstrate your efforts then your submission may be rejected.
 
 | Category       | Criteria                                                                                          |       Points |
-| :------------- | :------------------------------------------------------------------------------------------------ | -----------: |
+|:---------------|:--------------------------------------------------------------------------------------------------|-------------:|
 | GitHub History | At least 8 GitHub commits evenly spread over the assignment period that demonstrate proof of work | Prerequisite |
 | Functionality  | All pass off test cases succeed                                                                   |          125 |
-|                | Total                                                                                             |          125 |
+|                | **Total**                                                                                         |      **125** |
 
 ## <a name="videos"></a>Videos (21:22)
 
-- 🎥 [Phase 0 Overview (15:51)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=be427737-b0b5-4aec-bb15-b177014da69c)
-
-- 🎥 [Phase 0 Design Tips (5:31)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=88653eac-78a8-4f59-a12a-b170014f61f1)
+- 🎥 [Phase 0 Overview (15:51)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=be427737-b0b5-4aec-bb15-b177014da69c) - [[transcript]](https://github.com/user-attachments/files/17706801/CS_240_Chess_Phase_0_Transcript.pdf)
+- 🎥 [Phase 0 Design Tips (5:31)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=88653eac-78a8-4f59-a12a-b170014f61f1) - [[transcript]](https://github.com/user-attachments/files/17706812/CS_240_Phase_0_Design_Tips_Transcript.pdf)

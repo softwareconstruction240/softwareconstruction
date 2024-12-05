@@ -21,7 +21,8 @@ You will be most successful in this course if you set aside time each day, or ev
 
 For all of the above reasons, it is required that you use GitHub for your chess project. Additionally, you must use it consistently and frequently.
 
-⚠ **IMPORTANT**: **It is a prerequisite for all deliverables that you have at least 10 commits evenly spread across the assignment period for the deliverable.**
+> [!IMPORTANT]
+> It is a prerequisite for all deliverables that you have at least 10 commits evenly spread across the assignment period for the deliverable.
 
 If you do not have the required number of commits, or if they are all clustered in a single burst of activity, then you will need to justify the discrepancy before the deliverable will be accepted.
 
@@ -80,4 +81,4 @@ After submitting to Canvas, pass off with the course [auto-grading](https://cs24
 
 ## <a name="videos"></a>Videos (3:31)
 
-- 🎥 [Chess GitHub Repository (3:31)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=9603dd36-5c9b-4705-aa3d-b169016801a3)
+- 🎥 [Chess GitHub Repository (3:31)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=9603dd36-5c9b-4705-aa3d-b169016801a3) - [[transcript]](https://github.com/user-attachments/files/17707180/CS_240_Chess_GitHub_Repository_Transcript.pdf)
