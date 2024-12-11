@@ -5,7 +5,6 @@ The course content is divided into multiple topics that you should strive to mas
 > [!IMPORTANT]
 > Make sure you observe the due dates specified in Canvas for each of the course assignments.
 
-- [Schedule for Professor Jensen's Sections](https://github.com/softwareconstruction240/softwareconstruction/blob/main/schedule/fall2024.md)
 - [Schedule for Dr. Wilkerson's Sections](https://github.com/softwareconstruction240/softwareconstruction/blob/main/schedule/fall2024-wilkerson.md)
 
 ## Getting Started
@@ -13,6 +12,7 @@ The course content is divided into multiple topics that you should strive to mas
 - [Introduction](introduction/introduction.md)
 - [Git](git/git.md)
 - ☑ [Chess GitHub Repository](../chess/chess-github-repository/chess-github-repository.md)
+- [Programming Exam](../instruction/programming-exam/programming-exam.md)
 
 ## Object Oriented Programming
 
