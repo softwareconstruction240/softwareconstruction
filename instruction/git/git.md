@@ -22,6 +22,20 @@
 >
 > — Linus Torvalds
 
+## Overview
+
+Git is the industry standard **Version Control System** that powerfully manages the changes made to hundreds of files over the entire lifetime of a project. Git makes it easy to view, undo, redo, branch, and merge with collaborators in a trustable, secure way.
+
+A regular development workflow is illustrated in the following diagram.
+
+<!-- Control the display width of the image, but allow readers to open up or download the full image for close reading. -->
+<img src="./GitCommitWorkflow.png" style="max-width: 500px"/>
+
+To give a reference on the typically frequency of each of the stages, developers typically:
+* **Change** files all day long
+* **Stage** and **commit** changes multiple times per hour
+* **Review** commits and **push** about hourly
+
 ## Installing Git
 
 Before we can talk about Git you need to make sure it is installed in your development environment. Open a console and type `git --version`.
