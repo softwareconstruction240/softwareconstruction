@@ -138,11 +138,13 @@ If Honorlock closes you out for some reason or you accidentally close the tab wh
 
 You must pass the programming exam to pass the class. The exam is pass/fail. You will either receive 100% or 0%. You may take the exam up to three times for reduced credit each time (see Canvas for the percentage of your total grade and the maximum score for each take of the exam). If you do not pass the exam by the third attempt, it will not be possible for you to pass the class. In that case you should withdraw.
 
-After taking the exam, you will either see a score in Canvas (telling you that you passed the exam) or you will receive an email from a TA telling you why you did not pass the exam, by the end of the day on the day the original exam is due. Your score will appear in the spot for “Programming Exam”.
+After taking the exam, you will either see a score in Canvas (telling you that you passed the exam) or you will receive an email from a TA telling you why you did not pass the exam. Either your score will be entered or you will receive an email from a TA by the end of the day on the day the original exam (first attempt) is due. Your score will appear in the spot for “Programming Exam”.
 
-You already have two attempts on the exam. If you use the second attempt, your exam will be graded as a retake for reduced credit. If you need a third attempt, you are required to meet with your instructor first. The purpose of the meeting will be for your instructor to help you prepare to pass the exam on your final attempt. Your instructor will add the third attempt to your exam after this meeting. You are responsible for contacting your instructor to schedule the meeting.
+You already have two attempts on the exam. The first attempt due date is the date listed as the due date for the exam. If you use the second attempt, your exam will be graded as a retake for reduced credit. Your second attempt starts immediately after the first attempt due date. You will only have a few days after the first attempt due date to use your second attempt if needed. Check the course schedule for the due date for the second attempt.
 
-Pay attention to the availability date of the exam if you need a second or third attempt. This date is before the withdrawal date and you must complete all attempts of the exam on or before this availability date.
+If you need a third attempt, you are required to meet with your instructor first. The purpose of the meeting will be for your instructor to help you prepare to pass the exam on your final attempt. Your instructor will add the third attempt to your exam after this meeting. You are responsible for contacting your instructor to schedule the meeting.
+
+Pay attention to the availability date of the exam if you need a third attempt. This date is before the withdrawal date and you must complete your final attempt of the exam on or before this availability date.
 
 ## Linux
 
