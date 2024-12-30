@@ -19,7 +19,8 @@ The content for this course is represented by the following parts.
 
 Although assignment due dates are the same for all sections, the lecture schedule may vary by instructor.
 
-- [Schedule for Dr. Wilkerson's Sections](https://github.com/softwareconstruction240/softwareconstruction/blob/main/schedule/fall2024-wilkerson.md)
+- [Schedule for Dr. Rodham's Sections](https://github.com/softwareconstruction240/softwareconstruction/blob/main/schedule/winter2025-rodham.md)
+- [Schedule for Dr. Wilkerson's Sections](https://github.com/softwareconstruction240/softwareconstruction/blob/main/schedule/winter2025-wilkerson.md)
 
 ## Outcomes
 
