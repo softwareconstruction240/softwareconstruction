@@ -1,45 +1,34 @@
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpRequest.BodyPublishers;
+import java.net.http.HttpResponse.BodyHandlers;
+import java.time.Duration;
 
 public class PostExample {
+    private static final HttpClient client = HttpClient.newHttpClient();
 
-    public void doPost(String urlString) throws IOException {
-        URL url = new URL(urlString);
+    public String doPost(String urlString, String body) throws IOException, InterruptedException {
+        var request = HttpRequest.newBuilder(URI.create(urlString))
+                // Use a different BodyPublisher for other types of input
+                .POST(BodyPublishers.ofString(body))
+                .timeout(Duration.ofSeconds(5))
+                .build();
 
-        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-
-        connection.setReadTimeout(5000);
-        connection.setRequestMethod("POST");
-        connection.setDoOutput(true);
-
-        // Set HTTP request headers, if necessary
-        // connection.addRequestProperty("Accept", "text/html");
-
-        connection.connect();
-
-        try(OutputStream requestBody = connection.getOutputStream();) {
-            // Write request body to OutputStream ...
+        var response = client.send(request, BodyHandlers.ofString());
+        var successful = response.statusCode() == 200;
+        if (!successful) {
+            return null;
         }
 
-        if (connection.getResponseCode() == HttpURLConnection.HTTP_OK) {
-            // Get HTTP response headers, if necessary
-            // Map<String, List<String>> headers = connection.getHeaderFields();
+        // Get response headers, if necessary
+        // HttpHeaders headers = response.headers();
+        // Optional<String> contentLength = headers.firstValue("Content-Length")
 
-            // OR
-
-            //connection.getHeaderField("Content-Length");
-
-            InputStream responseBody = connection.getInputStream();
-            // Read response body from InputStream ...
-        }
-        else {
-            // SERVER RETURNED AN HTTP ERROR
-
-            InputStream responseBody = connection.getErrorStream();
-            // Read and process error response body from InputStream ...
-        }
+        // String because we used BodyHandlers.ofString()
+        // Can be a different type with a different BodyHandler
+        String responseBody = response.body();
+        return responseBody;
     }
 }
