@@ -238,20 +238,21 @@ For our client code, we can use the standard JDK `java.net` library to make HTTP
 
 ```java
 public class ClientExample {
+    // Create an HttpClient for making requests
+    // This should be long-lived and shared, so a static final field is good here
+    private static final HttpClient client = HttpClient.newHttpClient();
     public static void main(String[] args) throws Exception {
-        // Specify the desired endpoint
-        URI uri = new URI("http://localhost:8080/name");
-        HttpURLConnection http = (HttpURLConnection) uri.toURL().openConnection();
-        http.setRequestMethod("GET");
+        // Build the request
+        var request = HttpRequest.newBuilder(URI.create("http://localhost:8080/name"))
+                .GET()
+                .build();
 
         // Make the request
-        http.connect();
+        var response = client.send(request, BodyHandlers.ofString());
 
         // Output the response body
-        try (InputStream respBody = http.getInputStream()) {
-            InputStreamReader inputStreamReader = new InputStreamReader(respBody);
-            System.out.println(new Gson().fromJson(inputStreamReader, Map.class));
-        }
+        var responseBody = new Gson().fromJson(response.body(), Map.class);
+        System.out.println(responseBody);
     }
 }
 ```
@@ -266,49 +267,70 @@ If you first run the `name list` service defined above, then you can run the `Cl
 
 ### Client Error Handling
 
-The `http.getResponseCode()` method tells us what the HTTP status code was for the response. If you receive a non-2XX response then you need to use the `getErrorStream()` method instead of `getInputStream()` to read the response body. This is demonstrated in the following example:
+The `response.statusCode()` method tells us what the HTTP status code was for the response. It's important to check the status code, because the body on its own won't tell you if there was an error or not!
 
 ```java
 public class ClientAdvancedExample {
+    private static final HttpClient client = HttpClient.newHttpClient();
     public static void main(String[] args) throws Exception {
-        URI uri = new URI("http://localhost:8080/error");
-        HttpURLConnection http = (HttpURLConnection) uri.toURL().openConnection();
-        http.setRequestMethod("GET");
+        var request = HttpRequest.newBuilder(URI.create("http://localhost:8080/error"))
+            .GET()
+            .build();
 
-        http.connect();
+        var response = client.send(request, BodyHandlers.ofString());
+
+        var status = response.statusCode();
 
         // Handle bad HTTP status
        var status = http.getResponseCode();
         if ( status >= 200 && status < 300) {
-            try (InputStream in = http.getInputStream()) {
-                System.out.println(new Gson().fromJson(new InputStreamReader(in), Map.class));
-            }
+            System.out.println("OK");
         } else {
-            try (InputStream in = http.getErrorStream()) {
-                System.out.println(new Gson().fromJson(new InputStreamReader(in), Map.class));
-            }
+            System.out.println("Error");
         }
     }
 }
 ```
 
-### Writing a Request Body and Headers
+### Using HTTP Headers
 
-To send an HTTP body or header using the `HttpURLConnection` class you must first specify `http.setDoOutput` to true. You can then set a header using `addRequestProperty`, or send a body using the stream returned from `getOutputStream`.
+Request headers can be added to any request via the `header` method on `HttpRequest` builders. Response headers can be read via the `headers` method on `HttpResponse` objects.
 
 ```java
-// Specify that we are going to write out data
-http.setDoOutput(true);
+var request = HttpRequest.newBuilder(uri)
+    .GET()
+    .header("Authorization", "adwerewiojc")
+    .build();
 
-// Write out a header
-http.addRequestProperty("Content-Type", "application/json");
+var response = client.send(request, BodyHandlers.ofString());
+var headers = response.headers();
+OptionalLong length = response.firstValueAsLong("Content-Length");
+Optional<String> type = response.firstValue("Content-Type");
+```
 
-// Write out the body
+### Using BodyHandlers and BodyPublishers
+
+The `client.send()` method takes a `BodyHandler` argument that determines the type of `response.body()`. Different `BodyHandler`s allow using the body in different ways. The `BodyHandlers` class contains several convenient `BodyHandler` factory functions. We've been using the `ofString` body handler, but we could also use other handlers like in the following example:
+
+```java
+var request = HttpRequest.newBuilder(uri)
+    .GET()
+    .build();
+
+var response = client.send(request, BodyHandlers.ofInputStream());
+InputStream body = response.body();
+```
+
+HTTP methods that require a body take an additional `BodyPublisher` argument. Like `BodyHandler`s, `BodyPublisher`s allow using different sources for the body, and there is a `BodyPublishers` class with factory functions.
+
+```java
 var body = Map.of("name", "joe", "type", "cat");
-try (var outputStream = http.getOutputStream()) {
-    var jsonBody = new Gson().toJson(body);
-    outputStream.write(jsonBody.getBytes());
-}
+var jsonBody = new Gson().toJson(body);
+
+var request = HttpRequest.newBuilder(uri)
+    .POST(BodyPublishers.ofString(jsonBody))
+    .header("Content-Type", "application/json")
+    .build();
 ```
 
 ## Implementing a Simple Curl
@@ -317,53 +339,43 @@ We can expand our Web Client example to implement a simple version of Curl. This
 
 ```java
 public class ClientCurlExample {
+    private static final HttpClient client = HttpClient.newHttpClient();
+
     public static void main(String[] args) throws Exception {
         if (args.length >= 2) {
             var method = args[0];
             var url = args[1];
-            var body = args.length == 3 ? args[2] : "";
+            var body = args.length == 3 ? args[2] : null;
 
-            HttpURLConnection http = sendRequest(url, method, body);
-            receiveResponse(http);
+            HttpResponse<String> response = sendRequest(url, method, body);
+            System.out.printf("= Request =========\n[%s] %s\n\n%s\n\n", method, url, body);
+            receiveResponse(response);
         } else {
             System.out.println("ClientCurlExample <method> <url> [<body>]");
         }
     }
 
-    private static HttpURLConnection sendRequest(String url, String method, String body) throws URISyntaxException, IOException {
-        URI uri = new URI(url);
-        HttpURLConnection http = (HttpURLConnection) uri.toURL().openConnection();
-        http.setRequestMethod(method);
-        writeRequestBody(body, http);
-        http.connect();
-        System.out.printf("= Request =========\n[%s] %s\n\n%s\n\n", method, url, body);
-        return http;
+    private static HttpResponse<String> sendRequest(String url, String method, String body)
+            throws InterruptedException, IOException {
+        var request = HttpRequest.newBuilder(URI.create(url))
+                .method(method, requestBodyPublisher(body))
+                .build();
+        return client.send(request, BodyHandlers.ofString());
     }
 
-    private static void writeRequestBody(String body, HttpURLConnection http) throws IOException {
-        if (!body.isEmpty()) {
-            http.setDoOutput(true);
-            try (var outputStream = http.getOutputStream()) {
-                outputStream.write(body.getBytes());
-            }
+    private static BodyPublisher requestBodyPublisher(String body) throws IOException {
+        if (body != null) {
+            return BodyPublishers.ofString(body);
+        } else {
+            return BodyPublishers.noBody();
         }
     }
 
-    private static void receiveResponse(HttpURLConnection http) throws IOException {
-        var statusCode = http.getResponseCode();
-        var statusMessage = http.getResponseMessage();
+    private static void receiveResponse(HttpResponse<String> response) {
+        var statusCode = response.statusCode();
 
-        Object responseBody = readResponseBody(http);
-        System.out.printf("= Response =========\n[%d] %s\n\n%s\n\n", statusCode, statusMessage, responseBody);
-    }
-
-    private static Object readResponseBody(HttpURLConnection http) throws IOException {
-        Object responseBody = "";
-        try (InputStream respBody = http.getInputStream()) {
-            InputStreamReader inputStreamReader = new InputStreamReader(respBody);
-            responseBody = new Gson().fromJson(inputStreamReader, Map.class);
-        }
-        return responseBody;
+        var responseBody = new Gson().fromJson(response.body(), Map.class);
+        System.out.printf("= Response =========\n[%d]\n\n%s\n\n", statusCode, responseBody);
     }
 }
 ```
@@ -379,7 +391,7 @@ java -cp ../../lib/gson-2.10.1.jar ClientCurlExample.java POST 'http://localhost
 {"name":"joe", "count":3}
 
 = Response =========
-[200] OK
+[200]
 
 {name=joe, count=3.0}
 ```
@@ -400,7 +412,7 @@ java -cp ../../lib/gson-2.10.1.jar ClientCurlExample.java POST 'http://localhost
 - 🎥 [Filters (6:26)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=041911bf-8f6f-44d9-a1e9-b18c01570c85) - [[transcript]](https://github.com/user-attachments/files/17753735/CS_240_Filters_Transcript.pdf)
 - 🎥 [Spark Installation (2:11)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=aa878216-922c-43ca-ae25-b18c0159089a) - [[transcript]](https://github.com/user-attachments/files/17753801/CS_240_Installation_Transcript.pdf)
 - 🎥 [Pet Shop Demo (9:43)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=751fc126-9541-485a-b712-b18c0159fe8c) - [[transcript]](https://github.com/user-attachments/files/17753811/CS_240_Petshop_Demo_Transcript.pdf)
-- 🎥 [Client HTTP (12:11)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=781ae49b-6284-4e1a-836b-b1930162c54b) - [[transcript]](https://github.com/user-attachments/files/17753820/CS_240_Client_HTTP_Transcript.pdf)
+- 🎥 [Client HTTP (12:11) [OUTDATED]](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=781ae49b-6284-4e1a-836b-b1930162c54b) - [[transcript]](https://github.com/user-attachments/files/17753820/CS_240_Client_HTTP_Transcript.pdf)
 
 ## Demonstration code
 
