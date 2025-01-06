@@ -162,7 +162,7 @@ Important - make sure you do not do any updates to your system or apps before ta
 
 It is possible that this will not work for your computer. In that case it is best to consider other options that are available.
 
-## <a name="videos"></a>Videos (14:58)
+## <a name="videos"></a>Videos (10:52)
 
-- 🎥 [Programming Exam (14:58)]() - [[transcript]]()
+- 🎥 [Programming Exam (10:52)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=a1699870-7e83-4af2-ad54-b24a011a70ca) - [[transcript] - Coming Soon]
 
