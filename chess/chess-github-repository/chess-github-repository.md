@@ -34,6 +34,9 @@ If you do not have the required number of commits, or if they are all clustered 
 1. Use the template to create your own chess repository:
    1. Press "Use this template"
    1. Choose "Create a new Repository"
+
+      ![use template](use-template.png)
+
    1. Name it `chess`.
    1. Optionally, give it a meaningful description such as:
        > Full-stack chess application built as a course project for BYU CS 240. It features a networked client-server architecture, with a command-line client, a server to manage users and games, and shared modules for implementing chess rules and game state management.
