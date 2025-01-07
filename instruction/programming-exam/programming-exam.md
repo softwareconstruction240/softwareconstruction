@@ -76,7 +76,7 @@ The practice quizzes and the actual programming exam are available on Canvas in 
 
 Make sure that you take time to do all of these steps before you start the actual exam, as they will take some time, and can prevent large problems from coming up during the exam. Talk with a TA if you want help to do these steps or have questions before you start about what is allowed.
 
-Before taking the exam you should complete all of the steps in the chess phase-0 [getting started](https://github.com/softwareconstruction240/softwareconstruction/blob/main/chess/0-chess-moves/getting-started.md) document, except you will not put the project in a GitHub repo. Just create a folder and set it up with the starter code, and open it in Intellij. This will mean you will have an Intellij project with the provided starter code. You should make sure the project is able to compile and the tests run (but still all fail) before starting. Do not add any code, psuedocode, or notes to your project anywhere, this will be treated as cheating.
+Before taking the exam you should complete all of the steps in the chess phase-0 [getting started](https://github.com/softwareconstruction240/softwareconstruction/blob/main/chess/0-chess-moves/getting-started.md) document, except that you will give the repository a different name (`chess-programming-exam` is a good option). After you have submitted the programming exam, you are free to delete this additional repository. Before you start the exam, you should have an Intellij project with the provided starter code. You should make sure the project is able to compile and the tests run (but still all fail) before starting. Do not add any code, psuedocode, or notes to your project anywhere, this will be treated as cheating.
 
 You should also open the Javadoc in a web browser tab and the [chess phase-0 specification](https://github.com/softwareconstruction240/softwareconstruction/blob/main/chess/0-chess-moves/chess-moves.md) in another browser tab. If you are taking the test during TA hours you can also have the help queue open. If you need to talk with a TA you can open Zoom for that purpose. All other programs should be closed so that you have only the approved programs open on your computer during the exam.
 
@@ -108,10 +108,10 @@ Things that will be flagged and may cause you to fail:
 - Opening previous implementation(s) (IntelliJ, Github, a text-editor, etc)
 - Googling errors or questions or really anything
 - There are unauthorized items in your area (another device, paper notes made before the test time)
-- You talk to another person and it’s not about defending your area (ex: “Go away, I’m testing”)
+- You talk to another person, and it’s not about defending your area (ex: “Go away, I’m testing”)
 - You have something unauthorized open on your computer (see what is authorized in “Pre Exam Setup”)
 - Pasting (Ctrl-v) something that was copied before the exam started into your IDE
-- Headphones/Earbuds are not allowed (if you want to listen to music you can use your speakers)
+- Headphones/Earbuds are not allowed (if you want to listen to music, you can use your speakers)
 
 If you are concerned about something that happened while you were taking the test, please leave a note in the “Anything you’d like to say…” question on Canvas.
 
@@ -165,4 +165,3 @@ It is possible that this will not work for your computer. In that case it is bes
 ## <a name="videos"></a>Videos (10:52)
 
 - 🎥 [Programming Exam (10:52)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=a1699870-7e83-4af2-ad54-b24a011a70ca) - [[transcript] - Coming Soon]
-
