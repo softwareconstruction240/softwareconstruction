@@ -1,6 +1,6 @@
 # Chess Game - Getting Started
 
-📁 [Starter code](starter-code)
+📁 [Starter code](https://github.com/softwareconstruction240/chess)
 
 At this point, you have already made your own copy of the [Chess GitHub Repository](../chess-github-repository/chess-github-repository.md) and made changes from the command line. Now, we will open the project in an Integrated Development Environment (IDE). IDE's greatly help and assist the developer while working on large software projects.
 
