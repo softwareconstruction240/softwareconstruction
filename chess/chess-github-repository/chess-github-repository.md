@@ -29,11 +29,16 @@ If you do not have the required number of commits, or if they are all clustered 
 ## Creating Your Chess GitHub Repository
 
 1. Open your web browser to [GitHub](https://github.com)
-1. Create a GitHub repository for your chess project
-
+1. Sign in to personal account, or create one if you don't already have a GitHub.com account. _The [GitHub Terms of Service](https://docs.github.com/en/site-policy/github-terms/github-terms-of-service#3-account-requirements) allow only one account per individual._
+1. View the [chess template repository](https://github.com/softwareconstruction240/chess).
+1. Use the template to create your own chess repository:
+   1. Press "Use this template"
+   1. Choose "Create a new Repository"
    1. Name it `chess`.
-   1. Mark the repository as `public` so that it can be reviewed by the TAs and instructors.
-   1. Select the option to create a license file.
+   1. Optionally, give it a meaningful description such as:
+       > Full-stack chess application built as a course project for BYU CS 240. It features a networked client-server architecture, with a command-line client, a server to manage users and games, and shared modules for implementing chess rules and game state management.
+   1. Mark the repository as `public` so that it can be reviewed by the TAs and instructors. (This is the default.)
+   1. Press "Create Repository"
 
       ![create repo](create-repo.png)
 
