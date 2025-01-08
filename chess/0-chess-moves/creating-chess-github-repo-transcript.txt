@@ -1,0 +1,32 @@
+0:00 Okay, in this video, we're just going over the, um, this updated mechanism for creating your own chest GitHub repository. Um, this has been streamlined to make it as easy as possible for you.
+0:11 Um, so we've got some clear steps we're gonna go log in to GitHub. Um, I'll show you this I am already signed.
+0:16 But you'll notice that when I come to GitHub, I'm signed in. And so that's great. If you're not signed in, you'll need to either create an account or do a whole sign in thing.
+0:25 You might have to do some authentication, do all of that. Um, your computer signed student, you can definitely figure that one out.
+0:32 Umm, then the trick here is we're going to come to this chess template repository. I'll go ahead and open it in a new tab.
+0:40 And, um, when it loads, it's going particularly slow this time. We've got this big green button right here that says, uhh, uhh, use this template.
+0:49 I'll just point out that, um, it's got all the code you need, all these files, these idea folders will help you, um, we'll set up your intelligence, so it works really nice for you.
+1:00 The starter code you'll use for later phases. Um, bet everything you need for phase zero is already- contained in these folders, and there's a readme file.
+1:08 We're gonna go ahead and use it. So I'm gonna click the use this template, and create a new repository, and I'm gonna call it chess.
+1:17 And, um, I can keep all the defaults. Um, we'll give it a description. This is- kind of fun. So I'm just gonna, uh, use this description that we provided.
+1:26 Um, but I also want to give it, um, created in the winter 2025 semester. You would add your own semester.
+1:36 This will- So add your own semester. That can be kind of fun. Leave it as public so the TAs can grade it and everything.
+1:42 And we'll hit the create repository button. Um, it's gonna take a couple seconds. It goes pretty fast. Um, maybe hit the refresh button if you're feeling a little impatient.
+1:51 There we go. At this point, you're gonna have your own. That's your repository in your own GitHub account. And, um, it'll show that it was generated from our template.
+1:59 So that's really easy. And you've got all the code you needed just from right now. We can go ahead and, um, test that it works.
+2:07 Um, so I'm gonna go ahead and copy this. You'll. So I'm gonna click this code button. We're gonna clone it.
+2:13 I'll copy this URL. And just as defined in the instructions, we're going to move into a folder and clone it and then CD into it.
+2:23 That's what we'll do. So I've now switched to a different screen. And I'm going to CD into BYU, CS240. And then I'm gonna type git clone and paste in that URL.
+2:37 GitHub slash frozen fake slash chess dot git. And that's gonna download it. And now, if I list it out, I've got that chess folder, so I'll cd into my chess folder.
+2:48 And now it has all those same folders. Here's my chess. Here's my client, server, shared, the starter code that read me.
+2:57 It's all here. And, um, then you can continue with the rest of these making changes. I'll go ahead and do them.
+3:04 We can edit these with any way we want, but we'll just use echo. Um, and so I'm gonna, honestly, yeah, I'll just copy paste that.
+3:10 That's easier. We'll echo that, and that's going to create now if I- I can get status. We'll notice that it's created a new file called notes.
+3:20 And so it has a little thing. We'll need to make sure we add that. So I'll get add notes.md. I can get status again.
+3:29 It's now being tracked. And then we'll go ahead and commit it with this little message right here. The dash am message, um, is convenient.
+3:37 Commit dash am. Um, and then this is the little message that's being added, and the a means we want to commit everything.
+3:43 So we'll do that. And now if I tape git log, We'll see that this is the initial commit that GitHub created when it, when it created my clone.
+3:51 And I have a new commit that I just added right now, and I'm going to push it. So I'm going to do git push.
+3:58 Now if I do git log, we'll see that now my origin made the r- remote one on GitHub is up to date with my recent change.
+4:07 And if I come back to my GitHub one, it won't show automatically, I'll have to reload. So I'm going to hit the reload button.
+4:12 And now GitHub is showing that same commit. And that's what we're looking for. That's how we know. That's what the gr- the autograter will be able to use.
+4:18 To grade the code. And that's it. That's how you create your template repository. Um, at this point, you would just turn in, um, either this URL or this one to the autograter, um, for grading.

@@ -20,12 +20,7 @@ We use the game of chess to help you develop and demonstrate mastery during this
 
 ## Starter Code
 
-> [!NOTE]
-> Each phase of the project comes with `starter code` located in the [course instruction repository](https://github.com/softwareconstruction240). At the beginning of each phase, you will copy the phases's starter code from the course instruction repository and put it in your chess repository. In order to make it easy to copy the starter files to your chess repository, you should clone the course instruction repository to your development environment. Otherwise you will be individually downloading dozens of files directly from GitHub.
-
-```sh
-git clone https://github.com/softwareconstruction240/softwareconstruction.git softwareconstruction240
-```
+In the Chess [GitHub Repository assignment](chess-github-repository/chess-github-repository.md), you will create an entire copy of the chess project in a personal repository. This repository includes some files which are provided for you to use later in the semester. These are set aside in the `starter-code/` directory of the project. The "Getting Started" instructions for each phase will instruct you on moving these files into the proper location in your project at the appropriate time.
 
 ## GitHub Commits
 

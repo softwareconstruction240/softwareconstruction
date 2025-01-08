@@ -180,5 +180,9 @@ To pass off this assignment use the course [auto-grading](https://cs240.click/) 
 
 ## <a name="videos"></a>Videos (21:22)
 
+> [!NOTE]
+> The "Phase 0 Overview" video contains some outdated setup information. Between timestamps 0:51 and 2:40, an older and more complicated way of setting up the repo is demonstrated. This section of the video can be skipped.
+
 - 🎥 [Phase 0 Overview (15:51)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=be427737-b0b5-4aec-bb15-b177014da69c) - [[transcript]](https://github.com/user-attachments/files/17706801/CS_240_Chess_Phase_0_Transcript.pdf)
 - 🎥 [Phase 0 Design Tips (5:31)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=88653eac-78a8-4f59-a12a-b170014f61f1) - [[transcript]](https://github.com/user-attachments/files/17706812/CS_240_Phase_0_Design_Tips_Transcript.pdf)
+- 🎥 [Phase 0 Creating Chess GitHub Repository (4:34)](https://www.loom.com/share/2b2dd64e7b524b3f9b396318cf140159?sid=a6c1b75f-a73f-455e-976c-ba19052117a6) - [[transcript]](creating-chess-github-repo-transcript.txt)
