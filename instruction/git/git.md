@@ -22,6 +22,22 @@
 >
 > — Linus Torvalds
 
+## Overview
+
+Git is the industry standard **Version Control System** that powerfully manages the changes made to hundreds of files over the entire lifetime of a project. Git makes it easy to view, undo, redo, branch, and merge with collaborators in a trustable, secure way.
+
+Git provides two valuable functions. First, it allows you to track versions of files in a directory. Second, it allows you to clone all of those versions to a different location, usually to a different computer. We are going to focus on tracking versions in this instruction and cover cloning repositories when we talk later about GitHub.
+
+The general Git development workflow is illustrated in the following diagram.
+
+<!-- Control the display width of the image, but allow readers to open up or download the full image for close reading. -->
+<img src="./GitCommitWorkflow.png" style="max-width: 500px"/>
+
+To give a reference on the typically frequency of each of the stages, developers typically:
+* **Change** files all day long
+* **Stage** and **commit** changes multiple times per hour
+* **Review** commits and **push** about hourly
+
 ## Installing Git
 
 Before we can talk about Git you need to make sure it is installed in your development environment. Open a console and type `git --version`.
@@ -33,9 +49,7 @@ git version 2.32.0 (Apple Git-132)
 
 If you do not see something like that, then you need to follow these [instructions](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) to install Git.
 
-## What is Git?
-
-Git provides two valuable functions. First, it allows you to track versions of files in a directory. Second, it allows you to clone all of those versions to a different location, usually to a different computer. We are going to focus on tracking versions in this instruction and cover cloning repositories when we talk later about GitHub.
+## Getting Started with Git
 
 You can track file versions of any files in a directory by initializing Git for that directory. You can do this right now by creating a new directory in a console window and initializing it as a Git repository.
 
