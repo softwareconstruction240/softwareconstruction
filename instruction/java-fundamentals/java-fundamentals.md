@@ -74,7 +74,7 @@ One of the things that made Java so different from other languages, is that it c
 | Architecture | Example Languages  | Comment                                                                                            |
 | ------------ | ------------------ | -------------------------------------------------------------------------------------------------- |
 | Binary       | C, Rust, Go        | A device and OS specific binary is built at development time, and distributed to the target device |
-| Bytecode     | Java, WebAssembly  | An intermediate layer binary is built at development time an interpreted on the target device      |
+| Bytecode     | Java, WebAssembly  | An intermediate layer binary is built at development time and interpreted on the target device     |
 | Interpreted  | JavaScript, Python | The source code is distributed to the target device where an interpreter executes the source       |
 
 Using a bytecode representation provides the advantage of being faster than a purely interpreted language, without requiring a specific binary to be created for each target device.
