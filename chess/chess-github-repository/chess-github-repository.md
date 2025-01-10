@@ -85,7 +85,7 @@ Submit the URL of your repository to the [auto-grading](https://cs240.click/) to
 https://github.com/<youraccount>/chess
 ```
 
-After providing the URL to the AutoGrader, also pass off this "GitHub Repository" assignment with the course [auto-grading](https://cs240.click/) tool. If you created your repository correctly then your grade will automatically be entered in Canvas.
+After providing the URL to the AutoGrader, pass off th "GitHub Repository" assignment within the course [auto-grading](https://cs240.click/) tool by selecting the assignment from the dropdown and clicking the "Submit". If you created your repository correctly then your grade will automatically be entered in Canvas.
 
 ## <a name="videos"></a>Videos (3:31)
 
