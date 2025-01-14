@@ -89,8 +89,7 @@ This is a special move where the King and a Rook move simultaneously. The castli
 
 1. Neither the King nor Rook have moved since the game started
 2. There are no pieces between the King and the Rook
-3. The King is not in Check
-4. Both your Rook and King will be safe after making the move (cannot be captured by any enemy pieces).
+3. The King is not in Check, does not cross a square on which it would be in Check, and is not in Check after castling.
 
 To Castle, the King moves 2 spaces towards the Rook, and the Rook "jumps" the king moving to the position next to and on the other side of the King. This is represented in a ChessMove as the king moving 2 spaces to the side.
 
