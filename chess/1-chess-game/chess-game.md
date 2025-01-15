@@ -85,11 +85,11 @@ You do not have to implement these moves, but if you go the extra mile and succe
 
 **`Castling`**
 
-This is a special move where the King and a Rook move simultaneously. The castling move can only be taken when 4 conditions are met:
+This is a special move where the King and a Rook move simultaneously. The castling move can only be taken when 3 conditions are met:
 
 1. Neither the King nor Rook have moved since the game started
 2. There are no pieces between the King and the Rook
-3. **The King is never in Check.** The King is not in Check, does not cross a square on which it would be in Check, and is not in Check after castling.
+3. **The King is never in Check.** The King does not start in Check, does not cross a square on which it would be in Check, and is not in Check after castling.
 
 To Castle, the King moves 2 spaces towards the Rook, and the Rook "jumps" the king moving to the position next to and on the other side of the King. This is represented in a ChessMove as the king moving 2 spaces to the side.
 
