@@ -106,7 +106,7 @@ public enum PieceType {
 }
 ```
 
-`ChessPiece` implements rules that define how a piece moves independent of other chess rules such as check, stalement, or checkmate.
+`ChessPiece` implements rules that define how a piece moves independent of other chess rules such as check, stalemate, or checkmate.
 
 #### Key Methods
 
