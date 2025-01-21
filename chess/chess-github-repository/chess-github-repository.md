@@ -77,15 +77,23 @@ As you develop your chess application you should consider keeping notes about th
 
 ## ☑ Deliverable
 
-Create your repository, clone it to your development environment, add the `notes.md` file, and pushed to GitHub.
+Create your repository, clone it to your development environment, add the `notes.md` file, and push to GitHub.
 
-Submit the URL of your repository to the [auto-grading](https://cs240.click/) tool. The URL should look something like this:
+Pass off the "GitHub Repository" assignment within the course [auto-grading](https://cs240.click/) tool by selecting the assignment from the dropdown and clicking "Submit".
+
+Before you can submit the assignment for grading, you will be asked to provide your GitHub repository URL. The URL should look something like this:
 
 ```txt
 https://github.com/<youraccount>/chess
 ```
 
-After providing the URL to the AutoGrader, pass off the "GitHub Repository" assignment within the course [auto-grading](https://cs240.click/) tool by selecting the assignment from the dropdown and clicking the "Submit". If you created your repository correctly then your grade will automatically be entered in Canvas.
+When you have successfully completed the assignment:
+1. The AutoGrader will show a "Submission passed!" message and display your score.
+2. **Your score will be automatically entered in Canvas.**
+3. You will see a new item in your "Submission History" containing the notes generated during grading.
+   * Click on the submission to view more details from grading
+   * In future phases, you will see additional buttons to click for detailed compiler output.
+
 
 ## <a name="videos"></a>Videos (3:31)
 
