@@ -128,7 +128,7 @@ In most cases, the default methods provided by IntelliJ will suffice. However, t
 
 The tests and autograder rely on these methods in order to compare your objects. If you can't pass any tests even though the output seems the same check to make sure that these methods are created and working properly.
 
-To understand why we need to override the `equals()` and `hashCode()` methods see the following documentation on [Java Object Class](https://github.com/softwareconstruction240/softwareconstruction/blob/main/instruction/java-object-class/java-object-class.md)
+To understand why we need to override the `equals()` and `hashCode()` methods, see the instruction page on [Java Object Class](../../instruction/java-object-class/java-object-class.md).
 
 > [!TIP]
 > Debugging is often much easier if you also override the `toString()` method and return a concise representation of the object. This is not required, but highly recommended. This can be generated in the same way that the `equals()` and `hashcode()` were.
