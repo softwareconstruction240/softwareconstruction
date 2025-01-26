@@ -79,7 +79,7 @@ By default, a new `ChessGame` represents an immediately playable board with the 
 
 ## Extra Credit Moves
 
-If you would like to fully implement the rules of chess you need to provide support for "En Passant" and "Castling".
+If you would like to fully implement the rules of chess you need to provide support for **Castling** and **En Passant**.
 
 You do not have to implement these moves, but if you go the extra mile and successfully implement them, you’ll earn 5 extra credit points for each move (10 total) on this assignment.
 
