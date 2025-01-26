@@ -1,3 +1,5 @@
+package runtimeTypeAdapter;
+
 public abstract class AutomobileImpl implements Automobile {
     private final String make;
     private final String model;

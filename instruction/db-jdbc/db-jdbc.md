@@ -1,6 +1,8 @@
 # Relational Databases - JDBC
 
-🖥️ [Slides - JDBC](https://docs.google.com/presentation/d/19nC7v6SDqoEeK75Mb-f6L3QhnbuP6Xfo)
+🖥️ [Slides - JDBC](https://docs.google.com/presentation/d/12XS7en64-oQYivKayGyNGueWphiL6mm5)
+
+🖥️ [Lecture Videos](#videos)
 
 Now that we have covered what relational databases are and how to use SQL to interact with them, it is time to discuss how to use SQL from a Java program. Java uses a standard interface library called Java Database Connector (JDBC). This library provides you with classes to connect to a database, execute SQL queries, and process the results.
 
@@ -387,7 +389,14 @@ With the Chess application you may have a similar situation with the game interf
 - How to retrieve auto-increment primary keys that were generate by the database on an insert
 - How to get a JDBC driver for MySQL and make it available to your Java project/code
 
-## Videos
+## <a name="videos"></a>Videos (51:40)
 
-- 🎥 [Java Database Access with JDBC](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=cabe9971-3ff7-4579-be2e-ad660156090a&start=0)
-- 🎥 [JDBC - Putting it All Together](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=e5d62c40-3494-4ff9-9558-ad6b013cdfb6&start=0)
+- 🎥 [JDBC Overview (3:20)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=cabe9971-3ff7-4579-be2e-ad660156090a&start=0) - [[transcript]](https://github.com/user-attachments/files/17737257/CS_240_Java_Database_Access_with_JDBC_Transcript.pdf)
+- 🎥 [JDBC Drivers and Connections (7:44)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=1e05e1c6-727a-49b4-81cf-b1a00121b187&start=0) - [[transcript]](https://github.com/user-attachments/files/17737267/CS_240_JDBC_Drivers_and_Connections_Transcript.pdf)
+- 🎥 [Executing Queries with JDBC (5:09)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=79ca902c-b6f2-457a-b1ba-b1a0012499a4&start=0) - [[transcript]](https://github.com/user-attachments/files/17737275/CS_240_Executing_Queries_with_JDBC_Transcript.pdf)
+- 🎥 [Executing Insert, Update, and Delete Statements (8:37)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=9033fa48-8260-4701-84ee-b1a001262b8c&start=0) - [[transcript]](https://github.com/user-attachments/files/17737292/CS_240_Executing_Insert_Update_and_Delete_Statements_Transcript.pdf)
+- 🎥 [Retrieving Auto-Increment Primary Keys and Ending Transactions (4:33)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=78e3086c-c6de-43d0-bba5-b1a0012a17fa&start=0) - [[transcript]](https://github.com/user-attachments/files/17737303/CS_240_Retrieving_Auto_Increment_Primary_Keys_and_Ending_Transactions_Transcript.pdf)
+- 🎥 [Usernames, Passwords, and User Permissions (3:25)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=636f5721-1e35-413e-a1fe-b1a0012d43d7&start=0) - [[transcript]](https://github.com/user-attachments/files/17737306/CS_240_Usernames_Passwords_and_User_Permissions_Transcript.pdf)
+- 🎥 [JDBC - Putting It All Together (9:48)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=a882dded-56a9-43ff-b4fe-b1a0012e6341&start=0) - [[transcript]](https://github.com/user-attachments/files/17737311/CS_240_JDBC_Putting_It_All_Together_Transcript.pdf)
+- 🎥 [Unit Testing Database Code (5:12)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=6d8bf3b3-3ddd-4f3d-b90d-ad6b014f2bb7&start=0) - [[transcript]](https://github.com/user-attachments/files/17780620/CS_240_Unit_Testing_Database_Code.pdf)
+- 🎥 [Correction - Unit Testing Database Code (3:52)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=9178d92a-e41b-48f4-8e68-adf8015d7a91&start=0) - [[transcript]](https://github.com/user-attachments/files/17780623/CS_240_Unit_Testing_Database_Code_Correction.pdf)

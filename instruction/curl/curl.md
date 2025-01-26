@@ -2,6 +2,8 @@
 
 🖥️ [Slides](https://docs.google.com/presentation/d/1pM_tUVD7c6kWpHkEwuRpbWmoBFss3GuK/edit?usp=sharing&ouid=114081115660452804792&rtpof=true&sd=true)
 
+🖥️ [Lecture Videos](#videos)
+
 Curl (technically `cURL`) is essentially a command line web browser. It allows you to see, debug, and execute HTTP requests from the command line console window of any operating system. This makes Curl a valuable tool for any software engineer.
 
 The most basic syntax of curl is to simply provide a URL to the Curl application.
@@ -58,4 +60,11 @@ Putting this all together in a single request would look like the following if y
 
 Take some time to get familiar with Curl. You can use it to test your server, programmatically make batch requests, or to probe and debug how other web services work.
 
-⚠ Note that when running under Windows Powershell `curl` is mapped to the `Invoke-WebRequest` command. You don't want to use that. Instead type `curl.exe` to actually access Curl.
+> [!NOTE]
+> Note that when running under Windows Powershell `curl` is mapped to the `Invoke-WebRequest` command. You don't want to use that. Instead type `curl.exe` to actually access Curl.
+
+## <a name="videos"></a>Videos (19:26)
+
+- 🎥 [cURL: Client for URLs (9:17)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=16506fca-9d4b-4f5e-89ad-b185015d13e5) - [[transcript]](https://github.com/user-attachments/files/17737197/CS_240_cURL_Client_for_URLs_Transcript.pdf)
+- 🎥 [cURL for Chess (4:24)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=07ab3fff-d972-45b1-9f9f-b185015fdf9f) - [[transcript]](https://github.com/user-attachments/files/17737202/CS_240_cURL_for_Chess_Transcript.pdf)
+- 🎥 [cURL Alternatives (5:45)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=10dd7fb8-74c3-4b05-a2db-b18501615517) - [[transcript]](https://github.com/user-attachments/files/17737211/CS_240_cURL_Alternatives_Transcript.pdf)

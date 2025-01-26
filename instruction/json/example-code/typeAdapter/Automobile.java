@@ -1,3 +1,5 @@
+package typeAdapter;
+
 public interface Automobile {
     enum AutomobileType {
         Car, Truck

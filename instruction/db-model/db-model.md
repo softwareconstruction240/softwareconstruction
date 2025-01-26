@@ -2,6 +2,8 @@
 
 🖥️ [Slides](https://docs.google.com/presentation/d/19nC7v6SDqoEeK75Mb-f6L3QhnbuP6Xfo/edit?usp=sharing&ouid=114081115660452804792&rtpof=true&sd=true)
 
+🖥️ [Lecture Videos](#videos)
+
 ![Edgar Cobb](edgar-codd.png)
 
 > _source: [Wikipedia](https://en.wikipedia.org/wiki/Edgar_F._Codd)_
@@ -84,6 +86,18 @@ A good primary key has the following characteristics.
 - **Stable** - The key doesn't change over time. For example, a person's name would be considered unstable because it could change during the person's life.
 - **Simple** - Sometimes multiple fields must be combined to create a unique key that is representative of the row. However, you should attempt to keep the key as simple as possible because you reference the key so often when working with relational databases.
 
+## Decomposition
+
+All of the same principles of good software design also apply when creating representations in a relational model. For example, you don't want to create a single relational table that contains all of the properties for your entire application. Doing so would create a table that lacks cohesion.
+
+| ownerId | ownerName | petId | petName | petStore  | storeCity | vaccinated | purchaseDate |
+| ------- | --------- | ----- | ------- | --------- | --------- | ---------- | ------------ |
+| 81      | Juan      | 93    | Fido    | Pets4You  | Provo     | true       | 2026         |
+| 82      | Bud       | 77    | Chip    | DoggyTown | Orem      | false      | 2027         |
+| 83      | Bud       | 56    | Puddles | DoggyTown | Orem      | false      | 2027         |
+
+Additoinally, large, non-cohesive tables, force you to represent the same data in multiple rows which violates the DRY principle. Notice in the above example that the store information is repeated in multiple rows. Instead you want to `normalize` a table like this into multiple tables that each represent a single cohesive object. You then use relationships between the tables to create aggregations, or views as they are called in the relational model, as desired.
+
 ## Views
 
 You can create new views of the relational data by specifying queries that `join` data from different tables based upon matching keys.
@@ -116,9 +130,9 @@ In practical terms, relational data is stored in a Relational Database Managemen
 - How to model inheritance relationships in the relational model
 - How to represent a data model in an ERD
 
-## Videos
+## <a name="videos"></a>Videos (35:21)
 
-- 🎥 [Relational Databases Overview](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=10667c35-dea3-4f1e-8c91-ad66013d553b&start=0)
-- 🎥 [Understanding the Relational Model](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=3ec3f6de-a112-4e0a-a0af-ad66013f8bc7&start=0)
-- 🎥 [Modeling a Database Schema](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=ee130025-e1ab-4f6b-a72c-ad660143e8aa&start=0)
-- 🎥 [Modeling Inheritance Relationships](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=6bb9d1f1-803c-4d8f-a5ea-ad660146883e&start=0)
+- 🎥 [Relational Databases Overview (5:02)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=10667c35-dea3-4f1e-8c91-ad66013d553b&start=0) - [[transcript]](https://github.com/user-attachments/files/17737470/CS_240_Relational_Databases_Overview_Transcript.pdf)
+- 🎥 [Understanding the Relational Model (13:55)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=3ec3f6de-a112-4e0a-a0af-ad66013f8bc7&start=0) - [[transcript]](https://github.com/user-attachments/files/17780681/CS_240_Understanding_the_Relational_Model.pdf)
+- 🎥 [Modeling a Database Schema (8:42)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=ee130025-e1ab-4f6b-a72c-ad660143e8aa&start=0) - [[transcript]](https://github.com/user-attachments/files/17780684/CS_240_Modeling_a_Database_Schema.pdf)
+- 🎥 [Modeling Inheritance Relationships (7:42)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=6bb9d1f1-803c-4d8f-a5ea-ad660146883e&start=0) - [[transcript]](https://github.com/user-attachments/files/17780687/CS_240_Modeling_Inheritance_Relationships.pdf)

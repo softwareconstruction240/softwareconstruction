@@ -23,7 +23,7 @@ public class PetServer {
 
         Spark.staticFiles.location("public");
 
-        Spark.webSocket("/connect", webSocketHandler);
+        Spark.webSocket("/ws", webSocketHandler);
 
         Spark.post("/pet", this::addPet);
         Spark.get("/pet", this::listPets);
@@ -45,6 +45,7 @@ public class PetServer {
 
     private void exceptionHandler(ResponseException ex, Request req, Response res) {
         res.status(ex.StatusCode());
+        res.body(ex.toJson());
     }
 
     private Object addPet(Request req, Response res) throws ResponseException {

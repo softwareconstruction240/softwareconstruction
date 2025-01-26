@@ -2,6 +2,8 @@
 
 🖥️ [Slides](https://docs.google.com/presentation/d/1f1X706vwJKqBRPhlB-yBF7-059--6DoF/edit#slide=id.p1)
 
+🖥️ [Lecture Videos](#videos)
+
 📖 **Required Reading**: None
 
 Software design is the process of defining, architecting, and creating an application. The primary goal of any application is to satisfy a customer's requirements. With a firm focus on the customer, you then apply the principles of good software design to identify the important actors, objects, and interactions necessary to represent the application's domain. This naturally leads to a code architecture that is easy to understand, debug, enhance, and maintain as requirements change.
@@ -74,7 +76,23 @@ Whenever you program you should try and abstract things into the following parts
 1. What interface does the my abstraction need to provide
 1. What class will implement the interface
 
-![diagrams](abstraction.png)
+```mermaid
+classDiagram
+    MyAbstraction <-- Input
+    MyAbstraction --> Output
+    class Input{
+      getA()
+      getB()
+    }
+    class MyAbstraction{
+      -private encapsulatedData
+      -private encapsulatedMethods()
+      process(Input):Output
+    }
+    class Output{
+      setC(c)
+    }
+```
 
 Note that sometimes it is not necessary to create an interface when a single class representation can simply expose public methods and abstract away the details. Interfaces are useful when there are multiple different algorithms that can be used to satisfy the interface, or when there are classes that implement multiple interfaces.
 
@@ -103,7 +121,20 @@ The basic idea of decomposition is to create another level of abstraction that r
 
 The advantage of decomposition is that you only need to think about the details of the layer when you are actually working on it. This includes defining its interfaces, implementing the details, and writing tests for that layer. For example, when defining the `Participant` layer, you only need to think about how a participant interacts with the `Game` and is represented by a `Player` or `Observer`. At the player level, you don't need to worry about what a `Board` is comprised of, or what the rules for moving a `King` are.
 
-![diagrams](decomposition.png)
+```mermaid
+classDiagram
+    Game *-- Board
+    Game *-- Piece
+    Game *-- Participant
+
+    Board *-- Square
+    Participant <|-- Player
+    Participant <|-- Observer
+
+    Piece <|-- King
+    Piece <|-- Rook
+    Piece <|-- Pawn
+```
 
 Programming languages themselves utilize decomposition to represent different parts of a program. When using Java we use the following decompositions:
 
@@ -160,7 +191,36 @@ Let's look at each of these in detail.
 
 The [Single Responsibility Principle](https://en.wikipedia.org/wiki/Single-responsibility_principle) represents the desirability of high cohesion. The idea here is that an actor only has one reason to use an object. You don't have a `Person` class that represents everything associated with a person. You have a `Person` class that represents the distinct attributes of a person such as `name` and `birthDate`, and then you have other classes that represent things associated with a Person.
 
-![single responsibility](single-responsibility.png)
+```mermaid
+classDiagram
+    Person <-- FoodConsumption : uses-a
+    Person <-- OutdoorActivity : uses-a
+    Death --* Person : has-a
+    Birth --* Person : has-a
+    class Person{
+      name
+      birth
+      death
+    }
+
+    class FoodConsumption {
+        eat(Person, Meal)
+    }
+
+    class OutdoorActivity {
+        play(Person, Game)
+    }
+
+    Date <|-- Death
+    Date <|-- Birth
+    OutdoorActivity --> Game : uses-a
+
+    class Death {
+    }
+
+    class Birth {
+    }
+```
 
 Following the single responsibility principle makes it so there is only one reason to manipulate the class. You manipulate the `Person` class to represent the person and the `Death` class to represent a death. If you find yourself making a `FrankenObject` that represents multiple objects, or responsibilities, then you should consider refactoring your code into multiple classes.
 
@@ -189,7 +249,7 @@ public interface FrankenPerson {
 ```
 
 ```java
-public interface SOPViolation {
+public interface SRPViolation {
     /**
      * i < 0 delete the key and the empty string if successful
      * i == 0 return the old value if different
@@ -459,3 +519,15 @@ You can reduce duplicated code by:
 - Good algorithm and data structure selection
 - Encapsulation - Information hiding
 - DRY - Avoiding code duplication
+
+## <a name="videos"></a>Videos (42:17)
+
+- 🎥 [Design Principles - Introduction (2:27)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=3e09338f-77ca-4465-bebc-b17e014a8118) - [[transcript]](https://github.com/user-attachments/files/17738057/CS_240_Design_Principles_Introduction_Transcript.pdf)
+- 🎥 [Design Principles - Design Is Inherently Iterative (3:12)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=86a379ac-0a85-4843-9e3e-b17e014ba495) - [[transcript]](https://github.com/user-attachments/files/17738081/CS_240_Design_Principles_Design_is_Inherently_Iterative_Transcript.pdf)
+- 🎥 [Design Principles - Abstraction (8:29)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=0fa47857-e09e-47c7-8af1-b17e014cb378) - [[transcript]](https://github.com/user-attachments/files/17738090/CS_240_Design_Principles_Abstraction_Transcript.pdf)
+- 🎥 [Design Principles - Good Naming (4:24)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=93653a93-9f2a-4550-89d5-b17e01513ccc) - [[transcript]](https://github.com/user-attachments/files/17738108/CS_240_Design_Principles_Good_Naming_Transcript.pdf)
+- 🎥 [Design Principles - Single Responsibility Principle (2:44)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=551b4011-c9c5-44b6-a190-b17e0152b18a) - [[transcript]](https://github.com/user-attachments/files/17738113/CS_240_Design_Principles_Single_Responsibility_Principle_Transcript.pdf)
+- 🎥 [Design Principles - Decomposition (5:25)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=8ebca729-bde2-43a3-a031-b17e015394f6) - [[transcript]](https://github.com/user-attachments/files/17738129/CS_240_Design_Principles_Decomposition_Transcript.pdf)
+- 🎥 [Design Principles - Good Algorithm and Data Structure Selection (2:25)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=2356c7a4-3702-49c4-8c1d-b17e0155485a) - [[transcript]](https://github.com/user-attachments/files/17738176/CS_240_Design_Principles_Good_Algorithm_and_Data_Structure_Selection_Transcript.pdf)
+- 🎥 [Design Principles - Low Coupling (9:37)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=b1c2ca29-d89f-44a5-9e82-b17e01562e89) - [[transcript]](https://github.com/user-attachments/files/17738182/CS_240_Design_Principles_Low_Coupling_Transcript.pdf)
+- 🎥 [Design Principles - Avoid Code Duplication (3:34)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=81229b4c-251d-4aaa-a2c6-b17e0158fe0b) - [[transcript]](https://github.com/user-attachments/files/17738191/CS_240_Design_Principles_Avoid_Code_Duplication_Transcript.pdf)

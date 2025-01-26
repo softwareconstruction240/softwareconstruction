@@ -8,6 +8,8 @@
   - section 1: Input, Output Streams, Readers, and Writers
   - section 2: Paths, Files and Directories
 
+🖥️ [Lecture Videos](#videos)
+
 Input refers to when you read data in from some source of data. Output is the opposite, where you write data out to some destination. Sources and destinations commonly represent devices such as persistent storage, the network, a keyboard, or a printer. It can also represent bytes being pulled from, or written to, an array or some other memory based structure.
 
 The [java.io](https://docs.oracle.com/javase/20/docs/api/java/io/package-summary.html) package contains many classes and interfaces for working with I/O. The following table gives examples of some of the more commonly used `java.io` classes.
@@ -122,13 +124,13 @@ public class ReadFile {
 - How to use the scanner class
 - Uses of the file class
 
-## Videos
+## <a name="videos"></a>Videos (32:47)
 
-- 🎥 [Overview](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=9c064639-8e05-4d4c-b458-ad64014cbb24&start=0)
-- 🎥 [Streams](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=8db201b9-9a04-4cbf-8a99-ad64014ddd56&start=0)
-- 🎥 [Readers and Writers](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=66d67329-cc52-4533-a2b4-ad64015237cf&start=0)
-- 🎥 [The Scanner Class](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=7dcd4a30-0b07-4e6a-9341-ad640153f4b8&start=0)
-- 🎥 [Other Ways to Read and Write Files](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=ef902529-f41c-402d-be3d-ad640156133a&start=0)
+- 🎥 [Overview (2:50)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=9c064639-8e05-4d4c-b458-ad64014cbb24&start=0) - [[transcript]](https://github.com/user-attachments/files/17804847/CS_240_I_O_Overview.pdf)
+- 🎥 [Streams (14:51)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=8db201b9-9a04-4cbf-8a99-ad64014ddd56&start=0) - [[transcript]](https://github.com/user-attachments/files/17804850/CS_240_Streams.pdf)
+- 🎥 [Readers and Writers (5:15)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=66d67329-cc52-4533-a2b4-ad64015237cf&start=0) - [[transcript]](https://github.com/user-attachments/files/17804852/CS_240_Readers_and_Writers.pdf)
+- 🎥 [The Scanner Class (5:54)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=d2b32cd5-aa33-47fc-b261-b1a001104cde&start=0) - [[transcript]](https://github.com/user-attachments/files/17750511/CS_240_The_Scanner_Class_Tokenizing_Input_Transcript.pdf)
+- 🎥 [Other Ways to Read and Write Files (3:57)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=442ead32-4f14-461c-aec5-b1a001122096&start=0) - [[transcript]](https://github.com/user-attachments/files/17750517/CS_240_Other_Ways_to_Read_and_Write_Files_Transcript.pdf)
 
 ## Demonstration code
 

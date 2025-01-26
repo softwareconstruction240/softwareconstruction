@@ -1,3 +1,5 @@
+import dataaccess.DataAccess;
+import dataaccess.MemoryDataAccess;
 import dataaccess.MySqlDataAccess;
 import server.PetServer;
 import service.PetService;
@@ -14,17 +16,22 @@ public class ServerMain {
                 port = Integer.parseInt(args[0]);
             }
 
-            var service = new PetService(new MySqlDataAccess());
+            DataAccess dataAccess = new MemoryDataAccess();
+            if (args.length >= 2 && args[1].equals("sql")) {
+                dataAccess = new MySqlDataAccess();
+            }
+
+            var service = new PetService(dataAccess);
             var server = new PetServer(service).run(port);
             port = server.port();
-            System.out.printf("Server started on port %d%n", port);
+            System.out.printf("Server started on port %d with %s%n", port, dataAccess.getClass());
             return;
         } catch (Throwable ex) {
             System.out.printf("Unable to start server: %s%n", ex.getMessage());
         }
         System.out.println("""
                 Pet Server:
-                java ServerMain <port> [<dburl> <dbuser> <dbpassword> <dbname>]
+                java ServerMain <port> [sql]
                 """);
     }
 }

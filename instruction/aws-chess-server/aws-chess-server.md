@@ -1,5 +1,7 @@
 # AWS Chess Server
 
+🖥️ [Lecture Videos](#videos)
+
 Playing chess in your development environment by yourself can get old after a while. Wouldn't it be nice if you could actually play with your friends or family? The great thing is that your code is already designed to allow any computer in the world to talk to your HTTP server, you just need to put it in a place where it is accessible. To do this, you need to run your chess server on a device that has a public IP address and open up your network port so that it is externally accessible.
 
 There are lots of ways you can accomplish this. You could lease an IP address from your internet service provider (ISP) and assign it to your laptop, or you could lease a server from a cloud provider such as Digital Ocean, Azure, or Amazon Web Services (AWS).
@@ -37,7 +39,8 @@ The Amazon Elastic Compute Cloud (EC2) service provides all of the functionality
 
       ![Instance type](instanceType.png)
 
-   1. In the Key pair input select an existing key pair if you have created one previously, or select the `Create new key pair` option. Make sure you save the key pair to a safe place in your development environment. You will need this to connect to your server, and you do not want to let anyone else have access to it. Do not check the key pair into GitHub or any other publicly available location.
+   1. In the Key pair input select an existing key pair if you have created one previously, or select the `Create new key pair` option. Make sure you save the key pair to a safe place in your development environment. You will need this to connect to your server, and you do not want to let anyone else have access to it. Do not check the key pair into GitHub or any other publicly available location.<br/><br/>
+   **Note:** You may need to change the file permissions to protect your key file before you can use it to access your AWS instance. If using a Mac or Linux, use the command ```chmod 600 <path to your file>```. 
    1. In the `Network settings` you specify how the world can access your server. Choose the option to `Select existing security group` and pick the security group you created previously.
 
       ![Security group configuration](securityGroup.png)
@@ -84,6 +87,7 @@ ALTER USER 'root'@'localhost' IDENTIFIED BY '1Really~Complicated!!';
 UNINSTALL COMPONENT 'file://component_validate_password';
 ALTER USER 'root'@'localhost' IDENTIFIED BY 'monkeypie';
 ```
+**Note:** Make sure your password matches the root password specified in the db.properties file in your chess client.
 
 ## Install Java
 
@@ -166,4 +170,36 @@ java -jar client.jar youripaddress:8080
 
 ![Playing chess](playingChess.png)
 
+## Make your chess server start whenever you start the AWS instance
+
+Invoking your chess server from ssh will require you to keep the ssh terminal open. You can make your chess server start automatically every time your AWS instance is started by following these instructions:
+
+1. SSH into your server as described above
+2. Create and open a service description file: ```sudo nano /etc/systemd/system/chess_server.service```
+3. Enter and save the following in the Nano code editor window:
+```[Unit]
+Description=Chess Server
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=java -jar /home/ec2-user/server.jar 8080
+
+[Install]
+WantedBy=multi-user.target
+sudo systemctl enable chess_server
+```
+4. Enable the chess server service: ```sudo systemctl enable chess_server```
+5. Start the chess server service: ```sudo systemctl start chess_server```
+6. Check the status of the chess server service: ```sudo systemctl status chess_server```
+7. To confirm that the service starts whenever the AWS instance is started, stop and restart the AWS instance from the AWS console or use this command: ```sudo reboot```
+
 Have fun! You have just taken the first step in becoming the world's best chess server.
+
+## <a name="videos"></a>Videos (64:23)
+- 🎥 [Overview (1:41)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=10672ba0-ba2d-4c9b-b6c1-b1ae01071d55&start=0) - [[transcript]](https://github.com/user-attachments/files/17707228/CS_240_Deploying_your_Chess_Server_on_AWS_Overview_Transcript.pdf)
+- 🎥 [Launch an EC2 Instance (14:42)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=feea3668-a904-402d-97d1-b1ae0107c46d&start=0) - [[transcript]](https://github.com/user-attachments/files/17707232/CS_240_Launch_an_EC2_Instance_Transcript.pdf)
+- 🎥 [Setup Your EC2 Instance (13:42)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=a5252593-01e6-479b-8532-b1ae010c4e9b&start=0) - [[transcript]](https://github.com/user-attachments/files/17707242/CS_240_Set_Up_Your_EC2_Instance_Transcript.pdf)
+- 🎥 [Modify Your Client Code (7:50)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=c20793cb-452e-4a52-bf1d-b1ae01121603&start=0) - [[transcript]](https://github.com/user-attachments/files/17707251/CS_240_Modify_Your_Client_Code_Transcript.pdf)
+- 🎥 [Deploy Code and Start the Server (17:49)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=d0fcb3f4-5aea-44b1-af53-b1ae01149092&start=0) - [[transcript]](https://github.com/user-attachments/files/17707258/CS_240_Deploy_Code_and_Start_the_Server_Transcript.pdf)
+- 🎥 [Configure Your Chess Server to Start When Your EC2 Instance Starts (8:39)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=56af2673-5e59-4019-8e49-b1ae0119d612&start=0) - [[transcript]](https://github.com/user-attachments/files/17707267/CS_240_Configure_Your_Chess_Server_to_Start_When_Your_EC2_Instance_Starts_Transcript.pdf)

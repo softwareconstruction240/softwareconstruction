@@ -4,6 +4,8 @@
 
 📖 **Required Reading**: Core Java for the Impatient Chapter 2: Object-Oriented Programming
 
+🖥️ [Lecture Videos](#videos)
+
 Classes are the primary programming construct for Java. A class contains fields and methods. Fields represent variables within the class and methods represent operations that the class performs. For example, if we had a class that represents a person, we might have a field called `name` that contains the person's name, and a method called `sayName` that outputs the name. An object is an instantiation, or instance, of a class that has been initialized to contain values. A class may also have a constructor that provides the default values for the fields when the class is instantiated into an object.
 
 ```java
@@ -179,21 +181,21 @@ public static void main(String[] args) {
 - What an enum is and how to implement one
 - The standard order of elements in a Java class
 
-## Videos
+## <a name="videos"></a>Videos (1:12:18)
 
-- 🎥 [Overview](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=8248d213-ef10-44e1-8dbf-ad5d0143c0f8&start=0)
-- 🎥 [Object References](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=cd1007ae-04da-4311-9e2d-ad5d0144b41a&start=0)
-- 🎥 [Static Variables and Methods](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=c2af67a3-d801-4550-bffe-ad5d01493675&start=0)
-- 🎥 [Getters and Setters](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=b9ff467d-a874-4778-9b2a-ad5d014b74ad&start=0)
-- 🎥 [Constructor Methods](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=0d212d67-270d-4775-8ebb-ad5d014c7721&start=0)
-- 🎥 [Inheritance](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=74faf0ca-9a24-4800-8ded-ad5d014f9493&start=0)
-- 🎥 [Method Overriding](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=d47ce0c1-85e5-45a7-b56d-ad5d01512d78&start=0)
-- 🎥 [Implementing a Hashcode Method](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=a486e175-a53f-4aed-b436-ad5d015744ac&start=0)
-- 🎥 [Method Overloading](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=7bec5f67-10c3-4b19-a0fc-ad640139627a&start=0)
-- 🎥 [The Final Keyword](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=c8298a1a-b65c-43bd-8928-ad64013a3b89&start=0)
-- 🎥 [The `this` Reference](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=4d34dffd-7fec-4c10-b15a-ad64013b245c&start=0)
-- 🎥 [Enums](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=57082049-bdad-4525-a6a1-ad64013e1eab&start=0)
-- 🎥 [Object-Oriented Design Overview](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=77c184e5-8afd-4c56-84c8-ad64013f7a4b&start=0)
+- 🎥 [Overview (2:47)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=8248d213-ef10-44e1-8dbf-ad5d0143c0f8&start=0) - [[transcript]](https://github.com/user-attachments/files/17756219/CS_240_Classes_and_Objects_Overview.pdf)
+- 🎥 [Object References (10:00)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=cd1007ae-04da-4311-9e2d-ad5d0144b41a&start=0) - [[transcript]](https://github.com/user-attachments/files/17756222/CS_240_Object_References.pdf)
+- 🎥 [Static Variables and Methods (7:07)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=c2af67a3-d801-4550-bffe-ad5d01493675&start=0) - [[transcript]](https://github.com/user-attachments/files/17756224/CS_240_Static_Variables_and_Methods.pdf)
+- 🎥 [Getters and Setters (2:33)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=b9ff467d-a874-4778-9b2a-ad5d014b74ad&start=0) - [[transcript]](https://github.com/user-attachments/files/17756226/CS_240_Getters_and_Setters.pdf)
+- 🎥 [Constructor Methods (9:59)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=0d212d67-270d-4775-8ebb-ad5d014c7721&start=0) - [[transcript]](https://github.com/user-attachments/files/17756229/CS_240_Constructor_Methods.pdf)
+- 🎥 [Inheritance (4:10)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=74faf0ca-9a24-4800-8ded-ad5d014f9493&start=0) - [[transcript]](https://github.com/user-attachments/files/17756231/CS_240_Inheritance.pdf)
+- 🎥 [Method Overriding (9:36)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=d47ce0c1-85e5-45a7-b56d-ad5d01512d78&start=0) - [[transcript]](https://github.com/user-attachments/files/17756232/CS_240_Method_Overriding.pdf)
+- 🎥 [Implementing a Hashcode Method (9:46)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=a486e175-a53f-4aed-b436-ad5d015744ac&start=0) - [[transcript]](https://github.com/user-attachments/files/17707561/CS_240_Implementing_a_Hashcode_Method_Transcript.pdf)
+- 🎥 [Method Overloading (1:57)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=7bec5f67-10c3-4b19-a0fc-ad640139627a&start=0) - [[transcript]](https://github.com/user-attachments/files/17756235/CS_240_Method_Overloading.pdf)
+- 🎥 [The Final Keyword (2:10)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=c8298a1a-b65c-43bd-8928-ad64013a3b89&start=0) - [[transcript]](https://github.com/user-attachments/files/17756237/CS_240_The_Final_Keyword.pdf)
+- 🎥 [The `this` Reference (3:21)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=4d34dffd-7fec-4c10-b15a-ad64013b245c&start=0) - [[transcript]](https://github.com/user-attachments/files/17756239/CS_240_The_.this._Reference.pdf)
+- 🎥 [Enums (3:23)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=57082049-bdad-4525-a6a1-ad64013e1eab&start=0) - [[transcript]](https://github.com/user-attachments/files/17756242/CS_240_Enums.pdf)
+- 🎥 [Object-Oriented Design Overview (5:29)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=77c184e5-8afd-4c56-84c8-ad64013f7a4b&start=0) - [[transcript]](https://github.com/user-attachments/files/17756245/CS_240_Object_Oriented_Design_Overview.pdf)
 
 ## Demonstration code
 

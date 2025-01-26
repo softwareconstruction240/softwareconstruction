@@ -2,6 +2,8 @@
 
 🖥️ [Slides](https://docs.google.com/presentation/d/1jNPLDXYxK7kMvui4WvK0bshU076_OTQ1/edit?usp=sharing&ouid=114081115660452804792&rtpof=true&sd=true)
 
+🖥️ [Lecture Videos](#videos)
+
 ![webSocket](webServicesWebSocketsLogo.png)
 
 HTTP is based on a client-server architecture. A client always initiates the request and the server responds. This is great if you are building a global document library connected by hyperlinks, but for many other use cases it just doesn't work. Applications for notifications, distributed task processing, peer-to-peer communication, or asynchronous events need communication that is initiated by two or more connected devices.
@@ -18,7 +20,7 @@ WebSocket connections are still only between two parties. So if you want to faci
 
 ## Creating a WebSocket Server Connection
 
-Here is an example of a basic HTTP server that uses the `JavaSpark` package to support upgrading to the WebSocket protocol when the `/connect` endpoint is called by a client.
+Here is an example of a basic HTTP server that uses the `JavaSpark` package to support upgrading to the WebSocket protocol when the `/ws` endpoint is called by a client.
 
 ```java
 import org.eclipse.jetty.websocket.api.annotations.*;
@@ -29,7 +31,7 @@ import spark.Spark;
 public class WSServer {
     public static void main(String[] args) {
         Spark.port(8080);
-        Spark.webSocket("/connect", WSServer.class);
+        Spark.webSocket("/ws", WSServer.class);
         Spark.get("/echo/:msg", (req, res) -> "HTTP response: " + req.params(":msg"));
     }
 
@@ -75,7 +77,7 @@ public class WSClient extends Endpoint {
     public Session session;
 
     public WSClient() throws Exception {
-        URI uri = new URI("ws://localhost:8080/connect");
+        URI uri = new URI("ws://localhost:8080/ws");
         WebSocketContainer container = ContainerProvider.getWebSocketContainer();
         this.session = container.connectToServer(this, uri);
 
@@ -100,3 +102,11 @@ public class WSClient extends Endpoint {
 📁 [Simple echo Client and Server](example-code)
 
 This code provides an IntelliJ project that contains modules for a WebSocket Client and Server. Examples for both HTTP and WebSocket communication is provided. This allows you to compare and contrast how to use these protocols.
+
+## <a name="videos"></a>Videos (1:11:36)
+
+- 🎥 [WebSocket Introduction (10:45)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=fcd3b045-d06e-41f7-8a0e-b1a1014a7b97) - [[transcript]](https://github.com/user-attachments/files/17753884/CS_240_WebSocket_Introduction_Transcript.pdf)
+- 🎥 [WebSocket Protocol (7:06)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=91c23bc0-410b-4848-be81-b1a1014dab96) - [[transcript]](https://github.com/user-attachments/files/17753890/CS_240_WebSocket_Protocol_Transcript.pdf)
+- 🎥 [Simple WebSocket Example (12:39)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=5ea47462-3100-4597-a7ce-b1a1014ffd34) - [[transcript]](https://github.com/user-attachments/files/17753898/CS_240_Simple_WebSocket_Example_Transcript.pdf)
+- 🎥 [Pet Shop WebSocket Example (26:08)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=155aeaa0-e35e-40fe-94bd-b1a10153d812) - [[transcript]](https://github.com/user-attachments/files/17753916/CS_240_Petshop_WebSocket_Example_Transcript.pdf)
+- 🎥 [Chess WebSocket (14:58)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=fe962f4a-4e75-47f4-ba91-b1a1015b7928) - [[transcript]](https://github.com/user-attachments/files/17753934/CS_240_Chess_WebSocket_Transcript.pdf)

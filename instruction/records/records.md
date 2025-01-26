@@ -1,5 +1,7 @@
 🖥️ [Slides](https://docs.google.com/presentation/d/18afVnWrynaF_7Tqet6SpqeBM3Ns_tS-v9wW86TliEX4/edit?usp=sharing)
 
+🖥️ [Lecture Videos](#videos)
+
 # Java Records
 
 When writing object oriented code it is very common to have classes that only exist to represent a collection of data fields. These are called `data objects`. Data objects exist only to serve as input, or output, for other objects that operate on them. For example, you could have `Pet` object with id, name, and type fields. A pet object would then be passed to a `Walker` object that would give it exercise. Another object, `PetHealth` would be associated with the pet in order to track the effect of the exercise. This type of encapsulation helps to create cohesive objects that have only one responsibility. An additional desirable attribute of data objects is that they are usually immutable. This means that after they are created they do not change. Immutable objects are desirable because they are safe to pass around and use in multiple contexts at the same time, without worrying that they will have mutated when they come back to you.
@@ -88,3 +90,7 @@ public record PetRecord(int id, String name, String type) {
     }
 }
 ```
+
+## <a name="videos"></a>Videos (6:19)
+
+- 🎥 [Java Records (6:19)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=1f70d34e-b330-4e45-9df0-b19c011a79bc) - [[transcript]](https://github.com/user-attachments/files/17752045/CS_240_Java_Records_Transcript.pdf)

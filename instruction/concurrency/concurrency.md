@@ -4,6 +4,8 @@
 
 📖 **Optional Reading**: OPTIONAL: Core Java for the Impatient, Chapter 10: Concurrent Programming
 
+🖥️ [Lecture Videos](#videos)
+
 In order to understand the value of concurrent programming it is helpful to examine a process that executes discrete tasks. Imagine a pizza shop that takes orders and makes pizzas. A shop that only has one worker can only take one order at a time and make one pizza at a time.
 
 ![Single thread](singleThread.gif)
@@ -358,15 +360,15 @@ public class MultithreadedServerExample {
 }
 ```
 
-In this example, the `value` variable is read and modified in the endpoint handler. If you execute the following commands from your command console it will repeatedly try to toggle the value. After each call to toggle the value should return to true.
+In this example, the `sum` variable is read and modified in the endpoint handler. If you execute the the following commands from your command console, it will rapidly send 100 add requests and 100 subtract requests to the server. The requests may not fire at exactly the same rate so the intermediate values may fluctuate. By the end of the operation, once all the operations have completed, we would expect for the sum to be back at 0.
 
 ```sh
-while true; do curl localhost:8080/add/1; print "\n"; done &
-while true; do curl localhost:8080/add/-1; print "\n"; done &
+for i in {1..100}; do curl localhost:8080/add/1; print ""; done &
+for i in {1..100}; do curl localhost:8080/add/-1; print ""; done &
 wait
 ```
 
-However, because we read and write `value` as two different statements, we have a race condition where we occasionally lose what one thread assigned. That means the `value` will often appear as false.
+However, because the `sum += ...` command executes as separate read and write statements, a race condition exists which results in one of the thread's values being overwritten by another value. This effectively discards the change and causes our system to lose information; these losses accumulate and vary from run to run based on the way the requests are received from the network and scheduled by the kernel. Repeatedly testing this sample provided final sums between -30 and +24 (when the answer should always be _zero_). That's a lot of variance for a system that people expect to "just work."
 
 We can solve this by synchronizing the access to the critical section of code.
 
@@ -518,6 +520,17 @@ All of these problems can be mitigated by using atomic operations or thread sync
 - How to use database transactions to avoid race conditions
 - How to use "synchronized" methods and code blocks in Java to avoid race conditions
 - How to avoid race conditions in the Chess server and client programs
+
+## <a name="videos"></a>Videos (77:15)
+- 🎥 [Concurrency Overview (12:12)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=4a305382-e8a4-4c69-a7d6-b1aa010e1c9b&start=0) - [[transcript]](https://github.com/user-attachments/files/17736816/CS_240_Concurrency_Overview_Transcript.pdf)
+- 🎥 [Thread Synchronization (3:13)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=c095f9f7-b0d9-42ea-9e9c-b1aa0111ddfb&start=0) - [[transcript]](https://github.com/user-attachments/files/17736824/CS_240_Thread_Synchronization_Transcript.pdf)
+- 🎥 [Thread Pools (12:48)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=fb5eda11-a69c-4b37-b1ec-b1aa011313f5&start=0) - [[transcript]](https://github.com/user-attachments/files/17736836/CS_240_Thread_Pools_Transcript.pdf)
+- 🎥 [Race Conditions (14:14)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=701222ac-dfd5-4117-bed0-b1aa0116d8e9&start=0) - [[transcript]](https://github.com/user-attachments/files/17736864/CS_240_Race_Conditions_Transcript.pdf)
+- 🎥 [Writing Threadsafe Code Part 1: Database Transactions (5:52)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=49333b55-7fb3-4a6c-b109-b1aa011b00b3&start=0) - [[transcript]](https://github.com/user-attachments/files/17736871/CS_240_Writing_Thread_Safe_Code_Part_1_Database_Transactions_Transcript.pdf)
+- 🎥 [Writing Threadsafe Code Part 2: Synchronized Methods (4:13)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=76b856ae-054c-43d9-9ca6-b1aa011d0b9a&start=0) - [[transcript]](https://github.com/user-attachments/files/17736877/CS_240_Writing_Thread_Safe_Code_Part_2_Synchronized_Methods_Transcript.pdf)
+- 🎥 [Writing Threadsafe Code Part 3: Synchronized Code Blocks(5:44)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=bae2b472-34bb-4da6-87a4-b1aa011e7b2e&start=0) - [[transcript]](https://github.com/user-attachments/files/17736903/CS_240_Writing_Thread_Safe_Code_Part_3_Synchronized_Code_Blocks_Transcript.pdf)
+- 🎥 [Writing Threadsafe Code Part 4: Atomic Variables (13:21)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=24d88711-3841-4494-b0b4-b1aa01207780&start=0) - [[transcript]](https://github.com/user-attachments/files/17736907/CS_240_Writing_Thread_Safe_Code_Part_4_Atomic_Variables_Transcript.pdf)
+- 🎥 [Race Conditions in Chess (5:38)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=40f625da-e37e-4b91-8dbd-b1aa0124d6ff&start=0) - [[transcript]](https://github.com/user-attachments/files/17736920/CS_240_Race_Conditions_in_Chess_Transcript.pdf)
 
 ## Demonstration code
 

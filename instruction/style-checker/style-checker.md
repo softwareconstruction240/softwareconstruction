@@ -2,6 +2,8 @@
 
 🖥️ [Slides](https://docs.google.com/presentation/d/1xy5WXrwQuZLEOtAX7W9B9ZgICc047wQz/edit?usp=sharing&ouid=114081115660452804792&rtpof=true&sd=true)
 
+🖥️ [Lecture Videos](#videos)
+
 Adhering to best practices and being consistent in your code structure, styles, and formatting is a hallmark of a professional developer. Historically, a proficient development team, would develop a document that outlined the standards that the team was expected to adhere to. This included common idioms to follow, anti-patterns to avoid, and a description of proper formatting and coding layout. As an example, you can reference [Google's style guide for Java](https://google.github.io/styleguide/javaguide.html). You will see that it describes very basic things like how you indent your code, how you order your import statements, and what is the limit on line length.
 
 ## Drop the Ego
@@ -33,3 +35,7 @@ It is important to get in the habit of consistently using these tools while you 
 IntelliJ also contains many tools for refactoring your code. Using these tools will improve style of your code. The following demonstrates extracting a method.
 
 ![Refactor method](refactorTool.gif)
+
+## <a name="videos"></a>Videos (5:44)
+
+- 🎥 [Code Style Checker (5:44)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=20337bb3-64b5-4203-942f-b1a001136761&start=0) - [[transcript]](https://github.com/user-attachments/files/17752074/CS_240_Code_Style_Checking_Transcript.pdf)

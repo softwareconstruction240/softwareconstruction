@@ -4,6 +4,8 @@
 
 📖 **Optional Reading**: [Clean Code](https://www.oreilly.com/library/view/clean-code-a/9780136083238/)
 
+🖥️ [Lecture Videos](#videos)
+
 Despite stereotypes to the contrary, software engineering is an art form. It requires significant creativity to envision, architect, and create quality user experiences. That same care and artistic expression should be reflected in how your organize and write your code. One quality of a distinguished engineer is that they write code that is easy to discover, read, comprehend, manipulate, and extend. Take for example the following two small programs.
 
 **Example 1**
@@ -350,13 +352,13 @@ client make move
 - How to refactor your code.
 - Writing pseudo-code.
 
-## Videos
+## <a name="videos"></a>Videos (47:55)
 
-- 🎥 [Introduction](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=ea73fd31-9c36-40d5-9e46-ad6b0151100a&start=0)
-- 🎥 [Cohesion and Method Naming](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=776f9b2c-49ce-4645-93eb-ad6b015221a7&start=0)
-- 🎥 [Three Reasons for Creating Methods](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=22c699ef-4f72-4d58-9e29-ad6b0153913d&start=0)
-- 🎥 [Method Parameters](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=d1a57a5c-9408-4b14-b1f6-ad8e014aa62d&start=0)
-- 🎥 [Initializing Data](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=db14c566-28cf-4635-944f-ad6b01573031&start=0)
-- 🎥 [Code Layout](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=89391851-a002-40f4-8740-ad6b015871b5&start=0)
-- 🎥 [Pseudo-Code](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=56a43caf-5554-4d6d-a845-ad6d013f861a&start=0)
-- 🎥 [Variable Names](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=6297fb45-e525-4e3b-a8a6-ad6d0140afb3&start=0)
+- 🎥 [Introduction (3:06)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=ea73fd31-9c36-40d5-9e46-ad6b0151100a&start=0) - [[transcript]](https://github.com/user-attachments/files/17805182/CS_240_Writing_Quality_Code_Intro.pdf)
+- 🎥 [Cohesion and Method Naming (4:29)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=776f9b2c-49ce-4645-93eb-ad6b015221a7&start=0) - [[transcript]](https://github.com/user-attachments/files/17805184/CS_240_Cohesion_and_Method_Naming.pdf)
+- 🎥 [Three Reasons for Creating Methods (12:38)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=22c699ef-4f72-4d58-9e29-ad6b0153913d&start=0) - [[transcript]](https://github.com/user-attachments/files/17805189/CS_240_Three_Reasons_for_Creating_Methods.pdf)
+- 🎥 [Method Parameters (2:46)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=d1a57a5c-9408-4b14-b1f6-ad8e014aa62d&start=0) - [[transcript]](https://github.com/user-attachments/files/17805192/CS_240_Method_Parameters.pdf)
+- 🎥 [Initializing Data (3:35)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=db14c566-28cf-4635-944f-ad6b01573031&start=0) - [[transcript]](https://github.com/user-attachments/files/17805193/CS_240_Initializing_Data.pdf)
+- 🎥 [Code Layout (12:54)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=89391851-a002-40f4-8740-ad6b015871b5&start=0) - [[transcript]](https://github.com/user-attachments/files/17805196/CS_240_Code_Layout.pdf)
+- 🎥 [Pseudo-Code (2:13)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=56a43caf-5554-4d6d-a845-ad6d013f861a&start=0) - [[transcript]](https://github.com/user-attachments/files/17805198/CS_240_Pseudo-Code.pdf)
+- 🎥 [Variable Names (6:14)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=6297fb45-e525-4e3b-a8a6-ad6d0140afb3&start=0) - [[transcript]](https://github.com/user-attachments/files/17805200/CS_240_Variable_Names.pdf)

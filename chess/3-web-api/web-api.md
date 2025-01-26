@@ -2,9 +2,8 @@
 
 - [Chess Application Overview](../chess.md)
 - [Getting Started](getting-started.md)
-- [Starter Code](starter-code)
-
-🖥️ [Slides: Server Implementation Tips](https://docs.google.com/presentation/d/1hORd88ej8W-nqHgEpYU2GmPcrSrHew1V/edit?usp=drive_link&ouid=110961336761942794636&rtpof=true&sd=true)
+- 🖥️ [Slides: Server Implementation Tips](https://docs.google.com/presentation/d/1hORd88ej8W-nqHgEpYU2GmPcrSrHew1V/edit?usp=drive_link&ouid=110961336761942794636&rtpof=true&sd=true)
+- 🖥️ [Videos](#videos)
 
 In this phase, you will create your Chess server and implement seven HTTP endpoints that the chess client will use to communicate with your server. This will include creating your server, service, and data access classes. You will also write unit tests for your service classes.
 
@@ -13,6 +12,24 @@ In this phase, you will create your Chess server and implement seven HTTP endpoi
 ## Required HTTP Endpoints
 
 An endpoint is a URL that your server exposes so that clients can make Hypertext Transfer Protocol (HTTP) requests to your server. Often the server requires some data when a client calls an endpoint. For an HTTP request this data can be stored in HTTP Headers, in the URL, and/or in the request body. The Server then sends back data to the client, including a value in the HTTP Response Code (indicating if the command was completed successfully), and any needed information in the HTTP Response Body. For your server, you will use JSON strings to encode the objects we include in the Request and Response bodies.
+
+## Authentication Tokens
+
+Many of the HTTP endpoints return or provide a randomized string of characters that uniquely represents that a user has been authenticated with their username and password. This string is known as an authentication token (authToken). For example, the register and login endpoints return an `authToken` in the body of their responses, and the list games endpoint provides an `authToken` in the HTTP authorization header.
+
+As part of the work for this phase, you need to create an authentication token when a user registers or logs in. That token is stored in an `AuthData` model object that associates the token with a username for future verification.
+
+One easy way to create an `authToken` is to use the JDK `UUID.randomUUID()` method. For example:
+
+```java
+import java.util.UUID;
+
+// ...
+
+public static String generateToken() {
+    return UUID.randomUUID().toString();
+}
+```
 
 ## Endpoint specifications
 
@@ -25,45 +42,45 @@ The following defines the endpoints that your server is required to implement. Y
 | **Description**      | Clears the database. Removes all users, games, and authTokens. |
 | **URL path**         | `/db`                                                          |
 | **HTTP Method**      | `DELETE`                                                       |
-| **Success response** | [200]                                                          |
-| **Failure response** | [500] `{ "message": "Error: description" }`                    |
+| **Success response** | [200] `{}`                                                     |
+| **Failure response** | [500] `{ "message": "Error: (description of error)" }`         |
 
 ### Register
 
-| property             | value                                          |
-| -------------------- | ---------------------------------------------- |
-| **Description**      | Register a new user.                           |
-| **URL path**         | `/user`                                        |
-| **HTTP Method**      | `POST`                                         |
-| **Body**             | `{ "username":"", "password":"", "email":"" }` |
-| **Success response** | [200] `{ "username":"", "authToken":"" }`      |
-| **Failure response** | [400] `{ "message": "Error: bad request" }`    |
-| **Failure response** | [403] `{ "message": "Error: already taken" }`  |
-| **Failure response** | [500] `{ "message": "Error: description" }`    |
+| property             | value                                                  |
+| -------------------- | ------------------------------------------------------ |
+| **Description**      | Register a new user.                                   |
+| **URL path**         | `/user`                                                |
+| **HTTP Method**      | `POST`                                                 |
+| **Body**             | `{ "username":"", "password":"", "email":"" }`         |
+| **Success response** | [200] `{ "username":"", "authToken":"" }`              |
+| **Failure response** | [400] `{ "message": "Error: bad request" }`            |
+| **Failure response** | [403] `{ "message": "Error: already taken" }`          |
+| **Failure response** | [500] `{ "message": "Error: (description of error)" }` |
 
 ### Login
 
-| property             | value                                               |
-| -------------------- | --------------------------------------------------- |
-| **Description**      | Logs in an existing user (returns a new authToken). |
-| **URL path**         | `/session`                                          |
-| **HTTP Method**      | `POST`                                              |
-| **Body**             | `{ "username":"", "password":"" }`                  |
-| **Success response** | [200] `{ "username":"", "authToken":"" }`           |
-| **Failure response** | [401] `{ "message": "Error: unauthorized" }`        |
-| **Failure response** | [500] `{ "message": "Error: description" }`         |
+| property             | value                                                  |
+| -------------------- | ------------------------------------------------------ |
+| **Description**      | Logs in an existing user (returns a new authToken).    |
+| **URL path**         | `/session`                                             |
+| **HTTP Method**      | `POST`                                                 |
+| **Body**             | `{ "username":"", "password":"" }`                     |
+| **Success response** | [200] `{ "username":"", "authToken":"" }`              |
+| **Failure response** | [401] `{ "message": "Error: unauthorized" }`           |
+| **Failure response** | [500] `{ "message": "Error: (description of error)" }` |
 
 ### Logout
 
-| property             | value                                           |
-| -------------------- | ----------------------------------------------- |
-| **Description**      | Logs out the user represented by the authToken. |
-| **URL path**         | `/session`                                      |
-| **HTTP Method**      | `DELETE`                                        |
-| **Headers**          | `authorization: <authToken>`                    |
-| **Success response** | [200]                                           |
-| **Failure response** | [401] `{ "message": "Error: unauthorized" }`    |
-| **Failure response** | [500] `{ "message": "Error: description" }`     |
+| property             | value                                                  |
+| -------------------- | ------------------------------------------------------ |
+| **Description**      | Logs out the user represented by the authToken.        |
+| **URL path**         | `/session`                                             |
+| **HTTP Method**      | `DELETE`                                               |
+| **Headers**          | `authorization: <authToken>`                           |
+| **Success response** | [200] `{}`                                             |
+| **Failure response** | [401] `{ "message": "Error: unauthorized" }`           |
+| **Failure response** | [500] `{ "message": "Error: (description of error)" }` |
 
 ### List Games
 
@@ -77,36 +94,36 @@ Note that `whiteUsername` and `blackUsername` may be `null`.
 | **Headers**          | `authorization: <authToken>`                                                                  |
 | **Success response** | [200] `{ "games": [{"gameID": 1234, "whiteUsername":"", "blackUsername":"", "gameName:""} ]}` |
 | **Failure response** | [401] `{ "message": "Error: unauthorized" }`                                                  |
-| **Failure response** | [500] `{ "message": "Error: description" }`                                                   |
+| **Failure response** | [500] `{ "message": "Error: (description of error)" }`                                        |
 
 ### Create Game
 
-| property             | value                                        |
-| -------------------- | -------------------------------------------- |
-| **Description**      | Creates a new game.                          |
-| **URL path**         | `/game`                                      |
-| **HTTP Method**      | `POST`                                       |
-| **Headers**          | `authorization: <authToken>`                 |
-| **Body**             | `{ "gameName":"" }`                          |
-| **Success response** | [200] `{ "gameID": 1234 }`                   |
-| **Failure response** | [400] `{ "message": "Error: bad request" }`  |
-| **Failure response** | [401] `{ "message": "Error: unauthorized" }` |
-| **Failure response** | [500] `{ "message": "Error: description" }`  |
+| property             | value                                                  |
+| -------------------- | ------------------------------------------------------ |
+| **Description**      | Creates a new game.                                    |
+| **URL path**         | `/game`                                                |
+| **HTTP Method**      | `POST`                                                 |
+| **Headers**          | `authorization: <authToken>`                           |
+| **Body**             | `{ "gameName":"" }`                                    |
+| **Success response** | [200] `{ "gameID": 1234 }`                             |
+| **Failure response** | [400] `{ "message": "Error: bad request" }`            |
+| **Failure response** | [401] `{ "message": "Error: unauthorized" }`           |
+| **Failure response** | [500] `{ "message": "Error: (description of error)" }` |
 
 ### Join Game
 
-| property             | value                                                                                                                                                                                                              |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Description**      | Verifies that the specified game exists, and, if a color is specified, adds the caller as the requested color to the game. If no color is specified the user is joined as an observer. This request is idempotent. |
-| **URL path**         | `/game`                                                                                                                                                                                                            |
-| **HTTP Method**      | `PUT`                                                                                                                                                                                                              |
-| **Headers**          | `authorization: <authToken>`                                                                                                                                                                                       |
-| **Body**             | `{ "playerColor":"WHITE/BLACK", "gameID": 1234 }`                                                                                                                                                                  |
-| **Success response** | [200]                                                                                                                                                                                                              |
-| **Failure response** | [400] `{ "message": "Error: bad request" }`                                                                                                                                                                        |
-| **Failure response** | [401] `{ "message": "Error: unauthorized" }`                                                                                                                                                                       |
-| **Failure response** | [403] `{ "message": "Error: already taken" }`                                                                                                                                                                      |
-| **Failure response** | [500] `{ "message": "Error: description" }`                                                                                                                                                                        |
+| property             | value                                                                                           |
+| -------------------- | ----------------------------------------------------------------------------------------------- |
+| **Description**      | Verifies that the specified game exists and adds the caller as the requested color to the game. |
+| **URL path**         | `/game`                                                                                         |
+| **HTTP Method**      | `PUT`                                                                                           |
+| **Headers**          | `authorization: <authToken>`                                                                    |
+| **Body**             | `{ "playerColor":"WHITE/BLACK", "gameID": 1234 }`                                               |
+| **Success response** | [200] `{}`                                                                                      |
+| **Failure response** | [400] `{ "message": "Error: bad request" }`                                                     |
+| **Failure response** | [401] `{ "message": "Error: unauthorized" }`                                                    |
+| **Failure response** | [403] `{ "message": "Error: already taken" }`                                                   |
+| **Failure response** | [500] `{ "message": "Error: (description of error)" }`                                          |
 
 ## Required Classes
 
@@ -118,7 +135,6 @@ Your project's `shared` module contains classes that represent all of the data a
 
 As part of this phase, you need to create [record](../../instruction/records/records.md) classes and add them to the `shared` module that represent the classes used for the chess application's core data objects. This includes the following.
 
-
 **UserData**
 
 | Field    | Type   |
@@ -129,13 +145,13 @@ As part of this phase, you need to create [record](../../instruction/records/rec
 
 **GameData**
 
-| Field         | Type                       |
-| ------------- | -------------------------- |
-| gameID        | int                        |
-| whiteUsername | String                     |
-| blackUsername | String                     |
-| gameName      | String                     |
-| game          | `ChessGame` implementation |
+| Field         | Type      |
+| ------------- | --------- |
+| gameID        | int       |
+| whiteUsername | String    |
+| blackUsername | String    |
+| gameName      | String    |
+| game          | ChessGame |
 
 **AuthData**
 
@@ -144,11 +160,12 @@ As part of this phase, you need to create [record](../../instruction/records/rec
 | authToken | String |
 | username  | String |
 
-⚠ You must place these three record classes in a folder named `shared/src/main/java/model`.
+> [!IMPORTANT]
+> You must place these three record classes in a folder named `shared/src/main/java/model`.
 
 ### Data Access Classes
 
-Classes that represent the access to your database are often called `Data Access Objects` (DOAs). Create your data access classes in the `server/src/main/java/dataaccess` package. Data access classes are responsible for storing and retrieving the server’s data (users, games, etc.).
+Classes that represent the access to your database are often called `Data Access Objects` (DAOs). Create your data access classes in the `server/src/main/java/dataaccess` package. Data access classes are responsible for storing and retrieving the server’s data (users, games, etc.).
 
 For the most part, the methods on your DAO classes will be `CRUD` operations that:
 
@@ -193,7 +210,8 @@ By using an interface you can hide, or encapsulate, how your data access works f
 1. You can quickly implement our services without having to implement a backing SQL database. This lets us focus on the HTTP part of our server during this phase and then move over to SQL without changing any of our service code.
 2. You can write data access tests against the memory implementation of the interface and then reuse those tests when you create the SQL implementation.
 
-⚠ You must place your data access classes in a folder named `server/src/main/java/dataaccess`.
+> [!IMPORTANT]
+> You must place your data access classes in a folder named `server/src/main/java/dataaccess`.
 
 ### Service Classes
 
@@ -203,15 +221,16 @@ A simple implementation of this is to have a separate Service class for each gro
 
 ```java
 public class UserService {
-	public AuthData register(UserData user) {}
-	public AuthData login(UserData user) {}
-	public void logout(UserData user) {}
+	public RegisterResult register(RegisterRequest registerRequest) {}
+	public LoginResult login(LoginRequest loginRequest) {}
+	public void logout(LogoutRequest logoutRequest) {}
 }
 ```
 
-Each service method receives a Request object containing all the information it needs to do its work. After performing its purpose, it returns a corresponding Result object containing the output of the method. To do their work, service classes need to make heavy use of the Model classes and Data Access classes described above.
+Each service method receives a Request object containing all the information it needs to do its work. After performing its purpose, it returns a corresponding Result object containing the output of the method. These request and result objects would contain fields pertaining to each of the endpoints above. (Note: request and result classes do not need to be specifically created to what is shown in the specifications, it is up to your design on how you want to implement these methods). To do their work, service classes need to make heavy use of the Model classes and Data Access classes described above.
 
-⚠ You must place your service classes in a folder named `server/src/main/java/service`.
+> [!IMPORTANT]
+> You must place your service classes in a folder named `server/src/main/java/service`.
 
 ### Request and Result Classes
 
@@ -229,7 +248,7 @@ From this you can derive the following LoginRequest class:
 ```java
 	record LoginRequest(
 		String username,
-		String password;
+		String password){
 	}
 ```
 
@@ -238,8 +257,8 @@ Alternatively, you could use the model `UserData` object that you will also use 
 ```java
 	record UserData(
 		String username,
-		String password;
-		String email;
+		String password,
+		String email){
 	}
 ```
 
@@ -300,7 +319,8 @@ You need to create the number of handler classes that are appropriate for your s
 
 The Server receives network HTTP requests and sends them to the correct handler for processing. The server should also handle all unhandled exceptions that your application generates and return the appropriate HTTP status code.
 
-⚠ For the pass off tests to work properly, your server class must be named `Server` and provide a `run` method that has a desired port parameter, and a `stop` method that shuts your HTTP server down.
+> [!IMPORTANT]
+> For the pass off tests to work properly, your server class must be named `Server` and provide a `run` method that has a desired port parameter, and a `stop` method that shuts your HTTP server down.
 
 The starter code contains the `Server` class that you should use as the base for your HTTP server. For the pass off tests to work properly, you must keep the `Server` class in a folder named `server/src/main/java/server`, and do not remove the provided code.
 
@@ -343,7 +363,8 @@ Good tests extensively show that we get the expected behavior. This could be ass
 
 The service unit tests must directly call the methods on your service classes. They should not use the HTTP server pass off test code that is provided with the starter code.
 
-⚠ You must place your service test cases in a folder named `server/src/test/java/service`.
+> [!IMPORTANT]
+> You must place your service test cases in a folder named `server/src/test/java/service`.
 
 ## Server Directory Structure
 
@@ -401,7 +422,9 @@ Successfully run the service unit tests that you created. They must directly cal
 
 ### Code Quality
 
-For this phase the TAs will grade the quality of your project's source code. The rubric used to evaluate code quality can be found here: [Rubric](../code-quality-rubric.md)
+For this phase the auto grader will grade the quality of all your project's source code. The rubric used to evaluate code quality can be found here: [Rubric](../code-quality-rubric.md). You can also test your quality with the auto grader independent of a specific phase submission.
+
+![Code Quality](../codeQuality.png)
 
 ### Pass Off, Submission, and Grading
 
@@ -413,12 +436,18 @@ After your code has successfully been auto-graded, a TA will review the code in 
 
 ### Grading Rubric
 
-**⚠ NOTE**: You are required to commit to GitHub with every minor milestone. For example, after you successfully pass a test. This should result in a commit history that clearly details your work on this phase. If your Git history does not demonstrate your efforts then your submission may be rejected.
+> [!IMPORTANT]
+> You are required to commit to GitHub with every minor milestone. For example, after you successfully pass a test. This should result in a commit history that clearly details your work on this phase. If your Git history does not demonstrate your efforts then your submission may be rejected.
 
 | Category       | Criteria                                                                                                                                                                                         |       Points |
-| :------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -----------: |
-| GitHub History | At least 10 GitHub commits evenly spread over the assignment period that demonstrate proof of work                                                                                               | Prerequisite |
-| Web API Works  | All pass off test cases in `StandardAPITests.java` succeed                                                                                                                                       |          125 |
+|:---------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------:|
+| GitHub History | At least 12 GitHub commits evenly spread over the assignment period that demonstrate proof of work                                                                                               | Prerequisite |
+| Web API Works  | All pass off test cases succeed                                                                                                                                                                  |          125 |
 | Code Quality   | [Rubric](../code-quality-rubric.md)                                                                                                                                                              |           30 |
 | Unit Tests     | All test cases pass<br/>Each public method on your **Service classes** has two test cases, one positive test and one negative test<br/>Every test case includes an Assert statement of some type |           25 |
-|                | Total                                                                                                                                                                                            |          180 |
+|                | **Total**                                                                                                                                                                                        |      **180** |
+
+## <a name="videos"></a>Videos (38:14)
+
+- 🎥 [Phase 3 Overview (19:30)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=a02a9929-b886-4a69-aa8b-b18c015d3e63) - [[transcript]](https://github.com/user-attachments/files/17707002/CS_240_Chess_Phase_3_Transcript.pdf)
+- 🎥 [Chess Server Implementation Tips (18:44)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=17194b50-e6a2-46eb-bf11-b1af0151af43) - [[transcript]](https://github.com/user-attachments/files/17707009/CS_240_Chess_Server_Implementation_Tips_Transcript.pdf)

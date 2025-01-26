@@ -8,12 +8,16 @@ import static ui.EscapeSequences.*;
 
 public class TicTacToe {
 
+    // Board dimensions.
     private static final int BOARD_SIZE_IN_SQUARES = 3;
-    private static final int SQUARE_SIZE_IN_CHARS = 3;
-    private static final int LINE_WIDTH_IN_CHARS = 1;
+    private static final int SQUARE_SIZE_IN_PADDED_CHARS = 3;
+    private static final int LINE_WIDTH_IN_PADDED_CHARS = 1;
+
+    // Padded characters.
     private static final String EMPTY = "   ";
     private static final String X = " X ";
     private static final String O = " O ";
+
     private static Random rand = new Random();
 
 
@@ -39,7 +43,7 @@ public class TicTacToe {
             drawHeader(out, headers[boardCol]);
 
             if (boardCol < BOARD_SIZE_IN_SQUARES - 1) {
-                out.print(EMPTY.repeat(LINE_WIDTH_IN_CHARS));
+                out.print(EMPTY.repeat(LINE_WIDTH_IN_PADDED_CHARS));
             }
         }
 
@@ -47,8 +51,8 @@ public class TicTacToe {
     }
 
     private static void drawHeader(PrintStream out, String headerText) {
-        int prefixLength = SQUARE_SIZE_IN_CHARS / 2;
-        int suffixLength = SQUARE_SIZE_IN_CHARS - prefixLength - 1;
+        int prefixLength = SQUARE_SIZE_IN_PADDED_CHARS / 2;
+        int suffixLength = SQUARE_SIZE_IN_PADDED_CHARS - prefixLength - 1;
 
         out.print(EMPTY.repeat(prefixLength));
         printHeaderText(out, headerText);
@@ -71,7 +75,8 @@ public class TicTacToe {
             drawRowOfSquares(out);
 
             if (boardRow < BOARD_SIZE_IN_SQUARES - 1) {
-                drawVerticalLine(out);
+                // Draw horizontal row separator.
+                drawHorizontalLine(out);
                 setBlack(out);
             }
         }
@@ -79,26 +84,26 @@ public class TicTacToe {
 
     private static void drawRowOfSquares(PrintStream out) {
 
-        for (int squareRow = 0; squareRow < SQUARE_SIZE_IN_CHARS; ++squareRow) {
+        for (int squareRow = 0; squareRow < SQUARE_SIZE_IN_PADDED_CHARS; ++squareRow) {
             for (int boardCol = 0; boardCol < BOARD_SIZE_IN_SQUARES; ++boardCol) {
                 setWhite(out);
 
-                if (squareRow == SQUARE_SIZE_IN_CHARS / 2) {
-                    int prefixLength = SQUARE_SIZE_IN_CHARS / 2;
-                    int suffixLength = SQUARE_SIZE_IN_CHARS - prefixLength - 1;
+                if (squareRow == SQUARE_SIZE_IN_PADDED_CHARS / 2) {
+                    int prefixLength = SQUARE_SIZE_IN_PADDED_CHARS / 2;
+                    int suffixLength = SQUARE_SIZE_IN_PADDED_CHARS - prefixLength - 1;
 
                     out.print(EMPTY.repeat(prefixLength));
                     printPlayer(out, rand.nextBoolean() ? X : O);
                     out.print(EMPTY.repeat(suffixLength));
                 }
                 else {
-                    out.print(EMPTY.repeat(SQUARE_SIZE_IN_CHARS));
+                    out.print(EMPTY.repeat(SQUARE_SIZE_IN_PADDED_CHARS));
                 }
 
                 if (boardCol < BOARD_SIZE_IN_SQUARES - 1) {
-                    // Draw right line
+                    // Draw vertical column separator.
                     setRed(out);
-                    out.print(EMPTY.repeat(LINE_WIDTH_IN_CHARS));
+                    out.print(EMPTY.repeat(LINE_WIDTH_IN_PADDED_CHARS));
                 }
 
                 setBlack(out);
@@ -108,12 +113,12 @@ public class TicTacToe {
         }
     }
 
-    private static void drawVerticalLine(PrintStream out) {
+    private static void drawHorizontalLine(PrintStream out) {
 
-        int boardSizeInSpaces = BOARD_SIZE_IN_SQUARES * SQUARE_SIZE_IN_CHARS +
-                                (BOARD_SIZE_IN_SQUARES - 1) * LINE_WIDTH_IN_CHARS;
+        int boardSizeInSpaces = BOARD_SIZE_IN_SQUARES * SQUARE_SIZE_IN_PADDED_CHARS +
+                                (BOARD_SIZE_IN_SQUARES - 1) * LINE_WIDTH_IN_PADDED_CHARS;
 
-        for (int lineRow = 0; lineRow < LINE_WIDTH_IN_CHARS; ++lineRow) {
+        for (int lineRow = 0; lineRow < LINE_WIDTH_IN_PADDED_CHARS; ++lineRow) {
             setRed(out);
             out.print(EMPTY.repeat(boardSizeInSpaces));
 
