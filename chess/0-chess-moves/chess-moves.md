@@ -110,7 +110,7 @@ public enum PieceType {
 
 #### Key Methods
 
-- **pieceMoves**: This method is similar to `ChessGame.validMoves`, except it does not honor whose turn it is or check if the king is being attacked. This method does account for enemy and friendly pieces blocking movement paths. The `pieceMoves` method will need to take into account the type of piece, and the location of other pieces on the board.
+- **`pieceMoves`**: Called on a particular piece and being provided its position and the board as context, this method returns all moves the piece can legally make. `ChessPiece.validMoves` accounts for the type of piece and the locations of enemy and friendly pieces blocking movement paths. As the precursor to `ChessGame.validMoves`, this method provides most of the behavior of the chess moves, except it does not honor whose turn it is or check if the king is being attacked.
 
 ### ChessMove
 
