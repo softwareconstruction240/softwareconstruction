@@ -66,9 +66,7 @@ void C() throws Exception {
 
 ### Unchecked Exceptions
 
-The exclusion to the `throws` declaration rule is when you throw what is known as an unchecked exception. Unchecked exceptions are defined as any class that is derived from the `RuntimeException` class. The reason for unchecked exceptions is that they can be thrown at anytime and so it is unreasonable to explicitly handle them on every function in your code. These should be caught or thrown only very rarely, as they usually indicate a bug in your code (such as a `NullPointerException`, which is unchecked) rather than a problem that can ocurr during execution of your program (such as a `FileNotFoundException`, which is checked).
-
-A slight warning is that if you use IntelliJ's auto-suggestions about an uncaught exception, it will often generate a try/catch block with a `throw new RuntimeException();` call, which will silently crash your program if reached. Remember to always replace this will something else.
+The exclusion to the `throws` declaration rule is when you throw what is known as an unchecked exception. Unchecked exceptions are defined as any class that is derived from the `RuntimeException` class. The reason for unchecked exceptions is that they can be thrown at anytime and so it is unreasonable to explicitly handle them on every function in your code. These should be caught or thrown only very rarely, as they usually indicate a bug in your code (such as a `NullPointerException`, which is unchecked) rather than a problem that can occur during execution of your program (such as a `FileNotFoundException`, which is checked).
 
 ## Finally
 
