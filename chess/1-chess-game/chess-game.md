@@ -79,11 +79,11 @@ By default, a new `ChessGame` represents an immediately playable board with the 
 
 ## Extra Credit Moves
 
-If you would like to fully implement the rules of chess you need to provide support for `En Passant` and `Castling`.
+If you would like to fully implement the rules of chess you need to provide support for **Castling** and **En Passant**.
 
 You do not have to implement these moves, but if you go the extra mile and successfully implement them, you’ll earn 5 extra credit points for each move (10 total) on this assignment.
 
-**`Castling`**
+### Castling
 
 This is a special move where the King and a Rook move simultaneously. The castling move can only be taken when 3 conditions are met:
 
@@ -91,11 +91,11 @@ This is a special move where the King and a Rook move simultaneously. The castli
 2. There are no pieces between the King and the Rook
 3. **The King is never in Check.** The King does not start in Check, does not cross a square on which it would be in Check, and is not in Check after castling.
 
-To Castle, the King moves 2 spaces towards the Rook, and the Rook "jumps" the king moving to the position next to and on the other side of the King. This is represented in a ChessMove as the king moving 2 spaces to the side.
+To Castle, the King moves 2 spaces towards the Rook, and the Rook "jumps" the king moving to the position next to and on the other side of the King. This is represented in a `ChessMove` as the king moving 2 spaces to the side.
 
-**`En Passant`**
+### En Passant
 
-This is a special move taken by a Pawn in response to your opponent double moving a Pawn. If your opponent double moves a pawn so it ends next to yours (skipping the position where your pawn could have captured their pawn), then on your immediately following turn your pawn may capture their pawn as if their pawn had only moved 1 square. This is as if your pawn is capturing their pawn mid motion, or `In Passing`.
+This is a special move taken by a Pawn in response to your opponent double moving a Pawn. If your opponent double moves a pawn so it ends next to yours (skipping the position where your pawn could have captured their pawn), then on your immediately following turn your pawn may capture their pawn as if their pawn had only moved 1 square. This is as if your pawn is capturing their pawn mid motion, or "In Passing."
 
 ## Code Quality
 
