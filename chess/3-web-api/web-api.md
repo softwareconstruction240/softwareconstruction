@@ -397,12 +397,13 @@ You can create and test your code in whatever order you would like. However, if 
 1. Set up your starter code so that your server runs properly, and make sure the testing webpage loads.
 1. Use your sequence diagrams and the class diagram at the top of this page to guide the decision for what classes you might need.
 1. Create packages for where these classes will go, if you haven't already done so.
-1. Pick one Web API and get it working end-to-end. We recommend starting with `clear` or `register`.
+1. Pick one Web API endpoint and get it working end-to-end. We recommend starting with `clear` or `register`.
    1. Create the classes you need to implement the endpoint.
    1. Write a service test or two to make sure the service and data access parts of your code are working as you expect.
-   1. Make sure you can hit your endpoint from the test page on a browser or Curl.
-1. Once you have written `clear` and `register`, run the `StandardAPITests` as a sanity check.
+   1. Make sure you can hit your endpoint from the test page on a browser or Curl. Verify the response is what you expect it to be.
 1. Repeat this process for all other endpoints.
+
+Once you have written the `clear` and `register` endpoints, you can run the `StandardAPITests` as a sanity check. However, if you need to debug something, you should use your unit tests, Curl, or the test webpage to do so. Some tests call multiple endpoints, and your problem will be much easier to solve if you can figure out which endpoint is the source of the bug.
 
 ## Relevant Instruction Topics
 
