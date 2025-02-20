@@ -394,17 +394,16 @@ After you have created all the classes necessary for this phase you should have 
 
 You can create and test your code in whatever order you would like. However, if you are trying to figure out how to get started, you might consider the following order.
 
-1. Use your sequence diagrams to guide the decision for what classes you need for your server, service, and data access objects.
-1. Implement your services
-   1. Create the classes you need to implement the `clear` service method.
-   1. Write a service test for `clear` to make sure the service and data access parts of your code are working properly.
-   1. Repeat writing and implementing service classes and tests until you have built all the required functionality.
-1. Create your server handler for a single endpoint that simply returns a string.
-1. Make sure you can hit your endpoint from a browser or Curl.
-1. Implement your server handlers
-   1. Convert your test server handler to implement the `clear` and `register` endpoints.
-   1. Run the pass off test for registration.
-   1. Repeat writing and implementing server handlers until you have completed all the pass off tests.
+1. Set up your starter code so that your server runs properly, and make sure the testing webpage loads.
+1. Use your sequence diagrams and the class diagram at the top of this page to guide the decision for what classes you might need.
+1. Create packages for where these classes will go, if you haven't already done so.
+1. Pick one Web API endpoint and get it working end-to-end. We recommend starting with `clear` or `register`.
+   1. Create the classes you need to implement the endpoint.
+   1. Write a service test or two to make sure the service and data access parts of your code are working as you expect.
+   1. Make sure you can hit your endpoint from the test page on a browser or Curl. Verify the response is what you expect it to be.
+1. Repeat this process for all other endpoints.
+
+Once you have written the `clear` and `register` endpoints, you can run the `StandardAPITests` as a sanity check. However, if you need to debug something, you should use your unit tests, Curl, or the test webpage to do so. Some tests call multiple endpoints, and your problem will be much easier to solve if you can figure out which endpoint is the source of the bug.
 
 ## Relevant Instruction Topics
 
