@@ -56,7 +56,7 @@ These objects represent the core of what you are passing between your server, se
 
 ## Creating Sequence Diagrams
 
-Based upon your understanding of the requirements provided by [Phase 3](../3-web-api/web-api.md) you now must create a sequence diagram for each endpoint that demonstrates the flow of interactions between your application objects. The diagram must include the successful happy path flow for each endpoint, but should also include the error paths so that you can fully design your server.
+Based upon your understanding of the requirements provided by [Phase 3](../3-web-api/web-api.md) you now must create a sequence diagram for each endpoint that demonstrates the flow of interactions between your application objects. The diagram must include the successful happy path flow for each endpoint. You may also include error paths; doing so will likely be more helpful in preparing for Phase 3, but you will not lose points for not including error cases. You will need to at least consider error cases, as checking for some errors requires calls between layers which you are required to represent. For example, during registration we don't want to create a user with a username that's already taken, so there is a check for that in the starter diagram.
 
 ### SequenceDiagram.Org
 
@@ -79,12 +79,14 @@ end
 To get you started on creating your sequence diagrams, we have provided you with a template that already contains a possible solution for the `register` endpoint and place holders for the other six endpoints.
 
 > [!IMPORTANT]
-> Here is a link to your [Starter Diagram](https://sequencediagram.org/index.html#initialData=IYYwLg9gTgBAwgGwJYFMB2YBQAHYUxIhK4YwDKKUAbpTngUSWDABLBoAmCtu+hx7ZhWqEUdPo0EwAIsDDAAgiBAoAzqswc5wAEbBVKGBx2ZM6MFACeq3ETQBzGAAYAdAE5M9qBACu2GADEaMBUljAASij2SKoWckgQaIEA7gAWSGBiiKikALQAfOSUNFAAXDAA2gAKAPJkACoAujAA9D4GUAA6aADeAETtlMEAtih9pX0wfQA0U7jqydAc45MzUyjDwEgIK1MAvpjCJTAFrOxclOX9g1AjYxNTs33zqotQyw9rfRtbO58HbE43FgpyOonKUCiMUyUAAFJForFKJEAI4+NRgACUh2KohOhVk8iUKnU5XsKDAAFUOrCbndsYTFMo1Kp8UYdKUAGJITgwamURkwHRhOnAUaYRnElknUG4lTlNA+BAIHEiFRsyXM0kgSFyFD8uE3RkM7RS9Rs4ylBQcDh8jqM1VUPGnTUk1SlHUoPUKHxgVKw4C+1LGiWmrWs06W622n1+h1g9W5U6Ai5lCJQpFQSKqJVYFPAmWFI6XGDXDp3SblVZPQN++oQADW6ErU32jsohfgyHM5QATE4nN0y0MxWMYFXHlNa6l6020C3Vgd0BxTF5fP4AtB2OSYAAZCDRJIBNIZLLdvJF4ol6p1JqtAzqBJoIei0azF5vDhLzir7x+QJeCg6B7gevjMMe6SZJg2TmGyxZphU0gAKK7kh9RIc0LQPqoT7dNOs7oGYP6eH+G6Qrau7QjAADio6shBp7QeezCytQ17UWhmH2KOeFBgRaBESuJHroE2A+FA2DcPAuqZDRo4pJBZ45Cxl5sQhtQNFxPHBHxjboEO3GjAAcqO35CWu-4BJYKDKhAyQwAAUhAPJyaMgQ6AgoANkxylwVe6mUneLSGSgvF1npz69JJwDWVAcAQAg0CzCFACS0hmb+IkBF4MVdl6sDANgkmEPEiQKYxMEXkUanlIhKFoRhrTGIJmBAA).
+> Here is a link to your [Starter Diagram](https://sequencediagram.org/index.html#initialData=IYYwLg9gTgBAwgGwJYFMB2YBQAHYUxIhK4YwDKKUAbpTngUSWDABLBoAmCtu+hx7ZhWqEUdPo0EwAIsDDAAgiBAoAzqswc5wAEbBVKGBx2ZM6MFACeq3ETQBzGAAYAdAE5M9qBACu2GADEaMBUljAASij2SKoWckgQaIEA7gAWSGBiiKikALQAfOSUNFAAXDAA2gAKAPJkACoAujAA9D4GUAA6aADeAETtlMEAtih9pX0wfQA0U7jqydAc45MzUyjDwEgIK1MAvpjCJTAFrOxclOX9g1AjYxNTs33zqotQyw9rfRtbO58HbE43FgpyOonKUCiMUyUAAFJForFKJEAI4+NRgACUh2KohOhVk8iUKnU5XsKDAAFUOrCbndsYTFMo1Kp8UYdKUAGJITgwamURkwHRhOnAUaYHSQ4AAaz5HRgyQyqRgotGMGACClHDCKAAHtCNIziSyTqDcSpyvyoIycSIVKbCkdLjAFJqUMBtfUZegAKK6lTYAiJW3HXKnbLmcoAFicAGZuv1RupgOTxlMfVBvGUVR07uq3R6wvJpeg+gd0BxMEbmeoHUU7ShymgfAgECG8adqyTVKUQFLMlbaR1GQztMba6djKUFBwOHKBdp2-bO2Oaz2++7MgofGBUrDgDvUiOq6vu2ypzO59vdzawcvToCLtmEdDkWoW1hH8C607s9dc2KYwwOUqxPAeu71BAJZoJMIH7CGlB1hGGDlAATE4TgJgMAGjLBUyPFM4GpJB0F4as5acKYXi+P4ATQOw5IwAAMhA0RJAEaQZFkyDmGyv7lNUdRNK0BjqAkaAJqqKCzC8bwcBRlaeN4fiBF4KDoMxrG+MwHHpJkmDIcwZrUM6FTSD6TE+vUPrNC0omqOJ3RESR6BmJRSk0YEkJzkx0IwAA4oBrK6VxBk8XkjrFKZ-lWbZ9iAU5h4uWgbmKdRKkBNgPhQNg3DwP2hiBWqIX6YZfFRdmgkNHFCXBElUHoAm8WjAAcoBClUcptGWCgrYQMkMAAFIQDyAWAYEOgIKA0phTkRmRSZlVVJSwktM1KCJRBDUSb0uXAD1UBwBACDQLM60AJLSB1HkZV4+3wNweDqtguWEPEiQpHp3FzeVi0CeZlnWbZxipZgQA).
 > When you are done editing your diagram make sure you export a link as described in the **Deliverable** section below.
 
 ![Register Sequence Diagram](register-sequence-diagram.png)
 
 This example diagram represents the following sequence for registering and authorizing a player.
+> [!NOTE]
+> This is one possible way to implement the register endpoint, but is not the only valid way this could be done
 
 1. A `client`, acting as a chess player, calls the `register` endpoint. This request is made as an HTTP network request with the `/user` URL path and a body that contains her username, password, and email in a JSON representation.
 2. The `server` gets the body with its information from the HTTP request and matches it to the correct handler.
@@ -92,14 +94,19 @@ This example diagram represents the following sequence for registering and autho
    > [!TIP]
    > You are not required to create your handlers in their own distinct classes. You may implement this functionality directly in the lambda functions for the endpoints of your server.
 4. The `service` calls a data access method in order to determine if there is already a user with that username.
-5. The `data access` method checks the database and returns that there is no user with that name (null).
-6. The `service` then calls another data access method to create a new user with the given name and password.
-7. The `data access` method inserts the user into the database.
-8. The `service` then calls another data access method to create and store an authorization token (authToken) for the user. The authToken can be used on subsequent endpoint calls to represent that the user has already been authenticated.
-9. The `data access` method stores the username and associated authToken in the database.
-10. The `service` returns a result object containing the username and authToken.
-11. The `handler` converts the object into JSON text.
-12. The `server` returns this to the client.
+5. The `data access` method checks the database for a username matching the user.
+6. At this point there is a break in logic. If there is already a user with that username, the `data access` method will return a `UserData` of the user with that username. If there is no user with that name, it will return `null`.
+7. If there is a user with the username and the `data access` method returned a non-null UserData: 
+   1. The `service` throws an `AlreadyTakenException`, a custom-made exception class in this example.
+   2. The `handler` doesn't have a catch block in this example, so the exception passes through to the server.
+   3. The `server` had been previously set up to send a specific response in case of an `AlreadyTakenException`, so it sends the error response.
+8. If there isn't a user with the username and the `data access` method returned null, the `service` then calls another data access method to create a new user with the given name and password.
+9. The `data access` method inserts the user into the database.
+10. The `service` then calls another data access method to create and store an authorization token (authToken) for the user. The authToken can be used on subsequent endpoint calls to represent that the user has already been authenticated.
+11. The `data access` method stores the username and associated authToken in the database.
+12. The `service` returns a result object containing the username and authToken.
+13. The `handler` converts the object into JSON text.
+14. The `server` returns this to the client.
 
 > [!NOTE]
 > Note that the diagram includes simple representations of HTTP and database requests. You will learn how to use these technologies in later phases. You just need to understand that the `server` receives HTTP network requests and the database persistently stores your application data. It is also not important that you use correct UML Sequence diagram syntax for your diagrams. You just need to show that you understand what each of the endpoints are doing inside your code.
