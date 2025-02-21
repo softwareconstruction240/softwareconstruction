@@ -91,8 +91,6 @@ This example diagram represents the following sequence for registering and autho
 1. A `client`, acting as a chess player, calls the `register` endpoint. This request is made as an HTTP network request with the `/user` URL path and a body that contains her username, password, and email in a JSON representation.
 2. The `server` gets the body with its information from the HTTP request and matches it to the correct handler.
 3. The `handler` takes the JSON information and creates an object to hold it and sends it to the correct service class.
-   > [!TIP]
-   > You are not required to create your handlers in their own distinct classes. You may implement this functionality directly in the lambda functions for the endpoints of your server.
 4. The `service` calls a data access method in order to determine if there is already a user with that username.
 5. The `data access` method checks the database for a username matching the user.
 6. At this point there is a break in logic. If there is already a user with that username, the `data access` method will return a `UserData` of the user with that username. If there is no user with that name, it will return `null`.
@@ -122,6 +120,9 @@ The following is a recommended class structure:
 This architecture includes a handler method for each server endpoint that calls a corresponding service method. Each service method takes a request object and returns a response object. The service method interacts with the data access methods to store and retrieve data from the database. The application model objects serve as the primary data representations that are passed between the server, services, and data access components.
 
 You can decompose your handlers, services, and data access components into multiple classes or leave them as a single class as your design requires in order to meet the principles of good software design.
+
+> [!TIP]
+> You are not required to create your handlers in their own distinct classes. The [Web API instruction](../../instruction/web-api/web-api.md#implementing-endpoints) shows several other patterns, some of which are shorter and easier to use.
 
 ## ☑ Deliverable
 
