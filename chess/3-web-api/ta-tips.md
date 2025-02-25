@@ -4,6 +4,10 @@
 > This resource has been helpfully gathered to help you as a student by invested TAs.\
 > It is not required reading.
 
+## Spark Documentation
+
+The documentation for the Spark library is no longer available from the official website (which no longer exists). However, the information still exists on the Internet Archive: [Web Archive > Spark Java Documentation](https://web.archive.org/web/20240620135725/https://sparkjava.com/documentation)
+
 ## 5 Pro tips
 
 5 Pro tips for solving your own coding problems (#4 will surprise you):
