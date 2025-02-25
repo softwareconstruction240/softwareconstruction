@@ -1,8 +1,8 @@
 # Phase 3 TA Tips
 
 > [!NOTE]
-> This resource has been helpfully gathered to help you as a student by invested TAs.\
-> It is not required reading.
+> **It is not required reading.**
+> This resource has been helpfully gathered to help you as a student by invested TAs.
 
 ## Spark Documentation
 
