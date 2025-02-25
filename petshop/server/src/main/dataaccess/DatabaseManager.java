@@ -10,16 +10,23 @@ import java.util.Properties;
 
 import static java.sql.Statement.RETURN_GENERATED_KEYS;
 
+/**
+ * A simple utility for creating a database and managing connections.
+ * <br>
+ * This class requires a <pre>db.properties</pre> file to contains several important pieces of information.
+ * The file is lazily loaded only when required to avoid throwing errors when the file doesn't need to be expected.
+ */
 public class DatabaseManager {
-    private static final String databaseName;
-    private static final String user;
-    private static final String password;
-    private static final String connectionUrl;
+    private static String databaseName;
+    private static String user;
+    private static String password;
+    private static String connectionUrl;
+    private static Boolean configLoaded = false;
 
-    /*
+    /**
      * Load the database information for the db.properties file.
      */
-    static {
+    private static void initDbProperties() {
         try {
             try (InputStream in = DatabaseManager.class.getClassLoader().getResourceAsStream("db.properties")) {
                 Properties props = new Properties();
@@ -39,9 +46,23 @@ public class DatabaseManager {
     }
 
     /**
+     * Ensures that config properties are available for use within the class.
+     * Within our lazy-loaded config properties system, this should be called before attempting to access lazy-loaded variables.
+     * <br>
+     * This is <b>not</b> a threadsafe function. Calling it multiple times in succession
+     * may result in reading the config data multiple times.
+     */
+    private static void requireLoadedConfig() {
+        if (configLoaded) return;
+        initDbProperties();
+        configLoaded = true;
+    }
+
+    /**
      * Creates the database if it does not already exist.
      */
     static void createDatabase() throws ResponseException {
+        requireLoadedConfig();
         try {
             var statement = "CREATE DATABASE IF NOT EXISTS " + databaseName;
             var conn = DriverManager.getConnection(connectionUrl, user, password);
@@ -66,6 +87,7 @@ public class DatabaseManager {
      * </code>
      */
     static Connection getConnection() throws ResponseException {
+        requireLoadedConfig();
         try {
             var conn = DriverManager.getConnection(connectionUrl, user, password);
             conn.setCatalog(databaseName);
