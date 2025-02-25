@@ -26,7 +26,7 @@ public class PetServer {
         Spark.webSocket("/ws", webSocketHandler);
 
         Spark.post("/pet", this::addPet);
-        Spark.get("/pet", this::listPets);
+        Spark.get("/pets", this::listPets);
         Spark.delete("/pet/:id", this::deletePet);
         Spark.delete("/pets", this::deleteAllPets);
         Spark.exception(ResponseException.class, this::exceptionHandler);

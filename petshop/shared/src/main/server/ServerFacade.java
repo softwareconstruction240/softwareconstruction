@@ -33,7 +33,7 @@ public class ServerFacade {
     }
 
     public Pet[] listPets() throws ResponseException {
-        var path = "/pet";
+        var path = "/pets";
         record listPetResponse(Pet[] pet) {
         }
         var response = this.makeRequest("GET", path, null, listPetResponse.class);
