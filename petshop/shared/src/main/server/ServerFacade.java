@@ -28,7 +28,7 @@ public class ServerFacade {
     }
 
     public void deleteAllPets() throws ResponseException {
-        var path = "/pet";
+        var path = "/pets";
         this.makeRequest("DELETE", path, null, null);
     }
 

@@ -28,7 +28,7 @@ public class PetServer {
         Spark.post("/pet", this::addPet);
         Spark.get("/pet", this::listPets);
         Spark.delete("/pet/:id", this::deletePet);
-        Spark.delete("/pet", this::deleteAllPets);
+        Spark.delete("/pets", this::deleteAllPets);
         Spark.exception(ResponseException.class, this::exceptionHandler);
 
         Spark.awaitInitialization();
