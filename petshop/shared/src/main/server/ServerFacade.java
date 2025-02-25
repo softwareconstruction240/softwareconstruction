@@ -16,6 +16,8 @@ public class ServerFacade {
         serverUrl = url;
     }
 
+    // TODO: Finish creating sequence diagram
+    // https://sequencediagram.org/index.html#initialData=IYYwLg9gTgBAwgGwJYFMB2YBQAHYUxIhK4YwDKKUAbpTngUSWDABLBoAmCtu+hx7ZhWqEUdPo0EwAIsDDAAgiBAoAzqswc5wAEbBVKGBx2ZM6MFACeq3ETQBzGAAYAdAE5M9qBACu2GADEXijoMABKKPZIqhZySBBogQDuABZIYGKIqKQAtAB85JQ0UABcMADaAAoA8mQAKgC6MAD02ChgADpoAN4AREgcvWVOADQwvWjAALYoQ73jY71glm1z4wC+mMLFMPms7FyUZX0DQ86LkzNrvYvLqyXzvZtsnNywe9uiZcAcHJXtAAp-mAAJSmHRQFDAADWMGiRggjgOMBS+hgADNuPotkVRLsPkUjjAAKJQbylGBoCAI+yqGBJdIpDFYjTbSj4gpZcxlAAsTicXT6M3UwHsszKvVJ5LKVJpdIZYCZmKhqhu4xich8qt5-M26A4pk+Kl2BVk8iUKnU31+wIBbVBmDNimUajpe2MZQUvxg9pgwKdMEgfvadV03Ed2gtro5hREKjKwJxccMOT2L0OFMT6beMbZFJOg2GF2m4setxWpY2SZ2qc5yG5MAATPzBf1C+dxpdK2qlhXrnrOKYvL5-AFsD4oNhuDAADLRZjAukBVLpTL13IFPNlcoAcWJjRaBnU8TQgq1lC7Y1w6iS0A4A4Nnm8fkCkI4MhQ3AyweYAR0CFAaFMC5DdY2KbdpGJGd92JJpWnaZoSntABJA19VMJ8R0CLxgEsD8v0MBQEAQH8lxXDJgPXZgCWoIlykg6C6lglp7Q0dDMCAA
 
     public Pet addPet(Pet pet) throws ResponseException {
         var path = "/pet";
