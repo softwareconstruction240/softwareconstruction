@@ -11,15 +11,15 @@ import java.util.Properties;
 import static java.sql.Statement.RETURN_GENERATED_KEYS;
 
 public class DatabaseManager {
-    private static final String databaseName;
-    private static final String user;
-    private static final String password;
-    private static final String connectionUrl;
+    private static String databaseName;
+    private static String user;
+    private static String password;
+    private static String connectionUrl;
 
-    /*
+    /**
      * Load the database information for the db.properties file.
      */
-    static {
+    private static void initDbProperties() {
         try {
             try (InputStream in = DatabaseManager.class.getClassLoader().getResourceAsStream("db.properties")) {
                 Properties props = new Properties();
@@ -42,6 +42,7 @@ public class DatabaseManager {
      * Creates the database if it does not already exist.
      */
     static void createDatabase() throws ResponseException {
+        initDbProperties();
         try {
             var statement = "CREATE DATABASE IF NOT EXISTS " + databaseName;
             var conn = DriverManager.getConnection(connectionUrl, user, password);
