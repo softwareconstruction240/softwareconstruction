@@ -26,6 +26,10 @@ Your project should look like this when it opens with the client, server, and sh
 
 ## Turn off IntelliJ Ultimate AI
 
-If you are using IntelliJ Ultimate Edition, it comes with a local deep learning model that will help finish lines. (This feature does not come with the Community edition). While this is normally a helpful feature, we want you to understand the code you write. In addition, because the programming exam repeats the code you write in this phase, the line completion AI will suggest code you will write in Phase 0. **It will be considered cheating if you leave this feature on.** To turn off Full Line code completion, follow these steps:
+If you are using IntelliJ Ultimate Edition, it comes with a local deep learning model, and possibly a cloud LLM that will help finish lines. (This feature does not come with the Community edition). While this is normally a helpful feature, we want you to understand the code you write. Using AI to write you code may flag our plagiarism detection system. **It will be considered cheating if you leave this feature on.** To turn off Full Line code completion, follow these steps:
 
-1. Go to IntelliJ Settings
+1. Go to IntelliJ Settings by either pressing `ctrl`/`⌘` + `,` or by going to File > Settings.
+1. A new _Settings_ window should have opened. Select Editor > General > Inline Completion on the left-hand side.
+1. Disable the checkbox **Enable local Full Line completion suggestions**. If there is a checkbox about cloud completion, disable that as well.
+1. Click **OK** to save the changes to the setting.
+![inline completion settings](inline-completion.png)
