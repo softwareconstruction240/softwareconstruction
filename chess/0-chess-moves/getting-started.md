@@ -32,4 +32,5 @@ If you are using IntelliJ Ultimate Edition, it comes with a local deep learning 
 1. A new _Settings_ window should have opened. Select Editor > General > Inline Completion on the left-hand side.
 1. Disable the checkbox **Enable local Full Line completion suggestions**. If there is a checkbox about cloud completion, disable that as well.
 1. Click **OK** to save the changes to the setting.
+
 ![inline completion settings](inline-completion.png)
