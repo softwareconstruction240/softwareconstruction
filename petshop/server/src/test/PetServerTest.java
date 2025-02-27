@@ -52,7 +52,7 @@ class PetServerTest {
         server.deletePet(joe.id());
 
         var result = assertDoesNotThrow(() -> server.listPets());
-        assertPetCollectionEqual(expected, List.of(result));
+        assertPetCollectionEqual(expected, List.of(result.pets()));
     }
 
     @Test
@@ -62,7 +62,7 @@ class PetServerTest {
         expected.add(server.addPet(new Pet(0, "sally", PetType.CAT)));
 
         var result = assertDoesNotThrow(() -> server.listPets());
-        assertPetCollectionEqual(expected, List.of(result));
+        assertPetCollectionEqual(expected, List.of(result.pets()));
     }
 
     @Test

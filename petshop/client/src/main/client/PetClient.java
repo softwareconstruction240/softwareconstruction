@@ -69,7 +69,7 @@ public class PetClient {
 
     public String listPets() throws ResponseException {
         assertSignedIn();
-        var pets = server.listPets();
+        var pets = server.listPets().pets();
         var result = new StringBuilder();
         var gson = new Gson();
         for (var pet : pets) {
@@ -97,7 +97,7 @@ public class PetClient {
     public String adoptAllPets() throws ResponseException {
         assertSignedIn();
         var buffer = new StringBuilder();
-        for (var pet : server.listPets()) {
+        for (var pet : server.listPets().pets()) {
             buffer.append(String.format("%s says %s%n", pet.name(), pet.sound()));
         }
 
@@ -114,7 +114,7 @@ public class PetClient {
     }
 
     private Pet getPet(int id) throws ResponseException {
-        for (var pet : server.listPets()) {
+        for (var pet : server.listPets().pets()) {
             if (pet.id() == id) {
                 return pet;
             }

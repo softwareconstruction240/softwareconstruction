@@ -3,6 +3,7 @@ package server;
 import com.google.gson.Gson;
 import exception.ErrorResponse;
 import exception.ResponseException;
+import model.ListPetResponse;
 import model.Pet;
 
 import java.io.*;
@@ -34,12 +35,9 @@ public class ServerFacade {
         this.makeRequest("DELETE", path, null, null);
     }
 
-    public Pet[] listPets() throws ResponseException {
+    public ListPetResponse listPets() throws ResponseException {
         var path = "/pets";
-        record listPetResponse(Pet[] pet) {
-        }
-        var response = this.makeRequest("GET", path, null, listPetResponse.class);
-        return response.pet();
+        return this.makeRequest("GET", path, null, ListPetResponse.class);
     }
 
     private <T> T makeRequest(String method, String path, Object request, Class<T> responseClass) throws ResponseException {

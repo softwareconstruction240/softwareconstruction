@@ -58,7 +58,7 @@ public class PetServer {
     private Object listPets(Request req, Response res) throws ResponseException {
         res.type("application/json");
         var list = service.listPets().toArray();
-        return new Gson().toJson(Map.of("pet", list));
+        return new Gson().toJson(Map.of("pets", list));
     }
 
 
