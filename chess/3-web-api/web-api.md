@@ -43,7 +43,7 @@ The following defines the endpoints that your server is required to implement. Y
 | **URL path**         | `/db`                                                          |
 | **HTTP Method**      | `DELETE`                                                       |
 | **Success response** | [200] `{}`                                                     |
-| **Failure response** | [500] `{ "message": "Error: (description of error)" }`         |
+| **Failure response** | [500] `{ "message": "Error: (description of error)" }` <br>        |
 
 ### Register
 
