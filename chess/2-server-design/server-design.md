@@ -119,7 +119,7 @@ This architecture includes a handler method for each server endpoint that calls 
 You can decompose your handlers, services, and data access components into multiple classes or leave them as a single class as your design requires in order to meet the principles of good software design.
 
 > [!TIP]
-> You are not required to create your handlers in their own distinct classes. The [Web API instruction](../../instruction/web-api/web-api.md#implementing-endpoints) shows several other patterns, some of which are shorter and easier to use.
+> You are not required to create your handlers in their own distinct classes. The [Web API instruction](../../instruction/web-api/web-api.md#implementing-endpoints) shows several other patterns; you are free to balance the pros & cons and choose the best approach for you.
 
 ## ☑ Deliverable
 
