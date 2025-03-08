@@ -1,24 +1,31 @@
-import spark.Spark;
+import io.javalin.Javalin;
 
 public class StaticFileServer {
     public static void main(String[] args) {
-        try {
-            int port = Integer.parseInt(args[0]);
-            Spark.port(port);
+        int requestedPort = Integer.parseInt(args[0]);
 
-            // Must be done before mapping routes
-            Spark.staticFiles.location("/public");
-
-            createRoutes();
-
-            Spark.awaitInitialization();
-            System.out.println("Listening on port " + port);
-        } catch(ArrayIndexOutOfBoundsException | NumberFormatException ex) {
-            System.err.println("Specify the port number as a command line parameter");
-        }
+        var server = new StaticFileServer();
+        int port = server.run(requestedPort);
+        System.out.println("Running on port " + port);
     }
 
-    private static void createRoutes() {
-        Spark.get("/hello", (req, res) -> "Hello BYU!");
+    public int run(int requestedPort) {
+        Javalin javalinServer = Javalin.create(
+                config -> config.staticFiles.add("web")
+        );
+
+        createHandlers(javalinServer);
+
+        javalinServer.start(requestedPort);
+        return javalinServer.port();
+    }
+
+    private void createHandlers(Javalin javalinServer) {
+        HelloBYUHandler helloHandler = new HelloBYUHandler();
+//        HelloBYUJsonHandler helloHandler = new HelloBYUJsonHandler();
+        // Other handlers here
+
+        javalinServer.get("/hello", helloHandler::handleRequest);
+        // Other routes here
     }
 }

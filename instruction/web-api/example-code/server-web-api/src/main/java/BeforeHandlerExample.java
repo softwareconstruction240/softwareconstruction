@@ -1,15 +1,15 @@
 import io.javalin.Javalin;
 
-public class HelloBYUServer {
+public class BeforeHandlerExample {
     public static void main(String[] args) {
         int requestedPort = Integer.parseInt(args[0]);
 
-        var server = new HelloBYUServer();
+        var server = new BeforeHandlerExample();
         int port = server.run(requestedPort);
         System.out.println("Running on port " + port);
     }
 
-    public int run(int requestedPort) {
+    protected int run(int requestedPort) {
         Javalin javalinServer = Javalin.create();
 
         createHandlers(javalinServer);
@@ -20,10 +20,10 @@ public class HelloBYUServer {
 
     private void createHandlers(Javalin javalinServer) {
         HelloBYUHandler helloHandler = new HelloBYUHandler();
-//        HelloBYUJsonHandler helloHandler = new HelloBYUJsonHandler();
-        // Other handlers here
+
+        javalinServer.before(context ->
+            System.out.println("Executing route " + context.path()));
 
         javalinServer.get("/hello", helloHandler::handleRequest);
-        // Other routes here
     }
 }
