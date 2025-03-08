@@ -2,7 +2,7 @@
 
 🖥️ [Slides: Server](https://docs.google.com/presentation/d/173oiXc1ahCnZ36NJHjp3RMHCS2Xle2NH/edit?usp=sharing&ouid=110961336761942794636&rtpof=true&sd=true)
 
-🖥️ [Slides: Server Implementation Tips](https://docs.google.com/presentation/d/1hORd88ej8W-nqHgEpYU2GmPcrSrHew1V/edit?usp=drive_link&ouid=110961336761942794636&rtpof=true&sd=true)
+🖥️ [Slides: Server Implementation Tips](https://docs.google.com/presentation/d/1am-_YWoZ1AX5_oZZAORjzsLbb8dy0_2S/edit?usp=sharing&ouid=110961336761942794636&rtpof=true&sd=true)
 
 🖥️ [Slides: Client](https://docs.google.com/presentation/d/1P-qIn-6mrZ28UuRFtFMIvGnjygOtOzZ5/edit?usp=sharing&ouid=114081115660452804792&rtpof=true&sd=true)
 
