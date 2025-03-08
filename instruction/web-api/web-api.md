@@ -4,7 +4,7 @@
 
 🖥️ [Slides: Server Implementation Tips](https://docs.google.com/presentation/d/1am-_YWoZ1AX5_oZZAORjzsLbb8dy0_2S/edit?usp=sharing&ouid=110961336761942794636&rtpof=true&sd=true)
 
-🖥️ [Slides: Client](https://docs.google.com/presentation/d/1P-qIn-6mrZ28UuRFtFMIvGnjygOtOzZ5/edit?usp=sharing&ouid=114081115660452804792&rtpof=true&sd=true)
+🖥️ [Slides: Client](https://docs.google.com/presentation/d/11UOJixn1VLDDcmioRWEpIfPXvBXFT8cR/edit?usp=sharing&ouid=110961336761942794636&rtpof=true&sd=true)
 
 🖥️ [Lecture Videos](#videos)
 
