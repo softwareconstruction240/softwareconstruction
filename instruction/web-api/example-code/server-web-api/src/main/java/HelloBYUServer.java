@@ -19,11 +19,7 @@ public class HelloBYUServer {
     }
 
     private void createHandlers(Javalin javalinServer) {
-        HelloBYUHandler helloHandler = new HelloBYUHandler();
-//        HelloBYUJsonHandler helloHandler = new HelloBYUJsonHandler();
-        // Other handlers here
-
-        javalinServer.get("/hello", helloHandler::handleRequest);
+        javalinServer.get("/hello", new HelloBYUHandler());
         // Other routes here
     }
 }

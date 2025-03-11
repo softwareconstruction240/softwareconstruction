@@ -19,11 +19,9 @@ public class BeforeHandlerExample {
     }
 
     private void createHandlers(Javalin javalinServer) {
-        HelloBYUHandler helloHandler = new HelloBYUHandler();
-
         javalinServer.before(context ->
             System.out.println("Executing route " + context.path()));
 
-        javalinServer.get("/hello", helloHandler::handleRequest);
+        javalinServer.get("/hello", new HelloBYUHandler());
     }
 }
