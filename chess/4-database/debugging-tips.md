@@ -41,3 +41,13 @@ SQL table and column names are **case-sensitive** on the AutoGrader. However, so
     - Any other statements making reference to column names like `SELECT` or `WHERE` clauses.
     - `ResultSet.get*()` or similar functions which require a column name
 - Storing table names and/or column names in **variables** gives a reliable foundation to avoid this kind of problem.
+
+#### Altering Tables
+
+When your code creates the database and tables, it does so with the line of code `CREATE TABLE IF NOT EXISTS users`, this means that it will only reference the code afterwards if the table is not already made. 
+
+- This means that if you change your create statement to store game as LONGTEXT instead of VARCHAR(100), this update will not be seen until you either `ALTER TABLE` or `DROP TABLE`
+  - Alter Table allows you to change your table, such as to add a new column
+  - Drop Table will completely delete your whole table, completely deleting all data currently on it, which would allow you to recreate it with your `CREATE TABLE` statement, which can include your newly updated column variable types
+  - This [Git Hub Link](https://github.com/softwareconstruction240/softwareconstruction/blob/main/instruction/db-sql/db-sql.md#altering-tables) contains a bit more explanation and some examples, not only of altering tables, but other important information about mySQL Tables.
+
