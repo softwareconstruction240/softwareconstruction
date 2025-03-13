@@ -6,7 +6,7 @@
 
 In this part of the Chess project, you will create a MySQL implementation of your Data Access interface and start calling it from your services. This enables the ability to store data persistently in a MySQL database instead of storing data in main memory. You will also write unit tests using JUnit for your DAO classes. This involves the following steps:
 
-1. Install the MYSQL database management system (DBMS) on your development machine.
+1. Install the MYSQL database management system (DBMS) on your development machine. Instructions to install [MYSQL](../../instruction/mysql/mysql.md).
 1. Modify `db.properties` to contain your username and password.
 1. Design your database tables (i.e., your database `schema`)
 1. Implement a MySQL implementation of your Data Access Interface. Initially you can just stub out all the methods.
