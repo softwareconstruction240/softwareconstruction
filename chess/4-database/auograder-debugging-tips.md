@@ -1,6 +1,6 @@
-# Phase 4 Database — Debugging Tips
+# Phase 4 Database — Auto Grader Debugging Tips
 
-Since Phase 4 requires interacting with an external program (the MySQL database), the likelihood of having auto-grader test output different from your local output is higher than previous phases. The most common issues are summarized here to save you time spent frustrated with a new technology.
+Since Phase 4 requires interacting with an external program (the MySQL database), the likelihood of having the tests on your local device pass while the auto-grader tests will fail is higher than previous phases. The most common issues are summarized here to save you time spent frustrated with a new technology.
 
 > [!IMPORTANT]
 > This guide assumes that your tests **are passing locally**. If your tests are not passing on your own computer, then you should definitely not assume they will pass on the AutoGrader.
@@ -50,4 +50,5 @@ When your code creates the database and tables, it does so with the line of code
   - Alter Table allows you to change your table, such as to add a new column
   - Drop Table will completely delete your whole table, completely deleting all data currently on it, which would allow you to recreate it with your `CREATE TABLE` statement, which can include your newly updated column variable types
   - This [Git Hub Link](https://github.com/softwareconstruction240/softwareconstruction/blob/main/instruction/db-sql/db-sql.md#altering-tables) contains a bit more explanation and some examples, not only of altering tables, but other important information about mySQL Tables.
+
 
