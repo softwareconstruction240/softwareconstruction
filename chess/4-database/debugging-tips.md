@@ -1,6 +1,6 @@
-# Phase 4 Database — Auto Grader Debugging Tips
+# Phase 4 Database — Debugging Tips
 
-Since Phase 4 requires interacting with an external program (the MySQL database), the likelihood of having the tests on your local device pass while the auto-grader tests will fail is higher than previous phases. The most common issues are summarized here to save you time spent frustrated with a new technology.
+Since Phase 4 requires interacting with an external program (the MySQL database), the likelihood of having auto-grader test output different from your local output is higher than previous phases. The most common issues are summarized here to save you time spent frustrated with a new technology.
 
 > [!IMPORTANT]
 > This guide assumes that your tests **are passing locally**. If your tests are not passing on your own computer, then you should definitely not assume they will pass on the AutoGrader.
