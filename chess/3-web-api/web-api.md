@@ -67,6 +67,7 @@ The following defines the endpoints that your server is required to implement. Y
 | **HTTP Method**      | `POST`                                                 |
 | **Body**             | `{ "username":"", "password":"" }`                     |
 | **Success response** | [200] `{ "username":"", "authToken":"" }`              |
+| **Failure response** | [400] `{ "message": "Error: bad request" }`            |
 | **Failure response** | [401] `{ "message": "Error: unauthorized" }`           |
 | **Failure response** | [500] `{ "message": "Error: (description of error)" }` |
 
