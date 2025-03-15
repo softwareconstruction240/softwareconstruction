@@ -5,7 +5,7 @@ import exception.ResponseException;
 import webSocketMessages.Action;
 import webSocketMessages.Notification;
 
-import javax.websocket.*;
+import jakarta.websocket.*;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -15,7 +15,6 @@ public class WebSocketFacade extends Endpoint {
 
     Session session;
     NotificationHandler notificationHandler;
-
 
     public WebSocketFacade(String url, NotificationHandler notificationHandler) throws ResponseException {
         try {

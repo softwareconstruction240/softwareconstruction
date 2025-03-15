@@ -3,81 +3,82 @@ package server;
 import com.google.gson.Gson;
 import exception.ResponseException;
 import model.Pet;
+import io.javalin.Javalin;
+import io.javalin.http.Context;
 import server.websocket.WebSocketHandler;
 import service.PetService;
-import spark.*;
 
 import java.util.Map;
 
 public class PetServer {
     private final PetService service;
     private final WebSocketHandler webSocketHandler;
+    private final Javalin javalin;
 
     public PetServer(PetService service) {
         this.service = service;
-        webSocketHandler = new WebSocketHandler();
+        this.webSocketHandler = new WebSocketHandler();
+        this.javalin = initializeJavalin();
+    }
+
+    private Javalin initializeJavalin() {
+        return Javalin.create(config -> config.staticFiles.add("public"))
+                .post("/pet", this::addPet)
+                .get("/pet", this::listPets)
+                .delete("/pet/{id}", this::deletePet)
+                .delete("/pet", this::deleteAllPets)
+                .exception(ResponseException.class, this::exceptionHandler)
+                .ws("/ws", ws -> {
+                    ws.onConnect(webSocketHandler);
+                    ws.onMessage(webSocketHandler);
+                    ws.onClose(webSocketHandler);
+                });
     }
 
     public PetServer run(int port) {
-        Spark.port(port);
-
-        Spark.staticFiles.location("public");
-
-        Spark.webSocket("/ws", webSocketHandler);
-
-        Spark.post("/pet", this::addPet);
-        Spark.get("/pet", this::listPets);
-        Spark.delete("/pet/:id", this::deletePet);
-        Spark.delete("/pet", this::deleteAllPets);
-        Spark.exception(ResponseException.class, this::exceptionHandler);
-
-        Spark.awaitInitialization();
+        javalin.start(port);
         return this;
     }
 
     public int port() {
-        return Spark.port();
+        return javalin.port();
     }
 
     public void stop() {
-        Spark.stop();
+        javalin.stop();
     }
 
-    private void exceptionHandler(ResponseException ex, Request req, Response res) {
-        res.status(ex.StatusCode());
-        res.body(ex.toJson());
+    private void exceptionHandler(ResponseException ex, Context ctx) {
+        ctx.status(ex.StatusCode());
+        ctx.json(ex.toJson());
     }
 
-    private Object addPet(Request req, Response res) throws ResponseException {
-        var pet = new Gson().fromJson(req.body(), Pet.class);
+    private void addPet(Context ctx) throws ResponseException {
+        var pet = new Gson().fromJson(ctx.body(), Pet.class);
         pet = service.addPet(pet);
         webSocketHandler.makeNoise(pet.name(), pet.sound());
-        return new Gson().toJson(pet);
+        ctx.json(new Gson().toJson(pet));
     }
 
-    private Object listPets(Request req, Response res) throws ResponseException {
-        res.type("application/json");
+    private void listPets(Context ctx) throws ResponseException {
         var list = service.listPets().toArray();
-        return new Gson().toJson(Map.of("pet", list));
+        ctx.json(new Gson().toJson(Map.of("pet", list)));
     }
 
-
-    private Object deletePet(Request req, Response res) throws ResponseException {
-        var id = Integer.parseInt(req.params(":id"));
+    private void deletePet(Context ctx) throws ResponseException {
+        var id = Integer.parseInt(ctx.pathParam("id"));
         var pet = service.getPet(id);
         if (pet != null) {
             service.deletePet(id);
             webSocketHandler.makeNoise(pet.name(), pet.sound());
-            res.status(204);
+            ctx.status(204);
         } else {
-            res.status(404);
+            ctx.status(404);
         }
-        return "";
     }
 
-    private Object deleteAllPets(Request req, Response res) throws ResponseException {
+    private void deleteAllPets(Context ctx) throws ResponseException {
         service.deleteAllPets();
-        res.status(204);
-        return "";
+        ctx.status(204);
     }
 }
