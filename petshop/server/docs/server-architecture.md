@@ -23,9 +23,9 @@ We’ve carefully structured the server architecture to keep things organized an
 
 ## Class Diagram
 
-This class diagram shows the relationships between each of the classes and folders in the PetShop server package. This diagram shows the public & private methods and fields stored by each class.
+The class diagram provides a clear visual representation of how the classes and folders within the PetShop server package interact. It highlights the public and private methods and fields associated with each class.
 
-The arrows of dependency reflect the layered architecture described above with the notable exception that the root ServerMain instantiates and choose which particular DataAccess implementation to use in the rest of the system.
+The arrows in the diagram reflect the layered architecture we've discussed, with one key exception: the root `ServerMain` is responsible for instantiating and selecting the specific `DataAccess` implementation to be used throughout the system.
 
 ```mermaid
 classDiagram
