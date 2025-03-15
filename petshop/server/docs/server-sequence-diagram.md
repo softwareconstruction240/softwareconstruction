@@ -7,10 +7,20 @@ Sequence diagrams can be used for many things. In this context, a sequence diagr
 
 The diagram is designed to illustrate **code**; each element on the sequence diagram corresponds to something that will be literally implemented in the source code. The PetShop example is intentionally simple in its implementation in order to emphasize core patterns and principles which underlie real-world software applications.
 
-This sequence diagram shows each of the public HTTP endpoints, and the internal organization of the server that responds to each request.
+This sequence diagram shows each of the public PetShop HTTP endpoints, and the internal organization of the PetServer that responds to each request.
 
 ## Layer Overview
-An emphasis is placed on the separation of responsibility between multiple layers. An: Handler, Service, DataAccess
+
+An emphasis is placed on the separation of responsibility between multiple layers. Each layer has a primary responsibility and solves a specific portion of the complexity of the application. This system follows strict [N-1 dependency](https://www.oreilly.com/library/view/software-architecture-patterns/9781491971437/ch01.html) rules: each layer only interacts with layers _directly_ beneath it, and does not access layers arbitrarily deep in the hierarchy.
+
+| Layer | Implemented By | Description |
+| :---: | :------------- | :---------- |
+| **Client** | Not necessarily a human, but the direct user of this Web Api. <br> _This will typically be a client-facing application that forwards client intentions to this API._ | Send requests to be fulfilled.|
+| **Server** | Library code: Spark. | Converts incoming HTTP requests into formats easily readable by Java code. |
+| **Handler** | App code. Functions connected to endpoints. | Parses out information specific to a particular endpoint and wrap it in a format easily used by the `Service` layer. |
+| **Service** | App code. Functions inside classes designated as "services" | Performs validation, logic, updates, and transformation particular to the application. |
+| **DataAccess** | App code. Classes implementing interfaces. | Transforms data from an app-friendly format into the format required by a specific database. |
+| **Database (db)** | External software: MySQL | Stores and queries data and acts as the source of truth. Supports multiple users changing data simultaneously. |
 
 ## Diagram Sample
 
