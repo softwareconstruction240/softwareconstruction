@@ -77,7 +77,7 @@ public class ServerFacade {
         if (!isSuccessful(status)) {
             var body = response.body();
             if (body != null) {
-                throw new Gson().fromJson(response.body(), ResponseException.class);
+                throw ResponseException.fromJson(body);
             }
 
             throw new ResponseException(status, "other failure: " + status);
