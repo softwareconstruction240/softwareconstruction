@@ -21,6 +21,99 @@ We’ve carefully structured the server architecture to keep things organized an
 | **DataAccess** | App code. Classes implementing interfaces. | Transforms data from an app-friendly format into the format required by a specific database. |
 | **Database (db)** | External software: MySQL | Stores and queries data and acts as the source of truth. Supports multiple users changing data simultaneously. |
 
+## Class Diagram
+
+This class diagram shows the relationships between each of the classes and folders in the PetShop server package. This diagram shows the public & private methods and fields stored by each class.
+
+The arrows of dependency reflect the layered architecture described above with the notable exception that the root ServerMain instantiates and choose which particular DataAccess implementation to use in the rest of the system.
+
+```mermaid
+classDiagram
+direction TB
+
+namespace Server {
+    class ServerMain {
+        +main(String[] args) void
+    }
+}
+
+namespace Server.server {
+    class PetServer {
+        -PetService service
+        -WebSocketHandler webSocketHandler
+        +run(int) PetServer
+        +port() int
+        +stop() void
+    }
+}
+
+namespace Server.service {
+    class PetService {
+        <<Service>>
+        -DataAccess dataAccess
+        +addPet(Pet)
+        +listPets()
+        +getPet(int id)
+        +deletePet(Integer id)
+        +deleteAllPets()
+    }
+}
+
+namespace Server.dataaccess {
+    class DataAccess {
+        <<Interface>>
+        +addPet(Pet)
+        +listPets()
+        +getPet(int id)
+        +deletePet(Integer id)
+        +deleteAllPets()
+    }
+
+    class MemoryDataAccess {
+        -int nextId
+        -HashMap~Integer, Pet~ pets
+    }
+
+    class MySqlDataAccess {
+        -readPet(ResultSet rs) Pet
+        -executeUpdate(String statement, Object... params) int
+        -configureDatabase() void
+    }
+
+    class DatabaseManager {
+        -String databaseName$
+        -String user$
+        -String password$
+        -String connectionUrl$
+        +createDatabase() void $
+        +getConnection() Connection $
+    }
+}
+
+namespace Shared.Exception {
+    class ErrorResponse {
+        String message
+    }
+
+    class ResponseException {
+        -int statusCode
+        +ResponseException(int statusCode, String message)
+        +toJson() String
+        +fromJson(InputStream stream) ResponseException $
+        +StatusCode() int
+    }
+}
+
+DataAccess <|.. MemoryDataAccess
+DataAccess <|.. MySqlDataAccess
+PetService ..> DataAccess
+PetServer ..> PetService
+ServerMain ..> PetServer
+ServerMain --> MemoryDataAccess
+ServerMain --> MySqlDataAccess
+MySqlDataAccess --> DatabaseManager
+```
+
 ## Sequence Diagram
 
 Sequence diagrams are a powerful tool for visualizing the logical flow of a program as it executes. In this context, the sequence diagram for PetShop illustrates the function calls, parameters, and return types of key functions within the server architecture. As with any diagram, minor details are sometimes omitted to avoid distracting from the overall purpose of the diagram.
