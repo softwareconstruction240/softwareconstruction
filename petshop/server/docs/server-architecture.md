@@ -1,30 +1,33 @@
-# PetShop Server Sequence Diagram
+
+# PetShop Server Architecture
 
 > [!TIP]
 > View the [sequence diagram][sequence-diagram-link] directly.
 
-Sequence diagrams can be used for many things. In this context, a sequence diagram shows the logical flow of a program as it executes. It visualizes the function calls, the parameters, and return types of the most important functions. As with any diagram, minor details are sometimes omitted to avoid distracting from the overall purpose of the diagram.
+The PetShop server architecture is designed to illustrate core patterns and principles of a well-structured server-side application. This documentation aims to provide CS 240 students with a clear understanding of the separation of responsibilities between different layers of the server, and how they interact to handle client requests.
 
-The diagram is designed to illustrate **code**; each element on the sequence diagram corresponds to something that will be literally implemented in the source code. The PetShop example is intentionally simple in its implementation in order to emphasize core patterns and principles which underlie real-world software applications.
-
-This sequence diagram shows each of the public PetShop HTTP endpoints, and the internal organization of the PetServer that responds to each request.
+At the heart of this architecture are various components, each with a distinct role in processing data and ensuring the reliability and scalability of the system. By adhering to strict [N-1 dependency](https://www.oreilly.com/library/view/software-architecture-patterns/9781491971437/ch01.html) rules, each layer only interacts with the layer directly beneath it, avoiding unnecessary complexity and promoting maintainability.
 
 ## Layer Overview
 
-An emphasis is placed on the separation of responsibility between multiple layers. Each layer has a primary responsibility and solves a specific portion of the complexity of the application. This system follows strict [N-1 dependency](https://www.oreilly.com/library/view/software-architecture-patterns/9781491971437/ch01.html) rules: each layer only interacts with layers _directly_ beneath it, and does not access layers arbitrarily deep in the hierarchy.
+We’ve carefully structured the server architecture to keep things organized and manageable. Each layer has a clear job and handles a specific part of the app’s complexity, making the system easier to understand and maintain.
 
 | Layer | Implemented By | Description |
 | :---: | :------------- | :---------- |
-| **Client** | Not necessarily a human, but the direct user of this Web Api. <br> _This will typically be a client-facing application that forwards client intentions to this API._ | Send requests to be fulfilled.|
+| **Client** | Not necessarily a human, but the direct user of this Web API. <br> _This will typically be a client-facing application that forwards client intentions to this API._ | Send requests to be fulfilled. |
 | **Server** | Library code: Spark. | Converts incoming HTTP requests into formats easily readable by Java code. |
-| **Handler** | App code. Functions connected to endpoints. | Parses out information specific to a particular endpoint and wrap it in a format easily used by the `Service` layer. |
+| **Handler** | App code. Functions connected to endpoints. | Parses out information specific to a particular endpoint and wraps it in a format easily used by the `Service` layer. |
 | **Service** | App code. Functions inside classes designated as "services" | Performs validation, logic, updates, and transformation particular to the application. |
 | **DataAccess** | App code. Classes implementing interfaces. | Transforms data from an app-friendly format into the format required by a specific database. |
 | **Database (db)** | External software: MySQL | Stores and queries data and acts as the source of truth. Supports multiple users changing data simultaneously. |
 
-## Diagram Sample
+## Sequence Diagram
 
-Click on the image to view the [full diagram][sequence-diagram-link]. A sample of the diagram is provided below for easy reference.
+Sequence diagrams are a powerful tool for visualizing the logical flow of a program as it executes. In this context, the sequence diagram for PetShop illustrates the function calls, parameters, and return types of key functions within the server architecture. As with any diagram, minor details are sometimes omitted to avoid distracting from the overall purpose of the diagram.
+
+The PetShop sequence diagram shows each of the public PetShop HTTP endpoints and the internal organization of the PetServer that responds to each request. Each element on the diagram corresponds directly to the source code, making it a valuable reference for understanding the underlying server logic.
+
+Click on the image to view the [full diagram][sequence-diagram-link]. A preview of the diagram is provided below for easy reference.
 
 [![PetShop Sequence Diagram — Create Pet](./img/sequence-diagram-sample-create-pet.png)][sequence-diagram-link]
 
