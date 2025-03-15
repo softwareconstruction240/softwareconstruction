@@ -1,0 +1,88 @@
+---
+title: PetShop Server Class Diagram
+---
+
+classDiagram
+direction TB
+
+namespace Server {
+    class ServerMain {
+        +main(String[] args) void
+    }
+}
+
+namespace Server.server {
+    class PetServer {
+        -PetService service
+        -WebSocketHandler webSocketHandler
+        +run(int) PetServer
+        +port() int
+        +stop() void
+    }
+}
+
+namespace Server.service {
+    class PetService {
+        <<Service>>
+        -DataAccess dataAccess
+        +addPet(Pet)
+        +listPets()
+        +getPet(int id)
+        +deletePet(Integer id)
+        +deleteAllPets()
+    }
+}
+
+namespace Server.dataaccess {
+    class DataAccess {
+        <<Interface>>
+        +addPet(Pet)
+        +listPets()
+        +getPet(int id)
+        +deletePet(Integer id)
+        +deleteAllPets()
+    }
+
+    class MemoryDataAccess {
+        -int nextId
+        -HashMap~Integer, Pet~ pets
+    }
+
+    class MySqlDataAccess {
+        -readPet(ResultSet rs) Pet
+        -executeUpdate(String statement, Object... params) int
+        -configureDatabase() void
+    }
+
+    class DatabaseManager {
+        -String databaseName$
+        -String user$
+        -String password$
+        -String connectionUrl$
+        +createDatabase() void $
+        +getConnection() Connection $
+    }
+}
+
+namespace Shared.Exception {
+    class ErrorResponse {
+        String message
+    }
+
+    class ResponseException {
+        -int statusCode
+        +ResponseException(int statusCode, String message)
+        +toJson() String
+        +fromJson(InputStream stream) ResponseExpection $
+        +StatusCode() int
+    }
+}
+
+DataAccess <|.. MemoryDataAccess
+DataAccess <|.. MySqlDataAccess
+PetService ..> DataAccess
+PetServer ..> PetService
+ServerMain ..> PetServer
+ServerMain --> MemoryDataAccess
+ServerMain --> MySqlDataAccess
+MySqlDataAccess --> DatabaseManager
