@@ -5,9 +5,9 @@
 
 > [!TIP]
 > View the key resources directly:
-> - [layer overview](#layer-overview)
-> - [class diagram][class-diagram-link]
-> - [sequence diagram][sequence-diagram-link]
+> - [Layer overview](#layer-overview)
+> - [Class diagram][class-diagram-link]
+> - [Sequence diagram][sequence-diagram-link]
 
 The PetShop server architecture is designed to illustrate core patterns and principles of a well-structured server-side application. This documentation aims to provide CS 240 students with a clear understanding of the separation of responsibilities between different layers of the server, and how they interact to handle client requests.
 
