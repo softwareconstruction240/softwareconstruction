@@ -15,13 +15,13 @@ title: PetShop Server Class Diagram
 classDiagram
 direction TB
 
-namespace Server {
+namespace server {
     class ServerMain {
         +main(String[] args) void
     }
 }
 
-namespace Server.server {
+namespace server.server {
     class PetServer {
         -PetService service
         -WebSocketHandler webSocketHandler
@@ -31,7 +31,7 @@ namespace Server.server {
     }
 }
 
-namespace Server.service {
+namespace server.service {
     class PetService {
         <<Service>>
         -DataAccess dataAccess
@@ -43,7 +43,7 @@ namespace Server.service {
     }
 }
 
-namespace Server.dataaccess {
+namespace server.dataaccess {
     class DataAccess {
         <<Interface>>
         +addPet(Pet)
@@ -74,7 +74,7 @@ namespace Server.dataaccess {
     }
 }
 
-namespace Shared.Exception {
+namespace shared.Exception {
     class ErrorResponse {
         String message
     }
@@ -88,11 +88,11 @@ namespace Shared.Exception {
     }
 }
 
-DataAccess <|.. MemoryDataAccess
 DataAccess <|.. MySqlDataAccess
-PetService ..> DataAccess
-PetServer ..> PetService
-ServerMain ..> PetServer
-ServerMain --> MemoryDataAccess
-ServerMain --> MySqlDataAccess
+DataAccess <|.. MemoryDataAccess
 MySqlDataAccess --> DatabaseManager
+PetService o-- DataAccess
+PetServer o-- PetService
+ServerMain o-- PetServer
+ServerMain o-- MemoryDataAccess
+ServerMain o-- MySqlDataAccess
