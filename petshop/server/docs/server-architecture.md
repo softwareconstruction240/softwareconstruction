@@ -38,7 +38,7 @@ Click on the image to view the interactive form of the [full class diagram][clas
 [![PetShop Class Diagram](./img/class-diagram-sample.png)][class-diagram-link]
 
 
-[class-diagram-link]: ./class-diagram.mermaid
+[class-diagram-link]: https://github.com/softwareconstruction240/softwareconstruction/blob/main/petshop/server/docs/class-diagram.mermaid
 
 ## Sequence Diagram
 
