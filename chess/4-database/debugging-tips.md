@@ -10,9 +10,9 @@ Since Phase 4 requires interacting with an external program (the MySQL database)
 
 #### Database and Table Creation
 
-Make sure that your code has these statements somewhere, and make sure that they are called before any method tries to access the database. For example, if someone is going to register a user, all the databases should be created before hand, or else when it tries to check the database to see if the username has already been taken, it will throw an error since you have no database.
+Make sure that your code has the create database and table statements somewhere, and make sure that they are called before any method tries to access the database. For example, if someone is going to register a user, all the databases should be created before hand, or else when it tries to check the database to see if the username has already been taken, it will throw an error since you have no database.
 
-Also make sure that your create statements are in correct SQL Format. A good example can be found in Pet Shop.
+Also make sure that your create statements are in correct SQL Format. A good example can be found in [Pet Shop](https://github.com/softwareconstruction240/softwareconstruction/blob/main/petshop/server/src/main/dataaccess/MySqlDataAccess.java).
 
 #### Altering Tables
 
@@ -21,16 +21,16 @@ Also make sure that your create statements are in correct SQL Format. A good exa
   - Drop Table will completely delete your whole table, completely deleting all data currently on it, which would allow you to recreate it with your `CREATE TABLE` statement, which can include your newly updated column variable types
   - This [Git Hub Link](https://github.com/softwareconstruction240/softwareconstruction/blob/main/instruction/db-sql/db-sql.md#altering-tables) contains a bit more explanation and some examples, not only of altering tables, but other important information about mySQL Tables.
 
-After you have altered your table, then you should be able to rerun your code, and check your database to see if the update was successful. 
+After you have altered or dropped your table, then you should be able to rerun your code, and check your database to see if the update was successful. 
 
 
 ## If your code does pass on your own computer but not on the AutoGrader
 
 #### Database and Table Creation
 
-If your local tests are passing but the autograder isn't passing, there might be something different about your database and table creation than you might assume
+If your local tests are passing but the autograder isn't passing, your create database and table code may be incorrect. 
 
-Since your code will only create the database and tables if it isn't created already, it might be possible that you changed the code sometime while your database and table was still created, so it never actually updated your local SQL database. 
+Since your code will only create the database and tables if it isn't created already, it might be possible that you altered your create database and table code after it has been created, meaning that your local SQL database would never actually be updated. 
 
 Try the following steps to reproduce the problem on your local machine:
 1. Drop your database/schema using an external tool (MySQL shell or workbench).
