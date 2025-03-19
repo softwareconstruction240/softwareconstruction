@@ -29,6 +29,19 @@ namespace server.server {
         +port() int
         +stop() void
     }
+    class PetServerTest {
+        -PetServer petServer$
+        -ServerFacade server$
+        startServer()$
+        stopServer()$
+        clear()
+        addPet()
+        deletePet()
+        listPets()
+        invalidPetAddition()
+        +assertPetEqual(expected, actual) $
+        +assertPetCollectionEqual(expected, actual) $
+    }
 }
 
 namespace server.service {
@@ -40,6 +53,15 @@ namespace server.service {
         +getPet(int id)
         +deletePet(Integer id)
         +deleteAllPets()
+    }
+    class PetServiceTest {
+        -PetService service$
+        clear()
+        addPet()
+        listPets()
+        deletePet()
+        deleteAllpets()
+        noDogsWithFleas()
     }
 }
 
@@ -72,6 +94,15 @@ namespace server.dataaccess {
         +createDatabase() void $
         +getConnection() Connection $
     }
+
+    class DataAccessTest {
+        +addPet(DataAccess dbClass)
+        +listPet(DataAccess dbClass)
+        +deletePet(DataAccess dbClass)
+        +deleteAllPets(DataAccess dbClass)
+        +assertPetEqual(expected, actual) $
+        +assertPetCollectionEqual(expected, actual) $
+    }
 }
 
 namespace shared.Exception {
@@ -88,11 +119,24 @@ namespace shared.Exception {
     }
 }
 
-DataAccess <|.. MySqlDataAccess
+%% DataAccess package
 DataAccess <|.. MemoryDataAccess
+DataAccess <|.. MySqlDataAccess
+DataAccessTest o-- MemoryDataAccess
+DataAccessTest o-- MySqlDataAccess
 MySqlDataAccess --> DatabaseManager
+
+%% Service package
 PetService o-- DataAccess
+%% PetService --o PetServiceTest
+PetServiceTest o-- PetService
+
+%% Server Package
 PetServer o-- PetService
+PetServer --o PetServerTest
+%% PetServerTest o-- PetServer
+
+%% Server Main
 ServerMain o-- PetServer
 ServerMain o-- MemoryDataAccess
 ServerMain o-- MySqlDataAccess
