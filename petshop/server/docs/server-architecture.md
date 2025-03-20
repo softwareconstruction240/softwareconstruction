@@ -8,6 +8,7 @@
 > - [Layer overview](#layer-overview)
 > - [Class diagram][class-diagram-link]
 > - [Sequence diagram][sequence-diagram-link]
+> - [Videos](#videos-02242)
 
 The PetShop server architecture is designed to illustrate core patterns and principles of a well-structured server-side application. This documentation aims to provide CS 240 students with a clear understanding of the separation of responsibilities between different layers of the server, and how they interact to handle client requests.
 
@@ -51,3 +52,12 @@ Click on the image to view the [full sequence diagram][sequence-diagram-link]. A
 [![PetShop Sequence Diagram — Create Pet](./img/sequence-diagram-sample-create-pet.png)][sequence-diagram-link]
 
 [sequence-diagram-link]: https://sequencediagram.org/index.html#initialData=IYYwLg9gTgBAwgGwJYFMB2YBQAHYUxIhK4YwDKKUAbpTngUSWDABLBoAmCtu+hx7ZhWqEUdPo0EwAIsDDAAgiBAoAzqswc5wAEbBVKGBx2ZM6MFACeq3ETQBzGAAYAdAE5M9qBACu2GADEXijo8FAocoYACijMAQDuABZIYGKIqKQAtAB85JQ0UABcMADaUQDyZAAqALowAPTYsQA6aADeAERIHB3FTgA0MB1owAC2KL1DzR2DHWCWTZMd0wC+mMIFMDms7FyUxZ3dkwNDI+NL07Pzi8XLHWtsnNyw2xuixcAcHDFgABQ-AEpTDpwsAANYwJCqIwQRy7GCJfQwABm3H063yoi2r3y+xgAFEoN4ijA0BAYfZofEUokUWiNBtKNjculzMUACxOJytTrjdTAewTW6E4nFMkUqk0ukRVQzIaqeRgHyyjlctboDimN4qLa5WTyJQqdQfL4-X5NMBA-WKZRqaHbYzFBRfGAWmA-a0wSDu2JVXTcTDWw125l5EQqYo-DHhwyZbaPPYkqMJ566nZPPEAdRQOjIEBAYNiLlG4JQADkIFCUL8zihBqpfJwgSmmXHcoySYcen1ZrWLnK5gshVN7tHNm34Mg2TAAExcnldbvOXtjYd3K5D-vqzimLy+fwBbA+KDYbgwAAyUOYP2hCWSqUwrKy7dxJJKAHF8bUGhax63ci2JIdB0mCAWm2ooMUyAKjevxAhBaZBraxowNBYCwVa2jBuoaaOjA76xDAwAIAgrqxNCyLeKMZFYEhRr2jiMbFHAEAkSg4BIBAaAADw-NkY5YhOgHMax3AcVxvGxPxYETh2BwdBakwlG0QxHD2pyrv2G43COMArDUawdqGT5gMUc7cu0QwWiqpRdscK7nLclxDNca6rHU26ap43h+IE4QcDIKDcKkPpxDoCCgGCj5Ts+YYFMUJTSPi55fvidSNLE9SFBaACSmpGfGuzPLcIEyS+TEwIK6GxL83TwZiOrbHRdrFFVZp1YGWHIfauR4QR16xJ61JgLSOXSCiVGhZ1BrdaGEGRrEAmNYVGZJotmDEQNzDYOEVCccqCCWDAKAAB5XigmplXF7xGEFsQoO1HD1TGiFdfRxQcHdqSPZhM30bhOjFNIX2GGNE0QNRUYIUJRV4lQlaXbDLwAUjxTZrm+aFmAxalhWVY1qu9aNk9oFI3Nr5OSBBXbCZZlOOyrQjqYQUGKFRjdKSEDbbt+2qIdx1nQqpOreT1B4ncf4vDTMWmTAnIM2gEsaszO67j5B5eMAR3A8FhgKCRoW3kkKRpDL4EU6USUpVUaU-otBUo6tJXC4m5sVZ9uv6wgGFLbGepvS1t2eyRPvNThDqA4FuswF7hvg5D9sNbGK2JsU8PdC7qayRbEvUyyMt0wrSuq0AA
+
+
+## Videos (0:22:42)
+
+- 🎥 [PetShop Server Architecture — Class Diagram — Overview (4:04)](https://www.loom.com/share/d7fd49750bd54c33bc8f1af39630313b?sid=6157ba6e-3195-4841-a193-39afc5ff4162)
+- 🎥 [PetShop Server Architecture — Class Diagram — Code Walkthrough 1 (3:03)](https://www.loom.com/share/056bd6a59adc43508aeb53e903a76bd5?sid=8b884422-1e6a-41ac-be50-f1cc339b24fd)
+- 🎥 [PetShop Server Architecture — Class Diagram — Code Walkthrough 2 (3:51)](https://www.loom.com/share/a4e166a8d75144e9812398de61ececf6?sid=6e1702d0-d288-44bc-ab2f-de7580186218)
+- 🎥 [PetShop Server Architecture — Sequence Diagram — Overview (4:16)](https://www.loom.com/share/fc8b2a9b34044b03aa97487f7fe4435b?sid=9ec0d4f3-f10d-450c-9186-3b6dfaa36d61)
+- 🎥 [PetShop Server Architecture — Sequence Diagram — Code Walkthrough (7:28)](https://www.loom.com/share/55bfb792c05d452a82773821fab7685a?sid=680934ed-3820-4066-b97a-ebf00d179840)
