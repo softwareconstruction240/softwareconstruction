@@ -13,7 +13,7 @@ title: PetShop Server Class Diagram
 %% - class-diagram-link (DOES NOT NEED TO BE UPDATED; points to the branch which updates)
 
 classDiagram
-direction TB
+direction LR
 
 namespace server {
     class ServerMain {
@@ -41,6 +41,27 @@ namespace server.server {
         invalidPetAddition()
         +assertPetEqual(expected, actual) $
         +assertPetCollectionEqual(expected, actual) $
+    }
+}
+
+namespace server.server.websocket {
+    class Connection {
+        +String visitorName
+        +Session Session
+        +send(String msg) void
+    }
+    class ConnectionManager {
+        +ConcurrentHashMap~String, Connection~ connections
+        +add(String visitorName, Session session) void
+        +remove(String visitorName) void
+        +broadcast(String excludeVisitorName, Notification notification) void
+    }
+    class WebSocketHandler {
+        -ConnectionManager connections
+        +onMessage(Session session, String message) void
+        -enter(String visitorName, Session session) void
+        -exit(String visitorName) void
+        +makeNoise(String petName, String sound) void
     }
 }
 
@@ -135,8 +156,14 @@ PetServiceTest o-- PetService
 PetServer o-- PetService
 PetServer --o PetServerTest
 %% PetServerTest o-- PetServer
+PetServer *-- WebSocketHandler
+%% WebSocketHandler --* PetServer
 
 %% Server Main
 ServerMain o-- PetServer
 ServerMain o-- MemoryDataAccess
 ServerMain o-- MySqlDataAccess
+
+%% WebSocket Package
+ConnectionManager *-- Connection
+WebSocketHandler *-- ConnectionManager
