@@ -6,17 +6,18 @@ Since Phase 4 requires interacting with an external program (the MySQL database)
 ## If your code doesn't pass on your own computer
 
 > [!IMPORTANT]
-> Your code should be able to create the database and tables correctly when the server is run. This is done with the `CREATE __ IF NOT EXISTS __` section of the code.
+> Your code should be able to create the database and tables correctly when the server is run from the tests. This is done with the `CREATE __ IF NOT EXISTS __` section of the code somewhere (such as in Server, not in Main since the tests don't interact with Main at all).
 
 #### Database and Table Creation
 
-Make sure that your code has the create database and table statements somewhere, and make sure that they are called before any method tries to access the database. For example, if someone is going to register a user, all the databases should be created before hand, or else when it tries to check the database to see if the username has already been taken, it will throw an error since you have no database.
+Make sure that your code has the create database and each of the create table statements somewhere, and make sure that they are called before any method tries to access the database. For example, if someone is going to register a user, the database and all the tables should be created beforehand, or else when the code tries to check the database to see if the username has already been taken, it will throw an error since you have no database.
 
-Also make sure that your create statements are in correct SQL Format. A good example can be found in [Pet Shop](https://github.com/softwareconstruction240/softwareconstruction/blob/main/petshop/server/src/main/dataaccess/MySqlDataAccess.java).
+Also make sure that your create statements are in correct SQL Format. A good example can be found in the [db-sql](https://github.com/softwareconstruction240/softwareconstruction/blob/main/instruction/db-sql/db-sql.md) instructions.
 
 #### Altering Tables
 
 - Since the tables are created at startup, if you change your create statement to store `game` as LONGTEXT instead of VARCHAR(100), this update will not be seen until you either `ALTER TABLE` or `DROP TABLE`
+  - If you have set up MySQL shell or workbench, you can use these alter or drop commands from there instead of just writing it directly into your chess code.
   - Alter Table allows you to change your table, such as to add a new column
   - Drop Table will completely delete your whole table, completely deleting all data currently on it, which would allow you to recreate it with your `CREATE TABLE` statement, which can include your newly updated column variable types
   - This [Git Hub Link](https://github.com/softwareconstruction240/softwareconstruction/blob/main/instruction/db-sql/db-sql.md#altering-tables) contains a bit more explanation and some examples, not only of altering tables, but other important information about mySQL Tables.
@@ -42,14 +43,13 @@ Try the following steps to reproduce the problem on your local machine:
 
 It's fun to assume that your database will always be named "chess", but the AutoGrader will break that assumption!
 
-The auto-grader inserts a new `db.properties` file for grading with most of the values different from those in your file. (For example, instead of calling the database chess, it will call it chess123456)
+The auto-grader inserts a new `db.properties` file for grading with most of the values different from those in your file. (For example, instead of calling the database chess, it may call it chess123456)
 
 Run through the following verifications in your code:
 - Check for any place you may have hardcoded any values from `db.properties`.
 - Check each SQL statement, including where you create tables, for the database name.
   - For example, use `INSERT INTO table` instead of `INSERT INTO database.table`.
-- The `getConnection` method inside `DatabaseManager` already sets up the connection to use your database,
-  so you shouldn't need to specify the database name if you are using that method to obtain your connections.
+- The `getConnection` method inside `DatabaseManager` already sets up the connection to use your database, so you shouldn't need to specify the database name if you are using that method to obtain your connections.
 
 #### CasE SEnSiTiVitY
 
