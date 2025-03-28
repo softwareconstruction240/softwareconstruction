@@ -36,8 +36,8 @@
       <scope>compile</scope>
     </dependency>
     <dependency>
-      <groupId>com.sparkjava</groupId>
-      <artifactId>spark-core</artifactId>
+      <groupId>io.javalin</groupId>
+      <artifactId>javalin</artifactId>
       <scope>compile</scope>
     </dependency>
     <dependency>

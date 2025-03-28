@@ -181,17 +181,17 @@ public class ServerLoggingExample {
     static Logger logger = Logger.getLogger("myLogger");
 
     private void run() throws Exception {
-        Spark.port(8080);
-
         var config = new DatabaseConfig("jdbc:mysql://localhost:3306", "pet_store", "root", "monkeypie");
         logger.addHandler(new DatabaseHandler(config));
 
-        Spark.get("/*", (req, res) -> "<p>OK</p>");
-        Spark.after(this::log);
+        var javalin = Javalin.create()
+            .get("/*", (ctx) -> ctx.result("<p>OK</p>")
+            .after(this::log)
+            .start(8080);
     }
 
-    private void log(Request req, Response res) {
-        logger.info(String.format("[%s]%s - %d", req.requestMethod(), req.pathInfo(), res.status()));
+    private void log(Context ctx) {
+        logger.info(String.format("[%s]%s - %d", ctx.method(), ctx.path(), ctx.status()));
     }
 }
 ```

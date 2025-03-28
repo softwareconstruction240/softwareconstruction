@@ -326,34 +326,38 @@ The starter code contains the `Server` class that you should use as the base for
 
 ```java
 public class Server {
+
+    private final Javalin javalin;
+
+    public Server() {
+        javalin = Javalin.create(config -> config.staticFiles.add("web"));
+
+        // Register your endpoints and exception handlers here.
+
+    }
+
     public int run(int desiredPort) {
-        Spark.port(desiredPort);
-
-        Spark.staticFiles.location("web");
-
-        // Register your endpoints and handle exceptions here.
-
-        Spark.awaitInitialization();
-        return Spark.port();
+        javalin.start(desiredPort);
+        return javalin.port();
     }
 
     public void stop() {
-        Spark.stop();
+        javalin.stop();
     }
 }
 ```
 
-The `Server` class provides a `run` method that attempts to start the HTTP server on a desired port parameter. From your main function you should start the server on port 8080. The unit tests will start the server on port is 0. This directs the Spark code to discover and use a random open port. The port that is actually used is returned by the `Spark.port` method after initialization has completed. The starter code also provides a `stop` method that shuts the HTTP server down. This is necessary to control the starting and stopping of your server when running tests.
+The `Server` class provides a `run` method that attempts to start the HTTP server on a desired port parameter. From your main function you should start the server on port 8080. The unit tests will start the server on port 0. This directs the Javalin code to discover and use a random open port. The port that is actually used is returned by the `Javalin.port` method after initialization has completed. The starter code also provides a `stop` method that shuts the HTTP server down. This is necessary to control the starting and stopping of your server when running tests.
 
 ### Web Browser Interface
 
-The starter code provides a simple web browser interface for calling your server endpoints. This is useful for experimentation while you are developing your endpoints. In order for your server to be able to load its web browser interface you need to determine the path where the web directory is located and then tell spark to load static web files from that directory.
+The starter code provides a simple web browser interface for calling your server endpoints. This is useful for experimentation while you are developing your endpoints. In order for your server to be able to load its web browser interface you need to determine the path where the web directory is located and then tell Javalin to load static web files from that directory.
 
 ```java
-Spark.staticFiles.location("web");
+javalin = Javalin.create(config -> config.staticFiles.add("web"));
 ```
 
-You will want to put the `web` directory in a `src/main/resources` directory and make the folder as `Resources Root` in IntelliJ. This location and distinction makes it so the JVM can file the directory at runtime.
+You will want to put the `web` directory in a `src/main/resources` directory and make the folder as `Resources Root` in IntelliJ. This location and distinction makes it so the JVM can find the directory at runtime.
 
 ## Service Unit Tests
 

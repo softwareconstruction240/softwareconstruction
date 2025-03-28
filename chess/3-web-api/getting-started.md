@@ -45,15 +45,15 @@ We are going to use a cloud based package repository called Maven. Using Intelli
 
 ![Install dependency](install-dependency.gif)
 
-Add the dependencies for using JavaSpark and associate it with your `server` module.
+Add the dependencies for using Javalin and associate it with your `server` module.
 
-- `com.sparkjava:spark-core:2.9.3`
+- `io.javalin:javalin:6.4.0`
 
   Handles HTTP requests and registers handlers for endpoints.
 
-- `org.slf4j:slf4j-simple:1.7.36`
+- `org.slf4j:slf4j-simple:2.0.13`
 
-  Logger for SparkJava.
+  Logger for Javalin.
 
 ## Getting the Webpage for Testing Setup
 

@@ -14,6 +14,6 @@
     <orderEntry type="library" scope="TEST" name="junit.jupiter" level="project" />
     <orderEntry type="library" name="mysql.connector.java" level="project" />
     <orderEntry type="library" name="io.javalin" level="project" />
-    <orderEntry type="library" name="slf4j.nop" level="project" />
+    <orderEntry type="library" name="slf4j.simple" level="project" />
   </component>
 </module>

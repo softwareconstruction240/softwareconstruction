@@ -17,12 +17,10 @@ public class PetServer {
 
     public PetServer(PetService service) {
         this.service = service;
-        this.webSocketHandler = new WebSocketHandler();
-        this.javalin = initializeJavalin();
-    }
 
-    private Javalin initializeJavalin() {
-        return Javalin.create(config -> config.staticFiles.add("public"))
+        this.webSocketHandler = new WebSocketHandler();
+
+        this.javalin = Javalin.create(config -> config.staticFiles.add("public"))
                 .post("/pet", this::addPet)
                 .get("/pet", this::listPets)
                 .delete("/pet/{id}", this::deletePet)

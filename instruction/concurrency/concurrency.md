@@ -351,11 +351,13 @@ public class MultithreadedServerExample {
     static int sum = 0;
 
     public static void main(String[] args) {
-        Spark.port(8080);
-        Spark.get("/add/:value", (req, res) -> {
-            sum += Integer.parseInt(req.params(":value"));
-            return " " + sum;
-        });
+        var javalin = Javalin.create()
+            .get("/add/{value}", (ctx) -> {
+                int value = Integer.parseInt(ctx.pathParam("value"));
+                sum += value;
+                ctx.result(" " + sum);
+            })
+            .start(8080);
     }
 }
 ```
@@ -378,14 +380,15 @@ public class SynchronizedMultithreadedServerExample {
     static Object lock = new Object();
 
     public static void main(String[] args) {
-        Spark.port(8080);
-        Spark.get("/add/:value", (req, res) -> {
-            synchronized (lock) {
-                var value = Integer.parseInt(req.params(":value"));
-                sum += value;
-                return " " + sum;
-            }
-        });
+        var javalin = Javalin.create()
+            .get("/add/{value}", (ctx) -> {
+                synchronized (lock) {
+                    int value = Integer.parseInt(ctx.pathParam("value"));
+                    sum += value;
+                    ctx.result(" " + sum);
+                }
+            })
+            .start(8080);
     }
 }
 ```
@@ -399,12 +402,13 @@ public class AtomicServerExample {
     static AtomicInteger sum = new AtomicInteger(0);
 
     public static void main(String[] args) {
-        Spark.port(8080);
-        Spark.get("/add/:value", (req, res) -> {
-            var value = Integer.parseInt(req.params(":value"));
-            value = sum.addAndGet(value);
-            return " " + value;
-        });
+        var javalin = Javalin.create()
+            .get("/add/{value}", (ctx) -> {
+                int value = Integer.parseInt(ctx.pathParam("value"));
+                int newValue = sum.addAndGet(value);
+                ctx.result(" " + newValue);
+            })
+            .start(8080);
     }
 }
 ```
