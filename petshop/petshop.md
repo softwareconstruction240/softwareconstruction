@@ -29,3 +29,7 @@ The [Pet Shop source code](.) is found in the course instruction repository that
 ## Class Diagram
 
 ![Pet Shop Classes](petshopclass.png)
+
+## Server Architecture
+
+View the [PetShop Server Architecture](./server/docs/server-architecture.md) docs.

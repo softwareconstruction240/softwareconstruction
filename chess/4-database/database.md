@@ -91,6 +91,7 @@ You will want to carefully consider the need for a Gson type adapter when you do
 - [SQL](../../instruction/db-sql/db-sql.md): Using SQL statements.
 - [JDBC](../../instruction/db-jdbc/db-jdbc.md): Using SQL from Java including type adapters.
 - [Liskov Substitution Principle](../../instruction/design-principles/design-principles.md#liskov-substitution-principle): Fully implementing DAO interfaces.
+- [PetShop Server Architecture — Class Diagram — Code Walkthrough 2](../../petshop/server/docs/server-architecture.md#videos): Multiple DAO Interface implementations.
 
 ## ☑ Deliverable
 

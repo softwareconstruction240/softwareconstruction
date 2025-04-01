@@ -411,6 +411,7 @@ Once you have written the `clear` and `register` endpoints, you can run the `Sta
 - [Single Responsibility Principle](../../instruction/design-principles/design-principles.md#single-responsibility-principle): Organizing many server responsibilities into comprehensible units
 - [Dependency Inversion Principle](../../instruction/design-principles/design-principles.md#dependency-inversion-principle): Organizing the layers of the server.
 - [Interface Segregation Principle](../../instruction/design-principles/design-principles.md#interface-segregation-principle): Organizing the DAO interfaces.
+- [PetShop Server Architecture](../../petshop/server/docs/server-architecture.md): Layer organization, file organization, code walkthroughs.
 
 ## ☑ Deliverable
 
