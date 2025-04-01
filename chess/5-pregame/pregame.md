@@ -71,6 +71,7 @@ Make sure that your client doesn't crash. If an exception occurs, catch it. A us
 
 - [Console UI](../../instruction/console-ui/console-ui.md): Reading from the keyboard and writing out fancy text.
 - [Web API](../../instruction/web-api/web-api.md#web-client): Making HTTP client requests.
+- [Single Responsibility Principle](../../instruction/design-principles/design-principles.md#single-responsibility-principle): Organizing many client files into comprehensible units
 
 ### Tips for using Unicode chess characters
 

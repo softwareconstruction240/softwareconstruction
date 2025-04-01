@@ -90,6 +90,7 @@ You will want to carefully consider the need for a Gson type adapter when you do
 - [MYSQL](../../instruction/mysql/mysql.md): Getting MySQL installed.
 - [SQL](../../instruction/db-sql/db-sql.md): Using SQL statements.
 - [JDBC](../../instruction/db-jdbc/db-jdbc.md): Using SQL from Java including type adapters.
+- [Liskov Substitution Principle](../../instruction/design-principles/design-principles.md#liskov-substitution-principle): Fully implementing DAO interfaces.
 
 ## ☑ Deliverable
 

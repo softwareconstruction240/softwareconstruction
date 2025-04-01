@@ -408,6 +408,9 @@ Once you have written the `clear` and `register` endpoints, you can run the `Sta
 ## Relevant Instruction Topics
 
 - [Web API](../../instruction/web-api/web-api.md): Creating an HTTP server.
+- [Single Responsibility Principle](../../instruction/design-principles/design-principles.md#single-responsibility-principle): Organizing many server responsibilities into comprehensible units
+- [Dependency Inversion Principle](../../instruction/design-principles/design-principles.md#dependency-inversion-principle): Organizing the layers of the server.
+- [Interface Segregation Principle](../../instruction/design-principles/design-principles.md#interface-segregation-principle): Organizing the DAO interfaces.
 
 ## ☑ Deliverable
 
