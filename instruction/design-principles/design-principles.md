@@ -292,7 +292,7 @@ public static class OpenForModificationList {
 }
 ```
 
-### Correct Example
+#### Correct Example
 
 We can improve the previous code by using interface parameters and Java generics to open the class to extension without ever modifying the code.
 
