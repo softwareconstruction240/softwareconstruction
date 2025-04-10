@@ -43,7 +43,7 @@ There is a lot of 3rd party code that you can download and include in your Java 
 
 We are going to use a cloud based package repository called Maven. Using IntelliJ, you can add a package by opening the project settings and going to the `libraries` tab. Press the `+` button and select `from Maven...`. You then supply the name of the library you want to download. Finally, you specify which module will use the dependency.
 
-![Install dependency](install-dependency.gif)
+<img src="install-dependency.gif" alt="Install dependency" width="600px" height="auto">
 
 Add the dependencies for using JavaSpark and associate it with your `server` module.
 
