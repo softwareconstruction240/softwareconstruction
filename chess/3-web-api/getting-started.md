@@ -41,19 +41,19 @@ This should result in the following additions to your project.
 
 There is a lot of 3rd party code that you can download and include in your Java applications. As part of the starter project, we already included packages that run your JUnit tests and process JSON. We now need to install another third party package to help us create an HTTP server.
 
-We are going to use a cloud based package repository called Maven. Using IntelliJ, you can add a package by opening the project settings and going to the `libraries` tab. Press the `+` button and select `from Maven...`. You then supply the name of the library you want to download. Finally, you specify which module will use the dependency.
+We are going to use a cloud based package repository called Maven. Using IntelliJ, you can add a package by opening the project settings and going to the `modules` tab. Select the module you wish to add a dependency to. Press the `+` button and select `from Maven...`. You then supply the name of the library you want to download. Once it is added, you can specify the `scope` for the dependency. Most dependencies for this class will be with scope "compile", meaning that the dependency is available to all the code in the module when it compiles. There are a few others, including "test", which means it is only available for code used to test the code in the module.
 
 <img src="install-dependency.gif" alt="Install dependency" width="600px" height="auto">
 
-Add the dependencies for using JavaSpark and associate it with your `server` module.
+Add the dependencies for using JavaSpark to your `server` module.
 
-- `com.sparkjava:spark-core:2.9.3`
+- **com.sparkjava:spark-core:2.9.3** - Handles HTTP requests and registers handlers for endpoints.
+  - Scope: Compile
+ 
 
-  Handles HTTP requests and registers handlers for endpoints.
+- **org.slf4j:slf4j-simple:1.7.36** - Logger for SparkJava.
+  - Scope: Compile
 
-- `org.slf4j:slf4j-simple:1.7.36`
-
-  Logger for SparkJava.
 
 ## Getting the Webpage for Testing Setup
 
