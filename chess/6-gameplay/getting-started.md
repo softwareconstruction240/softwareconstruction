@@ -33,4 +33,5 @@ This should result in the following additions to your project.
 Install the following library from Maven and add a dependency to the `client` and `server` modules.
 
 - **org.glassfish.tyrus.bundles:tyrus-standalone-client:1.15**
-  - Scope: Compile
+  - Scope: Compile (`client` module)
+  - Scope: Test (`server` module)
