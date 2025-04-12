@@ -1,5 +1,6 @@
 @startuml
 left to right direction
+skinparam classAttributeIconSize 0
 
 /'
 ### DIAGRAM & MAINTENANCE OVERVIEW ###
@@ -35,18 +36,18 @@ package "server.server" {
         +stop() : void
     }
 
-    class PetServerTest {
-        -PetServer petServer$
-        -ServerFacade server$
-        startServer()$
-        stopServer()$
+    class PetServerTest <<Test>> {
+        {static} -PetServer petServer
+        {static} -ServerFacade server
+        {static} startServer()
+        {static} stopServer()
         clear()
         addPet()
         deletePet()
         listPets()
         invalidPetAddition()
-        +assertPetEqual(expected, actual) $
-        +assertPetCollectionEqual(expected, actual) $
+        {static} +assertPetEqual(expected, actual)
+        {static} +assertPetCollectionEqual(expected, actual)
     }
 }
 
@@ -74,8 +75,7 @@ package "server.server.websocket" {
 }
 
 package "server.service" {
-    class PetService {
-        <<Service>>
+    class PetService <<Service>> {
         -DataAccess dataAccess
         +addPet(Pet)
         +listPets()
@@ -84,20 +84,19 @@ package "server.service" {
         +deleteAllPets()
     }
 
-    class PetServiceTest {
-        -PetService service$
+    class PetServiceTest <<Test>> {
+        {static} -PetService service
         clear()
         addPet()
         listPets()
         deletePet()
-        deleteAllpets()
+        deleteAllPets()
         noDogsWithFleas()
     }
 }
 
 package "server.dataaccess" {
-    class DataAccess {
-        <<Interface>>
+    class DataAccess <<Interface>> {
         +addPet(Pet)
         +listPets()
         +getPet(int id)
@@ -117,21 +116,21 @@ package "server.dataaccess" {
     }
 
     class DatabaseManager {
-        -String databaseName$
-        -String user$
-        -String password$
-        -String connectionUrl$
-        +createDatabase() : void $
-        +getConnection() : Connection $
+        {static} -String databaseName
+        {static} -String user
+        {static} -String password
+        {static} -String connectionUrl
+        {static} +createDatabase() : void
+        {static} +getConnection() : Connection
     }
 
-    class DataAccessTest {
+    class DataAccessTest <<Test>> {
         +addPet(DataAccess dbClass)
         +listPet(DataAccess dbClass)
         +deletePet(DataAccess dbClass)
         +deleteAllPets(DataAccess dbClass)
-        +assertPetEqual(expected, actual) $
-        +assertPetCollectionEqual(expected, actual) $
+        {static} +assertPetEqual(expected, actual)
+        {static} +assertPetCollectionEqual(expected, actual)
     }
 }
 
@@ -144,7 +143,7 @@ package "shared.Exception" {
         -int statusCode
         +ResponseException(int statusCode, String message)
         +toJson() : String
-        +fromJson(InputStream stream) : ResponseExpection $
+        {static} +fromJson(InputStream stream) : ResponseException
         +StatusCode() : int
     }
 }
