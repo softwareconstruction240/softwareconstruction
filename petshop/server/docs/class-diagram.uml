@@ -153,7 +153,7 @@ DataAccess <|.. MemoryDataAccess
 DataAccess <|.. MySqlDataAccess
 DataAccessTest o-- MemoryDataAccess
 DataAccessTest o-- MySqlDataAccess
-MySqlDataAccess --> DatabaseManager
+MySqlDataAccess ..> DatabaseManager
 
 'Service package
 PetService o-- DataAccess
