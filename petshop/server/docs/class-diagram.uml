@@ -1,34 +1,40 @@
----
-title: PetShop Server Class Diagram
----
+@startuml
+left to right direction
 
-%% Mermaid is a markdown language that renders charts based on simple syntax.
-%% Read the documentation for class diagrams: https://mermaid.js.org/syntax/classDiagram.html
-%% Consider pasting/opening this file in the Mermaid Live editor, https://mermaid.live/,
-%% To see the rendered result (GitHub.com also renders the diagram online).
+/'
+### DIAGRAM & MAINTENANCE OVERVIEW ###
 
-%% WHEN THIS CHANGES Please update the following other resources as well:
-%% - class-diagram-sample.png (presents a visual overview to the students)
-%% - class-diagram-complete.png (may be used as a fallback if the diagrams don't render)
-%% - class-diagram-link (DOES NOT NEED TO BE UPDATED; points to the branch which updates)
+PlantUML is a markdown language that renders charts based on simple syntax.
+Read the documentation this tool online:
+- https://plantuml.com/class-diagram
+- https://plantuml.com/commons
 
-classDiagram
-direction LR
+Consider pasting/opening this file in the PlantUML Live editor,
+https://editor.plantuml.com, to see the rendered result.
 
-namespace server {
+WHEN THIS CHANGES Please update the following other resources as well:
+- class-diagram-sample.png (presents a visual overview to the students)
+- class-diagram-complete.png (may be used as a fallback if the diagrams don't render)
+- class-diagram-link (DOES NOT NEED TO BE UPDATED; points to the branch which updates)
+'/
+
+title PetShop Server Class Diagram
+
+package "server" {
     class ServerMain {
-        +main(String[] args) void
+        +main(String[] args) : void
     }
 }
 
-namespace server.server {
+package "server.server" {
     class PetServer {
         -PetService service
         -WebSocketHandler webSocketHandler
-        +run(int) PetServer
-        +port() int
-        +stop() void
+        +run(int) : PetServer
+        +port() : int
+        +stop() : void
     }
+
     class PetServerTest {
         -PetServer petServer$
         -ServerFacade server$
@@ -44,28 +50,30 @@ namespace server.server {
     }
 }
 
-namespace server.server.websocket {
+package "server.server.websocket" {
     class Connection {
         +String visitorName
         +Session Session
-        +send(String msg) void
+        +send(String msg) : void
     }
+
     class ConnectionManager {
-        +ConcurrentHashMap~String, Connection~ connections
-        +add(String visitorName, Session session) void
-        +remove(String visitorName) void
-        +broadcast(String excludeVisitorName, Notification notification) void
+        +ConcurrentHashMap<String, Connection> connections
+        +add(String visitorName, Session session) : void
+        +remove(String visitorName) : void
+        +broadcast(String excludeVisitorName, Notification notification) : void
     }
+
     class WebSocketHandler {
         -ConnectionManager connections
-        +onMessage(Session session, String message) void
-        -enter(String visitorName, Session session) void
-        -exit(String visitorName) void
-        +makeNoise(String petName, String sound) void
+        +onMessage(Session session, String message) : void
+        -enter(String visitorName, Session session) : void
+        -exit(String visitorName) : void
+        +makeNoise(String petName, String sound) : void
     }
 }
 
-namespace server.service {
+package "server.service" {
     class PetService {
         <<Service>>
         -DataAccess dataAccess
@@ -75,6 +83,7 @@ namespace server.service {
         +deletePet(Integer id)
         +deleteAllPets()
     }
+
     class PetServiceTest {
         -PetService service$
         clear()
@@ -86,7 +95,7 @@ namespace server.service {
     }
 }
 
-namespace server.dataaccess {
+package "server.dataaccess" {
     class DataAccess {
         <<Interface>>
         +addPet(Pet)
@@ -98,13 +107,13 @@ namespace server.dataaccess {
 
     class MemoryDataAccess {
         -int nextId
-        -HashMap~Integer, Pet~ pets
+        -HashMap<Integer, Pet> pets
     }
 
     class MySqlDataAccess {
-        -readPet(ResultSet rs) Pet
-        -executeUpdate(String statement, Object... params) int
-        -configureDatabase() void
+        -readPet(ResultSet rs) : Pet
+        -executeUpdate(String statement, Object... params) : int
+        -configureDatabase() : void
     }
 
     class DatabaseManager {
@@ -112,8 +121,8 @@ namespace server.dataaccess {
         -String user$
         -String password$
         -String connectionUrl$
-        +createDatabase() void $
-        +getConnection() Connection $
+        +createDatabase() : void $
+        +getConnection() : Connection $
     }
 
     class DataAccessTest {
@@ -126,7 +135,7 @@ namespace server.dataaccess {
     }
 }
 
-namespace shared.Exception {
+package "shared.Exception" {
     class ErrorResponse {
         String message
     }
@@ -134,36 +143,34 @@ namespace shared.Exception {
     class ResponseException {
         -int statusCode
         +ResponseException(int statusCode, String message)
-        +toJson() String
-        +fromJson(InputStream stream) ResponseExpection $
-        +StatusCode() int
+        +toJson() : String
+        +fromJson(InputStream stream) : ResponseExpection $
+        +StatusCode() : int
     }
 }
 
-%% DataAccess package
+'DataAccess package
 DataAccess <|.. MemoryDataAccess
 DataAccess <|.. MySqlDataAccess
 DataAccessTest o-- MemoryDataAccess
 DataAccessTest o-- MySqlDataAccess
 MySqlDataAccess --> DatabaseManager
 
-%% Service package
+'Service package
 PetService o-- DataAccess
-%% PetService --o PetServiceTest
 PetServiceTest o-- PetService
 
-%% Server Package
+'Server Package
 PetServer o-- PetService
 PetServer --o PetServerTest
-%% PetServerTest o-- PetServer
 PetServer *-- WebSocketHandler
-%% WebSocketHandler --* PetServer
 
-%% Server Main
+'Server Main
 ServerMain o-- PetServer
 ServerMain o-- MemoryDataAccess
 ServerMain o-- MySqlDataAccess
 
-%% WebSocket Package
+'WebSocket Package
 ConnectionManager *-- Connection
 WebSocketHandler *-- ConnectionManager
+@enduml
