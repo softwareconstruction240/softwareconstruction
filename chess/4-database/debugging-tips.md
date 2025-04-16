@@ -3,55 +3,48 @@
 Since Phase 4 requires interacting with an external program (the MySQL database), the likelihood of having auto-grader test output different from your local output is higher than previous phases. The most common issues are summarized here to save you time spent frustrated with a new technology.
 
 
-## If your code doesn't pass on your own computer
+## Database Schema Changes
 
-> [!IMPORTANT]
-> Your code should be able to create the database and tables correctly when the server is run from the tests. This is done with the `CREATE __ IF NOT EXISTS __` section of the code somewhere (such as in Server, not in Main since the tests don't interact with Main at all).
+### Database and Table Creation
 
-#### Database and Table Creation
-
-Make sure that your code has the create database and each of the create table statements somewhere, and make sure that they are called before any method tries to access the database. For example, if someone is going to register a user, the database and all the tables should be created beforehand, or else when the code tries to check the database to see if the username has already been taken, it will throw an error since you have no database.
+Your code must create the SQL database and tables correctly if they do not exist. This includes when the server is run from tests. This is done with the `IF NOT EXISTS` syntax for your database and table creation SQL statements. This must happend before any method tries to access the database. For example, if the register user endpoint is called, The user table must already exist. Otherwise the SQL call to inset the user will fail.
 
 Also make sure that your create statements are in correct SQL Format. A good example can be found in the [db-sql](https://github.com/softwareconstruction240/softwareconstruction/blob/main/instruction/db-sql/db-sql.md) instructions.
 
-#### Altering Tables
+### Altering Tables After Creation
 
-- Since the tables are created at startup, if you change your create statement to store `game` as LONGTEXT instead of VARCHAR(100), this update will not be seen until you either `ALTER TABLE` or `DROP TABLE`
-  - If you have set up MySQL shell or workbench, you can use these alter or drop commands from there instead of just writing it directly into your chess code.
-  - Alter Table allows you to change your table, such as to add a new column
-  - Drop Table will completely delete your whole table, completely deleting all data currently on it, which would allow you to recreate it with your `CREATE TABLE` statement, which can include your newly updated column variable types
-  - This [Git Hub Link](https://github.com/softwareconstruction240/softwareconstruction/blob/main/instruction/db-sql/db-sql.md#altering-tables) contains a bit more explanation and some examples, not only of altering tables, but other important information about mySQL Tables.
+Since your database and tables are created the first time your server detected that they didn't exist, it **will not** automatically alter the tables if you change your table definitions in your code. That means that you will have to do one of the following in order to migrate your table scheme after a table is created.
 
-After you have altered or dropped your table, then you should be able to rerun your code, and check your database to see if the update was successful.
+1. Use a MySQL client to drop the database or table. This will cause your service to recreate the table the next time it starts up.
+2. Use a MySQL client to execute SQL `ALTER` statements to match the changes you have made in the code. (Not recommended.)
 
+## Tests Not Passing on the AutoGrader
 
-## If your code does pass on your own computer but not on the AutoGrader
+### Database and Table Creation
 
-#### Database and Table Creation
+If the tests pass in your development environment but not with the autograder isn't passing, your create database and table code may be incorrect.
 
-If your local tests are passing but the autograder isn't passing, your create database and table code may be incorrect.
+Since your code will only create the database and tables if it isn't created already, it might be possible that you altered your create database and table code after it has been created, meaning that your local SQL database doesn't match the schema that is being used on the autograder.
 
-Since your code will only create the database and tables if it isn't created already, it might be possible that you altered your create database and table code after it has been created, meaning that your local SQL database would never actually be updated.
+Try the following steps to reproduce the problem in your development environment:
 
-Try the following steps to reproduce the problem on your local machine:
-1. Drop your database/schema using an external tool (MySQL shell or workbench).
+1. Drop your database/schema using a SQL client.
 2. Rerun the tests locally.
 3. If they fail, double-check the code for creating the database and tables.
 
+### Hardcoded Database Name
 
-#### Hardcoded Database Name
+It's fun to assume that your database will always be named `chess`, but the AutoGrader will break that assumption!
 
-It's fun to assume that your database will always be named "chess", but the AutoGrader will break that assumption!
-
-The auto-grader inserts a new `db.properties` file for grading with most of the values different from those in your file. (For example, instead of calling the database chess, it may call it chess123456)
+The auto-grader inserts a new `db.properties` file for grading with most of the values different from those in your file. For example, instead of calling the database `chess`, it may call it `chess123456`.
 
 Run through the following verifications in your code:
-- Check for any place you may have hardcoded any values from `db.properties`.
-- Check each SQL statement, including where you create tables, for the database name.
-  - For example, use `INSERT INTO table` instead of `INSERT INTO database.table`.
-- The `getConnection` method inside `DatabaseManager` already sets up the connection to use your database, so you shouldn't need to specify the database name if you are using that method to obtain your connections.
 
-#### CasE SEnSiTiVitY
+- Check for any place you may have hardcoded any values from `db.properties`. Instead you must use the variables loaded from `db.properties`
+- Do not include the database name in any SQL statement. The database is already set by the `DatabaseManager` and therefore does not need to be explicitly set.
+  - For example, use `SELECT * FROM table` instead of `SELECT * FROM database.table`.
+
+### CasE SEnSiTiVitY
 
 SQL table and column names are **case-sensitive** on the AutoGrader. However, some operating systems, like Windows, treat names as **case-insensitive**, which can cause issues when submitting your project. Double-check capitalization in your SQL code to avoid errors.
 
