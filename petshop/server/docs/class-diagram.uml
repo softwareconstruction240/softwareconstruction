@@ -1,0 +1,175 @@
+@startuml
+left to right direction
+skinparam classAttributeIconSize 0
+
+/'
+### DIAGRAM & MAINTENANCE OVERVIEW ###
+
+PlantUML is a markdown language that renders charts based on simple syntax.
+Read the documentation this tool online:
+- https://plantuml.com/class-diagram
+- https://plantuml.com/commons
+
+Consider pasting/opening this file in the PlantUML Live editor,
+https://editor.plantuml.com, to see the rendered result.
+
+WHEN THIS CHANGES Please update the following other resources as well:
+- class-diagram-sample.png (presents a visual overview to the students)
+- class-diagram-complete.png (may be used as a fallback if the diagrams don't render)
+- class-diagram-link (DOES NOT NEED TO BE UPDATED; an prefilled editor link is not included anymore)
+'/
+
+title PetShop Server Class Diagram
+
+package "server" {
+    class ServerMain {
+        +main(String[] args) : void
+    }
+}
+
+package "server.server" {
+    class PetServer {
+        -PetService service
+        -WebSocketHandler webSocketHandler
+        +run(int) : PetServer
+        +port() : int
+        +stop() : void
+    }
+
+    class PetServerTest <<Test>> {
+        {static} -PetServer petServer
+        {static} -ServerFacade server
+        {static} startServer()
+        {static} stopServer()
+        clear()
+        addPet()
+        deletePet()
+        listPets()
+        invalidPetAddition()
+        {static} +assertPetEqual(expected, actual)
+        {static} +assertPetCollectionEqual(expected, actual)
+    }
+}
+
+package "server.server.websocket" {
+    class Connection {
+        +String visitorName
+        +Session Session
+        +send(String msg) : void
+    }
+
+    class ConnectionManager {
+        +ConcurrentHashMap<String, Connection> connections
+        +add(String visitorName, Session session) : void
+        +remove(String visitorName) : void
+        +broadcast(String excludeVisitorName, Notification notification) : void
+    }
+
+    class WebSocketHandler {
+        -ConnectionManager connections
+        +onMessage(Session session, String message) : void
+        -enter(String visitorName, Session session) : void
+        -exit(String visitorName) : void
+        +makeNoise(String petName, String sound) : void
+    }
+}
+
+package "server.service" {
+    class PetService <<Service>> {
+        -DataAccess dataAccess
+        +addPet(Pet)
+        +listPets()
+        +getPet(int id)
+        +deletePet(Integer id)
+        +deleteAllPets()
+    }
+
+    class PetServiceTest <<Test>> {
+        {static} -PetService service
+        clear()
+        addPet()
+        listPets()
+        deletePet()
+        deleteAllPets()
+        noDogsWithFleas()
+    }
+}
+
+package "server.dataaccess" {
+    class DataAccess <<Interface>> {
+        +addPet(Pet)
+        +listPets()
+        +getPet(int id)
+        +deletePet(Integer id)
+        +deleteAllPets()
+    }
+
+    class MemoryDataAccess {
+        -int nextId
+        -HashMap<Integer, Pet> pets
+    }
+
+    class MySqlDataAccess {
+        -readPet(ResultSet rs) : Pet
+        -executeUpdate(String statement, Object... params) : int
+        -configureDatabase() : void
+    }
+
+    class DatabaseManager {
+        {static} -String databaseName
+        {static} -String user
+        {static} -String password
+        {static} -String connectionUrl
+        {static} +createDatabase() : void
+        {static} +getConnection() : Connection
+    }
+
+    class DataAccessTest <<Test>> {
+        +addPet(DataAccess dbClass)
+        +listPet(DataAccess dbClass)
+        +deletePet(DataAccess dbClass)
+        +deleteAllPets(DataAccess dbClass)
+        {static} +assertPetEqual(expected, actual)
+        {static} +assertPetCollectionEqual(expected, actual)
+    }
+}
+
+package "shared.Exception" {
+    class ErrorResponse {
+        String message
+    }
+
+    class ResponseException {
+        -int statusCode
+        +ResponseException(int statusCode, String message)
+        +toJson() : String
+        {static} +fromJson(InputStream stream) : ResponseException
+        +StatusCode() : int
+    }
+}
+
+'DataAccess package
+DataAccess <|.. MemoryDataAccess
+DataAccess <|.. MySqlDataAccess
+DataAccessTest o-- MemoryDataAccess
+DataAccessTest o-- MySqlDataAccess
+MySqlDataAccess ..> DatabaseManager
+
+'Service package
+PetService o-- DataAccess
+PetServiceTest o-- PetService
+
+'Server Package
+PetServer o-- PetService
+PetServer --o PetServerTest
+PetServer *-- WebSocketHandler
+
+'Server Main
+ServerMain o-- PetServer
+ServerMain o-- MemoryDataAccess
+ServerMain o-- MySqlDataAccess
+
+'WebSocket Package
+ConnectionManager *-- Connection
+WebSocketHandler *-- ConnectionManager
+@enduml
