@@ -59,9 +59,9 @@ public class PetClient implements NotificationHandler {
 
     public String eval(String input) {
         try {
-            var tokens = input.toLowerCase().split(" ");
-            var cmd = (tokens.length > 0) ? tokens[0] : "help";
-            var params = Arrays.copyOfRange(tokens, 1, tokens.length);
+            String[] tokens = input.toLowerCase().split(" ");
+            String cmd = (tokens.length > 0) ? tokens[0] : "help";
+            String[] params = Arrays.copyOfRange(tokens, 1, tokens.length);
             return switch (cmd) {
                 case "signin" -> signIn(params);
                 case "rescue" -> rescuePet(params);
@@ -90,8 +90,8 @@ public class PetClient implements NotificationHandler {
     public String rescuePet(String... params) throws ResponseException {
         assertSignedIn();
         if (params.length >= 2) {
-            var name = params[0];
-            var type = PetType.valueOf(params[1].toUpperCase());
+            String name = params[0];
+            PetType type = PetType.valueOf(params[1].toUpperCase());
             var pet = new Pet(0, name, type);
             pet = server.addPet(pet);
             return String.format("You rescued %s. Assigned ID: %d", pet.name(), pet.id());
@@ -101,10 +101,10 @@ public class PetClient implements NotificationHandler {
 
     public String listPets() throws ResponseException {
         assertSignedIn();
-        var pets = server.listPets();
+        Pet[] pets = server.listPets();
         var result = new StringBuilder();
         var gson = new Gson();
-        for (var pet : pets) {
+        for (Pet pet : pets) {
             result.append(gson.toJson(pet)).append('\n');
         }
         return result.toString();
@@ -114,8 +114,8 @@ public class PetClient implements NotificationHandler {
         assertSignedIn();
         if (params.length == 1) {
             try {
-                var id = Integer.parseInt(params[0]);
-                var pet = getPet(id);
+                int id = Integer.parseInt(params[0]);
+                Pet pet = getPet(id);
                 if (pet != null) {
                     server.deletePet(id);
                     return String.format("%s says %s", pet.name(), pet.sound());
@@ -129,7 +129,7 @@ public class PetClient implements NotificationHandler {
     public String adoptAllPets() throws ResponseException {
         assertSignedIn();
         var buffer = new StringBuilder();
-        for (var pet : server.listPets()) {
+        for (Pet pet : server.listPets()) {
             buffer.append(String.format("%s says %s%n", pet.name(), pet.sound()));
         }
 
@@ -145,7 +145,7 @@ public class PetClient implements NotificationHandler {
     }
 
     private Pet getPet(int id) throws ResponseException {
-        for (var pet : server.listPets()) {
+        for (Pet pet : server.listPets()) {
             if (pet.id() == id) {
                 return pet;
             }

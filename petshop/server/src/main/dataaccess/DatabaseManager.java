@@ -5,6 +5,7 @@ import exception.ResponseException;
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Properties;
 
@@ -28,7 +29,7 @@ public class DatabaseManager {
                 user = props.getProperty("db.user");
                 password = props.getProperty("db.password");
 
-                var host = props.getProperty("db.host");
+                String host = props.getProperty("db.host");
                 var port = Integer.parseInt(props.getProperty("db.port"));
                 connectionUrl = String.format("jdbc:mysql://%s:%d", host, port);
 
@@ -43,9 +44,9 @@ public class DatabaseManager {
      */
     static void createDatabase() throws ResponseException {
         try {
-            var statement = "CREATE DATABASE IF NOT EXISTS " + databaseName;
-            var conn = DriverManager.getConnection(connectionUrl, user, password);
-            try (var preparedStatement = conn.prepareStatement(statement, RETURN_GENERATED_KEYS)) {
+            String statement = "CREATE DATABASE IF NOT EXISTS " + databaseName;
+            Connection conn = DriverManager.getConnection(connectionUrl, user, password);
+            try (PreparedStatement preparedStatement = conn.prepareStatement(statement, RETURN_GENERATED_KEYS)) {
                 preparedStatement.executeUpdate();
             }
         } catch (SQLException e) {
@@ -67,7 +68,7 @@ public class DatabaseManager {
      */
     static Connection getConnection() throws ResponseException {
         try {
-            var conn = DriverManager.getConnection(connectionUrl, user, password);
+            Connection conn = DriverManager.getConnection(connectionUrl, user, password);
             conn.setCatalog(databaseName);
             return conn;
         } catch (SQLException e) {

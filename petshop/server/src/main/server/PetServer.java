@@ -52,20 +52,20 @@ public class PetServer {
     }
 
     private void addPet(Context ctx) throws ResponseException {
-        var pet = new Gson().fromJson(ctx.body(), Pet.class);
+        Pet pet = new Gson().fromJson(ctx.body(), Pet.class);
         pet = service.addPet(pet);
         webSocketHandler.makeNoise(pet.name(), pet.sound());
         ctx.json(new Gson().toJson(pet));
     }
 
     private void listPets(Context ctx) throws ResponseException {
-        var list = service.listPets().toArray();
+        Object[] list = service.listPets().toArray();
         ctx.json(new Gson().toJson(Map.of("pet", list)));
     }
 
     private void deletePet(Context ctx) throws ResponseException {
         var id = Integer.parseInt(ctx.pathParam("id"));
-        var pet = service.getPet(id);
+        Pet pet = service.getPet(id);
         if (pet != null) {
             service.deletePet(id);
             webSocketHandler.makeNoise(pet.name(), pet.sound());

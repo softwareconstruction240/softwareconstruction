@@ -39,7 +39,7 @@ class PetServerTest {
     @Test
     void addPet() {
         var joe = new Pet(0, "joe", PetType.CAT);
-        var result = assertDoesNotThrow(() -> server.addPet(joe));
+        Pet result = assertDoesNotThrow(() -> server.addPet(joe));
         assertPetEqual(joe, result);
     }
 
@@ -48,10 +48,10 @@ class PetServerTest {
         var expected = new ArrayList<Pet>();
         expected.add(server.addPet(new Pet(0, "sally", PetType.CAT)));
 
-        var joe = server.addPet(new Pet(0, "joe", PetType.CAT));
+        Pet joe = server.addPet(new Pet(0, "joe", PetType.CAT));
         server.deletePet(joe.id());
 
-        var result = assertDoesNotThrow(() -> server.listPets());
+        Pet[] result = assertDoesNotThrow(() -> server.listPets());
         assertPetCollectionEqual(expected, List.of(result));
     }
 

@@ -4,6 +4,7 @@ import org.eclipse.jetty.websocket.api.Session;
 import webSocketMessages.Notification;
 
 import java.io.IOException;
+import java.net.ConnectException;
 import java.util.ArrayList;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -21,7 +22,7 @@ public class ConnectionManager {
 
     public void broadcast(String excludeVisitorName, Notification notification) throws IOException {
         var removeList = new ArrayList<Connection>();
-        for (var c : connections.values()) {
+        for (Connection c : connections.values()) {
             if (c.session.isOpen()) {
                 if (!c.visitorName.equals(excludeVisitorName)) {
                     c.send(notification.toString());
@@ -32,7 +33,7 @@ public class ConnectionManager {
         }
 
         // Clean up any connections that were left open.
-        for (var c : removeList) {
+        for (Connection c : removeList) {
             connections.remove(c.visitorName);
         }
     }

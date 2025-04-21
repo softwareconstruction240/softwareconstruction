@@ -38,7 +38,7 @@ class PetClientTest {
 
     @Test
     void rescuePet() {
-        var result = assertDoesNotThrow(() -> client.rescuePet("joe", "fish"));
+        String result = assertDoesNotThrow(() -> client.rescuePet("joe", "fish"));
         assertMatches("You rescued joe. Assigned ID: \\d+", result);
 
         result = assertDoesNotThrow(() -> client.rescuePet("sally", "cat"));
@@ -47,10 +47,10 @@ class PetClientTest {
 
     @Test
     void adoptPet() throws Exception {
-        var id = getId(client.rescuePet("joe", "frog"));
+        String id = getId(client.rescuePet("joe", "frog"));
         client.rescuePet("sally", "cat");
 
-        var result = assertDoesNotThrow(() -> client.adoptPet(id));
+        String result = assertDoesNotThrow(() -> client.adoptPet(id));
         assertEquals("joe says ribbit", result);
     }
 
@@ -59,7 +59,7 @@ class PetClientTest {
     void adoptAllPets() throws Exception {
         client.rescuePet("joe", "rock");
         client.rescuePet("pat", "cat");
-        var result = assertDoesNotThrow(() -> client.adoptAllPets());
+        String result = assertDoesNotThrow(() -> client.adoptAllPets());
         assertEquals("joe says roll\npat says meow\n", result);
         assertEquals("", client.listPets());
     }
@@ -75,7 +75,7 @@ class PetClientTest {
         assertDoesNotThrow(() -> client.rescuePet("joe", "fish"));
         assertDoesNotThrow(() -> client.rescuePet("sally", "fish"));
 
-        var result = assertDoesNotThrow(() -> client.listPets());
+        String result = assertDoesNotThrow(() -> client.listPets());
         assertMatches("""
                 \\{'id':\\d+,'name':'joe','type':'FISH'}
                 \\{'id':\\d+,'name':'sally','type':'FISH'}

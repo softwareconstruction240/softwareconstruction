@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import service.PetService;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -24,7 +25,7 @@ class PetServiceTest {
         var pet = new Pet(0, "joe", PetType.FISH);
         pet = service.addPet(pet);
 
-        var pets = service.listPets();
+        Collection<Pet> pets = service.listPets();
         assertEquals(1, pets.size());
         assertTrue(pets.contains(pet));
     }
@@ -36,19 +37,19 @@ class PetServiceTest {
         expected.add(service.addPet(new Pet(0, "sally", PetType.CAT)));
         expected.add(service.addPet(new Pet(0, "fido", PetType.DOG)));
 
-        var actual = service.listPets();
+        Collection<Pet> actual = service.listPets();
         assertIterableEquals(expected, actual);
     }
 
     @Test
     void deletePet() throws ResponseException {
         List<Pet> expected = new ArrayList<>();
-        var pet = service.addPet(new Pet(0, "joe", PetType.FISH));
+        Pet pet = service.addPet(new Pet(0, "joe", PetType.FISH));
         expected.add(service.addPet(new Pet(0, "sally", PetType.CAT)));
         expected.add(service.addPet(new Pet(0, "fido", PetType.DOG)));
 
         service.deletePet(pet.id());
-        var actual = service.listPets();
+        Collection<Pet> actual = service.listPets();
         assertIterableEquals(expected, actual);
     }
 
@@ -65,6 +66,6 @@ class PetServiceTest {
     @Test
     void noDogsWithFleas() {
         assertThrows(ResponseException.class, () ->
-        service.addPet(new Pet(0, "fleas", PetType.DOG)));
+                service.addPet(new Pet(0, "fleas", PetType.DOG)));
     }
 }

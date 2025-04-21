@@ -44,7 +44,7 @@ class DataAccessTest {
         expected.add(dataAccess.addPet(new Pet(0, "sally", PetType.CAT)));
         expected.add(dataAccess.addPet(new Pet(0, "fido", PetType.DOG)));
 
-        var actual = dataAccess.listPets();
+        Collection<Pet> actual = dataAccess.listPets();
         assertPetCollectionEqual(expected, actual);
     }
 
@@ -54,13 +54,13 @@ class DataAccessTest {
         DataAccess dataAccess = getDataAccess(dbClass);
 
         List<Pet> expected = new ArrayList<>();
-        var deletePet = dataAccess.addPet(new Pet(0, "joe", PetType.FISH));
+        Pet deletePet = dataAccess.addPet(new Pet(0, "joe", PetType.FISH));
         expected.add(dataAccess.addPet(new Pet(0, "sally", PetType.CAT)));
         expected.add(dataAccess.addPet(new Pet(0, "fido", PetType.DOG)));
 
         dataAccess.deletePet(deletePet.id());
 
-        var actual = dataAccess.listPets();
+        Collection<Pet> actual = dataAccess.listPets();
         assertPetCollectionEqual(expected, actual);
     }
 
@@ -74,10 +74,9 @@ class DataAccessTest {
 
         dataAccess.deleteAllPets();
 
-        var actual = dataAccess.listPets();
+        Collection<Pet> actual = dataAccess.listPets();
         assertEquals(0, actual.size());
     }
-
 
     public static void assertPetEqual(Pet expected, Pet actual) {
         assertEquals(expected.name(), actual.name());
@@ -88,7 +87,7 @@ class DataAccessTest {
         Pet[] actualList = actual.toArray(new Pet[]{});
         Pet[] expectedList = expected.toArray(new Pet[]{});
         assertEquals(expectedList.length, actualList.length);
-        for (var i = 0; i < actualList.length; i++) {
+        for (int i = 0; i < actualList.length; i++) {
             assertPetEqual(expectedList[i], actualList[i]);
         }
     }

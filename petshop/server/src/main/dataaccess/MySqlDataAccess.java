@@ -21,17 +21,17 @@ public class MySqlDataAccess implements DataAccess {
 
     public Pet addPet(Pet pet) throws ResponseException {
         var statement = "INSERT INTO pet (name, type, json) VALUES (?, ?, ?)";
-        var json = new Gson().toJson(pet);
-        var id = executeUpdate(statement, pet.name(), pet.type(), json);
+        String json = new Gson().toJson(pet);
+        int id = executeUpdate(statement, pet.name(), pet.type(), json);
         return new Pet(id, pet.name(), pet.type());
     }
 
     public Pet getPet(int id) throws ResponseException {
-        try (var conn = DatabaseManager.getConnection()) {
+        try (Connection conn = DatabaseManager.getConnection()) {
             var statement = "SELECT id, json FROM pet WHERE id=?";
-            try (var ps = conn.prepareStatement(statement)) {
+            try (PreparedStatement ps = conn.prepareStatement(statement)) {
                 ps.setInt(1, id);
-                try (var rs = ps.executeQuery()) {
+                try (ResultSet rs = ps.executeQuery()) {
                     if (rs.next()) {
                         return readPet(rs);
                     }
@@ -45,10 +45,10 @@ public class MySqlDataAccess implements DataAccess {
 
     public Collection<Pet> listPets() throws ResponseException {
         var result = new ArrayList<Pet>();
-        try (var conn = DatabaseManager.getConnection()) {
+        try (Connection conn = DatabaseManager.getConnection()) {
             var statement = "SELECT id, json FROM pet";
-            try (var ps = conn.prepareStatement(statement)) {
-                try (var rs = ps.executeQuery()) {
+            try (PreparedStatement ps = conn.prepareStatement(statement)) {
+                try (ResultSet rs = ps.executeQuery()) {
                     while (rs.next()) {
                         result.add(readPet(rs));
                     }
@@ -73,15 +73,15 @@ public class MySqlDataAccess implements DataAccess {
     private Pet readPet(ResultSet rs) throws SQLException {
         var id = rs.getInt("id");
         var json = rs.getString("json");
-        var pet = new Gson().fromJson(json, Pet.class);
+        Pet pet = new Gson().fromJson(json, Pet.class);
         return pet.setId(id);
     }
 
     private int executeUpdate(String statement, Object... params) throws ResponseException {
-        try (var conn = DatabaseManager.getConnection()) {
-            try (var ps = conn.prepareStatement(statement, RETURN_GENERATED_KEYS)) {
-                for (var i = 0; i < params.length; i++) {
-                    var param = params[i];
+        try (Connection conn = DatabaseManager.getConnection()) {
+            try (PreparedStatement ps = conn.prepareStatement(statement, RETURN_GENERATED_KEYS)) {
+                for (int i = 0; i < params.length; i++) {
+                    Object param = params[i];
                     if (param instanceof String p) ps.setString(i + 1, p);
                     else if (param instanceof Integer p) ps.setInt(i + 1, p);
                     else if (param instanceof PetType p) ps.setString(i + 1, p.toString());
@@ -89,7 +89,7 @@ public class MySqlDataAccess implements DataAccess {
                 }
                 ps.executeUpdate();
 
-                var rs = ps.getGeneratedKeys();
+                ResultSet rs = ps.getGeneratedKeys();
                 if (rs.next()) {
                     return rs.getInt(1);
                 }
@@ -118,8 +118,8 @@ public class MySqlDataAccess implements DataAccess {
 
     private void configureDatabase() throws ResponseException {
         DatabaseManager.createDatabase();
-        try (var conn = DatabaseManager.getConnection()) {
-            for (var statement : createStatements) {
+        try (Connection conn = DatabaseManager.getConnection()) {
+            for (String statement : createStatements) {
                 try (var preparedStatement = conn.prepareStatement(statement)) {
                     preparedStatement.executeUpdate();
                 }
