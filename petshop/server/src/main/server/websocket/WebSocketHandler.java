@@ -30,10 +30,9 @@ public class WebSocketHandler implements WsConnectHandler, WsMessageHandler, WsC
             Action action = new Gson().fromJson(ctx.message(), Action.class);
             switch (action.type()) {
                 case ENTER -> enter(action.visitorName(), ctx.session);
-                case EXIT -> exit(action.visitorName());
+                case EXIT -> exit(action.visitorName(), ctx.session);
             }
-        }
-        catch (IOException ex) {
+        } catch (IOException ex) {
             ex.printStackTrace();
         }
     }
@@ -44,24 +43,24 @@ public class WebSocketHandler implements WsConnectHandler, WsMessageHandler, WsC
     }
 
     private void enter(String visitorName, Session session) throws IOException {
-        connections.add(visitorName, session);
+        connections.add(session);
         var message = String.format("%s is in the shop", visitorName);
         var notification = new Notification(Notification.Type.ARRIVAL, message);
-        connections.broadcast(visitorName, notification);
+        connections.broadcast(session, notification);
     }
 
-    private void exit(String visitorName) throws IOException {
-        connections.remove(visitorName);
+    private void exit(String visitorName, Session session) throws IOException {
         var message = String.format("%s left the shop", visitorName);
         var notification = new Notification(Notification.Type.DEPARTURE, message);
-        connections.broadcast(visitorName, notification);
+        connections.broadcast(session, notification);
+        connections.remove(session);
     }
 
     public void makeNoise(String petName, String sound) throws ResponseException {
         try {
             var message = String.format("%s says %s", petName, sound);
             var notification = new Notification(Notification.Type.NOISE, message);
-            connections.broadcast("", notification);
+            connections.broadcast(null, notification);
         } catch (Exception ex) {
             throw new ResponseException(500, ex.getMessage());
         }

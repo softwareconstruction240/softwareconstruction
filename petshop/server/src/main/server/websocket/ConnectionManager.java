@@ -4,37 +4,27 @@ import org.eclipse.jetty.websocket.api.Session;
 import webSocketMessages.Notification;
 
 import java.io.IOException;
-import java.net.ConnectException;
-import java.util.ArrayList;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class ConnectionManager {
-    public final ConcurrentHashMap<String, Connection> connections = new ConcurrentHashMap<>();
+    public final ConcurrentHashMap<Session, Session> connections = new ConcurrentHashMap<>();
 
-    public void add(String visitorName, Session session) {
-        var connection = new Connection(visitorName, session);
-        connections.put(visitorName, connection);
+    public void add(Session session) {
+        connections.put(session, session);
     }
 
-    public void remove(String visitorName) {
-        connections.remove(visitorName);
+    public void remove(Session session) {
+        connections.remove(session);
     }
 
-    public void broadcast(String excludeVisitorName, Notification notification) throws IOException {
-        var removeList = new ArrayList<Connection>();
-        for (Connection c : connections.values()) {
-            if (c.session.isOpen()) {
-                if (!c.visitorName.equals(excludeVisitorName)) {
-                    c.send(notification.toString());
+    public void broadcast(Session excludeSession, Notification notification) throws IOException {
+        String msg = notification.toString();
+        for (Session c : connections.values()) {
+            if (c.isOpen()) {
+                if (!c.equals(excludeSession)) {
+                    c.getRemote().sendString(msg);
                 }
-            } else {
-                removeList.add(c);
             }
-        }
-
-        // Clean up any connections that were left open.
-        for (Connection c : removeList) {
-            connections.remove(c.visitorName);
         }
     }
 }

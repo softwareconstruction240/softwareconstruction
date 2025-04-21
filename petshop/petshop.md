@@ -51,11 +51,15 @@ classDiagram
 ```mermaid
 classDiagram
     PetServer o-- PetService
-    PetServer o-- WebSocketHandler
 
     PetService o-- DataAccess
     DataAccess <|-- MemoryDataAccess
     DataAccess <|-- SqlDataAccess
+
+
+    PetServer o-- WebSocketHandler
+    WebSocketHandler o-- ConnectionManager
+
 
 
     class DataAccess {
