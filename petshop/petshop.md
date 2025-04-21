@@ -40,8 +40,7 @@ The [Pet Shop source code](.) is found in the course instruction repository that
 
 ```mermaid
 classDiagram
-    Repl-->PetClient
-    Repl--|> NotificationHandler
+    PetClient--|> NotificationHandler
     PetClient o-- ServerFacade
     PetClient o-- WebSocketFacade
     WebSocketFacade-->NotificationHandler
@@ -62,4 +61,15 @@ classDiagram
     class DataAccess {
         <<interface>>
     }
+```
+
+#### Shared
+
+```mermaid
+classDiagram
+    class Pet
+    class PetType
+    class ServerFacade
+    class Action
+    class Notification
 ```

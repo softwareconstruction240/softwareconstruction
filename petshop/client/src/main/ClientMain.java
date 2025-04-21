@@ -1,4 +1,4 @@
-import client.Repl;
+import client.PetClient;
 
 public class ClientMain {
     public static void main(String[] args) {
@@ -7,7 +7,12 @@ public class ClientMain {
             serverUrl = args[0];
         }
 
-        new Repl(serverUrl).run();
+        try {
+            new PetClient(serverUrl).run();
+
+        } catch (Throwable ex) {
+            System.out.printf("Unable to start server: %s%n", ex.getMessage());
+        }
     }
 
 }

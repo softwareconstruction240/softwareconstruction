@@ -22,7 +22,7 @@ class PetClientTest {
         petServer = new PetServer(service);
         petServer.run(0);
         var url = "http://localhost:" + petServer.port();
-        client = new PetClient(url, null);
+        client = new PetClient(url);
         client.signIn("tester");
     }
 

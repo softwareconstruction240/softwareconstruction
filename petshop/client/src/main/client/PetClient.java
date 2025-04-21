@@ -1,6 +1,7 @@
 package client;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 import com.google.gson.Gson;
 import model.Pet;
@@ -9,20 +10,52 @@ import exception.ResponseException;
 import client.websocket.NotificationHandler;
 import server.ServerFacade;
 import client.websocket.WebSocketFacade;
+import webSocketMessages.Notification;
 
-public class PetClient {
+import static client.EscapeSequences.*;
+
+public class PetClient implements NotificationHandler {
     private String visitorName = null;
     private final ServerFacade server;
-    private final String serverUrl;
-    private final NotificationHandler notificationHandler;
-    private WebSocketFacade ws;
+    private final WebSocketFacade ws;
     private State state = State.SIGNEDOUT;
 
-    public PetClient(String serverUrl, NotificationHandler notificationHandler) {
+    public PetClient(String serverUrl) throws ResponseException {
         server = new ServerFacade(serverUrl);
-        this.serverUrl = serverUrl;
-        this.notificationHandler = notificationHandler;
+        ws = new WebSocketFacade(serverUrl, this);
     }
+
+    public void run() {
+        System.out.println(LOGO + " Welcome to the pet store. Sign in to start.");
+        System.out.print(help());
+
+        Scanner scanner = new Scanner(System.in);
+        var result = "";
+        while (!result.equals("quit")) {
+            printPrompt();
+            String line = scanner.nextLine();
+
+            try {
+                result = eval(line);
+                System.out.print(BLUE + result);
+            } catch (Throwable e) {
+                var msg = e.toString();
+                System.out.print(msg);
+            }
+        }
+        System.out.println();
+    }
+
+
+    public void notify(Notification notification) {
+        System.out.println(RED + notification.message());
+        printPrompt();
+    }
+
+    private void printPrompt() {
+        System.out.print("\n" + RESET + ">>> " + GREEN);
+    }
+
 
     public String eval(String input) {
         try {
@@ -48,7 +81,6 @@ public class PetClient {
         if (params.length >= 1) {
             state = State.SIGNEDIN;
             visitorName = String.join("-", params);
-            ws = new WebSocketFacade(serverUrl, notificationHandler);
             ws.enterPetShop(visitorName);
             return String.format("You signed in as %s.", visitorName);
         }
@@ -108,7 +140,6 @@ public class PetClient {
     public String signOut() throws ResponseException {
         assertSignedIn();
         ws.leavePetShop(visitorName);
-        ws = null;
         state = State.SIGNEDOUT;
         return String.format("%s left the shop", visitorName);
     }
