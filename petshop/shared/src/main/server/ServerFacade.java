@@ -19,39 +19,31 @@ public class ServerFacade {
     }
 
     public Pet addPet(Pet pet) throws ResponseException {
-        var path = "/pet";
-        return this.makeRequest("POST", path, pet, Pet.class);
+        var request = buildRequest("POST", "/pet", pet);
+        var response = sendRequest(request);
+        return handleResponse(response, Pet.class);
     }
 
     public void deletePet(int id) throws ResponseException {
         var path = String.format("/pet/%s", id);
-        this.makeRequest("DELETE", path, null, null);
+        var request = buildRequest("DELETE", path, null);
+        var response = sendRequest(request);
+        handleResponse(response, null);
     }
 
     public void deleteAllPets() throws ResponseException {
-        var path = "/pet";
-        this.makeRequest("DELETE", path, null, null);
+        var request = buildRequest("DELETE", "/pet", null);
+        sendRequest(request);
     }
 
     public Pet[] listPets() throws ResponseException {
-        var path = "/pet";
         record listPetResponse(Pet[] pet) {
         }
-        var response = this.makeRequest("GET", path, null, listPetResponse.class);
-        return response.pet();
-    }
 
-    private <T> T makeRequest(String method, String path, Object body, Class<T> responseClass)
-            throws ResponseException {
-        try {
-            var request = buildRequest(method, path, body);
-            var response = client.send(request, BodyHandlers.ofString());
-            return handleResponse(response, responseClass);
-        } catch (ResponseException ex) {
-            throw ex;
-        } catch (Exception ex) {
-            throw new ResponseException(500, ex.getMessage());
-        }
+        var request = buildRequest("GET", "/pet", null);
+        var response = sendRequest(request);
+        var petList = handleResponse(response, listPetResponse.class);
+        return petList.pet();
     }
 
     private HttpRequest buildRequest(String method, String path, Object body) {
@@ -72,6 +64,14 @@ public class ServerFacade {
         }
     }
 
+    private HttpResponse<String> sendRequest(HttpRequest request) throws ResponseException {
+        try {
+            return client.send(request, BodyHandlers.ofString());
+        } catch (Exception ex) {
+            throw new ResponseException(500, ex.getMessage());
+        }
+    }
+
     private <T> T handleResponse(HttpResponse<String> response, Class<T> responseClass) throws ResponseException {
         var status = response.statusCode();
         if (!isSuccessful(status)) {
@@ -83,11 +83,11 @@ public class ServerFacade {
             throw new ResponseException(status, "other failure: " + status);
         }
 
-        if (responseClass == null) {
-            return null;
+        if (responseClass != null) {
+            return new Gson().fromJson(response.body(), responseClass);
         }
 
-        return new Gson().fromJson(response.body(), responseClass);
+        return null;
     }
 
     private boolean isSuccessful(int status) {
