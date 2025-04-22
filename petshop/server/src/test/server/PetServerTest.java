@@ -1,10 +1,10 @@
+package server;
+
 import dataaccess.MemoryDataAccess;
 import exception.ResponseException;
 import model.Pet;
 import model.PetType;
 import org.junit.jupiter.api.*;
-import server.PetServer;
-import server.ServerFacade;
 import service.PetService;
 
 import java.util.ArrayList;
@@ -66,7 +66,7 @@ class PetServerTest {
     }
 
     @Test
-    void invalidPetAddition() throws Exception {
+    void invalidPetAddition() {
         // Dogs with fleas are not allowed
         ResponseException error = Assertions.assertThrows(ResponseException.class,
                 () -> server.addPet(new Pet(-1, "fleas", PetType.DOG)),

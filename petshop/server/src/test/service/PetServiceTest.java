@@ -1,10 +1,11 @@
+package service;
+
 import dataaccess.MemoryDataAccess;
 import exception.ResponseException;
 import model.Pet;
 import model.PetType;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import service.PetService;
 
 import java.util.ArrayList;
 import java.util.Collection;
