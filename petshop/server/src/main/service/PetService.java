@@ -16,8 +16,7 @@ public class PetService {
     }
 
     // Pet Shop is very simple.
-    // A more complicated application would do the business logic in this
-    // service.
+    // A more complicated application would do the business logic in the service.
 
     public Pet addPet(Pet pet) throws ResponseException {
         if (pet.type() == PetType.DOG && pet.name().equals("fleas")) {
@@ -31,14 +30,25 @@ public class PetService {
     }
 
     public Pet getPet(int id) throws ResponseException {
+        validateId(id);
         return dataAccess.getPet(id);
     }
 
     public void deletePet(Integer id) throws ResponseException {
+        validateId(id);
         dataAccess.deletePet(id);
     }
 
     public void deleteAllPets() throws ResponseException {
-        dataAccess.deleteAllPets();
+        Collection<Pet> pets = dataAccess.listPets();
+        if (!pets.isEmpty()) {
+            dataAccess.deleteAllPets();
+        }
+    }
+
+    private void validateId(int id) throws ResponseException {
+        if (id <= 0) {
+            throw new ResponseException(ResponseException.Code.ClientError, "Error: invalid pet ID");
+        }
     }
 }
