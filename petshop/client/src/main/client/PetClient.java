@@ -84,7 +84,7 @@ public class PetClient implements NotificationHandler {
             ws.enterPetShop(visitorName);
             return String.format("You signed in as %s.", visitorName);
         }
-        throw new ResponseException(400, "Expected: <yourname>");
+        throw new ResponseException(ResponseException.Code.ClientError, "Expected: <yourname>");
     }
 
     public String rescuePet(String... params) throws ResponseException {
@@ -96,7 +96,7 @@ public class PetClient implements NotificationHandler {
             pet = server.addPet(pet);
             return String.format("You rescued %s. Assigned ID: %d", pet.name(), pet.id());
         }
-        throw new ResponseException(400, "Expected: <name> <CAT|DOG|FROG>");
+        throw new ResponseException(ResponseException.Code.ClientError, "Expected: <name> <CAT|DOG|FROG>");
     }
 
     public String listPets() throws ResponseException {
@@ -123,7 +123,7 @@ public class PetClient implements NotificationHandler {
             } catch (NumberFormatException ignored) {
             }
         }
-        throw new ResponseException(400, "Expected: <pet id>");
+        throw new ResponseException(ResponseException.Code.ClientError, "Expected: <pet id>");
     }
 
     public String adoptAllPets() throws ResponseException {
@@ -172,7 +172,7 @@ public class PetClient implements NotificationHandler {
 
     private void assertSignedIn() throws ResponseException {
         if (state == State.SIGNEDOUT) {
-            throw new ResponseException(400, "You must sign in");
+            throw new ResponseException(ResponseException.Code.ClientError, "You must sign in");
         }
     }
 }

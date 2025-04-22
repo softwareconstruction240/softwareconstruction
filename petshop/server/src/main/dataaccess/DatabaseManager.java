@@ -50,7 +50,7 @@ public class DatabaseManager {
                 preparedStatement.executeUpdate();
             }
         } catch (SQLException e) {
-            throw new ResponseException(500, e.getMessage());
+            throw new ResponseException(ResponseException.Code.ServerError, e.getMessage());
         }
     }
 
@@ -72,7 +72,7 @@ public class DatabaseManager {
             conn.setCatalog(databaseName);
             return conn;
         } catch (SQLException e) {
-            throw new ResponseException(500, e.getMessage());
+            throw new ResponseException(ResponseException.Code.ServerError, e.getMessage());
         }
     }
 }

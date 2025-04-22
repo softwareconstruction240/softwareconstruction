@@ -47,7 +47,7 @@ public class PetServer {
     }
 
     private void exceptionHandler(ResponseException ex, Context ctx) {
-        ctx.status(ex.StatusCode());
+        ctx.status(ex.toHttpStatusCode());
         ctx.json(ex.toJson());
     }
 

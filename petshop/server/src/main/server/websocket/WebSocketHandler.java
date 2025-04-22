@@ -62,7 +62,7 @@ public class WebSocketHandler implements WsConnectHandler, WsMessageHandler, WsC
             var notification = new Notification(Notification.Type.NOISE, message);
             connections.broadcast(null, notification);
         } catch (Exception ex) {
-            throw new ResponseException(500, ex.getMessage());
+            throw new ResponseException(ResponseException.Code.ServerError, ex.getMessage());
         }
     }
 }
