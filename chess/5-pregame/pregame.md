@@ -71,6 +71,8 @@ Make sure that your client doesn't crash. If an exception occurs, catch it. A us
 
 - [Console UI](../../instruction/console-ui/console-ui.md): Reading from the keyboard and writing out fancy text.
 - [Web API](../../instruction/web-api/web-api.md#web-client): Making HTTP client requests.
+- [Single Responsibility Principle](../../instruction/design-principles/design-principles.md#single-responsibility-principle): Organizing many client files into comprehensible units.
+- [Pet Shop](../../petshop/petshop.md): REPL implementation.
 
 ### Tips for using Unicode chess characters
 
@@ -81,6 +83,7 @@ Additionally, you may notice that the chess characters might render slightly wid
 ## ☑ Deliverable
 
 > [!IMPORTANT]
+>
 > You are required to commit to GitHub with every minor milestone. For example, after you successfully pass a test. This should result in a commit history that clearly details your work on this phase. If your Git history does not demonstrate your efforts then your submission may be rejected.
 
 ### Pass Off Tests
@@ -162,6 +165,7 @@ To pass off this assignment, first submit your work to the course [auto-grading]
 ### Grading Rubric
 
 > [!NOTE]
+>
 > You can receive 4 points of extra credit by first receiving 100% from the autograder and then completing an in-person pass off before the final due date.
 
 | Category       | Criteria                                                                                                                                                                                        |       Points |

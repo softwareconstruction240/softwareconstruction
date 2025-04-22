@@ -13,14 +13,14 @@ import java.util.Map;
 public class PetServer {
     private final PetService service;
     private final WebSocketHandler webSocketHandler;
-    private final Javalin javalin;
+    private final Javalin httpHandler;
 
     public PetServer(PetService service) {
         this.service = service;
 
         this.webSocketHandler = new WebSocketHandler();
 
-        this.javalin = Javalin.create(config -> config.staticFiles.add("public"))
+        this.httpHandler = Javalin.create(config -> config.staticFiles.add("public"))
                 .post("/pet", this::addPet)
                 .get("/pet", this::listPets)
                 .delete("/pet/{id}", this::deletePet)
@@ -34,16 +34,16 @@ public class PetServer {
     }
 
     public PetServer run(int port) {
-        javalin.start(port);
+        httpHandler.start(port);
         return this;
     }
 
     public int port() {
-        return javalin.port();
+        return httpHandler.port();
     }
 
     public void stop() {
-        javalin.stop();
+        httpHandler.stop();
     }
 
     private void exceptionHandler(ResponseException ex, Context ctx) {

@@ -24,6 +24,7 @@ The chess application components are demonstrated by the following diagram and d
 | Database     |               | Stores data persistently.                                                                                                                                                                                                                                         |
 
 > [!NOTE]
+>
 > that while we have the Handlers as distinct components here and later in the diagram, it is not required to have specific handler classes. You may implement this functionality directly in the lambda functions for the endpoints of your server.
 
 ## Application Programming Interface (API)
@@ -79,8 +80,8 @@ end
 To get you started on creating your sequence diagrams, we have provided you with a template that already contains a possible solution for the `register` endpoint and place holders for the other six endpoints.
 
 > [!IMPORTANT]
-> Here is a link to your [Starter Diagram](https://sequencediagram.org/index.html#initialData=IYYwLg9gTgBAwgGwJYFMB2YBQAHYUxIhK4YwDKKUAbpTngUSWDABLBoAmCtu+hx7ZhWqEUdPo0EwAIsDDAAgiBAoAzqswc5wAEbBVKGBx2ZM6MFACeq3ETQBzGAAYAdAE5M9qBACu2GADEaMBUljAASij2SKoWckgQaIEA7gAWSGBiiKikALQAfOSUNFAAXDAA2gAKAPJkACoAujAA9D4GUAA6aADeAETtlMEAtih9pX0wfQA0U7jqydAc45MzUyjDwEgIK1MAvpjCJTAFrOxclOX9g1AjYxNTs33zqotQyw9rfRtbO58HbE43FgpyOonKUCiMUyUAAFJForFKJEAI4+NRgACUh2KohOhVk8iUKnU5XsKDAAFUOrCbndsYTFMo1Kp8UYdKUAGJITgwamURkwHRhOnAUaYRnElknUG4lTlNA+BAIHEiFRsyXM0kgSFyFD8uE3RkM7RS9Rs4ylBQcDh8jqM1VUPGnTUk1SlHUoPUKHxgVKw4C+1LGiWmrWs06W622n1+h1g9W5U6Ai5lCJQpFQSKqJVYFPAmWFI6XGDXDp3SblVZPQN++oQADW6ErU32jsohfgyHM5QATE4nN0y0MxWMYFXHlNa6l6020C3Vgd0BxTF5fP4AtB2OSYAAZCDRJIBNIZLLdvJF4ol6p1JqtAzqBJoIei0azF5vDhLzir7x+QJeCg6B7gevjMMe6SZJg2TmGyxZphU0gAKK7kh9RIc0LQPqoT7dNOs7oGYP6eH+G6Qrau7QjAADio6shBp7QeezCytQ17UWhmH2KOeFBgRaBESuJHroE2A+FA2DcPAuqZDRo4pJBZ45Cxl5sQhtQNFxPHBHxjboEO3GjAAcqO35CWu-4BJYKDKhAyQwAAUhAPJyaMgQ6AgoANkxylwVe6mUneLSGSgvF1npz69JJwDWVAcAQAg0CzCFACS0hmb+IkBF4MVdl6sDANgkmEPEiQKYxMEXkUanlIhKFoRhrTGIJmBAA).
-> When you are done editing your diagram make sure you export a link as described in the **Deliverable** section below.
+>
+> Here is a link to your [Starter Diagram](https://sequencediagram.org/index.html#initialData=IYYwLg9gTgBAwgGwJYFMB2YBQAHYUxIhK4YwDKKUAbpTngUSWDABLBoAmCtu+hx7ZhWqEUdPo0EwAIsDDAAgiBAoAzqswc5wAEbBVKGBx2ZM6MFACeq3ETQBzGAAYAdAE5M9qBACu2GADEaMBUljAASij2SKoWckgQaIEA7gAWSGBiiKikALQAfOSUNFAAXDAA2gAKAPJkACoAujAA9D4GUAA6aADeAETtlMEAtih9pX0wfQA0U7jqydAc45MzUyjDwEgIK1MAvpjCJTAFrOxclOX9g1AjYxNTs33zqotQyw9rfRtbO58HbE43FgpyOonKUCiMUyUAAFJForFKJEAI4+NRgACUh2KohOhVk8iUKnU5XsKDAAFUOrCbndsYTFMo1Kp8UYdKUAGJITgwamURkwHRhOnAUaYRnElknUG4lTlNA+BAIHEiFRsyXM0kgSFyFD8uE3RkM7RS9Rs4ylBQcDh8jqM1VUPGnTUk1SlHUoPUKHxgVKw4C+1LGiWmrWs06W622n1+h1g9W5U6Ai5lCJQpFQSKqJVYFPAmWFI6XGDXDp3SblVZPQN++oQADW6ErU32jsohfgyHM5QATE4nN0y0MxWMYFXHlNa6l6020C3Vgd0BxTF5fP4AtB2OSYAAZCDRJIBNIZLLdvJF4ol6p1JqtAzqBJoIei0azF5vDhLzir7x+QJeCg6B7gevjMMe6SZJg2TmGyxZphU0gAKK7kh9RIc0LQPqoT7dNOs7oGYP6eH+G6Qrau7QjAADio6shBp7QeezCytQ17UWhmH2KOeFBgRaBESuJHroE2A+FA2DcPAuqZDRo4pJBZ45Cxl5sQhtQNFxPHBHxjboEO3GjAAcqO35CWu-4BJYKDKhAyQwAAUhAPJyaMgQ6AgoANkxylwVe6mUneLSGSgvF1npz69JJwDWVAcAQAg0CzCFACS0hmb+IkBF4MVdl6sDANgkmEPEiQKYxMEXkUanlIhKFoRhrTGIJmBAA). When you are done editing your diagram make sure you export a link as described in the **Deliverable** section below.
 
 ![Register Sequence Diagram](register-sequence-diagram.png)
 
@@ -90,6 +91,7 @@ This example diagram represents the following sequence for registering and autho
 2. The `server` gets the body with its information from the HTTP request and matches it to the correct handler.
 3. The `handler` takes the JSON information and creates an object to hold it and sends it to the correct service class.
    > [!TIP]
+   >
    > You are not required to create your handlers in their own distinct classes. You may implement this functionality directly in the lambda functions for the endpoints of your server.
 4. The `service` calls a data access method in order to determine if there is already a user with that username.
 5. The `data access` method checks the database and returns that there is no user with that name (null).
@@ -102,7 +104,12 @@ This example diagram represents the following sequence for registering and autho
 12. The `server` returns this to the client.
 
 > [!NOTE]
+>
 > Note that the diagram includes simple representations of HTTP and database requests. You will learn how to use these technologies in later phases. You just need to understand that the `server` receives HTTP network requests and the database persistently stores your application data. It is also not important that you use correct UML Sequence diagram syntax for your diagrams. You just need to show that you understand what each of the endpoints are doing inside your code.
+
+### PetShop Example
+
+There is an example [PetShop Server Sequence Diagram](../../petshop/petshop.md#sequence-diagrams). The PetShop example as a whole is intended to demonstrate the core concepts of this course, but does not account for all the complexities that you will need to consider for your chess project. Learn from the example and walkthrough videos, and then do your own work to learn this new skill of diagramming.
 
 ## Classes
 
@@ -147,4 +154,3 @@ When initially graded, your design will be given one of three scores:
 - 🎥 [Chess Server Design - Server Class and HTTP Handler Classes (7:24)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=8f6c6bb0-5528-4a0b-a6c0-b17e016deda3) - [[transcript]](https://github.com/user-attachments/files/17706963/CS_240_Chess_Server_Design_Server_Class_and_http_Handler_Classes_Transcript.pdf)
 - 🎥 [Chess Server Design - Frequently Asked Questions (6:55)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=89324a09-d550-4fbd-8d9f-b17e01704a5a)- [[transcript]](https://github.com/user-attachments/files/17706972/CS_240_Chess_Server_Design._Frequently_Asked_Questions_Transcript.pdf)
 - 🎥 [Phase 2 Overview (14:25)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=1b3ed136-4ef1-41d0-8e6c-b17e0172c0bf)- [[transcript]](https://github.com/user-attachments/files/17706974/CS_240_Chess_Server_Design_Phase_2_Transcript.pdf)
-

@@ -198,10 +198,13 @@ Here is a [sequence diagram](https://sequencediagram.org/index.html?presentation
 - [Console UI](../../instruction/console-ui/console-ui.md): Reading from the keyboard and writing out fancy text.
 - [WebSocket](../../instruction/websocket/websocket.md): Making WebSocket client and server requests.
 - [Debugging](../../instruction/debugging/debugging.md): Debugging multiple applications that communication over the network is a critical software engineering skill that you will need to master to complete this phase. Make sure you review the topics on how to debug both [multiple applications](../../instruction/debugging/debugging.md#executing-multiple-processes) and also how to debug multiple concurrent instances of [same application](../../instruction/debugging/debugging.md#executing-the-same-process-multiple-times).
+- [Open-Closed Principle](../../instruction/design-principles/design-principles.md#open-closed-principle): Opening WebSocket Communicator to extension of behavior.
+- [Pet Shop](../../petshop/petshop.md): Observer pattern implementation for WebSocket notifications.
 
 ## ☑ Deliverable
 
 > [!IMPORTANT]
+>
 > You are required to commit to GitHub with every minor milestone. For example, after you implement each player action. This should result in a commit history that clearly details your work on this phase. If your Git history does not demonstrate your efforts then your submission may be rejected.
 
 ### Pass Off Tests
@@ -221,6 +224,7 @@ To pass off this assignment submit your work to the course [auto-grading](https:
 ### Grading Rubric
 
 > [!NOTE]
+>
 > You can receive 4 points of extra credit by first receiving 100% from the autograder and then completing an in-person pass off before the final due date.
 
 | Category                      | Criteria                                                                                                                                                             |       Points |
