@@ -6,11 +6,11 @@ The Pet Shop application demonstrates many of the topics presented in this cours
 
 - Console client
 - Client HTTP and WebSocket facade
-- HTTP and WebSocket Server
-- Service
-- Data persistence with memory and MySQL implementations
-- JSON serialization with type adapter
+- HTTP and WebSocket Server using Javalin
+- Service with application logic
+- JSON serialization using GSON
 - Model objects
+- Data persistence with memory and MySQL implementations
 - Shared code
 - Tests at the client, server, service, and data layers
 
