@@ -3,7 +3,7 @@ This course is fully online with all lectures being on-demand video lectures. Vi
 
 
 | Week | Day | Date       | Lecture Topics                 | Deliverable |
-| :--: | :-: | :-: | :-:| :-: | :-: |
+| :-: | :-: | :-: | :-: | :-: |
 |  1   |  1  | Tue Apr 29 | [Introduction](https://github.com/softwareconstruction240/softwareconstruction/blob/main/instruction/introduction/introduction.md)<br /> [Git](https://github.com/softwareconstruction240/softwareconstruction/blob/main/instruction/git/git.md)<br /> [Chess GitHub Repository](https://github.com/softwareconstruction240/softwareconstruction/blob/main/chess/chess-github-repository/chess-github-repository.md) | |
 |      |  2  | Wed Apr 30 | [Java Fundamentals](https://github.com/softwareconstruction240/softwareconstruction/blob/main/instruction/java-fundamentals/java-fundamentals.md) | _Due: Apr 30_ - [Chess GitHub Repository](https://github.com/softwareconstruction240/softwareconstruction/blob/main/chess/chess-github-repository/chess-github-repository.md)|
 |      |  3  | Thu May 1 | [`Phase 0: Chess Moves`](https://github.com/softwareconstruction240/softwareconstruction/blob/main/chess/0-chess-moves/chess-moves.md)<br /> [Classes and Objects](https://github.com/softwareconstruction240/softwareconstruction/blob/main/instruction/classes-and-objects/classes-and-objects.md) | |
