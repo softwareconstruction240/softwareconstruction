@@ -2,11 +2,8 @@ package dataaccess;
 
 import com.google.gson.Gson;
 import exception.ResponseException;
-import model.Pet;
-import model.PetType;
+import model.*;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.sql.*;
 
 import static java.sql.Statement.RETURN_GENERATED_KEYS;
@@ -43,8 +40,8 @@ public class MySqlDataAccess implements DataAccess {
         return null;
     }
 
-    public Collection<Pet> listPets() throws ResponseException {
-        var result = new ArrayList<Pet>();
+    public PetList listPets() throws ResponseException {
+        var result = new PetList();
         try (Connection conn = DatabaseManager.getConnection()) {
             var statement = "SELECT id, json FROM pet";
             try (PreparedStatement ps = conn.prepareStatement(statement)) {

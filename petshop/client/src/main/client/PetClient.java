@@ -4,8 +4,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 import com.google.gson.Gson;
-import model.Pet;
-import model.PetType;
+import model.*;
 import exception.ResponseException;
 import client.websocket.NotificationHandler;
 import server.ServerFacade;
@@ -101,7 +100,7 @@ public class PetClient implements NotificationHandler {
 
     public String listPets() throws ResponseException {
         assertSignedIn();
-        Pet[] pets = server.listPets();
+        PetList pets = server.listPets();
         var result = new StringBuilder();
         var gson = new Gson();
         for (Pet pet : pets) {

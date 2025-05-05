@@ -1,8 +1,7 @@
 package dataaccess;
 
-import model.Pet;
+import model.*;
 
-import java.util.Collection;
 import java.util.HashMap;
 
 public class MemoryDataAccess implements DataAccess {
@@ -16,8 +15,8 @@ public class MemoryDataAccess implements DataAccess {
         return pet;
     }
 
-    public Collection<Pet> listPets() {
-        return pets.values();
+    public PetList listPets() {
+        return new PetList(pets.values());
     }
 
 

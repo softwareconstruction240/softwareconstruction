@@ -1,7 +1,7 @@
 package service;
 
 import dataaccess.DataAccess;
-import model.Pet;
+import model.*;
 import exception.ResponseException;
 import model.PetType;
 
@@ -25,7 +25,7 @@ public class PetService {
         return dataAccess.addPet(pet);
     }
 
-    public Collection<Pet> listPets() throws ResponseException {
+    public PetList listPets() throws ResponseException {
         return dataAccess.listPets();
     }
 

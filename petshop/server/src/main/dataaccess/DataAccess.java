@@ -1,17 +1,15 @@
 package dataaccess;
 
 import exception.ResponseException;
-import model.Pet;
-
-import java.util.Collection;
+import model.*;
 
 public interface DataAccess {
     Pet addPet(Pet pet) throws ResponseException;
 
-    Collection<Pet> listPets() throws ResponseException;
+    PetList listPets() throws ResponseException;
 
     Pet getPet(int id) throws ResponseException;
-    
+
     void deletePet(Integer id) throws ResponseException;
 
     void deleteAllPets() throws ResponseException;

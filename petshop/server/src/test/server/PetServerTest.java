@@ -2,14 +2,11 @@ package server;
 
 import dataaccess.MemoryDataAccess;
 import exception.ResponseException;
-import model.Pet;
-import model.PetType;
+import model.*;
 import org.junit.jupiter.api.*;
 import service.PetService;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -45,24 +42,24 @@ class PetServerTest {
 
     @Test
     void deletePet() throws Exception {
-        var expected = new ArrayList<Pet>();
+        var expected = new PetList();
         expected.add(server.addPet(new Pet(0, "sally", PetType.CAT)));
 
         Pet joe = server.addPet(new Pet(0, "joe", PetType.CAT));
         server.deletePet(joe.id());
 
-        Pet[] result = assertDoesNotThrow(() -> server.listPets());
-        assertPetCollectionEqual(expected, List.of(result));
+        PetList result = assertDoesNotThrow(() -> server.listPets());
+        assertPetCollectionEqual(expected, result);
     }
 
     @Test
     void listPets() throws Exception {
-        var expected = new ArrayList<Pet>();
+        var expected = new PetList();
         expected.add(server.addPet(new Pet(0, "joe", PetType.CAT)));
         expected.add(server.addPet(new Pet(0, "sally", PetType.CAT)));
 
         var result = assertDoesNotThrow(() -> server.listPets());
-        assertPetCollectionEqual(expected, List.of(result));
+        assertPetCollectionEqual(expected, result);
     }
 
     @Test
