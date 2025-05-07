@@ -152,10 +152,10 @@ With most Linux distros you can usually use Honorlock with a few extra steps. Do
 
 1. Get a chromium based browser. While Chrome is the official browser, any chromium based browser that is up to date and has good support for chrome extensions is a viable option. Chromium and Brave are both options that have worked.
 1. Install a user-agent spoofer extension. This is an extension that can modify the information your browser sends with requests. This can change the browser model and os that your computer appears to be using. Usually this is used for testing apps, but it can be used to mask your computer's OS.
-   - There are several extensions that you can choose from that have this functionality. [User Agent Switcher and Manager](https://webextension.org/listing/useragent-switcher.html) is an option that usually works. Before using any chrome extension ensure that you are confident in what it does and its reputation as a product.
+   - There are several extensions that you can choose from that have this functionality. [User Agent Switcher and Manager](https://chromewebstore.google.com/detail/user-agent-switcher-and-m/bhchdcejhohfmigjafbampogmaanbfkg) is an option that usually works. Before using any chrome extension ensure that you are confident in what it does and its reputation as a product.
    - You can also configure this manually from the developer settings in your browser, this is more difficult to do, and usually won’t persist across tabs and sessions so is not the best option for the test.
 1. Change the user agent to be Chrome on Mac, Windows, or Chrome OS. The most consistent results come from using the most up to date version of Chrome on Mac that is listed.
-1. Test it against [Honorlock's System Check](https://app.honorlock.com/support/msr-check) You can also check it against [deviceinfo.me](https://www.deviceinfo.me) making sure that you appear as the other operating system.
+1. Test it against [Honorlock's System Check](https://app.honorlock.com/support/msr-check). You can also check it against [deviceinfo.me](https://www.deviceinfo.me) making sure that you appear as the other operating system.
    If you are able to pass this check then you are good to go for the test. Taking the Honorlock Setup Quiz is a good time to test that this configuration works as well.
 
 Important - make sure you do not do any updates to your system or apps before taking the test. This could cause your new configuration to not work with Honorlock.
