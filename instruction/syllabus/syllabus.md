@@ -41,11 +41,11 @@ The goal of CS 240 is to help students learn a variety of computer programming c
 
 ###   Required Text
 
-![CoreJavaForTheImpatient3rdEdition.jpg](/courses/30535/files/10554361/preview)  
+![CoreJavaForTheImpatient3rdEdition.jpg](CoreJavaForTheImpatient3rdEdition.jpg)  
 
 **Title:**
 
-Core Java for the Impatient (3rdEdition)
+Core Java for the Impatient (3rd Edition)
 
 **Author(s):**
 
@@ -65,7 +65,7 @@ Addison-Wesley
 
 **Purchase Options:**
 
-Access through the [BYU Library (Links to an external site.)](https://lib.byu.edu/):
+Access through the [BYU Library](https://lib.byu.edu/):
 
 *   Copy and paste the exact book title into the library search bar: Core Java for the Impatient (3rd Edition)
 *   It should be the first option in the search results. Be sure it's the 3rd edition.
@@ -81,16 +81,14 @@ If you do not have a computer of your own, you can rent one from the [BYU Office
 
 As another option, the Computer Science Dept. provides computers that you may use for your programming assignments. The computer labs are located on the first floor and in the basement of the Talmage Building. You will need a Computer Science Dept. computer account in order to access these machines. (This account is different than your standard BYU account.) If you do not already have a Computer Science Dept. account, go to the web page at the following link to create or enable your account.
 
-You can set up your CS computer account:  [accounts.cs.byu.edu  (Links to an external site.)](https://accounts.cs.byu.edu/)  
+You can set up your CS computer account:  [accounts.cs.byu.edu](https://accounts.cs.byu.edu/)  
   [Instructions: Setting Up Your Account](https://docs.cs.byu.edu/doku.php?id=setting-up-your-account-with-the-cs-authentication-system) 
 
-Abuse of BYU computers, networks, or facilities involving either pornography or illegal activity will result in the loss of all Computer Science accounts and removal from all CS classes. Please refer to the  [CS Dept. Lab Rules and Policies  (Links to an external site.)](https://docs.cs.byu.edu/doku.php?id=account-policies-lab-rules)  for information regarding appropriate lab, computer, and account use. If you prefer, you can watch this entertaining video to learn about our lab policies: 
+Abuse of BYU computers, networks, or facilities involving either pornography or illegal activity will result in the loss of all Computer Science accounts and removal from all CS classes. Please refer to the  [CS Dept. Lab Rules and Policies ](https://docs.cs.byu.edu/doku.php?id=account-policies-lab-rules)  for information regarding appropriate lab, computer, and account use. If you prefer, you can watch this entertaining video to learn about our lab policies: 
 
-**Editors:** See instructions for [customizing this video snippet.](/courses/10881/pages/responsive-video-snippet-customization)
+ [BYU CS Department Lab Policies Transcript](CS_240_BYU_CS_Department_Lab_Policies_Transcript.pdf)
 
- [BYU CS Department Lab Policies Transcript](/courses/30535/files/10554394?wrap=1)
-
-[Lab Policies Video  (Links to an external site.)](https://www.youtube.com/watch?v=NisrJqzAWOc)  You will be held accountable for understanding and abiding by these policies.
+[Lab Policies Video](https://www.youtube.com/watch?v=NisrJqzAWOc)  You will be held accountable for understanding and abiding by these policies.
 
 If you would like to access the CS Dept. computers remotely, you can:  [CS Dept. Remote VPN Access](https://support.cs.byu.edu/KB/View/77652585-connecting-to-the-globalprotect-paloalto-vpn)
 
@@ -110,23 +108,13 @@ All programming exams will be proctored by a program called Honorlock which reco
 
 There is no partial credit on the Programming Exam; you either finish, or you don't. During the exam you will have access to the Java API documentation, all project specifications and files, and the pass off driver test cases.
 
-**You must pass the Programming Exam in order to pass CS240.**  The key to passing the exam is to implement _Phase 0: Chess Moves_ ahead of time∂. Please note that if you do not implement the program beforehand, it is highly unlikely that you will pass the exam. Because passing the Programming Exam is required to pass the class, you may take the exam up to three times.  See the class schedule for exam dates. Your maximum score for the exam will go down each time you retake it according to the following schedule.
+**You must pass the Programming Exam in order to pass CS240.**  The key to passing the exam is to implement _Phase 0: Chess Moves_ ahead of time. Please note that if you do not implement the program beforehand, it is highly unlikely that you will pass the exam. Because passing the Programming Exam is required to pass the class, you may take the exam up to three times.  See the class schedule for exam dates. Your maximum score for the exam will go down each time you retake it according to the following schedule.
 
-Attempt
-
-Maximum Score
-
-1
-
-100%
-
-2
-
-80%
-
-3
-
-60%
+| Attempt | Maximum Score |
+| :--- | :--- |
+| 1 | 100% | 
+| 2 | 80% |
+| 3 | 60% |
 
 **If you fail the exam twice, you should meet with your instructor to discuss your situation.**  You will only be allowed to take the exam a third time after meeting with your instructor and after passing off the _Phase 0: Chess Moves_ with the TAs (i.e., you can't take the exam a third time unless the program has been passed off).
 
@@ -220,57 +208,20 @@ The serious study of the physical and mathematical sciences requires uninterrupt
 
 The following grading standards will be used in this class:
 
-Grade
-
-Range
-
-A
-
-100 % to 93.0%
-
-A-
-
-< 93.0 % to 90.0%
-
-B+
-
-< 90.0 % to 87.0%
-
-B
-
-< 87.0 % to 83.0%
-
-B-
-
-< 83.0 % to 80.0%
-
-C+
-
-< 80.0 % to 77.0%
-
-C
-
-< 77.0 % to 73.0%
-
-C-
-
-< 73.0 % to 70.0%
-
-D+
-
-< 70.0 % to 67.0%
-
-D
-
-< 67.0 % to 63.0%
-
-D-
-
-< 63.0 % to 60.0%
-
-F
-
-< 60.0 % to 0.0%
+| Grade | Range |
+|:---|:---|
+| A | 100 % to 93.0% |
+| A- | < 93.0 % to 90.0% |
+| B+ | < 90.0 % to 87.0% |
+| B | < 87.0 % to 83.0% |
+| B- | < 83.0 % to 80.0% |
+| C+ | < 80.0 % to 77.0% |
+| C | < 77.0 % to 73.0% |
+| C- | < 73.0 % to 70.0% |
+| D+ | < 70.0 % to 67.0% |
+| D | < 67.0 % to 63.0% |
+| D- | < 63.0 % to 60.0% |
+| F | < 60.0 % to 0.0% |
 
 [](#Top)
 
