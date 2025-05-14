@@ -86,9 +86,11 @@ You can set up your CS computer account:  [accounts.cs.byu.edu](https://account
 
 Abuse of BYU computers, networks, or facilities involving either pornography or illegal activity will result in the loss of all Computer Science accounts and removal from all CS classes. Please refer to the  [CS Dept. Lab Rules and Policies ](https://docs.cs.byu.edu/doku.php?id=account-policies-lab-rules)  for information regarding appropriate lab, computer, and account use. If you prefer, you can watch this entertaining video to learn about our lab policies: 
 
- [BYU CS Department Lab Policies Transcript](CS_240_BYU_CS_Department_Lab_Policies_Transcript.pdf)
+[![Lab Policies Video](https://img.youtube.com/vi/NisrJqzAWOc/0.jpg)](https://www.youtube.com/watch?v=NisrJqzAWOc)
 
-[Lab Policies Video](https://www.youtube.com/watch?v=NisrJqzAWOc)  You will be held accountable for understanding and abiding by these policies.
+ You will be held accountable for understanding and abiding by these policies.
+
+ [BYU CS Department Lab Policies Transcript](CS_240_BYU_CS_Department_Lab_Policies_Transcript.pdf)
 
 If you would like to access the CS Dept. computers remotely, you can:  [CS Dept. Remote VPN Access](https://support.cs.byu.edu/KB/View/77652585-connecting-to-the-globalprotect-paloalto-vpn)
 
