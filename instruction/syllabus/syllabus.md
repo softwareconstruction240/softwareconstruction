@@ -135,7 +135,7 @@ Students Seeking TA Help Should First:
 *   Be up to date on their reading assignments.
 *   Consulting the Java documentation and know what the code your are calling is supposed to do.
 *   Work for at least 30 min. on your own.
-*   Use the debugger to step through the code and validate your assumptions.
+*   Use the [debugger](/instruction/debugging/debugging.md#debugging) to step through the code and validate your assumptions.
 *   Write your own unit tests to narrow down the reproduction of a problem.
 *   Use System.out.println when appropriate to help debug your code.
 *   Review and try to understand relative coding examples and lecture slides.
