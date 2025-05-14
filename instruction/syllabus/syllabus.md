@@ -41,35 +41,21 @@ The goal of CS 240 is to help students learn a variety of computer programming c
 
 ![CoreJavaForTheImpatient3rdEdition.jpg](CoreJavaForTheImpatient3rdEdition.jpg)  
 
-**Title:**
-
-Core Java for the Impatient (3rd Edition)
-
-**Author(s):**
-
-Cay S. Hostmann
-
-**Publisher:**
-
-Addison-Wesley
-
-**Approved Editions:**
-
-3rd Edition
-
-**Print ISBN:**
-
-978-0138052102
-
-**Purchase Options:**
-
-Access through the [BYU Library](https://lib.byu.edu/):
-
+|   |   |
+|---|---|
+| **Title:** | Core Java for the Impatient (3rd Edition) |
+| **Author(s):** | Cay S. Hostmann |
+| **Publisher:** | Addison-Wesley |
+| **Approved Editions:** | 3rd Edition |
+| **Print ISBN:** | 978-0138052102 |
+| **Purchase Options:** | Access through the [BYU Library](https://lib.byu.edu/):
 *   Copy and paste the exact book title into the library search bar: Core Java for the Impatient (3rd Edition)
 *   It should be the first option in the search results. Be sure it's the 3rd edition.
 *   Click "oreilly.com, Safari Books Online" under the title of the book.
 *   On the O'Reilly site - Select Your Institution, select "Not listed? Click Here."
 *   Enter your BYU email address.
+
+|
 
 ## 💻 Technology Needs
 
