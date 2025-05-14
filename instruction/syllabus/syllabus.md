@@ -1,7 +1,6 @@
   
 
-C S 240 Syllabus
-----------------
+# C S 240 Syllabus
 
 Advanced Software Construction
 
