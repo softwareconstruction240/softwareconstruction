@@ -113,6 +113,8 @@ Also, please understand that even though the TAs have taken the class and passed
 
 In summary, TAs are here to help but not to hold your hand and take away the learning experience of programming and debugging. But when you are stuck, do not hesitate to come in and ask for help.
 
+When you need help, please join our [help queue](https://students.cs.byu.edu/~cs240ta/helpqueueDelta/?login=). To see when TAs are working, check [here](https://docs.google.com/document/d/12ZrcsQAfVirCuCwzI0TKX_tSPyBOjqB9vDE-sx1n_S0/edit?tab=t.0#heading=h.cp6dfptbk5p3).
+
 Please go over the TA Help Policies before you come in to ask for help.
 
 ### Schedule Disclaimer
