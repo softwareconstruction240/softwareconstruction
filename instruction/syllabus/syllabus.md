@@ -11,7 +11,7 @@ Advanced software development with an object-oriented focus. Design, implementat
 
 ##  Course Content
 
-All of the content for this course is found in the GitHub repository. We use GitHub to host the content so that we can rapidly enhance and correct the content. Using GitHub also makes it so that you can get more familiar with this essential professional development tool.
+All of the content for this course is found here, in this GitHub repository. We use GitHub to host the content so that we can rapidly enhance and correct the content. Using GitHub also makes it so that you can get more familiar with this essential professional development tool.
 
 You can always reach the root of the content repository with this link:
 
