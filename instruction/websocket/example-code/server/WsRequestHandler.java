@@ -9,6 +9,7 @@ import org.jetbrains.annotations.NotNull;
 public class WsRequestHandler implements WsConnectHandler, WsMessageHandler, WsCloseHandler {
     @Override
     public void handleConnect(@NotNull WsConnectContext ctx) {
+        ctx.enableAutomaticPings();
         System.out.println("Websocket connected");
     }
 
