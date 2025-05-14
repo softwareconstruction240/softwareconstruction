@@ -55,7 +55,6 @@ The goal of CS 240 is to help students learn a variety of computer programming c
 *   On the O'Reilly site - Select Your Institution, select "Not listed? Click Here."
 *   Enter your BYU email address.
 
-|
 
 ## 💻 Technology Needs
 
