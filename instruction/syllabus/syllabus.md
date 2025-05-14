@@ -77,7 +77,7 @@ Access through the [BYU Library (Links to an external site.)](https://lib.byu.
 
 You will need a reasonably current computer to complete the programming projects for this course. A minimum of 8 gigabytes of RAM is recommended, as well several gigabytes of free disk space.
 
-If you do not have a computer of your own, you can rent one from the [BYU Office of Information Technology (OIT)](https://itsurplus.byu.edu/rentals.html "https://it.byu.edu/it?id=kb_article&sys_id=b51032700a0a3c0e0dd7619362098965").
+If you do not have a computer of your own, you can rent one from the [BYU Office of Information Technology (OIT)](https://itsurplus.byu.edu/rentals).
 
 As another option, the Computer Science Dept. provides computers that you may use for your programming assignments. The computer labs are located on the first floor and in the basement of the Talmage Building. You will need a Computer Science Dept. computer account in order to access these machines. (This account is different than your standard BYU account.) If you do not already have a Computer Science Dept. account, go to the web page at the following link to create or enable your account.
 
