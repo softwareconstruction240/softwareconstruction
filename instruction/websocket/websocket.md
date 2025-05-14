@@ -104,6 +104,32 @@ public class WsEchoClient extends Endpoint {
 }
 
 ```
+## Websocket Timeout
+
+By default, if Javalin has not heard from it's client for 30 seconds, the connection is deemed closed. Once the connection is closed, no messages can be sent. If you want to send something again, you have to open a new connection.
+
+Rather than open a new connection every 30 seconds, we can have Javalin ping it's connections. If a pong is recieved back, then we know the connection is still open. 
+
+
+```java
+import io.javalin.Javalin;
+
+public class SimpleWsEchoServer {
+    public static void main(String[] args) {
+        Javalin.create()
+                .get("/echo/{msg}", ctx -> ctx.result("HTTP response: " + ctx.pathParam("msg")))
+                .ws("/ws", ws -> {
+                    ws.onConnect(ctx -> {
+                        System.out.println("Websocket connected");
+                        ctx.enableAutomaticPings();
+                    });
+                    ws.onMessage(ctx -> ctx.send("WebSocket response:" + ctx.message()));
+                    ws.onClose(_ -> System.out.println("Websocket closed"));
+                })
+                .start(8080);
+    }
+}
+```
 
 ## Demonstration code
 
