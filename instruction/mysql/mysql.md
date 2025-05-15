@@ -30,7 +30,9 @@ For example, if you created your root user with the password `edgarcobb` you wou
 mysqlsh -u root -pedgarcobb --sql
 ```
 
-Once the shell starts up you can get help by typing `/help` or exit the shell using `/exit`. You can now start typing SQL queries. For example, try the following:
+Once the shell starts up you can get help by typing `/help` or exit the shell using `/exit`. If you start the shell without passing in the commandline arguments, you can use `/connect root@localhost:3306` and it will prompt you for the admin password. If you made a different account, you can replace `root` for the username of your other account.
+
+You can now start typing SQL queries! For example, try the following:
 
 ```sql
 SHOW databases;
