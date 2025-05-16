@@ -73,7 +73,7 @@ Abuse of BYU computers, networks, or facilities involving either pornography or 
 
  You will be held accountable for understanding and abiding by these policies.
 
- [BYU CS Department Lab Policies Transcript](CS_240_BYU_CS_Department_Lab_Policies_Transcript.pdf)
+ [BYU CS Department Lab Policies Transcript](lab-polices-transcript.pdf)
 
 If you would like to access the CS Dept. computers remotely, you can:  [CS Dept. Remote VPN Access](https://support.cs.byu.edu/KB/View/77652585-connecting-to-the-globalprotect-paloalto-vpn)
 
