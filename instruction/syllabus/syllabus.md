@@ -210,8 +210,6 @@ The following grading standards will be used in this class:
 | D- | < 63.0 % to 60.0% |
 | F | < 60.0 % to 0.0% |
 
-[](#Top)
-
 ## 🚩 CS 240 Flag
 
 In order to register for CS classes beyond CS 240, the "CS 240 flag" must be set in your student record (this is enforced by the BYU class registration system).
