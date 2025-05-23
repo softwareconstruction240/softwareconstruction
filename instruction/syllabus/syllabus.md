@@ -56,21 +56,6 @@ You will need a reasonably current computer to complete the programming projects
 
 If you do not have a computer of your own, you can rent one from the [BYU Office of Information Technology (OIT)](https://itsurplus.byu.edu/rentals).
 
-As another option, the Computer Science Dept. provides computers that you may use for your programming assignments. The computer labs are located on the first floor and in the basement of the Talmage Building. You will need a Computer Science Dept. computer account in order to access these machines. (This account is different than your standard BYU account.) If you do not already have a Computer Science Dept. account, go to the web page at the following link to create or enable your account.
-
-You can set up your CS computer account:  [accounts.cs.byu.edu](https://accounts.cs.byu.edu/)  
-  [Instructions: Setting Up Your Account](https://docs.cs.byu.edu/doku.php?id=setting-up-your-account-with-the-cs-authentication-system) 
-
-Abuse of BYU computers, networks, or facilities involving either pornography or illegal activity will result in the loss of all Computer Science accounts and removal from all CS classes. Please refer to the  [CS Dept. Lab Rules and Policies ](https://docs.cs.byu.edu/doku.php?id=account-policies-lab-rules)  for information regarding appropriate lab, computer, and account use. If you prefer, you can watch this entertaining video to learn about our lab policies: 
-
-[![Lab Policies Video](https://img.youtube.com/vi/NisrJqzAWOc/0.jpg)](https://www.youtube.com/watch?v=NisrJqzAWOc)
-
- You will be held accountable for understanding and abiding by these policies.
-
- [BYU CS Department Lab Policies Transcript](lab-polices-transcript.pdf)
-
-If you would like to access the CS Dept. computers remotely, you can:  [CS Dept. Remote VPN Access](https://support.cs.byu.edu/KB/View/77652585-connecting-to-the-globalprotect-paloalto-vpn)
-
 ##  Programming Exam
 
 One of the major goals of CS 240 is to ensure that all students have sufficiently strong programming skills to succeed in upper-division computer science courses. One mechanism for ensuring this is the Programming Exam.
