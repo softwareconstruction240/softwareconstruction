@@ -151,7 +151,7 @@ One of the deliverables is the _Phase 2: Chess Server Design_ assignment. The gr
 
 Since the Chess phases build on top of each other, the previous phase must be completed the next pass is attempted.
 
-In addition to getting your code to "work", a significant part of your project grade will be based on the quality of your work. Your code and automated test cases will be graded by a TA based on how well you have followed the good coding and testing practices discussed in class. Please note that the TA will evaluate the version of the code you pass off with. Therefore, it is in your best interest to tidy up your code and test cases as you go along.
+In addition to getting your code to "work", a significant part of your project grade will be based on the quality of your work. Our class autograder will check for code quality and unit tests. Your code and automated test cases can be reviewed by a TA, and we may change your grade based on how well you have followed the good coding and testing practices discussed in class. Therefore, it is in your best interest to tidy up your code and test cases as you go along.
 
 ###  **Final Exam**
 
