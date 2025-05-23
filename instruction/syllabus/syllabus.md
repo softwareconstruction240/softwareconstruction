@@ -161,7 +161,7 @@ In addition to getting your code to "work", a significant part of your project g
 
 ###  **Final Exam**
 
-There is a comprehensive final exam. The exam is taken online during the university final exam period.
+The final exam is taken online during the university final exam period. Just like the programming exam, it will be proctored with Honorlock.
 
 ###  **Late Policies**
 
@@ -171,7 +171,7 @@ The maximum late penalty on all assignments is 50% off (i.e., you will never los
 
 For assignments with multiple independently graded rubric items, this late penalty is per rubric item as long as the main functionality of the assignment is complete and your pre-penalty score for that rubric item does not decrease. For example, if you submit Phase 3 on the due date with full points on the "Web API Works" item (the main functionality of the assignment) but with less than full points on the other two rubric items and then resubmit the next day with full points on all three, the "Web API Works" item would remain at full points while the other two would receive the 10% late penalty.
 
-### 🙋 **Grade Appeals**
+###  **Grade Appeals**
 
 The TA's and the instructor are imperfect and may make a mistake when grading assignments and exams. We want you to receive the grade you deserve, but some of this responsibility lies with you. You are welcome to appeal any grades you receive, but grade appeals for any assignments or exams must be requested within seven calendar days of the time the score for the item being appealed is posted. You may not receive an email or an in-class announcement about when scores are posted, so you should check regularly.
 
