@@ -2,11 +2,11 @@
 
 # C S 240 Syllabus - Advanced Software Construction
 
-## 📘 Course Description
+##  Course Description
 
 Advanced software development with an object-oriented focus. Design, implementation, and testing of medium-sized programs including a server program.
 
-## 🧠 Course Content
+##  Course Content
 
 All of the content for this course is found here, in this GitHub repository. We use GitHub to host the content so that we can rapidly enhance and correct the content. Using GitHub also makes it so that you can get more familiar with this essential professional development tool.
 
@@ -18,13 +18,13 @@ We suggest that you bookmark the link for easy access to the content.
 
 If you find errors in the content then we encourage you to fork the content repository and [create a pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork). That way everyone benefits from your work, and you are listed as a contributor on a significant open source project.
 
-## 📋 Prerequisites
+##  Prerequisites
 
 CS 235
 
 In CS 240 we assume you have previously taken introductory programming courses in which you learned the basic concepts of object-oriented programming and that you have previously taken an introductory data structures and algorithms course where you learned about linked lists, binary search trees, hashing, sorting, etc.
 
-## 🎯 Course Learning Outcomes
+##  Course Learning Outcomes
 
 The goal of CS 240 is to help students learn a variety of computer programming concepts and skills that are essential in developing realistic software systems. Specifically, the objectives of the course are to:
 
@@ -35,9 +35,9 @@ The goal of CS 240 is to help students learn a variety of computer programming c
 5.  Learn to validate a program’s behavior against its specification using testing practices.
 6.  Use modern software tools including integrated development environments, testing frameworks, debuggers, version control, and documentation processing tools.
 
-## 📚 Course Materials
+##  Course Materials
 
-### 📖  Required Text
+###   Required Text
 
 ![CoreJavaForTheImpatient3rdEdition.jpg](CoreJavaForTheImpatient3rdEdition.jpg)  
 
@@ -56,7 +56,7 @@ The goal of CS 240 is to help students learn a variety of computer programming c
 *   Enter your BYU email address.
 
 
-## 💻 Technology Needs
+##  Technology Needs
 
 You will need a reasonably current computer to complete the programming projects for this course. A minimum of 8 gigabytes of RAM is recommended, as well several gigabytes of free disk space.
 
@@ -77,7 +77,7 @@ Abuse of BYU computers, networks, or facilities involving either pornography or 
 
 If you would like to access the CS Dept. computers remotely, you can:  [CS Dept. Remote VPN Access](https://support.cs.byu.edu/KB/View/77652585-connecting-to-the-globalprotect-paloalto-vpn)
 
-## 👨‍💻 Programming Exam
+##  Programming Exam
 
 One of the major goals of CS 240 is to ensure that all students have sufficiently strong programming skills to succeed in upper-division computer science courses. One mechanism for ensuring this is the Programming Exam.
 
@@ -103,7 +103,7 @@ There is no partial credit on the Programming Exam; you either finish, or you do
 
 **If you fail the exam twice, you should meet with your instructor to discuss your situation.**  You will only be allowed to take the exam a third time after meeting with your instructor and after passing off the _Phase 0: Chess Moves_ with the TAs (i.e., you can't take the exam a third time unless the program has been passed off).
 
-## 🤝 TAs
+##  TAs
 
 ### TA Office Hours
 
@@ -147,9 +147,9 @@ Students Seeking TA Help Should First:
 
 Email the TAs at cs240ta@cs.byu.edu
 
-## ✏️ Assignments, Grading and Course Policies
+##  Assignments, Grading and Course Policies
 
-### 📊 **Large Projects**
+###  **Large Projects**
 
 A major goal of CS 240 is to ensure that all students are able to design, implement, test, and debug large programs. To this end, there is a large programming project in CS 240 (Multiplayer Chess). This project is large and requires several weeks of consistent effort to complete. There are multiple deliverables for the project, the due dates for which are listed in the class schedule.
 
@@ -159,11 +159,11 @@ Since the Chess phases build on top of each other, the previous phase must be co
 
 In addition to getting your code to "work", a significant part of your project grade will be based on the quality of your work. Your code and automated test cases will be graded by a TA based on how well you have followed the good coding and testing practices discussed in class. Please note that the TA will evaluate the version of the code you pass off with. Therefore, it is in your best interest to tidy up your code and test cases as you go along.
 
-### 🗓️ **Final Exam**
+###  **Final Exam**
 
 There is a comprehensive final exam. The exam is taken online during the university final exam period.
 
-### ⏰ **Late Policies**
+###  **Late Policies**
 
 The late penalty for all assignments is 10% off per school day (school day = Monday through Friday except for holidays). Non-school days count the same as the following school day (for example, if an assignment is due on a Wednesday and the next day (Thursday) is a holiday, Thursday and Friday would both have a 10% penalty and Saturday, Sunday, and Monday would all have a 20% penalty).
 
@@ -171,7 +171,7 @@ The maximum late penalty on all assignments is 50% off (i.e., you will never los
 
 For assignments with multiple independently graded rubric items, this late penalty is per rubric item as long as the main functionality of the assignment is complete and your pre-penalty score for that rubric item does not decrease. For example, if you submit Phase 3 on the due date with full points on the "Web API Works" item (the main functionality of the assignment) but with less than full points on the other two rubric items and then resubmit the next day with full points on all three, the "Web API Works" item would remain at full points while the other two would receive the 10% late penalty.
 
-### 🙋‍♂️ **Grade Appeals**
+### 🙋 **Grade Appeals**
 
 The TA's and the instructor are imperfect and may make a mistake when grading assignments and exams. We want you to receive the grade you deserve, but some of this responsibility lies with you. You are welcome to appeal any grades you receive, but grade appeals for any assignments or exams must be requested within seven calendar days of the time the score for the item being appealed is posted. You may not receive an email or an in-class announcement about when scores are posted, so you should check regularly.
 
@@ -179,7 +179,7 @@ We have found that some students are satisfied with their grades until they find
 
 If appealing a grade, start by discussing the item(s) in question with a TA during office hours (preferably the TA who did the original grading). Be prepared to give a detailed explanation of why you think the grade is incorrect. If you are not able to come to a satisfactory conclusion with the TA, contact the instructor. Keep in mind that although rare, re-grades can, and sometimes do, result in a lower score.
 
-### 💪 **Doing Your Own Work**
+###  **Doing Your Own Work**
 
 This class is about individual competence, not team work. Therefore, all assignments you turn in must be your own work. You are encouraged to study with other students, and you may discuss concepts, ideas, and general approaches with others (e.g. at a whiteboard), but when it comes time to create your actual design documentation or source code, you must work alone. You may not share electronic files or hard-copy printouts containing designs or source code with other students, either as giver or receiver. You may not work in close synchronization with other students in a side-by-side fashion. **Violations of this policy will result in all involved students failing the course and the possibility of further action at the university level.**
 
@@ -187,11 +187,11 @@ Be aware that we use plagiarism detection software to ensure that the source cod
 
 You may not use AI systems such as ChatGPT to write your code. Such systems merely repeat content they found on the Web, and, in effect, are just an indirect way of copying other students' solutions from the Web. This is not acceptable. **If you use AI to write your code, it is highly likely that your code will be flagged by our plagiarism detection system**. The code it writes for you will be very similar to code it writes for other students, and that code will be similar to student solutions found on the Web.
 
-### 👶 **Children in the Classroom**
+###  **Children in the Classroom**
 
 The serious study of the physical and mathematical sciences requires uninterrupted concentration and focus in the classroom. Having small children in class is often a distraction that degrades the educational experience for the entire class. Please make other arrangements for child care rather than bringing children to class with you. If there are extenuating circumstances, please talk with your instructor in advance.
 
-## 🎓  Grade Scheme
+##   Grade Scheme
 
 The following grading standards will be used in this class:
 
@@ -210,7 +210,7 @@ The following grading standards will be used in this class:
 | D- | < 63.0 % to 60.0% |
 | F | < 60.0 % to 0.0% |
 
-## 🚩 CS 240 Flag
+##  CS 240 Flag
 
 In order to register for CS classes beyond CS 240, the "CS 240 flag" must be set in your student record (this is enforced by the BYU class registration system).
 
@@ -218,7 +218,7 @@ For CS majors, you must meet with Lynnette Nelson in the CS Dept. office to get 
 
 For non-CS majors, your CS 240 flag will be set automatically after the add/drop deadline. You do not need to meet with Lynnette.
 
-## 💭 BYU Online Policies
+##  BYU Online Policies
 
 ### Statement on Belonging 
 
