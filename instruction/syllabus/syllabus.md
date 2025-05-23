@@ -48,7 +48,7 @@ The goal of CS 240 is to help students learn a variety of computer programming c
 | **Publisher:** | Addison-Wesley |
 | **Approved Editions:** | 3rd Edition |
 | **Print ISBN:** | 978-0138052102 |
-| **Purchase Options:** | Access [here] (https://lib.byu.edu/remoteauth/?url=https://go.oreilly.com/byu-edu/library/view/-/9780138051846/?ar). If for some reason the link does not work, come speak with a professor or a TA.
+| **Purchase Options:** | Access [here](https://lib.byu.edu/remoteauth/?url=https://go.oreilly.com/byu-edu/library/view/-/9780138051846/?ar). If for some reason the link does not work, come speak with a professor or a TA.
 
 ##  Technology Needs
 
