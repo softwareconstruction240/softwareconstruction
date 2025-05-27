@@ -10,6 +10,7 @@ Advanced Software Construction provides you with the experience and skills neces
 
 The content for this course is represented by the following parts.
 
+- [Syllabus](instruction/syllabus/syllabus.md) - Course policies
 - [Instruction](instruction/modules.md#readme) - Course topics
 - [Chess](chess/chess.md#readme) - Instructions for building your application
 - [Pet Shop](petshop/petshop.md) - Demonstration application
