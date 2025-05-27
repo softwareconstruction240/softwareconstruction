@@ -155,7 +155,7 @@ A major goal of CS 240 is to ensure that all students are able to design, implem
 
 One of the deliverables is the _Phase 2: Chess Server Design_ assignment. The grading policy for this is as follows: 100% is given for perfect or near perfect submissions that meet the requirements of the assignment. 50% is given for submissions that need a few changes made, and where clear effort is made to meet the requirements of the assignment.  Assignments given a 50% can be re-submitted with the required changes made for a grade change to 100%. 0% is given when it is clear that little or no effort was made to fulfill the requirements of the assignment by the due date.  These submissions will be treated as if nothing was submitted. The late policy will apply for any re-submission of a design graded as a 0.
 
-Since the Chess phases build on top of each other, the previous phase must be completed the next pass is attempted.
+Since the Chess phases build on top of each other, the previous phase must be completed before the next phase is attempted.
 
 In addition to getting your code to "work", a significant part of your project grade will be based on the quality of your work. Your code and automated test cases will be graded by a TA based on how well you have followed the good coding and testing practices discussed in class. Please note that the TA will evaluate the version of the code you pass off with. Therefore, it is in your best interest to tidy up your code and test cases as you go along.
 
