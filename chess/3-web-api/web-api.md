@@ -344,7 +344,7 @@ public class Server {
 }
 ```
 
-The `Server` class provides a `run` method that attempts to start the HTTP server on a desired port parameter. From your main function you should start the server on port 8080. The unit tests will start the server on port is 0. This directs the Spark code to discover and use a random open port. The port that is actually used is returned by the `Spark.port` method after initialization has completed. The starter code also provides a `stop` method that shuts the HTTP server down. This is necessary to control the starting and stopping of your server when running tests.
+The `Server` class provides a `run` method that attempts to start the HTTP server on a desired port parameter. From your main function you should start the server on port 8080. The unit tests will start the server on port 0. This directs the Spark code to discover and use a random open port. The port that is actually used is returned by the `Spark.port` method after initialization has completed. The starter code also provides a `stop` method that shuts the HTTP server down. This is necessary to control the starting and stopping of your server when running tests.
 
 ### Web Browser Interface
 
