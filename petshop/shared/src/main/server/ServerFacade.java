@@ -2,7 +2,7 @@ package server;
 
 import com.google.gson.Gson;
 import exception.ResponseException;
-import model.Pet;
+import model.*;
 
 import java.net.*;
 import java.net.http.*;
@@ -36,14 +36,10 @@ public class ServerFacade {
         sendRequest(request);
     }
 
-    public Pet[] listPets() throws ResponseException {
-        record listPetResponse(Pet[] pet) {
-        }
-
+    public PetList listPets() throws ResponseException {
         var request = buildRequest("GET", "/pet", null);
         var response = sendRequest(request);
-        var petList = handleResponse(response, listPetResponse.class);
-        return petList.pet();
+        return handleResponse(response, PetList.class);
     }
 
     private HttpRequest buildRequest(String method, String path, Object body) {

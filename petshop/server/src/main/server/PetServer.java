@@ -8,8 +8,6 @@ import io.javalin.http.Context;
 import server.websocket.WebSocketHandler;
 import service.PetService;
 
-import java.util.Map;
-
 public class PetServer {
     private final PetService service;
     private final WebSocketHandler webSocketHandler;
@@ -59,8 +57,7 @@ public class PetServer {
     }
 
     private void listPets(Context ctx) throws ResponseException {
-        Object[] list = service.listPets().toArray();
-        ctx.json(new Gson().toJson(Map.of("pet", list)));
+        ctx.json(service.listPets().toString());
     }
 
     private void deletePet(Context ctx) throws ResponseException {

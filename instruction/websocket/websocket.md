@@ -30,7 +30,10 @@ public class SimpleWsEchoServer {
         Javalin.create()
                 .get("/echo/{msg}", ctx -> ctx.result("HTTP response: " + ctx.pathParam("msg")))
                 .ws("/ws", ws -> {
-                    ws.onConnect(_ -> System.out.println("Websocket connected"));
+                    ws.onConnect(ctx -> {
+                        ctx.enableAutomaticPings();
+                        System.out.println("Websocket connected");
+                    });
                     ws.onMessage(ctx -> ctx.send("WebSocket response:" + ctx.message()));
                     ws.onClose(_ -> System.out.println("Websocket closed"));
                 })
@@ -40,6 +43,12 @@ public class SimpleWsEchoServer {
 ```
 
 This code calls Javalin.create() to create an HTTP server, and then uses a fluent API to chain calls to get, which registers code for handling an HTTP GET request; ws, which registers code for handling WebSocket connections, messages, and closures coming from a peer; and start, which starts the server on the specified port.
+
+## Websocket Timeout
+
+By default, if Javalin has not heard from it's client for 30 seconds, the connection is deemed closed. Once the connection is closed, no messages can be sent. If you want to send something again, you have to open a new connection.
+
+Rather than open a new connection every 30 seconds, we can have Javalin ping it's connections. If a pong is recieved back, then we know the connection is still open. Javalin can be instructed to do this with every connection by calling `context.enableAutomaticPings()`. You'll notice in the above example that this is enabled when the connection is opened.
 
 ## Creating a WebSocket Client Connection
 
