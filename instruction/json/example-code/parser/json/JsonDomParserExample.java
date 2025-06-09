@@ -1,4 +1,4 @@
-package parser;
+package parser.json;
 
 import domain.CD;
 import org.json.JSONArray;

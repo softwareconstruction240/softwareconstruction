@@ -20,6 +20,8 @@ public class HelloBYUServer {
 
     private void createHandlers(Javalin javalinServer) {
         javalinServer.get("/hello", new HelloBYUHandler());
+        // javalinServer.get("/hello", new HelloBYUDetailedHandler());
+
         // Other routes here
     }
 }

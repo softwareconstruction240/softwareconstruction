@@ -6,7 +6,6 @@ import java.net.http.HttpHeaders;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
-import java.util.Locale;
 import java.util.Optional;
 
 public class PostExample {
@@ -35,11 +34,11 @@ public class PostExample {
     }
 
     private static void printUsage() {
-        System.err.println("USAGE: java GetExample_FluentApi <host> <port> <path> <message>");
+        System.err.println("USAGE: java PostExample <host> <port> <path> <message>");
     }
 
     public void doPost(String host, int port, String urlPath, String message) throws URISyntaxException, IOException, InterruptedException {
-        String urlString = String.format(Locale.getDefault(), "http://%s:%d%s", host, port, urlPath);
+        String urlString = String.format("http://%s:%d%s", host, port, urlPath);
 
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(new URI(urlString))
