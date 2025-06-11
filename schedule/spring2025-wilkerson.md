@@ -30,5 +30,5 @@ This course is fully online with all lectures being on-demand video lectures. Vi
 |  7   | 23  | Mon Jun 9 | [Concurrency](https://github.com/softwareconstruction240/softwareconstruction/blob/main/instruction/concurrency/concurrency.md) | |
 |      | 24  | Tue Jun 10  | [Command-Line Builds](https://github.com/softwareconstruction240/softwareconstruction/blob/main/instruction/command-line-builds/command-line-builds.md) | |
 |      | 25  | Wed Jun 11  | [Deploying Your Chess Server on AWS](https://github.com/softwareconstruction240/softwareconstruction/blob/main/instruction/aws-chess-server/aws-chess-server.md) | |
-|      | 26  | Thu Jun 12  | Work on Phase 6 | _Due: Jun 12_ - [Phase 6: Chess Gameplay](https://github.com/softwareconstruction240/softwareconstruction/blob/main/chess/6-gameplay/gameplay.md) |
-|  8   | 27  | Mon Jun 16 | Final Exam Review | _Jun 17 - 20_ - Final Exam |
+|      | 26  | Thu Jun 12  | [Work on Phase 6](https://github.com/softwareconstruction240/softwareconstruction/blob/main/chess/6-gameplay/gameplay.md) | _Due: Jun 12_ - [Phase 6: Chess Gameplay](https://github.com/softwareconstruction240/softwareconstruction/blob/main/chess/6-gameplay/gameplay.md) |
+|  8   | 27  | Mon Jun 16 | [Final Exam Review](https://github.com/softwareconstruction240/softwareconstruction/blob/main/instruction/final-exam-review/final-exam-review.md) | _Jun 17 - 20_ - Final Exam |
