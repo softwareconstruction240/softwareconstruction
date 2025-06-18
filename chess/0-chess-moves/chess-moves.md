@@ -120,6 +120,10 @@ This class represents a possible move a chess piece could make. It contains the 
 
 This represents a location on the chessboard. This should be represented as a row number from 1-8, and a column number from 1-8. For example, (1,1) corresponds to the bottom left corner (which in chess notation is denoted `a1`). (8,8) corresponds to the top right corner (`h8` in chess notation).
 
+> [!NOTE]
+> If you implement your Chess Board with an array or a similar data structure accessed with an index, remember that those indexes start with 0, where Chess Positions should go from 1 to 8.
+> Make sure you account for the difference between these two numbers and how you translate between them, such as using a Chess Position to get a Piece from the Board.
+
 ## Object Overrides
 
 In order for the tests to pass, you are required to override the `equals()` and `hashCode()` methods in your class implementations as necessary. This includes the `ChessPosition`, `ChessPiece`, `ChessMove`, and `ChessBoard` classes in particular. To do this automatically in IntelliJ, right click on the class code and select `Code > Generate... > equals() and hashCode()`. It is a good idea to generate these methods fairly early. However, IntelliJ will not be able to generate them properly until you have added the required fields to the class.
