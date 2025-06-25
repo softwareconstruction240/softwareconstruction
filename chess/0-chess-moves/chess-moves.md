@@ -110,7 +110,7 @@ public enum PieceType {
 
 #### Key Methods
 
-- **pieceMoves**: This method is similar to `ChessGame.validMoves`, except it does not honor whose turn it is or check if the king is being attacked. This method does account for enemy and friendly pieces blocking movement paths. The `pieceMoves` method will need to take into account the type of piece, and the location of other pieces on the board.
+- **`pieceMoves`**: Called on a particular piece and being provided its position and the board as context, this method returns all moves the piece can legally make. `ChessPiece.validMoves` accounts for the type of piece and the locations of enemy and friendly pieces blocking movement paths. As the precursor to `ChessGame.validMoves`, this method provides most of the behavior of the chess moves, except it does not honor whose turn it is or check if the king is being attacked.
 
 ### ChessMove
 
@@ -120,13 +120,19 @@ This class represents a possible move a chess piece could make. It contains the 
 
 This represents a location on the chessboard. This should be represented as a row number from 1-8, and a column number from 1-8. For example, (1,1) corresponds to the bottom left corner (which in chess notation is denoted `a1`). (8,8) corresponds to the top right corner (`h8` in chess notation).
 
+> [!NOTE]
+> If you implement your Chess Board with an array or a similar data structure accessed with an index, remember that those indexes start with 0, where Chess Positions should go from 1 to 8.
+> Make sure you account for the difference between these two numbers and how you translate between them, such as using a Chess Position to get a Piece from the Board.
+
 ## Object Overrides
 
-In order for the tests to pass, you are required to override the `equals()` and `hashCode()` methods in your class implementations as necessary. This includes the ChessPosition, ChessPiece, ChessMove, and ChessBoard classes in particular. To do this automatically in IntelliJ, right click on the class code and select `Code > Generate... > equals() and hashCode()`. It is a good idea to generate these methods fairly early. However, IntelliJ will not be able to generate them properly until you have added the required fields to the class.
+In order for the tests to pass, you are required to override the `equals()` and `hashCode()` methods in your class implementations as necessary. This includes the `ChessPosition`, `ChessPiece`, `ChessMove`, and `ChessBoard` classes in particular. To do this automatically in IntelliJ, right click on the class code and select `Code > Generate... > equals() and hashCode()`. It is a good idea to generate these methods fairly early. However, IntelliJ will not be able to generate them properly until you have added the required fields to the class.
 
-In most cases, the default methods provided by IntelliJ will suffice. However, there are cases when the generated code will not completely work. You should fully understand all code in your project. Even code that was generated for you. Take the time to carefully review and debug what the generated code does. Add a breakpoint, inspect the variables, and step through each line.
+In most cases, the default methods provided by IntelliJ will suffice. However, there are cases when the generated code will not completely work. You should fully understand all code in your project, even code that was generated for you. Take the time to carefully review and debug what the generated code does. Add a breakpoint, inspect the variables, and step through each line.
 
 The tests and autograder rely on these methods in order to compare your objects. If you can't pass any tests even though the output seems the same check to make sure that these methods are created and working properly.
+
+To understand why we need to override the `equals()` and `hashCode()` methods, see the instruction page on [Java Object Class](../../instruction/java-object-class/java-object-class.md).
 
 > [!TIP]
 > Debugging is often much easier if you also override the `toString()` method and return a concise representation of the object. This is not required, but highly recommended. This can be generated in the same way that the `equals()` and `hashcode()` were.

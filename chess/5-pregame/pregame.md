@@ -36,7 +36,7 @@ After the user has registered or logged in they can then execute any of the Post
 | **Create Game**  | Allows the user to input a name for the new game. Calls the server create API to create the game. This does not join the player to the created game; it only creates the new game in the server.                                                                                                                                     |
 | **List Games**   | Lists all the games that currently exist on the server. Calls the server list API to get all the game data, and displays the games in a numbered list, including the game name and players (not observers) in the game. The numbering for the list should be independent of the game IDs and should start at 1.                      |
 | **Play Game**    | Allows the user to specify which game they want to join and what color they want to play. They should be able to enter the number of the desired game. Your client will need to keep track of which number corresponds to which game from the last time it listed the games. Calls the server join API to join the user to the game. |
-| **Observe Game** | Allows the user to specify which game they want to observe. They should be able to enter the number of the desired game. Your client will need to keep track of which number corresponds to which game from the last time it listed the games. Functionality will be added in Phase 6.                                               |
+| **Observe Game** | Allows the user to specify which game they want to observe. They should be able to enter the number of the desired game. Your client will need to keep track of which number corresponds to which game from the last time it listed the games. Additional functionality will be added in Phase 6.                                               |
 
 #### Example Postlogin UI
 
@@ -65,7 +65,9 @@ When developing a UI you should focus on the user experience and only present th
 - HTTP status codes - The user should not be made aware of internal details like this. Ask yourself, apart from 404, when was the last time you saw a status code on a professional website?
 - Exception stack traces - Hackers love these kinds of internal details as they show how your code works. These should never be displayed to users, although logging them to a place users will not find may be useful. Instead of a stack trace, a simple message informing the user an error occurred (and hopefully why the error occurred without too many details) should be sufficient.
 
-Make sure that your client doesn't crash. If an exception occurs, catch it. A user may mistakenly put in all kinds of bad input and your client should be able to handle bad input without crashing. This includes incorrect number of arguments (too few or too many), wrong types of arguments (a word when the code expects a number, arguments in the wrong order, etc.), and arguments that the server rejects (register with an existing username, login with incorrect username/password, etc.). When you go to pass off, the TA will test for bad inputs, so please test all of these examples on your own first and ensure the program does not crash and provides reasonable error messages when each error occurs.
+To create a smooth user experience, make sure that your client doesn't freeze or crash in any way. If an exception occurs, catch it. A user may mistakenly put in all kinds of bad input and your client should be able to handle bad input without crashing. This includes incorrect number of arguments (too few or too many), wrong types of arguments (a word when the code expects a number, arguments in the wrong order, etc.), and arguments that the server rejects (register with an existing username, login with incorrect username/password, etc.). When you go to pass off, the TA will test for bad inputs, so _please test all of these examples on your own first_ and ensure the program does not crash and provides reasonable error messages when each error occurs. Test other examples of bad input that you can think of as well, as this list is not exhaustive. If the output your program produces is not reasonable, the TA will have you go and change it. You may then have to redo the pass off.
+
+Even though your client does not implement gameplay yet, make sure that you can exit any menu you create. If your client gets stuck in a state that a user cannot exit from, the TAs will not pass you off and will have you come back when you have fixed your menu.
 
 ### Relevant Instruction Topics
 
@@ -96,7 +98,8 @@ Write positive and negative unit tests for each method on your ServerFacade clas
 
 Your tests must be located in the file `client/src/test/java/client/ServerFacadeTests.java`, provided in the starter code.
 
-> [!TIP] > `ServerFacadeTests.java` contains code that will automatically start and shutdown your server on a randomly assigned port as part of the test. However, you will still need to start your server using the `Main.main` function when you manually run your client.
+> [!TIP] 
+> `ServerFacadeTests.java` contains code that will automatically start and shutdown your server on a randomly assigned port as part of the test. However, you will still need to start your server using the `Main.main` function when you manually run your client.
 
 ```java
 public class ServerFacadeTests {

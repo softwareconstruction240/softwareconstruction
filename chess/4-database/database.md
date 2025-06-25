@@ -6,7 +6,7 @@
 
 In this part of the Chess project, you will create a MySQL implementation of your Data Access interface and start calling it from your services. This enables the ability to store data persistently in a MySQL database instead of storing data in main memory. You will also write unit tests using JUnit for your DAO classes. This involves the following steps:
 
-1. Install the MYSQL database management system (DBMS) on your development machine.
+1. Install the MYSQL database management system (DBMS) on your development machine. Instructions to install [MYSQL](../../instruction/mysql/mysql.md).
 1. Modify `db.properties` to contain your username and password.
 1. Design your database tables (i.e., your database `schema`)
 1. Implement a MySQL implementation of your Data Access Interface. Initially you can just stub out all the methods.
@@ -137,7 +137,7 @@ To pass off this assignment use the course [auto-grading](https://cs240.click/) 
 
 | Category       | Criteria                                                                                                                                                                            |       Points |
 | :------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -----------: |
-| GitHub History | At least 12 GitHub commits evenly spread over the assignment period that demonstrate proof of work                                                                                  | Prerequisite |
+| GitHub History | At least 8 GitHub commits evenly spread over the assignment period that demonstrate proof of work                                                                                   | Prerequisite |
 | Functionality  | All pass off test cases succeed                                                                                                                                                     |          100 |
 | Code Quality   | [Rubric](../code-quality-rubric.md)                                                                                                                                                 |           30 |
 | Unit Tests     | All test cases pass<br/>Each public method on DAO classes has two test cases, one positive test and one negative test<br/>Every test case includes an Assert statement of some type |           25 |
