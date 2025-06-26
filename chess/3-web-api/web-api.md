@@ -356,13 +356,13 @@ The `Server` class provides a `run` method that attempts to start the HTTP serve
 
 ### Web Browser Interface
 
-The starter code provides a simple web browser interface for calling your server endpoints. This is useful for experimentation while you are developing your endpoints. In order for your server to be able to load its web browser interface you need to determine the path where the web directory is located and then tell Javalin to load static web files from that directory.
+The starter code provides a simple web browser interface for calling your server endpoints. This is useful for experimentation while you are developing your endpoints. The starter code already configures your server to load static files from the `web` resources directory.
 
 ```java
 javalin = Javalin.create(config -> config.staticFiles.add("web"));
 ```
 
-You will want to put the `web` directory in a `src/main/resources` directory and make the folder as `Resources Root` in IntelliJ. This location and distinction makes it so the JVM can find the directory at runtime.
+When you use a browser to access your server the web interface will display by default.
 
 ## Service Unit Tests
 
