@@ -30,7 +30,7 @@ When you define an endpoint with `Javalin`, you supply the HTTP method, path, an
 private void run() {
     ...
     Javalin.create()
-        .post("/name{name}", new Handler() {
+        .post("/name/{name}", new Handler() {
              public void handle(Context context) throws Exception {
                 names.add(context.pathParam("name"));
                 listNames(context);
