@@ -120,7 +120,7 @@ public class WsEchoClient extends Endpoint {
 
 📁 [WebSocker Server Examples](example-code/server)
 
-## <a name="videos"></a>Videos (1:11:36)
+## Videos
 
 - 🎥 [WebSocket Introduction (10:45)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=fcd3b045-d06e-41f7-8a0e-b1a1014a7b97) - [[transcript]](https://github.com/user-attachments/files/17753884/CS_240_WebSocket_Introduction_Transcript.pdf)
 - 🎥 [WebSocket Protocol (7:06)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=91c23bc0-410b-4848-be81-b1a1014dab96) - [[transcript]](https://github.com/user-attachments/files/17753890/CS_240_WebSocket_Protocol_Transcript.pdf)

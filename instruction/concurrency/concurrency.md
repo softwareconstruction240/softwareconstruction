@@ -194,7 +194,7 @@ With all of the executors defined above, the threads in the pool are reused for 
 | ----------------------- | ----------------------------------------------------------------------------------------------------------------- |
 | newSingleThreadExecutor | Uses a single thread and switches the callable task. Good for removing thread context switching overhead.         |
 | newFixedThreadPool      | Reuses threads. Good for saving on thread creation overhead.                                                      |
-| newCachedThreadPool    | Reuses threads. Good for saving on thread creation overhead where the maximum number of needed thread is unknown. |
+| newCachedThreadPool     | Reuses threads. Good for saving on thread creation overhead where the maximum number of needed thread is unknown. |
 | newScheduledThreadPool  | Runs threads periodically. Good for scheduled tasks without creating a new thread every time.                     |
 
 ## Synchronizing Threads
@@ -525,7 +525,8 @@ All of these problems can be mitigated by using atomic operations or thread sync
 - How to use "synchronized" methods and code blocks in Java to avoid race conditions
 - How to avoid race conditions in the Chess server and client programs
 
-## <a name="videos"></a>Videos (77:15)
+## Videos
+
 - 🎥 [Concurrency Overview (12:12)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=4a305382-e8a4-4c69-a7d6-b1aa010e1c9b&start=0) - [[transcript]](https://github.com/user-attachments/files/17736816/CS_240_Concurrency_Overview_Transcript.pdf)
 - 🎥 [Thread Synchronization (3:13)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=c095f9f7-b0d9-42ea-9e9c-b1aa0111ddfb&start=0) - [[transcript]](https://github.com/user-attachments/files/17736824/CS_240_Thread_Synchronization_Transcript.pdf)
 - 🎥 [Thread Pools (12:48)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=fb5eda11-a69c-4b37-b1ec-b1aa011313f5&start=0) - [[transcript]](https://github.com/user-attachments/files/17736836/CS_240_Thread_Pools_Transcript.pdf)

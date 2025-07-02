@@ -21,9 +21,10 @@ The purpose of this exam is really to show that you are able to tackle large and
 1. Figure out your plan of how, where, and when you will take the exam. After reviewing the instructions and getting setup, make sure you have a device and place where you can take the exam. Also prepare a time to sit down to do it.
 
 1. Do the exam setup:
-    * Create a new clean project from starter code
-    * Take the HonorLock Setup/Acknowledgment Quiz 
-    * Take the Practice Programming Exam (optional)
+
+   - Create a new clean project from starter code
+   - Take the HonorLock Setup/Acknowledgment Quiz
+   - Take the Practice Programming Exam (optional)
 
 1. Review and practice. Make sure you have some time to review after Phase 0 and before taking the exam.
 
@@ -87,11 +88,11 @@ If you want to make handwritten notes while working, have a blank sheet of paper
 When planning your time, allow yourself at least 20 minutes at the end of the exam to submit everything.
 
 You will need to upload:
+
 - A zip of your entire project
 - A screenshot of all your tests passing (right click passoff, click “run tests in passoff”).
 
 Make sure you know how to do both of these things before the exam starts so you don't lose time.
-
 
 ## Warnings and Other Information
 
@@ -104,6 +105,7 @@ You may take the exam at any time during the exam period. Just make sure you giv
 You can take the exam whenever you want during the exam period, however, we recommend taking it during TA hours. TAs will not be able to help you with programming or debugging during the exam, however, sometimes they can help with Honorlock or other issues that occur during the exam, but only if you take it during their office hours.
 
 Things that will be flagged and may cause you to fail:
+
 - Using another electronic device during the exam (phone, smartwatch, another computer, etc.). Don't have any of these in your work area.
 - Opening previous implementation(s) (IntelliJ, Github, a text-editor, etc)
 - Googling errors or questions or really anything
@@ -129,10 +131,9 @@ Any time spent during this process (waiting on the queue, or zooming with a TA) 
 
 We can answer procedural/logistical questions, but not debugging/code/junit tests questions. Questions on submitting material or fixing weird errors with Intelij are things we can help with. Questions about how to program something, why you are getting an error, or similar cannot be answered by the TA's. If a TA tells you while you are in the exam that they can't help you then that is the answer.
 
-Honorlock has it's own way to get technical help during the test. Do note that the people in the chat it provides are not CS 240 TAs! That means that while they may be able to help with technical issues regarding Honorlock, they will not be able to do anything related specifically to this class. For this reason, it is recommended to take the exam during TA hours.  It is better to contact the CS 240 TAs than Honorlock technical support during the exam because they will be better able to help you with the exam and grade.
+Honorlock has it's own way to get technical help during the test. Do note that the people in the chat it provides are not CS 240 TAs! That means that while they may be able to help with technical issues regarding Honorlock, they will not be able to do anything related specifically to this class. For this reason, it is recommended to take the exam during TA hours. It is better to contact the CS 240 TAs than Honorlock technical support during the exam because they will be better able to help you with the exam and grade.
 
 If Honorlock closes you out for some reason or you accidentally close the tab where it is open, try to rejoin the exam again. Usually this works fine. If you come to a TA with this question this is the first thing that we will have you try. If you are able to rejoin please make a note in the Canvas quiz of approximately what time you were kicked out.
-
 
 ## Exam Retakes
 
@@ -155,13 +156,12 @@ With most Linux distros you can usually use Honorlock with a few extra steps. Do
    - There are several extensions that you can choose from that have this functionality. [User Agent Switcher and Manager](https://chromewebstore.google.com/detail/user-agent-switcher-and-m/bhchdcejhohfmigjafbampogmaanbfkg) is an option that usually works. Before using any chrome extension ensure that you are confident in what it does and its reputation as a product.
    - You can also configure this manually from the developer settings in your browser, this is more difficult to do, and usually won’t persist across tabs and sessions so is not the best option for the test.
 1. Change the user agent to be Chrome on Mac, Windows, or Chrome OS. The most consistent results come from using the most up to date version of Chrome on Mac that is listed.
-1. Test it against [Honorlock's System Check](https://app.honorlock.com/support/msr-check). You can also check it against [deviceinfo.me](https://www.deviceinfo.me) making sure that you appear as the other operating system.
-   If you are able to pass this check then you are good to go for the test. Taking the Honorlock Setup Quiz is a good time to test that this configuration works as well.
+1. Test it against [Honorlock's System Check](https://app.honorlock.com/support/msr-check). You can also check it against [deviceinfo.me](https://www.deviceinfo.me) making sure that you appear as the other operating system. If you are able to pass this check then you are good to go for the test. Taking the Honorlock Setup Quiz is a good time to test that this configuration works as well.
 
 Important - make sure you do not do any updates to your system or apps before taking the test. This could cause your new configuration to not work with Honorlock.
 
 It is possible that this will not work for your computer. In that case it is best to consider other options that are available.
 
-## <a name="videos"></a>Videos (10:52)
+## Videos
 
 - 🎥 [Programming Exam (10:52)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=a1699870-7e83-4af2-ad54-b24a011a70ca) - [[transcript] - Coming Soon]

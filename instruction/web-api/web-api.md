@@ -414,7 +414,7 @@ java -cp ../../lib/gson-2.10.1.jar ClientCurlExample.java POST 'http://localhost
 - Writing a web client
 - Server and client code examples
 
-## <a name="videos"></a>Videos (1:14:27)
+## Videos
 
 - 🎥 [Web API Implementation (16:27)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=00a1b38c-8d1c-41ba-b2f5-b18c014994a1) - [[transcript]](https://github.com/user-attachments/files/17753672/CS_240_Web_API_Implementation_Transcript.pdf)
 - 🎥 [Javalin Routes (16:40)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=85543d10-c532-4cab-9e0c-b18c014e60d5) - [[transcript]](https://github.com/user-attachments/files/17753680/CS_240_Javalin_Routes_Transcript.pdf)

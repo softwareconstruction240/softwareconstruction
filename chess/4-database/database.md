@@ -143,7 +143,7 @@ To pass off this assignment use the course [auto-grading](https://cs240.click/) 
 | Unit Tests     | All test cases pass<br/>Each public method on DAO classes has two test cases, one positive test and one negative test<br/>Every test case includes an Assert statement of some type |           25 |
 |                | **Total**                                                                                                                                                                           |      **155** |
 
-## <a name="videos"></a>Videos (29:30)
+## Videos
 
 - 🎥 [Phase 4 Introduction (4:21)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=1d2253eb-f42c-4091-8d6f-b19301573278) - [[transcript]](https://github.com/user-attachments/files/17707032/CS_240_Chess_Phase_4_Transcript.pdf)
 - 🎥 [Making Database Connections (6:22)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=9eb42a5d-6770-4d1a-a3ab-b1930158f0d3) - [[transcript]](https://github.com/user-attachments/files/17707047/CS_240_Making_Database_Connections_Transcript.pdf)

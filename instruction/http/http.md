@@ -181,7 +181,7 @@ The format of the body of an HTTP request or response is defined by the `Content
 - Web basics: URLs, the HTTP protocol (Headers, methods, and body)
 - URL schema
 
-## <a name="videos"></a>Videos (49:22)
+## Videos
 
 - 🎥 [Chess Server Review (3:39)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=a3d5b141-7756-4b0f-8912-b185014dbd5e) - [[transcript]](https://github.com/user-attachments/files/17738495/CS_240_Chess_Server_Review_Transcript.pdf)
 - 🎥 [HTTP Overview (10:42)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=ef2d29d2-72af-4d8f-9cdc-b185014f4fe5) - [[transcript]](https://github.com/user-attachments/files/17738497/CS_240_HTTP_Overview_Transcript.pdf)

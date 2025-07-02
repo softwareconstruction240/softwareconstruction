@@ -344,7 +344,7 @@ Collection<Pet> listPets(Connection conn) throws SQLException {
 - How to retrieve auto-increment primary keys that were generate by the database on an insert
 - How to get a JDBC driver for MySQL and make it available to your Java project/code
 
-## <a name="videos"></a>Videos (51:40)
+## Videos
 
 - 🎥 [JDBC Overview (3:20)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=cabe9971-3ff7-4579-be2e-ad660156090a&start=0) - [[transcript]](https://github.com/user-attachments/files/17737257/CS_240_Java_Database_Access_with_JDBC_Transcript.pdf)
 - 🎥 [JDBC Drivers and Connections (7:44)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=1e05e1c6-727a-49b4-81cf-b1a00121b187&start=0) - [[transcript]](https://github.com/user-attachments/files/17737267/CS_240_JDBC_Drivers_and_Connections_Transcript.pdf)

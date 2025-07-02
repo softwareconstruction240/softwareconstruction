@@ -520,7 +520,7 @@ You can reduce duplicated code by:
 - Encapsulation - Information hiding
 - DRY - Avoiding code duplication
 
-## <a name="videos"></a>Videos (42:17)
+## Videos
 
 - 🎥 [Design Principles - Introduction (2:27)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=3e09338f-77ca-4465-bebc-b17e014a8118) - [[transcript]](https://github.com/user-attachments/files/17738057/CS_240_Design_Principles_Introduction_Transcript.pdf)
 - 🎥 [Design Principles - Design Is Inherently Iterative (3:12)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=86a379ac-0a85-4843-9e3e-b17e014ba495) - [[transcript]](https://github.com/user-attachments/files/17738081/CS_240_Design_Principles_Design_is_Inherently_Iterative_Transcript.pdf)

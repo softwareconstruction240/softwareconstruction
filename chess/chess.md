@@ -56,6 +56,6 @@ When you complete the entire project, you should have something similar to the f
 
 ![chess board](chess-demo.gif)
 
-## <a name="videos"></a>Videos (21.17)
+## Videos
 
 - 🎥 [Phase 0 Overview (21.17)](https://youtu.be/mTtK8iRXsZo) - transcript

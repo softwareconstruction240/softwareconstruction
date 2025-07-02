@@ -247,6 +247,6 @@ To pass off this assignment submit your work to the course [auto-grading](https:
 | Code Quality                  | [Rubric](../code-quality-rubric.md)                                                                                                                                  |           30 |
 |                               | **Total**                                                                                                                                                            |      **155** |
 
-## <a name="videos"></a>Videos (10:39)
+## Videos
 
 - 🎥 [Phase 6 Overview (10:39)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=46d6e11c-7744-450d-964e-b1a10160f0c7) - [[transcript]](https://github.com/user-attachments/files/17707162/CS_240_Phase_6_Chess_Gameplay_Transcript.pdf)

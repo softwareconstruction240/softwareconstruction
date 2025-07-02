@@ -158,7 +158,7 @@ When initially graded, your design will be given one of three scores:
 | Your design has significant deficiencies. Meet with a TA to discuss your design, ideally the same TA who originally graded your design. Improve and resubmit your design within one week of initial grading, and receive a maximum score of 100%. |    25 |
 | The submitted design was not a serious attempt at doing the assignment correctly. Resubmit your design within one week of initial grading and receive a maximum score of 50%.                                                                     |     0 |
 
-## <a name="videos"></a>Videos (1:31:43)
+## Videos
 
 - 🎥 [Chess Server Design - Introduction (16:15)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=bd253d7a-375d-4833-87e0-b17e015a6b7f) - [[transcript]](https://github.com/user-attachments/files/17706891/CS_240_Chess_Server_Design_Introduction_Transcript.pdf)
 - 🎥 [Chess Server Design - Software Design Principles (2:16)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=c8afd967-18dc-4396-b92e-b17e015f13b9) - [[transcript]](https://github.com/user-attachments/files/17706903/CS_240_Chess_Server_Design_Software_Design_Principles_Transcript.pdf)

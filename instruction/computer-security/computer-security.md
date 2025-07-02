@@ -252,8 +252,7 @@ This number is significantly larger than the number of atoms in the observable u
 
 The `SimpleExample` encryption code that was demonstrated above is an example of a symmetric key encryption algorithm. Symmetric algorithms use the same key to both encryption and decryption. Symmetric encryption algorithms are attractive because they are very quick to compute and difficult to attack assuming that you have an appropriately sized key.
 
-As we mentioned above, a good encryption algorithm will use complex mathematics to make it difficult to encrypt or decrypt without the proper key. One commonly used symmetric key algorithm is Advanced Encryption Standard (`AES`). This algorithm shifts blocks of characters around, across multiple rounds of manipulation, while applying a key size of 128, 192, or 256 bits. It also applies
-an `initialization vector` to create a unique cipher value for each `plain text`/`initialization vector` combination. The use of the initialization vector makes it so that the same plain text does not result in the same cipher representation. Without that, you would be able to determine the encrypted data by brute forcing an attack that guessed what the plain text was.
+As we mentioned above, a good encryption algorithm will use complex mathematics to make it difficult to encrypt or decrypt without the proper key. One commonly used symmetric key algorithm is Advanced Encryption Standard (`AES`). This algorithm shifts blocks of characters around, across multiple rounds of manipulation, while applying a key size of 128, 192, or 256 bits. It also applies an `initialization vector` to create a unique cipher value for each `plain text`/`initialization vector` combination. The use of the initialization vector makes it so that the same plain text does not result in the same cipher representation. Without that, you would be able to determine the encrypted data by brute forcing an attack that guessed what the plain text was.
 
 ![symmetric encryption](symmetric.png)
 
@@ -464,7 +463,7 @@ This demonstrates how modern cryptography forms the foundation of web security b
 - Secure password storage and verification
 - Secure network communication using HTTPS
 
-## <a name="videos"></a>Videos (1:43:20)
+## Videos
 
 - 🎥 [Computer Security Overview (7:49)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=f60bd2e6-9aec-44ba-8e48-b1a8014a2efe) - [[transcript]](https://github.com/user-attachments/files/17736619/CS_240_Computer_Security_Overview_Transcript.pdf)
 - 🎥 [Cryptographic Hash Functions (10:05)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=e54b188b-89a4-4f51-be13-b1a8014d0a7b) - [[transcript]](https://github.com/user-attachments/files/17736652/CS_240_Cryptographic_Hash_Functions_Transcript.pdf)

@@ -34,9 +34,10 @@ The general Git development workflow is illustrated in the following diagram.
 <img src="./GitCommitWorkflow.png" style="max-width: 500px"/>
 
 To give a reference on the typically frequency of each of the stages, developers typically:
-* **Change** files all day long
-* **Stage** and **commit** changes multiple times per hour
-* **Review** commits and **push** about hourly
+
+- **Change** files all day long
+- **Stage** and **commit** changes multiple times per hour
+- **Review** commits and **push** about hourly
 
 ## Installing Git
 
@@ -303,7 +304,7 @@ If you already have a Git repo in your local development environment and you wan
    ➜  git push -u origin main
    ```
 
-## <a name="videos"></a>Videos (1:16:49)
+## Videos
 
 - 🎥 [Git Overview (4:50)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=57cf5ee3-521c-470e-987b-b169014cdec4) - [[transcript]](https://github.com/user-attachments/files/17738322/CS_240_Git_Overview_Transcript.pdf)
 - 🎥 [Install and Configure Git (5:11)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=87ddb22d-729b-44ec-a476-b169014e892b) - [[transcript]](https://github.com/user-attachments/files/17738329/CS_240_Install_and_Configure_Git_Transcript.pdf)

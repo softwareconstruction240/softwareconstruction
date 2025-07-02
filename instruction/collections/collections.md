@@ -131,7 +131,7 @@ public class ComparableExample implements Comparable<ComparableExample> {
 - The importance of overriding the `equals(...)` and `hashCode()` methods of classes that will be placed in collections
 - The importance of implementing the Comparable interface in classes that will be placed in collections
 
-## <a name="videos"></a>Videos (42:23)
+## Videos
 
 - 🎥 [Java Collections (22:57)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=7f2f800e-d46e-4ce4-8839-ad5f011fa7a1&start=0) - [[transcripts]](https://github.com/user-attachments/files/17780595/CS_240_Java_Collections_Overview.pdf)
 - 🎥 [Using Collections Correctly (19:26)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=bea26db3-5825-4df2-9ba0-ad5f01260f7e&start=0) - [[transcripts]](https://github.com/user-attachments/files/17780597/CS_240_Java_Collections_Using_Collections_Correctly.pdf)

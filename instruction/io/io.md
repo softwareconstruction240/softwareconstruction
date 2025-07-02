@@ -26,7 +26,7 @@ The [java.io](https://docs.oracle.com/javase/20/docs/api/java/io/package-summary
 | [StringReader](https://docs.oracle.com/javase/20/docs/api/java/io/StringReader.html)                 | Represents a String as an input reader.                                                              |
 | [PrintStream](https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/io/PrintStream.html) | Output stream that provides print functions such as `println` or `printf`                            |
 | [File](https://docs.oracle.com/javase/20/docs/api/java/io/File.html)                                 | Provides basic directory and file operations such as create, exists, iterate, or delete.             |
-| [Scanner](https://docs.oracle.com/javase/8/docs/api/java/util/Scanner.html)                                                                                          | Parses a file into Strings. Note that this class is in `java.util`.                                  |
+| [Scanner](https://docs.oracle.com/javase/8/docs/api/java/util/Scanner.html)                          | Parses a file into Strings. Note that this class is in `java.util`.                                  |
 
 ## InputStream and OutputStream
 
@@ -124,7 +124,7 @@ public class ReadFile {
 - How to use the scanner class
 - Uses of the file class
 
-## <a name="videos"></a>Videos (32:47)
+## Videos
 
 - 🎥 [Overview (2:50)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=9c064639-8e05-4d4c-b458-ad64014cbb24&start=0) - [[transcript]](https://github.com/user-attachments/files/17804847/CS_240_I_O_Overview.pdf)
 - 🎥 [Streams (14:51)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=8db201b9-9a04-4cbf-8a99-ad64014ddd56&start=0) - [[transcript]](https://github.com/user-attachments/files/17804850/CS_240_Streams.pdf)

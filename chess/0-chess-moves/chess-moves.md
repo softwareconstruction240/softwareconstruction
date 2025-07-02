@@ -190,7 +190,7 @@ To pass off this assignment use the course [auto-grading](https://cs240.click/) 
 | Functionality  | All pass off test cases succeed                                                                   |          125 |
 |                | **Total**                                                                                         |      **125** |
 
-## <a name="videos"></a>Videos (21:22)
+## Videos
 
 - 🎥 [Phase 0 Overview (21.17)](https://youtu.be/mTtK8iRXsZo) - transcript
 - 🎥 [Phase 0 Design Tips (5:31)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=88653eac-78a8-4f59-a12a-b170014f61f1) - [[transcript]](https://github.com/user-attachments/files/17706812/CS_240_Phase_0_Design_Tips_Transcript.pdf)

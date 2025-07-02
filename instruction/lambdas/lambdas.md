@@ -152,7 +152,7 @@ Just like anonymous classes, lambda functions also support closure. That means y
     }
 ```
 
-## <a name="videos"></a>Videos (34:42)
+## Videos
 
 - 🎥 [Lambda Expressions Overview (6:47)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=6cfff192-6903-40b0-bacb-b053010e7658) - [[transcript]](https://github.com/user-attachments/files/18563796/CS_240_Lambda_Expressions_Overview_Transcript.pdf)
 - 🎥 [How Java Lambdas Work (7:14)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=30d50a0f-b462-4d41-b7c6-b05301107ef8) - [[transcript]](https://github.com/user-attachments/files/18563807/CS_240_How_Java_Lambdas_Work_Transcript.pdf)
