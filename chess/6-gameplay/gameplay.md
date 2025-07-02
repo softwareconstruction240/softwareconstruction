@@ -43,7 +43,7 @@ When the following events occur, notification messages should be displayed on th
 
 ## WebSocket
 
-During gameplay all communication between the players is implemented by sending WebSocket messages between clients and the server. Using WebSocket allows the server to send a message at anytime to any of the connected clients. For example, a player sends a move message to the server. The server then asynchronously broadcast the move to everyone in the game.
+During gameplay, all communication between the players is implemented by sending WebSocket messages between clients and the server. Using WebSocket allows the server to send a message at any time to any of the connected clients. For example, when a player sends a move message to the server, the server broadcasts the move to all participants asynchronously.
 
 When a user begins playing or observing a game, their **client** will do the following:
 
@@ -58,7 +58,7 @@ The following sections describe the messages that will be exchanged between clie
 
 Some WebSocket messages are sent from the client to server. As defined by the Chess application design, these are called `user game commands`. Other WebSocket messages are sent from the server to client. These are called `server messages`. In code, each of these message types are represented as a Java class that can be serialized and deserialized to and from JSON (similar to the Request and Result classes you created for the server’s Web API). The provided starter code includes a class named `UserGameCommand` which defines the required messages that originate from the client, and a class named `ServerMessage` which defines the required messages that originate from the server.
 
-The `UserGameCommand` and `ServerMessage` classes are provided in the starter code, but you can extend these classes to provide functionality according the specifics of your design.
+The `UserGameCommand` and `ServerMessage` classes are provided in the starter code, but you may extend them to suit the specific needs of your design.
 
 ## User Game Commands
 
@@ -139,7 +139,7 @@ Here are the different command types that a user game command can represent.
 | **ERROR**        | String errorMessage                                    | This message is sent to a client when it sends an invalid command. The message must include the word `Error`.                       |
 | **NOTIFICATION** | String message                                         | This is a message meant to inform a player when another player made an action.                                                      |
 
-The following diagram represents possible extensions of the `ServerMessage` class that you could use to support the different `ServerMessage` commands. You are free to follow this design, or come up with a representation of your own. Just make sure the the required fields are included in your JSON serialization.
+The following diagram represents possible extensions of the `ServerMessage` class that you could use to support the different `ServerMessage` commands. You are free to follow this design, or come up with a representation of your own. Just make sure the required fields are included in your JSON serialization.
 
 ```mermaid
 classDiagram
@@ -166,7 +166,7 @@ A client will instigate all gameplay interactions by sending a CONNECT `UserGame
 
 When sending a `Notification` that refers to one of the clients, the message should use the Clients username. (E.g., `Bob left the game`).
 
-If a `UserGameCommand` is invalid (e.g. invalid authToken or gameID doesn’t exist) the server should only send an `Error` message informing the Root Client what went wrong. No messages should be sent to the other Clients. The Error message must contain the word `error` (case doesn’t matter).
+If a `UserGameCommand` is invalid (e.g. invalid authToken or gameID doesn’t exist) the server should only send an `Error` message informing the Root Client what went wrong. No messages should be sent to the other clients. The Error message must contain the word `error` (case doesn’t matter).
 
 **Root Client sends CONNECT**
 
@@ -197,7 +197,7 @@ Here is a [sequence diagram](https://sequencediagram.org/index.html?presentation
 
 - [Console UI](../../instruction/console-ui/console-ui.md): Reading from the keyboard and writing out fancy text.
 - [WebSocket](../../instruction/websocket/websocket.md): Making WebSocket client and server requests.
-- [Debugging](../../instruction/debugging/debugging.md): Debugging multiple applications that communication over the network is a critical software engineering skill that you will need to master to complete this phase. Make sure you review the topics on how to debug both [multiple applications](../../instruction/debugging/debugging.md#executing-multiple-processes) and also how to debug multiple concurrent instances of [same application](../../instruction/debugging/debugging.md#executing-the-same-process-multiple-times).
+- [Debugging](../../instruction/debugging/debugging.md): Debugging multiple applications that communication over the network is a critical software engineering skill that you will need to master to complete this phase. Make sure you review the topics on how to debug both [multiple applications](../../instruction/debugging/debugging.md#executing-multiple-processes) and also how to debug multiple concurrent instances of the [same application](../../instruction/debugging/debugging.md#executing-the-same-process-multiple-times).
 - [Open-Closed Principle](../../instruction/design-principles/design-principles.md#open-closed-principle): Opening WebSocket Communicator to extension of behavior.
 - [Pet Shop](../../petshop/petshop.md): Observer pattern implementation for WebSocket notifications.
 
