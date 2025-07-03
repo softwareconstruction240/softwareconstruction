@@ -10,6 +10,7 @@ on:
       - "*.*"             # Root directory README or the images it uses
   repository_dispatch:
     types: [docs]
+  workflow_dispatch: 
   gollum:
   
 env:
