@@ -1,4 +1,4 @@
-# Chess Game - Getting Started
+# Getting Started
 
 📁 [Starter code](https://github.com/softwareconstruction240/chess)
 
