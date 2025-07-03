@@ -1,4 +1,4 @@
-# Chess Game - Getting Started
+# Getting Started
 
 Complete the following steps to move the starter code into your project for this phase.
 
