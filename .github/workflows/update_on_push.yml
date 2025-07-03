@@ -27,7 +27,8 @@ jobs:
         uses: actions/checkout@v4
       - name: Group Document files
         run: |
-          rsync -av --exclude='.git*' --exclude='LICENSE' --include='petshop/*' --exclude='petshop/*/*' --exclude='schedule' --exclude='README.md' --exclude='instruction/template' ./ docs/
+          rsync -av --exclude='.git*' --exclude='LICENSE' --include='petshop/*' --exclude='petshop/*/*' --exclude='*/example-code/' --exclude='schedule' --exclude='README.md' --exclude='instruction/template' ./ docs/
+          find docs -empty -type d -delete
           cp README.md docs/Home.md
       - name: Sync docs to wiki
         uses: newrelic/wiki-sync-action@v1.0.1
