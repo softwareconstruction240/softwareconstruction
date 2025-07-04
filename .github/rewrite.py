@@ -46,7 +46,10 @@ def extract_title_and_body(path: str) -> tuple[str | None, List[str]]:
     return title, lines[j:]
 
 def phase_prefix(path: str) -> str:
-    """Find the parent directory's number to determine the chess phase it belongs to, where applicable."""
+    """
+    Find the parent directory's number to determine the chess
+    phase it belongs to, where applicable.
+    """
     parent = os.path.basename(os.path.dirname(path))
     m = re.search(r'(\d+)', parent)
     return m.group(1) if m else ''
@@ -76,7 +79,7 @@ def main(root: str, code_base: str):
         # only set fallback if unique or consistent
         if base not in md_name_map or md_name_map[base] == info.filename:
             md_name_map[base] = info.filename
-    
+
     # (parent_dir, basename) -> rel_path, and basename -> rel_path fallback
     embed_tuple_map = {}
     embed_name_map = {}
