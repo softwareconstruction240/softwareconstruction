@@ -16,12 +16,15 @@ def slugify(name: str) -> str:
     name = re.sub(r'\s+', '-', name)
     return name
 
+def get_ext(path: str):
+    """Get the file extension, if present"""
+    return path.lower().rsplit('.', 1)[-1] if '.' in path else ''
+
 def find_files_with_exts(root: str, *exts: str):
     """Yield FilePaths for files of the given extensions."""
     for path_from_root, _, files in os.walk(root):
         for f in files:
-            ext = f.lower().rsplit('.', 1)[-1]
-            if '.' in f and ext in exts:
+            if get_ext(f) in exts:
                 yield FilePath(path_from_root, f)
 
 def extract_title_and_body(path: str) -> tuple[str | None, List[str]]:
@@ -38,7 +41,7 @@ def extract_title_and_body(path: str) -> tuple[str | None, List[str]]:
     if not first_line.lstrip().startswith('# '):
         return None, lines
     title = slugify(first_line.strip()[2:])
-    # Drop the title line + any following blank lines
+
     j = line_number + 1
     while j < len(lines) and lines[j].strip() == '':
         j += 1
@@ -67,19 +70,14 @@ def main(root: str, code_base: str):
 
         mapping[file_path.full_path] = MarkdownFile(file_path.dirpath, filename, body)
 
-    # tuple: (parent_dir, old_filename) -> new_filename
-    # name: old_filename -> new_fallname fallback
     md_tuple_map: dict[tuple[str, str], str] = {}
     md_name_map: dict[str, str] = {}
     for old_path, info in mapping.items():
         old_filename = os.path.basename(old_path)
         md_tuple_map[(info.parent, old_filename)] = info.filename
-        # only set fallback if unique or consistent
         if old_filename not in md_name_map or md_name_map[old_filename] == info.filename:
             md_name_map[old_filename] = info.filename
 
-    # (parent_dir, basename) -> rel_path
-    # basename -> rel_path fallback
     embed_tuple_map: dict[tuple[str, str], str] = {}
     embed_name_map: dict[str, str] = {}
     for file_path in find_files_with_exts(root, *EMBED_EXTS):
@@ -95,38 +93,31 @@ def main(root: str, code_base: str):
         def rewrite_line(line: str) -> str:
             def repl(m: re.Match[str]) -> str:
                 text, target = m.groups()
-                # skip external URLs
-                if '://' in target:
+
+                if '://' in target:     # skip external URLs
                     return m.group(0)
 
                 path_part, sep, anchor = target.partition('#')
-                dirname = os.path.basename(os.path.dirname(path_part))
-                basename = os.path.basename(path_part)
-                ext = basename.rsplit('.', 1)[-1].lower() if '.' in basename else ''
+                dirname = os.path.basename(os.path.dirname(path_part))  # parent
+                basename = os.path.basename(path_part)  # final target
+                ext = get_ext(basename)
 
                 new_link: str | None = None
 
-                # Case A: code/example-code links → full link via code_base (which may be URL)
-                segments = path_part.replace('\\', '/').split('/')
-                if ext in CODE_EXTS or 'example-code' in segments:
-                    # compute relative path under root
+                if ext in CODE_EXTS or 'example-code' in path_part.split('/'):
                     abs_path = os.path.normpath(os.path.join(info.dirpath, path_part))
-                    rel_to_root = os.path.relpath(abs_path, root).replace(os.sep, '/')
-                    # build full link
+                    rel_to_root = os.path.relpath(abs_path, root)
+
                     if code_base.startswith(('http://', 'https://')):
                         new_link = code_base.rstrip('/') + '/' + rel_to_root
                     else:
-                        new_link = os.path.normpath(os.path.join(code_base, rel_to_root)).replace(os.sep, '/')
+                        new_link = os.path.normpath(os.path.join(code_base, rel_to_root))
 
-                # Case B: embed links → relative path from root
                 elif ext in EMBED_EXTS:
-                    rel = (embed_tuple_map.get((dirname, basename))
+                    new_link = (embed_tuple_map.get((dirname, basename))
                            or embed_tuple_map.get((info.parent, basename))
                            or embed_name_map.get(basename))
-                    if rel:
-                        new_link = rel.replace('\\', '/')
 
-                # Case C: markdown links → strip .md, no path
                 elif ext == 'md':
                     new_base = (md_tuple_map.get((dirname, basename))
                                 or md_tuple_map.get((info.parent, basename))
@@ -139,7 +130,6 @@ def main(root: str, code_base: str):
             return link_re.sub(repl, line)
         # pylint: enable=W0640
 
-        # Rewrite links in the body
         new_body = [rewrite_line(ln) for ln in info.body]
 
         # Detect case-only rename: same lowercased path but different case
