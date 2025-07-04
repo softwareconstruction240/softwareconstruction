@@ -71,10 +71,8 @@ def main(root: str, code_base: str):
         mapping[file_path.full_path] = MarkdownFile(file_path.dirpath, filename, body)
         md_tuple_map[(file_path.parent, file_path.filename)] = file_path.filename
 
-    embed_tuple_map: dict[tuple[str, str], str] = {}
-    for file_path in find_files_with_exts(root, *EMBED_EXTS):
-        rel = file_path.relative_from(root)
-        embed_tuple_map[(file_path.parent, file_path.filename)] = rel
+    embed_tuple_map = {(file_path.parent, file_path.filename): file_path.relative_from(root)
+                       for file_path in find_files_with_exts(root, *EMBED_EXTS)}
 
     link_re = re.compile(r'\[([^\]]+)\]\(([^)]+)\)')
 
