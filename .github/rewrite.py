@@ -2,6 +2,7 @@
 import os
 import re
 import sys
+from typing import List
 import uuid
 
 EMBED_EXTS = {'png', 'jpg', 'jpeg', 'webp', 'gif', 'uml'}
@@ -15,7 +16,7 @@ def slugify(name: str) -> str:
     return name
 
 def find_file_with_exts(root: str, *exts: str):
-    """Yield (full_path, parent_dir_name, basename) for files of the given extensions."""
+    """Yield (full_path, parent_directory, file_name) for files of the given extensions."""
     for dirpath, _, files in os.walk(root):
         parent = os.path.basename(dirpath)
         for f in files:
@@ -23,7 +24,7 @@ def find_file_with_exts(root: str, *exts: str):
             if ext in exts:
                 yield os.path.join(dirpath, f), parent, f
 
-def extract_title_and_body(path: str):
+def extract_title_and_body(path: str) -> tuple[str | None, List[str]]:
     """
     Returns (title, body_lines).
     - title is None if first non-empty line is not an H1 (# ).
@@ -44,7 +45,7 @@ def extract_title_and_body(path: str):
     return title, lines[j:]
 
 def phase_prefix(path: str) -> str:
-    # Look at immediate parent dir name and extract first number
+    """Find the parent directory's number to determine the chess phase it belongs to, where applicable."""
     parent = os.path.basename(os.path.dirname(path))
     m = re.search(r'(\d+)', parent)
     return m.group(1) if m else ''
@@ -52,8 +53,7 @@ def phase_prefix(path: str) -> str:
 def main(root: str, code_base: str):
     # 1) Build mapping: old_full_path -> {new_base, body_lines}
     mapping = {}
-    for old_path, _ in find_file_with_exts(root, ".md"):
-        base = os.path.basename(old_path)
+    for old_path, base in find_file_with_exts(root, ".md"):
         title, body = extract_title_and_body(old_path)
         if title:
             slug = slugify(title)
