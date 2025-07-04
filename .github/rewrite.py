@@ -14,19 +14,13 @@ def slugify(name: str) -> str:
     name = re.sub(r'\s+', '-', name)
     return name
 
-def find_markdown_files(root: str):
-    for dirpath, _, files in os.walk(root):
-        for f in files:
-            if f.lower().endswith('.md'):
-                yield os.path.join(dirpath, f)
-
-def find_embed_files(root: str):
-    """Yield (full_path, parent_dir_name, basename) for embed files."""
+def find_file_with_exts(root: str, *exts: str):
+    """Yield (full_path, parent_dir_name, basename) for files of the given extensions."""
     for dirpath, _, files in os.walk(root):
         parent = os.path.basename(dirpath)
         for f in files:
             ext = f.lower().rsplit('.', 1)[-1]
-            if ext in EMBED_EXTS:
+            if ext in exts:
                 yield os.path.join(dirpath, f), parent, f
 
 def extract_title_and_body(path: str):
@@ -59,7 +53,7 @@ def phase_prefix(path: str) -> str:
 def main(root: str, code_base: str):
     # 1) Build mapping: old_full_path -> {new_base, body_lines}
     mapping = {}
-    for old_path in find_markdown_files(root):
+    for old_path, _ in find_file_with_exts(root, ".md"):
         base = os.path.basename(old_path)
         title, body = extract_title_and_body(old_path)
         if title:
@@ -89,7 +83,7 @@ def main(root: str, code_base: str):
     # (parent_dir, basename) -> rel_path, and basename -> rel_path fallback
     embed_tuple_map = {}
     embed_name_map = {}
-    for full, parent, base in find_embed_files(root):
+    for full, parent, base in find_file_with_exts(root, *EMBED_EXTS):
         rel = os.path.relpath(full, root)
         embed_tuple_map[(parent, base)] = rel
         if base not in embed_name_map or embed_name_map[base] == rel:
