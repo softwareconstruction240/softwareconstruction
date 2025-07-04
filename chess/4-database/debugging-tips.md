@@ -9,7 +9,7 @@ Since Phase 4 requires interacting with an external program (the MySQL database)
 
 Your code must create the SQL database and tables correctly if they do not exist. This includes when the server is run from tests. This is done with the `IF NOT EXISTS` syntax for your database and table creation SQL statements. This must happend before any method tries to access the database. For example, if the register user endpoint is called, The user table must already exist. Otherwise the SQL call to inset the user will fail.
 
-Also make sure that your create statements are in correct SQL Format. A good example can be found in the [db-sql](https://github.com/softwareconstruction240/softwareconstruction/blob/main/instruction/db-sql/db-sql.md) instructions.
+Also make sure that your create statements are in correct SQL Format. A good example can be found in the [db-sql](../../instruction/db-sql/db-sql.md) instructions.
 
 ### Altering Tables After Creation
 
