@@ -51,20 +51,18 @@ def phase_prefix(path: str) -> str:
     return m.group(1) if m else ''
 
 def main(root: str, code_base: str):
-    # 1) Build mapping: old_full_path -> {new_base, body_lines}
-    mapping = {}
-    for old_path, base in find_file_with_exts(root, ".md"):
-        title, body = extract_title_and_body(old_path)
+    # 1) Build mapping: full_path -> {new_base, body}
+    mapping: dict[str, tuple[str, str]] = {}
+    for full_path, _, filename in find_file_with_exts(root, ".md"):
+        title, body = extract_title_and_body(full_path)
         if title:
-            phase = phase_prefix(old_path)
-            if base == 'getting-started.md' and phase:
-                new_base = f"{title}-Phase-{phase}.md"
+            phase = phase_prefix(full_path)
+            if filename == 'getting-started.md' and phase:
+                filename = f"{title}-Phase-{phase}.md"
             else:
-                new_base = f"{title}.md"
-        else:
-            new_base = base # No Change
+                filename = f"{title}.md"
 
-        mapping[old_path] = {'new_base': new_base, 'body': body}
+        mapping[full_path] = {'new_base': filename, 'body': body}
 
     # 2) Build lookup tables for markdown links
     # (parent_dir, basename) -> new_base, and basename -> new_base fallback
