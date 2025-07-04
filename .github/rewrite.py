@@ -69,8 +69,8 @@ def main(root: str, code_base: str):
 
     # tuple: (parent_dir, old_filename) -> new_filename
     # name: old_filename -> new_fallname fallback
-    md_tuple_map = {}
-    md_name_map = {}
+    md_tuple_map: dict[tuple[str, str], str] = {}
+    md_name_map: dict[str, str] = {}
     for old_path, info in mapping.items():
         old_filename = os.path.basename(old_path)
         md_tuple_map[(info.parent, old_filename)] = info.filename
@@ -80,8 +80,8 @@ def main(root: str, code_base: str):
 
     # (parent_dir, basename) -> rel_path
     # basename -> rel_path fallback
-    embed_tuple_map = {}
-    embed_name_map = {}
+    embed_tuple_map: dict[tuple[str, str], str] = {}
+    embed_name_map: dict[str, str] = {}
     for file_path in find_files_with_exts(root, *EMBED_EXTS):
         rel = file_path.relative_from(root)
         embed_tuple_map[(file_path.parent, file_path.filename)] = rel
