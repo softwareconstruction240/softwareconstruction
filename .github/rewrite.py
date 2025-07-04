@@ -16,7 +16,7 @@ def slugify(name: str) -> str:
     name = re.sub(r'\s+', '-', name)
     return name
 
-def find_file_with_exts(root: str, *exts: str):
+def find_files_with_exts(root: str, *exts: str):
     """Yield FilePaths for files of the given extensions."""
     for path_from_root, _, files in os.walk(root):
         for f in files:
@@ -55,7 +55,7 @@ def phase_prefix(path: str) -> str:
 
 def main(root: str, code_base: str):
     mapping: dict[str, MarkdownFile] = {}
-    for file_path in find_file_with_exts(root, ".md", root):
+    for file_path in find_files_with_exts(root, ".md", root):
         title, body = extract_title_and_body(file_path.full_path)
         filename = file_path.filename
         if title:
@@ -67,7 +67,6 @@ def main(root: str, code_base: str):
 
         mapping[file_path.full_path] = MarkdownFile(file_path.dirpath, filename, body)
 
-    # 2) Build lookup tables for markdown links
     # tuple: (parent_dir, old_filename) -> new_filename
     # name: old_filename -> new_fallname fallback
     md_tuple_map = {}
@@ -83,7 +82,7 @@ def main(root: str, code_base: str):
     # basename -> rel_path fallback
     embed_tuple_map = {}
     embed_name_map = {}
-    for file_path in find_file_with_exts(root, *EMBED_EXTS):
+    for file_path in find_files_with_exts(root, *EMBED_EXTS):
         rel = file_path.relative_from(root)
         embed_tuple_map[(file_path.parent, file_path.filename)] = rel
         if file_path.filename not in embed_name_map or embed_name_map[file_path.filename] == rel:
@@ -91,7 +90,6 @@ def main(root: str, code_base: str):
 
     link_re = re.compile(r'\[([^\]]+)\]\(([^)]+)\)')
 
-    # 3) Rewrite and write files
     for old_path, info in mapping.items():
         old_dir = info.dirpath
         cur_parent = info.parent
