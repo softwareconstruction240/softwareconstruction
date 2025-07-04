@@ -104,6 +104,8 @@ def main(root: str, code_base: str):
                 basename = os.path.basename(path_part)
                 ext = basename.rsplit('.', 1)[-1].lower() if '.' in basename else ''
 
+                new_link: str | None = None
+
                 # Case A: code/example-code links → full link via code_base (which may be URL)
                 segments = path_part.replace('\\', '/').split('/')
                 if ext in CODE_EXTS or 'example-code' in segments:
@@ -112,30 +114,27 @@ def main(root: str, code_base: str):
                     rel_to_root = os.path.relpath(abs_path, root).replace(os.sep, '/')
                     # build full link
                     if code_base.startswith(('http://', 'https://')):
-                        full_link = code_base.rstrip('/') + '/' + rel_to_root
+                        new_link = code_base.rstrip('/') + '/' + rel_to_root
                     else:
-                        full_link = os.path.normpath(os.path.join(code_base, rel_to_root)).replace(os.sep, '/')
-                    return f'[{text}]({full_link}{("#"+anchor) if sep else ""})'
+                        new_link = os.path.normpath(os.path.join(code_base, rel_to_root)).replace(os.sep, '/')
 
                 # Case B: embed links → relative path from root
-                if ext in EMBED_EXTS:
+                elif ext in EMBED_EXTS:
                     rel = (embed_tuple_map.get((dirname, basename))
                            or embed_tuple_map.get((info.parent, basename))
                            or embed_name_map.get(basename))
                     if rel:
-                        rel = rel.replace('\\', '/')
-                        return f'[{text}]({rel}{("#"+anchor) if sep else ""})'
+                        new_link = rel.replace('\\', '/')
 
                 # Case C: markdown links → strip .md, no path
-                if ext == 'md':
+                elif ext == 'md':
                     new_base = (md_tuple_map.get((dirname, basename))
                                 or md_tuple_map.get((info.parent, basename))
                                 or md_name_map.get(basename))
                     if new_base:
-                        clean = re.sub(r'\.md$', '', new_base, flags=re.IGNORECASE)
-                        return f'[{text}]({clean}{("#"+anchor) if sep else ""})'
+                        new_link = re.sub(r'\.md$', '', new_base, flags=re.IGNORECASE)
 
-                return m.group(0)
+                return f'[{text}]({new_link}{("#"+anchor) if sep else ""})' if new_link else m.group()
 
             return link_re.sub(repl, line)
         # pylint: enable=W0640
