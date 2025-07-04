@@ -26,7 +26,7 @@ def find_file_with_exts(root: str, *exts: str):
 
 def extract_title_and_body(path: str) -> tuple[str | None, List[str]]:
     """
-    Returns (title, body_lines).
+    Returns (title, body_lines), where title is slugified.
     - title is None if first non-empty line is not an H1 (# ).
     - body_lines is the remaining lines after dropping the title line
       and any immediately following blank lines.
@@ -37,7 +37,7 @@ def extract_title_and_body(path: str) -> tuple[str | None, List[str]]:
     line_number, first_line = next((i, ln) for (i, ln) in enumerate(lines) if ln.strip())
     if not first_line.lstrip().startswith('# '):
         return None, lines
-    title = first_line.strip()[2:]
+    title = slugify(first_line.strip()[2:])
     # Drop the title line + any following blank lines
     j = line_number + 1
     while j < len(lines) and lines[j].strip() == '':
@@ -56,12 +56,11 @@ def main(root: str, code_base: str):
     for old_path, base in find_file_with_exts(root, ".md"):
         title, body = extract_title_and_body(old_path)
         if title:
-            slug = slugify(title)
             phase = phase_prefix(old_path)
             if base == 'getting-started.md' and phase:
-                new_base = f"{slug}-Phase-{phase}.md"
+                new_base = f"{title}-Phase-{phase}.md"
             else:
-                new_base = f"{slug}.md"
+                new_base = f"{title}.md"
         else:
             new_base = base # No Change
 
