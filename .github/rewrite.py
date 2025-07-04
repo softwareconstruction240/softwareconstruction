@@ -132,7 +132,8 @@ def main(root: str, code_base: str):
 
         new_body = [rewrite_line(ln) for ln in info.body]
 
-        similar_name = old_path.casefold() == info.full_path.casefold()
+        case_sensitive = sys.platform in ['win32', 'darwin']
+        similar_name = case_sensitive and old_path.casefold() == info.full_path.casefold()
         name_changed = old_path != info.full_path
 
         if name_changed and similar_name:
