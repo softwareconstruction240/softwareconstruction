@@ -24,11 +24,7 @@ class FilePath:
         return os.path.relpath(self.full_path, root)
 
 
-@dataclass(init=False)
+@dataclass
 class MarkdownFile(FilePath):
     body: List[str]
     """All content of the file as separate lines"""
-
-    def __init__(self, dirpath: str, filename: str, body: List[str]):
-        super().__init__(dirpath, filename)
-        self.body = body
