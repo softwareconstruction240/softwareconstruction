@@ -57,6 +57,7 @@ def phase_prefix(path: str) -> str:
 
 def main(root: str, code_base: str):
     mapping: dict[str, MarkdownFile] = {}
+    md_tuple_map: dict[tuple[str, str], str] = {}
     for file_path in find_files_with_exts(root, "md", root):
         title, body = extract_title_and_body(file_path.full_path)
         filename = file_path.filename
@@ -68,22 +69,12 @@ def main(root: str, code_base: str):
                 filename = f"{title}.md"
 
         mapping[file_path.full_path] = MarkdownFile(file_path.dirpath, filename, body)
-
-    md_tuple_map: dict[tuple[str, str], str] = {}
-    md_name_map: dict[str, str] = {}
-    for old_path, info in mapping.items():
-        old_filename = os.path.basename(old_path)
-        md_tuple_map[(info.parent, old_filename)] = info.filename
-        if old_filename not in md_name_map or md_name_map[old_filename] == info.filename:
-            md_name_map[old_filename] = info.filename
+        md_tuple_map[(file_path.parent, file_path.filename)] = file_path.filename
 
     embed_tuple_map: dict[tuple[str, str], str] = {}
-    embed_name_map: dict[str, str] = {}
     for file_path in find_files_with_exts(root, *EMBED_EXTS):
         rel = file_path.relative_from(root)
         embed_tuple_map[(file_path.parent, file_path.filename)] = rel
-        if file_path.filename not in embed_name_map or embed_name_map[file_path.filename] == rel:
-            embed_name_map[file_path.filename] = rel
 
     link_re = re.compile(r'\[([^\]]+)\]\(([^)]+)\)')
 
@@ -112,13 +103,11 @@ def main(root: str, code_base: str):
 
             elif ext in EMBED_EXTS:
                 new_link = (embed_tuple_map.get((dirname, basename))
-                    or embed_tuple_map.get((info.parent, basename))
-                    or embed_name_map.get(basename))
+                    or embed_tuple_map.get((info.parent, basename)))
 
             elif ext == 'md':
                 new_base = (md_tuple_map.get((dirname, basename))
-                    or md_tuple_map.get((info.parent, basename))
-                    or md_name_map.get(basename))
+                    or md_tuple_map.get((info.parent, basename)))
                 if new_base:
                     new_link = re.sub(r'\.md$', '', new_base, flags=re.IGNORECASE)
 
