@@ -46,15 +46,6 @@ def extract_title_and_body(path: str) -> tuple[str | None, List[str]]:
         j += 1
     return title, lines[j:]
 
-def phase_prefix(path: str) -> str:
-    """
-    Find the parent directory's number to determine the chess
-    phase it belongs to, where applicable.
-    """
-    parent = os.path.basename(os.path.dirname(path))
-    m = re.search(r'(\d+)', parent)
-    return m.group(1) if m else ''
-
 def main(root: str, code_base: str):
     mapping: dict[str, MarkdownFile] = {}
     md_tuple_map: dict[tuple[str, str], str] = {}
@@ -62,9 +53,9 @@ def main(root: str, code_base: str):
         title, body = extract_title_and_body(file_path.full_path)
         filename = file_path.filename
         if title:
-            phase = phase_prefix(file_path.full_path)
-            if filename == 'getting-started.md' and phase:
-                filename = f"{title}-Phase-{phase}.md"
+            phase_dir = re.search(r'(\d+)', file_path.parent)
+            if filename == 'getting-started.md' and phase_dir:
+                filename = f"{title}-Phase-{phase_dir.group(1)}.md"
             else:
                 filename = f"{title}.md"
 
