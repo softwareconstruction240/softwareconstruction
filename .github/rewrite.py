@@ -4,7 +4,7 @@ import re
 import sys
 from typing import List
 import uuid
-from structure import MarkdownFile
+from structure import MarkdownFile, FilePath
 
 EMBED_EXTS = {'png', 'jpg', 'jpeg', 'webp', 'gif', 'uml'}
 CODE_EXTS = {'txt', 'iml', 'java', 'sh', 'xml'}
@@ -17,13 +17,12 @@ def slugify(name: str) -> str:
     return name
 
 def find_file_with_exts(root: str, *exts: str):
-    """Yield (full_path, parent_directory, file_name) for files of the given extensions."""
-    for dirpath, _, files in os.walk(root):
-        parent = os.path.basename(dirpath)
+    """Yield FilePaths for files of the given extensions."""
+    for path_from_root, _, files in os.walk(root):
         for f in files:
             ext = f.lower().rsplit('.', 1)[-1]
-            if ext in exts:
-                yield os.path.join(dirpath, f), parent, f
+            if '.' in f and ext in exts:
+                yield FilePath(path_from_root, f)
 
 def extract_title_and_body(path: str) -> tuple[str | None, List[str]]:
     """
@@ -55,49 +54,51 @@ def phase_prefix(path: str) -> str:
     return m.group(1) if m else ''
 
 def main(root: str, code_base: str):
-    # 1) Build mapping: full_path -> {new_base, body}
     mapping: dict[str, MarkdownFile] = {}
-    for full_path, parent_dir, filename in find_file_with_exts(root, ".md"):
-        title, body = extract_title_and_body(full_path)
+    for file_path in find_file_with_exts(root, ".md", root):
+        title, body = extract_title_and_body(file_path.full_path)
+        filename = file_path.filename
         if title:
-            phase = phase_prefix(full_path)
+            phase = phase_prefix(file_path.full_path)
             if filename == 'getting-started.md' and phase:
                 filename = f"{title}-Phase-{phase}.md"
             else:
                 filename = f"{title}.md"
 
-        mapping[full_path] = MarkdownFile(parent_dir, filename, body)
+        mapping[file_path.full_path] = MarkdownFile(file_path.dirpath, filename, body)
 
     # 2) Build lookup tables for markdown links
-    # (parent_dir, basename) -> new_base, and basename -> new_base fallback
+    # tuple: (parent_dir, old_filename) -> new_filename
+    # name: old_filename -> new_fallname fallback
     md_tuple_map = {}
     md_name_map = {}
     for old_path, info in mapping.items():
-        base = os.path.basename(old_path)
-        parent = os.path.basename(os.path.dirname(old_path))
-        md_tuple_map[(parent, base)] = info.filename
+        old_filename = os.path.basename(old_path)
+        md_tuple_map[(info.parent, old_filename)] = info.filename
         # only set fallback if unique or consistent
-        if base not in md_name_map or md_name_map[base] == info.filename:
-            md_name_map[base] = info.filename
+        if old_filename not in md_name_map or md_name_map[old_filename] == info.filename:
+            md_name_map[old_filename] = info.filename
 
-    # (parent_dir, basename) -> rel_path, and basename -> rel_path fallback
+    # (parent_dir, basename) -> rel_path
+    # basename -> rel_path fallback
     embed_tuple_map = {}
     embed_name_map = {}
-    for full, parent, base in find_file_with_exts(root, *EMBED_EXTS):
-        rel = os.path.relpath(full, root)
-        embed_tuple_map[(parent, base)] = rel
-        if base not in embed_name_map or embed_name_map[base] == rel:
-            embed_name_map[base] = rel
+    for file_path in find_file_with_exts(root, *EMBED_EXTS):
+        rel = file_path.relative_from(root)
+        embed_tuple_map[(file_path.parent, file_path.filename)] = rel
+        if file_path.filename not in embed_name_map or embed_name_map[file_path.filename] == rel:
+            embed_name_map[file_path.filename] = rel
 
     link_re = re.compile(r'\[([^\]]+)\]\(([^)]+)\)')
 
     # 3) Rewrite and write files
     for old_path, info in mapping.items():
-        old_dir = os.path.dirname(old_path)
-        cur_parent = os.path.basename(old_dir)
+        old_dir = info.dirpath
+        cur_parent = info.parent
         new_name = info.filename
         body = info.body
 
+        # pylint: disable=W0640
         def rewrite_line(line: str) -> str:
             def repl(m: re.Match[str]) -> str:
                 text, target = m.groups()
@@ -144,6 +145,7 @@ def main(root: str, code_base: str):
                 return m.group(0)
 
             return link_re.sub(repl, line)
+        # pylint: enable=W0640
 
         # Rewrite links in the body
         new_body = [rewrite_line(ln) for ln in body]
