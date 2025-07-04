@@ -33,13 +33,12 @@ def extract_title_and_body(path: str):
     with open(path, encoding='utf-8') as f:
         lines = f.readlines()
 
-    first_non_empty = next(i for i, ln in enumerate(lines) if ln.strip())
-    first_line = lines[first_non_empty]
+    line_number, first_line = next((i, ln) for (i, ln) in enumerate(lines) if ln.strip())
     if not first_line.lstrip().startswith('# '):
         return None, lines
-    title = first_line.lstrip()[2:].rstrip('\n')
+    title = first_line.strip()[2:]
     # Drop the title line + any following blank lines
-    j = first_non_empty + 1
+    j = line_number + 1
     while j < len(lines) and lines[j].strip() == '':
         j += 1
     return title, lines[j:]
