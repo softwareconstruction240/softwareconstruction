@@ -87,50 +87,48 @@ def main(root: str, code_base: str):
 
     link_re = re.compile(r'\[([^\]]+)\]\(([^)]+)\)')
 
+    def rewrite_line(line: str, info: MarkdownFile) -> str:
+        def repl(m: re.Match[str]) -> str:
+            text, target = m.groups()
+
+            if '://' in target:
+                return m.group(0)
+
+            path_part, sep, anchor = target.partition('#')
+            dirname = os.path.basename(os.path.dirname(path_part))
+            basename = os.path.basename(path_part)
+            ext = get_ext(basename)
+
+            new_link: str | None = None
+
+            if ext in CODE_EXTS or 'example-code' in path_part.split('/'):
+                abs_path = os.path.normpath(os.path.join(info.dirpath, path_part))
+                rel_to_root = os.path.relpath(abs_path, root)
+
+                if code_base.startswith(('http://', 'https://')):
+                    new_link = code_base.rstrip('/') + '/' + rel_to_root
+                else:
+                    new_link = os.path.normpath(os.path.join(code_base, rel_to_root))
+
+            elif ext in EMBED_EXTS:
+                new_link = (embed_tuple_map.get((dirname, basename))
+                    or embed_tuple_map.get((info.parent, basename))
+                    or embed_name_map.get(basename))
+
+            elif ext == 'md':
+                new_base = (md_tuple_map.get((dirname, basename))
+                    or md_tuple_map.get((info.parent, basename))
+                    or md_name_map.get(basename))
+                if new_base:
+                    new_link = re.sub(r'\.md$', '', new_base, flags=re.IGNORECASE)
+
+            return (f'[{text}]({new_link}{("#"+anchor) if sep else ""})'
+                    if new_link else m.group())
+
+        return link_re.sub(repl, line)
+
     for old_path, info in mapping.items():
-        # pylint: disable=W0640
-        def rewrite_line(line: str) -> str:
-            def repl(m: re.Match[str]) -> str:
-                text, target = m.groups()
-
-                if '://' in target:
-                    return m.group(0)
-
-                path_part, sep, anchor = target.partition('#')
-                dirname = os.path.basename(os.path.dirname(path_part))
-                basename = os.path.basename(path_part)
-                ext = get_ext(basename)
-
-                new_link: str | None = None
-
-                if ext in CODE_EXTS or 'example-code' in path_part.split('/'):
-                    abs_path = os.path.normpath(os.path.join(info.dirpath, path_part))
-                    rel_to_root = os.path.relpath(abs_path, root)
-
-                    if code_base.startswith(('http://', 'https://')):
-                        new_link = code_base.rstrip('/') + '/' + rel_to_root
-                    else:
-                        new_link = os.path.normpath(os.path.join(code_base, rel_to_root))
-
-                elif ext in EMBED_EXTS:
-                    new_link = (embed_tuple_map.get((dirname, basename))
-                           or embed_tuple_map.get((info.parent, basename))
-                           or embed_name_map.get(basename))
-
-                elif ext == 'md':
-                    new_base = (md_tuple_map.get((dirname, basename))
-                                or md_tuple_map.get((info.parent, basename))
-                                or md_name_map.get(basename))
-                    if new_base:
-                        new_link = re.sub(r'\.md$', '', new_base, flags=re.IGNORECASE)
-
-                return (f'[{text}]({new_link}{("#"+anchor) if sep else ""})'
-                        if new_link else m.group())
-
-            return link_re.sub(repl, line)
-        # pylint: enable=W0640
-
-        new_body = [rewrite_line(ln) for ln in info.body]
+        new_body = [rewrite_line(ln, info) for ln in info.body]
 
         case_sensitive = sys.platform in ['win32', 'darwin']
         similar_name = case_sensitive and old_path.casefold() == info.full_path.casefold()
