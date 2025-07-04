@@ -91,11 +91,6 @@ def main(root: str, code_base: str):
     link_re = re.compile(r'\[([^\]]+)\]\(([^)]+)\)')
 
     for old_path, info in mapping.items():
-        old_dir = info.dirpath
-        cur_parent = info.parent
-        new_name = info.filename
-        body = info.body
-
         # pylint: disable=W0640
         def rewrite_line(line: str) -> str:
             def repl(m: re.Match[str]) -> str:
@@ -113,7 +108,7 @@ def main(root: str, code_base: str):
                 segments = path_part.replace('\\', '/').split('/')
                 if ext in CODE_EXTS or 'example-code' in segments:
                     # compute relative path under root
-                    abs_path = os.path.normpath(os.path.join(old_dir, path_part))
+                    abs_path = os.path.normpath(os.path.join(info.dirpath, path_part))
                     rel_to_root = os.path.relpath(abs_path, root).replace(os.sep, '/')
                     # build full link
                     if code_base.startswith(('http://', 'https://')):
@@ -125,7 +120,7 @@ def main(root: str, code_base: str):
                 # Case B: embed links → relative path from root
                 if ext in EMBED_EXTS:
                     rel = (embed_tuple_map.get((dirname, basename))
-                           or embed_tuple_map.get((cur_parent, basename))
+                           or embed_tuple_map.get((info.parent, basename))
                            or embed_name_map.get(basename))
                     if rel:
                         rel = rel.replace('\\', '/')
@@ -134,7 +129,7 @@ def main(root: str, code_base: str):
                 # Case C: markdown links → strip .md, no path
                 if ext == 'md':
                     new_base = (md_tuple_map.get((dirname, basename))
-                                or md_tuple_map.get((cur_parent, basename))
+                                or md_tuple_map.get((info.parent, basename))
                                 or md_name_map.get(basename))
                     if new_base:
                         clean = re.sub(r'\.md$', '', new_base, flags=re.IGNORECASE)
@@ -146,10 +141,10 @@ def main(root: str, code_base: str):
         # pylint: enable=W0640
 
         # Rewrite links in the body
-        new_body = [rewrite_line(ln) for ln in body]
+        new_body = [rewrite_line(ln) for ln in info.body]
 
         # Detect case-only rename: same lowercased path but different case
-        new_path = os.path.join(old_dir, new_name)
+        new_path = os.path.join(info.dirpath, info.filename)
         same_lower = old_path.lower() == new_path.lower()
         really_changed = old_path != new_path and not same_lower
 
@@ -161,7 +156,7 @@ def main(root: str, code_base: str):
             os.rename(old_path, tmp_path)
 
         # Write out the new file
-        os.makedirs(old_dir, exist_ok=True)
+        os.makedirs(info.dirpath, exist_ok=True)
         with open(new_path, 'w', encoding='utf-8') as f:
             f.writelines(new_body)
 
