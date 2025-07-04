@@ -4,11 +4,6 @@ on:
   push:
     branches:
       - main
-    paths:
-      - "chess/**"        # All files regarding the chess project
-      - "instruction/**"  # All files regarding class topics
-      - "petshop/*.*"     # Pet Shop Files
-      - "*.*"             # Root directory README or the images it uses
   repository_dispatch:
     types: [docs]
   workflow_dispatch: 
