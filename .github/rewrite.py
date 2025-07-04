@@ -94,12 +94,12 @@ def main(root: str, code_base: str):
             def repl(m: re.Match[str]) -> str:
                 text, target = m.groups()
 
-                if '://' in target:     # skip external URLs
+                if '://' in target:
                     return m.group(0)
 
                 path_part, sep, anchor = target.partition('#')
-                dirname = os.path.basename(os.path.dirname(path_part))  # parent
-                basename = os.path.basename(path_part)  # final target
+                dirname = os.path.basename(os.path.dirname(path_part))
+                basename = os.path.basename(path_part)
                 ext = get_ext(basename)
 
                 new_link: str | None = None
@@ -144,7 +144,6 @@ def main(root: str, code_base: str):
             tmp_path = old_path + f".tmp-{uuid.uuid4().hex}"
             os.rename(old_path, tmp_path)
 
-        # Write out the new file
         os.makedirs(info.dirpath, exist_ok=True)
         with open(new_path, 'w', encoding='utf-8') as f:
             f.writelines(new_body)
