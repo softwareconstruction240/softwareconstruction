@@ -98,7 +98,7 @@ def main(root: str, code_base: str):
         body = info['body']
 
         def rewrite_line(line: str) -> str:
-            def repl(m):
+            def repl(m: re.Match[str]) -> str:
                 text, target = m.groups()
                 # skip external URLs
                 if '://' in target:
