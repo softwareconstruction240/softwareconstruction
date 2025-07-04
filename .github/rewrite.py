@@ -4,6 +4,7 @@ import re
 import sys
 from typing import List
 import uuid
+from structure import MarkdownFile
 
 EMBED_EXTS = {'png', 'jpg', 'jpeg', 'webp', 'gif', 'uml'}
 CODE_EXTS = {'txt', 'iml', 'java', 'sh', 'xml'}
@@ -52,7 +53,7 @@ def phase_prefix(path: str) -> str:
 
 def main(root: str, code_base: str):
     # 1) Build mapping: full_path -> {new_base, body}
-    mapping: dict[str, tuple[str, str]] = {}
+    mapping: dict[str, MarkdownFile] = {}
     for full_path, _, filename in find_file_with_exts(root, ".md"):
         title, body = extract_title_and_body(full_path)
         if title:
@@ -62,7 +63,7 @@ def main(root: str, code_base: str):
             else:
                 filename = f"{title}.md"
 
-        mapping[full_path] = {'new_base': filename, 'body': body}
+        mapping[full_path] = MarkdownFile(filename, body)
 
     # 2) Build lookup tables for markdown links
     # (parent_dir, basename) -> new_base, and basename -> new_base fallback
@@ -71,10 +72,10 @@ def main(root: str, code_base: str):
     for old_path, info in mapping.items():
         base = os.path.basename(old_path)
         parent = os.path.basename(os.path.dirname(old_path))
-        md_tuple_map[(parent, base)] = info['new_base']
+        md_tuple_map[(parent, base)] = info.filename
         # only set fallback if unique or consistent
-        if base not in md_name_map or md_name_map[base] == info['new_base']:
-            md_name_map[base] = info['new_base']
+        if base not in md_name_map or md_name_map[base] == info.filename:
+            md_name_map[base] = info.filename
     
     # (parent_dir, basename) -> rel_path, and basename -> rel_path fallback
     embed_tuple_map = {}
@@ -91,8 +92,8 @@ def main(root: str, code_base: str):
     for old_path, info in mapping.items():
         old_dir = os.path.dirname(old_path)
         cur_parent = os.path.basename(old_dir)
-        new_name = info['new_base']
-        body = info['body']
+        new_name = info.filename
+        body = info.body
 
         def rewrite_line(line: str) -> str:
             def repl(m: re.Match[str]) -> str:
