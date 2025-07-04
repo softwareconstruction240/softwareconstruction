@@ -95,7 +95,7 @@ def main(root: str, code_base: str):
         if base not in embed_name_map or embed_name_map[base] == rel:
             embed_name_map[base] = rel
 
-    link_re = re.compile(r'\[([^\]]+)\]\(([^)]+)\)')
+    link_re = re.compile(r"\[([^\]]+)\]\(([^)]+)\)")
 
     # 3) Rewrite and write files
     for old_path, info in mapping.items():
