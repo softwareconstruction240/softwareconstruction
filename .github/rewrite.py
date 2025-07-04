@@ -3,7 +3,6 @@ import os
 import re
 import sys
 from typing import List
-import uuid
 from structure import MarkdownFile, FilePath
 
 EMBED_EXTS = {'png', 'jpg', 'jpeg', 'webp', 'gif', 'uml'}
@@ -125,34 +124,26 @@ def main(root: str, code_base: str):
                     if new_base:
                         new_link = re.sub(r'\.md$', '', new_base, flags=re.IGNORECASE)
 
-                return f'[{text}]({new_link}{("#"+anchor) if sep else ""})' if new_link else m.group()
+                return (f'[{text}]({new_link}{("#"+anchor) if sep else ""})'
+                        if new_link else m.group())
 
             return link_re.sub(repl, line)
         # pylint: enable=W0640
 
         new_body = [rewrite_line(ln) for ln in info.body]
 
-        # Detect case-only rename: same lowercased path but different case
-        new_path = os.path.join(info.dirpath, info.filename)
-        same_lower = old_path.lower() == new_path.lower()
-        really_changed = old_path != new_path and not same_lower
+        similar_name = old_path.casefold() == info.full_path.casefold()
+        name_changed = old_path != info.full_path
 
-        # If case-only, move via a temp name to force the change on
-        # case-insensitive filesystems
-        tmp_path = None
-        if same_lower and old_path != new_path:
-            tmp_path = old_path + f".tmp-{uuid.uuid4().hex}"
-            os.rename(old_path, tmp_path)
+        if name_changed and similar_name:
+            os.remove(old_path)
 
         os.makedirs(info.dirpath, exist_ok=True)
-        with open(new_path, 'w', encoding='utf-8') as f:
+        with open(info.full_path, 'w', encoding='utf-8') as f:
             f.writelines(new_body)
 
-        # Clean up: remove old if really changed, or remove the temp
-        if really_changed:
+        if name_changed and not similar_name:
             os.remove(old_path)
-        elif tmp_path:
-            os.remove(tmp_path)
 
 if __name__ == '__main__':
     if len(sys.argv) != 3:
