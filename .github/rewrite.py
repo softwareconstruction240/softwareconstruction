@@ -8,7 +8,7 @@ EMBED_EXTS = {'png', 'jpg', 'jpeg', 'webp', 'gif', 'uml'}
 CODE_EXTS = {'txt', 'iml', 'java', 'sh', 'xml'}
 
 def slugify(name: str) -> str:
-    # Remove filesystem-unfriendly chars
+    """Remove filesystem-unfriendly chars"""
     name = name.strip()
     name = re.sub(r'[\\/:"*?<>|]+', '', name)
     name = re.sub(r'\s+', '-', name)
