@@ -1,7 +1,7 @@
-[**Home**](Home)
-[**Schedule**](Home#outcomes) <!--If structure for schedules is made, they could be moved to wiki-->
-[**Syllabus**](../instruction/syllabus/syllabus.md)
-[**Pet Shop**](../petshop/petshop.md)
+[**Home**](Home)  
+[**Schedule**](Home#outcomes)  <!--If structure for schedules is made, they could be moved to wiki-->  
+[**Syllabus**](../instruction/syllabus/syllabus.md)  
+[**Pet Shop**](../petshop/petshop.md)  
 
 ## Chess
 [**Chess Project**](../chess/chess.md)  
@@ -17,7 +17,7 @@
 <!--I don't think we need to link to getting started directly through here?-->
 
 ## Instruction
-[**Instructional topics**](../instruction/modules.md)
+[**Instructional topics**](../instruction/modules.md)  
 <!--Write out topics in either alphabetical or instruction order, or only parent links within modules.md-->
 
 <!--Files not listed:
