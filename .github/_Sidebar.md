@@ -4,6 +4,7 @@
 [**Pet Shop**](../petshop/petshop.md)  
 
 ## Chess
+
 [**Chess Project**](../chess/chess.md)  
 <!--Chess Assignments-->
 [**Chess GitHub Repository**](../chess/chess-github-repository/chess-github-repository.md)  
@@ -17,6 +18,7 @@
 <!--I don't think we need to link to getting started directly through here?-->
 
 ## Instruction
+
 [**Instructional topics**](../instruction/modules.md)  
 <!--Write out topics in either alphabetical or instruction order, or only parent links within modules.md-->
 
