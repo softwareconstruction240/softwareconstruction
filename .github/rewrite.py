@@ -124,7 +124,6 @@ def main(root: str, code_base: str):
         if old_path != info.full_path:
             os.remove(old_path)
 
-        os.makedirs(info.dirpath, exist_ok=True)
         with open(info.full_path, 'w', encoding='utf-8') as f:
             f.writelines(new_body)
 
