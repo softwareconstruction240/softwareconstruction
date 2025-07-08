@@ -94,7 +94,7 @@ def main(root: str, code_base: str):
 
             if (ext in CODE_EXTS or
                 'example-code' in path_part.split('/') or
-                ext == ''):
+                (ext == '' and (sep is not None or target != 'Home'))):
                 abs_path = os.path.normpath(os.path.join(info.dirpath, path_part))
                 rel_to_root = os.path.relpath(abs_path, root)
 
