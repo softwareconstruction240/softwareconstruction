@@ -82,7 +82,7 @@ def main(root: str, code_base: str):
         def repl(m: re.Match[str]) -> str:
             text, target = m.groups()
 
-            if '://' in target:
+            if '://' in target or target == 'Home':
                 return m.group(0)
 
             path_part, sep, anchor = target.partition('#')
@@ -92,7 +92,7 @@ def main(root: str, code_base: str):
 
             new_link: str | None = None
 
-            if target != 'Home' and (ext in CODE_EXTS or
+            if (ext in CODE_EXTS or
                 'example-code' in path_part.split('/') or
                 (ext == '' and sep is None)):
                 abs_path = os.path.normpath(os.path.join(info.dirpath, path_part))
