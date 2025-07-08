@@ -1,4 +1,4 @@
-package parser;
+package parser.json;
 
 import com.google.gson.Gson;
 import domain.CD;

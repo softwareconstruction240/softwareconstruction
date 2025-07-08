@@ -8,6 +8,9 @@ public class WsEchoServer {
     }
 
     private static void createHandlers(Javalin javalinServer) {
+
+        javalinServer.get("/echo/{msg}", new HttpEchoRequestHandler());
+
         WsRequestHandler wsHandler = new WsRequestHandler();
 
         javalinServer.ws("/ws", ws -> {
@@ -15,7 +18,5 @@ public class WsEchoServer {
             ws.onClose(wsHandler);
             ws.onMessage(wsHandler);
         });
-
-        javalinServer.get("/echo/{msg}", new HttpEchoRequestHandler());
     }
 }

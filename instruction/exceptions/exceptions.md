@@ -66,9 +66,7 @@ void C() throws Exception {
 
 ### Unchecked Exceptions
 
-The exclusion to the `throws` declaration rule is when you throw what is known as an unchecked exception. Unchecked exceptions are defined as any class that is derived from the `RuntimeException` class. The reason for unchecked exceptions is that they can be thrown at anytime and so it is unreasonable to explicitly handle them on every function in your code. These should be caught or thrown only very rarely, as they usually indicate a bug in your code (such as a `NullPointerException`, which is unchecked) rather than a problem that can ocurr during execution of your program (such as a `FileNotFoundException`, which is checked).
-
-A slight warning is that if you use IntelliJ's auto-suggestions about an uncaught exception, it will often generate a try/catch block with a `throw new RuntimeException();` call, which will silently crash your program if reached. Remember to always replace this will something else.
+The exclusion to the `throws` declaration rule is when you throw what is known as an unchecked exception. Unchecked exceptions are defined as any class that is derived from the `RuntimeException` class. The reason for unchecked exceptions is that they can be thrown at anytime and so it is unreasonable to explicitly handle them on every function in your code. These should be caught or thrown only very rarely, as they usually indicate a bug in your code (such as a `NullPointerException`, which is unchecked) rather than a problem that can occur during execution of your program (such as a `FileNotFoundException`, which is checked).
 
 ## Finally
 
@@ -196,7 +194,7 @@ Using exceptions for non-exceptional cases makes debugging much more difficult a
 - How to use try/catch blocks
 - What finally blocks are and how to use them
 
-## <a name="videos"></a>Videos (40:07)
+## Videos
 
 - 🎥 [Exceptions (35:32)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=83d5acf8-12b7-473d-919d-ad6b0124631b&start=0) - [[transcript]](https://github.com/user-attachments/files/17780908/CS_240_Exceptions_Exceptions_in_Java.pdf)
 - 🎥 [Checked vs. Unchecked Exceptions (4:35)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=3e7b6f62-13e5-41e6-9a81-ad6b012e8b25&start=0) - [[transcript]](https://github.com/user-attachments/files/17780909/CS_240_Exceptions_Checked_vs_Unchecked_Exceptions.pdf)

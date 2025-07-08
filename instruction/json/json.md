@@ -8,7 +8,6 @@
 
 📖 **Optional Reading**: [Douglas Crockford: The JSON Saga](https://www.youtube.com/watch?v=-C-JoyNuQJs)
 
-
 ## JSON
 
 JavaScript Object Notation (JSON) was conceived by Douglas Crockford in 2001 while working at Yahoo! JSON, pronounced like the name Jason, received official standardization in 2013 and 2017 (ECMA-404, [RFC 8259](https://datatracker.ietf.org/doc/html/rfc8259)).
@@ -164,7 +163,7 @@ There are three main ways to make the Gson library available to your project:
 - Different ways to generate and parse JSON objects and the pros and cons of each
 - How to use the Gson library to serialize and deserialize a Java object
 
-## <a name="videos"></a>Videos (1:12:15)
+## Videos
 
 - 🎥 [JSON Introduction (8:44)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=68705db1-09e9-401a-899a-b170015429ca) - [[transcript]](https://github.com/user-attachments/files/17751128/CS_240_JSON_Introduction_Transcript.pdf)
 - 🎥 [Parsing JSON (3:02)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=84e10091-df45-42e8-a244-b1700156f7c0) - [[transcript]](https://github.com/user-attachments/files/17751145/CS_240_Parsing_JSON_Transcript.pdf)

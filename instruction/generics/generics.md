@@ -62,11 +62,11 @@ var intStorage = new Storage<Integer>();
 var stringStorage = new Storage<String>();
 ```
 
-## <a name="videos"></a>Videos (12:48)
+## Videos
 
-- 🎥 [Generic Types Overview (4:00)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=15993248-1fa0-47fa-ba6f-b0530109e081)
-- 🎥 [Using Generic Classes (6:49)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=ced1be5e-61a3-4dfd-b03f-b053010b6950)
-- 🎥 [Generic Type Wildcards (1:59)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=32ad9f28-5028-44d0-8bb2-b053010d7bc9)
+- 🎥 [Generic Types Overview (4:00)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=15993248-1fa0-47fa-ba6f-b0530109e081) - [transcript](https://github.com/user-attachments/files/18543997/CS_240_Generic_Types_Overview_Transcript.pdf)
+- 🎥 [Using Generic Classes (6:49)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=ced1be5e-61a3-4dfd-b03f-b053010b6950) - [transcript](https://github.com/user-attachments/files/18544002/CS_240_Using_Generic_Classes_Transcript.pdf)
+- 🎥 [Generic Type Wildcards (1:59)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=32ad9f28-5028-44d0-8bb2-b053010d7bc9) - [transcript](https://github.com/user-attachments/files/18544003/CS_240_Generic_Types_Wildcards_Transcript.pdf)
 
 ## Demonstration code
 

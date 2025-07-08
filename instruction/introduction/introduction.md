@@ -44,8 +44,7 @@ In order to properly learn Java, you will need to reference selected chapters of
 
 ![Java for the Impatient](CoreJavaForTheImpatient3rdEdition.jpg)
 
-> [!NOTE]
-> Note that it is critical that you reserve a significant amount of your time to learn Java outside of class. In class we focus on concepts that are needed for the projects, hard concepts, and things that tend to confuse students. It is assumed that you already learned the basics of Java on your own.
+> [!NOTE] Note that it is critical that you reserve a significant amount of your time to learn Java outside of class. In class we focus on concepts that are needed for the projects, hard concepts, and things that tend to confuse students. It is assumed that you already learned the basics of Java on your own.
 
 ## Enrichment Lectures
 
@@ -57,8 +56,7 @@ All of the course instruction is represented on GitHub, however we use Canvas to
 
 ![Canvas](canvasCourse.jpg)
 
-> [!IMPORTANT]
-> Make sure you have enabled Canvas to send notifications to an email account that you monitor regularly. Failure to do this will mean that you miss important notifications that could impact your efforts and grade.
+> [!IMPORTANT] Make sure you have enabled Canvas to send notifications to an email account that you monitor regularly. Failure to do this will mean that you miss important notifications that could impact your efforts and grade.
 
 ## Well Rounded Software Engineers
 
@@ -112,7 +110,7 @@ More important than the actual grade you receive from this course is the degree 
 
 Take the time during the course to dive deeper into topics that you find interesting. Learn from external sources and gain a wide perspective of understanding. Question what is being taught and seek to find a better way to construct software. With this attitude, **you** might be the next leader of a new revolution in software construction.
 
-## <a name="videos"></a>Videos (45:15)
+## Videos
 
 - 🎥 [Course Overview (10:34)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=080df794-9d59-426b-b7c8-b19c0109e6f1) - [[transcript]](https://github.com/user-attachments/files/17738690/CS_240_Course_Overview_Transcript.pdf)
 - 🎥 [Course Policies (14:19)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=ac43c852-5712-4dca-9003-b19c010d56e7) - [[transcript]](https://github.com/user-attachments/files/17738697/CS_240_Course_Policies_Transcript.pdf)

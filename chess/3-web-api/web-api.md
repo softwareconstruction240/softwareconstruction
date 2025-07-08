@@ -67,6 +67,7 @@ The following defines the endpoints that your server is required to implement. Y
 | **HTTP Method**      | `POST`                                                 |
 | **Body**             | `{ "username":"", "password":"" }`                     |
 | **Success response** | [200] `{ "username":"", "authToken":"" }`              |
+| **Failure response** | [400] `{ "message": "Error: bad request" }`            |
 | **Failure response** | [401] `{ "message": "Error: unauthorized" }`           |
 | **Failure response** | [500] `{ "message": "Error: (description of error)" }` |
 
@@ -355,13 +356,13 @@ The `Server` class provides a `run` method that attempts to start the HTTP serve
 
 ### Web Browser Interface
 
-The starter code provides a simple web browser interface for calling your server endpoints. This is useful for experimentation while you are developing your endpoints. In order for your server to be able to load its web browser interface you need to determine the path where the web directory is located and then tell Javalin to load static web files from that directory.
+The starter code provides a simple web browser interface for calling your server endpoints. This is useful for experimentation while you are developing your endpoints. The starter code already configures your server to load static files from the `web` resources directory.
 
 ```java
 javalin = Javalin.create(config -> config.staticFiles.add("web"));
 ```
 
-You will want to put the `web` directory in a `src/main/resources` directory and make the folder as `Resources Root` in IntelliJ. This location and distinction makes it so the JVM can find the directory at runtime.
+When you use a browser to access your server the web interface will display by default.
 
 ## Service Unit Tests
 
@@ -403,17 +404,16 @@ After you have created all the classes necessary for this phase you should have 
 
 You can create and test your code in whatever order you would like. However, if you are trying to figure out how to get started, you might consider the following order.
 
-1. Use your sequence diagrams to guide the decision for what classes you need for your server, service, and data access objects.
-1. Implement your services
-   1. Create the classes you need to implement the `clear` service method.
-   1. Write a service test for `clear` to make sure the service and data access parts of your code are working properly.
-   1. Repeat writing and implementing service classes and tests until you have built all the required functionality.
-1. Create your server handler for a single endpoint that simply returns a string.
-1. Make sure you can hit your endpoint from a browser or Curl.
-1. Implement your server handlers
-   1. Convert your test server handler to implement the `clear` and `register` endpoints.
-   1. Run the pass off test for registration.
-   1. Repeat writing and implementing server handlers until you have completed all the pass off tests.
+1. Set up your starter code so that your server runs properly, and make sure the testing webpage loads.
+1. Use your sequence diagrams and the class diagram at the top of this page to guide the decision for what classes you might need.
+1. Create packages for where these classes will go, if you haven't already done so.
+1. Pick one Web API endpoint and get it working end-to-end. We recommend starting with `clear` or `register`.
+   1. Create the classes you need to implement the endpoint.
+   1. Write a service test or two to make sure the service and data access parts of your code are working as you expect.
+   1. Make sure you can hit your endpoint from the test page on a browser or Curl. Verify the response is what you expect it to be.
+1. Repeat this process for all other endpoints.
+
+Once you have written the `clear` and `register` endpoints, you can run the `StandardAPITests` as a sanity check. However, if you need to debug something, you should use your unit tests, Curl, or the test webpage to do so. Some tests call multiple endpoints, and your problem will be much easier to solve if you can figure out which endpoint is the source of the bug.
 
 ## Relevant Instruction Topics
 
@@ -461,7 +461,7 @@ After your code has successfully been auto-graded, a TA will review the code in 
 | Unit Tests     | All test cases pass<br/>Each public method on your **Service classes** has two test cases, one positive test and one negative test<br/>Every test case includes an Assert statement of some type |           25 |
 |                | **Total**                                                                                                                                                                                        |      **180** |
 
-## <a name="videos"></a>Videos (38:14)
+## Videos
 
 - 🎥 [Phase 3 Overview (19:30)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=a02a9929-b886-4a69-aa8b-b18c015d3e63) - [[transcript]](https://github.com/user-attachments/files/17707002/CS_240_Chess_Phase_3_Transcript.pdf)
 - 🎥 [Chess Server Implementation Tips (18:44)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=17194b50-e6a2-46eb-bf11-b1af0151af43) - [[transcript]](https://github.com/user-attachments/files/17707009/CS_240_Chess_Server_Implementation_Tips_Transcript.pdf)

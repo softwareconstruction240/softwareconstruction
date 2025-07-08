@@ -56,8 +56,7 @@ classDiagram
     ChessBoard o-- "*" ChessPiece
 ```
 
-> [!NOTE]
-> You are not limited to this representation. However, you must not change the existing class names or method signatures since they are used by the pass off tests. You will likely need to add new classes and methods to complete the work required by this phase.
+> [!NOTE] You are not limited to this representation. However, you must not change the existing class names or method signatures since they are used by the pass off tests. You will likely need to add new classes and methods to complete the work required by this phase.
 
 ## Class Summaries
 
@@ -79,11 +78,11 @@ By default, a new `ChessGame` represents an immediately playable board with the 
 
 ## Extra Credit Moves
 
-If you would like to fully implement the rules of chess you need to provide support for `En Passant` and `Castling`.
+If you would like to fully implement the rules of chess you need to provide support for **Castling** and **En Passant**.
 
 You do not have to implement these moves, but if you go the extra mile and successfully implement them, you’ll earn 5 extra credit points for each move (10 total) on this assignment.
 
-**`Castling`**
+### Castling
 
 This is a special move where the King and a Rook move simultaneously. The castling move can only be taken when 3 conditions are met:
 
@@ -91,11 +90,15 @@ This is a special move where the King and a Rook move simultaneously. The castli
 2. There are no pieces between the King and the Rook
 3. **The King is never in Check.** The King does not start in Check, does not cross a square on which it would be in Check, and is not in Check after castling.
 
-To Castle, the King moves 2 spaces towards the Rook, and the Rook "jumps" the king moving to the position next to and on the other side of the King. This is represented in a ChessMove as the king moving 2 spaces to the side.
+To Castle, the King moves 2 spaces towards the Rook, and the Rook "jumps" the king moving to the position next to and on the other side of the King. This is represented in a `ChessMove` as the king moving 2 spaces to the side.
 
-**`En Passant`**
+### En Passant
 
-This is a special move taken by a Pawn in response to your opponent double moving a Pawn. If your opponent double moves a pawn so it ends next to yours (skipping the position where your pawn could have captured their pawn), then on your immediately following turn your pawn may capture their pawn as if their pawn had only moved 1 square. This is as if your pawn is capturing their pawn mid motion, or `In Passing`.
+This is a special move taken by a Pawn in response to your opponent double moving a Pawn. If your opponent double moves a pawn so it ends next to yours (skipping the position where your pawn could have captured their pawn), then on your immediately following turn your pawn may capture their pawn as if their pawn had only moved 1 square. This is as if your pawn is capturing their pawn mid motion, or "In Passing."
+
+## Object Overrides
+
+Since `ChessGame` is responsible for storing game data, it requires proper equality evaluation methods. Just as in Phase 0, you must override the `equals()` and `hashCode()` methods for the `ChessGame` class. Refer to [Phase 0: Object Overrides](../0-chess-moves/chess-moves.md#object-overrides) for additional details on implementing these methods correctly.
 
 ## Code Quality
 
@@ -121,17 +124,15 @@ To pass off this assignment use the course [auto-grading](https://cs240.click/) 
 
 ### Grading Rubric
 
-> [!IMPORTANT]
-> You are required to commit to GitHub with every minor milestone. For example, after you successfully pass a test. This should result in a commit history that clearly details your work on this phase. If your Git history does not demonstrate your efforts then your submission may be rejected.
+> [!IMPORTANT] You are required to commit to GitHub with every minor milestone. For example, after you successfully pass a test. This should result in a commit history that clearly details your work on this phase. If your Git history does not demonstrate your efforts then your submission may be rejected.
 
 | Category       | Criteria                                                                                          |       Points |
-|:---------------|:--------------------------------------------------------------------------------------------------|-------------:|
+| :------------- | :------------------------------------------------------------------------------------------------ | -----------: |
 | GitHub History | At least 8 GitHub commits evenly spread over the assignment period that demonstrate proof of work | Prerequisite |
 | Functionality  | All pass off test cases succeed                                                                   |          125 |
 | Extra Credit   | `extracredit` test cases succeed                                                                  |    bonus +10 |
 |                | **Total**                                                                                         |      **125** |
 
-## <a name="videos"></a>Videos (6:13)
-
+## Videos
 
 - 🎥 [Phase 1 Overview (6:13)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=f2342f5a-8513-44fe-b5cc-b1700151beac) - [[transcript]](https://github.com/user-attachments/files/17706850/CS_240_Phase_1_Overview_Transcript.pdf)

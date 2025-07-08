@@ -1,7 +1,6 @@
 import com.google.gson.Gson;
 import io.javalin.Javalin;
 import io.javalin.http.Context;
-
 import java.util.Map;
 
 public class ErrorHandlingServer {
@@ -29,6 +28,7 @@ public class ErrorHandlingServer {
 
     private void notFound(Context context) {
         String msg = String.format("[%s] %s not found", context.method(), context.path());
-        exceptionHandler(new Exception(msg), context);
+        var body = new Gson().toJson(Map.of("message", String.format("Error: %s", msg), "success", false));
+        context.json(body);
     }
 }

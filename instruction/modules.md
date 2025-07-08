@@ -5,7 +5,7 @@ The course content is divided into multiple topics that you should strive to mas
 > [!IMPORTANT]
 > Make sure you observe the due dates specified in Canvas for each of the course assignments.
 
-- [Schedule for Dr. Wilkerson's Sections](https://github.com/softwareconstruction240/softwareconstruction/blob/main/schedule/winter2025-wilkerson.md)
+- [Schedule for Dr. Rodham's Sections](https://github.com/softwareconstruction240/softwareconstruction/blob/main/schedule/summer2025-rodham.md)
 
 ## Getting Started
 

@@ -336,51 +336,6 @@ Collection<Pet> listPets(Connection conn) throws SQLException {
 }
 ```
 
-### Type Adapters
-
-Sometimes you need to deserialize JSON data into a field that is defined as, or contains, an Interface. When that happens, you must register an adapter to tell Gson what concrete class it should use when deserializing the JSON.
-
-We can demonstrate that my changing our Pet record to contain a `FriendList` instead of a `String[]`.
-
-```java
-interface FriendList {
-    FriendList add(String friend);
-}
-
-record Pet(String name, String type, FriendList friends) {}
-```
-
-Now that we have an interface in our record, Gson no longer knows what class to create in order to represent the `FriendList` interface. That means we must register an adapter that explicitly handles the conversion. Gson supports this with the `JsonDeserializer` interface. This interface defines a method named `deserialize` that takes a JSON element and converts it into the expected object. In the example below we take the element and use the `fromJson` method to do the explicit conversion for us.
-
-```java
-class ListAdapter implements JsonDeserializer<FriendList> {
-    public FriendList deserialize(JsonElement el, Type type, JsonDeserializationContext ctx) throws JsonParseException {
-        return ctx.deserialize(el, ArrayFriendList.class);
-    }
-}
-```
-
-We then use the adapter when we deserialize the friends field from the database. We replace the simple deserialization code,
-
-```java
-var json = rs.getString("friends");
-var friends = new Gson().fromJson(json, String[].class);
-```
-
-with code that creates a builder and registers the adapter to be used whenever the `FriendList` interface is observed.
-
-```java
-var json = rs.getString("friends");
-var builder = new GsonBuilder();
-    builder.registerTypeAdapter(FriendList.class, new ListAdapter());
-
-var friends = builder.create().fromJson(json, FriendList.class);
-```
-
-Now Gson knows that whenever it sees a `FriendList` it creates a `ArrayFriendList` to back it.
-
-With the Chess application you may have a similar situation with the game interfaces. If so, then you will have to tell Gson to map the `ChessGame`, `ChessBoard`, and `ChessPiece` interfaces to your concrete implementations.
-
 ## Things to Understand
 
 - How to execute each of the SQL statements from Java using JDBC
@@ -389,7 +344,7 @@ With the Chess application you may have a similar situation with the game interf
 - How to retrieve auto-increment primary keys that were generate by the database on an insert
 - How to get a JDBC driver for MySQL and make it available to your Java project/code
 
-## <a name="videos"></a>Videos (51:40)
+## Videos
 
 - 🎥 [JDBC Overview (3:20)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=cabe9971-3ff7-4579-be2e-ad660156090a&start=0) - [[transcript]](https://github.com/user-attachments/files/17737257/CS_240_Java_Database_Access_with_JDBC_Transcript.pdf)
 - 🎥 [JDBC Drivers and Connections (7:44)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=1e05e1c6-727a-49b4-81cf-b1a00121b187&start=0) - [[transcript]](https://github.com/user-attachments/files/17737267/CS_240_JDBC_Drivers_and_Connections_Transcript.pdf)

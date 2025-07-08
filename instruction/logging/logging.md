@@ -225,7 +225,7 @@ Java's direct support for logging, with the `java.util.logging` package, was not
 - How do you configure logging from a configuration file?
 - Why do we have Log4J is Java has a built-in logging API?
 
-## <a name="videos"></a>Videos (29:35)
+## Videos
 
 - 🎥 [Logging (6:47)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=014ade75-f4ad-4119-95c1-ad6d0147c217&start=0) - [[transcript]](https://github.com/user-attachments/files/17805093/CS_240_Java_Logging.pdf)
 - 🎥 [Logging: Configuration (13:44)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=5c08583a-579d-452e-88d6-ad6d0149e2cc&start=0) - [[transcript]](https://github.com/user-attachments/files/17805094/CS_240_Logging_Configuration.pdf)

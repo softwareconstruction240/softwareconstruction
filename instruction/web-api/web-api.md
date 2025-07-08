@@ -16,10 +16,10 @@ For our server code, we will use a library called [Javalin](https://javalin.io/)
 
 As an example, let's write an HTTP service named `name list` that maintains a list of names. To make the service useful we will provide the following endpoints.
 
-| Endpoint   | HTTP Method | HTTP path   | Purpose                                                 |
-| ---------- | ----------- | ----------- | ------------------------------------------------------- |
+| Endpoint   | HTTP Method | HTTP path    | Purpose                                                   |
+| ---------- | ----------- | ------------ | --------------------------------------------------------- |
 | addName    | POST        | /name/{name} | Add the name represented by the `{name}` path variable    |
-| listNames  | GET         | /name       | Get the list of names                                   |
+| listNames  | GET         | /name        | Get the list of names                                     |
 | deleteName | DELETE      | /name/{name} | Delete the name represented by the `{name}` path variable |
 
 ### Implementing Endpoints
@@ -30,7 +30,7 @@ When you define an endpoint with `Javalin`, you supply the HTTP method, path, an
 private void run() {
     ...
     Javalin.create()
-        .post("/name{name}", new Handler() {
+        .post("/name/{name}", new Handler() {
              public void handle(Context context) throws Exception {
                 names.add(context.pathParam("name"));
                 listNames(context);
@@ -136,8 +136,7 @@ public class SimpleNameServer {
 You can experiment with this code by doing the following.
 
 1. Create a directory name `web` and put an `index.html` file in it that contains the text: `<h1>Hello World</h1>`.
-1. Run the code from a directory relative to the directory that contains the `web` directory.<br/>
-Note: For this to work, you will also need to download the Javalin and Gson jar files and include them on your CLASSPATH when you run the code. You can download them from the Maven Repository and use the -classpath (or -cp) JVM flag.
+1. Run the code from a directory relative to the directory that contains the `web` directory.<br/> Note: For this to work, you will also need to download the Javalin and Gson jar files and include them on your CLASSPATH when you run the code. You can download them from the Maven Repository and use the -classpath (or -cp) JVM flag.
 1. Open your browser and point it to `localhost:8080`. This should display the contents of your `index.html` file.
 1. Run the following commands with Curl
    1. `curl localhost:8080/name`, returns `{"name":[]}`
@@ -409,13 +408,13 @@ java -cp ../../lib/gson-2.10.1.jar ClientCurlExample.java POST 'http://localhost
 
 ## Things to Understand
 
-- Server code example (Ticket to Ride)
 - Writing the main Server class
 - Writing HTTP handlers for GET and POST requests
 - Implementing the Test Web Page using a FileHandler
 - Writing a web client
+- Server and client code examples
 
-## <a name="videos"></a>Videos (1:14:27)
+## Videos
 
 - 🎥 [Web API Implementation (16:27)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=00a1b38c-8d1c-41ba-b2f5-b18c014994a1) - [[transcript]](https://github.com/user-attachments/files/17753672/CS_240_Web_API_Implementation_Transcript.pdf)
 - 🎥 [Javalin Routes (16:40)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=85543d10-c532-4cab-9e0c-b18c014e60d5) - [[transcript]](https://github.com/user-attachments/files/17753680/CS_240_Javalin_Routes_Transcript.pdf)

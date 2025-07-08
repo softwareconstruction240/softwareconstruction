@@ -13,19 +13,19 @@ The chess application components are demonstrated by the following diagram and d
 
 ![top level](top-level.png)
 
-| Component    | Sub-Component | Description                                                                                                                                                                                                                                                       |
-| ------------ | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Chess Client |               | A terminal based program that allows a user to play a game of chess. This includes actions to login, create, and play games. The client exchanges messages over the network with the chess server.                                                                |
-| Chess Server |               | A command line program that accepts network requests from the chess client to login, create, and play games. Users and games are stored in the database. The server also sends game play commands to the chess clients that are participating in a specific game. |
-|              | Server        | Receives network requests and locates correct endpoints.                                                                                                                                                                                                          |
-|              | Handlers      | Deserialize information into java objects. Call service methods sending the objects to satisfy requests.                                                                                                                                                          |
-|              | Services      | Process the business logic for the application. This includes registering and logging in users and creating, listing, and playing chess games. Call the data access methods to retrieve and persist application data.                                             |
-|              | DataAccess    | Provide methods that persistently store and retrieve the application data.                                                                                                                                                                                        |
-| Database     |               | Stores data persistently.                                                                                                                                                                                                                                         |
+| Component    | Sub-Component | Description                                                                                                                                                                                                                                                                                               |
+| ------------ | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Chess Client |               | A terminal based program that allows a user to play a game of chess. This includes actions to login, create, and play games. The client exchanges messages over the network with the chess server.                                                                                                        |
+| Chess Server |               | A command line program that accepts network requests from the chess client to login, create, and play games. Users and games are stored in the database. The server also sends game play commands to the chess clients that are participating in a specific game.                                         |
+|              | Server        | Receives network requests and locates correct endpoints.                                                                                                                                                                                                                                                  |
+|              | Handlers      | Deserialize information into java objects. Call service methods sending the objects to satisfy requests. <br> _Tip: You are not required to create your handlers in their own distinct classes. See [Web API instruction](../../instruction/web-api/web-api.md#implementing-endpoints) for alternatives._ |
+|              | Services      | Process the business logic for the application. This includes registering and logging in users and creating, listing, and playing chess games. Call the data access methods to retrieve and persist application data.                                                                                     |
+|              | DataAccess    | Provide methods that persistently store and retrieve the application data.                                                                                                                                                                                                                                |
+| Database     |               | Stores data persistently.                                                                                                                                                                                                                                                                                 |
 
 > [!NOTE]
 >
-> that while we have the Handlers as distinct components here and later in the diagram, it is not required to have specific handler classes. You may implement this functionality directly in the lambda functions for the endpoints of your server.
+> While we have the Handlers as distinct components here and later in the diagram, it is not required to have specific handler classes. You may implement this functionality directly in the lambda functions for the endpoints of your server.
 
 ## Application Programming Interface (API)
 
@@ -57,7 +57,7 @@ These objects represent the core of what you are passing between your server, se
 
 ## Creating Sequence Diagrams
 
-Based upon your understanding of the requirements provided by [Phase 3](../3-web-api/web-api.md) you now must create a sequence diagram for each endpoint that demonstrates the flow of interactions between your application objects. The diagram must include the successful happy path flow for each endpoint, but should also include the error paths so that you can fully design your server.
+Based upon your understanding of the requirements provided by [Phase 3](../3-web-api/web-api.md) you now must create a sequence diagram for each endpoint that demonstrates the flow of interactions between your application objects. The diagram must include the successful happy path flow for each endpoint. You may also include error paths; doing so will likely be more helpful in preparing for Phase 3, but you will not lose points for not including error cases. You will need to at least consider error cases, as checking for some errors requires calls between layers which you are required to represent. For example, during registration we don't want to create a user with a username that's already taken, so there is a check for that in the starter diagram.
 
 ### SequenceDiagram.Org
 
@@ -87,21 +87,30 @@ To get you started on creating your sequence diagrams, we have provided you with
 
 This example diagram represents the following sequence for registering and authorizing a player.
 
+> [!NOTE] This is one possible way to implement the register endpoint, but is not the only valid way this could be done
+
 1. A `client`, acting as a chess player, calls the `register` endpoint. This request is made as an HTTP network request with the `/user` URL path and a body that contains her username, password, and email in a JSON representation.
 2. The `server` gets the body with its information from the HTTP request and matches it to the correct handler.
-3. The `handler` takes the JSON information and creates an object to hold it and sends it to the correct service class.
+3. The `handler` takes the JSON information and creates an object to hold it and sends it to the correct service class. <<<<<<< HEAD
    > [!TIP]
    >
-   > You are not required to create your handlers in their own distinct classes. You may implement this functionality directly in the lambda functions for the endpoints of your server.
+   > # You are not required to create your handlers in their own distinct classes. You may implement this functionality directly in the lambda functions for the endpoints of your server.
+   >
+   > > > > > > > origin/main
 4. The `service` calls a data access method in order to determine if there is already a user with that username.
-5. The `data access` method checks the database and returns that there is no user with that name (null).
-6. The `service` then calls another data access method to create a new user with the given name and password.
-7. The `data access` method inserts the user into the database.
-8. The `service` then calls another data access method to create and store an authorization token (authToken) for the user. The authToken can be used on subsequent endpoint calls to represent that the user has already been authenticated.
-9. The `data access` method stores the username and associated authToken in the database.
-10. The `service` returns a result object containing the username and authToken.
-11. The `handler` converts the object into JSON text.
-12. The `server` returns this to the client.
+5. The `data access` method checks the database for a username matching the user.
+6. At this point there is a break in logic. If there is already a user with that username, the `data access` method will return a `UserData` of the user with that username. If there is no user with that name, it will return `null`.
+7. If there is a user with the username and the `data access` method returned a non-null UserData:
+   1. The `service` throws an `AlreadyTakenException`, a custom-made exception class in this example.
+   2. The `handler` doesn't have a catch block in this example, so the exception passes through to the server.
+   3. The `server` had been previously set up to send a specific response in case of an `AlreadyTakenException`, so it sends the error response.
+8. If there isn't a user with the username and the `data access` method returned null, the `service` then calls another data access method to create a new user with the given name and password.
+9. The `data access` method inserts the user into the database.
+10. The `service` then calls another data access method to create and store an authorization token (authToken) for the user. The authToken can be used on subsequent endpoint calls to represent that the user has already been authenticated.
+11. The `data access` method stores the username and associated authToken in the database.
+12. The `service` returns a result object containing the username and authToken.
+13. The `handler` converts the object into JSON text.
+14. The `server` returns this to the client.
 
 > [!NOTE]
 >
@@ -123,6 +132,8 @@ This architecture includes a handler method for each server endpoint that calls 
 
 You can decompose your handlers, services, and data access components into multiple classes or leave them as a single class as your design requires in order to meet the principles of good software design.
 
+> [!TIP] You are not required to create your handlers in their own distinct classes. The [Web API instruction](../../instruction/web-api/web-api.md#implementing-endpoints) shows several other patterns; you are free to balance the pros & cons and choose the best approach for you.
+
 ## ☑ Deliverable
 
 ### Pass Off, Submission, and Grading
@@ -143,7 +154,7 @@ When initially graded, your design will be given one of three scores:
 | Your design has significant deficiencies. Meet with a TA to discuss your design, ideally the same TA who originally graded your design. Improve and resubmit your design within one week of initial grading, and receive a maximum score of 100%. |    25 |
 | The submitted design was not a serious attempt at doing the assignment correctly. Resubmit your design within one week of initial grading and receive a maximum score of 50%.                                                                     |     0 |
 
-## <a name="videos"></a>Videos (1:31:43)
+## Videos
 
 - 🎥 [Chess Server Design - Introduction (16:15)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=bd253d7a-375d-4833-87e0-b17e015a6b7f) - [[transcript]](https://github.com/user-attachments/files/17706891/CS_240_Chess_Server_Design_Introduction_Transcript.pdf)
 - 🎥 [Chess Server Design - Software Design Principles (2:16)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=c8afd967-18dc-4396-b92e-b17e015f13b9) - [[transcript]](https://github.com/user-attachments/files/17706903/CS_240_Chess_Server_Design_Software_Design_Principles_Transcript.pdf)

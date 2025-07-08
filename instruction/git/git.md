@@ -34,9 +34,10 @@ The general Git development workflow is illustrated in the following diagram.
 <img src="./GitCommitWorkflow.png" style="max-width: 500px"/>
 
 To give a reference on the typically frequency of each of the stages, developers typically:
-* **Change** files all day long
-* **Stage** and **commit** changes multiple times per hour
-* **Review** commits and **push** about hourly
+
+- **Change** files all day long
+- **Stage** and **commit** changes multiple times per hour
+- **Review** commits and **push** about hourly
 
 ## Installing Git
 
@@ -198,7 +199,7 @@ You can see that we made a change to `hello.txt` by removing `hello world` and a
 
 ## Branches
 
-Git supports the ability to branch your code. This allows you to work on variations of the code while still allowing progress on the main branch. For example, if you wanted to work on a new feature named `A` without interrupting work on the master branch, you would use the `git branch A` command and start working on the `A` branch with the `git checkout A` command. Now commits can be down to both the master and the `A` branch. When you want to combine the work done on both branches you us checkout the master branch and execute `git merge A`. If you decide you want to abandon the new feature then you just don't ever merge it back into the master branch.
+Git supports the ability to branch your code. This allows you to work on variations of the code while still allowing progress on the main branch. For example, if you wanted to work on a new feature named `A` without interrupting work on the master branch, you would use the `git branch A` command and start working on the `A` branch with the `git checkout A` command. Now commits can be done to both the master and the `A` branch. When you want to combine the work done on both branches you us checkout the master branch and execute `git merge A`. If you decide you want to abandon the new feature then you just don't ever merge it back into the master branch.
 
 Here is a demonstration of this working on the visualization tool provided by [git-school.github.io](https://git-school.github.io/visualizing-git/).
 
@@ -303,7 +304,7 @@ If you already have a Git repo in your local development environment and you wan
    ➜  git push -u origin main
    ```
 
-## <a name="videos"></a>Videos (1:16:49)
+## Videos
 
 - 🎥 [Git Overview (4:50)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=57cf5ee3-521c-470e-987b-b169014cdec4) - [[transcript]](https://github.com/user-attachments/files/17738322/CS_240_Git_Overview_Transcript.pdf)
 - 🎥 [Install and Configure Git (5:11)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=87ddb22d-729b-44ec-a476-b169014e892b) - [[transcript]](https://github.com/user-attachments/files/17738329/CS_240_Install_and_Configure_Git_Transcript.pdf)

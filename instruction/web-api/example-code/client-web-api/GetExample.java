@@ -5,7 +5,6 @@ import java.net.http.HttpClient;
 import java.net.http.HttpHeaders;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.util.Locale;
 import java.util.Optional;
 
 public class GetExample {
@@ -33,11 +32,11 @@ public class GetExample {
     }
 
     private static void printUsage() {
-        System.err.println("USAGE: java GetExample_FluentApi <host> <port> <path>");
+        System.err.println("USAGE: java GetExample <host> <port> <path>");
     }
 
     public void doGet(String host, int port, String urlPath) throws URISyntaxException, IOException, InterruptedException {
-        String urlString = String.format(Locale.getDefault(), "http://%s:%d%s", host, port, urlPath);
+        String urlString = String.format("http://%s:%d%s", host, port, urlPath);
 
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(new URI(urlString))
