@@ -121,19 +121,12 @@ def main(root: str, code_base: str):
     for old_path, info in mapping.items():
         new_body = [rewrite_line(ln, info) for ln in info.body]
 
-        case_sensitive = sys.platform in ['win32', 'darwin']
-        similar_name = case_sensitive and old_path.casefold() == info.full_path.casefold()
-        name_changed = old_path != info.full_path
-
-        if name_changed and similar_name:
+        if old_path != info.full_path:
             os.remove(old_path)
 
         os.makedirs(info.dirpath, exist_ok=True)
         with open(info.full_path, 'w', encoding='utf-8') as f:
             f.writelines(new_body)
-
-        if name_changed and not similar_name:
-            os.remove(old_path)
 
 if __name__ == '__main__':
     if len(sys.argv) != 3:
