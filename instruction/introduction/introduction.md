@@ -42,9 +42,10 @@ You will use the Java programming language for all of your work in this course. 
 
 In order to properly learn Java, you will need to reference selected chapters of the book `Core Java for the Impatient`. This book is available for free on the Safari Books collection available through the Harold B. Lee Library. You can also reference the many resources available on the web for mastering the different concepts found in the Java programming language.
 
-![Java for the Impatient](CoreJavaForTheImpatient3rdEdition.jpg)
+![Java for the Impatient](CoreJavaForTheImpatient4thEdition.png)
 
 > [!NOTE]
+>
 > Note that it is critical that you reserve a significant amount of your time to learn Java outside of class. In class we focus on concepts that are needed for the projects, hard concepts, and things that tend to confuse students. It is assumed that you already learned the basics of Java on your own.
 
 ## Enrichment Lectures
@@ -58,6 +59,7 @@ All of the course instruction is represented on GitHub, however we use Canvas to
 ![Canvas](canvasCourse.jpg)
 
 > [!IMPORTANT]
+>
 > Make sure you have enabled Canvas to send notifications to an email account that you monitor regularly. Failure to do this will mean that you miss important notifications that could impact your efforts and grade.
 
 ## Well Rounded Software Engineers

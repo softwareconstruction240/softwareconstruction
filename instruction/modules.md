@@ -3,9 +3,10 @@
 The course content is divided into multiple topics that you should strive to master during that week of the course. The instruction for a topic includes classroom instruction, slide deck, and optional textual instruction, code examples, starter code, and assignments.
 
 > [!IMPORTANT]
+>
 > Make sure you observe the due dates specified in Canvas for each of the course assignments.
 
-- [Schedule for Dr. Wilkerson's Sections](https://github.com/softwareconstruction240/softwareconstruction/blob/main/schedule/spring2025-wilkerson.md)
+- [Schedule for Dr. Rodham's Sections](https://github.com/softwareconstruction240/softwareconstruction/blob/main/schedule/summer2025-rodham.md)
 
 ## Getting Started
 

@@ -11,8 +11,8 @@ Advanced Software Construction provides you with the experience and skills neces
 The content for this course is represented by the following parts.
 
 - [Syllabus](instruction/syllabus/syllabus.md) - Course policies
-- [Instruction](instruction/modules.md#readme) - Course topics
-- [Chess](chess/chess.md#readme) - Instructions for building your application
+- [Instruction](instruction/modules.md) - Course topics
+- [Chess](chess/chess.md) - Instructions for building your application
 - [Pet Shop](petshop/petshop.md) - Demonstration application
 - **Canvas** - Submit assignments and tests
 
@@ -20,7 +20,7 @@ The content for this course is represented by the following parts.
 
 Although assignment due dates are the same for all sections, the lecture schedule may vary by instructor.
 
-- [Schedule for Dr. Wilkerson's Sections](https://github.com/softwareconstruction240/softwareconstruction/blob/main/schedule/spring2025-wilkerson.md)
+- [Schedule for Dr. Rodham's Sections](https://github.com/softwareconstruction240/softwareconstruction/blob/main/schedule/summer2025-rodham.md)
 
 ## Outcomes
 
