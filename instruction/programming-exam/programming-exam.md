@@ -22,7 +22,8 @@ The purpose of this exam is really to show that you are able to tackle large and
 
 1. Do the exam setup:
     * Create a new clean project from starter code
-    * Take the HonorLock Setup/Acknowledgment Quiz 
+    * Take the HonorLock Setup/Acknowledgment Quiz
+    * Make sure you know how to zip a folder and take a screenshot
     * Take the Practice Programming Exam (optional)
 
 1. Review and practice. Make sure you have some time to review after Phase 0 and before taking the exam.
@@ -59,6 +60,7 @@ If you are concerned about not being able to take tests with these conditions:
 - Your camera, mic, and screen recording will be shared with us once your exam is submitted.
 - You will be asked to show an ID. Please use your BYU id if you can, but other IDs will also work.
 - You may be asked to “scan the room” (at the start and maybe periodically), meaning you’ll turn your laptop/webcam 360°, so we can see all your surroundings.
+- Make sure you are in a brightly lit room and in a quiet place, or else Honorlock can flag you for not being able to see your face clearly or because it can hear conversation happening.
 
 ## Preparation
 
@@ -90,7 +92,7 @@ You will need to upload:
 - A zip of your entire project
 - A screenshot of all your tests passing (right click passoff, click “run tests in passoff”).
 
-Make sure you know how to do both of these things before the exam starts so you don't lose time.
+**Make sure you know how to do both of these things before the exam starts so you don't lose time.**
 
 
 ## Warnings and Other Information
