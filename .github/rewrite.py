@@ -107,9 +107,6 @@ def main(root: str, code_base: str):
                     new_link = re.sub(r'\.md$', '', new_base, flags=re.IGNORECASE)
 
             elif ext != '' or sep == '':
-                if ext == '':
-                    print(path_part)
-
                 abs_path = os.path.normpath(os.path.join(info.dirpath, path_part))
                 rel_to_root = os.path.relpath(abs_path, root)
 
@@ -117,6 +114,8 @@ def main(root: str, code_base: str):
                     new_link = code_base.rstrip('/') + '/' + rel_to_root
                 else:
                     new_link = os.path.normpath(os.path.join(code_base, rel_to_root))
+
+            print(target)
 
             if not new_link:
                 return m.group(0)
