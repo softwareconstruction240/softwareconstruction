@@ -75,7 +75,7 @@ def main(root: str, code_base: str):
     # Groups: 1) Link text, 2) Links inside <>, 3) All other links
     link_re = re.compile(r'\[([^\]]+)\]\((?:<([^>]+)>|((?:[^()\\]|\\[()])+))\)')
 
-    base_cases = [r':\/\/', r'^Home$', r'^tel:.*', r'^mailto:.*']
+    base_cases = [r':\/\/', r'^Home#?', r'^tel:.*', r'^mailto:.*']
     base_re = re.compile('|'.join(base_cases))
 
     def rewrite_line(line: str, info: MarkdownFile) -> str:
