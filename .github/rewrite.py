@@ -99,13 +99,13 @@ def main(root: str, code_base: str):
             ext = get_ext(basename)
 
             if ext in EMBED_EXTS:
-                embed_map.get(dirname, info.parent, basename)
+                print(embed_map.get(dirname, info.parent, basename))
                 new_link = (embed_tuple_map.get((dirname, basename))
                     or embed_tuple_map.get((info.parent, basename))
                     or embed_name_map.get(basename))
 
             elif ext == 'md':
-                markdown_map.get(dirname, info.parent, basename)
+                print(markdown_map.get(dirname, info.parent, basename))
                 new_base = (md_tuple_map.get((dirname, basename))
                     or md_tuple_map.get((info.parent, basename))
                     or md_name_map.get(basename))
