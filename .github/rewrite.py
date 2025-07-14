@@ -92,8 +92,6 @@ def main(root: str, code_base: str):
             basename = os.path.basename(path_part)
             ext = get_ext(basename)
 
-            new_link: str | None = None
-
             if ext in EMBED_EXTS:
                 new_link = (embed_tuple_map.get((dirname, basename))
                     or embed_tuple_map.get((info.parent, basename))
@@ -103,8 +101,7 @@ def main(root: str, code_base: str):
                 new_base = (md_tuple_map.get((dirname, basename))
                     or md_tuple_map.get((info.parent, basename))
                     or md_name_map.get(basename))
-                if new_base:
-                    new_link = re.sub(r'\.md$', '', new_base, flags=re.IGNORECASE)
+                new_link = re.sub(r'\.md$', '', new_base, flags=re.IGNORECASE)
 
             else:
                 abs_path = os.path.normpath(os.path.join(info.dirpath, path_part))
@@ -114,10 +111,6 @@ def main(root: str, code_base: str):
                     new_link = code_base.rstrip('/') + '/' + rel_to_root
                 else:
                     new_link = os.path.normpath(os.path.join(code_base, rel_to_root))
-
-            if not new_link:
-                print('No new link')
-                return m.group(0)
 
             if sep:
                 new_link = new_link + sep + anchor
