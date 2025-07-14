@@ -99,27 +99,15 @@ def main(root: str, code_base: str):
             ext = get_ext(basename)
 
             if ext in EMBED_EXTS:
-                simple_em = embed_map.get(dirname, info.parent, basename)
-                if simple_em:
-                    print(basename)
-                    print(simple_em)
                 new_link = (embed_tuple_map.get((dirname, basename))
                     or embed_tuple_map.get((info.parent, basename))
                     or embed_name_map.get(basename))
-                if simple_em:
-                    print(new_link)
 
             elif ext == 'md':
-                simple_md = markdown_map.get(dirname, info.parent, basename)
-                if simple_md:
-                    print(basename)
-                    print(simple_md)
                 new_base = (md_tuple_map.get((dirname, basename))
                     or md_tuple_map.get((info.parent, basename))
                     or md_name_map.get(basename))
                 new_link = re.sub(r'\.md$', '', new_base, flags=re.IGNORECASE)
-                if simple_md:
-                    print(new_link)
 
             else:
                 abs_path = os.path.normpath(os.path.join(info.dirpath, path_part))

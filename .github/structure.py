@@ -39,6 +39,9 @@ class TupleNameMap:
         self._tuple_map = {}
         self._name_map = {}
         for parent, name, value in mapper:
+            print(value)
+            print(parent)
+            print(name)
             self._tuple_map[(parent, name)] = value
             self._name_map[name] = value
 
