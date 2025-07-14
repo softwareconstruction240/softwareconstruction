@@ -82,7 +82,7 @@ def main(root: str, code_base: str):
         def repl(m: re.Match[str]) -> str:
             text, target = m.groups()
 
-            if '://' in target or target == 'Home':
+            if '://' in target or target == 'Home' or target.startswith('tel:'):
                 return m.group(0)
 
             path_part, sep, anchor = target.partition('#')
@@ -91,15 +91,6 @@ def main(root: str, code_base: str):
             ext = get_ext(basename)
 
             new_link: str | None = None
-
-            is_petshop = os.path.basename(info.dirpath) == 'petshop'
-
-            if is_petshop:
-                print('Petshop Link:')
-                print(ext in CODE_EXTS)
-                print(ext == '')
-                print(sep is None)
-                print(ext in EMBED_EXTS)
 
             if (ext in CODE_EXTS or
                 'example-code' in path_part.split('/') or
