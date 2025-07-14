@@ -47,7 +47,7 @@ def extract_title_and_body(path: str) -> tuple[str | None, List[str]]:
 
 def main(root: str, code_base: str):
     mapping: dict[str, MarkdownFile] = {}
-    for file_path in find_files_with_exts(root, "md", root):
+    for file_path in find_files_with_exts(root, "md"):
         title, body = extract_title_and_body(file_path.full_path)
         filename = file_path.filename
         if title:
