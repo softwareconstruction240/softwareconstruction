@@ -73,18 +73,19 @@ def main(root: str, code_base: str):
         embed_name_map[file_path.filename] = rel
 
     # Groups: 1) Link text, 2) Links inside <>, 3) All other links
-    link_re = re.compile(r'\[([^\]]+)\]\((?:<([^>]+)>|((?:[^()\\]|\\[()])+))\)')
+    link_re = re.compile(r'\[(?:[^\]]+)\]\((?:<([^>]+)>|((?:[^()\\]|\\[()])+))\)')
 
     base_cases = [r':\/\/', r'^Home#?', r'^tel:.*', r'^mailto:.*']
     base_re = re.compile('|'.join(base_cases))
 
     def rewrite_line(line: str, info: MarkdownFile) -> str:
         def repl(m: re.Match[str]) -> str:
-            text = m.group(1)
-            target = m.group(2) or m.group(3)
-            special_link = m.group(2) is not None
-            path_part, sep, anchor = target.partition('#')
+            target = m.group(1) or m.group(2)
 
+            path_part, sep, _ = target.partition('#')
+
+            if not path_part:
+                print(target)
             if base_re.search(target) or (sep and not path_part):
                 return m.group(0)
 
@@ -112,12 +113,7 @@ def main(root: str, code_base: str):
                 else:
                     new_link = os.path.normpath(os.path.join(code_base, rel_to_root))
 
-            if sep:
-                new_link = new_link + sep + anchor
-            if special_link:
-                new_link = '<' + new_link + '>'
-
-            return f'[{text}]({new_link})'
+            return re.sub(path_part, new_link, m.group(0), 1)
 
         return link_re.sub(repl, line)
 
