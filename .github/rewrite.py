@@ -57,7 +57,7 @@ def main(root: str, code_base: str):
             filename = f"{title}.md"
 
         mapping[file_path.full_path] = MarkdownFile(file_path.dirpath, filename, body)
-    
+
     markdown_map = TupleNameMap(
         (info.parent, os.path.basename(old_path), info.filename)
         for (old_path, info) in mapping.items())
@@ -66,7 +66,7 @@ def main(root: str, code_base: str):
         (file_path.parent, file_path.filename, file_path.relative_from(root))
         for file_path in find_files_with_exts(root, *EMBED_EXTS))
 
-    # Groups: 1) Link text, 2) Links inside <>, 3) All other links
+    # Groups: 1) Links inside <>, 2) All other links
     link_re = re.compile(r'\[(?:[^\]]+)\]\((?:<([^>]+)>|((?:[^()\\]|\\[()])+))\)')
 
     base_cases = [r':\/\/', r'^Home#?', r'^tel:.*', r'^mailto:.*', r'^#']
