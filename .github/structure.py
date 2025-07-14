@@ -32,10 +32,12 @@ class MarkdownFile(FilePath):
 
 @dataclass(init=False)
 class TupleNameMap:
-    _tuple_map: dict[tuple[str, str], str] = {}
-    _name_map: dict[str, str] = {}
+    _tuple_map: dict[tuple[str, str], str]
+    _name_map: dict[str, str]
 
     def __init__(self, mapper: Iterator[tuple[str, str, str]]):
+        self._tuple_map = {}
+        self._name_map = {}
         for parent, name, value in mapper:
             self._tuple_map[(parent, name)] = value
             self._name_map[name] = value
