@@ -100,11 +100,10 @@ def main(root: str, code_base: str):
                 print(ext == '')
                 print(sep is None)
                 print(ext in EMBED_EXTS)
-                print(ext == '')
 
             if (ext in CODE_EXTS or
                 'example-code' in path_part.split('/') or
-                (ext == '' and sep is None)):
+                (ext == '' and sep == '')):
                 abs_path = os.path.normpath(os.path.join(info.dirpath, path_part))
                 rel_to_root = os.path.relpath(abs_path, root)
 
