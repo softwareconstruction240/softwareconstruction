@@ -5,7 +5,7 @@ import sys
 from typing import List
 from structure import MarkdownFile, FilePath, TupleNameMap
 
-EMBED_EXTS = {'png', 'jpg', 'jpeg', 'webp', 'gif', 'uml'}
+EMBED_EXTS = {'png', 'gif', 'jpg', 'jpeg', 'svg', 'webp', 'uml', 'mp4', 'mov', 'webm'}
 
 def slugify(name: str) -> str:
     """Remove filesystem-unfriendly chars"""
