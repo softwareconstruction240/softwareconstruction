@@ -116,7 +116,7 @@ def main(root: str, code_base: str):
                     new_link = re.sub(r'\.md$', '', new_base, flags=re.IGNORECASE)
 
             return (f'[{text}]({new_link}{("#"+anchor) if sep else ""})'
-                    if new_link else m.group())
+                    if new_link else m.group(0))
 
         return link_re.sub(repl, line)
 
