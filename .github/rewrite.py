@@ -109,7 +109,10 @@ def main(root: str, code_base: str):
                     new_link = code_base.rstrip('/') + '/' + rel_to_root
                 else:
                     new_link = os.path.normpath(os.path.join(code_base, rel_to_root))
-
+            if m.group(1) is not None or info.parent == 'petshop':
+                print(path_part)
+                print(new_link)
+                print(m.group(0))
             return re.sub(path_part, new_link, m.group(0), 1)
 
         return link_re.sub(repl, line)
