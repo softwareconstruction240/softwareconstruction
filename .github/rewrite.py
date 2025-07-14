@@ -92,12 +92,14 @@ def main(root: str, code_base: str):
 
             new_link: str | None = None
 
-            if os.path.basename(info.dirpath) == 'petshop':
+            is_petshop = os.path.basename(info.dirpath) == 'petshop'
+
+            if is_petshop:
                 print('Petshop Link:')
                 print(ext)
+                print(ext is None)
+                print(ext == '')
                 print(path_part)
-                print(sep)
-                print(target)
 
             if (ext in CODE_EXTS or
                 'example-code' in path_part.split('/') or
