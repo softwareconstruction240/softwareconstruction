@@ -96,10 +96,11 @@ def main(root: str, code_base: str):
 
             if is_petshop:
                 print('Petshop Link:')
-                print(ext)
-                print(ext is None)
+                print(ext in CODE_EXTS)
                 print(ext == '')
-                print(path_part)
+                print(sep is None)
+                print(ext in EMBED_EXTS)
+                print(ext == '')
 
             if (ext in CODE_EXTS or
                 'example-code' in path_part.split('/') or
