@@ -64,6 +64,9 @@ def main(root: str, code_base: str):
         old_filename = os.path.basename(old_path)
         md_tuple_map[(info.parent, old_filename)] = info.filename
         md_name_map[old_filename] = info.filename
+    print('Markdown')
+    print(md_tuple_map)
+    print(md_name_map)
 
     embed_tuple_map: dict[tuple[str, str], str] = {}
     embed_name_map: dict[str, str] = {}
@@ -71,6 +74,9 @@ def main(root: str, code_base: str):
         rel = file_path.relative_from(root)
         embed_tuple_map[(file_path.parent, file_path.filename)] = rel
         embed_name_map[file_path.filename] = rel
+    print('Embed')
+    print(embed_tuple_map)
+    print(embed_name_map)
 
     markdown_map = TupleNameMap(
         (info.parent, os.path.basename(old_path), info.filename)
