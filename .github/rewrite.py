@@ -88,6 +88,9 @@ def main(root: str, code_base: str):
                 return m.group(0)
 
             path_part, sep, anchor = target.partition('#')
+            if sep and not path_part:
+                return m.group(0)
+
             dirname = os.path.basename(os.path.dirname(path_part))
             basename = os.path.basename(path_part)
             ext = get_ext(basename)
