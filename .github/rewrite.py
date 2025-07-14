@@ -94,17 +94,7 @@ def main(root: str, code_base: str):
 
             new_link: str | None = None
 
-            if (ext in CODE_EXTS or
-                (ext == '' and sep == '')):
-                abs_path = os.path.normpath(os.path.join(info.dirpath, path_part))
-                rel_to_root = os.path.relpath(abs_path, root)
-
-                if code_base.startswith(('http://', 'https://')):
-                    new_link = code_base.rstrip('/') + '/' + rel_to_root
-                else:
-                    new_link = os.path.normpath(os.path.join(code_base, rel_to_root))
-
-            elif ext in EMBED_EXTS:
+            if ext in EMBED_EXTS:
                 new_link = (embed_tuple_map.get((dirname, basename))
                     or embed_tuple_map.get((info.parent, basename))
                     or embed_name_map.get(basename))
@@ -115,6 +105,16 @@ def main(root: str, code_base: str):
                     or md_name_map.get(basename))
                 if new_base:
                     new_link = re.sub(r'\.md$', '', new_base, flags=re.IGNORECASE)
+
+            elif (ext != '' or
+                (ext == '' and sep == '')):
+                abs_path = os.path.normpath(os.path.join(info.dirpath, path_part))
+                rel_to_root = os.path.relpath(abs_path, root)
+
+                if code_base.startswith(('http://', 'https://')):
+                    new_link = code_base.rstrip('/') + '/' + rel_to_root
+                else:
+                    new_link = os.path.normpath(os.path.join(code_base, rel_to_root))
 
             if new_link and special_link:
                 new_link = '<' + new_link + '>'
