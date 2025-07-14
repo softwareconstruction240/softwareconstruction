@@ -77,13 +77,16 @@ def main(root: str, code_base: str):
 
     link_re = re.compile(r'\[([^\]]+)\]\((?:<([^>]+)>|((?:[^()\\]|\\[()])+))\)')
 
+    base_cases = [r':\/\/', r'^Home$', r'^tel:.*', r'^mailto:.*']
+    base_re = re.compile('|'.join(base_cases))
+
     def rewrite_line(line: str, info: MarkdownFile) -> str:
         def repl(m: re.Match[str]) -> str:
             text = m.group(1)
             target = m.group(2) or m.group(3)
             special_link = m.group(2) is not None
 
-            if '://' in target or target == 'Home' or target.startswith('tel:'):
+            if base_re.search(target):
                 return m.group(0)
 
             path_part, sep, anchor = target.partition('#')
