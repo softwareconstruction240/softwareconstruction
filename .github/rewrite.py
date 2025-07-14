@@ -53,9 +53,8 @@ def main(root: str, code_base: str):
         if title:
             phase_dir = re.search(r'(\d+)', file_path.parent)
             if filename == 'getting-started.md' and phase_dir:
-                filename = f"{title}-Phase-{phase_dir.group(1)}.md"
-            else:
-                filename = f"{title}.md"
+                title = f"{title}---Phase-{phase_dir.group(1)}"
+            filename = f"{title}.md"
 
         mapping[file_path.full_path] = MarkdownFile(file_path.dirpath, filename, body)
 
