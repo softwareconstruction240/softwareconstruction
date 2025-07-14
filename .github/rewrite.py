@@ -4,6 +4,7 @@ import re
 import sys
 from typing import List
 from structure import MarkdownFile, FilePath, TupleNameMap
+from rewrite_rules import LINK_BASE_CASES
 
 EMBED_EXTS = {'png', 'gif', 'jpg', 'jpeg', 'svg', 'webp', 'uml', 'mp4', 'mov', 'webm'}
 
@@ -69,8 +70,7 @@ def main(root: str, code_base: str):
     # Groups: 1) Links inside <>, 2) All other links
     link_re = re.compile(r'\[(?:[^\]]+)\]\((?:<([^>]+)>|((?:[^()\\]|\\[()])+))\)')
 
-    base_cases = [r':\/\/', r'^Home#?', r'^tel:.*', r'^mailto:.*', r'^#']
-    base_re = re.compile('|'.join(base_cases))
+    base_re = re.compile('|'.join(LINK_BASE_CASES))
 
     def rewrite_line(line: str, info: MarkdownFile) -> str:
         def repl(m: re.Match[str]) -> str:
