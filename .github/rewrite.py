@@ -58,13 +58,19 @@ def main(root: str, code_base: str):
 
         mapping[file_path.full_path] = MarkdownFile(file_path.dirpath, filename, body)
 
-    markdown_map = TupleNameMap(
-        (info.parent, os.path.basename(old_path), info.filename)
-        for (old_path, info) in mapping.items())
+    md_tuple_map: dict[tuple[str, str], str] = {}
+    md_name_map: dict[str, str] = {}
+    for old_path, info in mapping.items():
+        old_filename = os.path.basename(old_path)
+        md_tuple_map[(info.parent, old_filename)] = info.filename
+        md_name_map[old_filename] = info.filename
 
-    embed_map = TupleNameMap(
-        (file_path.parent, file_path.filename, file_path.relative_from(root))
-        for file_path in find_files_with_exts(root, *EMBED_EXTS))
+    embed_tuple_map: dict[tuple[str, str], str] = {}
+    embed_name_map: dict[str, str] = {}
+    for file_path in find_files_with_exts(root, *EMBED_EXTS):
+        rel = file_path.relative_from(root)
+        embed_tuple_map[(file_path.parent, file_path.filename)] = rel
+        embed_name_map[file_path.filename] = rel
 
     # Groups: 1) Link text, 2) Links inside <>, 3) All other links
     link_re = re.compile(r'\[([^\]]+)\]\((?:<([^>]+)>|((?:[^()\\]|\\[()])+))\)')
@@ -89,10 +95,14 @@ def main(root: str, code_base: str):
             new_link: str | None = None
 
             if ext in EMBED_EXTS:
-                new_link = embed_map.get(dirname, info.parent, basename)
+                new_link = (embed_tuple_map.get((dirname, basename))
+                    or embed_tuple_map.get((info.parent, basename))
+                    or embed_name_map.get(basename))
 
             elif ext == 'md':
-                new_base = markdown_map.get(dirname, info.parent, basename)
+                new_base = (md_tuple_map.get((dirname, basename))
+                    or md_tuple_map.get((info.parent, basename))
+                    or md_name_map.get(basename))
                 if new_base:
                     new_link = re.sub(r'\.md$', '', new_base, flags=re.IGNORECASE)
 
