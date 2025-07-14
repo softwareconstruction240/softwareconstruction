@@ -83,12 +83,9 @@ def main(root: str, code_base: str):
             text = m.group(1)
             target = m.group(2) or m.group(3)
             special_link = m.group(2) is not None
-
-            if base_re.search(target):
-                return m.group(0)
-
             path_part, sep, anchor = target.partition('#')
-            if sep and not path_part:
+
+            if base_re.search(target) or (sep and not path_part):
                 return m.group(0)
 
             dirname = os.path.basename(os.path.dirname(path_part))
@@ -109,7 +106,7 @@ def main(root: str, code_base: str):
                 if new_base:
                     new_link = re.sub(r'\.md$', '', new_base, flags=re.IGNORECASE)
 
-            elif ext != '' or sep == '':
+            else:
                 abs_path = os.path.normpath(os.path.join(info.dirpath, path_part))
                 rel_to_root = os.path.relpath(abs_path, root)
 
@@ -117,10 +114,9 @@ def main(root: str, code_base: str):
                     new_link = code_base.rstrip('/') + '/' + rel_to_root
                 else:
                     new_link = os.path.normpath(os.path.join(code_base, rel_to_root))
-            else:
-                print(target)
 
             if not new_link:
+                print('No new link')
                 return m.group(0)
 
             if sep:
