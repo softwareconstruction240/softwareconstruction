@@ -76,11 +76,13 @@ def main(root: str, code_base: str):
         if file_path.filename not in embed_name_map or embed_name_map[file_path.filename] == rel:
             embed_name_map[file_path.filename] = rel
 
-    link_re = re.compile(r'\[([^\]]+)\]\(([^)]+)\)')
+    link_re = re.compile(r'\[([^\]]+)\]\((?:<([^>]+)>|((?:[^()\\]|\\[()])+))\)')
 
     def rewrite_line(line: str, info: MarkdownFile) -> str:
         def repl(m: re.Match[str]) -> str:
-            text, target = m.groups()
+            text = m.group(1)
+            target = m.group(2) or m.group(3)
+            special_link = m.group(2) is not None
 
             if '://' in target or target == 'Home' or target.startswith('tel:'):
                 return m.group(0)
@@ -114,6 +116,9 @@ def main(root: str, code_base: str):
                     or md_name_map.get(basename))
                 if new_base:
                     new_link = re.sub(r'\.md$', '', new_base, flags=re.IGNORECASE)
+
+            if new_link and special_link:
+                new_link = '<' + new_link + '>'
 
             return (f'[{text}]({new_link}{("#"+anchor) if sep else ""})'
                     if new_link else m.group(0))
