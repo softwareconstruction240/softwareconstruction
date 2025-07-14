@@ -114,8 +114,8 @@ def main(root: str, code_base: str):
                     new_link = code_base.rstrip('/') + '/' + rel_to_root
                 else:
                     new_link = os.path.normpath(os.path.join(code_base, rel_to_root))
-
-            print(target)
+            else:
+                print(target)
 
             if not new_link:
                 return m.group(0)
