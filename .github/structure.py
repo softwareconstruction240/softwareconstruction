@@ -43,9 +43,9 @@ class TupleNameMap:
             self._name_map[name] = value
 
     def get(self, dirpath: str, parent: str, name: str) -> str | None:
-        print(dirpath)
-        print(parent)
-        print(name)
+        print(dirpath or 'None')
+        print(parent or 'None')
+        print(name or 'None')
         return (self._tuple_map.get(dirpath, name) or
                 self._tuple_map.get(parent, name) or
                 self._name_map.get(name))
