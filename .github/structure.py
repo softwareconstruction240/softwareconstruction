@@ -41,11 +41,11 @@ class TupleNameMap:
         for parent, name, value in mapper:
             self._tuple_map[(parent, name)] = value
             self._name_map[name] = value
-        print('TupleNameMap')
-        print(self._tuple_map)
-        print(self._name_map)
 
     def get(self, dirpath: str, parent: str, name: str) -> str | None:
+        print(dirpath)
+        print(parent)
+        print(name)
         return (self._tuple_map.get(dirpath, name) or
                 self._tuple_map.get(parent, name) or
                 self._name_map.get(name))
