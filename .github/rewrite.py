@@ -75,6 +75,7 @@ def main(root: str, code_base: str):
         if file_path.filename not in embed_name_map or embed_name_map[file_path.filename] == rel:
             embed_name_map[file_path.filename] = rel
 
+    # Groups: 1) Link text, 2) Links inside <>, 3) All other links
     link_re = re.compile(r'\[([^\]]+)\]\((?:<([^>]+)>|((?:[^()\\]|\\[()])+))\)')
 
     base_cases = [r':\/\/', r'^Home$', r'^tel:.*', r'^mailto:.*']
