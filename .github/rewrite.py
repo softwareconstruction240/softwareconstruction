@@ -67,19 +67,21 @@ def main(root: str, code_base: str):
         for file_path in find_files_with_exts(root, *EMBED_EXTS))
 
     # Groups: 1) Link text, 2) Links inside <>, 3) All other links
-    link_re = re.compile(r'\[(?:[^\]]+)\]\((?:<([^>]+)>|((?:[^()\\]|\\[()])+))\)')
+    link_re = re.compile(r'\[([^\]]+)\]\((?:<([^>]+)>|((?:[^()\\]|\\[()])+))\)')
 
     base_cases = [r':\/\/', r'^Home$', r'^tel:.*', r'^mailto:.*']
     base_re = re.compile('|'.join(base_cases))
 
     def rewrite_line(line: str, info: MarkdownFile) -> str:
         def repl(m: re.Match[str]) -> str:
-            target = m.group(1) or m.group(2)
+            text = m.group(1)
+            target = m.group(2) or m.group(3)
+            special_link = m.group(2) is not None
 
             if base_re.search(target):
                 return m.group(0)
 
-            path_part, sep, _ = target.partition('#')
+            path_part, sep, anchor = target.partition('#')
             dirname = os.path.basename(os.path.dirname(path_part))
             basename = os.path.basename(path_part)
             ext = get_ext(basename)
@@ -95,9 +97,6 @@ def main(root: str, code_base: str):
                     new_link = re.sub(r'\.md$', '', new_base, flags=re.IGNORECASE)
 
             elif ext != '' or sep == '':
-                print('Code:')
-                print(ext != '')
-                print(sep == '')
                 abs_path = os.path.normpath(os.path.join(info.dirpath, path_part))
                 rel_to_root = os.path.relpath(abs_path, root)
 
@@ -109,7 +108,12 @@ def main(root: str, code_base: str):
             if not new_link:
                 return m.group(0)
 
-            return re.sub(path_part, new_link, m.group(0))
+            if sep:
+                new_link = new_link + sep + anchor
+            if special_link:
+                new_link = '<' + new_link + '>'
+
+            return f'[{text}]({new_link})'
 
         return link_re.sub(repl, line)
 
