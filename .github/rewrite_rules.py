@@ -19,12 +19,12 @@ EDIT_FILE_EXTS = {'md'}
 def wiki_page_title(title: str | None, body: list[str], file_path: FilePath) -> str:
     # pylint: disable=W0613
     """
-    Takes in the extracted H1 header if found, the file's remaining text, and the file path info.
-    Returns the new title for the Markdown file, which will be slugified and used to name the page
+    Takes in the extracted file title if found, the file's remaining text, and the file path info.
+
+    Returns the new title for the editing file, which will be slugified and used to name the page
     when used in the wiki, including the file extension.
     
-    The title H1 header is only found if it's the first non-empty line in the file.
-    The header is passed verbatim to this function and should be slugified if used directly.
+    The logic to find the title is defined in extract_title_and_body.
     """
     if title:
         phase_dir = re.search(r'(\d+)', file_path.parent)
@@ -32,3 +32,23 @@ def wiki_page_title(title: str | None, body: list[str], file_path: FilePath) -> 
             return f"{title} - Phase {phase_dir.group(1)}.md"
         return title + '.md'
     return file_path.filename
+
+def extract_title_and_body(path: str) -> tuple[str | None, list[str]]:
+    """
+    Takes in the full path to the file being accessed.
+
+    Returns (title, body_lines) as extracted from the file, and the rest of the file.
+    - title can be None if file's name must remain unchanged or doesn't match pattern.
+    """
+    with open(path, encoding='utf-8') as f:
+        lines = f.readlines()
+
+    line_number, first_line = next((i, ln) for (i, ln) in enumerate(lines) if ln.strip())
+    if not first_line.lstrip().startswith('# '):
+        return None, lines
+    title = first_line.strip()[2:]
+
+    j = line_number + 1
+    while j < len(lines) and lines[j].strip() == '':
+        j += 1
+    return title, lines[j:]

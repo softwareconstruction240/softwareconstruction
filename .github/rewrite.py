@@ -3,7 +3,8 @@ import os
 import re
 import sys
 from structure import ContentFilePath, FilePath, TupleNameMap, slugify
-from rewrite_rules import LINK_BASE_CASES, EMBED_EXTS, EDIT_FILE_EXTS, wiki_page_title
+from rewrite_rules import (LINK_BASE_CASES, EMBED_EXTS, EDIT_FILE_EXTS,
+    wiki_page_title, extract_title_and_body)
 
 
 def get_ext(path: str):
@@ -16,26 +17,6 @@ def find_files_with_exts(root: str, *exts: str):
         for f in files:
             if get_ext(f) in exts:
                 yield FilePath(path_from_root, f)
-
-def extract_title_and_body(path: str) -> tuple[str | None, list[str]]:
-    """
-    Returns (title, body_lines) as extracted from the H1 header and the rest of the file.
-    - title is None if first non-empty line is not an H1 (# ).
-    - body_lines is the remaining lines after dropping the title line
-      and any immediately following blank lines.
-    """
-    with open(path, encoding='utf-8') as f:
-        lines = f.readlines()
-
-    line_number, first_line = next((i, ln) for (i, ln) in enumerate(lines) if ln.strip())
-    if not first_line.lstrip().startswith('# '):
-        return None, lines
-    title = first_line.strip()[2:]
-
-    j = line_number + 1
-    while j < len(lines) and lines[j].strip() == '':
-        j += 1
-    return title, lines[j:]
 
 def main(root: str, code_base: str):
     mapping: dict[str, ContentFilePath] = {}
