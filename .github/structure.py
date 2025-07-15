@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 import os
+import re
 from typing import List, Iterator
 
 
@@ -50,3 +51,11 @@ class TupleNameMap:
         return (self._tuple_map.get((dirpath, name)) or
                 self._tuple_map.get((parent, name)) or
                 self._name_map.get(name))
+
+
+def slugify(name: str) -> str:
+    """Remove filesystem-unfriendly chars"""
+    name = name.strip()
+    name = re.sub(r'[\\/:"*?<>|]+', '', name)
+    name = re.sub(r'\s+', '-', name)
+    return name

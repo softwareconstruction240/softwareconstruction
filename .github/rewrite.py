@@ -2,15 +2,9 @@
 import os
 import re
 import sys
-from structure import ContentFilePath, FilePath, TupleNameMap
+from structure import ContentFilePath, FilePath, TupleNameMap, slugify
 from rewrite_rules import LINK_BASE_CASES, EMBED_EXTS, EDIT_FILE_EXTS, wiki_page_title
 
-def slugify(name: str) -> str:
-    """Remove filesystem-unfriendly chars"""
-    name = name.strip()
-    name = re.sub(r'[\\/:"*?<>|]+', '', name)
-    name = re.sub(r'\s+', '-', name)
-    return name
 
 def get_ext(path: str):
     """Get the file extension, if present"""
