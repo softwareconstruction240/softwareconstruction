@@ -4,7 +4,7 @@ to allow its reuse in other repositories as desired.
 """
 
 import re
-import structure
+from structure import FilePath, slugify     # pylint: disable=W0611
 
 LINK_BASE_CASES = [r':\/\/', r'^Home#?', r'^tel:.*', r'^mailto:.*', r'^#']
 """List of regex strings that will leave a markdown link unchanged
@@ -16,7 +16,7 @@ EMBED_EXTS = {'png', 'gif', 'jpg', 'jpeg', 'svg', 'webp', 'uml', 'mp4', 'mov', '
 EDIT_FILE_EXTS = {'md'}
 """File extensions that will be modified by the script."""
 
-def wiki_page_title(title: str | None, body: list[str], file_path: structure.FilePath) -> str:
+def wiki_page_title(title: str | None, body: list[str], file_path: FilePath) -> str:
     # pylint: disable=W0613
     """
     Takes in the extracted H1 header if found, the file's remaining text, and the file path info.
@@ -24,10 +24,11 @@ def wiki_page_title(title: str | None, body: list[str], file_path: structure.Fil
     when used in the wiki, including the file extension.
     
     The title H1 header is only found if it's the first non-empty line in the file.
+    The header is passed verbatim to this function and should be slugified if used directly.
     """
     if title:
         phase_dir = re.search(r'(\d+)', file_path.parent)
         if file_path.filename == 'getting-started.md' and phase_dir:
-            return f"{title}---Phase-{phase_dir.group(1)}.md"
+            return f"{title} - Phase {phase_dir.group(1)}.md"
         return title + '.md'
     return file_path.filename
