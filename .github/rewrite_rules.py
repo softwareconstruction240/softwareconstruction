@@ -1,3 +1,8 @@
+"""
+This module provides a common place to change the specific information of the rewrite script
+to allow its reuse in other repositories as desired.
+"""
+
 import re
 import structure
 
