@@ -3,7 +3,7 @@ import os
 import re
 import sys
 from structure import MarkdownFile, FilePath, TupleNameMap
-from rewrite_rules import LINK_BASE_CASES, EMBED_EXTS, wiki_page_title
+from rewrite_rules import LINK_BASE_CASES, EMBED_EXTS, EDIT_FILE_EXTS, wiki_page_title
 
 def slugify(name: str) -> str:
     """Remove filesystem-unfriendly chars"""
@@ -45,7 +45,7 @@ def extract_title_and_body(path: str) -> tuple[str | None, list[str]]:
 
 def main(root: str, code_base: str):
     mapping: dict[str, MarkdownFile] = {}
-    for file_path in find_files_with_exts(root, "md"):
+    for file_path in find_files_with_exts(root, *EDIT_FILE_EXTS):
         title, body = extract_title_and_body(file_path.full_path)
         filename = slugify(wiki_page_title(title, body, file_path))
 
@@ -79,7 +79,7 @@ def main(root: str, code_base: str):
             if ext in EMBED_EXTS:
                 new_link = embed_map.get(dirname, info.parent, basename)
 
-            elif ext == 'md':
+            elif ext in EDIT_FILE_EXTS:
                 new_base = markdown_map.get(dirname, info.parent, basename)
                 new_link = re.sub(r'\.md$', '', new_base, flags=re.IGNORECASE)
 
