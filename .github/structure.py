@@ -5,6 +5,7 @@ from typing import List, Iterator
 
 @dataclass
 class FilePath:
+    """Represents the path to a file from the source of the project."""
     dirpath: str
     """Path from root to parent directory of file"""
     filename: str
@@ -26,12 +27,15 @@ class FilePath:
 
 @dataclass
 class ContentFilePath(FilePath):
+    """Represents a FilePath with a reference to the contents of such file."""
     body: List[str]
     """All content of the file as separate lines"""
 
 
 @dataclass(init=False)
 class TupleNameMap:
+    """Represents a conjoined map from an old filename to it's new name,
+    relative to room or just by name alone."""
     _tuple_map: dict[tuple[str, str], str]
     _name_map: dict[str, str]
 
