@@ -2,9 +2,8 @@
 import os
 import re
 import sys
-from typing import List
 from structure import MarkdownFile, FilePath, TupleNameMap
-from rewrite_rules import LINK_BASE_CASES, EMBED_EXTS
+from rewrite_rules import LINK_BASE_CASES, EMBED_EXTS, wiki_page_title
 
 def slugify(name: str) -> str:
     """Remove filesystem-unfriendly chars"""
@@ -48,12 +47,7 @@ def main(root: str, code_base: str):
     mapping: dict[str, MarkdownFile] = {}
     for file_path in find_files_with_exts(root, "md"):
         title, body = extract_title_and_body(file_path.full_path)
-        filename = file_path.filename
-        if title:
-            phase_dir = re.search(r'(\d+)', file_path.parent)
-            if filename == 'getting-started.md' and phase_dir:
-                title = f"{title}---Phase-{phase_dir.group(1)}"
-            filename = f"{title}.md"
+        filename = f'{slugify(wiki_page_title(title, body, file_path))}.md'
 
         mapping[file_path.full_path] = MarkdownFile(file_path.dirpath, filename, body)
 
