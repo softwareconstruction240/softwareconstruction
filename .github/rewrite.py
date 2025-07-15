@@ -4,9 +4,7 @@ import re
 import sys
 from typing import List
 from structure import MarkdownFile, FilePath, TupleNameMap
-from rewrite_rules import LINK_BASE_CASES
-
-EMBED_EXTS = {'png', 'gif', 'jpg', 'jpeg', 'svg', 'webp', 'uml', 'mp4', 'mov', 'webm'}
+from rewrite_rules import LINK_BASE_CASES, EMBED_EXTS
 
 def slugify(name: str) -> str:
     """Remove filesystem-unfriendly chars"""
@@ -26,7 +24,7 @@ def find_files_with_exts(root: str, *exts: str):
             if get_ext(f) in exts:
                 yield FilePath(path_from_root, f)
 
-def extract_title_and_body(path: str) -> tuple[str | None, List[str]]:
+def extract_title_and_body(path: str) -> tuple[str | None, list[str]]:
     """
     Returns (title, body_lines), where title is slugified.
     - title is None if first non-empty line is not an H1 (# ).
