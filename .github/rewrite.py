@@ -19,7 +19,7 @@ def find_files_with_exts(root: str, *exts: str):
 
 def extract_title_and_body(path: str) -> tuple[str | None, list[str]]:
     """
-    Returns (title, body_lines), where title is slugified.
+    Returns (title, body_lines) as extracted from the H1 header and the rest of the file.
     - title is None if first non-empty line is not an H1 (# ).
     - body_lines is the remaining lines after dropping the title line
       and any immediately following blank lines.
@@ -30,7 +30,7 @@ def extract_title_and_body(path: str) -> tuple[str | None, list[str]]:
     line_number, first_line = next((i, ln) for (i, ln) in enumerate(lines) if ln.strip())
     if not first_line.lstrip().startswith('# '):
         return None, lines
-    title = slugify(first_line.strip()[2:])
+    title = first_line.strip()[2:]
 
     j = line_number + 1
     while j < len(lines) and lines[j].strip() == '':
