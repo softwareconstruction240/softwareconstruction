@@ -60,6 +60,24 @@ def main(root: str, code_base: str):
 
     clean_ext_pattern = r'\.(' + '|'.join(EDIT_FILE_EXTS) + r')$'
 
+    def extract_new_link(info: ContentFilePath, path_part: str) -> str:
+        dirname = os.path.basename(os.path.dirname(path_part))
+        basename = os.path.basename(path_part)
+
+        match get_ext(basename):
+            case embed if embed in EMBED_EXTS:
+                return embed_map.get(dirname, info.parent, basename)
+            case edit if edit in EDIT_FILE_EXTS:
+                new_base = edited_map.get(dirname, info.parent, basename)
+                return re.sub(clean_ext_pattern, '', new_base, flags=re.IGNORECASE)
+            case _:
+                abs_path = os.path.normpath(os.path.join(info.dirpath, path_part))
+                rel_to_root = os.path.relpath(abs_path, root)
+
+                if code_base.startswith(('http://', 'https://')):
+                    return code_base.rstrip('/') + '/' + rel_to_root
+                return os.path.normpath(os.path.join(code_base, rel_to_root))
+
     def rewrite_line(line: str, info: ContentFilePath) -> str:
         def repl(m: re.Match[str]) -> str:
             target = m.group(1) or m.group(2)
@@ -68,25 +86,7 @@ def main(root: str, code_base: str):
                 return m.group(0)
 
             path_part = target.partition('#')[0]
-            dirname = os.path.basename(os.path.dirname(path_part))
-            basename = os.path.basename(path_part)
-            ext = get_ext(basename)
-
-            if ext in EMBED_EXTS:
-                new_link = embed_map.get(dirname, info.parent, basename)
-
-            elif ext in EDIT_FILE_EXTS:
-                new_base = edited_map.get(dirname, info.parent, basename)
-                new_link = re.sub(clean_ext_pattern, '', new_base, flags=re.IGNORECASE)
-
-            else:
-                abs_path = os.path.normpath(os.path.join(info.dirpath, path_part))
-                rel_to_root = os.path.relpath(abs_path, root)
-
-                if code_base.startswith(('http://', 'https://')):
-                    new_link = code_base.rstrip('/') + '/' + rel_to_root
-                else:
-                    new_link = os.path.normpath(os.path.join(code_base, rel_to_root))
+            new_link = extract_new_link(info, path_part)
 
             return re.sub(re.escape(path_part), new_link, m.group(0), 1)
 
