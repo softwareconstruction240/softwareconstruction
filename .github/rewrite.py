@@ -2,7 +2,7 @@
 import os
 import re
 import sys
-from structure import MarkdownFile, FilePath, TupleNameMap
+from structure import ContentFilePath, FilePath, TupleNameMap
 from rewrite_rules import LINK_BASE_CASES, EMBED_EXTS, EDIT_FILE_EXTS, wiki_page_title
 
 def slugify(name: str) -> str:
@@ -44,14 +44,14 @@ def extract_title_and_body(path: str) -> tuple[str | None, list[str]]:
     return title, lines[j:]
 
 def main(root: str, code_base: str):
-    mapping: dict[str, MarkdownFile] = {}
+    mapping: dict[str, ContentFilePath] = {}
     for file_path in find_files_with_exts(root, *EDIT_FILE_EXTS):
         title, body = extract_title_and_body(file_path.full_path)
         filename = slugify(wiki_page_title(title, body, file_path))
 
-        mapping[file_path.full_path] = MarkdownFile(file_path.dirpath, filename, body)
+        mapping[file_path.full_path] = ContentFilePath(file_path.dirpath, filename, body)
 
-    markdown_map = TupleNameMap(
+    edited_map = TupleNameMap(
         (info.parent, os.path.basename(old_path), info.filename)
         for (old_path, info) in mapping.items())
 
@@ -66,7 +66,7 @@ def main(root: str, code_base: str):
 
     clean_ext_pattern = r'\.(' + '|'.join(EDIT_FILE_EXTS) + r')$'
 
-    def rewrite_line(line: str, info: MarkdownFile) -> str:
+    def rewrite_line(line: str, info: ContentFilePath) -> str:
         def repl(m: re.Match[str]) -> str:
             target = m.group(1) or m.group(2)
 
@@ -82,7 +82,7 @@ def main(root: str, code_base: str):
                 new_link = embed_map.get(dirname, info.parent, basename)
 
             elif ext in EDIT_FILE_EXTS:
-                new_base = markdown_map.get(dirname, info.parent, basename)
+                new_base = edited_map.get(dirname, info.parent, basename)
                 new_link = re.sub(clean_ext_pattern, '', new_base, flags=re.IGNORECASE)
 
             else:

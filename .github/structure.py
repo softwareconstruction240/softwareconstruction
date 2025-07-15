@@ -25,7 +25,7 @@ class FilePath:
 
 
 @dataclass
-class MarkdownFile(FilePath):
+class ContentFilePath(FilePath):
     body: List[str]
     """All content of the file as separate lines"""
 
