@@ -47,7 +47,7 @@ def main(root: str, code_base: str):
     mapping: dict[str, MarkdownFile] = {}
     for file_path in find_files_with_exts(root, "md"):
         title, body = extract_title_and_body(file_path.full_path)
-        filename = f'{slugify(wiki_page_title(title, body, file_path))}.md'
+        filename = slugify(wiki_page_title(title, body, file_path))
 
         mapping[file_path.full_path] = MarkdownFile(file_path.dirpath, filename, body)
 

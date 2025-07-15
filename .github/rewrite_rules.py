@@ -18,13 +18,13 @@ def wiki_page_title(title: str | None, body: list[str], file_path: structure.Fil
     """
     Takes in the extracted H1 header if found, the file's remaining text, and the file path info.
     Returns the new title for the Markdown file, which will be slugified and used to name the page
-    when used in the wiki. Shouldn't include the '.md' extension.
+    when used in the wiki, including the '.md' file extension.
     
     The title H1 header is only found if it's the first non-empty line in the file.
     """
     if title:
         phase_dir = re.search(r'(\d+)', file_path.parent)
         if file_path.filename == 'getting-started.md' and phase_dir:
-            return f"{title}---Phase-{phase_dir.group(1)}"
-        return title
+            return f"{title}---Phase-{phase_dir.group(1)}.md"
+        return title + '.md'
     return file_path.filename
