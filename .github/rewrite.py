@@ -64,6 +64,8 @@ def main(root: str, code_base: str):
 
     base_re = re.compile('|'.join(LINK_BASE_CASES))
 
+    clean_ext_pattern = r'\.(' + '|'.join(EDIT_FILE_EXTS) + r')$'
+
     def rewrite_line(line: str, info: MarkdownFile) -> str:
         def repl(m: re.Match[str]) -> str:
             target = m.group(1) or m.group(2)
@@ -81,7 +83,7 @@ def main(root: str, code_base: str):
 
             elif ext in EDIT_FILE_EXTS:
                 new_base = markdown_map.get(dirname, info.parent, basename)
-                new_link = re.sub(r'\.md$', '', new_base, flags=re.IGNORECASE)
+                new_link = re.sub(clean_ext_pattern, '', new_base, flags=re.IGNORECASE)
 
             else:
                 abs_path = os.path.normpath(os.path.join(info.dirpath, path_part))
