@@ -19,7 +19,7 @@
 
 ## Instruction
 
-[**Instructional topics**](../instruction/modules.md)  
+[**Instructional topics**](/instruction/modules.md)  
 <!--Write out topics in either alphabetical or instruction order, or only parent links within modules.md-->
 
 <!--Files not listed:
