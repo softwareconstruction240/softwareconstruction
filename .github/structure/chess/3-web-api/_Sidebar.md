@@ -8,3 +8,12 @@
 
 ## Chess Phase 3
 
+[**Chess Application**](/chess/chess.md)  
+[**Getting Started**](/chess/3-web-api/getting-started.md)  
+
+<!--In-Page Links-->
+[**Required HTTP Endpoints**](/chess/3-web-api/web-api.md#required-http-endpoints)  
+
+## Relevant Instruction Topics
+
+[**Web API**](/instruction/web-api/web-api.md)  
