@@ -5,9 +5,9 @@
 
 ## Chess
 
-[**Chess Project**](/chess/chess.md)  
+[**Chess Application**](/chess/chess.md)  
 <!--Chess Assignments-->
-[**Chess GitHub Repository**](/chess/chess-github-repository/chess-github-repository.md)  
+[**GitHub Repository**](/chess/chess-github-repository/chess-github-repository.md)  
 [**Phase 0**](/chess/0-chess-moves/chess-moves.md)  
 [**Phase 1**](/chess/1-chess-game/chess-game.md)  
 [**Phase 2**](/chess/2-server-design/server-design.md)  
