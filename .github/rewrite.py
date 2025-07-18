@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 import sys
-from structure import os, re, ContentFilePath, FilePath, TupleNameMap, slugify
+import os
+import re
+from structure import ContentFilePath, FilePath, TupleNameMap, slugify
 from rewrite_rules import (LINK_BASE_CASES, EMBED_EXTS, EDIT_FILE_EXTS,
     wiki_page_title, extract_title_and_body)
 
