@@ -3,6 +3,9 @@
 [**Syllabus**](/instruction/syllabus/syllabus.md)  
 [**Pet Shop**](/petshop/petshop.md)  
 
+[**Auto-Grader**](https://cs240.click)  
+[**Help Queue**](https://help.cs240.click)  
+
 ## Chess
 
 [**Chess Application**](/chess/chess.md)  
