@@ -28,7 +28,7 @@ def wiki_page_title(title: str | None, body: list[str], file_path: FilePath) -> 
     if title:
         phase_dir = re.search(r'(\d+)', file_path.parent)
         if file_path.filename == 'getting-started.md' and phase_dir:
-            return f"{title} — Phase {phase_dir.group(1)}.md"
+            return f"{title} ‐ Phase {phase_dir.group(1)}.md"
         return title + '.md'
     return file_path.filename
 
