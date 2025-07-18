@@ -6,7 +6,7 @@
 [**Auto-Grader**](https://cs240.click)  
 [**Help Queue**](https://help.cs240.click)  
 
-## Chess Phase 3
+## [**Chess Phase 3**](/chess/3-web-api/web-api.md)
 
 [**Chess Application**](/chess/chess.md)  
 [**Getting Started**](/chess/3-web-api/getting-started.md)  
