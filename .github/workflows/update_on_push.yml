@@ -32,7 +32,7 @@ jobs:
           python3 -m pip install --upgrade pip
       - name: Rewrite markdown titles, filenames, and links
         run: |
-          python3 .github/rewrite.py docs $GITHUB_REPO
+          python3 .github/scripts/rewrite.py docs $GITHUB_REPO
       - name: Sync docs to wiki
         uses: newrelic/wiki-sync-action@v1.0.1
         with:
