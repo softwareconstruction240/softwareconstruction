@@ -9,7 +9,7 @@
 ## Chess Phase 3
 
 [**Chess Application**](/chess/chess.md)  
-[**Chess Web API**](/chess/3-web-api/web-api.md)
+[**Chess Web API**](/chess/3-web-api/web-api.md)  
 [**Getting Started**](/chess/3-web-api/getting-started.md)  
 
 <!--In-Page Links-->
