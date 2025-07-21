@@ -6,7 +6,9 @@
 
 In this part of the Chess Project, you will implement a basic representation of the game of chess. This includes the setting up of the board and defining how pieces move.
 
-> [!NOTE] Review the [Game of Chess](the-game-of-chess.md) instruction to learn how to set up the board and how each of the pieces move.
+> [!NOTE]
+>
+> Review the [Game of Chess](the-game-of-chess.md) instruction to learn how to set up the board and how each of the pieces move.
 
 ## Starter Code
 
@@ -73,7 +75,9 @@ classDiagram
     ChessBoard o-- "*" ChessPiece
 ```
 
-> [!NOTE] You are not limited to this representation. However, you must not change the existing class names or method signatures since they are used by the pass off tests. You will likely need to add new classes and methods to complete the work required by this phase.
+> [!NOTE]
+>
+> You are not limited to this representation. However, you must not change the existing class names or method signatures since they are used by the pass off tests. You will likely need to add new classes and methods to complete the work required by this phase.
 
 ## Chess Classes
 
@@ -81,8 +85,9 @@ classDiagram
 
 This class serves as the top-level management of the chess game. It is responsible for executing moves as well as recording the game status.
 
-> [!IMPORTANT] Although the `ChessGame` class is presented now, it will not be used until Phase 1.\
-> ChessGame related tests will be [added to the working directory](../1-chess-game/getting-started.md) later.
+> [!IMPORTANT]
+>
+> Although the `ChessGame` class is presented now, it will not be used until **Phase 1. ChessGame**. Related tests will be [added to the working directory](../1-chess-game/getting-started.md) later.
 
 ### ChessBoard
 
@@ -117,7 +122,9 @@ This class represents a possible move a chess piece could make. It contains the 
 
 This represents a location on the chessboard. This should be represented as a row number from 1-8, and a column number from 1-8. For example, (1,1) corresponds to the bottom left corner (which in chess notation is denoted `a1`). (8,8) corresponds to the top right corner (`h8` in chess notation).
 
-> [!NOTE] If you implement your Chess Board with an array or a similar data structure accessed with an index, remember that those indexes start with 0, where Chess Positions should go from 1 to 8. Make sure you account for the difference between these two numbers and how you translate between them, such as using a Chess Position to get a Piece from the Board.
+> [!NOTE]
+>
+> If you implement your Chess Board with an array or a similar data structure accessed with an index, remember that those indexes start with 0, where Chess Positions should go from 1 to 8. Make sure you account for the difference between these two numbers and how you translate between them, such as using a Chess Position to get a Piece from the Board.
 
 ## Object Overrides
 
@@ -129,7 +136,9 @@ The tests and autograder rely on these methods in order to compare your objects.
 
 To understand why we need to override the `equals()` and `hashCode()` methods, see the instruction page on [Java Object Class](../../instruction/java-object-class/java-object-class.md).
 
-> [!TIP] Debugging is often much easier if you also override the `toString()` method and return a concise representation of the object. This is not required, but highly recommended. This can be generated in the same way that the `equals()` and `hashcode()` were.
+> [!TIP]
+>
+> Debugging is often much easier if you also override the `toString()` method and return a concise representation of the object. This is not required, but highly recommended. This can be generated in the same way that the `equals()` and `hashcode()` were.
 
 ## Testing
 
@@ -168,7 +177,9 @@ To pass off this assignment use the course [auto-grading](https://cs240.click/) 
 
 ### Grading Rubric
 
-> [!IMPORTANT] You are required to commit to GitHub with every minor milestone. For example, after you successfully pass a test. This should result in a commit history that clearly details your work on this phase. If your Git history does not demonstrate your efforts then your submission may be rejected.
+> [!IMPORTANT]
+>
+> You are required to commit to GitHub with every minor milestone. For example, after you successfully pass a test. This should result in a commit history that clearly details your work on this phase. If your Git history does not demonstrate your efforts then your submission may be rejected.
 
 | Category       | Criteria                                                                                          |       Points |
 | :------------- | :------------------------------------------------------------------------------------------------ | -----------: |
@@ -178,7 +189,9 @@ To pass off this assignment use the course [auto-grading](https://cs240.click/) 
 
 ## <a name="videos"></a>Videos (21:22)
 
-> [!NOTE] The "Phase 0 Overview" video contains some outdated setup information. Between timestamps 0:51 and 2:40, an older and more complicated way of setting up the repo is demonstrated. This section of the video can be skipped.
+> [!NOTE]
+>
+> The "Phase 0 Overview" video contains some outdated setup information. Between timestamps 0:51 and 2:40, an older and more complicated way of setting up the repo is demonstrated. This section of the video can be skipped.
 
 - 🎥 [Phase 0 Overview (15:51)](https://youtu.be/mTtK8iRXsZo) - [transcript]
 - 🎥 [Phase 0 Design Tips (5:31)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=88653eac-78a8-4f59-a12a-b170014f61f1) - [[transcript]](https://github.com/user-attachments/files/17706812/CS_240_Phase_0_Design_Tips_Transcript.pdf)

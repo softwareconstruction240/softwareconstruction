@@ -16,6 +16,7 @@ Open the project directory in IntelliJ to start developing, running, and debuggi
 The contents of the folder already contain IntelliJ configuration files and creating a new project rather than opening an existing one will cause various errors.
 
 > [!NOTE]
+>
 > If you get a prompt asking you to build with Maven, then make sure you skip that action.
 
 ![build with Maven](build-with-maven-prompt.png)
@@ -27,6 +28,7 @@ Your project should look like this when it opens with the client, server, and sh
 ## Turn off AI
 
 > [!WARNING]
+>
 > **Using AI generated code in this course is not permitted.** Failing to follow the instruction in this section will be considered **cheating**.
 
 All AI coding tools need to be turned off for this project. We want you to understand the code you write, and having AI author the code for you can be a hinderance to your learning. If you have some sort of AI coding assistant (like Copilot) that comes by default with your IDE, you need to turn that **off**. Using AI to write your code may flag our plagiarism detection system. If you are unsure about your use of AI, check the syllabus in Canvas, or ask one of the instructors.
