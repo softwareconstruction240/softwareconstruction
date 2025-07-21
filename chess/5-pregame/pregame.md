@@ -1,4 +1,4 @@
-## ♕ Phase 5: Chess Pregame
+# ♕ Phase 5: Chess Pregame
 
 - [Chess Application Overview](../chess.md)
 - [Getting Started](getting-started.md)
