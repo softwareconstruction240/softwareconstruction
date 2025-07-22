@@ -54,13 +54,24 @@ When a user begins playing or observing a game, their **client** will do the fol
 
 The following sections describe the messages that will be exchanged between client and server (or vice versa) to implement the gameplay functionality.
 
-## WebSocket Messages
+## WebSocket Communication
+
+```mermaid
+flowchart LR
+  client
+  server
+  client e1@--> |UserGameCommand|server
+  server e2@--> |ServerMessage|client
+  e1@{ animation: fast }
+  e2@{ animation: fast }
+
+```
 
 Some WebSocket messages are sent from the client to server. As defined by the Chess application design, these are called `user game commands`. Other WebSocket messages are sent from the server to client. These are called `server messages`. In code, each of these message types are represented as a Java class that can be serialized and deserialized to and from JSON (similar to the Request and Result classes you created for the server’s Web API). The provided starter code includes a class named `UserGameCommand` which defines the required messages that originate from the client, and a class named `ServerMessage` which defines the required messages that originate from the server.
 
 The `UserGameCommand` and `ServerMessage` classes are provided in the starter code, but you may extend them to suit the specific needs of your design.
 
-## User Game Commands
+### User Game Commands
 
 The following is a simplified representation of the `UserGameCommand` found in the starter code.
 
@@ -115,7 +126,7 @@ In the end, the important thing is that your design supports the additional `mov
 }
 ```
 
-## Server Messages
+### Server Messages
 
 The following is a simplified representation of the `ServerMessage` found in the starter code.
 
