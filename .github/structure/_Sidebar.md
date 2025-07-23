@@ -1,7 +1,6 @@
 [**Home**](Home)  
 [**Schedule**](Home#course-schedule) <!--If structure for schedules is made, they could be moved to wiki-->  
 [**Syllabus**](/instruction/syllabus/syllabus.md)  
-[**Pet Shop**](/petshop/petshop.md)  
 
 [**Auto-Grader**](https://cs240.click)  
 [**Help Queue**](https://help.cs240.click)  
@@ -23,6 +22,7 @@
 ## Instruction
 
 [**Instructional topics**](/instruction/modules.md)  
+[**Pet Shop**](/petshop/petshop.md)  
 <!--Write out topics in either alphabetical or instruction order, or only parent links within modules.md-->
 
 <!--Files not listed:
