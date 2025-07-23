@@ -3,11 +3,7 @@ This module provides a common place to change the specific information of the re
 to allow its reuse in other repositories as desired.
 """
 import re
-from structure import FilePath, slugify     # pylint: disable=W0611
-
-GHWT_HYPHEN = '‐'
-"""Holds the U+2010 hyphen character, which correctly renders
-as a hyphen when used inside a GitHub Wiki page title"""
+from structure import FilePath, slugify, GHWT_HYPHEN     # pylint: disable=W0611
 
 LINK_BASE_CASES = [r':\/\/', r'^Home#?', r'^tel:.*', r'^mailto:.*', r'^#']
 """List of regex strings that will leave a markdown link unchanged
