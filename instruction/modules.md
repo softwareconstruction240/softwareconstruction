@@ -12,6 +12,8 @@ The course content is divided into multiple topics that you should strive to mas
 
 - [Introduction](introduction/introduction.md)
 - [Git](git/git.md)
+- [Chess](../chess/chess.md)
+- [Pet Shop](../petshop/petshop.md)
 - ☑ [Chess GitHub Repository](../chess/chess-github-repository/chess-github-repository.md)
 - [Programming Exam](../instruction/programming-exam/programming-exam.md)
 
