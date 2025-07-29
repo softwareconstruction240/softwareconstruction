@@ -14,7 +14,7 @@ The following video shows a function called `branch` that has three paths. In or
 
 ## How much coverage?
 
-There subject of what percentage of coverage is necessary to enable confidence in your code is a very opinionated topic. Some developers feel that anything less that 100% is a problem. Others feel that obtaining 100% creates unmaintainable tests, causes harmful overhead in the actual code, and decrease productivity. The correct answer to this question is dependent on the specifics of the project you are working on.
+The subject of what percentage of coverage is necessary to enable confidence in your code is a very opinionated topic. Some developers feel that anything less that 100% is a problem. Others feel that obtaining 100% creates unmaintainable tests, causes harmful overhead in the actual code, and decrease productivity. The correct answer to this question is dependent on the specifics of the project you are working on.
 
 You should note that just because you have 100% coverage, does not mean that all paths through the code are fully exercised, or that your code is correct. Consider the case where you have a function that takes an object and references it.
 
@@ -28,7 +28,7 @@ You can write a test that calls the function and obtains 100% coverage, but unle
 
 Code coverage can also give you a false sense of security if all of your testing is simple unit tests. Many bugs only happen when your application is running from end to end. This includes a front end client, middleware business logic, and data services. Unit tests often stub out, or mock, input and output in order to isolate the test. That means it can easily miss real world parameter values, and failure cases, that occur only when the application is executing in a real world environment.
 
-With all of that said, code coverage does provide a important indicator of the value your testing is providing. It can also point you to locations in your code that are problematic and need review. This is especially true for code that is highly complex, has a high branching factor, or has paths the rarely get executed.
+With all of that said, code coverage does provide an important indicator of the value your testing is providing. It can also point you to locations in your code that are problematic and need review. This is especially true for code that is highly complex, has a high branching factor, or has paths the rarely get executed.
 
 ## Videos
 
