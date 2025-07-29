@@ -46,7 +46,7 @@ We use a cloud based package repository called Maven to manage our dependencies.
 
 ![Existing dependencies](existingDependencies.png)
 
-If you need to include additional dependencies in the futuer, select the module you wish to add a dependency to. Press the `+` button and select `Library/from Maven...`. You then supply the name of the library you want to download. Once it is added, you can specify the `scope` for the dependency. Most dependencies for this class will be with scope "compile", meaning that the dependency is available to all the code in the module when it compiles. There are a few others, including "test", which means it is only available for code used to test the code in the module.
+If you need to include additional dependencies in the future, select the module you wish to add a dependency to. Press the `+` button and select `Library/from Maven...`. You then supply the name of the library you want to download. Once it is added, you can specify the `scope` for the dependency. Most dependencies for this class will be with scope "compile", meaning that the dependency is available to all the code in the module when it compiles. There are a few others, including "test", which means it is only available for code used to test the code in the module.
 
 <img src="install-dependency.gif" alt="Install dependency" width="600px" height="auto">
 
