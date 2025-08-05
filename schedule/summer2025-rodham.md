@@ -34,4 +34,4 @@ Students should watch all videos for all topics. Links to the videos are on the 
 |      | Tue Aug 05 | [Command-Line Builds](https://github.com/softwareconstruction240/softwareconstruction/blob/main/instruction/command-line-builds/command-line-builds.md) | |
 |      | Wed Aug 06 | [Deploying Your Chess Server on AWS](https://github.com/softwareconstruction240/softwareconstruction/blob/main/instruction/aws-chess-server/aws-chess-server.md)<br/> | |
 |      | Thu Aug 07  | | _Due: Thu Aug 07_ - [Phase 6: Chess Gameplay](https://github.com/softwareconstruction240/softwareconstruction/blob/main/chess/6-gameplay/gameplay.md) |
-|  8   | Mon Aug 11 | Final Exam Review | _Aug 12 - 14_ - Final Exam |
+|  8   | Mon Aug 11 | [Final Exam Review](https://github.com/softwareconstruction240/softwareconstruction/blob/main/instruction/final-exam-review/final-exam-review.md) | _Aug 12 - 14_ - Final Exam |
