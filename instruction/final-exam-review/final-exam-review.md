@@ -8,7 +8,7 @@ This exam covers the topics not included in your Chess project work. This includ
 - [Computer Security](../computer-security/computer-security.md)
 - [Concurrency](../concurrency/concurrency.md)
 
-The format is multiple choice, multiple answer, and true/false. No external documents, references, persons, or sources of any kind may be referenced during the exam. The exam is proctored using Examity.
+The format is multiple choice, multiple answer, and true/false. No external documents, references, persons, or sources of any kind may be referenced during the exam. The exam is proctored using [Honorlock](https://honorlock.com/).
 
 For in-person students, it is strongly recommended that you attend the in-class final exam review. For online students, you should watch the final exam review video and take and study the Kahoot that your instructor will make avilable to you.
 
