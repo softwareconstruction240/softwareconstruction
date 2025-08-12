@@ -30,8 +30,7 @@ Git provides two valuable functions. First, it allows you to track versions of f
 
 The general Git development workflow is illustrated in the following diagram.
 
-<!-- Control the display width of the image, but allow readers to open up or download the full image for close reading. -->
-<img src="./GitCommitWorkflow.png" style="max-width: 500px"/>
+![Commit workflow](GitCommitWorkflow.png)
 
 To give a reference on the typically frequency of each of the stages, developers typically:
 
