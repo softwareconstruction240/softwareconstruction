@@ -53,9 +53,14 @@ class TupleNameMap:
                 self._name_map.get(name))
 
 
+GHWT_HYPHEN = '‐'
+"""Holds the U+2010 hyphen character, which correctly renders
+as a hyphen when used inside a GitHub Wiki page title"""
+
 def slugify(name: str) -> str:
     """Remove filesystem-unfriendly chars"""
     name = name.strip()
+    name = re.sub(r'[:]', f' {GHWT_HYPHEN}', name)
     name = re.sub(r'[\\/:"*?<>|]+', '', name)
     name = re.sub(r'\s+', '-', name)
     return name
