@@ -21,7 +21,9 @@ You will be most successful in this course if you set aside time each day, or ev
 
 For all of the above reasons, it is required that you use GitHub for your chess project. Additionally, you must use it consistently and frequently.
 
-> [!IMPORTANT] It is a prerequisite for all deliverables that you have at least 10 commits evenly spread across the assignment period for the deliverable.
+> [!IMPORTANT]
+>
+> It is a prerequisite for all deliverables that you have at least 10 commits evenly spread across the assignment period for the deliverable.
 
 If you do not have the required number of commits, or if they are all clustered in a single burst of activity, then you will need to justify the discrepancy before the deliverable will be accepted.
 
@@ -98,7 +100,9 @@ When you have successfully completed the assignment:
 
 ## Videos
 
-> [!NOTE] The "Chess GitHub Repository" video shows screenshots of outdated setup information. Between timestamps 2:16 and 2:26, the instructions for an older and more complicated way of setting up the repo are shown. Read the online version for the most up-to-date instructions.
+> [!NOTE]
+>
+> The "Chess GitHub Repository" video shows screenshots of outdated setup information. Between timestamps 2:16 and 2:26, the instructions for an older and more complicated way of setting up the repo are shown. Read the online version for the most up-to-date instructions.
 >
 > Additionally, at timestamp 2:48 the video suggests that the GitHub repo url needs to be turned in to Canvas. This is outdated; however, the rest of the discussion about the role of the autograder is correct. Instead, you will submit the GitHub repo directly to the autograder as described in the latest version of the instructions.
 

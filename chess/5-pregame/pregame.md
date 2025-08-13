@@ -98,7 +98,9 @@ Write positive and negative unit tests for each method on your ServerFacade clas
 
 Your tests must be located in the file `client/src/test/java/client/ServerFacadeTests.java`, provided in the starter code.
 
-> [!TIP] `ServerFacadeTests.java` contains code that will automatically start and shutdown your server on a randomly assigned port as part of the test. However, you will still need to start your server using the `Main.main` function when you manually run your client.
+> [!TIP]
+>
+> `ServerFacadeTests.java` contains code that will automatically start and shutdown your server on a randomly assigned port as part of the test. However, you will still need to start your server using the `Main.main` function when you manually run your client.
 
 ```java
 public class ServerFacadeTests {
