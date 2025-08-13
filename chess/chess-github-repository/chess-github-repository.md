@@ -102,7 +102,7 @@ When you have successfully completed the assignment:
 
 > [!NOTE]
 >
-> The "Chess GitHub Repository" video shows screenshots of outdated setup information. Between timestamps 2:16 and 2:26, the instructions for an older and more complicated way of setting up the repo are shown. Read the online version for the most up-to-date instructions.
+> The "Chess GitHub Repository" video shows screenshots of outdated setup information. Between timestamps 2:16 and 2:26, the instructions for an older and more complicated way of setting up the repo are shown. Read the online version for the most up-to-date instructions. You can also view the first part of the [Phase 0 Overview](https://youtu.be/mTtK8iRXsZo) video to see an example of setting up your Chess repository.
 >
 > Additionally, at timestamp 2:48 the video suggests that the GitHub repo url needs to be turned in to Canvas. This is outdated; however, the rest of the discussion about the role of the autograder is correct. Instead, you will submit the GitHub repo directly to the autograder as described in the latest version of the instructions.
 
