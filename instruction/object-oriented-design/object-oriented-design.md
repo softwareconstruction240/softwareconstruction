@@ -76,6 +76,6 @@ Of course you can simplify too far and end up with thousands of classes that eac
 - Class diagram
 - Sequence diagram
 
-## <a name="videos"></a>Videos
+## Videos
 
 - 🎥 [Object-Oriented Design Overview](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=77c184e5-8afd-4c56-84c8-ad64013f7a4b&start=0) - [[transcript]](https://github.com/user-attachments/files/17805111/CS_240_Object_Oriented_Design_Overview.pdf)

@@ -117,7 +117,7 @@ When an object overrides both the `equals` and `hashCode` methods, you can use i
 - How to override the `hashCode()` method
 - How hash tables work and why we need a `hashCode()` method
 
-## <a name="videos"></a>Videos
+## Videos
 
 - 🎥 [Classes and Objects Overview](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=8d7440ec-313d-45d1-891f-ad5f01307ab8&start=0) - [[transcript]](https://github.com/user-attachments/files/17750879/CS_240_Classes_and_Objects_Overview_Transcript.1.pdf)
 - 🎥 [The `Object` Super Class](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=1de40809-379f-44fd-8ffe-ad5f01307a86&start=0) - [[transcript]](https://github.com/user-attachments/files/17750887/CS_240_Classes_and_Objects_The_Object_Super_Class_Transcript.pdf)

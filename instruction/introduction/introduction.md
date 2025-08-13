@@ -8,6 +8,10 @@
 
 🖥️ [Lecture Videos](#videos)
 
+[SE](#software-engineering)
+
+[Proj](#chess-project)
+
 Welcome to Computer Science 240: `Advanced Software Construction`. This course focuses on learning how professional software developers build applications. As part of this instruction you will gain experience with the skills and technologies used in the real world of software construction. This includes: Software design, data modeling, object oriented programming, distributed communication, relational databases, and testing.
 
 In previous courses you have probably focused on building small programs that targeted learning a particular concept. While these programs teach you a specific concept, they fail to provide you with the skills necessary to create applications that require careful design, engineering, and tooling.
