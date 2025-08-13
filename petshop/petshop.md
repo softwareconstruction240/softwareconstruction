@@ -20,7 +20,7 @@ The Pet Shop application demonstrates many of the topics presented in this cours
 
 ## Source Code
 
-The [Pet Shop source code](.) is found in the course instruction repository that you are currently viewing. If you haven't already cloned the repository to your development environment, then you should do so now. You can then open the IntelliJ Pet Shop project, study, run and debug the code.
+The [Pet Shop source code](https://github.com/softwareconstruction240/softwareconstruction/tree/main/petshop) is found in the course instruction repository that you are currently viewing. If you haven't already cloned the repository to your development environment, then you should do so now. You can then open the IntelliJ Pet Shop project, study, run and debug the code.
 
 ## Architecture
 
