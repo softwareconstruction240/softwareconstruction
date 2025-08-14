@@ -120,7 +120,7 @@ This example diagram represents the following sequence for registering and autho
 
 ### PetShop Example
 
-There is an example [PetShop Server Sequence Diagram](../../petshop/petshop.md#sequence-diagrams). The PetShop example as a whole is intended to demonstrate the core concepts of this course, but does not account for all the complexities that you will need to consider for your chess project. Learn from the example and walkthrough videos, and then do your own work to learn this new skill of diagramming.
+There is an example [PetShop Server Sequence Diagram](../../petshop/petshop.md#endpoint-sequence-diagrams). The PetShop example as a whole is intended to demonstrate the core concepts of this course, but does not account for all the complexities that you will need to consider for your chess project. Learn from the example and walkthrough videos, and then do your own work to learn this new skill of diagramming.
 
 ## Classes
 
