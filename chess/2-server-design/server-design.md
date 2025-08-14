@@ -93,12 +93,12 @@ This example diagram represents the following sequence for registering and autho
 
 1. A `client`, acting as a chess player, calls the `register` endpoint. This request is made as an HTTP network request with the `/user` URL path and a body that contains her username, password, and email in a JSON representation.
 2. The `server` gets the body with its information from the HTTP request and matches it to the correct handler.
-3. The `handler` takes the JSON information and creates an object to hold it and sends it to the correct service class. <<<<<<< HEAD
+3. The `handler` takes the JSON information and creates an object to hold it and sends it to the correct service class.
+
    > [!TIP]
    >
-   > # You are not required to create your handlers in their own distinct classes. You may implement this functionality directly in the lambda functions for the endpoints of your server.
-   >
-   > > > > > > > origin/main
+   > You are not required to create your handlers in their own distinct classes. You may implement this functionality directly in the lambda functions for the endpoints of your server.
+
 4. The `service` calls a data access method in order to determine if there is already a user with that username.
 5. The `data access` method checks the database for a username matching the user.
 6. At this point there is a break in logic. If there is already a user with that username, the `data access` method will return a `UserData` of the user with that username. If there is no user with that name, it will return `null`.
