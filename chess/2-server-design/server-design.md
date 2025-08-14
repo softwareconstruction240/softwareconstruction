@@ -95,9 +95,9 @@ This example diagram represents the following sequence for registering and autho
 2. The `server` gets the body with its information from the HTTP request and matches it to the correct handler.
 3. The `handler` takes the JSON information and creates an object to hold it and sends it to the correct service class.
 
-   > [!TIP]
-   >
-   > You are not required to create your handlers in their own distinct classes. You may implement this functionality directly in the lambda functions for the endpoints of your server.
+> [!TIP]
+>
+> You are not required to create your handlers in their own distinct classes. You may implement this functionality directly in the lambda functions for the endpoints of your server.
 
 4. The `service` calls a data access method in order to determine if there is already a user with that username.
 5. The `data access` method checks the database for a username matching the user.
