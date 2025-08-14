@@ -118,12 +118,12 @@ public class WsEchoClient extends Endpoint {
 
 📁 [WebSocket Client Examples](example-code/client)
 
-📁 [WebSocker Server Examples](example-code/server)
+📁 [WebSocket Server Examples](example-code/server)
 
 ## Videos
 
 - 🎥 [WebSocket Introduction (10:45)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=fcd3b045-d06e-41f7-8a0e-b1a1014a7b97) - [[transcript]](https://github.com/user-attachments/files/17753884/CS_240_WebSocket_Introduction_Transcript.pdf)
 - 🎥 [WebSocket Protocol (7:06)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=91c23bc0-410b-4848-be81-b1a1014dab96) - [[transcript]](https://github.com/user-attachments/files/17753890/CS_240_WebSocket_Protocol_Transcript.pdf)
-- 🎥 [Simple WebSocket Example (12:39)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=5ea47462-3100-4597-a7ce-b1a1014ffd34) - [[transcript]](https://github.com/user-attachments/files/17753898/CS_240_Simple_WebSocket_Example_Transcript.pdf)
-- 🎥 [Pet Shop WebSocket Example (26:08)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=155aeaa0-e35e-40fe-94bd-b1a10153d812) - [[transcript]](https://github.com/user-attachments/files/17753916/CS_240_Petshop_WebSocket_Example_Transcript.pdf)
-- 🎥 [Chess WebSocket (14:58)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=fe962f4a-4e75-47f4-ba91-b1a1015b7928) - [[transcript]](https://github.com/user-attachments/files/17753934/CS_240_Chess_WebSocket_Transcript.pdf)
+- 🎥 [Simple WebSocket Example (12:05)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=27a9cc42-fd4a-42ae-b364-b2c80108d66a) - [transcript]
+- 🎥 [Pet Shop WebSocket Example (21:21)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=d16b30ba-6d13-4552-84c6-b2c8010c696f) - [transcript]
+- 🎥 [Chess WebSocket (18:03)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=aa2f2bd3-cbad-49ca-a0e1-b2cd014e6f2c) - [transcript]

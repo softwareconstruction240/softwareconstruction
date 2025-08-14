@@ -416,14 +416,18 @@ java -cp ../../lib/gson-2.10.1.jar ClientCurlExample.java POST 'http://localhost
 
 ## Videos
 
-- 🎥 [Web API Implementation (16:27)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=00a1b38c-8d1c-41ba-b2f5-b18c014994a1) - [[transcript]](https://github.com/user-attachments/files/17753672/CS_240_Web_API_Implementation_Transcript.pdf)
-- 🎥 [Javalin Routes (16:40)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=85543d10-c532-4cab-9e0c-b18c014e60d5) - [[transcript]](https://github.com/user-attachments/files/17753680/CS_240_Javalin_Routes_Transcript.pdf)
-- 🎥 [Javalin Static Files (10:49)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=9b13ee82-87e5-4d9f-9adb-b18c0153bbe3) - [[transcript]](https://github.com/user-attachments/files/17753691/CS_240_Serving_Static_Files_Transcript.pdf)
-- 🎥 [Filters (6:26)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=041911bf-8f6f-44d9-a1e9-b18c01570c85) - [[transcript]](https://github.com/user-attachments/files/17753735/CS_240_Filters_Transcript.pdf)
-- 🎥 [Javalin Installation (2:11)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=aa878216-922c-43ca-ae25-b18c0159089a) - [[transcript]](https://github.com/user-attachments/files/17753801/CS_240_Installation_Transcript.pdf)
-- 🎥 [Pet Shop Demo (9:43)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=751fc126-9541-485a-b712-b18c0159fe8c) - [[transcript]](https://github.com/user-attachments/files/17753811/CS_240_Petshop_Demo_Transcript.pdf)
-- 🎥 [Client HTTP (12:11) [OUTDATED]](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=781ae49b-6284-4e1a-836b-b1930162c54b) - [[transcript]](https://github.com/user-attachments/files/17753820/CS_240_Client_HTTP_Transcript.pdf)
-  - NOTE: This video uses the older `HttpURLConnection` rather than `HttpClient`. We recommend using `HttpClient` as it provides a simpler, more streamlined API.
+- Javalin
+    - 🎥 [Javalin Overview (24:21)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=7ed95d83-d32e-4bab-ac9a-b2c60106df45) - [transcript]
+    - 🎥 [Javalin Handlers (13:41)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=b88c8a46-d98b-4b7a-a07f-b2c6010e7338) - [transcript]
+    - 🎥 [Javalin Error Handling (7:14)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=8e6bc974-7475-4ac8-a34c-b2c601129092) - [transcript]
+    - 🎥 [Javalin Serving Static Files (4:27)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=bed4bbcd-f27e-4257-90b6-b2c601150a5b) - [transcript]
+    - 🎥 [Javalin Installation (1:54)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=d78633c0-b476-4566-8d51-b2c60116b803) - [transcript]
+- Pet Shop
+    - 🎥 [Pet Shop Demo (4:51)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=41203fd1-89ca-4c47-b259-b2c601183227) - [transcript]
+    - 🎥 [Pet Shop Project (4:10)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=097b2912-582f-41b3-a972-b2c6011ab229) - [transcript]
+    - 🎥 [How to Use Pet Shop (1:44)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=88cef7c0-a84f-4ee6-b0b2-b2c6011c021f) - [transcript]
+- Client-side HTTP
+    - 🎥 [Client HTTP (12:25)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=5ddc54fd-39c3-4d01-a303-b2c6011cda0a) - [transcript]
 
 ## Demonstration code
 

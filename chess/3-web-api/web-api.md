@@ -463,5 +463,5 @@ After your code has successfully been auto-graded, a TA will review the code in 
 
 ## Videos
 
-- 🎥 [Phase 3 Overview (19:30)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=a02a9929-b886-4a69-aa8b-b18c015d3e63) - [[transcript]](https://github.com/user-attachments/files/17707002/CS_240_Chess_Phase_3_Transcript.pdf)
-- 🎥 [Chess Server Implementation Tips (18:44)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=17194b50-e6a2-46eb-bf11-b1af0151af43) - [[transcript]](https://github.com/user-attachments/files/17707009/CS_240_Chess_Server_Implementation_Tips_Transcript.pdf)
+- 🎥 [Phase 3 Overview (19:26)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=edaa730e-e247-4356-9cf4-b2cd014ecf59) - [[transcript]](https://github.com/user-attachments/files/17707002/CS_240_Chess_Phase_3_Transcript.pdf)
+- 🎥 [Chess Server Implementation Tips (18:43)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=2528dac9-1689-4e75-aff1-b2cd014e3b13) - [[transcript]](https://github.com/user-attachments/files/17707009/CS_240_Chess_Server_Implementation_Tips_Transcript.pdf)
