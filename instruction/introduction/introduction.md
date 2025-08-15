@@ -36,9 +36,9 @@ The remainder of the chess phases implement a chess server that allows multiple 
 
 ## Java
 
-You will use the Java programming language for all of your work in this course. Java has been a popular language for multiple decades. According to the [2023 Stack Overflow survey](https://survey.stackoverflow.co/2023/#most-popular-technologies-language-prof), Java is used by 30% of professional developers. Java has some nice properties. It is object oriented, compiled, has garbage collection, and is strongly typed. In short, Java is a good language to help you round out your skill set and resume.
+You will use the Java programming language for all of your work in this course. Java has been a popular language for multiple decades. According to the [2025 Stack Overflow survey](https://survey.stackoverflow.co/2025/technology#most-popular-technologies), Java is used by 30% of professional developers. Java has some nice properties. It is object oriented, compiled, has garbage collection, and is strongly typed. In short, Java is a good language to help you round out your skill set and resume.
 
-![StackOverflow Survey](javaStackOverflowSurvey.png)
+![alt text](popularTechnologies.png)
 
 In order to properly learn Java, you will need to reference selected chapters of the book `Core Java for the Impatient`. This book is available for free on the Safari Books collection available through the Harold B. Lee Library. You can also reference the many resources available on the web for mastering the different concepts found in the Java programming language.
 
