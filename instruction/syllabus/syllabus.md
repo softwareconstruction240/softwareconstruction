@@ -110,7 +110,7 @@ Students Seeking TA Help Should First:
 
 - Have read project specifications thoroughly. Sometimes this means 3 – 4 times.
 - Be up to date on their reading assignments.
-- Consulting the Java documentation and know what the code your are calling is supposed to do.
+- Consulting the Java documentation and know what the code you are calling is supposed to do.
 - Work for at least 30 min. on your own.
 - Use the [debugger](../debugging/debugging.md) to step through the code and validate your assumptions.
 - Write your own unit tests to narrow down the reproduction of a problem.
