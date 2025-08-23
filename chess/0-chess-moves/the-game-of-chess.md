@@ -56,3 +56,59 @@ Here are some guides that may help you learn the rules of chess:
 - [https://www.chess.com/
   learn-how-to-play-chess](https://www.chess.com/learn-how-to-play-chess)
 - [https://en.wikipedia.org/wiki/Rules_of_chess](https://en.wikipedia.org/wiki/Rules_of_chess)
+
+### Extra Credit
+
+#### Castling
+If the king and one of the rooks haven't moved the entire game and the space between them is unoccupied, the king and rook can perform a special move known as castling. The king is moved 2 spaces towards where the rook was and the rook is moved to the space on the other side of the king. You cannot use this move to escape immediate danger, nor can you move through spaces that could be attacked by enemy pieces. 
+
+Before:
+```sh
+|r|n|b|q|k|b|n|r|
+|p|p|p|p|p|p|p|p|
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+|P|P|P|P|P|P|P|P|
+|R|N|B|Q|K| | |R|
+```
+
+After:
+```sh
+|r|n|b|q|k|b|n|r|
+|p|p|p|p|p|p|p|p|
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+|P|P|P|P|P|P|P|P|
+|R|N|B|Q| |R|K| |
+```
+
+#### En Passant
+Because a pawn can move forward 2 spaces the first time they move, an opposing pawn may capture it by moving diagonally to square the pawn that went 2 spaces would have been on had it only moved 1 space.
+
+Before:
+```sh
+|r|n|b|q|k|b|n|r|
+|p|p|p| |p|p|p|p|
+| | | | | | | | |
+| | | |p|P| | | |
+| | | | | | | | |
+| | | | | | | | |
+|P|P|P|P| |P|P|P|
+|R|N|B|Q|K|B|N|R|
+```
+
+After:
+```sh
+|r|n|b|q|k|b|n|r|
+|p|p|p| |p|p|p|p|
+| | | |P| | | | |
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+|P|P|P|P| |P|P|P|
+|R|N|B|Q|K|B|N|R|
+```
