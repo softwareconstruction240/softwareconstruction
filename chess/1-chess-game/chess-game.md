@@ -94,9 +94,57 @@ This is a special move where the King and a Rook move simultaneously. The castli
 
 To Castle, the King moves 2 spaces towards the Rook, and the Rook "jumps" the king moving to the position next to and on the other side of the King. This is represented in a `ChessMove` as the king moving 2 spaces to the side.
 
+Before:
+```sh
+|r|n|b|q|k|b|n|r|
+|p|p|p|p|p|p|p|p|
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+|P|P|P|P|P|P|P|P|
+|R|N|B|Q|K| | |R|
+```
+
+After:
+```sh
+|r|n|b|q|k|b|n|r|
+|p|p|p|p|p|p|p|p|
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+|P|P|P|P|P|P|P|P|
+|R|N|B|Q| |R|K| |
+```
+
 ### En Passant
 
 This is a special move taken by a Pawn in response to your opponent double moving a Pawn. If your opponent double moves a pawn so it ends next to yours (skipping the position where your pawn could have captured their pawn), then on your immediately following turn your pawn may capture their pawn as if their pawn had only moved 1 square. This is as if your pawn is capturing their pawn mid motion, or "In Passing."
+
+Before:
+```sh
+|r|n|b|q|k|b|n|r|
+|p|p|p| |p|p|p|p|
+| | | | | | | | |
+| | | |p|P| | | |
+| | | | | | | | |
+| | | | | | | | |
+|P|P|P|P| |P|P|P|
+|R|N|B|Q|K|B|N|R|
+```
+
+After:
+```sh
+|r|n|b|q|k|b|n|r|
+|p|p|p| |p|p|p|p|
+| | | |P| | | | |
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+|P|P|P|P| |P|P|P|
+|R|N|B|Q|K|B|N|R|
+```
 
 ## Object Overrides
 
