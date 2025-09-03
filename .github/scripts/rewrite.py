@@ -47,19 +47,24 @@ def main(root: str, code_base: str):
         dirname = os.path.basename(os.path.dirname(path_part))
         basename = os.path.basename(path_part)
 
+        def link_to_codebase() -> str:
+            abs_path = os.path.normpath(os.path.join(info.dirpath, path_part))
+            rel_to_root = os.path.relpath(abs_path, root)
+
+            if code_base.startswith(('http://', 'https://')):
+                return code_base.rstrip('/') + '/' + rel_to_root
+            return os.path.normpath(os.path.join(code_base, rel_to_root))
+
         match get_ext(basename):
             case embed if embed in EMBED_EXTS:
                 return embed_map.get(dirname, info.parent, basename)
             case edit if edit in EDIT_FILE_EXTS:
                 new_base = edited_map.get(dirname, info.parent, basename)
-                return re.sub(clean_ext_pattern, '', new_base, flags=re.IGNORECASE)
+                if new_base:
+                    return re.sub(clean_ext_pattern, '', new_base, flags=re.IGNORECASE)
+                return link_to_codebase()
             case _:
-                abs_path = os.path.normpath(os.path.join(info.dirpath, path_part))
-                rel_to_root = os.path.relpath(abs_path, root)
-
-                if code_base.startswith(('http://', 'https://')):
-                    return code_base.rstrip('/') + '/' + rel_to_root
-                return os.path.normpath(os.path.join(code_base, rel_to_root))
+                return link_to_codebase()
 
     def rewrite_line(line: str, info: ContentFilePath) -> str:
         def repl(m: re.Match[str]) -> str:
