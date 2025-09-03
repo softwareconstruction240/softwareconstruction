@@ -4,12 +4,13 @@ import os
 import re
 from structure import ContentFilePath, FilePath, TupleNameMap, slugify
 from rewrite_rules import (LINK_BASE_CASES, EMBED_EXTS, EDIT_FILE_EXTS,
-    wiki_page_title, extract_title_and_body)
+                           wiki_page_title, extract_title_and_body)
 
 
 def get_ext(path: str):
     """Get the file extension, if present"""
     return path.lower().rsplit('.', 1)[-1] if '.' in path else ''
+
 
 def find_files_with_exts(root: str, *exts: str):
     """Yield FilePaths for files of the given extensions."""
@@ -17,6 +18,7 @@ def find_files_with_exts(root: str, *exts: str):
         for f in files:
             if get_ext(f) in exts:
                 yield FilePath(path_from_root, f)
+
 
 def main(root: str, code_base: str):
     mapping: dict[str, ContentFilePath] = {}
@@ -45,19 +47,23 @@ def main(root: str, code_base: str):
         dirname = os.path.basename(os.path.dirname(path_part))
         basename = os.path.basename(path_part)
 
+        def link_to_codebase() -> str:
+            abs_path = os.path.normpath(os.path.join(info.dirpath, path_part))
+            rel_to_root = os.path.relpath(abs_path, root)
+
+            if code_base.startswith(('http://', 'https://')):
+                return code_base.rstrip('/') + '/' + rel_to_root
+            return os.path.normpath(os.path.join(code_base, rel_to_root))
+
         match get_ext(basename):
             case embed if embed in EMBED_EXTS:
                 return embed_map.get(dirname, info.parent, basename)
             case edit if edit in EDIT_FILE_EXTS:
                 new_base = edited_map.get(dirname, info.parent, basename)
-                return re.sub(clean_ext_pattern, '', new_base, flags=re.IGNORECASE)
-            case _:
-                abs_path = os.path.normpath(os.path.join(info.dirpath, path_part))
-                rel_to_root = os.path.relpath(abs_path, root)
-
-                if code_base.startswith(('http://', 'https://')):
-                    return code_base.rstrip('/') + '/' + rel_to_root
-                return os.path.normpath(os.path.join(code_base, rel_to_root))
+                if new_base:
+                    return re.sub(clean_ext_pattern, '', new_base, flags=re.IGNORECASE)
+        
+        return link_to_codebase()
 
     def rewrite_line(line: str, info: ContentFilePath) -> str:
         def repl(m: re.Match[str]) -> str:
@@ -81,6 +87,7 @@ def main(root: str, code_base: str):
 
         with open(info.full_path, 'w', encoding='utf-8') as f:
             f.writelines(new_body)
+
 
 if __name__ == '__main__':
     if len(sys.argv) != 3:

@@ -57,6 +57,7 @@ GHWT_HYPHEN = '‐'
 """Holds the U+2010 hyphen character, which correctly renders
 as a hyphen when used inside a GitHub Wiki page title"""
 
+
 def slugify(name: str) -> str:
     """Remove filesystem-unfriendly chars"""
     name = name.strip()

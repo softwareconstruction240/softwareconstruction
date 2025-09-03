@@ -3,7 +3,7 @@ This module provides a common place to change the specific information of the re
 to allow its reuse in other repositories as desired.
 """
 import re
-from structure import FilePath, slugify, GHWT_HYPHEN     # pylint: disable=W0611
+from structure import FilePath, slugify, GHWT_HYPHEN  # pylint: disable=W0611
 
 LINK_BASE_CASES = [r':\/\/', r'^Home#?', r'^tel:.*', r'^mailto:.*', r'^#']
 """List of regex strings that will leave a markdown link unchanged
@@ -14,6 +14,7 @@ EMBED_EXTS = {'png', 'gif', 'jpg', 'jpeg', 'svg', 'webp', 'uml', 'mp4', 'mov', '
 
 EDIT_FILE_EXTS = {'md'}
 """File extensions that will be modified by the script."""
+
 
 def wiki_page_title(title: str | None, body: list[str], file_path: FilePath) -> str:
     # pylint: disable=W0613
@@ -31,6 +32,7 @@ def wiki_page_title(title: str | None, body: list[str], file_path: FilePath) -> 
             return f"{title} {GHWT_HYPHEN} Phase {phase_dir.group(1)}.md"
         return title + '.md'
     return file_path.filename
+
 
 def extract_title_and_body(path: str) -> tuple[str | None, list[str]]:
     """
