@@ -4,12 +4,13 @@ import os
 import re
 from structure import ContentFilePath, FilePath, TupleNameMap, slugify
 from rewrite_rules import (LINK_BASE_CASES, EMBED_EXTS, EDIT_FILE_EXTS,
-    wiki_page_title, extract_title_and_body)
+                           wiki_page_title, extract_title_and_body)
 
 
 def get_ext(path: str):
     """Get the file extension, if present"""
     return path.lower().rsplit('.', 1)[-1] if '.' in path else ''
+
 
 def find_files_with_exts(root: str, *exts: str):
     """Yield FilePaths for files of the given extensions."""
@@ -17,6 +18,7 @@ def find_files_with_exts(root: str, *exts: str):
         for f in files:
             if get_ext(f) in exts:
                 yield FilePath(path_from_root, f)
+
 
 def main(root: str, code_base: str):
     mapping: dict[str, ContentFilePath] = {}
@@ -81,6 +83,7 @@ def main(root: str, code_base: str):
 
         with open(info.full_path, 'w', encoding='utf-8') as f:
             f.writelines(new_body)
+
 
 if __name__ == '__main__':
     if len(sys.argv) != 3:
