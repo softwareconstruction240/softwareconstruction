@@ -62,9 +62,8 @@ def main(root: str, code_base: str):
                 new_base = edited_map.get(dirname, info.parent, basename)
                 if new_base:
                     return re.sub(clean_ext_pattern, '', new_base, flags=re.IGNORECASE)
-                return link_to_codebase()
-            case _:
-                return link_to_codebase()
+        
+        return link_to_codebase()
 
     def rewrite_line(line: str, info: ContentFilePath) -> str:
         def repl(m: re.Match[str]) -> str:
