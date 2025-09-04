@@ -1,6 +1,6 @@
 # ♕ Chess GitHub Repository
 
-- 🖥️ [Videos](#videos)
+<!-- - 🖥️ [Videos](#videos) -->
 
 In the following phases of the chess project you will add to, and enhance, the content you have created in a GitHub repository. The commit history that you establish through the course serves the following valuable purposes:
 
@@ -98,7 +98,7 @@ When you have successfully completed the assignment:
    - Click on the submission to view more details from grading
    - In future phases, you will see additional buttons to click for detailed compiler output.
 
-## Videos
+<!-- ## Videos
 
 > [!NOTE]
 >
@@ -107,4 +107,4 @@ When you have successfully completed the assignment:
 > Additionally, at timestamp 2:48 the video suggests that the GitHub repo url needs to be turned in to Canvas. This is outdated; however, the rest of the discussion about the role of the autograder is correct. Instead, you will submit the GitHub repo directly to the autograder as described in the latest version of the instructions.
 
 - 🎥 [Chess GitHub Repository (3:31)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=9603dd36-5c9b-4705-aa3d-b169016801a3) - [[transcript]](https://github.com/user-attachments/files/17707180/CS_240_Chess_GitHub_Repository_Transcript.pdf)
-- 🎥 [Creating Chess GitHub Repository (4:34)](https://www.loom.com/share/2b2dd64e7b524b3f9b396318cf140159?sid=a6c1b75f-a73f-455e-976c-ba19052117a6) - [[transcript]](../0-chess-moves/creating-chess-github-repo-transcript.txt)
+- 🎥 [Creating Chess GitHub Repository (4:34)](https://www.loom.com/share/2b2dd64e7b524b3f9b396318cf140159?sid=a6c1b75f-a73f-455e-976c-ba19052117a6) - [[transcript]](../0-chess-moves/creating-chess-github-repo-transcript.txt) -->
