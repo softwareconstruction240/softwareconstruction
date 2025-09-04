@@ -108,11 +108,11 @@ public enum PieceType {
 }
 ```
 
-`ChessPiece` implements rules that define how a piece moves independent of other chess rules such as check, stalemate, or checkmate.
+`ChessPiece` implements rules that define how a piece moves independent of other chess rules such as whose turn it is, check, stalemate, or checkmate.
 
 #### Key Methods
 
-- **`pieceMoves`**: Called on a particular piece and being provided its position and the board as context, this method returns all moves the piece can legally make. `ChessPiece.pieceMoves` accounts for the type of piece and the locations of enemy and friendly pieces blocking movement paths. As the precursor to `ChessGame.validMoves`, this method provides most of the behavior of the chess moves, except it does not honor whose turn it is or check if the king is being attacked.
+- **`pieceMoves`**: Given a board configuration, this method returns all the moves a specific piece can legally make independant of whose turn it is or if the King is being attacked. It considers the edges of the board and the location of both enemy and friendly pieces. In the next phase, you will implement `ChessGame.validMoves`, which considers not only how a piece moves, but all of the rules of chess.
 
 ### ChessMove
 
