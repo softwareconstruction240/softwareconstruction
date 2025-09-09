@@ -3,6 +3,7 @@
 - [Chess Application Overview](../chess.md)
 - [Getting Started](getting-started.md)
 - 🖥️ [Videos](#videos)
+- [TA Tips](../../instruction/chess-tips/chess-tips.md#phase-0---chess-moves): A collection of common problems for this phase
 
 In this part of the Chess Project, you will implement a basic representation of the game of chess. This includes the setting up of the board and defining how pieces move.
 

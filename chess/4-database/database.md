@@ -3,6 +3,7 @@
 - [Chess Application Overview](../chess.md)
 - [Getting Started](getting-started.md)
 - 🖥️ [Videos](#videos)
+- [TA Tips](../../instruction/chess-tips/chess-tips.md#phase-4---database): A collection of common problems for this phase
 
 In this part of the Chess project, you will create a MySQL implementation of your Data Access interface and start calling it from your services. This enables the ability to store data persistently in a MySQL database instead of storing data in main memory. You will also write unit tests using JUnit for your DAO classes. This involves the following steps:
 
@@ -118,10 +119,6 @@ As part of your unit test deliverable you need to meet the following requirement
 ### Code Quality
 
 For this phase the auto grader will grade the quality of your project's source code. The rubric used to evaluate code quality can be found here: [Rubric](../code-quality-rubric.md)
-
-### Common Submission Issues
-
-Since you're adding code that acts with an external program in Phase 4, the likelihood of having auto-grader test output different from your local output is higher than previous phases. See our collection of [Phase 4 Debugging Tips](./debugging-tips.md) for approaches to resolve common issues.
 
 ### Pass Off, Submission, and Grading
 
