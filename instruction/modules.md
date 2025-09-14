@@ -78,4 +78,4 @@ The course content is divided into multiple topics that you should strive to mas
 
 | Icon | Meaning                                    |
 | ---- | ------------------------------------------ |
-| ☑    | Assignments that you must submit in Canvas |
+| ☑    | Assignments requiring submission for grading |
