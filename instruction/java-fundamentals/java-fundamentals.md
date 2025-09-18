@@ -416,3 +416,7 @@ public class ScannerExample {
 📁 [Packages Imports](example-code/06-packages-imports/)
 
 📁 [Input Output](example-code/07-input-output/)
+
+## Lecture files
+
+📁 [Lecture Files](lecture-files/)
