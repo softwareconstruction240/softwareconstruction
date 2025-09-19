@@ -12,10 +12,6 @@ Look at the [specification](https://github.com/softwareconstruction240/softwarec
 
 Go into File -> Project Structure -> Modules -> Paths and select “Inherit project compile output path” for each module.
 
-## That didn’t work, I’m on Windows with ARM architecture
-
-Download the right JDK from this link as opposed to Oracle’s site: https://learn.microsoft.com/en-us/java/openjdk/download
-
 ## I can’t run any tests, there is no green button
 
 First, check if your `test/java` folder is highlighted green. If it isn’t highlighted green, right-click on the `java` folder, then select "Mark Directory As…" and select "Test Sources Root". Now that IntelliJ understands that this is a test folder, there should be an option to run the tests inside of it.
