@@ -4,23 +4,23 @@ This is a collection of tips that the TAs have compiled for solving common probl
 
 # Phase 0 - Chess moves
 
-## These collections look identical to each other, but java says they aren’t
+## These collections look identical to each other, but Java says they aren’t
 
-Look at the spec for mention of .equals and .hashCode methods, might be worthwhile also making a toString, also check promotion piece (null in 99% of cases) - Also, check the getters and setters for each class, if that doesn’t work.
+Look at the [specification](https://github.com/softwareconstruction240/softwareconstruction/blob/main/chess/0-chess-moves/chess-moves.md#object-overrides) for mentions of the `equals()` and `hashCode()` methods. It might also be worthwhile to implement a `toString()` method. Additionally, check the promotion piece (null in 99% of cases). Also, review the getters and setters for each class if that doesn’t work.
 
 ## JUnit - No test events received
 
-Go into File -> Project Structure -> Modules -> Paths and select “Inherit project compile output path” for each module
+Go into File -> Project Structure -> Modules -> Paths and select “Inherit project compile output path” for each module.
 
-## That didn’t work, I’m on a windows with arm architecture
+## That didn’t work, I’m on Windows with ARM architecture
 
-Instruct the student to download the right JDK from this link as opposed to Oracle’s site: https://learn.microsoft.com/en-us/java/openjdk/download
+Download the right JDK from this link as opposed to Oracle’s site: https://learn.microsoft.com/en-us/java/openjdk/download
 
 ## I can’t run any tests, there is no green button
 
-First, check to see if their test/java folder is highlighted green. If it isn’t highlighted green, right click on the java folder, then select Mark Directory As… and select Test Sources Root. Now that IntelliJ understands that this is a test folder, there should be an option to run the tests inside of it.
+First, check if your `test/java` folder is highlighted green. If it isn’t highlighted green, right-click on the `java` folder, then select "Mark Directory As…" and select "Test Sources Root". Now that IntelliJ understands that this is a test folder, there should be an option to run the tests inside of it.
 
-If that doesn’t work, make sure that the shared folder is a module. You can check this by clicking File -> Project Structure. Then in Project Structure select the Module option on the left. Here you can see a section of Modules, in which you should see shared, server, and client. If you only see chess or nothing at all, IntelliJ didn’t set it up right, so you should delete everything and reclone the repository and reset it up.
+If that doesn’t work, make sure that the shared folder is a module. You can check this by clicking File -> Project Structure. Then, in Project Structure select the Module option on the left. Here you can see a section of Modules, in which you should see shared, server, and client. If you only see chess or nothing at all, IntelliJ didn’t set it up right, so you should delete everything, reclone the repository, and set it up again.
 
 # Phase 1 - Chess Game
 
