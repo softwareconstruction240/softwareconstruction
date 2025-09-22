@@ -2,7 +2,7 @@
 
 - [Chess Application Overview](../chess.md)
 - [Getting Started](getting-started.md)
-- 🖥️ [Slides: Server Implementation Tips](https://docs.google.com/presentation/d/1hORd88ej8W-nqHgEpYU2GmPcrSrHew1V/edit?usp=drive_link&ouid=110961336761942794636&rtpof=true&sd=true)
+- 🖥️ [Slides: Server Implementation Tips](https://docs.google.com/presentation/d/1am-_YWoZ1AX5_oZZAORjzsLbb8dy0_2S)
 - 🖥️ [Videos](#videos)
 - [TA Tips](../../instruction/chess-tips/chess-tips.md#phase-3---web-api): A collection of common problems for this phase
 
