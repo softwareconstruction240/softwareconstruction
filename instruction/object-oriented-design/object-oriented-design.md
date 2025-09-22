@@ -26,9 +26,9 @@ In order to fully model the real world with your objects, you need to describe t
 
 | Relationship | Description                                                             | Example                            |
 | ------------ | ----------------------------------------------------------------------- | ---------------------------------- |
-| Is-A         | Polymorphic inheritance. This defines what something is, or appears as. | A `Programmer` is a `Person`.      |
-| Has-A        | Ownership.                                                              | A `Programmer` has a `Computer`    |
-| Uses-A       | Transient association. This is often associated with an operation.      | A `Person` uses a `Car` to travel. |
+| Is-A         | Polymorphic inheritance.  Often defined by a extending a class. | A `Programmer` is a `Person`.      |
+| Has-A        | Ownership.  Often defined by a class field.                                                             | A `Programmer` has a `Computer`.    |
+| Uses-A       | Transient association. Often defined by a method parameter.      | A `Person` uses a `Taxi` to travel. |
 
 The following is an example of the relationships between a number of objects. Note that there are many ways that you can represent the real world with object oriented design.
 
