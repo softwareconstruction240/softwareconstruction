@@ -6,11 +6,23 @@ The programming exam is a re-creation of your [chess phase-0](../../chess/0-ches
 
 You will take the exam as a Canvas quiz and will have 4 hours to complete the exam and answer the quiz questions, which consist mostly of uploading code and screenshots to demonstrate your work.
 
-**The exam is pass/fail.** You must pass all of the test cases in order to get a grade.
-
 [Honorlock](https://honorlock.com/) will proctor both your video and your audio while taking the exam.
 
 The purpose of this exam is really to show that you are able to tackle large and difficult programming projects without too much difficulty. If you aren't able to complete the phase-0 code on your own that typically means that you won't be able to do some of the later phases in the class. It also means that you probably need more time before you are ready to take the majority of the higher level CS classes which have harder concepts and more difficult code.
+
+**The exam is pass/fail.** You must pass all of the test cases in order to get a grade.
+
+There is no partial credit on the Programming Exam; you either finish, or you don't. During the exam you will have access to the Java API documentation, all project specifications and files, and the pass off driver test cases.
+
+**You must pass the Programming Exam in order to pass CS240.**  The key to passing the exam is to implement _Phase 0: Chess Moves_ ahead of time. Please note that if you do not implement the program beforehand, it is highly unlikely that you will pass the exam. Because passing the Programming Exam is required to pass the class, you may take the exam up to three times.  See the class schedule for exam dates. Your maximum score for the exam will go down each time you retake it according to the following schedule.
+
+| Attempt | Maximum Score |
+| :------ | :------------ |
+| 1       | 100%          |
+| 2       | 80%           |
+| 3       | 60%           |
+
+**If you fail the exam twice, you should meet with your instructor to discuss your situation.**  You will only be allowed to take the exam a third time after meeting with your instructor and after passing off the _Phase 0: Chess Moves_ with the TAs (i.e., you can't take the exam a third time unless the program has been passed off).
 
 ## What You Need To Do
 
@@ -32,7 +44,7 @@ The purpose of this exam is really to show that you are able to tackle large and
 
 ## Overview
 
-There are three tests on canvas that all relate to the programming exam. There is the "Official Programming Exam" which is the exam itself. The "Practice Programming Exam" and "Honorlock Setup/Acknowledgment Quiz" are to make sure that you are ready to take the exam.
+There are three tests on canvas that all relate to the programming exam. There is the `Official Programming Exam` which is the exam itself. The `Practice Programming Exam` and `Honorlock Setup/Acknowledgment Quiz` are to make sure that you are ready to take the exam.
 
 When you are taking the exam you will not be writing code or answering many questions in Canvas. You will do the project in your normal IDE.
 
