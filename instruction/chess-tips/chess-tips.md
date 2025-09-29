@@ -20,6 +20,18 @@ If that doesn’t work, make sure that the shared folder is a module. You can ch
 
 # Phase 1 - Chess Game
 
+## toString
+
+If you are struggling to understand how the board is looking during your code, and especially when comparing it with the expected test cases, what you can do is override a toString to your code. This means that instead of printing ChessGame@12345, it will print out the variables, and you can have it print out a mock chess board so you can visually see and understand what the current layout of the chessBoard. 
+
+## `static` keyword
+
+If your IDE is telling you to use static, you probably should change your code to not use it. Static classes and variables mean that there will only be one single instance, making it like a global variable, and there will not be any different variations of it. ChessGame nor most of the main classes you work on should be cosidered static, because you should have multiple different ChessGames, or ChessBoards, or even ChessPieces. If you know what you are doing, you can use static, but only use it if you can know what you are using it for. If your IDE is telling you to use static, you should see why it is thinking it should be static, and fix it because 90-100% of your code shouldn't be static.
+
+## Clone and Copy
+
+When in your `ChessGame.validMoves`, you may want to create a copy/clone of the ChessBoard so that you can make a piece move and see if you are still in check to know if that is a valid move or not. If you create a shallow copy, the ChessBoard will be the exact same, and will keep any changes you make. This needs to be a DeepCopy or clone so that it can be unique and different, so that if a chance happens on one instance, the other will stay the same. If you would like some explanations on how to incorporate clone and copy, look here for [copying objects](https://github.com/softwareconstruction240/softwareconstruction/wiki/Copying-Objects). One such method is to have ChessBoard implement Cloneable, then in the override clone method, you loop through the 2d ChessPiece array, and do `Arrays.copyOf` to copy the chess board row by row, then finally putting the 2d array into the cloned ChessBoard. 
+
 # Phase 2 - Server Diagram
 
 # Phase 3 - Web API
