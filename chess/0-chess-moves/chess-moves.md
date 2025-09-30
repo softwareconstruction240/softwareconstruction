@@ -1,7 +1,6 @@
 # ♕ Phase 0: Chess Moves
 
 - [Chess Application Overview](../chess.md)
-- [Getting Started](getting-started.md)
 - 🖥️ [Videos](#videos)
 - [TA Tips](../../instruction/chess-tips/chess-tips.md#phase-0---chess-moves): A collection of common problems for this phase
 
@@ -10,6 +9,10 @@ In this part of the Chess Project, you will implement a basic representation of 
 > [!NOTE]
 >
 > Review the [Game of Chess](the-game-of-chess.md) instruction to learn how to set up the board and how each of the pieces move.
+
+## Getting Started
+To get started complete the follow the instructions:
+[Getting Started](getting-started.md)
 
 ## Starter Code
 
