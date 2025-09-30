@@ -1,9 +1,12 @@
 # ♕ Phase 4: Chess Database
 
 - [Chess Application Overview](../chess.md)
-- [Getting Started](getting-started.md)
 - 🖥️ [Videos](#videos)
 - [TA Tips](../../instruction/chess-tips/chess-tips.md#phase-4---database): A collection of common problems for this phase
+
+## Getting Started
+To get started on this phase complete the follow the instructions: [Getting Started](getting-started.md)
+
 
 In this part of the Chess project, you will create a MySQL implementation of your Data Access interface and start calling it from your services. This enables the ability to store data persistently in a MySQL database instead of storing data in main memory. You will also write unit tests using JUnit for your DAO classes. This involves the following steps:
 
