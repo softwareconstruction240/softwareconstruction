@@ -11,7 +11,7 @@ In this phase, you will create your Chess server and implement seven HTTP endpoi
 
 
 ## Getting Started
-To get started on this phase complete the follow the instructions: [Getting Started](getting-started.md)
+Complete the [Getting Started](getting-started.md) instructions before working on this phase.
 
 
 ## Required HTTP Endpoints
