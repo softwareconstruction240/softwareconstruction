@@ -75,7 +75,7 @@ Return new Gson().toJson(Map.of(“message”, ex.getMessage()));
 
 ## Can’t find authToken from the request
 
-String authToken = req.headers(“authorization”)
+String authToken = context.header(“authorization”)
 
 ## AutoGrader can’t find my Unit Tests
 
