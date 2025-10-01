@@ -11,8 +11,7 @@ In this part of the Chess Project, you will implement a basic representation of 
 > Review the [Game of Chess](the-game-of-chess.md) instruction to learn how to set up the board and how each of the pieces move.
 
 ## Getting Started
-To get started complete the follow the instructions:
-[Getting Started](getting-started.md)
+Complete the [Getting Started](getting-started.md) instructions before working on this phase.
 
 ## Starter Code
 
