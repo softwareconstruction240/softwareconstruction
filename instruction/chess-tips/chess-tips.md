@@ -34,9 +34,7 @@ When in your `ChessGame.validMoves`, you may want to create a copy/clone of the 
 
 ## `==` vs `.equals()` comparison
 
-If you are comparing primitive data types, like `int`, `float`, `double`, `boolean`, or `char`, `==` will work great as it compares the memory address, allowing you to see if `12 == 12` or not. But when you start to compare more complicated data types, like Strings, that is why we need to do `.equals()` because they will have separate memory addresses, and `.equals()` will compare the content or value, allowing us to see if `"Hello".equals("World")` or not. 
-
-This is why for Phase 0, you Overrided the `.equals()` for those classes, so that you can use it to compare if `attackPosition.equals(kingPosition)`. So if you try to do `attackPosition == kingPosition`, you will not be able to get the correct answer since they don't have the same memory address. You must use `.equals()`.
+If you are trying to see if a king is in check by doing `endPosition == kingPosition`, the answer will always return false. Instead, you should use `endPosition.equals(kingPosition)`. To understand why Objects require `.equals()` instead, please refer to [Java Object Class](https://github.com/softwareconstruction240/softwareconstruction/wiki/Java-Object-Class#equals).
 
 # Phase 2 - Server Diagram
 
