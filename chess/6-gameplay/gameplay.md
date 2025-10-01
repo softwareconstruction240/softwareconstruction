@@ -12,7 +12,7 @@ _Figure 1: Recommended Chess Client Design_
 
 
 ## Getting Started
-To get started on this phase complete the follow the instructions: [Getting Started](getting-started.md)
+Complete the [Getting Started](getting-started.md) instructions before working on this phase.
 
 
 ## Gameplay Functionality
