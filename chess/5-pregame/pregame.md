@@ -10,7 +10,7 @@ To implement this, you will create a ServerFacade class to handle sending and re
 
 
 ## Getting Started
-To get started on this phase complete the follow the instructions: [Getting Started](getting-started.md)
+Complete the [Getting Started](getting-started.md) instructions before working on this phase.
 
 
 ## Required Functionality
