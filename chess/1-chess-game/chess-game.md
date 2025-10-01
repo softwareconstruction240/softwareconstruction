@@ -8,7 +8,7 @@
 In the previous phase you implemented the board and pieces along with the rules for setting up the board and moving pieces. In this phase you will implement the `ChessGame` so that you can play a game by making moves and determining check, stalemate, and checkmate.
 
 ## Getting Started
-To get started on this phase complete the follow the instructions: [Getting Started](getting-started.md)
+Complete the [Getting Started](getting-started.md) instructions before working on this phase.
 
 ## Code Class Structure
 
