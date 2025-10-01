@@ -1,7 +1,6 @@
 # ♕ Phase 6: Chess Gameplay
 
 - [Chess Application Overview](../chess.md)
-- [Getting Started](getting-started.md)
 - 🖥️ [Videos](#videos)
 - [TA Tips](../../instruction/chess-tips/chess-tips.md#phase-6---gameplay): A collection of common problems for this phase
 
@@ -10,6 +9,11 @@ For the final part of the Chess Project, you will implement gameplay. Gameplay w
 ![client design](client-design.png)
 
 _Figure 1: Recommended Chess Client Design_
+
+
+## Getting Started
+Complete the [Getting Started](getting-started.md) instructions before working on this phase.
+
 
 ## Gameplay Functionality
 
