@@ -1,6 +1,17 @@
 # Chess Tips
 
 This is a collection of tips that the TAs have compiled for solving common problems.
+# General - all phases
+
+## I don't have enough GitHub commits to pass the autograder
+
+Try to avoid this by following these rules of thumb:
+1. **Work in small chunks.** One common mistake is only committing when you hit a big milestone, like passing an entire test file - this is a sign that you could break the problem into smaller pieces. Commit when you hit small milestones, like finishing a function or passing a test.
+2. **Always set a clear goal for your next commit.** Something like "pass this test" or "create this piece of logic." Let the flow of regular commits drive your development process.
+3. Commits should **represent your changes in one short sentence.** If your commits are feeling hard to articulate because you don't remember all the things you changed, that's a good indicator that you should be committing more often.
+4. **Start working early.** The autograder has a requirement for number of days, so it'll flag you if you do everything on the same day.
+
+If you turn in your code without enough commits, the autograder will let you know that you need TA approval. We recommend that you bring your number of commits up to the required amount before coming in. You can make further changes to your code by focusing on code quality and organization: analyze your program structure and work on applying principles you're learning in class, like decomposition, abstraction, and encapsulation.
 
 # Phase 0 - Chess moves
 
@@ -17,6 +28,10 @@ Go into File -> Project Structure -> Modules -> Paths and select “Inherit proj
 First, check if your `test/java` folder is highlighted green. If it isn’t highlighted green, right-click on the `java` folder, then select "Mark Directory As…" and select "Test Sources Root". Now that IntelliJ understands that this is a test folder, there should be an option to run the tests inside of it.
 
 If that doesn’t work, make sure that the shared folder is a module. You can check this by clicking File -> Project Structure. Then, in Project Structure select the Module option on the left. Here you can see a section of Modules, in which you should see shared, server, and client. If you only see chess or nothing at all, IntelliJ didn’t set it up right, so you should delete everything, reclone the repository, and set it up again.
+
+## I don't have enough GitHub commits to pass the autograder
+
+See [previous](/instruction/chess-tips/chess-tips.md#General---all-phases)
 
 # Phase 1 - Chess Game
 
@@ -35,6 +50,10 @@ When in your `ChessGame.validMoves`, you may want to create a copy/clone of the 
 ## `==` vs `.equals()` comparison
 
 If you are trying to see if a king is in check by doing `endPosition == kingPosition`, the answer will always return false. Instead, you should use `endPosition.equals(kingPosition)`. To understand why Objects require `.equals()` instead, please refer to [Java Object Class](https://github.com/softwareconstruction240/softwareconstruction/wiki/Java-Object-Class#equals).
+
+## I don't have enough GitHub commits to pass the autograder
+
+See [previous](/instruction/chess-tips/chess-tips.md#General---all-phases)
 
 # Phase 2 - Server Diagram
 
@@ -79,11 +98,15 @@ Return new Gson().toJson(Map.of(“message”, ex.getMessage()));
 
 ## Can’t find authToken from the request
 
-String authToken = req.headers(“authorization”)
+String authToken = context.header(“authorization”)
 
 ## AutoGrader can’t find my Unit Tests
 
 Make sure the unit tests are in server/src/test/java/service and the Class has the word Tests in it.
+
+## I don't have enough GitHub commits to pass the autograder
+
+See [previous](/instruction/chess-tips/chess-tips.md#General---all-phases)
 
 # Phase 4 - Database
 
@@ -145,6 +168,10 @@ SQL table and column names are **case-sensitive** on the AutoGrader. However, so
     - `ResultSet.get*()` or similar functions which require a column name
 - Storing table names and/or column names in **variables** gives a reliable foundation to avoid this kind of problem.
 
+## I don't have enough GitHub commits to pass the autograder
+
+See [previous](/instruction/chess-tips/chess-tips.md#General---all-phases)
+
 ## Abstract Classes can’t be instantiated (ChessPiece)
 
 You’ll probably need to set up a TypeAdapter/JsonDeserializer. Alternatively you could switch your phase 0 code to use the move calculator strategy and only have one concrete ChessPiece class with no child classes.
@@ -202,6 +229,10 @@ If it says “Error: Unauthorized” with a 401 error, that probably means that 
 
 Your ServerFacade is probably not in a package. Put it in a package (probably not your UI package, is it a UI class?) and you should be able to import it
 
+## I don't have enough GitHub commits to pass the autograder
+
+See [previous](/instruction/chess-tips/chess-tips.md#General---all-phases)
+
 # Phase 6 - Gameplay
 
 ## Unknown opcode: 7
@@ -227,3 +258,7 @@ This could be from a race condition, if you send a notification that a move was 
 ## Running into a ClosedChannelException
 
 This exception is thrown when you are trying to send a message to a closed channel. Have the student make sure they are checking that the session is open (session.isOpen()) before sending it a message.
+
+## I don't have enough GitHub commits to pass the autograder
+
+See [previous](/instruction/chess-tips/chess-tips.md#General---all-phases)

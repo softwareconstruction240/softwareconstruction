@@ -1,7 +1,6 @@
 # ♕ Phase 3: Chess Web API
 
 - [Chess Application Overview](../chess.md)
-- [Getting Started](getting-started.md)
 - 🖥️ [Slides: Server Implementation Tips](https://docs.google.com/presentation/d/1am-_YWoZ1AX5_oZZAORjzsLbb8dy0_2S)
 - 🖥️ [Videos](#videos)
 - [TA Tips](../../instruction/chess-tips/chess-tips.md#phase-3---web-api): A collection of common problems for this phase
@@ -9,6 +8,11 @@
 In this phase, you will create your Chess server and implement seven HTTP endpoints that the chess client will use to communicate with your server. This will include creating your server, service, and data access classes. You will also write unit tests for your service classes.
 
 ![Sever class structure](server-class-structure.png)
+
+
+## Getting Started
+Complete the [Getting Started](getting-started.md) instructions before working on this phase.
+
 
 ## Required HTTP Endpoints
 
