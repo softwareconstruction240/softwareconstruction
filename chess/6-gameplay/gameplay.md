@@ -241,16 +241,16 @@ To pass off this assignment submit your work to the course [auto-grading](https:
 
 #### TA Passoff Prep
 
-Before coming to meet with a TA to passoff your Phase 5, please make sure that you test your code so you know that it can do the following
+Before coming to meet with a TA to passoff your Phase 6, please make sure that you test your code so you know that it can do the following:
 
-- You can have 3 terminals running at once, one for white, one for black, and one for the observer
-- Making a move will send a move notification to the all but the root user, and everyone should have their board update immediately
-- Print an error when trying to make a move out of turn, or a piece that isn't your color, or a piece that doesn't exist
-- You can promote a pawn when it gets to the final rank
-- Highlight shouldn't crash if you highlight a spot where there is not piece
-- Observer should be able to join a game, recieve notifications about a move made, and leave the game, no longer recieving notificaitons about a move being made
-- Delivering checkmate should send a checkmate notification to all players, in addition to the move notification and load board like a normal move should do
-- Resigning should require a confirmation before sending the resign command. After resignation, the players are still in the game until they leave, and no more moves are allowed to be made
+- You can have 3 terminals running at once, one for white, one for black, and one for the observer.
+- Making a move will send a move notification to everyone but the root user, and everyone (including the root user) should have their board update immediately.
+- Print an error when trying to make a move out of turn, moving a piece that isn't your color, or moving a piece that doesn't exist.
+- You can promote a pawn when it gets to the final row.
+- Highlighting moves should **not** crash if you highlight a space where there is no piece.
+- The observer should be able to join a game, receive notifications about a move made, and when leaving the game, should no longer receive notifications about a move being made.
+- Delivering checkmate should send a checkmate notification to all players, in addition to the move notification, and load the board as a normal move should do.
+- Resigning should require a confirmation before sending the resign command. After resignation, the players are still in the game until they leave, and no more moves are allowed to be made.
 
 ### Grading Rubric
 
