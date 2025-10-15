@@ -450,8 +450,6 @@ All of the tests in your project must succeed in order to complete this phase.
 
 To pass off this assignment use the course [auto-grading](https://cs240.click/) tool. If your code passes then your grade will automatically be entered in Canvas.
 
-After your code has successfully been auto-graded, a TA will review the code in your GitHub repository in order to determine its quality.
-
 ### Grading Rubric
 
 > [!IMPORTANT]
