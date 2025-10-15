@@ -196,7 +196,7 @@ public class AnonymousExample {
 - Why do local inner classes have a restriction on which local variables they can access?
 - How do you define an anonymous inner class and what benefit does it provide over a local inner class?
 
-## <a name="videos"></a>Videos (26:49)
+## Videos
 
 - 🎥 [Introduction (6:23)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=1a6ec347-24b8-41db-9dd8-ad72014f1ec1&start=0) - [[transcript]](https://github.com/user-attachments/files/17780969/CS_240_Inner_Class_Introduction.pdf)
 - 🎥 [Static Inner Classes (5:55)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=c02cdeb8-5929-4b80-b83a-ad72015107bc&start=0) - [[transcript]](https://github.com/user-attachments/files/17780972/CS_240_Static_Inner_Classes.pdf)

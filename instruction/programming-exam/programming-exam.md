@@ -6,11 +6,23 @@ The programming exam is a re-creation of your [chess phase-0](../../chess/0-ches
 
 You will take the exam as a Canvas quiz and will have 4 hours to complete the exam and answer the quiz questions, which consist mostly of uploading code and screenshots to demonstrate your work.
 
-**The exam is pass/fail.** You must pass all of the test cases in order to get a grade.
-
 [Honorlock](https://honorlock.com/) will proctor both your video and your audio while taking the exam.
 
 The purpose of this exam is really to show that you are able to tackle large and difficult programming projects without too much difficulty. If you aren't able to complete the phase-0 code on your own that typically means that you won't be able to do some of the later phases in the class. It also means that you probably need more time before you are ready to take the majority of the higher level CS classes which have harder concepts and more difficult code.
+
+**The exam is pass/fail.** You must pass all of the test cases in order to get a grade.
+
+There is no partial credit on the Programming Exam; you either finish, or you don't. During the exam you will have access to the Java API documentation, all project specifications and files, and the pass off driver test cases.
+
+**You must pass the Programming Exam in order to pass CS240.**  The key to passing the exam is to implement _Phase 0: Chess Moves_ ahead of time. Please note that if you do not implement the program beforehand, it is highly unlikely that you will pass the exam. Because passing the Programming Exam is required to pass the class, you may take the exam up to three times.  See the class schedule for exam dates. Your maximum score for the exam will go down each time you retake it according to the following schedule.
+
+| Attempt | Maximum Score |
+| :------ | :------------ |
+| 1       | 100%          |
+| 2       | 80%           |
+| 3       | 60%           |
+
+**If you fail the exam twice, you should meet with your instructor to discuss your situation.**  You will only be allowed to take the exam a third time after meeting with your instructor and after passing off the _Phase 0: Chess Moves_ with the TAs (i.e., you can't take the exam a third time unless the program has been passed off).
 
 ## What You Need To Do
 
@@ -21,9 +33,10 @@ The purpose of this exam is really to show that you are able to tackle large and
 1. Figure out your plan of how, where, and when you will take the exam. After reviewing the instructions and getting setup, make sure you have a device and place where you can take the exam. Also prepare a time to sit down to do it.
 
 1. Do the exam setup:
-    * Create a new clean project from starter code
-    * Take the HonorLock Setup/Acknowledgment Quiz 
-    * Take the Practice Programming Exam (optional)
+
+   - Create a new clean project from starter code
+   - Take the HonorLock Setup/Acknowledgment Quiz
+   - Take the Practice Programming Exam (optional)
 
 1. Review and practice. Make sure you have some time to review after Phase 0 and before taking the exam.
 
@@ -31,7 +44,7 @@ The purpose of this exam is really to show that you are able to tackle large and
 
 ## Overview
 
-There are three tests on canvas that all relate to the programming exam. There is the "Official Programming Exam" which is the exam itself. The "Practice Programming Exam" and "Honorlock Setup/Acknowledgment Quiz" are to make sure that you are ready to take the exam.
+There are three tests on canvas that all relate to the programming exam. There is the `Official Programming Exam` which is the exam itself. The `Practice Programming Exam` and `Honorlock Setup/Acknowledgment Quiz` are to make sure that you are ready to take the exam.
 
 When you are taking the exam you will not be writing code or answering many questions in Canvas. You will do the project in your normal IDE.
 
@@ -76,9 +89,9 @@ The practice quizzes and the actual programming exam are available on Canvas in 
 
 Make sure that you take time to do all of these steps before you start the actual exam, as they will take some time, and can prevent large problems from coming up during the exam. Talk with a TA if you want help to do these steps or have questions before you start about what is allowed.
 
-Before taking the exam you should complete all of the steps in the chess phase-0 [getting started](../../chess/0-chess-moves/getting-started.md) document, except that you will give the repository a different name (`chess-programming-exam` is a good option). After you have submitted the programming exam, you are free to delete this additional repository. Before you start the exam, you should have an Intellij project with the provided starter code. You should make sure the project is able to compile and the tests run (but still all fail) before starting. Do not add any code, psuedocode, or notes to your project anywhere, this will be treated as cheating.
+Before taking the exam you should complete all of the steps in the chess phase-0 [getting started](../../chess/0-chess-moves/getting-started.md) document, except that you will give the repository a different name (`chess-programming-exam` is a good option). After you have submitted the programming exam, you are free to delete this additional repository. Before you start the exam, you should have an Intellij project with the provided starter code. You should make sure the project is able to compile and the tests run (but still all fail) before starting. Do not add any code, pseudocode, or notes to your project anywhere, this will be treated as cheating.
 
-You should also open the [Javadoc](https://docs.oracle.com/en/java/javase/21/docs/api/) in a web browser tab and the [chess phase-0 specification](../../main/chess/0-chess-moves/chess-moves.md) in another browser tab. You may also open [The Game of Chess](../../chess/0-chess-moves/the-game-of-chess.md) github page referenced from the phase-0 specification. If you are taking the test during TA hours you can also have the help queue open. If you need to talk with a TA you can open Zoom for that purpose. All other programs should be closed so that you have only the approved programs open on your computer during the exam.
+You should also open the [Javadoc](https://docs.oracle.com/en/java/javase/21/docs/api/) in a web browser tab and the [chess phase-0 specification](../../chess/0-chess-moves/chess-moves.md) in another browser tab. You may also open [The Game of Chess](../../chess/0-chess-moves/the-game-of-chess.md) github page referenced from the phase-0 specification. If you are taking the test during TA hours you can also have the help queue open. If you need to talk with a TA you can open Zoom for that purpose. All other programs should be closed so that you have only the approved programs open on your computer during the exam.
 
 You may not open other tabs or access other information during the exam. This is designed to truly test that you have the capability to program the project.
 
@@ -87,11 +100,11 @@ If you want to make handwritten notes while working, have a blank sheet of paper
 When planning your time, allow yourself at least 20 minutes at the end of the exam to submit everything.
 
 You will need to upload:
+
 - A zip of your entire project
 - A screenshot of all your tests passing (right click passoff, click “run tests in passoff”).
 
 Make sure you know how to do both of these things before the exam starts so you don't lose time.
-
 
 ## Warnings and Other Information
 
@@ -104,6 +117,7 @@ You may take the exam at any time during the exam period. Just make sure you giv
 You can take the exam whenever you want during the exam period, however, we recommend taking it during TA hours. TAs will not be able to help you with programming or debugging during the exam, however, sometimes they can help with Honorlock or other issues that occur during the exam, but only if you take it during their office hours.
 
 Things that will be flagged and may cause you to fail:
+
 - Using another electronic device during the exam (phone, smartwatch, another computer, etc.). Don't have any of these in your work area.
 - Opening previous implementation(s) (IntelliJ, Github, a text-editor, etc)
 - Googling errors or questions or really anything
@@ -129,22 +143,21 @@ Any time spent during this process (waiting on the queue, or zooming with a TA) 
 
 We can answer procedural/logistical questions, but not debugging/code/junit tests questions. Questions on submitting material or fixing weird errors with Intelij are things we can help with. Questions about how to program something, why you are getting an error, or similar cannot be answered by the TA's. If a TA tells you while you are in the exam that they can't help you then that is the answer.
 
-Honorlock has it's own way to get technical help during the test. Do note that the people in the chat it provides are not CS 240 TAs! That means that while they may be able to help with technical issues regarding Honorlock, they will not be able to do anything related specifically to this class. For this reason, it is recommended to take the exam during TA hours.  It is better to contact the CS 240 TAs than Honorlock technical support during the exam because they will be better able to help you with the exam and grade.
+Honorlock has it's own way to get technical help during the test. Do note that the people in the chat it provides are not CS 240 TAs! That means that while they may be able to help with technical issues regarding Honorlock, they will not be able to do anything related specifically to this class. For this reason, it is recommended to take the exam during TA hours. It is better to contact the CS 240 TAs than Honorlock technical support during the exam because they will be better able to help you with the exam and grade.
 
 If Honorlock closes you out for some reason or you accidentally close the tab where it is open, try to rejoin the exam again. Usually this works fine. If you come to a TA with this question this is the first thing that we will have you try. If you are able to rejoin please make a note in the Canvas quiz of approximately what time you were kicked out.
 
-
 ## Exam Retakes
 
-You must pass the programming exam to pass the class. The exam is pass/fail. You will either receive 100% or 0%. You may take the exam up to three times for reduced credit each time (see Canvas for the percentage of your total grade and the maximum score for each take of the exam). If you do not pass the exam by the third attempt, it will not be possible for you to pass the class. In that case you should withdraw.
+You must pass the programming exam to pass the class. The exam is pass/fail. You will either receive 100% or 0%. You may take the exam up to three times. However, it is in your best interest to pass the exam as soon as possible. If you do not pass the exam by the third attempt, it will not be possible for you to pass the class and you should withdraw.
 
-After taking the exam, you will either see a score in Canvas (telling you that you passed the exam) or you will receive an email from a TA telling you why you did not pass the exam. Either your score will be entered or you will receive an email from a TA by the end of the day on the day the original exam (first attempt) is due. Your score will appear in the spot for “Programming Exam”.
+After taking the exam, you will either see a passing score in Canvas in the “Programming Exam” assignment or you will receive an email from a TA telling you why you did not pass the exam.
 
-You already have two attempts on the exam. The first attempt due date is the date listed as the due date for the exam. If you use the second attempt, your exam will be graded as a retake for reduced credit. Your second attempt starts immediately after the first attempt due date. You will only have a few days after the first attempt due date to use your second attempt if needed. Check the course schedule for the due date for the second attempt.
+If you do not pass the exam on your first attempt, you can retake it up to two more times. The retake deadlines are listed in the course schedule.
 
-If you need a third attempt, you are required to meet with your instructor first. The purpose of the meeting will be for your instructor to help you prepare to pass the exam on your final attempt. Your instructor will add the third attempt to your exam after this meeting. You are responsible for contacting your instructor to schedule the meeting.
+If you need a third attempt, you are required to meet with your instructor first. The purpose of the meeting is to help you prepare to pass the exam on your final attempt. You are responsible for contacting your instructor to schedule the meeting.
 
-Pay attention to the availability date of the exam if you need a third attempt. This date is before the withdrawal date and you must complete your final attempt of the exam on or before this availability date.
+The deadline for the third attempt is shortly before the course withdrawal date. This allows you to withdraw from the course if you do not pass the exam.
 
 ## Linux
 
@@ -155,13 +168,12 @@ With most Linux distros you can usually use Honorlock with a few extra steps. Do
    - There are several extensions that you can choose from that have this functionality. [User Agent Switcher and Manager](https://chromewebstore.google.com/detail/user-agent-switcher-and-m/bhchdcejhohfmigjafbampogmaanbfkg) is an option that usually works. Before using any chrome extension ensure that you are confident in what it does and its reputation as a product.
    - You can also configure this manually from the developer settings in your browser, this is more difficult to do, and usually won’t persist across tabs and sessions so is not the best option for the test.
 1. Change the user agent to be Chrome on Mac, Windows, or Chrome OS. The most consistent results come from using the most up to date version of Chrome on Mac that is listed.
-1. Test it against [Honorlock's System Check](https://app.honorlock.com/support/msr-check). You can also check it against [deviceinfo.me](https://www.deviceinfo.me) making sure that you appear as the other operating system.
-   If you are able to pass this check then you are good to go for the test. Taking the Honorlock Setup Quiz is a good time to test that this configuration works as well.
+1. Test it against [Honorlock's System Check](https://app.honorlock.com/support/msr-check). You can also check it against [deviceinfo.me](https://www.deviceinfo.me) making sure that you appear as the other operating system. If you are able to pass this check then you are good to go for the test. Taking the Honorlock Setup Quiz is a good time to test that this configuration works as well.
 
 Important - make sure you do not do any updates to your system or apps before taking the test. This could cause your new configuration to not work with Honorlock.
 
 It is possible that this will not work for your computer. In that case it is best to consider other options that are available.
 
-## <a name="videos"></a>Videos (10:52)
+## Videos
 
 - 🎥 [Programming Exam (10:52)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=a1699870-7e83-4af2-ad54-b24a011a70ca) - [[transcript] - Coming Soon]

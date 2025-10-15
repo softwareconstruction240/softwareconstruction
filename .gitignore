@@ -3,3 +3,4 @@
 
 # Used to store files while they're modified for Wiki.
 docs
+**pycache**

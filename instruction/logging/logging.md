@@ -181,17 +181,17 @@ public class ServerLoggingExample {
     static Logger logger = Logger.getLogger("myLogger");
 
     private void run() throws Exception {
-        Spark.port(8080);
-
         var config = new DatabaseConfig("jdbc:mysql://localhost:3306", "pet_store", "root", "monkeypie");
         logger.addHandler(new DatabaseHandler(config));
 
-        Spark.get("/*", (req, res) -> "<p>OK</p>");
-        Spark.after(this::log);
+        var javalin = Javalin.create()
+            .get("/*", (ctx) -> ctx.result("<p>OK</p>")
+            .after(this::log)
+            .start(8080);
     }
 
-    private void log(Request req, Response res) {
-        logger.info(String.format("[%s]%s - %d", req.requestMethod(), req.pathInfo(), res.status()));
+    private void log(Context ctx) {
+        logger.info(String.format("[%s]%s - %d", ctx.method(), ctx.path(), ctx.status()));
     }
 }
 ```
@@ -225,7 +225,7 @@ Java's direct support for logging, with the `java.util.logging` package, was not
 - How do you configure logging from a configuration file?
 - Why do we have Log4J is Java has a built-in logging API?
 
-## <a name="videos"></a>Videos (29:35)
+## Videos
 
 - 🎥 [Logging (6:47)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=014ade75-f4ad-4119-95c1-ad6d0147c217&start=0) - [[transcript]](https://github.com/user-attachments/files/17805093/CS_240_Java_Logging.pdf)
 - 🎥 [Logging: Configuration (13:44)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=5c08583a-579d-452e-88d6-ad6d0149e2cc&start=0) - [[transcript]](https://github.com/user-attachments/files/17805094/CS_240_Logging_Configuration.pdf)

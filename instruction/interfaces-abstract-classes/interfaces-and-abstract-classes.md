@@ -376,7 +376,7 @@ classDiagram
 - How to create an interface
 - How to do inheritance in Java
 
-## <a name="videos"></a>Videos (30:44)
+## Videos
 
 - 🎥 [Polymorphism (5:53)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=23d2e58e-9628-43a4-9aaa-ad640141e7dc&start=0) - [[transcript]](https://github.com/user-attachments/files/17804824/CS_240_Polymorphism.pdf)
 - 🎥 [Polymorphism Example Part 1 (3:33)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=88adc709-e900-47d6-9e9a-ad64014400ad&start=0) - [[transcript]](https://github.com/user-attachments/files/17804825/CS_240_Polymorphism_Example_Part1.pdf)

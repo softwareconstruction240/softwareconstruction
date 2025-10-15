@@ -1,14 +1,17 @@
 # ♕ Phase 0: Chess Moves
 
 - [Chess Application Overview](../chess.md)
-- [Getting Started](getting-started.md)
 - 🖥️ [Videos](#videos)
+- [TA Tips](../../instruction/chess-tips/chess-tips.md#phase-0---chess-moves): A collection of common problems for this phase
 
 In this part of the Chess Project, you will implement a basic representation of the game of chess. This includes the setting up of the board and defining how pieces move.
 
 > [!NOTE]
 >
 > Review the [Game of Chess](the-game-of-chess.md) instruction to learn how to set up the board and how each of the pieces move.
+
+## Getting Started
+Complete the [Getting Started](getting-started.md) instructions before working on this phase.
 
 ## Starter Code
 
@@ -108,11 +111,11 @@ public enum PieceType {
 }
 ```
 
-`ChessPiece` implements rules that define how a piece moves independent of other chess rules such as check, stalemate, or checkmate.
+`ChessPiece` implements rules that define how a piece moves independent of other chess rules such as whose turn it is, check, stalemate, or checkmate.
 
 #### Key Methods
 
-- **`pieceMoves`**: Called on a particular piece and being provided its position and the board as context, this method returns all moves the piece can legally make. `ChessPiece.validMoves` accounts for the type of piece and the locations of enemy and friendly pieces blocking movement paths. As the precursor to `ChessGame.validMoves`, this method provides most of the behavior of the chess moves, except it does not honor whose turn it is or check if the king is being attacked.
+- **`pieceMoves`**: Given a board configuration, this method returns all the moves a specific piece can legally make independant of whose turn it is or if the King is being attacked. It considers the edges of the board and the location of both enemy and friendly pieces. In the next phase, you will implement `ChessGame.validMoves`, which considers not only how a piece moves, but all of the rules of chess.
 
 ### ChessMove
 
@@ -142,7 +145,7 @@ To understand why we need to override the `equals()` and `hashCode()` methods, s
 
 ## Testing
 
-The test cases found in `src/test/java/passoff/chess/piece` contain a collection of tests that assert the correct movement of individual pieces.
+The test cases found in `src/test/java/passoff/chess` contain a collection of tests that assert the correct movement of individual pieces.
 
 To run the tests, you can click the play icon next to an individual test, or you can right click on a package or class and select `Debug` or `Debug Tests in …`
 
@@ -150,7 +153,9 @@ To run the tests, you can click the play icon next to an individual test, or you
 
 ## Recommended Development Process
 
-For this project, you are free to implement the classes described above in whatever order you choose. However, it is suggested that you follow the principles of test driven development. Each test is designed for a specific aspect of the overall project. You should look at what each test needs to function, and build piece by piece to the functionality of the project. A good process for this is to:
+For this project, you are free to implement the classes described above in whatever order you choose. However, it is suggested that you follow the principles of test driven development. Each test is designed for a specific aspect of the overall project. You should look at what each test needs to function, and build piece by piece to the functionality of the project.
+
+A good process for this is to:
 
 - Identify a test that you feel is the simplest or next in the process.
 - Add the code for the functionality
@@ -187,12 +192,8 @@ To pass off this assignment use the course [auto-grading](https://cs240.click/) 
 | Functionality  | All pass off test cases succeed                                                                   |          125 |
 |                | **Total**                                                                                         |      **125** |
 
-## <a name="videos"></a>Videos (21:22)
+## Videos
 
-> [!NOTE]
->
-> The "Phase 0 Overview" video contains some outdated setup information. Between timestamps 0:51 and 2:40, an older and more complicated way of setting up the repo is demonstrated. This section of the video can be skipped.
-
-- 🎥 [Phase 0 Overview (15:51)](https://youtu.be/mTtK8iRXsZo) - [transcript]
+- 🎥 [Phase 0 Overview (21.17)](https://youtu.be/mTtK8iRXsZo) - transcript
 - 🎥 [Phase 0 Design Tips (5:31)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=88653eac-78a8-4f59-a12a-b170014f61f1) - [[transcript]](https://github.com/user-attachments/files/17706812/CS_240_Phase_0_Design_Tips_Transcript.pdf)
 - 🎥 [Phase 0 Creating Chess GitHub Repository (4:34)](https://www.loom.com/share/2b2dd64e7b524b3f9b396318cf140159?sid=a6c1b75f-a73f-455e-976c-ba19052117a6) - [[transcript]](creating-chess-github-repo-transcript.txt)

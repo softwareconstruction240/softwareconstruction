@@ -1,8 +1,9 @@
 # ♕ Phase 4: Chess Database
 
 - [Chess Application Overview](../chess.md)
-- [Getting Started](getting-started.md)
 - 🖥️ [Videos](#videos)
+- [TA Tips](../../instruction/chess-tips/chess-tips.md#phase-4---database): A collection of common problems for this phase
+  
 
 In this part of the Chess project, you will create a MySQL implementation of your Data Access interface and start calling it from your services. This enables the ability to store data persistently in a MySQL database instead of storing data in main memory. You will also write unit tests using JUnit for your DAO classes. This involves the following steps:
 
@@ -13,6 +14,9 @@ In this part of the Chess project, you will create a MySQL implementation of you
 1. Add the ability to create your database and tables, if they don't exist, when your server starts up.
 1. Iteratively write a test for each of your Data Access interface methods along with the backing MySQL code.
 1. Ensure that all provided pass off tests work properly, including the DatabaseTests added for this assignment, and the StandardAPITests from the previous assignment.
+
+## Getting Started
+Complete the [Getting Started](getting-started.md) instructions before working on this phase.
 
 ## Making Database Connections
 
@@ -91,6 +95,8 @@ You will want to carefully consider the need for a Gson type adapter when you do
 - [MYSQL](../../instruction/mysql/mysql.md): Getting MySQL installed.
 - [SQL](../../instruction/db-sql/db-sql.md): Using SQL statements.
 - [JDBC](../../instruction/db-jdbc/db-jdbc.md): Using SQL from Java including type adapters.
+- [Liskov Substitution Principle](../../instruction/design-principles/design-principles.md#liskov-substitution-principle): Fully implementing DAO interfaces.
+- [Pet Shop](../../petshop/petshop.md): Multiple DataAccess implementations.
 
 ## ☑ Deliverable
 
@@ -117,10 +123,6 @@ As part of your unit test deliverable you need to meet the following requirement
 
 For this phase the auto grader will grade the quality of your project's source code. The rubric used to evaluate code quality can be found here: [Rubric](../code-quality-rubric.md)
 
-### Common Submission Issues
-
-Since you're adding code that acts with an external program in Phase 4, the likelihood of having auto-grader test output different from your local output is higher than previous phases. See our collection of [Phase 4 Debugging Tips](./debugging-tips.md) for approaches to resolve common issues.
-
 ### Pass Off, Submission, and Grading
 
 All the tests in your project must succeed in order to complete this phase.
@@ -141,7 +143,7 @@ To pass off this assignment use the course [auto-grading](https://cs240.click/) 
 | Unit Tests     | All test cases pass<br/>Each public method on DAO classes has two test cases, one positive test and one negative test<br/>Every test case includes an Assert statement of some type |           25 |
 |                | **Total**                                                                                                                                                                           |      **155** |
 
-## <a name="videos"></a>Videos (29:30)
+## Videos
 
 - 🎥 [Phase 4 Introduction (4:21)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=1d2253eb-f42c-4091-8d6f-b19301573278) - [[transcript]](https://github.com/user-attachments/files/17707032/CS_240_Chess_Phase_4_Transcript.pdf)
 - 🎥 [Making Database Connections (6:22)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=9eb42a5d-6770-4d1a-a3ab-b1930158f0d3) - [[transcript]](https://github.com/user-attachments/files/17707047/CS_240_Making_Database_Connections_Transcript.pdf)

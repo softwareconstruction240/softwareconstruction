@@ -386,7 +386,7 @@ public class ScannerExample {
 1. The relationship between Packages, Imports and the CLASSPATH environment variable
 1. How to use a Scanner to read a text file of words, separated by whitespace
 
-## <a name="videos"></a>Videos (1:38:13)
+## Videos
 
 - 🎥 [Java History and Overview (10:13)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=cb99566e-3a9d-40c9-86c0-ad56013f4a64) - [[transcript]](https://github.com/user-attachments/files/17804894/CS_240_Java_History_and_Overview.pdf)
 - 🎥 [Installing Java (2:32)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=0c39ffac-a1b2-4fa3-bb1e-ad560142a73b) - [[transcript]](https://github.com/user-attachments/files/17750636/CS_240_Installing_Java_Transcript.pdf)
@@ -416,3 +416,7 @@ public class ScannerExample {
 📁 [Packages Imports](example-code/06-packages-imports/)
 
 📁 [Input Output](example-code/07-input-output/)
+
+## Lecture files
+
+📁 [Lecture Files](lecture-files/)

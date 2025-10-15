@@ -4,6 +4,7 @@
 - _This phase has no starter code._
 - 🖥️ [Slides](https://docs.google.com/presentation/d/12zsEJ-at5DsbKNy7a0Eac0D1ZWa4RBIC/edit?usp=sharing&ouid=117271818978464480745&rtpof=true&sd=true)
 - 🖥️ [Videos](#videos)
+- [TA Tips](../../instruction/chess-tips/chess-tips.md#phase-2---server-diagram): A collection of common problems for this phase
 
 In this part of the Chess Project, you will create a [sequence diagram](https://en.wikipedia.org/wiki/Sequence_diagram) that represents the design of your chess server. Your chess server exposes seven endpoints. An endpoint is a URL that maps to a method that handles HTTP network requests. Your chess client calls the endpoints in order to play a game of chess. Each of these endpoints convert the HTTP network request into service object method calls, that in turn read and write data from data access objects. The data access objects persistently store data in a database. The service object method uses the information from the request and the data access objects to create a response that is sent back to the chess client through the HTTP server.
 
@@ -22,6 +23,10 @@ The chess application components are demonstrated by the following diagram and d
 |              | Services      | Process the business logic for the application. This includes registering and logging in users and creating, listing, and playing chess games. Call the data access methods to retrieve and persist application data.                                                                                     |
 |              | DataAccess    | Provide methods that persistently store and retrieve the application data.                                                                                                                                                                                                                                |
 | Database     |               | Stores data persistently.                                                                                                                                                                                                                                                                                 |
+
+> [!NOTE]
+>
+> While we have the Handlers as distinct components here and later in the diagram, it is not required to have specific handler classes. You may implement this functionality directly in the lambda functions for the endpoints of your server.
 
 ## Application Programming Interface (API)
 
@@ -90,6 +95,11 @@ This example diagram represents the following sequence for registering and autho
 1. A `client`, acting as a chess player, calls the `register` endpoint. This request is made as an HTTP network request with the `/user` URL path and a body that contains her username, password, and email in a JSON representation.
 2. The `server` gets the body with its information from the HTTP request and matches it to the correct handler.
 3. The `handler` takes the JSON information and creates an object to hold it and sends it to the correct service class.
+
+> [!TIP]
+>
+> You are not required to create your handlers in their own distinct classes. You may implement this functionality directly in the lambda functions for the endpoints of your server.
+
 4. The `service` calls a data access method in order to determine if there is already a user with that username.
 5. The `data access` method checks the database for a username matching the user.
 6. At this point there is a break in logic. If there is already a user with that username, the `data access` method will return a `UserData` of the user with that username. If there is no user with that name, it will return `null`.
@@ -108,6 +118,10 @@ This example diagram represents the following sequence for registering and autho
 > [!NOTE]
 >
 > Note that the diagram includes simple representations of HTTP and database requests. You will learn how to use these technologies in later phases. You just need to understand that the `server` receives HTTP network requests and the database persistently stores your application data. It is also not important that you use correct UML Sequence diagram syntax for your diagrams. You just need to show that you understand what each of the endpoints are doing inside your code.
+
+### PetShop Example
+
+There is an example [PetShop Server Sequence Diagram](../../petshop/petshop.md#endpoint-sequence-diagrams). The PetShop example as a whole is intended to demonstrate the core concepts of this course, but does not account for all the complexities that you will need to consider for your chess project. Learn from the example and walkthrough videos, and then do your own work to learn this new skill of diagramming.
 
 ## Classes
 
@@ -145,7 +159,7 @@ When initially graded, your design will be given one of three scores:
 | Your design has significant deficiencies. Meet with a TA to discuss your design, ideally the same TA who originally graded your design. Improve and resubmit your design within one week (or two days in a term) of initial grading, and receive a maximum score of 100%. |    25 |
 | The submitted design was not a serious attempt at doing the assignment correctly. Resubmit your design within one week (or two days in a term) of initial grading and receive a maximum score of 50%.                                                                     |     0 |
 
-## <a name="videos"></a>Videos (1:31:43)
+## Videos
 
 - 🎥 [Chess Server Design - Introduction (16:15)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=bd253d7a-375d-4833-87e0-b17e015a6b7f) - [[transcript]](https://github.com/user-attachments/files/17706891/CS_240_Chess_Server_Design_Introduction_Transcript.pdf)
 - 🎥 [Chess Server Design - Software Design Principles (2:16)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=c8afd967-18dc-4396-b92e-b17e015f13b9) - [[transcript]](https://github.com/user-attachments/files/17706903/CS_240_Chess_Server_Design_Software_Design_Principles_Transcript.pdf)

@@ -29,14 +29,14 @@ This process is then repeated for each additional feature or bug.
 
 There are several characteristics that you want to strive for when creating tests.
 
-| Characteristic        | Description                                                                                                                                                                                                                                                                                                           |
-| --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Cohesive | The test only tests one thing. That doesn't mean it doesn't require other code to execute before the test asserts are made, but the test should not be making unrelated assertions. Instead create an additional test.                                                                                                |
-| Quick                 | You want your tests to run as quickly as possible. Ideally, you would write a little bit of production code and then run all the tests so that you can quickly discover if you broke something. When tests take a long time to run you will be discouraged from executing them.                                       |
-| Do not repeat         | You are not exercising the same code over and over again with different tests.                                                                                                                                                                                                                                        |
-| Stable                | If the test passes once, and the production code does not change, then the test should always pass. Unstable tests suggest a problem with the production or testing code. Unstable tests decrease the value of your tests because you no longer trust them, or have to rerun them multiple times to get them to pass. |
-| Automated             | No human should be involved in the execution process of the tests. Automation allows you to run the tests as part of your continuous delivery pipeline or check in process.                                                                                                                                           |
-| Easy                  | It should be easy to introduce new tests. If the process requires significant effort then it discourages people from writing them.                                                                                                                                                                                    |
+| Characteristic | Description                                                                                                                                                                                                                                                                                                           |
+| -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Cohesive       | The test only tests one thing. That doesn't mean it doesn't require other code to execute before the test asserts are made, but the test should not be making unrelated assertions. Instead create an additional test.                                                                                                |
+| Quick          | You want your tests to run as quickly as possible. Ideally, you would write a little bit of production code and then run all the tests so that you can quickly discover if you broke something. When tests take a long time to run you will be discouraged from executing them.                                       |
+| Do not repeat  | You are not exercising the same code over and over again with different tests.                                                                                                                                                                                                                                        |
+| Stable         | If the test passes once, and the production code does not change, then the test should always pass. Unstable tests suggest a problem with the production or testing code. Unstable tests decrease the value of your tests because you no longer trust them, or have to rerun them multiple times to get them to pass. |
+| Automated      | No human should be involved in the execution process of the tests. Automation allows you to run the tests as part of your continuous delivery pipeline or check in process.                                                                                                                                           |
+| Easy           | It should be easy to introduce new tests. If the process requires significant effort then it discourages people from writing them.                                                                                                                                                                                    |
 
 ## JUnit
 
@@ -111,12 +111,11 @@ With IntelliJ, you can autogenerate your unit tests. To use this tool open up an
 - How to run Junit tests from Intellij
 - Special considerations for testing database code
 
-## <a name="videos"></a>Videos (25:05)
+## Videos
 
 - 🎥 [Why We Need Unit Testing (4:30)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=c5707c4c-77d9-43d7-b96b-ad6b014612ca&start=0) - [[transcript]](https://github.com/user-attachments/files/17805242/CS_240_Why_We_Need_Unit_Testing.pdf)
 - 🎥 [Unit Testing Overview (5:10)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=bb1884b3-55ab-4a8b-be05-ad6b01477df8&start=0) - [[transcript]](https://github.com/user-attachments/files/17805243/CS_240_Unit_Testing_Overview.pdf)
 - 🎥 [The JUnit Testing Framework (15:25)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=071e47be-a746-4e74-afd5-ad6b0149b2b8&start=0) - [[transcript]](https://github.com/user-attachments/files/17805245/CS_240_The_JUnit_Testing_Framework.pdf)
-
 
 ## Demonstration code
 

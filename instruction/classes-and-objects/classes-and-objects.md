@@ -181,7 +181,7 @@ public static void main(String[] args) {
 - What an enum is and how to implement one
 - The standard order of elements in a Java class
 
-## <a name="videos"></a>Videos (1:12:18)
+## Videos
 
 - 🎥 [Overview (2:47)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=8248d213-ef10-44e1-8dbf-ad5d0143c0f8&start=0) - [[transcript]](https://github.com/user-attachments/files/17756219/CS_240_Classes_and_Objects_Overview.pdf)
 - 🎥 [Object References (10:00)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=cd1007ae-04da-4311-9e2d-ad5d0144b41a&start=0) - [[transcript]](https://github.com/user-attachments/files/17756222/CS_240_Object_References.pdf)
@@ -210,3 +210,7 @@ public static void main(String[] args) {
 📁 [Override Example](example-code/OverrideExample)
 
 📁 [Static Example](example-code/StaticExample)
+
+## Lecture files
+
+📁 [Lecture Files](lecture-files/)

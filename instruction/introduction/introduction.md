@@ -36,9 +36,9 @@ The remainder of the chess phases implement a chess server that allows multiple 
 
 ## Java
 
-You will use the Java programming language for all of your work in this course. Java has been a popular language for multiple decades. According to the [2023 Stack Overflow survey](https://survey.stackoverflow.co/2023/#most-popular-technologies-language-prof), Java is used by 30% of professional developers. Java has some nice properties. It is object oriented, compiled, has garbage collection, and is strongly typed. In short, Java is a good language to help you round out your skill set and resume.
+You will use the Java programming language for all of your work in this course. Java has been a popular language for multiple decades. According to the [2025 Stack Overflow survey](https://survey.stackoverflow.co/2025/technology#most-popular-technologies), Java is used by 30% of professional developers. Java has some nice properties. It is object oriented, compiled, has garbage collection, and is strongly typed. In short, Java is a good language to help you round out your skill set and resume.
 
-![StackOverflow Survey](javaStackOverflowSurvey.png)
+![alt text](popularTechnologies.png)
 
 In order to properly learn Java, you will need to reference selected chapters of the book `Core Java for the Impatient`. This book is available for free on the Safari Books collection available through the Harold B. Lee Library. You can also reference the many resources available on the web for mastering the different concepts found in the Java programming language.
 
@@ -114,7 +114,7 @@ More important than the actual grade you receive from this course is the degree 
 
 Take the time during the course to dive deeper into topics that you find interesting. Learn from external sources and gain a wide perspective of understanding. Question what is being taught and seek to find a better way to construct software. With this attitude, **you** might be the next leader of a new revolution in software construction.
 
-## <a name="videos"></a>Videos (45:15)
+## Videos
 
 - 🎥 [Course Overview (10:34)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=080df794-9d59-426b-b7c8-b19c0109e6f1) - [[transcript]](https://github.com/user-attachments/files/17738690/CS_240_Course_Overview_Transcript.pdf)
 - 🎥 [Course Policies (14:19)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=ac43c852-5712-4dca-9003-b19c010d56e7) - [[transcript]](https://github.com/user-attachments/files/17738697/CS_240_Course_Policies_Transcript.pdf)

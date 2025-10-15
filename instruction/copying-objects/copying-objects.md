@@ -121,7 +121,7 @@ However, overriding `clone` requires that you implement the `Cloneable` marker i
 - How to use `copy constructors` to implement deep copies
 - How to use `clone` methods to implement deep copies
 
-## <a name="videos"></a>Videos (22:50)
+## Videos
 
 - 🎥 [Copying Objects - Overview (6:54)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=cfdfab1b-0c5b-4cdc-b40f-b19c011ca4cc) - [[transcript]](https://github.com/user-attachments/files/17737115/CS_240_Copying_Objects_Overview_Transcript.pdf)
 - 🎥 [Making a Shallow Copy (7:24)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=eb6a8c67-9f61-4741-a099-b19c011ebcfe) - [[transcript]](https://github.com/user-attachments/files/17737145/CS_240_Copying_Objects_Shallow_Copy_Example_Transcript.pdf)

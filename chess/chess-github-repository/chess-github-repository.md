@@ -1,6 +1,6 @@
 # ♕ Chess GitHub Repository
 
-- 🖥️ [Videos](#videos)
+<!-- - 🖥️ [Videos](#videos) -->
 
 In the following phases of the chess project you will add to, and enhance, the content you have created in a GitHub repository. The commit history that you establish through the course serves the following valuable purposes:
 
@@ -22,6 +22,7 @@ You will be most successful in this course if you set aside time each day, or ev
 For all of the above reasons, it is required that you use GitHub for your chess project. Additionally, you must use it consistently and frequently.
 
 > [!IMPORTANT]
+>
 > It is a prerequisite for all deliverables that you have at least 10 commits evenly spread across the assignment period for the deliverable.
 
 If you do not have the required number of commits, or if they are all clustered in a single burst of activity, then you will need to justify the discrepancy before the deliverable will be accepted.
@@ -32,6 +33,7 @@ If you do not have the required number of commits, or if they are all clustered 
 1. Sign in to personal account, or create one if you don't already have a GitHub.com account. _The [GitHub Terms of Service](https://docs.github.com/en/site-policy/github-terms/github-terms-of-service#3-account-requirements) allow only one account per individual._
 1. View the [chess template repository](https://github.com/softwareconstruction240/chess).
 1. Use the template to create your own chess repository:
+
    1. Press "Use this template"
    1. Choose "Create a new Repository"
 
@@ -39,7 +41,7 @@ If you do not have the required number of commits, or if they are all clustered 
 
    1. Name it `chess`.
    1. Optionally, give it a meaningful description such as:
-       > Full-stack chess application built as a course project for BYU CS 240. It features a networked client-server architecture, with a command-line client, a server to manage users and games, and shared modules for implementing chess rules and game state management.
+      > Full-stack chess application built as a course project for BYU CS 240. It features a networked client-server architecture, with a command-line client, a server to manage users and games, and shared modules for implementing chess rules and game state management.
    1. Mark the repository as `public` so that it can be reviewed by the TAs and instructors. (This is the default.)
    1. Leave the box marked `Include all branches` unchecked. (This is the default.)
    1. Press "Create Repository"
@@ -89,19 +91,20 @@ https://github.com/<youraccount>/chess
 ```
 
 When you have successfully completed the assignment:
+
 1. The AutoGrader will show a "Submission passed!" message and display your score.
 2. **Your score will be automatically entered in Canvas.**
 3. You will see a new item in your "Submission History" containing the notes generated during grading.
-   * Click on the submission to view more details from grading
-   * In future phases, you will see additional buttons to click for detailed compiler output.
+   - Click on the submission to view more details from grading
+   - In future phases, you will see additional buttons to click for detailed compiler output.
 
+## Videos
 
-## <a name="videos"></a>Videos (3:31)
-
-> [!NOTE]
-> The "Chess GitHub Repository" video shows screenshots of outdated setup information. Between timestamps 2:16 and 2:26, the instructions for an older and more complicated way of setting up the repo are shown. Read the online version for the most up-to-date instructions.
+<!-- > [!NOTE]
+>
+> The "Chess GitHub Repository" video shows screenshots of outdated setup information. Between timestamps 2:16 and 2:26, the instructions for an older and more complicated way of setting up the repo are shown. Read the online version for the most up-to-date instructions. You can also view the first part of the [Phase 0 Overview](https://youtu.be/mTtK8iRXsZo) video to see an example of setting up your Chess repository.
 >
 > Additionally, at timestamp 2:48 the video suggests that the GitHub repo url needs to be turned in to Canvas. This is outdated; however, the rest of the discussion about the role of the autograder is correct. Instead, you will submit the GitHub repo directly to the autograder as described in the latest version of the instructions.
 
-- 🎥 [Chess GitHub Repository (3:31)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=9603dd36-5c9b-4705-aa3d-b169016801a3) - [[transcript]](https://github.com/user-attachments/files/17707180/CS_240_Chess_GitHub_Repository_Transcript.pdf)
+- 🎥 [Chess GitHub Repository (3:31)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=9603dd36-5c9b-4705-aa3d-b169016801a3) - [[transcript]](https://github.com/user-attachments/files/17707180/CS_240_Chess_GitHub_Repository_Transcript.pdf) -->
 - 🎥 [Creating Chess GitHub Repository (4:34)](https://www.loom.com/share/2b2dd64e7b524b3f9b396318cf140159?sid=a6c1b75f-a73f-455e-976c-ba19052117a6) - [[transcript]](../0-chess-moves/creating-chess-github-repo-transcript.txt)

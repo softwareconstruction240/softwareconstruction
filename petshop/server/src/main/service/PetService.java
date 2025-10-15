@@ -1,7 +1,7 @@
 package service;
 
 import dataaccess.DataAccess;
-import model.Pet;
+import model.*;
 import exception.ResponseException;
 import model.PetType;
 
@@ -16,29 +16,39 @@ public class PetService {
     }
 
     // Pet Shop is very simple.
-    // A more complicated application would do the business logic in this
-    // service.
+    // A more complicated application would do the business logic in the service.
 
     public Pet addPet(Pet pet) throws ResponseException {
         if (pet.type() == PetType.DOG && pet.name().equals("fleas")) {
-            throw new ResponseException(400, "Error: no dogs with fleas");
+            throw new ResponseException(ResponseException.Code.ClientError, "Error: no dogs with fleas");
         }
         return dataAccess.addPet(pet);
     }
 
-    public Collection<Pet> listPets() throws ResponseException {
+    public PetList listPets() throws ResponseException {
         return dataAccess.listPets();
     }
 
     public Pet getPet(int id) throws ResponseException {
+        validateId(id);
         return dataAccess.getPet(id);
     }
 
     public void deletePet(Integer id) throws ResponseException {
+        validateId(id);
         dataAccess.deletePet(id);
     }
 
     public void deleteAllPets() throws ResponseException {
-        dataAccess.deleteAllPets();
+        Collection<Pet> pets = dataAccess.listPets();
+        if (!pets.isEmpty()) {
+            dataAccess.deleteAllPets();
+        }
+    }
+
+    private void validateId(int id) throws ResponseException {
+        if (id <= 0) {
+            throw new ResponseException(ResponseException.Code.ClientError, "Error: invalid pet ID");
+        }
     }
 }

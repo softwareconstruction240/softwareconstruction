@@ -1,45 +1,63 @@
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.http.HttpClient;
+import java.net.http.HttpHeaders;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.nio.charset.StandardCharsets;
+import java.util.Optional;
 
 public class PostExample {
+    private static final int TIMEOUT_MILLIS = 5000;
 
-    public void doPost(String urlString) throws IOException {
-        URL url = new URL(urlString);
+    private final HttpClient httpClient = HttpClient.newHttpClient();
 
-        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+    public static void main(String[] args) throws IOException, InterruptedException {
+        if(args.length == 4) {
+            String host = args[0];
+            String portString = args[1];
+            String path = args[2];
+            String message= args[3];
 
-        connection.setReadTimeout(5000);
-        connection.setRequestMethod("POST");
-        connection.setDoOutput(true);
+            var client = new PostExample();
 
-        // Set HTTP request headers, if necessary
-        // connection.addRequestProperty("Accept", "text/html");
-
-        connection.connect();
-
-        try(OutputStream requestBody = connection.getOutputStream();) {
-            // Write request body to OutputStream ...
+            try {
+                client.doPost(host, Integer.parseInt(portString), path, message);
+            } catch (URISyntaxException | NumberFormatException e) {
+                // Print usage if port is not an int or path is invalid
+                printUsage();
+            }
+        } else {
+            printUsage();
         }
+    }
 
-        if (connection.getResponseCode() == HttpURLConnection.HTTP_OK) {
-            // Get HTTP response headers, if necessary
-            // Map<String, List<String>> headers = connection.getHeaderFields();
+    private static void printUsage() {
+        System.err.println("USAGE: java PostExample <host> <port> <path> <message>");
+    }
 
-            // OR
+    public void doPost(String host, int port, String urlPath, String message) throws URISyntaxException, IOException, InterruptedException {
+        String urlString = String.format("http://%s:%d%s", host, port, urlPath);
 
-            //connection.getHeaderField("Content-Length");
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(new URI(urlString))
+                .timeout(java.time.Duration.ofMillis(TIMEOUT_MILLIS))
+                .header("authorization", "abc123")
+                .POST(HttpRequest.BodyPublishers.ofString(message, StandardCharsets.UTF_8))
+                .build();
 
-            InputStream responseBody = connection.getInputStream();
-            // Read response body from InputStream ...
-        }
-        else {
-            // SERVER RETURNED AN HTTP ERROR
+        HttpResponse<String> httpResponse = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
 
-            InputStream responseBody = connection.getErrorStream();
-            // Read and process error response body from InputStream ...
+        if(httpResponse.statusCode() == 200) {
+            HttpHeaders headers = httpResponse.headers();
+            Optional<String> lengthHeader = headers.firstValue("Content-Length");
+
+            System.out.printf("Received %s bytes%n", lengthHeader.orElse("unknown"));
+            System.out.println(httpResponse.body());
+        } else {
+            System.out.println("Error: received status code " + httpResponse.statusCode());
+            System.out.println(httpResponse.body());
         }
     }
 }

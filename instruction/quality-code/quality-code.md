@@ -352,7 +352,7 @@ client make move
 - How to refactor your code.
 - Writing pseudo-code.
 
-## <a name="videos"></a>Videos (47:55)
+## Videos
 
 - 🎥 [Introduction (3:06)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=ea73fd31-9c36-40d5-9e46-ad6b0151100a&start=0) - [[transcript]](https://github.com/user-attachments/files/17805182/CS_240_Writing_Quality_Code_Intro.pdf)
 - 🎥 [Cohesion and Method Naming (4:29)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=776f9b2c-49ce-4645-93eb-ad6b015221a7&start=0) - [[transcript]](https://github.com/user-attachments/files/17805184/CS_240_Cohesion_and_Method_Naming.pdf)

@@ -317,7 +317,7 @@ The follow table summaries all of the commands that were used in this instructio
 - How to retrieve data from multiple related tables using a join
 - What database transactions are and why we need them
 
-## <a name="videos"></a>Videos (42:05)
+## Videos
 
 - 🎥 [Structured Query Language (2:14)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=4f5a6bfe-5170-4c3c-97e8-ad660148d05a&start=0) - [[transcript]](https://github.com/user-attachments/files/17780823/CS_240_Structured_Query_Language_.SQL.pdf)
 - 🎥 [SQL Data Types (3:48)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=91cb451f-fc88-426d-9656-ad660149a253&start=0) - [[transcript]](https://github.com/user-attachments/files/17737747/CS_240_SQL_Data_Types_Transcript.pdf)

@@ -1,13 +1,18 @@
 # ♕ Phase 3: Chess Web API
 
 - [Chess Application Overview](../chess.md)
-- [Getting Started](getting-started.md)
-- 🖥️ [Slides: Server Implementation Tips](https://docs.google.com/presentation/d/1hORd88ej8W-nqHgEpYU2GmPcrSrHew1V/edit?usp=drive_link&ouid=110961336761942794636&rtpof=true&sd=true)
+- 🖥️ [Slides: Server Implementation Tips](https://docs.google.com/presentation/d/1am-_YWoZ1AX5_oZZAORjzsLbb8dy0_2S)
 - 🖥️ [Videos](#videos)
+- [TA Tips](../../instruction/chess-tips/chess-tips.md#phase-3---web-api): A collection of common problems for this phase
 
 In this phase, you will create your Chess server and implement seven HTTP endpoints that the chess client will use to communicate with your server. This will include creating your server, service, and data access classes. You will also write unit tests for your service classes.
 
 ![Sever class structure](server-class-structure.png)
+
+
+## Getting Started
+Complete the [Getting Started](getting-started.md) instructions before working on this phase.
+
 
 ## Required HTTP Endpoints
 
@@ -331,34 +336,38 @@ The starter code contains the `Server` class that you should use as the base for
 
 ```java
 public class Server {
+
+    private final Javalin javalin;
+
+    public Server() {
+        javalin = Javalin.create(config -> config.staticFiles.add("web"));
+
+        // Register your endpoints and exception handlers here.
+
+    }
+
     public int run(int desiredPort) {
-        Spark.port(desiredPort);
-
-        Spark.staticFiles.location("web");
-
-        // Register your endpoints and handle exceptions here.
-
-        Spark.awaitInitialization();
-        return Spark.port();
+        javalin.start(desiredPort);
+        return javalin.port();
     }
 
     public void stop() {
-        Spark.stop();
+        javalin.stop();
     }
 }
 ```
 
-The `Server` class provides a `run` method that attempts to start the HTTP server on a desired port parameter. From your main function you should start the server on port 8080. The unit tests will start the server on port 0. This directs the Spark code to discover and use a random open port. The port that is actually used is returned by the `Spark.port` method after initialization has completed. The starter code also provides a `stop` method that shuts the HTTP server down. This is necessary to control the starting and stopping of your server when running tests.
+The `Server` class provides a `run` method that attempts to start the HTTP server on a desired port parameter. From your main function you should start the server on port 8080. The unit tests will start the server on port 0. This directs the Javalin code to discover and use a random open port. The port that is actually used is returned by the `Javalin.port` method after initialization has completed. The starter code also provides a `stop` method that shuts the HTTP server down. This is necessary to control the starting and stopping of your server when running tests.
 
 ### Web Browser Interface
 
-The starter code provides a simple web browser interface for calling your server endpoints. This is useful for experimentation while you are developing your endpoints. In order for your server to be able to load its web browser interface you need to determine the path where the web directory is located and then tell spark to load static web files from that directory.
+The starter code provides a simple web browser interface for calling your server endpoints. This is useful for experimentation while you are developing your endpoints. The starter code already configures your server to load static files from the `web` resources directory.
 
 ```java
-Spark.staticFiles.location("web");
+javalin = Javalin.create(config -> config.staticFiles.add("web"));
 ```
 
-You will want to put the `web` directory in a `src/main/resources` directory and make the folder as `Resources Root` in IntelliJ. This location and distinction makes it so the JVM can file the directory at runtime.
+When you use a browser to access your server the web interface will display by default.
 
 ## Service Unit Tests
 
@@ -414,6 +423,10 @@ Once you have written the `clear` and `register` endpoints, you can run the `Sta
 ## Relevant Instruction Topics
 
 - [Web API](../../instruction/web-api/web-api.md): Creating an HTTP server.
+- [Single Responsibility Principle](../../instruction/design-principles/design-principles.md#single-responsibility-principle): Organizing many server responsibilities into comprehensible units
+- [Dependency Inversion Principle](../../instruction/design-principles/design-principles.md#dependency-inversion-principle): Organizing the layers of the server.
+- [Interface Segregation Principle](../../instruction/design-principles/design-principles.md#interface-segregation-principle): Organizing the DAO interfaces.
+- [PetShop Server Architecture](../../petshop/petshop.md): Layer organization and component architecture.
 
 ## ☑ Deliverable
 
@@ -453,7 +466,7 @@ After your code has successfully been auto-graded, a TA will review the code in 
 | Unit Tests     | All test cases pass<br/>Each public method on your **Service classes** has two test cases, one positive test and one negative test<br/>Every test case includes an Assert statement of some type |           25 |
 |                | **Total**                                                                                                                                                                                        |      **180** |
 
-## <a name="videos"></a>Videos (38:14)
+## Videos
 
-- 🎥 [Phase 3 Overview (19:30)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=a02a9929-b886-4a69-aa8b-b18c015d3e63) - [[transcript]](https://github.com/user-attachments/files/17707002/CS_240_Chess_Phase_3_Transcript.pdf)
-- 🎥 [Chess Server Implementation Tips (18:44)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=17194b50-e6a2-46eb-bf11-b1af0151af43) - [[transcript]](https://github.com/user-attachments/files/17707009/CS_240_Chess_Server_Implementation_Tips_Transcript.pdf)
+- 🎥 [Phase 3 Overview (19:26)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=edaa730e-e247-4356-9cf4-b2cd014ecf59) - [[transcript]](https://github.com/user-attachments/files/17707002/CS_240_Chess_Phase_3_Transcript.pdf)
+- 🎥 [Chess Server Implementation Tips (18:43)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=2528dac9-1689-4e75-aff1-b2cd014e3b13) - [[transcript]](https://github.com/user-attachments/files/17707009/CS_240_Chess_Server_Implementation_Tips_Transcript.pdf)

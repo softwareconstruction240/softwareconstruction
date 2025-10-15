@@ -1,39 +1,61 @@
 import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.http.HttpClient;
+import java.net.http.HttpHeaders;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.util.Optional;
 
 public class GetExample {
+    private static final int TIMEOUT_MILLIS = 5000;
 
-    public void doGet(String urlString) throws IOException {
-        URL url = new URL(urlString);
+    private final HttpClient httpClient = HttpClient.newHttpClient();
 
-        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+    public static void main(String[] args) throws IOException, InterruptedException {
+        if(args.length == 3) {
+            String host = args[0];
+            String portString = args[1];
+            String path = args[2];
 
-        connection.setReadTimeout(5000);
-        connection.setRequestMethod("GET");
+            var client = new GetExample();
 
-        // Set HTTP request headers, if necessary
-        // connection.addRequestProperty("Accept", "text/html");
-        // connection.addRequestProperty("Authorization", "fjaklc8sdfjklakl");
-
-        connection.connect();
-
-        if (connection.getResponseCode() == HttpURLConnection.HTTP_OK) {
-            // Get HTTP response headers, if necessary
-            // Map<String, List<String>> headers = connection.getHeaderFields();
-
-            // OR
-
-            //connection.getHeaderField("Content-Length");
-
-            InputStream responseBody = connection.getInputStream();
-            // Read and process response body from InputStream ...
+            try {
+                client.doGet(host, Integer.parseInt(portString), path);
+            } catch (URISyntaxException | NumberFormatException e) {
+                // Print usage if port is not an int or path is invalid
+                printUsage();
+            }
         } else {
-            // SERVER RETURNED AN HTTP ERROR
+            printUsage();
+        }
+    }
 
-            InputStream responseBody = connection.getErrorStream();
-            // Read and process error response body from InputStream ...
+    private static void printUsage() {
+        System.err.println("USAGE: java GetExample <host> <port> <path>");
+    }
+
+    public void doGet(String host, int port, String urlPath) throws URISyntaxException, IOException, InterruptedException {
+        String urlString = String.format("http://%s:%d%s", host, port, urlPath);
+
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(new URI(urlString))
+                .timeout(java.time.Duration.ofMillis(TIMEOUT_MILLIS))
+                .header("authorization", "abc123")
+                .GET()
+                .build();
+
+        HttpResponse<String> httpResponse = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+
+        if(httpResponse.statusCode() == 200) {
+            HttpHeaders headers = httpResponse.headers();
+            Optional<String> lengthHeader = headers.firstValue("Content-Length");
+
+            System.out.printf("Received %s bytes%n", lengthHeader.orElse("unknown"));
+            System.out.println(httpResponse.body());
+        } else {
+            System.out.println("Error: received status code " + httpResponse.statusCode());
+            System.out.println(httpResponse.body());
         }
     }
 }

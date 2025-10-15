@@ -21,6 +21,7 @@ To get started with Maven, you need to install it. You can find the installation
 > [https://maven.apache.org/download.cgi](https://maven.apache.org/download.cgi)
 
 > [!NOTE]
+>
 > When you install IntelliJ, it installed a copy of Maven. If you want to use that installation, then you will have to update your command line path to make it accessible outside of IntelliJ. For example, if you are using a Mac you would include something like the following in your profile file. If you are using Windows then you will need to update the `Environment Variables` in your operating system settings.
 
 ```sh
@@ -331,7 +332,7 @@ Once you press `Add` your `pom.xml` file will be updated and you are ready to go
 - Have a general understanding of how Maven can be used to create a command-line build for a Java project
 - Have a general understanding of how Maven can be used with IntelliJ
 
-## <a name="videos"></a>Videos (25:44)
+## Videos
 
 - 🎥 [Command-line Builds (5:45)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=96027f51-b4f0-4d5b-8f32-b19a015a9d4b) - [[transcript]](https://github.com/user-attachments/files/17707795/CS_240_Command_line_Builds_Transcript.pdf)
 - 🎥 [Maven (7:10)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=f64c2663-19d9-411d-9f65-b19a015d6350) - [[transcript]](https://github.com/user-attachments/files/17707798/CS_240_Maven_Transcript.pdf)

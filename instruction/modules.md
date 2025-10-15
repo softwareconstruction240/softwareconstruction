@@ -6,12 +6,12 @@ The course content is divided into multiple topics that you should strive to mas
 >
 > Make sure you observe the due dates specified in Canvas for each of the course assignments.
 
-- [Schedule for Dr. Rodham's Sections](https://github.com/softwareconstruction240/softwareconstruction/blob/main/schedule/summer2025-rodham.md)
-
 ## Getting Started
 
 - [Introduction](introduction/introduction.md)
 - [Git](git/git.md)
+- [Chess](../chess/chess.md)
+- [Pet Shop](../petshop/petshop.md)
 - ☑ [Chess GitHub Repository](../chess/chess-github-repository/chess-github-repository.md)
 - [Programming Exam](../instruction/programming-exam/programming-exam.md)
 
@@ -78,4 +78,4 @@ The course content is divided into multiple topics that you should strive to mas
 
 | Icon | Meaning                                    |
 | ---- | ------------------------------------------ |
-| ☑    | Assignments that you must submit in Canvas |
+| ☑    | Assignments requiring submission for grading |

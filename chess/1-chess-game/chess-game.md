@@ -1,11 +1,14 @@
 # ♕ Phase 1: Chess Game
 
 - [Chess Application Overview](../chess.md)
-- [Getting Started](getting-started.md)
 - 🖥️ [Slides: Design Principles (Chess Examples)](https://docs.google.com/presentation/d/1dncxSAgnIqjV9RNzGR94EWVltJiCApqC3EvNPqz97-E/edit?usp=sharing)
 - 🖥️ [Videos](#videos)
+- [TA Tips](../../instruction/chess-tips/chess-tips.md#phase-1---chess-game): A collection of common problems for this phase
 
 In the previous phase you implemented the board and pieces along with the rules for setting up the board and moving pieces. In this phase you will implement the `ChessGame` so that you can play a game by making moves and determining check, stalemate, and checkmate.
+
+## Getting Started
+Complete the [Getting Started](getting-started.md) instructions before working on this phase.
 
 ## Code Class Structure
 
@@ -137,6 +140,6 @@ To pass off this assignment use the course [auto-grading](https://cs240.click/) 
 | Extra Credit   | `extracredit` test cases succeed                                                                  |    bonus +10 |
 |                | **Total**                                                                                         |      **125** |
 
-## <a name="videos"></a>Videos (6:13)
+## Videos
 
 - 🎥 [Phase 1 Overview (6:13)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=f2342f5a-8513-44fe-b5cc-b1700151beac) - [[transcript]](https://github.com/user-attachments/files/17706850/CS_240_Phase_1_Overview_Transcript.pdf)

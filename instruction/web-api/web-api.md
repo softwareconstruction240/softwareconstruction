@@ -1,10 +1,10 @@
 # Web API
 
-🖥️ [Slides: Server](https://docs.google.com/presentation/d/1Nvb0fUObt-An0nMOFEhgIufnSN6qpixF/edit?usp=sharing&ouid=114081115660452804792&rtpof=true&sd=true)
+🖥️ [Slides: Server](https://docs.google.com/presentation/d/173oiXc1ahCnZ36NJHjp3RMHCS2Xle2NH/edit?usp=sharing&ouid=110961336761942794636&rtpof=true&sd=true)
 
-🖥️ [Slides: Server Implementation Tips](https://docs.google.com/presentation/d/1hORd88ej8W-nqHgEpYU2GmPcrSrHew1V/edit?usp=drive_link&ouid=110961336761942794636&rtpof=true&sd=true)
+🖥️ [Slides: Server Implementation Tips](https://docs.google.com/presentation/d/1am-_YWoZ1AX5_oZZAORjzsLbb8dy0_2S/edit?usp=sharing&ouid=110961336761942794636&rtpof=true&sd=true)
 
-🖥️ [Slides: Client](https://docs.google.com/presentation/d/1P-qIn-6mrZ28UuRFtFMIvGnjygOtOzZ5/edit?usp=sharing&ouid=114081115660452804792&rtpof=true&sd=true)
+🖥️ [Slides: Client](https://docs.google.com/presentation/d/11UOJixn1VLDDcmioRWEpIfPXvBXFT8cR/edit?usp=sharing&ouid=110961336761942794636&rtpof=true&sd=true)
 
 🖥️ [Lecture Videos](#videos)
 
@@ -12,73 +12,82 @@ Now that you understand how HTTP works at a theoretical level you can write Java
 
 ## Web Server
 
-For our server code, we will use a library called [JavaSpark](https://sparkjava.com/). `JavaSpark` makes it very easy to write an HTTP server that handles multiple endpoint requests. An endpoint is the code that handles a specific HTTP resource request. You can think of the service endpoints as being the public methods of the service interface.
+For our server code, we will use a library called [Javalin](https://javalin.io/). `Javalin` makes it very easy to write an HTTP server that handles multiple endpoint requests. An endpoint is the code that handles a specific HTTP resource request. You can think of the service endpoints as being the public methods of the service interface.
 
 As an example, let's write an HTTP service named `name list` that maintains a list of names. To make the service useful we will provide the following endpoints.
 
-| Endpoint   | HTTP Method | HTTP path   | Purpose                                                 |
-| ---------- | ----------- | ----------- | ------------------------------------------------------- |
-| addName    | POST        | /name/:name | Add the name represented by the `name` path variable    |
-| listNames  | GET         | /name       | Get the list of names                                   |
-| deleteName | DELETE      | /name/:name | Delete the name represented by the `name` path variable |
+| Endpoint   | HTTP Method | HTTP path    | Purpose                                                   |
+| ---------- | ----------- | ------------ | --------------------------------------------------------- |
+| addName    | POST        | /name/{name} | Add the name represented by the `{name}` path variable    |
+| listNames  | GET         | /name        | Get the list of names                                     |
+| deleteName | DELETE      | /name/{name} | Delete the name represented by the `{name}` path variable |
 
 ### Implementing Endpoints
 
-When you define an endpoint with `JavaSpark`, you supply the HTTP method, path, and a Functional Interface method implementation that is called when the matching HTTP request is made. The path definition may contain variables, designated with a `:` prefix, that are assigned to the values provided by the caller. For example, you would register the endpoint to add a name with the following implementation.
+When you define an endpoint with `Javalin`, you supply the HTTP method, path, and a Functional Interface method implementation that is called when the matching HTTP request is made. The path definition may contain variables, designated with curly braces `{}` or angle brackets`<>`, that are assigned to the values provided by the caller. Angle bracket variables may contain slashes `/`, whereas curly braces may not. For example, you would register the endpoint to add a name with the following implementation.
 
 ```java
 private void run() {
-    Spark.post("/name/:name", new Route() {
-        public Object handle(Request req, Response res) {
-            names.add(req.params(":name"));
-            return listNames(req, res);
-        }
-    });
+    ...
+    Javalin.create()
+        .post("/name/{name}", new Handler() {
+             public void handle(Context context) throws Exception {
+                names.add(context.pathParam("name"));
+                listNames(context);
+             }
+        })
+    ...
 }
 
-private Object listNames(Request req, Response res) {
-    res.type("application/json");
-    return new Gson().toJson(Map.of("name", names));
+private void listNames(Context context) {
+    String jsonNames = new Gson().toJson(Map.of("name", names));
+
+    context.contentType("application/json");
+    context.result(jsonNames);
 }
 ```
 
-In the above example, the `Spark.post` method is called to handle HTTP POST requests for the `/name/:name` path. The `Spark.post` method takes two parameters, the HTTP path and an anonymous class implementation of the functional interface `spark.Route`. The interface has one method named `route` that is called when the HTTP method and path is matched by an incoming HTTP request. The `route` method receives the `Request` and `Response` objects that represent the HTTP request and response. Our implementation then reads the path `name` variable from the request and adds the name to an internal list of names.
+In the above example, the `post` method is called to handle HTTP POST requests for the `/name/{name}` path. The `post` method takes two parameters, the HTTP path and an anonymous class implementation of the functional interface `io.javalin.http.Handler`. The interface has one method named `handle` that is called when the HTTP method and path is matched by an incoming HTTP request. The `handle` method receives a `Context` object that represent the HTTP request and response. Our implementation then reads the path `name` variable from the request and adds the name to an internal list of names.
 
-The return value for the endpoint is generated by calling the `listNames` method. This sets the `Content-Type` HTTP header to `application/json` and then serializes the current name list out as the response body of the HTTP response by returning a JSON string.
+The return value for the endpoint is speceified by calling the `listNames` method. This sets the `Content-Type` HTTP header to `application/json`, serializes the current name list using Gson, and sets the resulting JSON string as the HTTP response body by calling `context.result`.
 
-We can simplify the representation of our route handler by using a lambda function to call a method that implements the `addName` endpoint.
+We can simplify the representation of our post handler in two ways: 1) by using a lambda function to call a method that implements the `addName` endpoint, and 2) by calling `context.json(...)` in the `listNames` method, which will set the `Content-Type` to `application/json` and set the response body.
 
 ```java
 private void run() {
-    Spark.post("/name/:name", (req, res) -> addName(req, res));
+    ...
+    Javalin.create()
+        .post("/name{name}", context -> addName(context))
+    ...
 }
 
-private Object addName(Request req, Response res) {
-    names.add(req.params(":name"));
-    return listNames(req, res);
+private void addName(Context context) {
+    names.add(context.pathParam("name"));
+    listNames(context);
 }
 
-private Object listNames(Request req, Response res) {
-    res.type("application/json");
-    return new Gson().toJson(Map.of("name", names));
+private void listNames(Context context) {
+    String jsonNames = new Gson().toJson(Map.of("name", names));
+    context.json(jsonNames);
 }
 ```
 
 Finally, since our lambda function is simply a passthrough to another function, we can replace it with the Java `method reference` syntax.
 
 ```java
-Spark.post("/name/:name", this::addName);
+Javalin.create()
+    .post("/name{name}", this::addName)
 ```
 
 ## Serving Static Files
 
-An HTTP resource can represent anything. In the above example we are representing an in memory representation of a name list, but we can also represent a directory structure of files in persistent storage. `JavaSpark` makes it easy to do this by calling a method named `staticFiles.location` with the name of a storage directory that contains files we want to return over HTTP. Once the location is registered, Spark will look in the directory for a file that matches the URL path. If it is found then it returns the contents of the file. Spark will even examine the file to determine what `Content-Type` header to set.
+An HTTP resource can represent anything. In the above example we are representing an in memory representation of a name list, but we can also represent a directory structure of files in persistent storage. Javalin makes it easy to do this by specifying a configuration function with the name of a directory that contains the files we want to return over HTTP. Once the location is registered, Javalin will look in the directory for a file that matches the URL path. If it is found, it returns the contents of the file. Javalin will even examine the file to determine what `Content-Type` header to set.
 
 ```java
-Spark.staticFiles.location("web");
+Javalin javalinServer = Javalin.create(config -> config.staticFiles.add("web"));
 ```
 
-By adding the above code to your server you can now make a request to the server with a path like `/index.html` and it will return the `index.html` file found in a directory named `public` that is found in your application directory.
+By adding the above code to your server you can now make a request to the server with a path like `/index.html` and it will return the `index.html` file found in a directory named `web` that is found in a parent directory on your application's Classpath. In Intellij, the parent directory is typically any directory marked as a `Rousources Root`.
 
 ## Complete Server Example
 
@@ -86,50 +95,48 @@ Here is the complete listing of server code for hosting static files and the `na
 
 ```java
 import com.google.gson.Gson;
-import spark.*;
-import java.util.*;
+import io.javalin.Javalin;
+import io.javalin.http.Context;
 
-public class ServerExample {
+import java.util.ArrayList;
+import java.util.Map;
+
+public class SimpleNameServer {
     private ArrayList<String> names = new ArrayList<>();
 
     public static void main(String[] args) {
-        new ServerExample().run();
+        new SimpleNameServer().run();
     }
 
     private void run() {
-        // Specify the port you want the server to listen on
-        Spark.port(8080);
-
-        // Register a directory for hosting static files
-        Spark.externalStaticFileLocation("public");
-
-        // Register handlers for each endpoint using the method reference syntax
-        Spark.post("/name/:name", this::addName);
-        Spark.get("/name", this::listNames);
-        Spark.delete("/name/:name", this::deleteName);
+        Javalin.create(config -> config.staticFiles.add("web"))
+                .post("/name/{name}", this::addName)
+                .get("/name", this::listNames)
+                .delete("/name/{name}", this::deleteName)
+                .start(8080);
     }
 
-    private Object addName(Request req, Response res) {
-        names.add(req.params(":name"));
-        return listNames(req, res);
+    private void addName(Context context) {
+        names.add(context.pathParam("name"));
+        listNames(context);
     }
 
-    private Object listNames(Request req, Response res) {
-        res.type("application/json");
-        return new Gson().toJson(Map.of("name", names));
+    private void listNames(Context context) {
+        String jsonNames = new Gson().toJson(Map.of("name", names));
+        context.json(jsonNames);
     }
 
-    private Object deleteName(Request req, Response res) {
-        names.remove(req.params(":name"));
-        return listNames(req, res);
+    private void deleteName(Context context) {
+        names.remove(context.pathParam("name"));
+        listNames(context);
     }
 }
 ```
 
 You can experiment with this code by doing the following.
 
-1. Create a directory name `public` and put an `index.html` file in it that contains the text: `<h1>Hello World</h1>`.
-1. Run the code from a directory relative to the directory that contains the `public` directory.
+1. Create a directory name `web` and put an `index.html` file in it that contains the text: `<h1>Hello World</h1>`.
+1. Run the code from a directory relative to the directory that contains the `web` directory.<br/> Note: For this to work, you will also need to download the Javalin and Gson jar files and include them on your CLASSPATH when you run the code. You can download them from the Maven Repository and use the -classpath (or -cp) JVM flag.
 1. Open your browser and point it to `localhost:8080`. This should display the contents of your `index.html` file.
 1. Run the following commands with Curl
    1. `curl localhost:8080/name`, returns `{"name":[]}`
@@ -144,36 +151,47 @@ You can experiment with this code by doing the following.
 JSON is commonly used to send serialized objects over HTTP requests. Therefore you will want to use Gson to parse the body of HTTP requests into objects, and to create JSON that represents your response. The following is an example of a server with an `echo` endpoint. It parses the request body into a Java `Map` object and then serializes it back into the endpoint response.
 
 ```java
-public class ServerEchoExample {
+import com.google.gson.Gson;
+import io.javalin.Javalin;
+import io.javalin.http.Context;
+
+import java.util.Map;
+
+public class EchoJsonServer {
     public static void main(String[] args) {
-        new ServerEchoExample().run();
+        new EchoJsonServer().run();
     }
 
     private void run() {
-        Spark.port(8080);
-        Spark.post("/echo", this::echoBody);
+        Javalin.create()
+                .post("/echo", this::echo)
+                .start(8080);
     }
 
-    private Object echoBody(Request req, Response res) {
-        var bodyObj = getBody(req, Map.class);
+    private void echo(Context context) {
+        // Convert body json to object
+        Map bodyObject = getBodyObject(context, Map.class);
 
-        res.type("application/json");
-        return new Gson().toJson(bodyObj);
+        // Convert bodyObject back to json and send to client
+        String json = new Gson().toJson(bodyObject);
+        context.json(json);
     }
 
-    private static <T> T getBody(Request request, Class<T> clazz) {
-        var body = new Gson().fromJson(request.body(), clazz);
-        if (body == null) {
+    private static <T> T getBodyObject(Context context, Class<T> clazz) {
+        var bodyObject = new Gson().fromJson(context.body(), clazz);
+
+        if (bodyObject == null) {
             throw new RuntimeException("missing required body");
         }
-        return body;
+
+        return bodyObject;
     }
 }
 ```
 
-The `getBody` method is a generic method that will parse the request body into an object of the class that you specify. This pattern of combining generics, Gson, and HTTP bodies makes it easy to get data in and out of your service.
+The `getBodyObject` method is a generic method that will parse the request body into an object of the class that you specify. This pattern of combining generics, Gson, and HTTP bodies makes it easy to get data in and out of your service.
 
-Build this code and try it out. Use curl to make your requests. Set breakpoints in your code and walk through what is happening. If you want to understand how Spark or Gson works then step into that code.
+Build this code and try it out. Use curl to make your requests. Set breakpoints in your code and walk through what is happening. Step into the code if you want to understand how Javalin and Gson work.
 
 ```sh
 ➜  curl localhost:8080/echo -d '{"name":"dog", "count":3}'
@@ -185,39 +203,41 @@ Experiment with writing a Gson type adapter to control how objects are serialize
 
 ### Server Error Handling
 
-In addition to representing endpoints, Spark provides methods for handling error cases. This includes the `Spark.exception` method for when an unhandled exception is thrown, and the `Spark.notFound` for when an unknown request is made. With both methods you provide the implementation of a functional interface for handling the error. The following code demonstrates how this is done.
+In addition to representing endpoints, Javalin provides methods for handling error cases. This includes the `Javalin.exception` method for when an unhandled exception is thrown, and the `Javalin.error` method for when an unknown request is made. With both methods you provide the implementation of a functional interface for handling the error. The following code demonstrates how this is done.
 
 ```java
-public class ServerErrorsExample {
+import com.google.gson.Gson;
+import io.javalin.Javalin;
+import io.javalin.http.Context;
+
+import java.util.Map;
+
+public class ErrorHandlingServer {
     public static void main(String[] args) {
-        new ServerErrorsExample().run();
+        new ErrorHandlingServer().run();
     }
 
     private void run() {
-        // Specify the port you want the server to listen on
-        Spark.port(8080);
-
-        // Register handlers for each endpoint using the method reference syntax
-        Spark.get("/error", this::throwError);
-
-        Spark.exception(Exception.class, this::errorHandler);
-        Spark.notFound((req, res) -> {
-            var msg = String.format("[%s] %s not found", req.requestMethod(), req.pathInfo());
-            return errorHandler(new Exception(msg), req, res);
-        });
-
+        Javalin.create()
+                .get("/error", this::throwException)
+                .exception(Exception.class, this::exceptionHandler)
+                .error(404, this::notFound)
+                .start(8080);
     }
 
-    private Object throwError(Request req, Response res) {
-        throw new RuntimeException("Server on fire");
+    private void throwException(Context context) {
+        throw new RuntimeException("The server is on fire!");
     }
 
-    public Object errorHandler(Exception e, Request req, Response res) {
+    private void exceptionHandler(Exception e, Context context) {
         var body = new Gson().toJson(Map.of("message", String.format("Error: %s", e.getMessage()), "success", false));
-        res.type("application/json");
-        res.status(500);
-        res.body(body);
-        return body;
+        context.status(500);
+        context.json(body);
+    }
+
+    private void notFound(Context context) {
+        String msg = String.format("[%s] %s not found", context.method(), context.path());
+        exceptionHandler(new Exception(msg), context);
     }
 }
 ```
@@ -226,31 +246,47 @@ When this server is running you will get the following results when you make req
 
 ```sh
 ➜ curl -X GET localhost:8080/unknownendpoint
-{"success":false,"message":"Error: [GET] /unknownendpoint not found"}%
+{"message":"Error: [GET] /unknownendpoint not found","success":false}%
 
 ➜ curl -X GET localhost:8080/error
-{"success":false,"message":"Error: Server on fire"}%
+{"message":"Error: The server is on fire!","success":false}%
 ```
 
 ## Web Client
 
-For our client code, we can use the standard JDK `java.net` library to make HTTP requests. The following example hard codes the URL in order to simplify the essential pieces of the request.
+For our client code we can use the `HttpClient` class from the standard JDK `java.net` library to make HTTP requests.
 
 ```java
-public class ClientExample {
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.util.Locale;
+
+public class SimpleNameClient {
+    // Create an HttpClient for making requests
+    // This should be long-lived and shared, so a static final field is good here
+    private static final HttpClient httpClient = HttpClient.newHttpClient();
+
     public static void main(String[] args) throws Exception {
-        // Specify the desired endpoint
-        URI uri = new URI("http://localhost:8080/name");
-        HttpURLConnection http = (HttpURLConnection) uri.toURL().openConnection();
-        http.setRequestMethod("GET");
+        new SimpleNameClient().get("localhost", 8080, "/name");
+    }
 
-        // Make the request
-        http.connect();
+    private void get(String host, int port, String path) throws Exception {
+        String urlString = String.format(Locale.getDefault(), "http://%s:%d%s", host, port, path);
 
-        // Output the response body
-        try (InputStream respBody = http.getInputStream()) {
-            InputStreamReader inputStreamReader = new InputStreamReader(respBody);
-            System.out.println(new Gson().fromJson(inputStreamReader, Map.class));
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(new URI(urlString))
+                .timeout(java.time.Duration.ofMillis(5000))
+                .GET()
+                .build();
+
+        HttpResponse<String> httpResponse = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+
+        if (httpResponse.statusCode() >= 200 && httpResponse.statusCode() < 300) {
+            System.out.println(httpResponse.body());
+        } else {
+            System.out.println("Error: received status code " + httpResponse.statusCode());
         }
     }
 }
@@ -264,51 +300,47 @@ If you first run the `name list` service defined above, then you can run the `Cl
 {name=["dog", "cat"]}
 ```
 
-### Client Error Handling
+The `response.statusCode()` method tells us what the HTTP status code was for the response. It's important to check the status code, because the body on its own won't tell you if there was an error or not!
 
-The `http.getResponseCode()` method tells us what the HTTP status code was for the response. If you receive a non-2XX response then you need to use the `getErrorStream()` method instead of `getInputStream()` to read the response body. This is demonstrated in the following example:
+### Using HTTP Headers
+
+Request headers can be added to any request via the `header` method on `HttpRequest` builders. Response headers can be read via the `headers` method on `HttpResponse` objects.
 
 ```java
-public class ClientAdvancedExample {
-    public static void main(String[] args) throws Exception {
-        URI uri = new URI("http://localhost:8080/error");
-        HttpURLConnection http = (HttpURLConnection) uri.toURL().openConnection();
-        http.setRequestMethod("GET");
+var request = HttpRequest.newBuilder(uri)
+    .GET()
+    .header("Authorization", "adwerewiojc")
+    .build();
 
-        http.connect();
-
-        // Handle bad HTTP status
-       var status = http.getResponseCode();
-        if ( status >= 200 && status < 300) {
-            try (InputStream in = http.getInputStream()) {
-                System.out.println(new Gson().fromJson(new InputStreamReader(in), Map.class));
-            }
-        } else {
-            try (InputStream in = http.getErrorStream()) {
-                System.out.println(new Gson().fromJson(new InputStreamReader(in), Map.class));
-            }
-        }
-    }
-}
+var response = client.send(request, BodyHandlers.ofString());
+var headers = response.headers();
+OptionalLong length = response.firstValueAsLong("Content-Length");
+Optional<String> type = response.firstValue("Content-Type");
 ```
 
-### Writing a Request Body and Headers
+### Using BodyHandlers and BodyPublishers
 
-To send an HTTP body or header using the `HttpURLConnection` class you must first specify `http.setDoOutput` to true. You can then set a header using `addRequestProperty`, or send a body using the stream returned from `getOutputStream`.
+The `client.send()` method takes a `BodyHandler` argument that determines the type of `response.body()`. Different `BodyHandler`s allow using the body in different ways. The `BodyHandlers` class contains several convenient `BodyHandler` factory functions. We've been using the `ofString` body handler, but we could also use other handlers like in the following example:
 
 ```java
-// Specify that we are going to write out data
-http.setDoOutput(true);
+var request = HttpRequest.newBuilder(uri)
+    .GET()
+    .build();
 
-// Write out a header
-http.addRequestProperty("Content-Type", "application/json");
+var response = client.send(request, BodyHandlers.ofInputStream());
+InputStream body = response.body();
+```
 
-// Write out the body
+HTTP methods that require a body take an additional `BodyPublisher` argument. Like `BodyHandler`s, `BodyPublisher`s allow using different sources for the body, and there is a `BodyPublishers` class with factory functions.
+
+```java
 var body = Map.of("name", "joe", "type", "cat");
-try (var outputStream = http.getOutputStream()) {
-    var jsonBody = new Gson().toJson(body);
-    outputStream.write(jsonBody.getBytes());
-}
+var jsonBody = new Gson().toJson(body);
+
+var request = HttpRequest.newBuilder(uri)
+    .POST(BodyPublishers.ofString(jsonBody))
+    .header("Content-Type", "application/json")
+    .build();
 ```
 
 ## Implementing a Simple Curl
@@ -317,53 +349,43 @@ We can expand our Web Client example to implement a simple version of Curl. This
 
 ```java
 public class ClientCurlExample {
+    private static final HttpClient client = HttpClient.newHttpClient();
+
     public static void main(String[] args) throws Exception {
         if (args.length >= 2) {
             var method = args[0];
             var url = args[1];
-            var body = args.length == 3 ? args[2] : "";
+            var body = args.length == 3 ? args[2] : null;
 
-            HttpURLConnection http = sendRequest(url, method, body);
-            receiveResponse(http);
+            HttpResponse<String> response = sendRequest(url, method, body);
+            System.out.printf("= Request =========\n[%s] %s\n\n%s\n\n", method, url, body);
+            receiveResponse(response);
         } else {
             System.out.println("ClientCurlExample <method> <url> [<body>]");
         }
     }
 
-    private static HttpURLConnection sendRequest(String url, String method, String body) throws URISyntaxException, IOException {
-        URI uri = new URI(url);
-        HttpURLConnection http = (HttpURLConnection) uri.toURL().openConnection();
-        http.setRequestMethod(method);
-        writeRequestBody(body, http);
-        http.connect();
-        System.out.printf("= Request =========\n[%s] %s\n\n%s\n\n", method, url, body);
-        return http;
+    private static HttpResponse<String> sendRequest(String url, String method, String body)
+            throws InterruptedException, IOException {
+        var request = HttpRequest.newBuilder(URI.create(url))
+                .method(method, requestBodyPublisher(body))
+                .build();
+        return client.send(request, BodyHandlers.ofString());
     }
 
-    private static void writeRequestBody(String body, HttpURLConnection http) throws IOException {
-        if (!body.isEmpty()) {
-            http.setDoOutput(true);
-            try (var outputStream = http.getOutputStream()) {
-                outputStream.write(body.getBytes());
-            }
+    private static BodyPublisher requestBodyPublisher(String body) throws IOException {
+        if (body != null) {
+            return BodyPublishers.ofString(body);
+        } else {
+            return BodyPublishers.noBody();
         }
     }
 
-    private static void receiveResponse(HttpURLConnection http) throws IOException {
-        var statusCode = http.getResponseCode();
-        var statusMessage = http.getResponseMessage();
+    private static void receiveResponse(HttpResponse<String> response) {
+        var statusCode = response.statusCode();
 
-        Object responseBody = readResponseBody(http);
-        System.out.printf("= Response =========\n[%d] %s\n\n%s\n\n", statusCode, statusMessage, responseBody);
-    }
-
-    private static Object readResponseBody(HttpURLConnection http) throws IOException {
-        Object responseBody = "";
-        try (InputStream respBody = http.getInputStream()) {
-            InputStreamReader inputStreamReader = new InputStreamReader(respBody);
-            responseBody = new Gson().fromJson(inputStreamReader, Map.class);
-        }
-        return responseBody;
+        var responseBody = new Gson().fromJson(response.body(), Map.class);
+        System.out.printf("= Response =========\n[%d]\n\n%s\n\n", statusCode, responseBody);
     }
 }
 ```
@@ -379,28 +401,33 @@ java -cp ../../lib/gson-2.10.1.jar ClientCurlExample.java POST 'http://localhost
 {"name":"joe", "count":3}
 
 = Response =========
-[200] OK
+[200]
 
 {name=joe, count=3.0}
 ```
 
 ## Things to Understand
 
-- Server code example (Ticket to Ride)
 - Writing the main Server class
 - Writing HTTP handlers for GET and POST requests
 - Implementing the Test Web Page using a FileHandler
 - Writing a web client
+- Server and client code examples
 
-## <a name="videos"></a>Videos (1:14:27)
+## Videos
 
-- 🎥 [Web API Implementation (16:27)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=00a1b38c-8d1c-41ba-b2f5-b18c014994a1) - [[transcript]](https://github.com/user-attachments/files/17753672/CS_240_Web_API_Implementation_Transcript.pdf)
-- 🎥 [Spark Routes (16:40)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=85543d10-c532-4cab-9e0c-b18c014e60d5) - [[transcript]](https://github.com/user-attachments/files/17753680/CS_240_Spark_Routes_Transcript.pdf)
-- 🎥 [Serving Static Files (10:49)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=9b13ee82-87e5-4d9f-9adb-b18c0153bbe3) - [[transcript]](https://github.com/user-attachments/files/17753691/CS_240_Serving_Static_Files_Transcript.pdf)
-- 🎥 [Filters (6:26)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=041911bf-8f6f-44d9-a1e9-b18c01570c85) - [[transcript]](https://github.com/user-attachments/files/17753735/CS_240_Filters_Transcript.pdf)
-- 🎥 [Spark Installation (2:11)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=aa878216-922c-43ca-ae25-b18c0159089a) - [[transcript]](https://github.com/user-attachments/files/17753801/CS_240_Installation_Transcript.pdf)
-- 🎥 [Pet Shop Demo (9:43)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=751fc126-9541-485a-b712-b18c0159fe8c) - [[transcript]](https://github.com/user-attachments/files/17753811/CS_240_Petshop_Demo_Transcript.pdf)
-- 🎥 [Client HTTP (12:11)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=781ae49b-6284-4e1a-836b-b1930162c54b) - [[transcript]](https://github.com/user-attachments/files/17753820/CS_240_Client_HTTP_Transcript.pdf)
+- Javalin
+    - 🎥 [Javalin Overview (24:21)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=7ed95d83-d32e-4bab-ac9a-b2c60106df45) - [transcript]
+    - 🎥 [Javalin Handlers (13:41)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=b88c8a46-d98b-4b7a-a07f-b2c6010e7338) - [transcript]
+    - 🎥 [Javalin Error Handling (7:14)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=8e6bc974-7475-4ac8-a34c-b2c601129092) - [transcript]
+    - 🎥 [Javalin Serving Static Files (4:27)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=bed4bbcd-f27e-4257-90b6-b2c601150a5b) - [transcript]
+    - 🎥 [Javalin Installation (1:54)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=d78633c0-b476-4566-8d51-b2c60116b803) - [transcript]
+- Pet Shop
+    - 🎥 [Pet Shop Demo (4:51)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=41203fd1-89ca-4c47-b259-b2c601183227) - [transcript]
+    - 🎥 [Pet Shop Project (4:10)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=097b2912-582f-41b3-a972-b2c6011ab229) - [transcript]
+    - 🎥 [How to Use Pet Shop (1:44)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=88cef7c0-a84f-4ee6-b0b2-b2c6011c021f) - [transcript]
+- Client-side HTTP
+    - 🎥 [Client HTTP (12:25)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=5ddc54fd-39c3-4d01-a303-b2c6011cda0a) - [transcript]
 
 ## Demonstration code
 

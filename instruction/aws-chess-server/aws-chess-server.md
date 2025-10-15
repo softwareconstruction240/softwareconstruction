@@ -16,16 +16,13 @@ Go to [AWS](https://aws.amazon.com/) and register for an account if you don't al
 
 The Amazon Elastic Compute Cloud (EC2) service provides all of the functionality you need to launch a virtual server in an Amazon data center that is accessible to the world. After you have created your AWS account, use the AWS browser console to navigate to the EC2 service and lease your server with the following steps.
 
-1. From the search bar type in EC2 and select the displayed EC2 dashboard.
-   ![EC2 service selection](awsEc2Selection.png)
+1. From the search bar type in EC2 and select the displayed EC2 dashboard. ![EC2 service selection](awsEc2Selection.png)
 1. Create a security group
 
    1. The security group will expose the ability to talk to our server over HTTP on the server's network port. This is usually port 8080. From the EC2 dashboard select the `Security Group` view from the options on the left.
    1. Select the option to create a security group.
-   1. Give it a meaningful name and description. Select the default VPC.
-      ![Create security group](createSecurityGroup.png)
-   1. In the `Inbound rules` section, create a rule that opens port 22 and port 8080 to everywhere.
-      ![Inbound rules](inboundRules.png)
+   1. Give it a meaningful name and description. Select the default VPC. ![Create security group](createSecurityGroup.png)
+   1. In the `Inbound rules` section, create a rule that opens port 22 and port 8080 to everywhere. ![Inbound rules](inboundRules.png)
    1. Save the security group.
 
 1. Launch a server instance.
@@ -33,14 +30,12 @@ The Amazon Elastic Compute Cloud (EC2) service provides all of the functionality
    1. Navigate back to the EC2 dashboard.
    1. Select the option to `Launch instance`.
    1. Give your instance a name like `cs240-chessserver`.
-   1. Chose AWS linux for your Amazon Machine Image (AMI).
-      ![Amazon Machine Image](ami.png)
+   1. Chose AWS linux for your Amazon Machine Image (AMI). ![Amazon Machine Image](ami.png)
    1. Set the instance type of t2.micro. If you are eligible for the free tier then you will not be billing for the first 12 months of your first t2.micro instance.
 
       ![Instance type](instanceType.png)
 
-   1. In the Key pair input select an existing key pair if you have created one previously, or select the `Create new key pair` option. Make sure you save the key pair to a safe place in your development environment. You will need this to connect to your server, and you do not want to let anyone else have access to it. Do not check the key pair into GitHub or any other publicly available location.<br/><br/>
-   **Note:** You may need to change the file permissions to protect your key file before you can use it to access your AWS instance. If using a Mac or Linux, use the command ```chmod 600 <path to your file>```. 
+   1. In the Key pair input select an existing key pair if you have created one previously, or select the `Create new key pair` option. Make sure you save the key pair to a safe place in your development environment. You will need this to connect to your server, and you do not want to let anyone else have access to it. Do not check the key pair into GitHub or any other publicly available location.<br/><br/> **Note:** You may need to change the file permissions to protect your key file before you can use it to access your AWS instance. If using a Mac or Linux, use the command `chmod 600 <path to your file>`.
    1. In the `Network settings` you specify how the world can access your server. Choose the option to `Select existing security group` and pick the security group you created previously.
 
       ![Security group configuration](securityGroup.png)
@@ -87,6 +82,7 @@ ALTER USER 'root'@'localhost' IDENTIFIED BY '1Really~Complicated!!';
 UNINSTALL COMPONENT 'file://component_validate_password';
 ALTER USER 'root'@'localhost' IDENTIFIED BY 'monkeypie';
 ```
+
 **Note:** Make sure your password matches the root password specified in the db.properties file in your chess client.
 
 ## Install Java
@@ -175,8 +171,9 @@ java -jar client.jar youripaddress:8080
 Invoking your chess server from ssh will require you to keep the ssh terminal open. You can make your chess server start automatically every time your AWS instance is started by following these instructions:
 
 1. SSH into your server as described above
-2. Create and open a service description file: ```sudo nano /etc/systemd/system/chess_server.service```
+2. Create and open a service description file: `sudo nano /etc/systemd/system/chess_server.service`
 3. Enter and save the following in the Nano code editor window:
+
 ```[Unit]
 Description=Chess Server
 After=network.target
@@ -189,14 +186,16 @@ ExecStart=java -jar /home/ec2-user/server.jar 8080
 WantedBy=multi-user.target
 sudo systemctl enable chess_server
 ```
-4. Enable the chess server service: ```sudo systemctl enable chess_server```
-5. Start the chess server service: ```sudo systemctl start chess_server```
-6. Check the status of the chess server service: ```sudo systemctl status chess_server```
-7. To confirm that the service starts whenever the AWS instance is started, stop and restart the AWS instance from the AWS console or use this command: ```sudo reboot```
+
+4. Enable the chess server service: `sudo systemctl enable chess_server`
+5. Start the chess server service: `sudo systemctl start chess_server`
+6. Check the status of the chess server service: `sudo systemctl status chess_server`
+7. To confirm that the service starts whenever the AWS instance is started, stop and restart the AWS instance from the AWS console or use this command: `sudo reboot`
 
 Have fun! You have just taken the first step in becoming the world's best chess server.
 
-## <a name="videos"></a>Videos (64:23)
+## Videos
+
 - 🎥 [Overview (1:41)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=10672ba0-ba2d-4c9b-b6c1-b1ae01071d55&start=0) - [[transcript]](https://github.com/user-attachments/files/17707228/CS_240_Deploying_your_Chess_Server_on_AWS_Overview_Transcript.pdf)
 - 🎥 [Launch an EC2 Instance (14:42)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=feea3668-a904-402d-97d1-b1ae0107c46d&start=0) - [[transcript]](https://github.com/user-attachments/files/17707232/CS_240_Launch_an_EC2_Instance_Transcript.pdf)
 - 🎥 [Setup Your EC2 Instance (13:42)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=a5252593-01e6-479b-8532-b1ae010c4e9b&start=0) - [[transcript]](https://github.com/user-attachments/files/17707242/CS_240_Set_Up_Your_EC2_Instance_Transcript.pdf)

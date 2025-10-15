@@ -1,4 +1,4 @@
-package generator;
+package generator.json;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

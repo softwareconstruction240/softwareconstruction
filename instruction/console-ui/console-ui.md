@@ -181,7 +181,7 @@ Input your numbers
 - How to use terminal control codes to clear the terminal, set background and text colors, and text attributes such as bold, faint, italic, underline, and blinking
 - How to use Unicode characters to draw the chess board and pieces for the Chess project
 
-## <a name="videos"></a>Videos (17:49)
+## Videos
 
 - 🎥 [Console User Interfaces (3:02)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=363561fc-a6f6-49ad-8d10-b19a0149fe26) - [[transcript]](https://github.com/user-attachments/files/17736991/CS_240_Console_User_Interfaces_Transcript.pdf)
 - 🎥 [Terminal Control Codes (10:53)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=46e4a217-ef9c-4950-8b35-b19a014b2881) - [[transcript]](https://github.com/user-attachments/files/17737000/CS_240_Terminal_Control_Codes_Transcript.pdf)

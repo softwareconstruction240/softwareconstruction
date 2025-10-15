@@ -26,18 +26,20 @@ Commonly, protecting public access, involves quickly executing tests that reject
 ```java
 public class DefensiveExample {
     public static void main(String[] args) {
-        Spark.get("/name/:name", DefensiveExample::getName);
+        var javalin = Javalin.create()
+            .get("/name/{name}", DefensiveExample::getName)
+            .start(8080);
     }
 
-    private static Object getName(Request request, Response response) {
-        response.type("application/json");
-        var name = request.params(":name");
+    private static void getName(Context ctx) {
+        ctx.contentType("application/json");
+        var name = ctx.pathParam("name");
         if (!name.matches("(\\w|\\d){3,64}")) {
-            response.status(400);
-            return new Gson().toJson(Map.of("error", "invalid parameter"));
+            ctx.status(400);
+            ctx.result(new Gson().toJson(Map.of("error", "invalid parameter")));
         }
 
-        return new Gson().toJson(Map.of("result", name));
+        ctx.result(new Gson().toJson(Map.of("result", name)));
     }
 }
 ```
@@ -65,20 +67,22 @@ Here is a full example that demonstrates the use of both exceptions and assertio
 ```java
 public class DefensiveExample {
     public static void main(String[] args) {
-        Spark.get("/name/:name", DefensiveExample::getName);
+        var javalin = Javalin.create()
+            .get("/name/{name}", DefensiveExample::getName)
+            .start(8080);
     }
 
-    private static Object getName(Request request, Response response) {
-        response.type("application/json");
-        var name = request.params(":name");
+    private static void getName(Context ctx) {
+        ctx.contentType("application/json");
+        var name = ctx.pathParam("name");
         if (!name.matches("(\\w|\\d){3,64}")) {
-            response.status(400);
-            return new Gson().toJson(Map.of("error", "invalid parameter"));
+            ctx.status(400);
+            ctx.result(new Gson().toJson(Map.of("error", "invalid parameter")));
         }
 
         name = normalize(name);
 
-        return new Gson().toJson(Map.of("result", name));
+        ctx.result(new Gson().toJson(Map.of("result", name)));
     }
 
     private static String normalize(String name) {
@@ -94,7 +98,7 @@ public class DefensiveExample {
 - How and when to write assertions.
 - How and when to use parameter checking instead of assertions.
 
-## <a name="videos"></a>Videos (14:15)
+## Videos
 
 - 🎥 [Assertions (11:48)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=934d5be6-15b3-4213-a25b-ad6d01430c86&start=0) - [[transcript]](https://github.com/user-attachments/files/17780884/CS_240_Defensive_Programming_Assertions.pdf)
 - 🎥 [Parameter Checking (2:27)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=4d06fa38-cf64-4dc2-ace5-ad6d0146799a&start=0) - [[transcript]](https://github.com/user-attachments/files/17780887/CS_240_Defensive_Programming_Parameter_Checking.pdf)
