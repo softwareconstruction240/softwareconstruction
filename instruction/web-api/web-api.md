@@ -79,6 +79,36 @@ Javalin.create()
     .post("/name{name}", this::addName)
 ```
 
+## HTTP Headers
+
+In addition to passing information through the HTTP path and body, you can pass information using HTTP headers. For example, if you needed a valid authorization token for some of your endpoints then you could write a method that gets a authorization HTTP header and checks the value against an existing list of valid tokens. If the token is not provided in the HTTP `authentication` header, or it is not valid then an HTTP 401 status code is returned.
+
+```java
+final private HashSet<String> validTokens = new HashSet<>(Set.of("secret1", "secret2"));
+
+private boolean authorized(Context ctx) {
+    String authToken = ctx.header("authentication");
+    if (!validTokens.contains(authToken)) {
+        ctx.contentType("application/json");
+        ctx.status(401);
+        ctx.result(new Gson().toJson(Map.of("msg", "invalid authorization")));
+        return false;
+    }
+    return true;
+}
+```
+
+You could then wrap your secure endpoints with an authorization test.
+
+```java
+private void addName(Context ctx) {
+    if (authorized(ctx)) {
+        names.add(ctx.pathParam("name"));
+        listNames(ctx);
+    }
+}
+```
+
 ## Serving Static Files
 
 An HTTP resource can represent anything. In the above example we are representing an in memory representation of a name list, but we can also represent a directory structure of files in persistent storage. Javalin makes it easy to do this by specifying a configuration function with the name of a directory that contains the files we want to return over HTTP. Once the location is registered, Javalin will look in the directory for a file that matches the URL path. If it is found, it returns the contents of the file. Javalin will even examine the file to determine what `Content-Type` header to set.
@@ -116,19 +146,37 @@ public class SimpleNameServer {
                 .start(8080);
     }
 
-    private void addName(Context context) {
-        names.add(context.pathParam("name"));
-        listNames(context);
+    private void addName(Context ctx) {
+        if (authorized(ctx)) {
+            names.add(ctx.pathParam("name"));
+            listNames(ctx);
+        }
     }
 
-    private void listNames(Context context) {
-        String jsonNames = new Gson().toJson(Map.of("name", names));
-        context.json(jsonNames);
+    private void listNames(Context ctx) {
+        ctx.contentType("application/json");
+        ctx.result(new Gson().toJson(Map.of("name", names)));
     }
 
-    private void deleteName(Context context) {
-        names.remove(context.pathParam("name"));
-        listNames(context);
+
+    private void deleteName(Context ctx) {
+        if (authorized(ctx)) {
+            names.remove(ctx.pathParam("name"));
+            listNames(ctx);
+        }
+    }
+
+    final private HashSet<String> validTokens = new HashSet<>(Set.of("secret1", "secret2"));
+
+    private boolean authorized(Context ctx) {
+        String authToken = ctx.header("Authorization");
+        if (!validTokens.contains(authToken)) {
+            ctx.contentType("application/json");
+            ctx.status(401);
+            ctx.result(new Gson().toJson(Map.of("msg", "invalid authorization")));
+            return false;
+        }
+        return true;
     }
 }
 ```
@@ -140,10 +188,10 @@ You can experiment with this code by doing the following.
 1. Open your browser and point it to `localhost:8080`. This should display the contents of your `index.html` file.
 1. Run the following commands with Curl
    1. `curl localhost:8080/name`, returns `{"name":[]}`
-   1. `curl -X POST localhost:8080/name/cow`, returns `{"name":["cow"]}`
-   1. `curl -X POST localhost:8080/name/dog`, returns `{"name":["cow","dog"]}`
+   1. `curl -X POST localhost:8080/name/cow -H "Authorization: secret1"`, returns `{"name":["cow"]}`
+   1. `curl -X POST localhost:8080/name/dog -H "Authorization: secret1"`, returns `{"name":["cow","dog"]}`
    1. `curl localhost:8080/name`, returns `{"name":["cow","dog"]}`
-   1. `curl -X DELETE localhost:8080/name/dog`, returns `{"name":["cow"]}`
+   1. `curl -X DELETE localhost:8080/name/dog -H "Authorization: secret1"`, returns `{"name":["cow"]}`
    1. `curl localhost:8080/name`, returns `{"name":["cow"]}`
 
 ### Serializing Requests and Responses
@@ -198,8 +246,6 @@ Build this code and try it out. Use curl to make your requests. Set breakpoints 
 
 {"name":"dog","count":3.0}
 ```
-
-Experiment with writing a Gson type adapter to control how objects are serialized.
 
 ### Server Error Handling
 
@@ -302,14 +348,14 @@ If you first run the `name list` service defined above, then you can run the `Cl
 
 The `response.statusCode()` method tells us what the HTTP status code was for the response. It's important to check the status code, because the body on its own won't tell you if there was an error or not!
 
-### Using HTTP Headers
+### Using HTTP Headers on the Client
 
 Request headers can be added to any request via the `header` method on `HttpRequest` builders. Response headers can be read via the `headers` method on `HttpResponse` objects.
 
 ```java
 var request = HttpRequest.newBuilder(uri)
     .GET()
-    .header("Authorization", "adwerewiojc")
+    .header("Authorization", "secret1")
     .build();
 
 var response = client.send(request, BodyHandlers.ofString());
@@ -417,17 +463,17 @@ java -cp ../../lib/gson-2.10.1.jar ClientCurlExample.java POST 'http://localhost
 ## Videos
 
 - Javalin
-    - 🎥 [Javalin Overview (24:21)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=7ed95d83-d32e-4bab-ac9a-b2c60106df45) - [transcript]
-    - 🎥 [Javalin Handlers (13:41)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=b88c8a46-d98b-4b7a-a07f-b2c6010e7338) - [transcript]
-    - 🎥 [Javalin Error Handling (7:14)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=8e6bc974-7475-4ac8-a34c-b2c601129092) - [transcript]
-    - 🎥 [Javalin Serving Static Files (4:27)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=bed4bbcd-f27e-4257-90b6-b2c601150a5b) - [transcript]
-    - 🎥 [Javalin Installation (1:54)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=d78633c0-b476-4566-8d51-b2c60116b803) - [transcript]
+  - 🎥 [Javalin Overview (24:21)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=7ed95d83-d32e-4bab-ac9a-b2c60106df45) - [transcript]
+  - 🎥 [Javalin Handlers (13:41)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=b88c8a46-d98b-4b7a-a07f-b2c6010e7338) - [transcript]
+  - 🎥 [Javalin Error Handling (7:14)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=8e6bc974-7475-4ac8-a34c-b2c601129092) - [transcript]
+  - 🎥 [Javalin Serving Static Files (4:27)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=bed4bbcd-f27e-4257-90b6-b2c601150a5b) - [transcript]
+  - 🎥 [Javalin Installation (1:54)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=d78633c0-b476-4566-8d51-b2c60116b803) - [transcript]
 - Pet Shop
-    - 🎥 [Pet Shop Demo (4:51)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=41203fd1-89ca-4c47-b259-b2c601183227) - [transcript]
-    - 🎥 [Pet Shop Project (4:10)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=097b2912-582f-41b3-a972-b2c6011ab229) - [transcript]
-    - 🎥 [How to Use Pet Shop (1:44)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=88cef7c0-a84f-4ee6-b0b2-b2c6011c021f) - [transcript]
+  - 🎥 [Pet Shop Demo (4:51)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=41203fd1-89ca-4c47-b259-b2c601183227) - [transcript]
+  - 🎥 [Pet Shop Project (4:10)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=097b2912-582f-41b3-a972-b2c6011ab229) - [transcript]
+  - 🎥 [How to Use Pet Shop (1:44)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=88cef7c0-a84f-4ee6-b0b2-b2c6011c021f) - [transcript]
 - Client-side HTTP
-    - 🎥 [Client HTTP (12:25)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=5ddc54fd-39c3-4d01-a303-b2c6011cda0a) - [transcript]
+  - 🎥 [Client HTTP (12:25)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=5ddc54fd-39c3-4d01-a303-b2c6011cda0a) - [transcript]
 
 ## Demonstration code
 
