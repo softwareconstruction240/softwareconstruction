@@ -96,9 +96,9 @@ Or if this problem is happening with error handling, try to return the error in 
 Return new Gson().toJson(Map.of(“message”, ex.getMessage()));
 ```
 
-## Can’t find authToken from the request
+## How do I read the authToken from an HTTP request?
 
-String authToken = context.header(“authorization”)
+Refer to the [Web API](https://github.com/softwareconstruction240/softwareconstruction/blob/main/instruction/web-api/web-api.md#http-headers) instruction.
 
 ## AutoGrader can’t find my Unit Tests
 
