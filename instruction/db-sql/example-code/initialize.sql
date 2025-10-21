@@ -34,7 +34,7 @@ CREATE TABLE purchase (
 INSERT INTO pet (name, type) VALUES ("Fido", "dog");
 INSERT INTO pet (name, type) VALUES ("Puddles", "cat");
 INSERT INTO pet (name, type) VALUES ("Chip", "bird");
-INSERT INTO owner (name, phoneNumber) VALUES ("Juan", "801-866-3333";
+INSERT INTO owner (name, phoneNumber) VALUES ("Juan", "801-866-3333");
 INSERT INTO owner (name, phoneNumber) VALUES ("Pat", "619-583-9923");
 INSERT INTO owner (name, phoneNumber) VALUES ("Tessa", "217-360-3168");
 INSERT INTO purchase (ownerId, petId, price) VALUES(1, 1, 600);
