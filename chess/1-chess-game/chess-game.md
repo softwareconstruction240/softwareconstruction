@@ -1,7 +1,6 @@
 # ♕ Phase 1: Chess Game
 
 - [Chess Application Overview](../chess.md)
-- 🖥️ [Slides: Design Principles (Chess Examples)](https://docs.google.com/presentation/d/1dncxSAgnIqjV9RNzGR94EWVltJiCApqC3EvNPqz97-E/edit?usp=sharing)
 - 🖥️ [Videos](#videos)
 - [TA Tips](../../instruction/chess-tips/chess-tips.md#phase-1---chess-game): A collection of common problems for this phase
 
