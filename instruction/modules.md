@@ -53,8 +53,8 @@ The course content is divided into multiple topics that you should strive to mas
 - [MySQL](mysql/mysql.md)
 - [SQL](db-sql/db-sql.md)
 - [JDBC](db-jdbc/db-jdbc.md)
-- ☑ [Phase 4: Chess Database](../chess/4-database/database.md)
 - [Securing Passwords](securing-passwords/securing-passwords.md)
+- ☑ [Phase 4: Chess Database](../chess/4-database/database.md)
 - [Logging](logging/logging.md)
 - [Debugging](debugging/debugging.md)
 - [Defensive Programming](defensive-programming/defensive-programming.md)
@@ -76,6 +76,6 @@ The course content is divided into multiple topics that you should strive to mas
 
 ### Legend
 
-| Icon | Meaning                                    |
-| ---- | ------------------------------------------ |
+| Icon | Meaning                                      |
+| ---- | -------------------------------------------- |
 | ☑    | Assignments requiring submission for grading |
