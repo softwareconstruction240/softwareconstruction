@@ -42,6 +42,11 @@ This should result in the following additions to your project.
 
 There is a lot of 3rd party code that you can download and include in your Java applications. As part of the starter project, we already included packages that run your JUnit tests, process JSON, handle logging, and make HTTP network requests.
 
+The autograder will only add dependencies that we specify in the project. If you try to add a dependency that we don't specify you can use, your tests may fail or your code might not compile. 
+
+The starter chess repository already included all the necessary dependencies that you need to this point. You can view these dependencies using IntelliJ by opening the `Project Structure` dialog, going to the `modules` tab, and selecting the `server` module.
+
+![Existing dependencies](existingDependencies.png)
 
 ## Getting the Webpage for Testing Setup
 
