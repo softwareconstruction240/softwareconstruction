@@ -46,18 +46,18 @@ public class PetServer {
 
     private void exceptionHandler(ResponseException ex, Context ctx) {
         ctx.status(ex.toHttpStatusCode());
-        ctx.json(ex.toJson());
+        ctx.result(ex.toJson());
     }
 
     private void addPet(Context ctx) throws ResponseException {
         Pet pet = new Gson().fromJson(ctx.body(), Pet.class);
         pet = service.addPet(pet);
         webSocketHandler.makeNoise(pet.name(), pet.sound());
-        ctx.json(new Gson().toJson(pet));
+        ctx.result(new Gson().toJson(pet));
     }
 
     private void listPets(Context ctx) throws ResponseException {
-        ctx.json(service.listPets().toString());
+        ctx.result(service.listPets().toString());
     }
 
     private void deletePet(Context ctx) throws ResponseException {
