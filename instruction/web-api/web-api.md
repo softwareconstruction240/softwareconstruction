@@ -81,13 +81,13 @@ Javalin.create()
 
 ## HTTP Headers
 
-In addition to passing information through the HTTP path and body, you can pass information using HTTP headers. For example, if you needed a valid authorization token for some of your endpoints then you could write a method that gets a authorization HTTP header and checks the value against an existing list of valid tokens. If the token is not provided in the HTTP `authentication` header, or it is not valid then an HTTP 401 status code is returned.
+In addition to passing information through the HTTP path and body, you can pass information using HTTP headers. For example, if you needed a valid authorization token for some of your endpoints then you could write a method that gets a authorization HTTP header and checks the value against an existing list of valid tokens. If the token is not provided in the HTTP `authorization` header, or it is not valid then an HTTP 401 status code is returned.
 
 ```java
 final private HashSet<String> validTokens = new HashSet<>(Set.of("secret1", "secret2"));
 
 private boolean authorized(Context ctx) {
-    String authToken = ctx.header("authentication");
+    String authToken = ctx.header("authorization");
     if (!validTokens.contains(authToken)) {
         ctx.contentType("application/json");
         ctx.status(401);
