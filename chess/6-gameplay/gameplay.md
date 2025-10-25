@@ -239,18 +239,9 @@ All of the tests in your project must succeed in order to complete this phase.
 
 To pass off this assignment submit your work to the course [auto-grading](https://cs240.click/) tool. When that is done, meet with a TA and demonstrate that your Chess client and server meet all requirements and assign you a final grade.
 
-#### TA Passoff Prep
+#### Passoff Common Problems
 
-Before coming to meet with a TA to passoff your Phase 6, please make sure that you test your code so you know that it can do the following:
-
-- You can have 3 terminals running at once, one for white, one for black, and one for the observer.
-- Making a move will send a move notification to everyone but the root user, and everyone (including the root user) should have their board update immediately.
-- Print an error when trying to make a move out of turn, moving a piece that isn't your color, or moving a piece that doesn't exist.
-- You can promote a pawn when it gets to the final row.
-- Highlighting moves should **not** crash if you highlight a space where there is no piece.
-- The observer should be able to join a game, receive notifications about a move made, and when leaving the game, should no longer receive notifications about a move being made.
-- Delivering checkmate should send a checkmate notification to all players, in addition to the move notification, and load the board as a normal move should do.
-- Resigning should require a confirmation before sending the resign command. After resignation, the players are still in the game until they leave, and no more moves are allowed to be made.
+Before coming to passoff with a TA, check to make sure your code functions properly and doesn't have any of these common problems past students have had. [Phase 6 Passoff Common Problems](../../instruction/chess-tips/chess-tips.md#passoff-frequently-encountered-problems-1)
 
 ### Grading Rubric
 
