@@ -173,7 +173,7 @@ To pass off this assignment, first submit your work to the course [auto-grading]
 
 #### Passoff Common Problems
 
-Before coming to passoff with a TA, check this list of common problems that students have that make them fail a passoff to ensure your code doesn't have these issues. [Phase 5 Passoff Common Problems](../../instruction/chess-tips/chess-tips.md#passoff-frequently-encountered-problems)
+Before coming to passoff with a TA, check to make sure your code functions properly and doesn't have any of these common problems past students have had. [Phase 5 Passoff Common Problems](../../instruction/chess-tips/chess-tips.md#passoff-frequently-encountered-problems)
 
 ### Grading Rubric
 
