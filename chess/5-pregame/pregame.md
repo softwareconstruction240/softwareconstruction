@@ -171,17 +171,9 @@ All of the tests in your project must succeed in order to complete this phase.
 
 To pass off this assignment, first submit your work to the course [auto-grading](https://cs240.click/) tool. Once it completely passes the autograder, meet with a TA and demonstrate that your Chess client and server meet all requirements and they will assign you a final grade.
 
-#### TA Passoff Prep
+#### Passoff Common Problems
 
-Before coming to meet with a TA to passoff your Phase 5, please make sure that you test your code so you know that it can do the following:
-
-- When registering, your code should automatically bring the user to the signed-in state. The user shouldn't need to register and then login to go to the signed-in state.
-- Register a user normally, and print an error when provided a username that's already taken.
-- Login a user normally, and print an error when provided an invalid username or password.
-- List the games, showing the game name, the white player's username, and the black player's username.
-    - Also, when you list games, don't have the numbers of the list be the gameID of the games. If you have games with gameIDs 2, 3, and 5, for example, they should be listed as games 1, 2, and 3. Your code should translate the number of the list to the gameID for the server request.
-- Print out the board correctly in the appropriate orientation for the chosen color (Queens on their own color and in the D column).
-- Print an error when trying to join or observe a game with an invalid gameID (too high, too low, not a number).
+Before coming to passoff with a TA, check this list of common problems that students have that make them fail a passoff to ensure your code doesn't have these issues. [Phase 5 Passoff Common Problems](https://github.com/softwareconstruction240/softwareconstruction/blob/passoff-examples/instruction/chess-tips/chess-tips.md#passoff-frequently-encountered-problems)
 
 ### Grading Rubric
 
