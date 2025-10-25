@@ -268,6 +268,14 @@ This could be from a race condition, if you send a notification that a move was 
 
 This exception is thrown when you are trying to send a message to a closed channel. Have the student make sure they are checking that the session is open (session.isOpen()) before sending it a message.
 
+## Passoff Frequently Encountered Problems
+
+Here are a couple of things that students commonly forget to include as part of their code which causes them to fail their passoff. This is not a complete list of everything that your code needs to do in order to pass, just some of the common problems. 
+
+- Resigning should require a confirmation, and does **not** kick players from the game. [Gameplay Functionality](https://github.com/softwareconstruction240/softwareconstruction/blob/main/chess/6-gameplay/gameplay.md#gameplay-functionality)
+- Anyone can highlight any piece, independent of whose turn it is. In addition, a user trying to highlight a position with no piece shouldn't break your code. [Gameplay Functionality](https://github.com/softwareconstruction240/softwareconstruction/blob/main/chess/6-gameplay/gameplay.md#gameplay-functionality)
+- Make sure you implement pawn promotion. [Pawn Functionality](https://github.com/softwareconstruction240/softwareconstruction/blob/main/chess/0-chess-moves/the-game-of-chess.md#pawn)
+
 ## I don't have enough GitHub commits to pass the autograder
 
 See [previous](/instruction/chess-tips/chess-tips.md#General---all-phases)
