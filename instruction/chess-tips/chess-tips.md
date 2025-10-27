@@ -275,6 +275,7 @@ Here are a couple of things that students commonly forget to include as part of 
 - Resigning should require a confirmation, and does **not** kick players from the game. [Gameplay Functionality](../../chess/6-gameplay/gameplay.md#gameplay-functionality)
 - Anyone can highlight any piece, independent of whose turn it is. In addition, a user trying to highlight a position with no piece shouldn't break your code. [Gameplay Functionality](../../chess/6-gameplay/gameplay.md#gameplay-functionality)
 - Make sure you implement pawn promotion. [Pawn Functionality](../../chess/0-chess-moves/the-game-of-chess.md#pawn)
+- All messages should contain player usernames. Move messages should have a description of the move such as a2 to a4. [Notifications](../../chess/6-gameplay/gameplay.md#notifications)
 
 ## I don't have enough GitHub commits to pass the autograder
 
