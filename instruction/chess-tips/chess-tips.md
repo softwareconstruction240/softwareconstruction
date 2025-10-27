@@ -235,7 +235,7 @@ Here are a couple of things that students commonly forget to include as part of 
 
 - After registering, you will automatically enter the signed-in state, you don't need to login afterwards. [Prelogin UI Command Descriptions](../../chess/5-pregame/pregame.md#prelogin-ui)
 - Make your ListGames numbering be independent of the game IDs. [Postlogin UI Command Descriptions](../../chess/5-pregame/pregame.md#postlogin-ui)
-- Make sure your board is printed properly! [Gameplay UI Description](../../chess/5-pregame/pregame.md#gameplay-ui)
+- Make sure your board is printed correctly! [Gameplay UI Description](../../chess/5-pregame/pregame.md#gameplay-ui)
 - Print readable errors and make sure your code doesn't crash. For example, make sure you handle trying to join or observe a game with an invalid game number input (`1000`, `-10`, `two`). [UI Requirements](../../chess/5-pregame/pregame.md#ui-requirements)
 
 ## I don't have enough GitHub commits to pass the autograder
