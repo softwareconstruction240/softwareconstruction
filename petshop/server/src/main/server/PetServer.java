@@ -1,6 +1,7 @@
 package server;
 
 import com.google.gson.Gson;
+import dataaccess.MemoryDataAccess;
 import exception.ResponseException;
 import model.Pet;
 import io.javalin.Javalin;
@@ -13,12 +14,16 @@ public class PetServer {
     private final WebSocketHandler webSocketHandler;
     private final Javalin httpHandler;
 
+    public PetServer() {
+        this(new PetService(new MemoryDataAccess()));
+    }
+
     public PetServer(PetService service) {
         this.service = service;
 
-        this.webSocketHandler = new WebSocketHandler();
+        webSocketHandler = new WebSocketHandler();
 
-        this.httpHandler = Javalin.create(config -> config.staticFiles.add("public"))
+        httpHandler = Javalin.create(config -> config.staticFiles.add("public"))
                 .post("/pet", this::addPet)
                 .get("/pet", this::listPets)
                 .delete("/pet/{id}", this::deletePet)

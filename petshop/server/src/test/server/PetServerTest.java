@@ -1,10 +1,8 @@
 package server;
 
-import dataaccess.MemoryDataAccess;
 import exception.ResponseException;
 import model.*;
 import org.junit.jupiter.api.*;
-import service.PetService;
 
 import java.util.Collection;
 
@@ -16,8 +14,7 @@ class PetServerTest {
 
     @BeforeAll
     static void startServer() {
-        var service = new PetService(new MemoryDataAccess());
-        petServer = new PetServer(service);
+        petServer = new PetServer();
         petServer.run(0);
         var url = "http://localhost:" + petServer.port();
         server = new ServerFacade(url);
