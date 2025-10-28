@@ -102,7 +102,7 @@ Refer to the [Web API](https://github.com/softwareconstruction240/softwareconstr
 
 ## AutoGrader can’t find my Unit Tests
 
-Make sure the unit tests are in server/src/test/java/service and the Class has the word Tests in it.
+Make sure the unit tests are in server/src/test/java/service and the Class ends with the word `Tests` or `Test`.
 
 ## I don't have enough GitHub commits to pass the autograder
 
@@ -188,6 +188,10 @@ This means they hardcoded the database to chess. Or they need to call createData
 
 Make sure they add both dependencies (specifically the mysql-connector one)
 
+## AutoGrader can’t find my Unit Tests
+
+Make sure the unit tests are in server/src/test/java/dataaccess and the Class ends with the word `Tests` or `Test`.
+
 ## Failed to Bind to /0.0.0.0:3306
 
 This is usually due to the fact that port 3306 is already being used by something. First thing is to make sure that the server isn’t running on port 3306 (for example sev.run(3306) instead of sev.run(8080)). If the server is running on port 3306, then mySQL can’t make connections on port 3306. Simple fix is to just make sure they are using different ports -> sev.run(8080) and db.properties has a db.port of 3306.
@@ -232,6 +236,10 @@ Your ServerFacade is probably not in a package. Put it in a package (probably no
 ## I don't have enough GitHub commits to pass the autograder
 
 See [previous](/instruction/chess-tips/chess-tips.md#General---all-phases)
+
+## AutoGrader can’t find my Unit Tests
+
+Make sure the unit tests are in client/src/test/java/client and the Class ends with the word `Tests` or `Test`.
 
 # Phase 6 - Gameplay
 
