@@ -9,10 +9,9 @@ In this phase, you will create your Chess server and implement seven HTTP endpoi
 
 ![Sever class structure](server-class-structure.png)
 
-
 ## Getting Started
-Complete the [Getting Started](getting-started.md) instructions before working on this phase.
 
+Complete the [Getting Started](getting-started.md) instructions before working on this phase.
 
 ## Required HTTP Endpoints
 
@@ -379,7 +378,7 @@ The service unit tests must directly call the methods on your service classes. T
 
 > [!IMPORTANT]
 >
-> You must place your service test cases in a folder named `server/src/test/java/service`.
+> You must place your service test cases in a folder named `server/src/test/java/service`. Your test Class must also end with the suffix `Test` or `Tests`. Without this the autograder will not find your tests.
 
 ## Server Directory Structure
 

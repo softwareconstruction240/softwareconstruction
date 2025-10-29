@@ -3,7 +3,6 @@
 - [Chess Application Overview](../chess.md)
 - 🖥️ [Videos](#videos)
 - [TA Tips](../../instruction/chess-tips/chess-tips.md#phase-4---database): A collection of common problems for this phase
-  
 
 In this part of the Chess project, you will create a MySQL implementation of your Data Access interface and start calling it from your services. This enables the ability to store data persistently in a MySQL database instead of storing data in main memory. You will also write unit tests using JUnit for your DAO classes. This involves the following steps:
 
@@ -16,6 +15,7 @@ In this part of the Chess project, you will create a MySQL implementation of you
 1. Ensure that all provided pass off tests work properly, including the DatabaseTests added for this assignment, and the StandardAPITests from the previous assignment.
 
 ## Getting Started
+
 Complete the [Getting Started](getting-started.md) instructions before working on this phase.
 
 ## Making Database Connections
@@ -117,7 +117,7 @@ As part of your unit test deliverable you need to meet the following requirement
 
 > [!IMPORTANT]
 >
-> You must place your data access test cases in a folder named `server/src/test/java/dataaccess`.
+> You must place your data access test cases in a folder named `server/src/test/java/dataaccess`. Your test Class must also end with the suffix `Test` or `Tests`. Without this the autograder will not find your tests.
 
 ### Code Quality
 
