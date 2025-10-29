@@ -378,7 +378,7 @@ The service unit tests must directly call the methods on your service classes. T
 
 > [!IMPORTANT]
 >
-> You must place your service test cases in a folder named `server/src/test/java/service`. Your test Class must also end with the suffix `Test` or `Tests`. Without this the autograder will not find your tests.
+> You must place your service test cases in a folder named `server/src/test/java/service`. Your test class must also end with the suffix `Test` or `Tests`. Without this the autograder will not find your tests.
 
 ## Server Directory Structure
 

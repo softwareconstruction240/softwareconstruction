@@ -117,7 +117,7 @@ As part of your unit test deliverable you need to meet the following requirement
 
 > [!IMPORTANT]
 >
-> You must place your data access test cases in a folder named `server/src/test/java/dataaccess`. Your test Class must also end with the suffix `Test` or `Tests`. Without this the autograder will not find your tests.
+> You must place your data access test cases in a folder named `server/src/test/java/dataaccess`. Your test class must also end with the suffix `Test` or `Tests`. Without this the autograder will not find your tests.
 
 ### Code Quality
 
