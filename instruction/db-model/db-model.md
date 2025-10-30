@@ -96,7 +96,7 @@ All of the same principles of good software design also apply when creating repr
 | 82      | Bud       | 77    | Chip    | DoggyTown | Orem      | false      | 2027         |
 | 83      | Bud       | 56    | Puddles | DoggyTown | Orem      | false      | 2027         |
 
-Additoinally, large, non-cohesive tables, force you to represent the same data in multiple rows which violates the DRY principle. Notice in the above example that the store information is repeated in multiple rows. Instead you want to `normalize` a table like this into multiple tables that each represent a single cohesive object. You then use relationships between the tables to create aggregations, or views as they are called in the relational model, as desired.
+Additionally, large, non-cohesive tables, force you to represent the same data in multiple rows which violates the DRY principle. Notice in the above example that the store information is repeated in multiple rows. Instead you want to `normalize` a table like this into multiple tables that each represent a single cohesive object. You then use relationships between the tables to create aggregations, or views as they are called in the relational model, as desired.
 
 ## Views
 
