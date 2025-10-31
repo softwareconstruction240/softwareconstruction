@@ -8,7 +8,7 @@
 
 ## SQL Server Installation
 
-In order to get started you will need to install MySQL to your development environment. You can install the latest free MySQL Community Server version from [MySQL.com](https://dev.mysql.com/downloads/mysql/).
+In order to get started you will need to install MySQL to your development environment. You can install the latest LTS (Long term support) free MySQL Community Server version from [MySQL.com](https://dev.mysql.com/downloads/mysql/).
 
 ![MySQL install](mysql-install.png)
 
