@@ -17,7 +17,7 @@ If you turn in your code without enough commits, the autograder will let you kno
 
 ## These collections look identical to each other, but Java says they aren’t
 
-Look at the [specification](https://github.com/softwareconstruction240/softwareconstruction/blob/main/chess/0-chess-moves/chess-moves.md#object-overrides) for mentions of the `equals()` and `hashCode()` methods. It might also be worthwhile to implement a `toString()` method. Additionally, check the promotion piece (null in 99% of cases). Also, review the getters and setters for each class if that doesn’t work.
+Look at the [specification](../../chess/0-chess-moves/chess-moves.md#object-overrides) for mentions of the `equals()` and `hashCode()` methods. It might also be worthwhile to implement a `toString()` method. Additionally, check the promotion piece (null in 99% of cases). Also, review the getters and setters for each class if that doesn’t work.
 
 ## JUnit - No test events received
 
@@ -45,11 +45,11 @@ If your IDE is telling you to use static, you probably should change your code t
 
 ## Clone and Copy
 
-When in your `ChessGame.validMoves`, you may want to create a copy/clone of the ChessBoard so that you can make a piece move and see if you are still in check to know if that is a valid move or not. If you create a shallow copy, the ChessBoard will be the exact same, and will keep any changes you make. This needs to be a DeepCopy or clone so that it can be unique and different, so that if a chance happens on one instance, the other will stay the same. If you would like some explanations on how to incorporate clone and copy, look here for [copying objects](https://github.com/softwareconstruction240/softwareconstruction/wiki/Copying-Objects). One such method is to have ChessBoard implement Cloneable, then in the override clone method, you loop through the 2d ChessPiece array, and do `Arrays.copyOf` to copy the chess board row by row, then finally putting the 2d array into the cloned ChessBoard. 
+When in your `ChessGame.validMoves`, you may want to create a copy/clone of the ChessBoard so that you can make a piece move and see if you are still in check to know if that is a valid move or not. If you create a shallow copy, the ChessBoard will be the exact same, and will keep any changes you make. This needs to be a DeepCopy or clone so that it can be unique and different, so that if a chance happens on one instance, the other will stay the same. If you would like some explanations on how to incorporate clone and copy, look here for [copying objects](../copying-objects/copying-objects.md). One such method is to have ChessBoard implement Cloneable, then in the override clone method, you loop through the 2d ChessPiece array, and do `Arrays.copyOf` to copy the chess board row by row, then finally putting the 2d array into the cloned ChessBoard. 
 
 ## `==` vs `.equals()` comparison
 
-If you are trying to see if a king is in check by doing `endPosition == kingPosition`, the answer will always return false. Instead, you should use `endPosition.equals(kingPosition)`. To understand why Objects require `.equals()` instead, please refer to [Java Object Class](https://github.com/softwareconstruction240/softwareconstruction/wiki/Java-Object-Class#equals).
+If you are trying to see if a king is in check by doing `endPosition == kingPosition`, the answer will always return false. Instead, you should use `endPosition.equals(kingPosition)`. To understand why Objects require `.equals()` instead, please refer to [Java Object Class](../java-object-class/java-object-class.md).
 
 ## I don't have enough GitHub commits to pass the autograder
 
@@ -182,7 +182,7 @@ You probably made the move calculator a class variable inside ChessPiece. Remove
 
 ## Access denied to database chess or Access denied for user ‘dbUser173910573’@’%’ to database ‘chess’
 
-This means they hardcoded the database to chess. Or they need to call createDatabase. Look here for more debugging tips: https://github.com/softwareconstruction240/softwareconstruction/blob/main/chess/4-database/database.md#pass-off-submission-and-grading
+This means they hardcoded the database to chess. Or they need to call createDatabase. Look here for more information: [Ititializing Your Database and Tables](../../chess/4-database/database.md#initializing-your-database-and-tables)
 
 ## No driver provided error
 
@@ -233,6 +233,15 @@ If it says “Error: Unauthorized” with a 401 error, that probably means that 
 
 Your ServerFacade is probably not in a package. Put it in a package (probably not your UI package, is it a UI class?) and you should be able to import it
 
+## Passoff Frequently Encountered Problems
+
+Here are a couple of things that students commonly forget to include as part of their code which causes them to fail their passoff. This is not a complete list of everything that your code needs to do in order to pass, just some of the common problems. 
+
+- After registering, you will automatically enter the signed-in state, you don't need to login afterwards. [Prelogin UI Command Descriptions](../../chess/5-pregame/pregame.md#prelogin-ui)
+- Make your ListGames numbering be independent of the game IDs. [Postlogin UI Command Descriptions](../../chess/5-pregame/pregame.md#postlogin-ui)
+- Make sure your board is printed correctly! [Gameplay UI Description](../../chess/5-pregame/pregame.md#gameplay-ui)
+- Print readable errors and make sure your code doesn't crash. For example, make sure you handle trying to join or observe a game with an invalid game number input (`1000`, `-10`, `two`). [UI Requirements](../../chess/5-pregame/pregame.md#ui-requirements)
+
 ## I don't have enough GitHub commits to pass the autograder
 
 See [previous](/instruction/chess-tips/chess-tips.md#General---all-phases)
@@ -266,6 +275,15 @@ This could be from a race condition, if you send a notification that a move was 
 ## Running into a ClosedChannelException
 
 This exception is thrown when you are trying to send a message to a closed channel. Have the student make sure they are checking that the session is open (session.isOpen()) before sending it a message.
+
+## Passoff Frequently Encountered Problems
+
+Here are a couple of things that students commonly forget to include as part of their code which causes them to fail their passoff. This is not a complete list of everything that your code needs to do in order to pass, just some of the common problems. 
+
+- Resigning should require a confirmation, and does **not** kick players from the game. [Gameplay Functionality](../../chess/6-gameplay/gameplay.md#gameplay-functionality)
+- Anyone can highlight any piece, independent of whose turn it is. In addition, a user trying to highlight a position with no piece shouldn't break your code. [Gameplay Functionality](../../chess/6-gameplay/gameplay.md#gameplay-functionality)
+- Make sure you implement pawn promotion. [Pawn Functionality](../../chess/0-chess-moves/the-game-of-chess.md#pawn)
+- All messages should contain player usernames. Move messages should have a description of the move such as a2 to a4. [Notifications](../../chess/6-gameplay/gameplay.md#notifications)
 
 ## I don't have enough GitHub commits to pass the autograder
 

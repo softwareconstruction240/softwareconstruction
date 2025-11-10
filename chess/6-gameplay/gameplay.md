@@ -239,6 +239,10 @@ All of the tests in your project must succeed in order to complete this phase.
 
 To pass off this assignment submit your work to the course [auto-grading](https://cs240.click/) tool. When that is done, meet with a TA and demonstrate that your Chess client and server meet all requirements and assign you a final grade.
 
+#### Passoff Common Problems
+
+Before coming to passoff with a TA, check to make sure your code functions properly and doesn't have any of these common problems past students have had. [Phase 6 Passoff Common Problems](../../instruction/chess-tips/chess-tips.md#passoff-frequently-encountered-problems-1)
+
 ### Grading Rubric
 
 > [!NOTE]
