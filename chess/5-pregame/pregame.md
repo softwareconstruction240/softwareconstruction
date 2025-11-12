@@ -57,7 +57,7 @@ If you join as the black player then the board should be drawn from the perspect
 
 ![Black board](blackBoard.png)
 
-You are free to make your chessboard look different as long as the essential information is displayed in an **easily readable way**, but it must **look like a chess board**. You must have different colors for alternating squares, but they don't have to be white and black. Light and dark, or white and brown, or whatever you'd like is fine. Per official chess rules, the bottom-right and top-left squares (h1 and a8) must be the "lighter" color. This will mean each queen is "on her color" (white queen on a light square, black queen on a dark square). The boarder of the board must show the correct row numbers and column letters.
+You are free to make your chessboard look different as long as the essential information is displayed in an **easily readable way**, but it must **look like a chess board**. You must have different colors for alternating squares, but they don't have to be white and black. Light and dark, or white and brown, or whatever you'd like is fine. Per official chess rules, the bottom-right and top-left squares (h1 and a8) must be the "lighter" color. This will mean each queen is "on her color" (white queen on a light square, black queen on a dark square). The border of the board must show the correct row numbers and column letters.
 
 Note that in the above images, the blue letters are black pieces and the red letters are white pieces.
 
