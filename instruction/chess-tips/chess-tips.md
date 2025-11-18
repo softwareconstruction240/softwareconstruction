@@ -262,7 +262,7 @@ A variable in a ServerMessage/UserCommand object is named incorrectly (casing ma
 
 ## message.toString
 
-Note, make sure that students aren’t copying Pet Shop code, but specifically the message.toString method, as Pet Shop will override that and turn it into a Gson.toJson of the class, while student’s code will just make it a string message of the whole Message class, which isn’t json. They need to make sure that
+Note, make sure that you just aren’t copying Pet Shop code, but specifically the message.toString method, as Pet Shop will override that and turn it into a Gson.toJson of the class, while your code will just make it a string message of the whole Message class, which isn’t json.
 
 ## Message is sent from Server but doesn’t look like it’s being received in the client
 
