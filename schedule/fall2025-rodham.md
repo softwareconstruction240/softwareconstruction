@@ -32,6 +32,6 @@ Students in online sections should watch all videos for all topics, including th
 |      | 23  | Thu Nov 20 | [Concurrency](../instruction/concurrency/concurrency.md) | | _Due: Thu Nov 20_ - [Programming Exam - 2nd Retake](../instruction/programming-exam/programming-exam.md) (if needed)<br /><br /> |
 |  13  | 24  | Tue Nov 25 | Flex Day<br/>(Catch up if needed) | | _Mon Nov 24_ - Withdrawal Deadline |
 |      |     | Thu Nov 27 | No Class - Holiday | | |
-|  14  | 25  | Tue Dec 2  | [Command-Line Builds](../instruction/command-line-builds/command-line-builds.md)<br/> [Deploying Your Chess Server on AWS](../instruction/aws-chess-server/aws-chess-server.md)<br/> | | |
+|  14  | 25  | Tue Dec 2  | [Command-Line Builds](../instruction/command-line-builds/command-line-builds.md)<br/> [Deploying Your Chess Server on AWS](../instruction/aws-chess-server/aws-chess-server.md)<br/> [Final Exam Review](../instruction/final-exam-review/final-exam-review.md) </br>| | |
 |      | 26  | Thu Dec 4  | No Class - Work on Phase 6 | | _Due: Fri Dec 5_ - [Phase 6: Chess Gameplay](../chess/6-gameplay/gameplay.md) |
-|  15  | 27  | Tue Dec 9  | [Final Exam Review](../instruction/final-exam-review/final-exam-review.md) | | _Dec 11 - 17_ - Final Exam |
+|  15  | 27  | Tue Dec 9  | No Class - Work on Phase 6 | | _Dec 11 - 17_ - Final Exam |
