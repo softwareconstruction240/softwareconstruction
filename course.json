@@ -1,0 +1,90 @@
+{
+  "title": "Software construction",
+  "schedule": "2c707876-e1b6-4621-803f-9e6b83378626",
+  "syllabus": "0f0172fd-1823-4000-ba21-032979d842a0",
+  "modules": [
+    {
+      "title": "Course info",
+      "topics": [
+        { "title": "Home", "path": "https://raw.githubusercontent.com/softwareconstruction240/softwareconstruction/main/README.md", "id": "07652fa8-939c-44d1-81b9-0b7d528bee8d" },
+        { "title": "Syllabus", "path": "https://raw.githubusercontent.com/softwareconstruction240/softwareconstruction/main/instruction/syllabus/syllabus.md", "id": "0f0172fd-1823-4000-ba21-032979d842a0" },
+        { "title": "Schedule", "path": "https://raw.githubusercontent.com/softwareconstruction240/softwareconstruction/main/schedule/fall2025.md", "id": "2c707876-e1b6-4621-803f-9e6b83378626" }
+      ]
+    },
+    {
+      "title": "Getting Started",
+      "topics": [
+        { "title": "Introduction", "path": "https://raw.githubusercontent.com/softwareconstruction240/softwareconstruction/main/instruction/introduction/introduction.md", "id": "34b61126-e51d-4e45-9e33-160848cd9c19" },
+        { "title": "Git", "path": "https://raw.githubusercontent.com/softwareconstruction240/softwareconstruction/main/instruction/git/git.md", "id": "c179ade0-eb1c-47f5-9dab-681900532307" },
+        { "title": "Chess", "path": "https://raw.githubusercontent.com/softwareconstruction240/softwareconstruction/main/chess/chess.md", "id": "02d0b696-ef04-4c3e-a716-284b3f18e213" },
+        { "title": "Pet Shop", "path": "https://raw.githubusercontent.com/softwareconstruction240/softwareconstruction/main/petshop/petshop.md", "id": "3a0debd4-25e2-46c9-876b-341946656eac" },
+        { "title": "☑ Chess GitHub Repository", "path": "https://raw.githubusercontent.com/softwareconstruction240/softwareconstruction/main/chess/chess-github-repository/chess-github-repository.md", "id": "89bd9b6a-3d1f-4829-8f71-bdc75e52b50a" },
+        { "title": "Programming Exam", "path": "https://raw.githubusercontent.com/softwareconstruction240/softwareconstruction/main/instruction/programming-exam/programming-exam.md", "id": "bb5c1abc-cdeb-4603-bd0f-e451fe8ced33" }
+      ]
+    },
+    {
+      "title": "Object Oriented Programming",
+      "topics": [
+        { "title": "Java Fundamentals", "path": "https://raw.githubusercontent.com/softwareconstruction240/softwareconstruction/main/instruction/java-fundamentals/java-fundamentals.md", "id": "4a6393c2-cdf6-4d62-a60b-4dc161ea87c1" },
+        { "title": "☑ Phase 0: Chess Moves", "path": "https://raw.githubusercontent.com/softwareconstruction240/softwareconstruction/main/chess/0-chess-moves/chess-moves.md", "id": "adb62537-b9cf-4c0b-bdb7-afeb6c814348" },
+        { "title": "Java Object Class", "path": "https://raw.githubusercontent.com/softwareconstruction240/softwareconstruction/main/instruction/java-object-class/java-object-class.md", "id": "49d53758-b049-4643-819b-9348f7904e58" },
+        { "title": "Classes and Objects", "path": "https://raw.githubusercontent.com/softwareconstruction240/softwareconstruction/main/instruction/classes-and-objects/classes-and-objects.md", "id": "c8528d3b-0402-44dd-8555-76ae939a2b13" },
+        { "title": "Java Records", "path": "https://raw.githubusercontent.com/softwareconstruction240/softwareconstruction/main/instruction/records/records.md", "id": "f96c9fa5-b919-4b42-afaa-9eee1a0da0b0" },
+        { "title": "Interfaces and Abstract Classes", "path": "https://raw.githubusercontent.com/softwareconstruction240/softwareconstruction/main/instruction/interfaces-abstract-classes/interfaces-and-abstract-classes.md", "id": "5c244790-b099-4c03-81b4-d0494911c133" },
+        { "title": "Copying Objects", "path": "https://raw.githubusercontent.com/softwareconstruction240/softwareconstruction/main/instruction/copying-objects/copying-objects.md", "id": "27d4a90b-84fb-4eca-a15b-0cae885305c5" },
+        { "title": "Java Exceptions", "path": "https://raw.githubusercontent.com/softwareconstruction240/softwareconstruction/main/instruction/exceptions/exceptions.md", "id": "caf37965-3e6c-4de4-aea9-163187880109" },
+        { "title": "Java Collections", "path": "https://raw.githubusercontent.com/softwareconstruction240/softwareconstruction/main/instruction/collections/collections.md", "id": "ff3b53ac-bec9-4a14-bca5-6f6aa07ef3ce" },
+        { "title": "Object Oriented Design", "path": "https://raw.githubusercontent.com/softwareconstruction240/softwareconstruction/main/instruction/object-oriented-design/object-oriented-design.md", "id": "41f04b0a-852f-4360-b2ec-5bb8720752f0" },
+        { "title": "Design Principles", "path": "https://raw.githubusercontent.com/softwareconstruction240/softwareconstruction/main/instruction/design-principles/design-principles.md", "id": "ec3e8d51-c83b-4f44-91be-cd9bf089c2f2" },
+        { "title": "Java Inner Classes", "path": "https://raw.githubusercontent.com/softwareconstruction240/softwareconstruction/main/instruction/inner-classes/inner-classes.md", "id": "3d35479e-69bc-449e-8ce2-99add9c73a88" },
+        { "title": "☑ Phase 1: Chess Game", "path": "https://raw.githubusercontent.com/softwareconstruction240/softwareconstruction/main/chess/1-chess-game/chess-game.md", "id": "4a4b6198-4a09-40c6-98f5-482e41f9e0d5" },
+        { "title": "Java Input and Output (IO)", "path": "https://raw.githubusercontent.com/softwareconstruction240/softwareconstruction/main/instruction/io/io.md", "id": "8d615a02-cc09-454b-a396-f792d4e91d15" },
+        { "title": "Java Generics", "path": "https://raw.githubusercontent.com/softwareconstruction240/softwareconstruction/main/instruction/generics/generics.md", "id": "95cd158e-3de1-42fa-b569-39264cefbb88" },
+        { "title": "Java Lambdas", "path": "https://raw.githubusercontent.com/softwareconstruction240/softwareconstruction/main/instruction/lambdas/lambdas.md", "id": "adfda015-43bc-4e82-b046-bb89e24955bc" }
+      ]
+    },
+    {
+      "title": "Server",
+      "topics": [
+        { "title": "JSON and Serialization", "path": "https://raw.githubusercontent.com/softwareconstruction240/softwareconstruction/main/instruction/json/json.md", "id": "803315cb-e544-468d-9310-c06e029181a5" },
+        { "title": "☑ Phase 2: Chess Server Design", "path": "https://raw.githubusercontent.com/softwareconstruction240/softwareconstruction/main/chess/2-server-design/server-design.md", "id": "f3d4ed26-9cee-46a8-a055-297a608d4305" },
+        { "title": "HTTP", "path": "https://raw.githubusercontent.com/softwareconstruction240/softwareconstruction/main/instruction/http/http.md", "id": "f7a92918-62cb-4d52-b86e-cbf77cdd7d6c" },
+        { "title": "cURL", "path": "https://raw.githubusercontent.com/softwareconstruction240/softwareconstruction/main/instruction/curl/curl.md", "id": "15f65d24-8c88-48be-8ceb-00844aef82e9" },
+        { "title": "Web API", "path": "https://raw.githubusercontent.com/softwareconstruction240/softwareconstruction/main/instruction/web-api/web-api.md", "id": "9f7d5603-569f-40b6-bc85-854ec3dc3d9e" },
+        { "title": "☑ Phase 3: Chess Web API", "path": "https://raw.githubusercontent.com/softwareconstruction240/softwareconstruction/main/chess/3-web-api/web-api.md", "id": "9ba3cca4-6dbf-40f8-9cf8-51237bbabeef" },
+        { "title": "Writing Quality Code", "path": "https://raw.githubusercontent.com/softwareconstruction240/softwareconstruction/main/instruction/quality-code/quality-code.md", "id": "1517e828-2746-45a6-b8f7-490c335b79a9" },
+        { "title": "Style Checking", "path": "https://raw.githubusercontent.com/softwareconstruction240/softwareconstruction/main/instruction/style-checker/style-checker.md", "id": "e90d47e0-ed9e-4010-9066-50aefa6a89db" },
+        { "title": "Unit Testing", "path": "https://raw.githubusercontent.com/softwareconstruction240/softwareconstruction/main/instruction/unit-testing/unit-testing.md", "id": "3a1813fa-9396-4009-b62b-5779f540253d" },
+        { "title": "Code Coverage", "path": "https://raw.githubusercontent.com/softwareconstruction240/softwareconstruction/main/instruction/code-coverage/code-coverage.md", "id": "6abf58c4-c241-4466-88bf-a3ed6f8a701f" }
+      ]
+    },
+    {
+      "title": "Database",
+      "topics": [
+        { "title": "Relational Model", "path": "https://raw.githubusercontent.com/softwareconstruction240/softwareconstruction/main/instruction/db-model/db-model.md", "id": "54e2d00e-0287-4d68-bedb-35807a3ec1d1" },
+        { "title": "MySQL", "path": "https://raw.githubusercontent.com/softwareconstruction240/softwareconstruction/main/instruction/mysql/mysql.md", "id": "e1e45967-ff8e-43e2-a355-758667ff5a3a" },
+        { "title": "SQL", "path": "https://raw.githubusercontent.com/softwareconstruction240/softwareconstruction/main/instruction/db-sql/db-sql.md", "id": "20a5864e-d105-4041-aefb-bd3d22dc3f69" },
+        { "title": "JDBC", "path": "https://raw.githubusercontent.com/softwareconstruction240/softwareconstruction/main/instruction/db-jdbc/db-jdbc.md", "id": "4d6ac95e-5cf9-4574-9118-1a7c40e41a64" },
+        { "title": "Securing Passwords", "path": "https://raw.githubusercontent.com/softwareconstruction240/softwareconstruction/main/instruction/securing-passwords/securing-passwords.md", "id": "aa190014-110b-4c3d-90f5-7357bd0908a9" },
+        { "title": "☑ Phase 4: Chess Database", "path": "https://raw.githubusercontent.com/softwareconstruction240/softwareconstruction/main/chess/4-database/database.md", "id": "63e61346-aad0-45bb-9764-4e13c63f96b4" },
+        { "title": "Logging", "path": "https://raw.githubusercontent.com/softwareconstruction240/softwareconstruction/main/instruction/logging/logging.md", "id": "2a3b7105-7f4d-4067-bcc5-4c0af1a27967" },
+        { "title": "Debugging", "path": "https://raw.githubusercontent.com/softwareconstruction240/softwareconstruction/main/instruction/debugging/debugging.md", "id": "ad870379-0452-4ee2-af6f-461b8d0b4818" },
+        { "title": "Defensive Programming", "path": "https://raw.githubusercontent.com/softwareconstruction240/softwareconstruction/main/instruction/defensive-programming/defensive-programming.md", "id": "c98ddf35-6207-4a68-b683-7b9f9bb77cad" }
+      ]
+    },
+    {
+      "title": "Client",
+      "topics": [
+        { "title": "Console UI", "path": "https://raw.githubusercontent.com/softwareconstruction240/softwareconstruction/main/instruction/console-ui/console-ui.md", "id": "8e175838-5b38-4b4d-86bb-35b0ae4f373c" },
+        { "title": "☑ Phase 5: Chess Pregame", "path": "https://raw.githubusercontent.com/softwareconstruction240/softwareconstruction/main/chess/5-pregame/pregame.md", "id": "fd9ecfc4-1185-4c9e-8cff-1a1ece6bf96e" },
+        { "title": "WebSocket", "path": "https://raw.githubusercontent.com/softwareconstruction240/softwareconstruction/main/instruction/websocket/websocket.md", "id": "b23024e7-3419-4050-acbf-2668fd3c41ef" },
+        { "title": "☑ Phase 6: Chess Gameplay", "path": "https://raw.githubusercontent.com/softwareconstruction240/softwareconstruction/main/chess/6-gameplay/gameplay.md", "id": "bcb0d5a2-e99e-4a9a-96d4-95f072e79b18" },
+        { "title": "Computer Security", "path": "https://raw.githubusercontent.com/softwareconstruction240/softwareconstruction/main/instruction/computer-security/computer-security.md", "id": "6459b1f9-6199-4fd7-b1a8-c8a261477b88" },
+        { "title": "Concurrency", "path": "https://raw.githubusercontent.com/softwareconstruction240/softwareconstruction/main/instruction/concurrency/concurrency.md", "id": "31c789c0-319f-4d82-b7cc-9f3f3ce298f0" },
+        { "title": "Command line tools", "path": "https://raw.githubusercontent.com/softwareconstruction240/softwareconstruction/main/instruction/command-line-builds/command-line-builds.md", "id": "cd64010c-254f-4647-8d5b-e0c13b5d8b32" },
+        { "title": "AWS Chess Server", "path": "https://raw.githubusercontent.com/softwareconstruction240/softwareconstruction/main/instruction/aws-chess-server/aws-chess-server.md", "id": "c9764e1b-df63-46b3-ab5b-ed4be488f5d0" }
+      ]
+    },
+    { "title": "Final", "topics": [{ "title": "Final Exam Review", "path": "https://raw.githubusercontent.com/softwareconstruction240/softwareconstruction/main/instruction/final-exam-review/final-exam-review.md", "id": "8a1ac4a6-0d67-4dbd-b5c2-3215c3fe4620" }] }
+  ]
+}
