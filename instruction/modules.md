@@ -6,6 +6,11 @@ The course content is divided into multiple topics that you should strive to mas
 >
 > Make sure you observe the due dates specified in Canvas for each of the course assignments.
 
+## Course info
+
+- [Syllabus](syllabus/syllabus.md)
+- [Instruction topics](modules.md)
+
 ## Getting Started
 
 - [Introduction](introduction/introduction.md)
