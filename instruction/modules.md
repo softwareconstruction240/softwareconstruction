@@ -2,10 +2,6 @@
 
 The course content is divided into multiple topics that you should strive to master during that week of the course. The instruction for a topic includes classroom instruction, slide deck, and optional textual instruction, code examples, starter code, and assignments.
 
-> [!IMPORTANT]
->
-> Make sure you observe the due dates specified in Canvas for each of the course assignments.
-
 ## Course info
 
 - [Syllabus](syllabus/syllabus.md)
