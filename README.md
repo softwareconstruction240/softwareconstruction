@@ -14,14 +14,8 @@ The content for this course is represented by the following parts.
 - [Instruction](instruction/modules.md) - Course topics
 - [Chess](chess/chess.md) - Instructions for building your application
 - [Pet Shop](petshop/petshop.md) - Demonstration application
-- **Canvas** - Submit assignments and tests
-
-## Course Schedule
-
-Although assignment due dates are the same for all sections, the lecture schedule may vary by instructor.
-
-- [Schedule for Dr. Rodham's Sections](./schedule/fall2025-rodham.md)
-- [Schedule for Professor Jensen's Sections](./schedule/fall2025.md)
+- [📅 Schedule Dr. Wilkerson](../schedule/winter2026-wilkerson.md)
+- [📅 Schedule Professor Jensen](../schedule/winter2026-jensen.md)
 
 ## Outcomes
 
