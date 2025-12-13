@@ -14,8 +14,8 @@ The content for this course is represented by the following parts.
 - [Instruction](instruction/modules.md) - Course topics
 - [Chess](chess/chess.md) - Instructions for building your application
 - [Pet Shop](petshop/petshop.md) - Demonstration application
-- [📅 Schedule Dr. Wilkerson](../schedule/winter2026-wilkerson.md)
-- [📅 Schedule Professor Jensen](../schedule/winter2026-jensen.md)
+- [📅 Schedule Dr. Wilkerson](schedule/winter2026-wilkerson.md)
+- [📅 Schedule Professor Jensen](schedule/winter2026-jensen.md)
 
 ## Outcomes
 
