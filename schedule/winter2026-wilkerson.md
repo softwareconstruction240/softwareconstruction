@@ -1,8 +1,8 @@
 # Winter 2026 Schedule - Dr. Wilkerson
 
-> [!NOTE]
+> [!WARNING]
 >
-> This schedule has not been finalized and represents date from the previous year.
+> This schedule has not been finalized and represents dates from the previous year.
 
 This schedule applies to all of Dr. Wilkerson's CS 240 sections (blended/in-person and online). For blended/in-person sections, the "Video Lecture Topics" column lists lecture topics that will not be covered in class. Students will need to watch the videos on these topics. Entries in this column may be updated throughout the semester depending on how far we get in in-class lectures.
 
