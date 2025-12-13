@@ -1,5 +1,7 @@
 # 📅 Winter 2026 Schedule
 
+[BYU Academic Calendar](https://academiccalendar.byu.edu/)
+
 | Week | Day | Date      | Discussion Topics                                                                                                                                                                                     | Deliverable Due Dates                                              | Slides                                                                                                                                                                                               |
 | :--: | :-: | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |  1   |  1  | **Jan 7** | [Introduction](../instruction/introduction/introduction.md), [Git](../instruction/git/git.md), [Chess GitHub Repository](../chess/chess-github-repository/chess-github-repository.md)                 | _Jan 9_ - Chess GitHub Repository,<br/>Honorlock setup             | [Introduction](https://docs.google.com/presentation/d/1hV2h_kNk6dOdod_n4ps6Fv9iHS8QYbITv4sg27U600w)                                                                                                  |
