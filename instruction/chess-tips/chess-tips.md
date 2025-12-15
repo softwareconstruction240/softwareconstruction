@@ -43,7 +43,7 @@ If you are struggling to understand how the board is looking during your code, a
 
 ## `static` keyword
 
-If your IDE is telling you to use static, you probably should change your code to not use it. Static classes and variables mean that there will only be one single instance, making it like a global variable, and there will not be any different variations of it. ChessGame nor most of the main classes you work on should be cosidered static, because you should have multiple different ChessGames, or ChessBoards, or even ChessPieces. If you know what you are doing, you can use static, but only use it if you can know what you are using it for. If your IDE is telling you to use static, you should see why it is thinking it should be static, and fix it because 90-100% of your code shouldn't be static.
+In most cases you should not be using the `static` keyword for your classes and methods. Static classes and variables mean that there will only be one single instance, making it into a global variable. If you know what you are doing, you can use static, but only use it if you can know what you are using it for. If your IDE is telling you to use static, you should see why it is thinking it should be static, and fix it because 90-100% of your code shouldn't be static.
 
 ## Clone and Copy
 
