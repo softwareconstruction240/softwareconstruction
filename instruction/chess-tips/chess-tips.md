@@ -1,11 +1,13 @@
 # Chess Tips
 
 This is a collection of tips that the TAs have compiled for solving common problems.
+
 # General - all phases
 
 ## I don't have enough GitHub commits to pass the autograder
 
 Try to avoid this by following these rules of thumb:
+
 1. **Work in small chunks.** One common mistake is only committing when you hit a big milestone, like passing an entire test file - this is a sign that you could break the problem into smaller pieces. Commit when you hit small milestones, like finishing a function or passing a test.
 2. **Always set a clear goal for your next commit.** Something like "pass this test" or "create this piece of logic." Let the flow of regular commits drive your development process.
 3. Commits should **represent your changes in one short sentence.** If your commits are feeling hard to articulate because you don't remember all the things you changed, that's a good indicator that you should be committing more often.
@@ -37,7 +39,7 @@ See [previous](/instruction/chess-tips/chess-tips.md#General---all-phases)
 
 ## toString
 
-If you are struggling to understand how the board is looking during your code, and especially when comparing it with the expected test cases, what you can do is override a toString to your code. This means that instead of printing ChessGame@12345, it will print out the variables, and you can have it print out a mock chess board so you can visually see and understand what the current layout of the chessBoard. 
+If you are struggling to understand how the board is looking during your code, and especially when comparing it with the expected test cases, what you can do is override a toString to your code. This means that instead of printing ChessGame@12345, it will print out the variables, and you can have it print out a mock chess board so you can visually see and understand what the current layout of the chessBoard.
 
 ## `static` keyword
 
@@ -45,7 +47,7 @@ If your IDE is telling you to use static, you probably should change your code t
 
 ## Clone and Copy
 
-When in your `ChessGame.validMoves`, you may want to create a copy/clone of the ChessBoard so that you can make a piece move and see if you are still in check to know if that is a valid move or not. If you create a shallow copy, the ChessBoard will be the exact same, and will keep any changes you make. This needs to be a DeepCopy or clone so that it can be unique and different, so that if a chance happens on one instance, the other will stay the same. If you would like some explanations on how to incorporate clone and copy, look here for [copying objects](../copying-objects/copying-objects.md). One such method is to have ChessBoard implement Cloneable, then in the override clone method, you loop through the 2d ChessPiece array, and do `Arrays.copyOf` to copy the chess board row by row, then finally putting the 2d array into the cloned ChessBoard. 
+When in your `ChessGame.validMoves`, you may want to create a copy/clone of the ChessBoard so that you can make a piece move and see if you are still in check to know if that is a valid move or not. If you create a shallow copy, the ChessBoard will be the exact same, and will keep any changes you make. This needs to be a DeepCopy or clone so that it can be unique and different, so that if a chance happens on one instance, the other will stay the same. If you would like some explanations on how to incorporate clone and copy, look here for [copying objects](../copying-objects/copying-objects.md). One such method is to have ChessBoard implement Cloneable, then in the override clone method, you loop through the 2d ChessPiece array, and do `Arrays.copyOf` to copy the chess board row by row, then finally putting the 2d array into the cloned ChessBoard.
 
 ## `==` vs `.equals()` comparison
 
@@ -65,7 +67,7 @@ See [previous](/instruction/chess-tips/chess-tips.md#General---all-phases)
 
 1. **Read the error messages.** The computer doesn’t lie, and it even tells you exactly which line caused the problem!
 2. **Read the specs.** The document is long, but it’s not redundant— it’s helpful. All the information has been carefully placed in there to help YOU as a student.
-3. **Search Slack.** It’s really to ask a new question, but first try to use the search feature to find a pre-existing answer.
+3. **Search Discord.** It’s really to ask a new question, but first try to use the search feature to find a pre-existing answer.
 4. **Write your own tests.** Yes, it was convenient in the first phases when we had done that for you, but now we’re expecting you to do this yourself. The Phase 3 tests are intentionally less helpful than before. Rely on manual testing, or write your own tests from the beginning.
 5. **Appreciate the learning opportunity.** We (the instructors) designed this course to teach you new things. You are supposed to wrestle with new concepts and challenges, but it is possible. Think through the problems; you can do it!
 
@@ -235,7 +237,7 @@ Your ServerFacade is probably not in a package. Put it in a package (probably no
 
 ## Passoff Frequently Encountered Problems
 
-Here are a couple of things that students commonly forget to include as part of their code which causes them to fail their passoff. This is not a complete list of everything that your code needs to do in order to pass, just some of the common problems. 
+Here are a couple of things that students commonly forget to include as part of their code which causes them to fail their passoff. This is not a complete list of everything that your code needs to do in order to pass, just some of the common problems.
 
 - After registering, you will automatically enter the signed-in state, you don't need to login afterwards. [Prelogin UI Command Descriptions](../../chess/5-pregame/pregame.md#prelogin-ui)
 - Make your ListGames numbering be independent of the game IDs. [Postlogin UI Command Descriptions](../../chess/5-pregame/pregame.md#postlogin-ui)
@@ -278,7 +280,7 @@ This exception is thrown when you are trying to send a message to a closed chann
 
 ## Passoff Frequently Encountered Problems
 
-Here are a couple of things that students commonly forget to include as part of their code which causes them to fail their passoff. This is not a complete list of everything that your code needs to do in order to pass, just some of the common problems. 
+Here are a couple of things that students commonly forget to include as part of their code which causes them to fail their passoff. This is not a complete list of everything that your code needs to do in order to pass, just some of the common problems.
 
 - Resigning should require a confirmation, and does **not** kick players from the game. [Gameplay Functionality](../../chess/6-gameplay/gameplay.md#gameplay-functionality)
 - Anyone can highlight any piece, independent of whose turn it is. In addition, a user trying to highlight a position with no piece shouldn't break your code. [Gameplay Functionality](../../chess/6-gameplay/gameplay.md#gameplay-functionality)
