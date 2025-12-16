@@ -8,6 +8,7 @@ The course content is divided into multiple topics that you should strive to mas
 - [Instruction topics](modules.md)
 - [Schedule Dr. Wilkerson](../schedule/winter2026-wilkerson.md)
 - [Schedule Professor Jensen](../schedule/winter2026-jensen.md)
+- [Asking questions](askingQuestions/askingQuestions.md)
 
 ## Getting Started
 
