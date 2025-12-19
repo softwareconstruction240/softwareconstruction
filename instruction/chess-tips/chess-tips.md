@@ -244,6 +244,16 @@ Here are a couple of things that students commonly forget to include as part of 
 - Make sure your board is printed correctly! [Gameplay UI Description](../../chess/5-pregame/pregame.md#gameplay-ui)
 - Print readable errors and make sure your code doesn't crash. For example, make sure you handle trying to join or observe a game with an invalid game number input (`1000`, `-10`, `two`). [UI Requirements](../../chess/5-pregame/pregame.md#ui-requirements)
 
+## Chess Board UI
+
+If you want to use the Chess Pieces, but are having some issues with making the board a square, here are some tips
+
+- Make sure that your spaces are including the unicode for the width of a chess piece "\u2003" and are following the same space configuration
+  - " ♛ " would have the same width as "\u2003a " because they each have a space on the right, the first example has a space which is the same width as the 'a' in the second example, and they both have the width of a chess piece as well, meaning that each of these square examples would be the same width
+- If you are sure that each square should be printing the same as stated above, then you might need to change your font. Go to IntelliJ Settings -> Editor -> Font
+  - This is because different laptop systems and processors can print the unicode "\u2003" and the actual chess pieces as different widths. Using the correct font will ensure that they are printed as the same width
+  - Make sure you still use a monospaced font, because monospaced means that a space is the same width as the letter 'a', but if you use a non monospaced font, they will no longer be the same width
+
 ## I don't have enough GitHub commits to pass the autograder
 
 See [previous](/instruction/chess-tips/chess-tips.md#General---all-phases)
