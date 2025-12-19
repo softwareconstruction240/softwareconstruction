@@ -1,0 +1,362 @@
+{
+  "title": "xx",
+  "modules": [
+    {
+      "title": "Course info",
+      "id": "ea744331-ad6e-468c-b26d-899d951f5e01",
+      "topics": [
+        {
+          "title": "Home",
+          "path": "README.md",
+          "id": "700a970e-d602-437f-9f00-91136b1f8096"
+        },
+        {
+          "title": "Syllabus",
+          "path": "instruction/syllabus/syllabus.md",
+          "id": "afd15fd1-0747-4fed-bb39-2e3a561dc317"
+        },
+        {
+          "title": "Instruction topics",
+          "path": "instruction/modules.md",
+          "id": "5054878e-9c3c-4402-bb16-73614596a0b2"
+        },
+        {
+          "title": "Schedule Dr. Wilkerson",
+          "path": "schedule/winter2026-wilkerson.md",
+          "id": "7a454cc0-921e-4748-a552-616a887b34e3"
+        },
+        {
+          "title": "Schedule Professor Jensen",
+          "path": "schedule/winter2026-jensen.md",
+          "id": "de98c0da-d6c9-4c5b-bcbf-11e233da7666"
+        },
+        {
+          "title": "Asking questions",
+          "path": "instruction/askingQuestions/askingQuestions.md",
+          "id": "cbd516e5-8b00-499f-9442-8b11fb587f79"
+        }
+      ]
+    },
+    {
+      "title": "Getting Started",
+      "id": "36892e7e-31d7-4582-bc66-d0935cbe2020",
+      "topics": [
+        {
+          "title": "Introduction",
+          "path": "instruction/introduction/introduction.md",
+          "id": "daa7f287-95e2-4add-84d2-2aa965b8b914"
+        },
+        {
+          "title": "Git",
+          "path": "instruction/git/git.md",
+          "id": "fb094a09-5777-4c76-8212-b63818461db4"
+        },
+        {
+          "title": "Chess",
+          "path": "chess/chess.md",
+          "id": "436479a1-8a89-4361-b42a-3777d258677f"
+        },
+        {
+          "title": "Pet Shop",
+          "path": "petshop/petshop.md",
+          "id": "1bca77fe-6943-442e-a465-82c5d7a83b38"
+        },
+        {
+          "title": "☑ Chess GitHub Repository",
+          "path": "chess/chess-github-repository/chess-github-repository.md",
+          "id": "9b5fb308-1844-40a4-a010-817251c6b101"
+        },
+        {
+          "title": "Programming Exam",
+          "path": "instruction/programming-exam/programming-exam.md",
+          "id": "c669a059-fdb6-4ea1-bee3-ab7b838daf56"
+        },
+        {
+          "title": "TA Tips",
+          "path": "instruction/chess-tips/chess-tips.md",
+          "id": "a23d676d-1ca9-4aad-b428-df6424f78a1e"
+        }
+      ]
+    },
+    {
+      "title": "Object Oriented Programming",
+      "id": "aab889cd-a560-46b8-89ef-27c148edfbdd",
+      "topics": [
+        {
+          "title": "Java Fundamentals",
+          "path": "instruction/java-fundamentals/java-fundamentals.md",
+          "id": "4fccabcf-bf43-4c6c-9961-53c6e29d6c61"
+        },
+        {
+          "title": "Phase 0: Getting Started",
+          "path": "chess/0-chess-moves/getting-started.md",
+          "id": "0ba83923-da38-49b7-aff4-84e1b95548c1"
+        },
+        {
+          "title": "☑ Phase 0: Chess Moves",
+          "path": "chess/0-chess-moves/chess-moves.md",
+          "id": "5d757f75-cc13-46aa-b3e4-966d17a18f61"
+        },
+        {
+          "title": "Java Object Class",
+          "path": "instruction/java-object-class/java-object-class.md",
+          "id": "3332ad66-f879-4900-bd01-55e786c43ae0"
+        },
+        {
+          "title": "Classes and Objects",
+          "path": "instruction/classes-and-objects/classes-and-objects.md",
+          "id": "3bec3fad-f434-4441-a5d2-0153ee130cf7"
+        },
+        {
+          "title": "Java Records",
+          "path": "instruction/records/records.md",
+          "id": "ebb28e8d-18c9-42fd-a0fc-0f50da89c6d8"
+        },
+        {
+          "title": "Interfaces and Abstract Classes",
+          "path": "instruction/interfaces-abstract-classes/interfaces-and-abstract-classes.md",
+          "id": "8d35e1bd-e7d0-4838-9272-e6902a5c4622"
+        },
+        {
+          "title": "Copying Objects",
+          "path": "instruction/copying-objects/copying-objects.md",
+          "id": "5db046dd-94c1-4e29-b6c4-0786189252bb"
+        },
+        {
+          "title": "Java Exceptions",
+          "path": "instruction/exceptions/exceptions.md",
+          "id": "09dd0b9b-6ddc-4b18-9b86-c3494c8f8c8a"
+        },
+        {
+          "title": "Java Collections",
+          "path": "instruction/collections/collections.md",
+          "id": "8fe712a4-ff54-4146-acdb-edbf23929c7d"
+        },
+        {
+          "title": "Object Oriented Design",
+          "path": "instruction/object-oriented-design/object-oriented-design.md",
+          "id": "f5a08e81-81a8-4f56-830d-b6714f96279b"
+        },
+        {
+          "title": "Design Principles",
+          "path": "instruction/design-principles/design-principles.md",
+          "id": "38005272-6339-43da-912b-886bda6bcbae"
+        },
+        {
+          "title": "Java Inner Classes",
+          "path": "instruction/inner-classes/inner-classes.md",
+          "id": "2de7e070-cb53-4810-b687-8fd6ef6121a0"
+        },
+        {
+          "title": "Phase 1: Getting Started",
+          "path": "chess/1-chess-game/getting-started.md",
+          "id": "e3042209-a974-4d5e-967f-4899ee36ff77"
+        },
+        {
+          "title": "☑ Phase 1: Chess Game",
+          "path": "chess/1-chess-game/chess-game.md",
+          "id": "3d7737da-c17e-413a-8596-2eac96d88274"
+        },
+        {
+          "title": "Java Input and Output (IO)",
+          "path": "instruction/io/io.md",
+          "id": "9ac207b1-23da-46b6-a879-ad4b748c55c9"
+        },
+        {
+          "title": "Java Generics",
+          "path": "instruction/generics/generics.md",
+          "id": "0ff096fb-b9c7-4447-92e9-8f5d22d481fd"
+        },
+        {
+          "title": "Java Lambdas",
+          "path": "instruction/lambdas/lambdas.md",
+          "id": "c8d41446-47a5-49ab-b48b-2605fbd99a66"
+        }
+      ]
+    },
+    {
+      "title": "Server",
+      "id": "3fbb6a1b-48aa-4445-9677-80d4dffb9f56",
+      "topics": [
+        {
+          "title": "JSON and Serialization",
+          "path": "instruction/json/json.md",
+          "id": "dd89a0d9-c456-4144-8d05-13e178044547"
+        },
+        {
+          "title": "☑ Phase 2: Chess Server Design",
+          "path": "chess/2-server-design/server-design.md",
+          "id": "90e32a33-211e-4980-a5fe-bfbb39cda9af"
+        },
+        {
+          "title": "HTTP",
+          "path": "instruction/http/http.md",
+          "id": "f730776e-5b13-4a82-8fec-f4a7afd023d5"
+        },
+        {
+          "title": "cURL",
+          "path": "instruction/curl/curl.md",
+          "id": "404c37c3-4205-4411-8d56-3613e0aad0d0"
+        },
+        {
+          "title": "Web API",
+          "path": "instruction/web-api/web-api.md",
+          "id": "5fab57d9-3faf-4ee4-8f89-9ce8bbfb94c5"
+        },
+        {
+          "title": "Phase 3: Getting Started",
+          "path": "chess/3-web-api/getting-started.md",
+          "id": "082540e1-8dc1-4a2f-a467-7fcd58891e3c"
+        },
+        {
+          "title": "☑ Phase 3: Chess Web API",
+          "path": "chess/3-web-api/web-api.md",
+          "id": "0af6161c-03f7-4f9e-9e46-5a068eceb97b"
+        },
+        {
+          "title": "Writing Quality Code",
+          "path": "instruction/quality-code/quality-code.md",
+          "id": "68137d10-937e-456e-bd2a-24367694cdbb"
+        },
+        {
+          "title": "Style Checking",
+          "path": "instruction/style-checker/style-checker.md",
+          "id": "9d31d727-a7df-4c6a-84ee-841e513f62f9"
+        },
+        {
+          "title": "Unit Testing",
+          "path": "instruction/unit-testing/unit-testing.md",
+          "id": "cdbf58b3-add0-4e29-8bfc-dfe0b265d223"
+        },
+        {
+          "title": "Code Coverage",
+          "path": "instruction/code-coverage/code-coverage.md",
+          "id": "559f4ee9-e45f-4c28-aaf4-314ce399e270"
+        }
+      ]
+    },
+    {
+      "title": "Database",
+      "id": "be2c3533-140f-4226-a3a3-b7abce362802",
+      "topics": [
+        {
+          "title": "Relational Model",
+          "path": "instruction/db-model/db-model.md",
+          "id": "9c15e0e5-f0aa-4d9b-b413-370cf1e60793"
+        },
+        {
+          "title": "MySQL",
+          "path": "instruction/mysql/mysql.md",
+          "id": "bb1caff7-0fbf-4b70-8616-eefa357523f1"
+        },
+        {
+          "title": "SQL",
+          "path": "instruction/db-sql/db-sql.md",
+          "id": "1e333ebb-b584-4355-b805-3ab84f168a49"
+        },
+        {
+          "title": "JDBC",
+          "path": "instruction/db-jdbc/db-jdbc.md",
+          "id": "126e3c20-f919-48ae-bcc8-b5ce90cd9a78"
+        },
+        {
+          "title": "Securing Passwords",
+          "path": "instruction/securing-passwords/securing-passwords.md",
+          "id": "b19b9486-c32e-4e7e-a89b-6523395b7399"
+        },
+        {
+          "title": "Phase 4: Getting Started",
+          "path": "chess/4-database/getting-started.md",
+          "id": "7015834a-21b5-4ce5-ba51-647900194cb7"
+        },
+        {
+          "title": "☑ Phase 4: Chess Database",
+          "path": "chess/4-database/database.md",
+          "id": "268b44ba-6f99-45c3-829a-7929d5614eb3"
+        },
+        {
+          "title": "Logging",
+          "path": "instruction/logging/logging.md",
+          "id": "4d22d359-6c0c-4e5d-a9ec-6f4a55e5bc54"
+        },
+        {
+          "title": "Debugging",
+          "path": "instruction/debugging/debugging.md",
+          "id": "739f3ab0-799e-404c-a003-89ff083c1498"
+        },
+        {
+          "title": "Defensive Programming",
+          "path": "instruction/defensive-programming/defensive-programming.md",
+          "id": "adfb714a-a337-40ff-b2b6-b00f832e3932"
+        }
+      ]
+    },
+    {
+      "title": "Client",
+      "id": "3497cff4-6c5e-4200-902e-5b516f638506",
+      "topics": [
+        {
+          "title": "Console UI",
+          "path": "instruction/console-ui/console-ui.md",
+          "id": "ca7ac1b1-959d-4312-93b2-880c836d53df"
+        },
+        {
+          "title": "Phase 5: Getting Started",
+          "path": "chess/5-pregame/getting-started.md",
+          "id": "8476adc5-2796-4f8d-a54b-31fe09089551"
+        },
+        {
+          "title": "☑ Phase 5: Chess Pregame",
+          "path": "chess/5-pregame/pregame.md",
+          "id": "3d46a6ba-532c-4be5-8b73-d8353977825d"
+        },
+        {
+          "title": "WebSocket",
+          "path": "instruction/websocket/websocket.md",
+          "id": "22efda8e-ff07-4e90-b84c-6c2e1092d42e"
+        },
+        {
+          "title": "Phase 6: Getting Started",
+          "path": "chess/6-gameplay/getting-started.md",
+          "id": "40c0ada2-ebf7-4a75-b7e3-410533c1d4fc"
+        },
+        {
+          "title": "☑ Phase 6: Chess Gameplay",
+          "path": "chess/6-gameplay/gameplay.md",
+          "id": "6ea75270-9c65-4adc-ad0d-75b3195bf3e0"
+        },
+        {
+          "title": "Computer Security",
+          "path": "instruction/computer-security/computer-security.md",
+          "id": "33ffe9db-8bc7-4091-943f-89bf6c368d4c"
+        },
+        {
+          "title": "Concurrency",
+          "path": "instruction/concurrency/concurrency.md",
+          "id": "186f08f3-7da3-4360-a650-6deb8f38d885"
+        },
+        {
+          "title": "Command line tools",
+          "path": "instruction/command-line-builds/command-line-builds.md",
+          "id": "e71eb6ac-cde2-4982-a86d-d33372f70c5d"
+        },
+        {
+          "title": "AWS Chess Server",
+          "path": "instruction/aws-chess-server/aws-chess-server.md",
+          "id": "149ee1b9-6a89-480d-a7ac-2204ea78fcec"
+        }
+      ]
+    },
+    {
+      "title": "Final",
+      "id": "864bba83-799a-4239-996c-f889677bc12e",
+      "topics": [
+        {
+          "title": "Final Exam Review",
+          "path": "instruction/final-exam-review/final-exam-review.md",
+          "id": "4cf0a717-093f-44f8-98b8-0b74320fcecc"
+        }
+      ]
+    }
+  ]
+}
