@@ -44,8 +44,8 @@ The goal of CS 240 is to help students learn a variety of computer programming c
 | **Title:**             | Core Java for the Impatient (4th Edition)                                                                                                                                                                              |
 | **Author(s):**         | Cay S. Hostmann                                                                                                                                                                                                        |
 | **Publisher:**         | Addison-Wesley                                                                                                                                                                                                         |
-| **Approved Editions:** | 3rd Edition                                                                                                                                                                                                            |
-| **Print ISBN:**        | 978-0135404522                                                                                                                                                                                                         |
+| **Approved Editions:** | 4th Edition                                                                                                                                                                                                            |
+| **Print ISBN:**        | 9780135404522                                                                                                                                                                                                         |
 | **Online Option:**     | Access through the [BYU library](https://lib.byu.edu/remoteauth/?url=https://go.oreilly.com/byu-edu/library/view/-/9780135404522/?ar). If for some reason the link does not work, come speak with a professor or a TA. |
 
 ##  Technology Needs
