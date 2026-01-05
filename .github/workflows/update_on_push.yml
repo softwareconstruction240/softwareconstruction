@@ -30,7 +30,7 @@ jobs:
           --include='petshop/*' \
           --exclude='petshop/*/*' \
           --exclude='*/example-code/' \
-          --exclude='schedule' \
+          --exclude='schedule/archive' \
           --exclude='README.md' \
           --exclude='instruction/template' \
           ./ docs/
