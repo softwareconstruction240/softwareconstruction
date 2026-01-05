@@ -16,7 +16,7 @@ Students in online sections should watch all videos for all topics, including th
 |  5  |  7  | Mon Feb 2  | [Inner Classes](../instruction/inner-classes/inner-classes.md)<br/> [Generics](../instruction/generics/generics.md)<br/> [Lambdas](../instruction/lambdas/lambdas.md) | [Generics](../instruction/generics/generics.md)<br/> (Whatever we didn't cover in class)<br/> [Lambdas](../instruction/lambdas/lambdas.md)<br/> (Whatever we didn't cover in class) | _Due: Feb 3_ - [Programming Exam - 1st Retake](../instruction/programming-exam/programming-exam.md) (if needed) |
 |     |  8  | Wed Feb 4  | [Design Principles](../instruction/design-principles/design-principles.md) |  | _Due: Feb 6_ - [Phase 1: Chess Game](../chess/1-chess-game/chess-game.md) |
 |  6  |  9  | Mon Feb 9  | [`Phase 2: Chess Design`](../chess/2-server-design/server-design.md) |  |  |
-|     | 10  | Wed Feb 11 | [HTTP](../instruction/http/http.md)<br /> [Curl](../instruction/curl/curl.md) |  | _Due: Feb 11_ - [Phase 2: Chess Design](../chess/2-server-design/server-design.md) |
+|     | 10  | Wed Feb 11 | [HTTP](../instruction/http/http.md)<br /> [Curl](../instruction/curl/curl.md) |  | _Due: Feb 12_ - [Phase 2: Chess Design](../chess/2-server-design/server-design.md) |
 |  7  | 11  | Tue Feb 17 | Monday Instruction<br/> [Web API](../instruction/web-api/web-api.md)<br/>[`Phase 3: Chess Web-API`](../chess/3-web-api/web-api.md)  |  |  |
 |     | 12  | Wed Feb 18 | [Writing Quality Code](../instruction/quality-code/quality-code.md)<br /> [Code Style Checker](../instruction/style-checker/style-checker.md) |  |  |
 |  8  | 13  | Mon Feb 23 | [Unit Testing](../instruction/unit-testing/unit-testing.md)<br /> [Code Coverage](../instruction/code-coverage/code-coverage.md)  |  |  |
