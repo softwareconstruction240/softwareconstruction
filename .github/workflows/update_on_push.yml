@@ -8,7 +8,7 @@ on:
     types: [docs]
   workflow_dispatch: 
   gollum:
-  
+
 env:
   GIT_AUTHOR_NAME: GitHub Action
   GIT_AUTHOR_EMAIL: action@github.com
@@ -21,18 +21,32 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
+
       - name: Group Document files
         run: |
-          rsync -av --exclude='.git*' --exclude='LICENSE' --include='petshop/*' --exclude='petshop/*/*' --exclude='*/example-code/' --exclude='schedule' --exclude='README.md' --exclude='instruction/template' ./ docs/
+          rsync -av \
+          --exclude='.git*' \
+          --exclude='LICENSE' \
+          --include='petshop/*' \
+          --exclude='petshop/*/*' \
+          --exclude='*/example-code/' \
+          --exclude='schedule/archive' \
+          --exclude='README.md' \
+          --exclude='instruction/template' \
+          ./ docs/
+          
           find docs -empty -type d -delete
           cp README.md docs/Home.md
           cp -ar .github/structure/. docs/
+
       - name: Install dependencies for renaming
         run: |
           python3 -m pip install --upgrade pip
+
       - name: Rewrite markdown titles, filenames, and links
         run: |
           python3 .github/scripts/rewrite.py docs $GITHUB_REPO
+
       - name: Sync docs to wiki
         uses: newrelic/wiki-sync-action@v1.0.1
         with:
