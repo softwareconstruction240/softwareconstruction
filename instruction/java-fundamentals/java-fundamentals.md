@@ -255,7 +255,7 @@ public class StaticExample {
     public static int globalValue = 3;
 
     public static boolean isGlobalOdd() {
-        return (globalValue % 1) == 0;
+        return (globalValue % 2) != 0;
     }
 
     public static void main(String[] args) {
