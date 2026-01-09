@@ -21,7 +21,7 @@ The contents of the folder already contain IntelliJ configuration files and crea
 
 ![build with Maven](build-with-maven-prompt.png)
 
-Your project should look like this when it opens with the client, server, and shared folders having a blue square and being at the root level. There should be no folder called chess showing up in your Intelij project, only the items inside of the chess folder should be visible.
+Your project should look like this when it opens with the client, server, and shared folders having a blue square and being at the root level. There should be no folder called chess showing up in your Intellij project, only the items inside of the chess folder should be visible.
 
 ![open intellij](open-intellij.png)
 
