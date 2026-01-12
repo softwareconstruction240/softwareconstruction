@@ -4,7 +4,7 @@
 
 ## Getting help
 
-- [Discord](https://discord.com) ([Invite](https://discord.gg/ptgG7vQCUk))
+- [Discord](https://discord.com) ([Invite](https://discord.gg/rY57bzYVUn))
 - [TA Office](https://docs.google.com/document/d/12ZrcsQAfVirCuCwzI0TKX_tSPyBOjqB9vDE-sx1n_S0) (1066 TMCB)
 - [Professor Jensen](https://cs.byu.edu/department/directories/faculty-directory/lee-jensen/) - Office hours through [Calendly](https://calendly.com/lee-cs/30min)
 - [Dr. Wilkerson](https://cs.byu.edu/department/directories/faculty-directory/jerod-wilkerson/)
