@@ -1,14 +1,16 @@
 {
-  "title": "xx",
+  "title": "Advanced Software Construction",
+  "links": {},
   "modules": [
     {
       "title": "Course info",
-      "id": "ea744331-ad6e-468c-b26d-899d951f5e01",
       "topics": [
         {
           "title": "Home",
           "path": "README.md",
-          "id": "700a970e-d602-437f-9f00-91136b1f8096"
+          "id": "700a970e-d602-437f-9f00-91136b1f8096",
+          "interactions": [],
+          "commit": "400971c0d24a0ac42014b4083cf4e7ec87f082a3"
         },
         {
           "title": "Syllabus",
@@ -39,7 +41,6 @@
     },
     {
       "title": "Getting Started",
-      "id": "36892e7e-31d7-4582-bc66-d0935cbe2020",
       "topics": [
         {
           "title": "Introduction",
@@ -80,7 +81,6 @@
     },
     {
       "title": "Object Oriented Programming",
-      "id": "aab889cd-a560-46b8-89ef-27c148edfbdd",
       "topics": [
         {
           "title": "Java Fundamentals",
@@ -176,7 +176,6 @@
     },
     {
       "title": "Server",
-      "id": "3fbb6a1b-48aa-4445-9677-80d4dffb9f56",
       "topics": [
         {
           "title": "JSON and Serialization",
@@ -237,7 +236,6 @@
     },
     {
       "title": "Database",
-      "id": "be2c3533-140f-4226-a3a3-b7abce362802",
       "topics": [
         {
           "title": "Relational Model",
@@ -293,7 +291,6 @@
     },
     {
       "title": "Client",
-      "id": "3497cff4-6c5e-4200-902e-5b516f638506",
       "topics": [
         {
           "title": "Console UI",
@@ -349,7 +346,6 @@
     },
     {
       "title": "Final",
-      "id": "864bba83-799a-4239-996c-f889677bc12e",
       "topics": [
         {
           "title": "Final Exam Review",
