@@ -12,7 +12,7 @@
 
 | Who        | How                 | Where                  | When                            |
 | ---------- | ------------------- | ---------------------- | ------------------------------- |
-| TA         | Online or in person | Discord, TA Office     | TA Schedule                     |
+| TA         | Online or in person | Discord, TA Office     | [TA Schedule](https://docs.google.com/document/d/12ZrcsQAfVirCuCwzI0TKX_tSPyBOjqB9vDE-sx1n_S0)                     |
 | Instructor | Online or in person | Discord, Class, Office | Office Hours, Class Times       |
 | Peers      | Online or in person | Discord, Class         | Depends on how friendly you are |
 
