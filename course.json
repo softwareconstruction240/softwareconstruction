@@ -35,7 +35,9 @@
         {
           "title": "Asking questions",
           "path": "instruction/askingQuestions/askingQuestions.md",
-          "id": "cbd516e5-8b00-499f-9442-8b11fb587f79"
+          "id": "cbd516e5-8b00-499f-9442-8b11fb587f79",
+          "interactions": [],
+          "commit": "17a6a55b6393dd855be8aecd22beafb0d96c6485"
         }
       ]
     },
