@@ -21,9 +21,13 @@ The contents of the folder already contain IntelliJ configuration files and crea
 
 ![build with Maven](build-with-maven-prompt.png)
 
-Your project should look like this when it opens with the client, server, and shared folders having a blue square and being at the root level. There should be no folder called chess showing up in your Intellij project, only the items inside of the chess folder should be visible.
+Your project should look like this when it opens with the client, server, and shared folders having a blue square and being at the root level.
 
 ![open intellij](open-intellij.png)
+
+There should not be a folder named chess showing up in your Intellij project, only the items inside of the chess folder should be visible. If you do see a chess folder, check that there are not two different folders named chess. You can confirm that the modules are set up correctly by going to File > Project Structure > Modules, then verifying only client, server, and shared are modules. Feel free to talk with the TAs for help.
+
+![verify modules](verify-modules.png)
 
 ## Turn off AI
 
