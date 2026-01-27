@@ -97,7 +97,7 @@ You may not open other tabs or access other information during the exam. This is
 
 If you want to make handwritten notes while working, have a blank sheet of paper ready and show it to the camera at the start of the exam.
 
-## Submission/Uploads
+### Submission/Uploads
 
 When planning your time, allow yourself at least 20 minutes at the end of the exam to submit everything.
 
