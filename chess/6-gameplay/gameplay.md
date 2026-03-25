@@ -127,7 +127,7 @@ In the end, the important thing is that your design supports the additional `mov
   "commandType": "MAKE_MOVE",
   "authToken": "tokengoeshere",
   "gameID": "337",
-  "move": { "start": { "row": 3, "col": 3 }, "end": { "row": 5, "col": 5 } }
+  "move": { "startPosition": { "row": 3, "col": 3 }, "endPosition": { "row": 5, "col": 5 } }
 }
 ```
 
