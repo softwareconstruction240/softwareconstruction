@@ -190,6 +190,9 @@ void insertUser(UserData u) throws DataAccessException
 
 The starter code includes a `dataAccess.DataAccessException`. This exception should be thrown by data access methods that could fail. If a method call fails, it should throw a `DataAccessException`. For example, the `DataAccessException` is thrown if a user attempts to update a non-existent game. If you like, feel free to create subclasses of DataAccessException that represent more specific errors relating to data access.
 
+> [!NOTE]
+> In Phases 3-6, you may find it helpful to create more exception classes besides DataAccessException.
+
 ### Example Data Access Methods
 
 Here are some examples of the kinds of methods your DAOs will need to support. This list is not exhaustive. You should consult your server design in order to determine all of the methods you need to provide.
