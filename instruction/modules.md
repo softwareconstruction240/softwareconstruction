@@ -6,8 +6,7 @@ The course content is divided into multiple topics that you should strive to mas
 
 - [Syllabus](syllabus/syllabus.md)
 - [Instruction topics](modules.md)
-- [Schedule: Dr. Rodham](../schedule/winter2026-rodham.md)
-- [Schedule: Dr. Wilkerson](../schedule/winter2026-wilkerson.md)
+- [Schedule: Dr. Wilkerson](../schedule/spring2026-wilkerson.md)
 - [Asking questions](askingQuestions/askingQuestions.md)
 
 ## Getting Started
