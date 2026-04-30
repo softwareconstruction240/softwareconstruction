@@ -105,7 +105,7 @@ Your tests must be located in the file `client/src/test/java/facade/ServerFacade
 
 > [!TIP]
 >
-> `ServerFacadeTests.java` contains code that will automatically start and shutdown your server on a randomly assigned port as part of the test. However, you will still need to start your server using the `Main.main` function when you manually run your client.
+> `ServerFacadeTests.java` contains code that will automatically start and shutdown your server on a randomly assigned port as part of the test. However, you will still need to start your server using the `ServerMain.main` function when you manually run your client.
 
 ```java
 public class ServerFacadeTests {

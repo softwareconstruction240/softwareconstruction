@@ -84,9 +84,3 @@ The course content is divided into multiple topics that you should strive to mas
 ## Final
 
 - [Final Exam Review](final-exam-review/final-exam-review.md)
-
-### Legend
-
-| Icon | Meaning                                      |
-| ---- | -------------------------------------------- |
-| ☑    | Assignments requiring submission for grading |

@@ -86,7 +86,7 @@ The easiest way to store the state of a ChessGame in MySQL is to serialize it to
 4. Re-serialize the Chess game to a JSON string
 5. Update the game’s JSON string in the database
 
-You will want to carefully consider the need for a Gson type adapter when you do your serialization. If your classes have any interface fields then you will need to tell Gson how to instantiate a concrete class for the interface when it is deserializing. You might want to review the [instruction](../../instruction/db-jdbc/db-jdbc.md) on this topic.
+You will want to carefully consider the need for a Gson type adapter when you do your serialization. If your classes have any interface fields then you will need to tell Gson how to instantiate a concrete class for the interface when it is deserializing. You might want to review the [instruction](../../instruction/json/json.md) on this topic.
 
 ## Relevant Instruction Topics
 

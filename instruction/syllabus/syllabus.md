@@ -35,8 +35,6 @@ The goal of CS 240 is to help students learn a variety of computer programming c
 
 ##  Course Materials
 
-###   Suggested Textbook
-
 ![Core Java For The Impatient 4th Edition](coreJava4th.png)
 
 |                        |                                                                                                                                                                                                                        |
