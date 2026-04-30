@@ -99,9 +99,9 @@ There are no new pass off test cases for this assignment.
 
 ### Unit Tests
 
-Write positive and negative unit tests for each method on your ServerFacade class (all the methods used to call your server).
+Reach 80% line coverage on your `facade` package (all the code used to call your server). If you are unsure where to start, consider writing a positive and a negative test case for each public method.
 
-Your tests must be located in the file `client/src/test/java/client/ServerFacadeTests.java`, provided in the starter code.
+Your tests must be located in the file `client/src/test/java/facade/ServerFacadeTests.java`, provided in the starter code.
 
 > [!TIP]
 >

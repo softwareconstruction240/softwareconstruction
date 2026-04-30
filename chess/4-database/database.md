@@ -112,7 +112,7 @@ The pass off tests do not examine your game board. That means it is critical tha
 
 As part of your unit test deliverable you need to meet the following requirements.
 
-1. Write a positive and a negative JUNIT test case for each public method on your DAO classes, except for Clear methods which only need a positive test case. A positive test case is one for which the action happens successfully (e.g., creating a new user in the database). A negative test case is one for which the operation fails (e.g., creating a User that has the same username as an existing user).
+1. **Reach 80% line coverage on your DAOs.** If you are unsure where to start, consider writing a positive and a negative JUNIT test case for each public method on your DAO classes. A positive test case is one for which the action happens successfully (e.g., creating a new user in the database). A negative test case is one for which the operation fails (e.g., creating a User that has the same username as an existing user). Some methods may not need a negative test case.
 1. Ensure that all of your unit tests work, including the new DAO tests and the Service tests you wrote in the previous assignment.
 
 > [!IMPORTANT]
