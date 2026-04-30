@@ -427,6 +427,8 @@ Once you have written the `clear` and `register` endpoints, you can run the `Sta
 - [Single Responsibility Principle](../../instruction/design-principles/design-principles.md#single-responsibility-principle): Organizing many server responsibilities into comprehensible units
 - [Dependency Inversion Principle](../../instruction/design-principles/design-principles.md#dependency-inversion-principle): Organizing the layers of the server.
 - [Interface Segregation Principle](../../instruction/design-principles/design-principles.md#interface-segregation-principle): Organizing the DAO interfaces.
+- [Unit Testing](../../instruction/unit-testing/unit-testing.md): How to write unit tests
+- [Code Coverage](../../instruction/code-coverage/code-coverage.md): The benefits and drawbacks of code coverage
 - [PetShop Server Architecture](../../petshop/petshop.md): Layer organization and component architecture.
 
 ## ☑ Deliverable
