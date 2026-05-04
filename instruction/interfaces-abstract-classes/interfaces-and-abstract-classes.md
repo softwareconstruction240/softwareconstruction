@@ -254,7 +254,7 @@ public class FinalExample {
 
 ## Thinking about Chess
 
-WIth what you have learned here, consider the Chess program. How should chess pieces be abstracted? Should the piece type be represented as a data field?
+With what you have learned here, consider the Chess program. How should chess pieces be abstracted? Should the piece type be represented as a data field?
 
 ```mermaid
 classDiagram
