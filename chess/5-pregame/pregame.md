@@ -99,9 +99,9 @@ There are no new pass off test cases for this assignment.
 
 ### Unit Tests
 
-Reach 80% line coverage on your `facade` package (all the code used to call your server). If you are unsure where to start, consider writing a positive and a negative test case for each public method.
+Reach 80% line coverage on your `ServerFacade` class. If you are unsure where to start, consider writing a positive and a negative test case for each public method.
 
-Your tests must be located in the file `client/src/test/java/facade/ServerFacadeTests.java`, provided in the starter code.
+Your tests must be located in the file `client/src/test/java/client/ServerFacadeTests.java`, provided in the starter code.
 
 > [!TIP]
 >
@@ -186,7 +186,7 @@ Before coming to passoff with a TA, check to make sure your code functions prope
 | GitHub History | At least 12 GitHub commits evenly spread over the assignment period that demonstrate proof of work                                                                                              | Prerequisite |
 | Functionality  | Program supports all required functionality                                                                                                                                                     |          100 |
 | Code Quality   | [Rubric](../code-quality-rubric.md)                                                                                                                                                             |           30 |
-| Unit Tests     | All test cases pass<br/>Line coverage on `facade` package is at least 80%<br/>Every test case includes an Assert statement of some type |           25 |
+| Unit Tests     | All test cases pass<br/>Line coverage on `SeverFacade` class is at least 80%<br/>Every test case includes an Assert statement of some type |           25 |
 |                | **Total**                                                                                                                                                                                       |      **155** |
 
 ## Videos
