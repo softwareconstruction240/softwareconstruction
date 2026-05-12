@@ -137,11 +137,11 @@ Your exam will be reviewed by a TA who is a human. This means we can understand 
 
 ## TA Help During Exam
 
-The Help Queue will be open during the exam. You are allowed to setup Zoom and join the queue if you experience a problem. Those taking the exam will also get priority over any other questions during the exam days.
+The Help Queue will be open during the exam. You are allowed to use Discord and join the queue if you experience a problem. **You may not use Discord for anything else.** Those taking the exam will also get priority over any other questions during the exam days.
 
-Format for getting in the queue: Zoom info and a specific question “preparing for exam” or “currently taking exam”. If you don't put one of these descriptions we won't know that you are doing the exam. You can’t get TA help if there are no TAs working. The help queue is only available for those preparing/taking the exam between 8am & 8pm.
+When you join the queue, please include in your message a specific question and “preparing for exam” or “currently taking exam”. If you don't put one of these descriptions we won't know that you are doing the exam. You can’t get TA help if there are no TAs working. The help queue is only available for those preparing/taking the exam between 8am & 8pm.
 
-Any time spent during this process (waiting on the queue, or zooming with a TA) is part of your 4 hours - there is no “pause button”, even if you have to wait for a TA.
+Any time spent during this process (waiting on the queue, or in call with a TA) is part of your 4 hours - there is no “pause button”, even if you have to wait for a TA.
 
 We can answer procedural/logistical questions, but not debugging/code/junit tests questions. Questions on submitting material or fixing weird errors with Intelij are things we can help with. Questions about how to program something, why you are getting an error, or similar cannot be answered by the TA's. If a TA tells you while you are in the exam that they can't help you then that is the answer.
 
