@@ -140,7 +140,7 @@ To pass off this assignment use the course [auto-grading](https://cs240.click/) 
 | GitHub History | At least 8 GitHub commits evenly spread over the assignment period that demonstrate proof of work                                                                                   | Prerequisite |
 | Functionality  | All pass off test cases succeed                                                                                                                                                     |          100 |
 | Code Quality   | [Rubric](../code-quality-rubric.md)                                                                                                                                                 |           30 |
-| Unit Tests     | All test cases pass<br/>Line coverage on `dataaccess` package is at least 80%<br/>Every test case includes an Assert statement of some type |           25 |
+| Unit Tests     | All test cases pass<br/>Line coverage on `dataaccess` package is at least 80%<br/>Every test case includes an Assert statement of some type<br/>1.25 points of extra credit for 90% line coverage |           25 |
 |                | **Total**                                                                                                                                                                           |      **155** |
 
 ## Videos
