@@ -589,6 +589,76 @@ SRP means that a class, function, or module should:
 ```
 
 
+## The Open/Closed Principle (OCP)
+
+The Open/Closed Principle (OCP) is the second pillar of the SOLID design principles. It states that **software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification.** This means that the behavior of a module can be extended without altering its existing source code. By adhering to this principle, engineers can create systems that are robust, maintainable, and less prone to regression bugs when new requirements emerge.
+
+When a system is "closed for modification," it means the source code is stable, tested, and deployed. Changing this code introduces the risk of breaking existing functionality. When a system is "open for extension," it provides a mechanism—usually through abstraction—to add new features. In object-oriented programming, this is typically achieved using interfaces or abstract classes.
+
+### The Problem: Violation of OCP
+
+Consider a scenario where we have a `NotificationService` that sends emails. If we want to add SMS support, a common mistake is to modify the existing class by adding an `if-else` or `switch` statement.
+
+```csharp
+// BAD: Violates OCP
+public class NotificationService {
+    public void SendNotification(string message, string type) {
+        if (type == "Email") {
+            // Logic to send email
+        } else if (type == "SMS") {
+            // Logic to send SMS
+        }
+        // Every time we add a new type (Push, Slack), we must modify this class.
+    }
+}
+```
+
+### The Solution: Abstraction
+
+To follow OCP, we define an interface for the notification behavior. The `NotificationService` then depends on the interface rather than concrete implementations. We can add as many new notification types as we want by creating new classes that implement the interface, without ever touching the original service logic.
+
+```mermaid
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
+
+classDiagram
+    direction BT
+    class INotification {
+        <<interface>>
+        +Send(message: string)
+    }
+    class EmailNotification {
+        +Send(message: string)
+    }
+    class SmsNotification {
+        +Send(message: string)
+    }
+    class NotificationService {
+        -INotification _notifier
+        +Notify(message: string)
+    }
+
+    EmailNotification ..|> INotification
+    SmsNotification ..|> INotification
+    NotificationService --> INotification
+```
+
+### Key Benefits of OCP
+
+*   **Reduced Regression Risk:** Since existing code is not modified, the likelihood of introducing bugs into features that already work is significantly lowered.
+*   **Decoupling:** High-level policy classes do not need to know the details of low-level implementation classes.
+*   **Scalability:** New developers can add functionality by creating new files/classes rather than navigating and editing massive, complex legacy files.
+*   **Testability:** New extensions can be unit tested in isolation without needing to re-test the entire original module.
+
+```masteryls
+{"id":"ocp-001", "title":"Identifying OCP Compliance", "type":"multiple-choice"}
+Which of the following scenarios best demonstrates a violation of the Open/Closed Principle?
+
+- [ ] Adding a new class that implements an existing interface to support a new database type.
+- [x] Modifying an existing 'CalculateTotal' method to include a new 'if' statement every time a new discount type is introduced.
+- [ ] Using dependency injection to swap out a production service with a mock service during testing.
+- [ ] Creating a subclass that overrides a method to provide specialized behavior without changing the base class source code.
+```
+
 
 ## Dependency Inversion Principle (DIP)
 
