@@ -41,6 +41,11 @@ You will build a Semester long project that builds a full stack application that
 1. Persistent storage of data
 1. Robust handling of failure cases
 
+## Checkpoints
+
+As you work on your culminating experience project you will pass through a series of checkpoints that demonstrate your increasing mastery.
+
+![checkpoints.jpg](checkpoints.jpg)
 
 ## Technologies
 
