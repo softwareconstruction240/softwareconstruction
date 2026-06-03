@@ -660,6 +660,179 @@ Which of the following scenarios best demonstrates a violation of the Open/Close
 ```
 
 
+## The Liskov Substitution Principle (LSP)
+
+The Liskov Substitution Principle (LSP) is the third of the five SOLID principles of object-oriented design. Introduced by Barbara Liskov in 1987, the principle states that **objects of a superclass should be replaceable with objects of its subclasses without affecting the correctness of the program.** In simpler terms, a subclass should extend the behavior of a parent class without changing its fundamental expectations or "contract."
+
+When a subclass violates LSP, it often forces developers to use type-checking (`instanceof` or `is`) or results in unexpected runtime errors when a derived type is passed into a function expecting the base type. Adhering to LSP ensures that polymorphism remains reliable and that the inheritance hierarchy is logically sound.
+
+### The Classic Violation: The Square-Rectangle Problem
+
+The most famous example of an LSP violation is the Square-Rectangle problem. Mathematically, a square is a rectangle. However, in software engineering, if a `Square` class inherits from a `Rectangle` class, it often breaks the behavior expected of a rectangle.
+
+If a `Rectangle` has independent `setWidth()` and `setHeight()` methods, a user expects that changing the width will not affect the height. But in a `Square`, changing the width *must* change the height to maintain its invariants. This contradiction means a `Square` cannot truly substitute a `Rectangle` in all scenarios.
+
+```mermaid
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
+
+classDiagram
+    direction BT
+    class Rectangle {
+        +int width
+        +int height
+        +setWidth(int w)
+        +setHeight(int h)
+        +getArea() int
+    }
+    class Square {
+        +setWidth(int w)
+        +setHeight(int h)
+    }
+    Square --|> Rectangle : Inherits (Violates LSP)
+```
+
+### Key Rules for LSP Compliance
+
+To ensure your code follows the Liskov Substitution Principle, you must respect the "Contract" of the base class. This involves several technical constraints:
+
+1.  **Preconditions cannot be strengthened:** A subclass shouldn't require more from the caller than the base class does (e.g., a method that accepted any integer shouldn't be overridden to only accept positive integers).
+2.  **Postconditions cannot be weakened:** A subclass must guarantee at least as much as the base class (e.g., if the base class guarantees a non-null return, the subclass cannot return null).
+3.  **Invariants must be preserved:** Any condition that remains true for the base class (like "Area = Width * Height") must remain true for the subclass.
+4.  **No "Dummy" Implementations:** If a subclass overrides a method from a parent class only to throw a `NotImplementedException`, it is a clear violation of LSP.
+
+### Example: Refactoring for LSP
+
+Instead of using inheritance where the relationship is forced, we can use interfaces or composition to ensure that objects remain substitutable within their specific contexts.
+
+```python
+# VIOLATION: Square modifies height when width is set
+class Rectangle:
+    def set_width(self, w): self.width = w
+    def set_height(self, h): self.height = h
+
+class Square(Rectangle):
+    def set_width(self, w):
+        self.width = w
+        self.height = w  # Unexpected side effect for a Rectangle user!
+
+# REFACTORED: Use a common interface for shapes
+from abc import ABC, abstractmethod
+
+class Shape(ABC):
+    @abstractmethod
+    def get_area(self):
+        pass
+
+class Rectangle(Shape):
+    def __init__(self, w, h):
+        self.w = w
+        self.h = h
+    def get_area(self):
+        return self.w * self.h
+
+class Square(Shape):
+    def __init__(self, side):
+        self.side = side
+    def get_area(self):
+        return self.side * self.side
+```
+
+By refactoring to a `Shape` interface, we no longer assume that all shapes have independent width and height controls, thus preserving the correctness of any function that calculates areas for a list of shapes.
+
+```masteryls
+{"id":"lsp-001", "title":"Identifying LSP Violations", "type":"multiple-choice"}
+A developer has a base class `Bird` with a method `fly()`. They create a subclass `Ostrich`. Since ostriches cannot fly, the developer overrides the `fly()` method in the `Ostrich` class to throw an `UnsupportedOperationException`. Why is this a violation of the Liskov Substitution Principle?
+
+- [ ] Because inheritance should only be used for objects that share 100% of their DNA.
+- [x] Because a program expecting a `Bird` will crash if it receives an `Ostrich`, meaning the subclass cannot safely replace the superclass.
+- [ ] Because exceptions should never be used in overridden methods.
+- [ ] Because the `Bird` class should have been an interface instead of a base class.
+```
+
+
+## The Interface Segregation Principle (ISP)
+
+The Interface Segregation Principle (ISP) is the fourth of the five SOLID principles of object-oriented design. It states that **no client should be forced to depend on methods it does not use.** In practice, this means we should favor many small, specific interfaces over a single, large, "fat" interface. When an interface becomes too bloated, it forces implementing classes to provide empty or "Not Implemented" logic for methods they don't actually need, leading to brittle code and unnecessary recompilation.
+
+### The Problem: Fat Interfaces
+A "fat" interface is one that attempts to cover too many responsibilities. Consider a multi-function printer system. If we create a single interface for all machines, a simple "Economic Printer" that cannot scan or fax would still be forced to implement those methods.
+
+```mermaid
+graph TD
+    subgraph Violation of ISP
+    I[IMachine Interface] -->|print| P[Printer]
+    I -->|scan| P
+    I -->|fax| P
+    I -->|print| EP[EcoPrinter]
+    I -->|scan - Throws Error| EP
+    I -->|fax - Throws Error| EP
+    end
+
+    classDef default fill:#ffffff,stroke:#000000,color:#000000,stroke-width:1px;
+```
+
+### Applying ISP: Segregation
+To fix this, we break the large interface into smaller, more granular ones. This allows clients to implement only the functionality that is relevant to them. This approach promotes the "decoupling" of systems, making the codebase easier to refactor and test.
+
+**Benefits of ISP include:**
+*   **Reduced Side Effects:** Changes to a specific interface only affect the classes that actually use those methods.
+*   **Improved Readability:** Small interfaces are easier to understand and document.
+*   **Flexibility:** Classes can implement multiple small interfaces (composition) to achieve complex behavior without being forced into unrelated contracts.
+
+### Code Example: From Monolith to Segregated
+In the following example, we refactor a bloated `IMessage` interface into smaller, specialized interfaces.
+
+**Before (ISP Violation):**
+```csharp
+public interface IMessage {
+    void SendEmail();
+    void SendSMS();
+    void SendPushNotification();
+}
+
+// A class that only sends Emails is forced to handle SMS and Push logic
+public partial class EmailService : IMessage {
+    public void SendEmail() { /* Logic */ }
+    public void SendSMS() { throw new NotImplementedException(); }
+    public void SendPushNotification() { throw new NotImplementedException(); }
+}
+```
+
+**After (Following ISP):**
+```csharp
+public interface IEmailMessage {
+    void SendEmail();
+}
+
+public interface ISmsMessage {
+    void SendSMS();
+}
+
+// Now the EmailService only depends on what it actually needs
+public class EmailService : IEmailMessage {
+    public void SendEmail() {
+        Console.WriteLine("Sending email...");
+    }
+}
+
+// A multi-channel service can still implement multiple interfaces
+public class MultiChannelService : IEmailMessage, ISmsMessage {
+    public void SendEmail() { /* ... */ }
+    public void SendSMS() { /* ... */ }
+}
+```
+
+```masteryls
+{"id":"isp-concept-check", "title":"Identifying ISP Violations", "type":"multiple-choice"}
+Which of the following scenarios best describes a violation of the Interface Segregation Principle?
+
+- [ ] A class implements two different interfaces to gain multiple functionalities.
+- [x] A developer is forced to throw a 'NotImplementedException' because the interface they are implementing contains methods their class doesn't need.
+- [ ] An interface inherits from another interface to extend its capabilities.
+- [ ] A class has too many private helper methods, making the file difficult to read.
+```
+
+
 ## Dependency Inversion Principle (DIP)
 
 **Purpose:** The Dependency Inversion Principle states that high-level modules should not depend on low-level modules. Both should depend on abstractions (interfaces or abstract classes).  Furthermore, abstractions should not depend on details. Details (concrete implementations) should depend on abstractions. This principle promotes loose coupling and makes the system more flexible and maintainable.
@@ -747,6 +920,17 @@ Now, both the `Switch` and the `LightBulb` (and `Fan`) depend on the `Switchable
 *   Creating concrete dependencies: Using concrete classes as dependencies instead of abstractions.
 *   Not understanding the flow of control: Failing to understand how the principle affects the flow of control in the system.
 *   Using service locators instead of dependency injection: While service locators can provide some decoupling, they can also hide dependencies and make the code harder to test. Dependency Injection is generally the preferred approach.
+
+
+```masteryls
+{"id":"98dc3090-8c9a-4f25-8102-05e4b8dd919f","title":"Dependency Inversion Principle","type":"multiple-choice"}
+According to the Dependency Inversion Principle (DIP), which of the following statements best describes the relationship between high-level modules and low-level modules?
+
+- [ ] High-level modules should depend on low-level modules, provided that the low-level modules are injected via a constructor.
+- [x] Both high-level and low-level modules should depend on abstractions, ensuring that the high-level policy is independent of the low-level details.
+- [ ] Low-level modules should depend on high-level modules to ensure that implementation details are driven by business logic requirements.
+- [ ] High-level modules should define specific concrete classes that low-level modules must inherit from to maintain a strict hierarchy.
+```
 
 
 ## Summary
