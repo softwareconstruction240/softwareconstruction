@@ -142,9 +142,6 @@ classDiagram
     Object --> Object : has-a
 ```
 
-
-![Ultimate Object](ultimateObject.jpg)
-
 ## Things to Understand
 
 - First understand the application domain
