@@ -11,8 +11,8 @@ Advanced software construction (CS240) helps you become responsible software eng
 - [Syllabus](instruction/syllabus/syllabus.md) - Course policies
 - [Chess](chess/chess.md) - Instructions for building your application
 - [Pet Shop](petshop/petshop.md) - Demonstration application
-- [📅 Schedule: Dr. Rodham](schedule/winter2026-rodham.md)
-- [📅 Schedule: Dr. Wilkerson](schedule/winter2026-wilkerson.md)
+- [📅 Schedule: Dr. Wilkerson](schedule/spring2026-wilkerson.md)
+
 
 ## Outcomes
 
