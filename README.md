@@ -50,11 +50,10 @@ The course covers a full software stack of technologies and topics.
 - Command console
 - Java
 - HTTP
-- Web Services
-- Data Services demonstrated with MySQL
+- Web services
+- Data services demonstrated with MySQL
 - Realtime peer to peer interaction with WebSocket
 - Security
 - Testing
 - Application design
 
-_Image Source: Dall-E_
