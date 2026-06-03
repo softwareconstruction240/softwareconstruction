@@ -6,6 +6,16 @@
 
 `Object Oriented` design focuses on describing objects in the application domain as literal programming constructs. That means if your application contains people who eat fruit. Then you model the application by creating a `Person` and `Fruit` object. Those objects will have properties such as name, ripeness, and color. The objects will also have operations such as eat, plant, grow, or purchase. You then write your code as real world interactions between the core application domain objects. To continue our example, you would have interactions where a `Person` will either `plant`, or `purchase`, a `Fruit` object and then `eat` the fruit.
 
+```mermaid
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
+
+sequenceDiagram
+    Person->>Fruit:plant
+    Fruit-->>Fruit:grow
+    Person->>Fruit:isRipe
+    Person->>Fruit:eat
+```
+
 ![Person Fruit Model](personFruitModel.jpg)
 
 > Eating fruit sequence diagram
