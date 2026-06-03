@@ -28,6 +28,19 @@ You will learn to:
 - **Build** distributed applications that faithfully translate design intent into readable, testable implementations, showing diligence and integrity in the quality of code produced.
 - **Test** software systems systematically to validate behavior and uncover failure modes, valuing evidence, honesty, and accountability as foundations of trustworthy software.
 
+## Culminating Experience
+
+You will build a Semester long project that builds a full stack application that has been rigorously tested. The project will have the following characteristics.
+
+1. Documented and tested distributed architecture
+1. Account creation and authentication
+1. Multiple user roles
+1. Enforcement of role restrictions
+1. Creation and joining of groups
+1. Real-time peer interaction over a network
+1. Persistent storage of data
+1. Robust handling of failure cases
+
 
 ## Technologies
 
