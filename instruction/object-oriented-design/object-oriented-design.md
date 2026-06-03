@@ -16,8 +16,6 @@ sequenceDiagram
     Person->>Fruit:eat
 ```
 
-![Person Fruit Model](personFruitModel.jpg)
-
 > Eating fruit sequence diagram
 
 Object oriented design owes much of its popularity to its natural representation of the real world. By carefully modeling the actual application domain, the resulting code will exclude complications that would have resulted if you use other [programming paradigms](https://en.wikipedia.org/wiki/Programming_paradigm) that focus more on functional logic or declarative constructs.
