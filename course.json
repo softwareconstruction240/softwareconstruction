@@ -167,7 +167,9 @@
           "title": "Object Oriented Design",
           "path": "instruction/object-oriented-design/object-oriented-design.md",
           "id": "f5a08e81-81a8-4f56-830d-b6714f96279b",
-          "state": "published"
+          "state": "published",
+          "interactions": [],
+          "commit": "2e38f14141d520d6663a424cc388eaf174384260"
         },
         {
           "title": "Design Principles",
