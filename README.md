@@ -6,7 +6,8 @@
 
 ## Welcome
 
-Advanced Software Construction provides you with the experience and skills necessary to use a modern programming language in an advanced development environment to design, test, and build a large multi-user application. Your application will have a client frontend program that communicates, over the network, with a centralized backend server.
+Advanced software construction (CS240) helps you become responsible software engineers who continually improve your ability to frame, design, build, and test reliable systems. You will work with object-oriented design, network protocols, distributed services, and databases, while emphasizing long-term code quality, correctness, and responsibility for software others depend on—all while reflecting an eternal stewardship and concern for humanity.
+
 
 The content for this course is represented by the following parts.
 
@@ -14,18 +15,19 @@ The content for this course is represented by the following parts.
 - [Instruction](instruction/modules.md) - Course topics
 - [Chess](chess/chess.md) - Instructions for building your application
 - [Pet Shop](petshop/petshop.md) - Demonstration application
-- [📅 Schedule: Dr. Wilkerson](schedule/spring2026-wilkerson.md)
+- [📅 Schedule: Dr. Rodham](schedule/winter2026-rodham.md)
+- [📅 Schedule: Dr. Wilkerson](schedule/winter2026-wilkerson.md)
 
 ## Outcomes
 
-By the end of the course you should have experienced the following outcomes.
+You will learn to:
 
-- Learn to construct a medium-scale server program with data persistence in a principled way by applying relevant engineering techniques such as up-front design, quality code construction, unit testing, assertions, and error handling.
-- Learn and apply basic software design principles such as single responsibility, low coupling, avoidance of code duplication and information/data hiding to create modular code.
-- Learn and apply the basics of relational database design, modeling and programmatic access.
-- Learn and apply basic security principles and concepts.
-- Learn to validate a program’s behavior against its specification using testing practices.
-- Use modern software tools including integrated development environments, testing frameworks, debuggers, version control, and documentation processing tools.
+- **Frame** software engineering problems by clarifying system purpose, constraints, and responsibilities, demonstrating both sound technical judgment and a sense of ownership for the long-term impact of software others depend on.
+- **Explore** object-oriented frameworks, network protocols, distributed services, and databases with curiosity and discipline, developing accurate mental models while valuing learning as essential to responsible engineering practice.
+- **Design** software systems using object-oriented principles and clear interfaces that support reliability and maintainability, motivated by care for future users, collaborators, and the evolution of the system over time.
+- **Build** distributed applications that faithfully translate design intent into readable, testable implementations, showing diligence and integrity in the quality of code produced.
+- **Test** software systems systematically to validate behavior and uncover failure modes, valuing evidence, honesty, and accountability as foundations of trustworthy software.
+
 
 ## Technologies
 
