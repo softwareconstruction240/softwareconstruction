@@ -203,7 +203,9 @@
           "title": "Java Input and Output (IO)",
           "path": "instruction/io/io.md",
           "id": "9ac207b1-23da-46b6-a879-ad4b748c55c9",
-          "state": "published"
+          "state": "published",
+          "interactions": [],
+          "commit": "7edb54b984ebd6c35b10532c3a533c403c1e1712"
         },
         {
           "title": "Java Generics",
