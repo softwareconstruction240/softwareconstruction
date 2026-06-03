@@ -477,5 +477,9 @@ To pass off this assignment use the course [auto-grading](https://cs240.click/) 
 
 ## Videos
 
-- 🎥 [Phase 3 Overview (19:26)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=edaa730e-e247-4356-9cf4-b2cd014ecf59) - [[transcript]](https://github.com/user-attachments/files/17707002/CS_240_Chess_Phase_3_Transcript.pdf)
-- 🎥 [Chess Server Implementation Tips (18:43)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=2528dac9-1689-4e75-aff1-b2cd014e3b13) - [[transcript]](https://github.com/user-attachments/files/17707009/CS_240_Chess_Server_Implementation_Tips_Transcript.pdf)
+- 🎥 [Phase 3 Overview (4:11)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=ff20952c-4442-4c05-af4d-b458015da74d) 
+- 🎥 [Chess Server Implementation Tips (5:08)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=7fbada42-7406-4aed-8d4f-b4580159ecb7) 
+- 🎥 [JSON and Serialization Tips (2:33)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=edf929ac-0468-4539-bad7-b458015bfeac) 
+- 🎥 [Data Access Classes (3:28)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=40f18f38-908f-4b90-af61-b458015f03e5) 
+- 🎥 [Unit Tests (1:59)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=7179270b-92a3-42e3-a607-b45801605534) 
+- 🎥 [Code Quality (2:10)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=bc9dcdad-b376-41dc-b4d6-b4580161004d) 

@@ -197,5 +197,5 @@ Before coming to passoff with a TA, check to make sure your code functions prope
 The Video for `Drawing the Board` is outdated. Instead, of printing both sides of the board, you should print the black board when you join the game as black and print the white board when you join the game as white or an observer, not both.  
 - 🎥 [Drawing the Board (1:26)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=6a77c895-f2b8-49d9-8b11-b19a0156aef8) - [[transcript]](https://github.com/user-attachments/files/17805392/CS_240_Drawing_the_Board_Transcript.pdf)
 - 🎥 [Server Facade (8:49)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=48c546dc-bdd6-491f-88c1-b2c80118cb9f)- [transcript]
-- 🎥 [Phase 5 Requirements (3:11)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=1a171c4d-c7dc-41d0-828f-b19a01594498) - [[transcript]](https://github.com/user-attachments/files/17805398/CS_240_Phase_5_Requirements_Transcript.pdf)
+- 🎥 [Phase 5 Requirements (2:20)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=da07b0b6-d523-4d34-a765-b4580161b6be) - [transcript]
 - 🎥 [Client HTTP (12:11)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=781ae49b-6284-4e1a-836b-b1930162c54b) - [[transcript]](https://github.com/user-attachments/files/17805399/CS_240_Client_HTTP_Transcript.pdf)
