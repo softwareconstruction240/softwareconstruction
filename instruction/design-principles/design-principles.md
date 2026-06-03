@@ -91,8 +91,6 @@ An **interface** is a public description of functionality that provides no imple
 
 
 ```mermaid
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
-
 classDiagram
     class vehicle {
         <<interface>>
