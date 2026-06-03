@@ -10,8 +10,7 @@
           "path": "README.md",
           "id": "700a970e-d602-437f-9f00-91136b1f8096",
           "state": "published",
-          "interactions": [],
-          "commit": "8043f382be949bb0b228d50d4106196d279f022f"
+          "interactions": []
         },
         {
           "title": "Syllabus",
@@ -26,6 +25,18 @@
           "id": "5054878e-9c3c-4402-bb16-73614596a0b2",
           "state": "published",
           "interactions": []
+        },
+        {
+          "title": "Schedule: Dr. Rodham",
+          "path": "schedule/winter2026-rodham.md",
+          "id": "de98c0da-d6c9-4c5b-bcbf-11e233da7666",
+          "state": "published"
+        },
+        {
+          "title": "Schedule: Dr. Wilkerson",
+          "path": "schedule/winter2026-wilkerson.md",
+          "id": "7a454cc0-921e-4748-a552-616a887b34e3",
+          "state": "published"
         },
         {
           "title": "Asking questions",
