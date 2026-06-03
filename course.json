@@ -180,6 +180,21 @@
           "commit": "618509732a786cfca7ab0d0159098e733ac66bd6"
         },
         {
+          "title": "Engineering Principles",
+          "type": "instruction",
+          "path": "instruction/engineering-principles/engineering-principles.md",
+          "id": "0ddaf305-5eaa-459d-971b-cf7edd32c411",
+          "interactions": [
+            "67aa812b-3ffe-4983-bcd8-384be776b015",
+            "ocp-001",
+            "lsp-001",
+            "isp-concept-check",
+            "98dc3090-8c9a-4f25-8102-05e4b8dd919f"
+          ],
+          "description": "",
+          "commit": "39fcab0a014fc73e1869596b32845a68896cd866"
+        },
+        {
           "title": "Java Inner Classes",
           "path": "instruction/inner-classes/inner-classes.md",
           "id": "2de7e070-cb53-4810-b687-8fd6ef6121a0",
@@ -218,21 +233,6 @@
           "path": "instruction/lambdas/lambdas.md",
           "id": "c8d41446-47a5-49ab-b48b-2605fbd99a66",
           "state": "published"
-        },
-        {
-          "title": "Engineering Principles",
-          "type": "instruction",
-          "path": "instruction/engineering-principles/engineering-principles.md",
-          "id": "0ddaf305-5eaa-459d-971b-cf7edd32c411",
-          "interactions": [
-            "67aa812b-3ffe-4983-bcd8-384be776b015",
-            "ocp-001",
-            "lsp-001",
-            "isp-concept-check",
-            "98dc3090-8c9a-4f25-8102-05e4b8dd919f"
-          ],
-          "description": "",
-          "commit": "39fcab0a014fc73e1869596b32845a68896cd866"
         }
       ]
     },
