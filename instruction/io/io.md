@@ -34,7 +34,30 @@ At the lowest level, Java represents I/O with a data abstraction known as a stre
 
 The two base classes for dealing with Streams in Java are [InputStream](https://docs.oracle.com/javase/20/docs/api/java/io/InputStream.html) and [OutputStream](https://docs.oracle.com/javase/20/docs/api/java/io/OutputStream.html). You read data from an `InputStream` and your write data to an `OutputStream`. Both of these classes are abstract classes and require some subclass in order to use their functionality. For example, you can use a `FileInputStream` to read bytes of data from a file. Likewise you can use a `FileOutputStream` to write data to a file. Other subclasses include `ByteArrayOutputStream`, `ObjectOutputStream`, `SequenceInputStream`, or `StringBufferInputStream`.
 
-![Input Output Classes](InputOutputClasses.jpg)
+```mermaid
+classDiagram
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
+
+
+    class OutputStream {
+        +write(byte)
+    }
+
+    class ObjectOutputStream {
+        +writeObject(Object)
+    }
+
+    class InputStream {
+        +read() byte
+    }
+
+    class ByteArrayInputStream {
+        +ByteArrayInputStream(byte[])
+    }
+
+    OutputStream <|-- ObjectOutputStream
+    InputStream <|-- ByteArrayInputStream
+```
 
 ## System Out and In
 
