@@ -12,6 +12,7 @@ Complete the [Getting Started](getting-started.md) instructions before working o
 ## Code Class Structure
 
 ```mermaid
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
 
 classDiagram
 

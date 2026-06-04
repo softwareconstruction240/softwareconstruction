@@ -10,44 +10,28 @@
           "path": "README.md",
           "id": "700a970e-d602-437f-9f00-91136b1f8096",
           "state": "published",
-          "interactions": [],
-          "commit": "849ec93b31efbeb34f62966d4c19b7f7a7464515"
+          "interactions": []
         },
         {
           "title": "Syllabus",
           "path": "instruction/syllabus/syllabus.md",
           "id": "afd15fd1-0747-4fed-bb39-2e3a561dc317",
           "state": "published",
-          "interactions": [],
-          "commit": "289056316c1198bd5924e1825432dc499eee4200"
+          "interactions": []
         },
         {
           "title": "Instruction topics",
           "path": "instruction/modules.md",
           "id": "5054878e-9c3c-4402-bb16-73614596a0b2",
           "state": "published",
-          "interactions": [],
-          "commit": "cef6a585f931f9aa450d7393b67cfb723c804d2e"
-        },
-        {
-          "title": "Schedule: Dr. Rodham",
-          "path": "schedule/winter2026-rodham.md",
-          "id": "de98c0da-d6c9-4c5b-bcbf-11e233da7666",
-          "state": "published"
-        },
-        {
-          "title": "Schedule: Dr. Wilkerson",
-          "path": "schedule/winter2026-wilkerson.md",
-          "id": "7a454cc0-921e-4748-a552-616a887b34e3",
-          "state": "published"
+          "interactions": []
         },
         {
           "title": "Asking questions",
           "path": "instruction/askingQuestions/askingQuestions.md",
           "id": "cbd516e5-8b00-499f-9442-8b11fb587f79",
           "state": "published",
-          "interactions": [],
-          "commit": "17a6a55b6393dd855be8aecd22beafb0d96c6485"
+          "interactions": []
         }
       ]
     },
@@ -142,8 +126,7 @@
           "path": "instruction/interfaces-abstract-classes/interfaces-and-abstract-classes.md",
           "id": "8d35e1bd-e7d0-4838-9272-e6902a5c4622",
           "state": "published",
-          "interactions": [],
-          "commit": "8ec2297a548e6f7f00e57bd4e514da79fb4a3ef1"
+          "interactions": []
         },
         {
           "title": "Copying Objects",
@@ -167,13 +150,15 @@
           "title": "Object Oriented Design",
           "path": "instruction/object-oriented-design/object-oriented-design.md",
           "id": "f5a08e81-81a8-4f56-830d-b6714f96279b",
-          "state": "published"
+          "state": "published",
+          "interactions": []
         },
         {
           "title": "Design Principles",
           "path": "instruction/design-principles/design-principles.md",
           "id": "38005272-6339-43da-912b-886bda6bcbae",
-          "state": "published"
+          "state": "published",
+          "interactions": []
         },
         {
           "title": "Java Inner Classes",
@@ -191,13 +176,15 @@
           "title": "☑ Phase 1: Chess Game",
           "path": "chess/1-chess-game/chess-game.md",
           "id": "3d7737da-c17e-413a-8596-2eac96d88274",
-          "state": "published"
+          "state": "published",
+          "interactions": []
         },
         {
           "title": "Java Input and Output (IO)",
           "path": "instruction/io/io.md",
           "id": "9ac207b1-23da-46b6-a879-ad4b748c55c9",
-          "state": "published"
+          "state": "published",
+          "interactions": []
         },
         {
           "title": "Java Generics",

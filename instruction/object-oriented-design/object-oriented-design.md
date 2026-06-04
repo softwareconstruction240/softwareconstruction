@@ -6,7 +6,15 @@
 
 `Object Oriented` design focuses on describing objects in the application domain as literal programming constructs. That means if your application contains people who eat fruit. Then you model the application by creating a `Person` and `Fruit` object. Those objects will have properties such as name, ripeness, and color. The objects will also have operations such as eat, plant, grow, or purchase. You then write your code as real world interactions between the core application domain objects. To continue our example, you would have interactions where a `Person` will either `plant`, or `purchase`, a `Fruit` object and then `eat` the fruit.
 
-![Person Fruit Model](personFruitModel.jpg)
+```mermaid
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
+
+sequenceDiagram
+    Person->>Fruit:plant
+    Fruit-->>Fruit:grow
+    Person->>Fruit:isRipe
+    Person->>Fruit:eat
+```
 
 > Eating fruit sequence diagram
 
@@ -32,7 +40,48 @@ In order to fully model the real world with your objects, you need to describe t
 
 The following is an example of the relationships between a number of objects. Note that there are many ways that you can represent the real world with object oriented design.
 
-![Class Diagram](classRelationshipDiagram.jpg)
+```mermaid
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
+
+
+classDiagram
+
+    class Car {
+        +travel(Person, Route)
+    }
+
+    class Programmer {
+        +GitHubRepo
+        +Computer
+        +writeCode()
+    }
+
+    class Computer {
+        +type
+        +save(code)
+        +run(code)
+    }
+
+    class Person {
+        +name
+        +birthPlace
+    }
+
+    class GitHubRepo {
+        +push()
+        +pull()
+    }
+
+    class Route
+
+    Car ..> Route : uses-a
+    Car ..> Person : uses-a
+
+    Programmer --|> Person : is-a
+
+    Programmer o-- Computer : has-a
+    Programmer o-- GitHubRepo : has-a
+```
 
 The key is to understand your domain and distill the important object fields, operations, and interactions down to the minimal representation that meets the application needs. That might mean that your model doesn't perfectly fit real world objects, but you can often make your model easier to use and understand if you skip some of the important details. Likewise, sometimes the most literal domain representation does not fit the model of how users interact with their domain. When that happens, go with the users. It is their mental model you are trying to represent.
 
@@ -58,11 +107,40 @@ Of course you can simplify too far and end up with thousands of classes that eac
 
 **Too many classes**
 
-![Verbose Object](verboseObject.png)
+```mermaid
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
+
+
+classDiagram
+    object <|-- Organism
+    Organism <|-- Animal
+    Animal <|-- Mammal
+    Mammal <|-- Person
+
+    Animal *-- Soul : has-a
+    Animal *-- Body : has-a
+
+    Body *-- Head : has-a
+    Body *-- Torso : has-a
+    Body *-- Appendage : has-a
+
+    Appendage *-- Leg : has-a
+    Appendage *-- Arm : has-a
+```
 
 **Not enough classes**
 
-![Ultimate Object](ultimateObject.jpg)
+```mermaid
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
+
+
+classDiagram
+    class Object {
+        +value
+    }
+
+    Object --> Object : has-a
+```
 
 ## Things to Understand
 
