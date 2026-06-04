@@ -112,7 +112,7 @@ The pass off tests do not examine your game board. That means it is critical tha
 
 As part of your unit test deliverable you need to meet the following requirements.
 
-1. **Reach 80% line coverage on your DAOs.** If you are unsure where to start, consider writing a positive and a negative JUNIT test case for each public method on your DAO classes. A positive test case is one for which the action happens successfully (e.g., creating a new user in the database). A negative test case is one for which the operation fails (e.g., creating a User that has the same username as an existing user). Some methods may not need a negative test case.
+1. **Reach 80% line coverage on your SQL DAOs.** If you are unsure where to start, consider writing a positive and a negative JUNIT test case for each public method on your DAO classes. A positive test case is one for which the action happens successfully (e.g., creating a new user in the database). A negative test case is one for which the operation fails (e.g., creating a User that has the same username as an existing user). Some methods may not need a negative test case.
 1. Ensure that all of your unit tests work, including the new DAO tests and the Service tests you wrote in the previous assignment.
 
 > [!IMPORTANT]
@@ -142,7 +142,7 @@ To pass off this assignment use the course [auto-grading](https://cs240.click/) 
 | GitHub History | At least 8 GitHub commits evenly spread over the assignment period that demonstrate proof of work                                                                                   | Prerequisite |
 | Functionality  | All pass off test cases succeed                                                                                                                                                     |          100 |
 | Code Quality   | [Rubric](../code-quality-rubric.md)                                                                                                                                                 |           30 |
-| Unit Tests     | All test cases pass<br/>Line coverage on `dataaccess` package is at least 80%<br/>Every test case includes an Assert statement of some type<br/>1.25 points of extra credit for 90% line coverage |           25 |
+| Unit Tests     | All test cases pass<br/>Line coverage on `dataaccess.sql` package is at least 80%<br/>Every test case includes an Assert statement of some type<br/>1.25 points of extra credit for 90% line coverage |           25 |
 |                | **Total**                                                                                                                                                                           |      **155** |
 
 ## Videos
