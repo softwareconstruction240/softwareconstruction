@@ -6,36 +6,34 @@
       "title": "Course info",
       "topics": [
         {
-          "title": "Home",
+          "title": "Homey",
+          "type": "instruction",
           "path": "README.md",
           "id": "700a970e-d602-437f-9f00-91136b1f8096",
           "state": "published",
           "interactions": [],
-          "commit": "849ec93b31efbeb34f62966d4c19b7f7a7464515"
+          "description": ""
         },
         {
           "title": "Syllabus",
           "path": "instruction/syllabus/syllabus.md",
           "id": "afd15fd1-0747-4fed-bb39-2e3a561dc317",
           "state": "published",
-          "interactions": [],
-          "commit": "289056316c1198bd5924e1825432dc499eee4200"
+          "interactions": []
         },
         {
           "title": "Instruction topics",
           "path": "instruction/modules.md",
           "id": "5054878e-9c3c-4402-bb16-73614596a0b2",
           "state": "published",
-          "interactions": [],
-          "commit": "cef6a585f931f9aa450d7393b67cfb723c804d2e"
+          "interactions": []
         },
         {
           "title": "Asking questions",
           "path": "instruction/askingQuestions/askingQuestions.md",
           "id": "cbd516e5-8b00-499f-9442-8b11fb587f79",
           "state": "published",
-          "interactions": [],
-          "commit": "17a6a55b6393dd855be8aecd22beafb0d96c6485"
+          "interactions": []
         }
       ]
     },
@@ -130,8 +128,7 @@
           "path": "instruction/interfaces-abstract-classes/interfaces-and-abstract-classes.md",
           "id": "8d35e1bd-e7d0-4838-9272-e6902a5c4622",
           "state": "published",
-          "interactions": [],
-          "commit": "8ec2297a548e6f7f00e57bd4e514da79fb4a3ef1"
+          "interactions": []
         },
         {
           "title": "Copying Objects",
