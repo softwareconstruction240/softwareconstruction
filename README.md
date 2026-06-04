@@ -2,6 +2,7 @@
 
 ![cover](softwareconstructioncover.jpg)
 
+
 ## Welcome
 
 Advanced software construction (CS240) helps you become responsible software engineers who continually improve your ability to frame, design, build, and test reliable systems. You will work with object-oriented design, network protocols, distributed services, and databases, while emphasizing long-term code quality, correctness, and responsibility for software others depend on—all while reflecting an eternal stewardship and concern for humanity.
