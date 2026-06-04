@@ -30,18 +30,6 @@
           "commit": "cef6a585f931f9aa450d7393b67cfb723c804d2e"
         },
         {
-          "title": "Schedule: Dr. Rodham",
-          "path": "schedule/winter2026-rodham.md",
-          "id": "de98c0da-d6c9-4c5b-bcbf-11e233da7666",
-          "state": "published"
-        },
-        {
-          "title": "Schedule: Dr. Wilkerson",
-          "path": "schedule/winter2026-wilkerson.md",
-          "id": "7a454cc0-921e-4748-a552-616a887b34e3",
-          "state": "published"
-        },
-        {
           "title": "Asking questions",
           "path": "instruction/askingQuestions/askingQuestions.md",
           "id": "cbd516e5-8b00-499f-9442-8b11fb587f79",
