@@ -112,12 +112,14 @@ The pass off tests do not examine your game board. That means it is critical tha
 
 As part of your unit test deliverable you need to meet the following requirements.
 
-1. Write a positive and a negative JUNIT test case for each public method on your DAO classes, except for Clear methods which only need a positive test case. A positive test case is one for which the action happens successfully (e.g., creating a new user in the database). A negative test case is one for which the operation fails (e.g., creating a User that has the same username as an existing user).
+1. **Reach 80% line coverage on your SQL DAOs.** If you are unsure where to start, consider writing a positive and a negative JUNIT test case for each public method on your DAO classes. A positive test case is one for which the action happens successfully (e.g., creating a new user in the database). A negative test case is one for which the operation fails (e.g., creating a User that has the same username as an existing user). Some methods may not need a negative test case.
 1. Ensure that all of your unit tests work, including the new DAO tests and the Service tests you wrote in the previous assignment.
 
 > [!IMPORTANT]
 >
 > You must place your data access test cases in a folder named `server/src/test/java/dataaccess`. Your test class must also end with the suffix `Test` or `Tests`. Without this the autograder will not find your tests.
+>
+> Coverage will be collected on the folder `server/src/main/java/dataccess/sql`. If you do not have this package, the autograder will not be able to grade your unit tests.
 
 ### Code Quality
 
@@ -140,7 +142,7 @@ To pass off this assignment use the course [auto-grading](https://cs240.click/) 
 | GitHub History | At least 8 GitHub commits evenly spread over the assignment period that demonstrate proof of work                                                                                   | Prerequisite |
 | Functionality  | All pass off test cases succeed                                                                                                                                                     |          100 |
 | Code Quality   | [Rubric](../code-quality-rubric.md)                                                                                                                                                 |           30 |
-| Unit Tests     | All test cases pass<br/>Each public method on DAO classes has two test cases, one positive test and one negative test<br/>Every test case includes an Assert statement of some type |           25 |
+| Unit Tests     | All test cases pass<br/>Line coverage on `dataaccess.sql` package is at least 80%<br/>Every test case includes an Assert statement of some type<br/>1.25 points of extra credit for 90% line coverage |           25 |
 |                | **Total**                                                                                                                                                                           |      **155** |
 
 ## Videos
@@ -150,5 +152,5 @@ To pass off this assignment use the course [auto-grading](https://cs240.click/) 
 - 🎥 [Initializing Your Database and Tables (4:22)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=953900dc-0b8e-4ed8-a732-b193015b7e64) - [[transcript]](https://github.com/user-attachments/files/17707074/CS_240_Initializing_Your_Database_and_Tables_Transcript.pdf)
 - 🎥 [Password Hashing (4:14)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=671b0db7-323b-4bec-b0b7-b193015cf733) - [[transcript]](https://github.com/user-attachments/files/17707082/CS_240_Password_Hashing_Transcript.pdf)
 - 🎥 [ChessGame Serialization/Deserialization (6:17)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=5b9f4b5e-a3ae-442f-a311-b193015f1b34) - [[transcript]](https://github.com/user-attachments/files/17707104/CS_240_ChessGame_Serialization_Deserialization_Transcript.pdf)
-- 🎥 [Database Unit Tests (1:52)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=ab5a02c1-bf04-4514-afc0-b19301611d40) - [[transcript]](https://github.com/user-attachments/files/17707118/CS_240_Database_Unit_Tests_Transcript.pdf)
+- 🎥 [Database Unit Tests (0:58)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=02024c96-3566-411a-b500-b45801627254) - [transcript]
 - 🎥 [Grading Rubric (2:02)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=1b8d4c3b-1e76-4474-9007-b19301620058) - [[transcript]](https://github.com/user-attachments/files/17707133/CS_240_Grading_Rubric_Transcript.pdf)

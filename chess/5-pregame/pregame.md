@@ -99,7 +99,7 @@ There are no new pass off test cases for this assignment.
 
 ### Unit Tests
 
-Write positive and negative unit tests for each method on your ServerFacade class (all the methods used to call your server).
+Reach 80% line coverage on your `ServerFacade` class. If you are unsure where to start, consider writing a positive and a negative test case for each public method.
 
 Your tests must be located in the file `client/src/test/java/client/ServerFacadeTests.java`, provided in the starter code.
 
@@ -186,7 +186,7 @@ Before coming to passoff with a TA, check to make sure your code functions prope
 | GitHub History | At least 12 GitHub commits evenly spread over the assignment period that demonstrate proof of work                                                                                              | Prerequisite |
 | Functionality  | Program supports all required functionality                                                                                                                                                     |          100 |
 | Code Quality   | [Rubric](../code-quality-rubric.md)                                                                                                                                                             |           30 |
-| Unit Tests     | All test cases pass<br/>Each public method on the Server Facade class has two test cases, one positive test and one negative test<br/>Every test case includes an Assert statement of some type |           25 |
+| Unit Tests     | All test cases pass<br/>Line coverage on `SeverFacade` class is at least 80%<br/>Every test case includes an Assert statement of some type<br/>1.25 points of extra credit for 90% line coverage |           25 |
 |                | **Total**                                                                                                                                                                                       |      **155** |
 
 ## Videos
@@ -197,5 +197,5 @@ Before coming to passoff with a TA, check to make sure your code functions prope
 The Video for `Drawing the Board` is outdated. Instead, of printing both sides of the board, you should print the black board when you join the game as black and print the white board when you join the game as white or an observer, not both.  
 - 🎥 [Drawing the Board (1:26)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=6a77c895-f2b8-49d9-8b11-b19a0156aef8) - [[transcript]](https://github.com/user-attachments/files/17805392/CS_240_Drawing_the_Board_Transcript.pdf)
 - 🎥 [Server Facade (8:49)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=48c546dc-bdd6-491f-88c1-b2c80118cb9f)- [transcript]
-- 🎥 [Phase 5 Requirements (3:11)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=1a171c4d-c7dc-41d0-828f-b19a01594498) - [[transcript]](https://github.com/user-attachments/files/17805398/CS_240_Phase_5_Requirements_Transcript.pdf)
+- 🎥 [Phase 5 Requirements (2:20)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=da07b0b6-d523-4d34-a765-b4580161b6be) - [transcript]
 - 🎥 [Client HTTP (12:11)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=781ae49b-6284-4e1a-836b-b1930162c54b) - [[transcript]](https://github.com/user-attachments/files/17805399/CS_240_Client_HTTP_Transcript.pdf)

@@ -380,7 +380,9 @@ When you use a browser to access your server the web interface will display by d
 
 In addition to the HTTP server pass off tests provided in the starter code, you need to write tests that execute directly against your service classes. These tests skip the HTTP server network communication and will help you in the development of your service code for this phase.
 
-Good tests extensively show that we get the expected behavior. This could be asserting that data put into the database is really there, or that a function throws an error when it should. Write a positive and a negative JUNIT test case for each public method on your Service classes, except for Clear which only needs a positive test case. A positive test case is one for which the action happens successfully (e.g., successfully claiming a spot in a game). A negative test case is one for which the operation fails (e.g., trying to claim an already claimed spot).
+Good tests extensively show that we get the expected behavior. This could be asserting that data put into the database is really there, or that a function throws an error when it should. We expect this code to meet **80% line coverage on all service classes.**
+
+If you are unsure where to start, consider writing a positive and a negative JUNIT test case for each public method on your Service classes. A positive test case is one for which the action happens successfully (e.g., successfully claiming a spot in a game). A negative test case is one for which the operation fails (e.g., trying to claim an already claimed spot). Some services may not need a negative test case.
 
 The service unit tests must directly call the methods on your service classes. They should not use the HTTP server pass off test code that is provided with the starter code.
 
@@ -433,6 +435,8 @@ Once you have written the `clear` and `register` endpoints, you can run the `Sta
 - [Single Responsibility Principle](../../instruction/design-principles/design-principles.md#single-responsibility-principle): Organizing many server responsibilities into comprehensible units
 - [Dependency Inversion Principle](../../instruction/design-principles/design-principles.md#dependency-inversion-principle): Organizing the layers of the server.
 - [Interface Segregation Principle](../../instruction/design-principles/design-principles.md#interface-segregation-principle): Organizing the DAO interfaces.
+- [Unit Testing](../../instruction/unit-testing/unit-testing.md): How to write unit tests
+- [Code Coverage](../../instruction/code-coverage/code-coverage.md): The benefits and drawbacks of code coverage
 - [PetShop Server Architecture](../../petshop/petshop.md): Layer organization and component architecture.
 
 ## ☑ Deliverable
@@ -468,10 +472,14 @@ To pass off this assignment use the course [auto-grading](https://cs240.click/) 
 | GitHub History | At least 12 GitHub commits evenly spread over the assignment period that demonstrate proof of work                                                                                               | Prerequisite |
 | Web API Works  | All pass off test cases succeed                                                                                                                                                                  |          125 |
 | Code Quality   | [Rubric](../code-quality-rubric.md)                                                                                                                                                              |           30 |
-| Unit Tests     | All test cases pass<br/>Each public method on your **Service classes** has two test cases, one positive test and one negative test<br/>Every test case includes an Assert statement of some type |           25 |
+| Unit Tests     | All test cases pass<br/>Line coverage on `service` package is at least 80%<br/>Every test case includes an Assert statement of some type <br/> 1.25 points of extra credit for 90% line coverage|           25 |
 |                | **Total**                                                                                                                                                                                        |      **180** |
 
 ## Videos
 
-- 🎥 [Phase 3 Overview (19:26)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=edaa730e-e247-4356-9cf4-b2cd014ecf59) - [[transcript]](https://github.com/user-attachments/files/17707002/CS_240_Chess_Phase_3_Transcript.pdf)
-- 🎥 [Chess Server Implementation Tips (18:43)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=2528dac9-1689-4e75-aff1-b2cd014e3b13) - [[transcript]](https://github.com/user-attachments/files/17707009/CS_240_Chess_Server_Implementation_Tips_Transcript.pdf)
+- 🎥 [Phase 3 Overview (4:11)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=ff20952c-4442-4c05-af4d-b458015da74d) 
+- 🎥 [Chess Server Implementation Tips (5:08)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=7fbada42-7406-4aed-8d4f-b4580159ecb7) 
+- 🎥 [JSON and Serialization Tips (2:33)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=edf929ac-0468-4539-bad7-b458015bfeac) 
+- 🎥 [Data Access Classes (3:28)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=40f18f38-908f-4b90-af61-b458015f03e5) 
+- 🎥 [Unit Tests (1:59)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=7179270b-92a3-42e3-a607-b45801605534) 
+- 🎥 [Code Quality (2:10)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=bc9dcdad-b376-41dc-b4d6-b4580161004d) 
