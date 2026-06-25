@@ -44,6 +44,9 @@ def main(root: str, code_base: str):
     clean_ext_pattern = r'\.(' + '|'.join(EDIT_FILE_EXTS) + r')$'
 
     def extract_new_link(info: ContentFilePath, path_part: str) -> str:
+        if path_part.startswith(code_base):
+            path_part = path_part.removeprefix(code_base.rstrip('/'))
+
         dirname = os.path.basename(os.path.dirname(path_part))
         basename = os.path.basename(path_part)
 
