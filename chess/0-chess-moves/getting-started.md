@@ -37,7 +37,7 @@ There should not be a folder named chess showing up in your Intellij project, on
 
 All AI coding tools need to be turned off for this project. We want you to understand the code you write, and having AI author the code for you can be a hinderance to your learning. If you have some sort of AI coding assistant (like Copilot) that comes by default with your IDE, you need to turn that **off**. Using AI to write your code may flag our plagiarism detection system. If you are unsure about your use of AI, check the syllabus in Canvas, or ask one of the instructors.
 
-Specifically, if you are using the IntelliJ Ultimate Edition, it comes by default with a local deep learning model, and possibly a cloud LLM that will help finish lines. (This feature is only included in the advanced features of IntelliJ IDEA, not in the Community edition). To turn off Full Line code completion, follow these steps:
+Specifically, if you subscribed for the advanced features of IntelliJ IDEA, you will need to turn off the LLM, as it includes a feature that will help with inline completion. To turn off Full Line code completion, follow these steps:
 
 1. Go to IntelliJ Settings by either pressing `ctrl`/`⌘` + `,` or by going to File > Settings.
 1. A new _Settings_ window should have opened. Select Editor > General > Inline Completion on the left-hand side.
