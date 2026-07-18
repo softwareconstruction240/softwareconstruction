@@ -29,7 +29,7 @@ This should result in the following additions to your project.
 
 There is a lot of 3rd party code that you can download and include in your Java applications. As part of the Phase 0 starter Chess project, we already included packages that run your tests (JUint), serialize JSON (Gson), handle logging (Slf4j), and make HTTP network requests (Javalin).
 
-We use a cloud based package repository called **Maven** to manage our dependencies. All of the starter chess dependencies were pull from Maven and included in the project. You can view these dependencies using IntelliJ by opening the `Project Structure` dialog, going to the `modules` tab, and selecting the `server` module.
+We use a cloud-based package repository called **Maven** to manage our dependencies. All of the starter chess dependencies were pulled from Maven and included in the project. You can view these dependencies using IntelliJ by opening the `Project Structure` dialog, going to the `modules` tab, and selecting the `server` module.
 
 ![Existing dependencies](existingDependencies.png)
 
