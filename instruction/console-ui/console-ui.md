@@ -149,7 +149,7 @@ import java.util.Scanner;
 public class InteractiveCalculatorExample {
     public static void main(String[] args) throws Exception {
         while (true) {
-            System.out.printf("Type your numbers%n>>> ");
+            System.out.printf("Input your numbers%n>>> ");
             Scanner scanner = new Scanner(System.in);
             String line = scanner.nextLine();
             var numbers = line.split(" ");
