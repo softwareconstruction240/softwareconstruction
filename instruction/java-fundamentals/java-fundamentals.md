@@ -11,7 +11,36 @@
 
 🖥️ [Lecture Videos](#videos)
 
-## Why Java
+## Learning Software Construction with Java
+
+#### 🔑 Key points
+
+1. We will learn software engineering principles and patterns using Java
+1. How to get and install Java and an IDE
+1. Why Java is both portable and fast
+1. How to compile and run Java code
+1. The primitive data types available in Java
+1. What's the difference between creating a string with `new` and creating one by just specifying it in double quotes?
+1. How to declare, create and initialize arrays
+1. How to find the length of an array
+1. How to create and access arrays of arrays
+1. How to specify command-line parameters in IntelliJ
+1. The relationship between Packages, Imports and the CLASSPATH environment variable
+1. How to use a Scanner to read a text file of words, separated by whitespace
+
+---
+
+The focus of this course is to teach you the core principles and patterns of software engineering. While these concepts require a programming language for implementation, the language itself is not important. The design principles and architectural patterns covered here apply across the industry, independent of the specific language you use.
+
+However, some languages are better suited for constructing specific types of applications. The **Chess Project** used in this course is a natural fit for an object-oriented (OO) language like Java. OO languages allow you to represent real-world entities, such as a chess piece or a game board, as coded abstractions with defined properties (data) and operations (behavior).
+
+By using Java, you will practice fundamental software engineering concepts including:
+
+- **Encapsulation**: Bundling data and the methods that operate on that data into a single unit.
+- **Abstraction**: Simplifying complex systems by modeling classes appropriate to the problem.
+- **Inheritance**: Creating new classes based on existing ones to reuse and extend functionality.
+
+### What Java has to offer
 
 1. **Portable** - You can execute your Java program on a large variety of computing platforms without having to recompile or write platform specific code.
 1. **Object Oriented** - The Java language encourages the representation of real world and conceptual objects. This makes it easier to translate user requirements and developer expectations into the code's design.
@@ -85,7 +114,7 @@ The downside is that you need to install the JRE on all target devices, and the 
 
 To get started developing with Java, you need to install the Java Developer Kit (JDK) and the IntelliJ integrated development environment (IDE). The easiest way to do this is to follow the instructions for installing the IntelliJ IDE and then using IntelliJ to install the version of the JDK that you want to use.
 
-[IntelliJ Installation Instructions](https://www.jetbrains.com/help/idea/installation-guide.html) - After clicking the link, scroll down to `Standalone installation`, picking your operating system, and clicking on the download link. After downloading IntelliJ IDEA, you will be able to code with some advanced features until the 30 day free trial ends. If you want to keep the advanced features, you can provide your BYU credentials to get them for free, though they are not required for this class if you do not want to subscribe to get these features.
+[IntelliJ Installation Instructions](https://www.jetbrains.com/help/idea/installation-guide.html) - Make sure you choose the free Community Edition. Do this by selecting the `Standalone installation`, picking your operating system, clicking on the download link, and then scrolling down to the `Community Edition` option. You can install the `Ultimate Edition`, but you will have to provide your BYU credentials in order to enable free usage.
 
 After you have installed IntelliJ take some time to get familiar with the environment. Create a new project and, if you don't already have a JDK downloaded, download the latest version as part of creating the project. Additionally, if you select the `Add sample code` option it will create a simple `hello world` application for you.
 
@@ -371,20 +400,12 @@ public class ScannerExample {
 }
 ```
 
-## Things to Understand
+## ☑ Exercise
 
-1. Ways that Java is different from C++
-1. How to get and install Java and an IDE
-1. Why Java is both portable and fast
-1. How to compile and run Java code
-1. The primitive data types available in Java
-1. What's the difference between creating a string with `new` and creating one by just specifying it in double quotes?
-1. How to declare, create and initialize arrays
-1. How to find the length of an array
-1. How to create and access arrays of arrays
-1. How to specify command-line parameters in IntelliJ
-1. The relationship between Packages, Imports and the CLASSPATH environment variable
-1. How to use a Scanner to read a text file of words, separated by whitespace
+```masteryls
+{"id":"77d4a535-9dc9-4de5-ad62-73d9872e2f0e", "title":"Your first Java program", "type":"essay", "gradingCriteria":"- The program properly compiles and outputs the conosole text: 'Hello World'" }
+Before you break out your compiler and make your first Java program. Try to create a Java Program that prints `Hello World` to the console. Do this from your memory of what you learned above without copying any code. The feedback you receive will help you get things right.
+```
 
 ## Videos
 
@@ -400,23 +421,3 @@ public class ScannerExample {
 - 🎥 [Arrays of Arrays (5:51)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=71826d41-0b65-4b98-903f-ad8e014772e0&start=0) - [[transcript]](https://github.com/user-attachments/files/17804904/CS_240_Arrays_of_Arrays.pdf)
 - 🎥 [Command Line Arguments (3:24)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=ddfefe0e-442d-4c56-8f60-ad5d013b4005&start=0) - [[transcript]](https://github.com/user-attachments/files/17804907/CS_240_Command_Line_Arguments.pdf)
 - 🎥 [Packages, Imports, and the CLASSPATH Environment Variable (11:48)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=c52bc183-f041-42c6-8e36-ad5d013d318f&start=0) - [[transcript]](https://github.com/user-attachments/files/17804908/CS_240_Packages_Imports_and_CLASSPATH.pdf)
-
-## Demonstration code
-
-📁 [Simple Classes](example-code/01-simple-classes/)
-
-📁 [Primitive Data Types](example-code/02-primitive-data-types/)
-
-📁 [Strings](example-code/03-strings/)
-
-📁 [Arrays](example-code/04-arrays/)
-
-📁 [Command Line Arguments](example-code/05-command-line-arguments/)
-
-📁 [Packages Imports](example-code/06-packages-imports/)
-
-📁 [Input Output](example-code/07-input-output/)
-
-## Lecture files
-
-📁 [Lecture Files](lecture-files/)

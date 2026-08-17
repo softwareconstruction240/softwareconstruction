@@ -4,15 +4,16 @@
 
 Advanced software development with an object-oriented focus. Design, implementation, and testing of medium-sized programs including a server program.
 
-## Course Content
 
-All of the content for this course is found here, in this GitHub repository. We use GitHub to host the content so that we can rapidly enhance and correct the content. Using GitHub also makes it so that you can get more familiar with this essential professional development tool.
+## Learning Environment
 
-You can always reach the root of the content repository with this link:
+We use [MasteryLS](https://masteryls.com) as the primary learning system for this course. MasteryLS provides efficient content navigation, search, and consistent structure. MasteryLS also enables extensive AI support for personalized learning and automated feedback. 
 
-[https://github.com/softwareconstruction240](https://github.com/softwareconstruction240)
+ [Canvas](https://byu.instructure.com) is automatically synced with MasteryLS so that it can serve purely as a gradebook.
 
-We suggest that you bookmark the link for easy access to the content.
+## Course Content Repository
+
+All of the content for this course is maintained in a [GitHub repository](https://github.com/softwareconstruction240). We use GitHub to manage the content so that we can rapidly enhance and correct it. Using GitHub also makes it so that you can get more familiar with this essential professional development tool.
 
 If you find errors in the content then we encourage you to fork the content repository and [create a pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork). That way everyone benefits from your work, and you are listed as a contributor on a significant open source project.
 
@@ -24,14 +25,14 @@ In CS 240 we assume you have previously taken introductory programming courses i
 
 ##  Course Learning Outcomes
 
-The goal of CS 240 is to help students learn a variety of computer programming concepts and skills that are essential in developing realistic software systems. Specifically, the objectives of the course are to:
+You will learn to:
 
-1.  Learn to construct a medium-scale server program with data persistence in a principled way by applying relevant engineering techniques such as up-front design, quality code construction, unit testing, assertions, and error handling.
-2.  Learn and apply basic software design principles such as single responsibility, low coupling, avoidance of code duplication and information/data hiding to create modular code.
-3.  Learn and apply the basics of relational database design, modeling and programmatic access.
-4.  Learn and apply basic security principles and concepts.
-5.  Learn to validate a program’s behavior against its specification using testing practices.
-6.  Use modern software tools including integrated development environments, testing frameworks, debuggers, version control, and documentation processing tools.
+- **Frame** software engineering problems by clarifying system purpose, constraints, and responsibilities, demonstrating both sound technical judgment and a sense of ownership for the long-term impact of software others depend on.
+- **Explore** object-oriented frameworks, network protocols, distributed services, and databases with curiosity and discipline, developing accurate mental models while valuing learning as essential to responsible engineering practice.
+- **Design** software systems using object-oriented principles and clear interfaces that support reliability and maintainability, motivated by care for future users, collaborators, and the evolution of the system over time.
+- **Build** distributed applications that faithfully translate design intent into readable, testable implementations, showing diligence and integrity in the quality of code produced.
+- **Test** software systems systematically to validate behavior and uncover failure modes, valuing evidence, honesty, and accountability as foundations of trustworthy software.
+
 
 ##  Course Materials
 
@@ -51,6 +52,24 @@ The goal of CS 240 is to help students learn a variety of computer programming c
 You will need a reasonably current computer to complete the programming projects for this course. A minimum of 8 gigabytes of RAM is recommended, as well several gigabytes of free disk space.
 
 If you do not have a computer of your own, you can rent one from the [BYU Office of Information Technology (OIT)](https://itsurplus.byu.edu/rentals).
+
+## Late Policy
+
+See the [late policy](../latePolicy/latePolicy.md) instruction for a full description of the policy.
+
+## Resubmissions
+
+When you work on a deliverable you should follow this basic pattern:
+
+1. **Carefully read and follow all the relevant course instruction**
+1. Do your best work
+1. Submit your best work for grading and feedback
+
+Resubmissions are only considered in cases where the instruction was unclear, or something failed between the submission and grading process (e.g. Your server died before it was able to be graded). If you are unclear about the deliverable, or would like to have someone review your work, please reach out to a TA or the instructor prior to submitting.
+
+## Commit Policy
+
+It is critical that you develop good software engineering practices. Your GitHub commit history should demonstrate every step of your work in this class. An acceptable commit history requires granular commits (_multiple commits_) done over the entire period of the assignment (_multiple days_) If your history does not prove your ownership of the work **you may be given a failing grade for the class**.
 
 ## Programming Exam
 
@@ -80,47 +99,13 @@ There is no partial credit on the Programming Exam; you either finish, or you do
 
 ## TAs
 
-### TA Office Hours
+### TAs
 
-As TAs, we are here to help you complete the projects and answer your questions. However, we are often given tasks by your instructor that may be time-sensitive. If you come into the TA lab, do not be shy in interrupting us to ask for help. However, please understand if we ask you to wait for a moment if we are trying to complete another CS 240 task.
+TAs are here to help you complete the projects and answer your questions. However, we are often given tasks by your instructor that may be time-sensitive. If you come into the TA lab, do not be shy in interrupting us to ask for help. However, please understand if we ask you to wait for a moment if we are trying to complete another task.
 
 Also, please understand that even though the TAs have taken the class and passed with very high marks they do not know everything, nor can they explain every bug. We will try to help you, but if we do not understand the bug, we might refer you to another TA or the instructor. We might even offer suggestions (guesses) on what we would do if we ran into that bug.
 
 In summary, TAs are here to help but not to hold your hand and take away the learning experience of programming and debugging. But when you are stuck, do not hesitate to come in and ask for help.
-
-When you need help, please join our [help queue](https://help.cs240.click). To see when TAs are working, check [here](https://docs.google.com/document/d/12ZrcsQAfVirCuCwzI0TKX_tSPyBOjqB9vDE-sx1n_S0/edit?tab=t.0#heading=h.cp6dfptbk5p3).
-
-Please go over the TA Help Policies before you come in to ask for help.
-
-### Schedule Disclaimer
-
-Please remember that the TAs are students too and have classes of their own.
-
-They might need to leave 10 minutes before the end of the hour to get to class on time.
-
-Also, if they are in the labs other than during their posted hours, they're doing homework for other classes.
-
-### TA Help Policies
-
-If you would like to get some help from the TA's, please make sure that you have read these policies to ensure that we can help everyone and give you all the help you need. Remember that we are "Assistants". We are more than willing to assist you as you learn, but we need you to do your part as well. Because of this, the help queue has a limit of 3 times per day (except for passing off).
-
-Students Seeking TA Help Should First:
-
-- Have read project specifications thoroughly. Sometimes this means 3 – 4 times.
-- Be up to date on their reading assignments.
-- Consulting the Java documentation and know what the code you are calling is supposed to do.
-- Work for at least 30 min. on your own.
-- Use the [debugger](../debugging/debugging.md) to step through the code and validate your assumptions.
-- Write your own unit tests to narrow down the reproduction of a problem.
-- Use System.out.println when appropriate to help debug your code.
-- Review and try to understand relative coding examples and lecture slides.
-- Have a well-formed question to ask the TA.
-- Put yourself in a frame of mind to accept new ideas.
-- We will only help students if they get on the queue and come to the TA lab first. We will not go to the labs to find you.
-- Do not attempt to pass off with the TA's unless your program already passes all required unit tests.
-- Remember one purpose of this class is for you to learn how to learn. If we feel you are not putting forth your full effort or for any other reason we may ask you to return later when you have fulfilled these requirements.
-
-Email the TAs at cs240ta@cs.byu.edu
 
 ##  Assignments, Grading and Course Policies
 
@@ -134,9 +119,6 @@ Since the Chess phases build on top of each other, the previous phase must be co
 
 In addition to getting your code to "work", a significant part of your project grade will be based on the quality of your work. Our class autograder will check for code quality and unit tests. Your code and automated test cases can be reviewed by a TA, and we may change your grade based on how well you have followed the good coding and testing practices discussed in class. Therefore, it is in your best interest to tidy up your code and test cases as you go along.
 
-### **Final Exam**
-
-The final exam is taken online during the university final exam period. Just like the programming exam, it will be proctored with Honorlock.
 
 ### **Late Policies**
 
@@ -146,27 +128,51 @@ The maximum late penalty on all assignments is 50% off (i.e., you will never los
 
 For assignments with multiple independently graded rubric items, this late penalty is per rubric item as long as the main functionality of the assignment is complete and your pre-penalty score for that rubric item does not decrease. For example, if you submit Phase 3 on the due date with full points on the "Web API Works" item (the main functionality of the assignment) but with less than full points on the other two rubric items and then resubmit the next day with full points on all three, the "Web API Works" item would remain at full points while the other two would receive the 10% late penalty.
 
-### **Grade Appeals**
+## Doing Your Own Work
 
-The TA's and the instructor are imperfect and may make a mistake when grading assignments and exams. We want you to receive the grade you deserve, but some of this responsibility lies with you. You are welcome to appeal any grades you receive, but grade appeals for any assignments or exams must be requested within seven calendar days of the time the score for the item being appealed is posted. You may not receive an email or an in-class announcement about when scores are posted, so you should check regularly.
+All deliverables must be your own work. You are encouraged to study with other students, discuss concepts, ideas, and general approaches. However, you may not submit someone else's solution as your deliverable or provide your solution to other students.
 
-We have found that some students are satisfied with their grades until they find at the end of the semester that a few more points would make a difference in the grade they receive. Then a "fishing for points" expedition begins. We are unable to accommodate this, so if you are unsatisfied with a grade, appeal it early. Grade appeals made at the end of the semester on items that were graded more than a week previously will not be considered.
+You may use AI at the **Reference** level as defined by the Computer Science Department Policy on AI. The reference level allows you to use AI as a tutor only. You may ask for help understanding concepts, practice implementation, or ask for explanations. You may **not** ask AI to generate or rewrite code. The goal is for you to use AI to learn concepts, not to replace fundamental programming skills.
 
-If appealing a grade, start by discussing the item(s) in question with a TA during office hours (preferably the TA who did the original grading). Be prepared to give a detailed explanation of why you think the grade is incorrect. If you are not able to come to a satisfactory conclusion with the TA, contact the instructor. Keep in mind that although rare, re-grades can, and sometimes do, result in a lower score.
+In order to demonstrate original authorship, you must:
 
-### **Doing Your Own Work**
+1. Have a clear and detailed Git commit history that demonstrates the creative progression of the deliverable
+1. Be able to demonstrate a complete understanding of everything that you submit
+1. Be able to reproduce the submission without external assistance in the presence of a TA or instructor
+1. If you cannot do this then it will be considered as if you had submitted someone else's work.
 
-This class is about individual competence, not teamwork. Therefore, all assignments you turn in must be your own work. You are encouraged to study with other students, and you may discuss concepts, ideas, and general approaches with others (e.g. at a whiteboard), but when it comes time to create your actual design documentation or source code, you must work alone. You may not share electronic files or hard-copy printouts containing designs or source code with other students, either as giver or receiver. You may not work in close synchronization with other students in a side-by-side fashion. **Violations of this policy will result in all involved students failing the course and the possibility of further action at the university level.**
+## AI Usage Definition
 
-Be aware that we use plagiarism detection software to ensure that the source code you submit was not derived from code written by other current or past CS 240 students. Specifically, it is not appropriate to search the Web for solutions published by other students, or to otherwise obtain source code from other students. If you do this, you are likely to get caught, which will result in (at least) failing the class. Of course, we know that most of you would not do this, but sometimes people make mistakes when the pressure is high.
+**Level**: `Reference`
 
-You may not use AI systems such as ChatGPT to write your code. Such systems merely repeat content they found on the Web, and, in effect, are just an indirect way of copying other students' solutions from the Web. This is not acceptable. **If you use AI to write your code, it is highly likely that your code will be flagged by our plagiarism detection system**. The code it writes for you will be very similar to code it writes for other students, and that code will be similar to student solutions found on the Web.
+**Intent**: Use AI as a learning aid, not a production tool.  Continue to develop mental models of how code works and skills need to write and test code.  
 
-However, you may use AI chat systems (such as ChatGPT) as a personal tutor. You may use it to ask questions and review responses, but you may not use it to analyze or write your code. You may not use any AI system that has access to your code. Copying code into or out of any AI system (including looking at code in an AI system while typing it into your project) is a violation of this policy and will be treated as plagiarism.
+**Allowed**
+- Concept explanations
+- Practice problems and quizzes
+- Understanding error messages
+- Reviewing instructor-provided examples
 
-### **Children in the Classroom**
+**Not Allowed**
+- Sharing your artifact (code, writing, etc.) with AI
+- Using the assignment itself to ask AI to generate specific solutions
 
-The serious study of the physical and mathematical sciences requires uninterrupted concentration and focus in the classroom. Having small children in class is often a distraction that degrades the educational experience for the entire class. Please make other arrangements for child care rather than bringing children to class with you. If there are extenuating circumstances, please talk with your instructor in advance.
+**Prompt Guidance**: Use prompts that avoid exposing your work:
+- “Explain how recursion works with examples.”
+- “What does this error message typically mean?”
+- “Quiz me on linked lists.”
+- “Explain how to debug a segmentation fault.”
+
+**Rule of thumb**: If your prompt includes text copied from the assignment, it is not allowed.
+
+
+
+```masteryls
+{"id":"bae08349-d561-4c4b-9a84-208fab172b36", "title":"Acknowledgement", "type":"multiple-select" }
+
+
+- [x] I have read this syllabus
+```
 
 ##   Grade Scheme
 

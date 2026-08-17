@@ -4,18 +4,31 @@
 
 🖥️ [Lecture Videos](#videos)
 
-When writing object oriented code it is very common to have classes that only exist to represent a collection of data fields. These are called `data objects`. Data objects exist only to serve as input, or output, for other objects that operate on them. For example, you could have `Pet` object with id, name, and type fields. A pet object would then be passed to a `Walker` object that would give it exercise. Another object, `PetHealth` would be associated with the pet in order to track the effect of the exercise. This type of encapsulation helps to create cohesive objects that have only one responsibility. An additional desirable attribute of data objects is that they are usually immutable. This means that after they are created they do not change. Immutable objects are desirable because they are safe to pass around and use in multiple contexts at the same time, without worrying that they will have mutated when they come back to you.
+### 🔑 Key points
 
-Consider the following data object class that represents a pet. In this example, we set the properties of the pet in the constructor and make it immutable with the use of the `final` keyword on all the fields. The code also provides getters for all the fields, as well as overriding equals, hashcode, and toString.
+- Java records provide a concise representation of immutable data classes
+- Records support a reasonable equals and hashcode implementations
+
+---
+
+
+When writing object-oriented code, it is common to use classes that exist solely to act as containers for data. These are often called "data objects" or "data-carrier classes." Their primary purpose is to store state and pass it between different parts of an application. 
+
+For example, you might have a `Pet` object with `id`, `name`, and `type` fields. This object could be passed to a `Walker` object to track exercise or to a `PetHealth` object to monitor medical history. This type of encapsulation helps create cohesive objects with a single responsibility. 
+
+A key characteristic of well-designed data objects is **immutability**. An immutable object's state cannot be modified after it is created. This makes them safer to use in multi-threaded environments and easier to reason about, as you do not have to worry about their values changing unexpectedly when passed to other methods.
+
+Consider the following traditional class representing a pet. To make it immutable, we use the `final` keyword on all fields and initialize them via the constructor. We also provide "getters" for all fields and override `equals()`, `hashCode()`, and `toString()`.
 
 ```java
+import java.util.Objects;
+
 class PetClass {
     private final int id;
     private final String name;
     private final String type;
 
     PetClass(int id, String name, String type) {
-
         this.id = id;
         this.name = name;
         this.type = type;
@@ -37,59 +50,72 @@ class PetClass {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         PetClass petClass = (PetClass) o;
-
-        if (id != petClass.id) return false;
-        if (!Objects.equals(name, petClass.name)) return false;
-        return Objects.equals(type, petClass.type);
+        return id == petClass.id && 
+               Objects.equals(name, petClass.name) && 
+               Objects.equals(type, petClass.type);
     }
 
     @Override
     public int hashCode() {
-        int result = id;
-        result = 31 * result + (name != null ? name.hashCode() : 0);
-        result = 31 * result + (type != null ? type.hashCode() : 0);
-        return result;
+        return Objects.hash(id, name, type);
     }
 
     @Override
     public String toString() {
         return "PetClass[" +
                 "id=" + id +
-                ", name=" + name +
-                ", type=" + type +
+                ", name='" + name + '\'' +
+                ", type='" + type + '\'' +
                 ']';
     }
 }
 ```
 
-That is everything we need to make a fully functional, immutable, data object. However, it is also 52 lines of boilerplate code just to represent three fields. Since data objects are very common, Java introduced the `record` keyword in order to make the syntax more concise.
+While this class is fully functional, it requires over 50 lines of boilerplate code just to represent three fields. Because data objects are so common, Java introduced the `record` keyword to make this syntax much more concise.
 
-All you have to do is declare a record and the fields you want it to contain. Here is a record replacement for our pet class that is functionally equivalent.
+To define a record, you simply declare the fields you want it to contain. Here is a record replacement for our `PetClass` that is functionally equivalent:
 
 ```java
 record PetRecord(int id, String name, String type) {}
 ```
 
-When you use Java records you get all of the following benefits.
+When you use Java records, the compiler automatically provides the following:
 
-1. Immutability. All fields are final.
-1. Simplified constructor syntax.
-1. Automatic getters.
-1. Automatic equals that compares all the fields.
-1. Automatic hashcode that calculates based on all the fields.
-1. Automatic toString that represents all the fields.
+1.  **Immutability**: All fields are private and `final`.
+2.  **Canonical Constructor**: A constructor that initializes all fields is created for you.
+3.  **Accessor Methods**: Instead of `getName()`, records use the field name as the method name (e.g., `name()`).
+4.  **`equals()`**: A method that compares two records based on their field values.
+5.  **`hashCode()`**: A method that calculates a hash based on all fields.
+6.  **`toString()`**: A string representation showing all field names and their values.
 
-You can also put methods on your records if you would like. This is useful if you want to do things like provide a way to rename a pet. Note that because the record is immutable, the method cannot modify the name field and so it creates a new pet with the new name.
+You can also add custom methods to a record. This is useful if you want to provide logic related to the data. Note that because records are immutable, a method cannot modify an existing field; instead, it must return a new instance of the record with the updated data.
 
 ```java
 public record PetRecord(int id, String name, String type) {
-    PetRecord rename(String newName) {
-        return new PetRecord((id), newName, type);
+    /**
+     * Returns a new PetRecord with the updated name.
+     */
+    public PetRecord rename(String newName) {
+        return new PetRecord(id, newName, type);
     }
 }
 ```
+
+
+## ☑ Exercise
+
+
+```masteryls
+{"id":"dff0788f-db66-4a2f-bd87-1de307ac5bf0", "title":"Records", "type":"teaching" }
+What is the value of a Java record? Why not just always use a class?
+```
+
+```masteryls
+{"id":"23e9006e-f703-4ee0-a7bc-4f2ec146aef4","title":"Clarity as Kindness","type":"essay"}
+How does using records to express data clearly and concisely make life easier for those who read your code, and how does writing for others' understanding reflect the BYU aim of building character?
+```
+
 
 ## Videos
 

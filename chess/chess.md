@@ -56,6 +56,24 @@ When you complete the entire project, you should have something similar to the f
 
 ![chess board](chess-demo.gif)
 
+
+## ☑ Exercise
+
+```masteryls
+{"id":"ce4ac8ef-4bee-4c48-aa9a-7da6969d4d89", "title":"Playing chess", "type":"multiple-choice", "syncGrade":false, "autoGrade":false }
+Simple **multiple choice** question
+
+- [x] I don't know how to play chess
+- [x] I understand the rules of chess
+- [x] I am confortable playing chess
+```
+
+
+```masteryls
+{"id":"67e53d3b-397a-4a0d-998f-1aad6c08dbbd", "title":"Chess", "type":"essay" }
+Which chess phase are you most worried about and why?
+```
+
 ## Videos
 
 - 🎥 [Phase 0 Overview (21.17)](https://youtu.be/mTtK8iRXsZo) - transcript

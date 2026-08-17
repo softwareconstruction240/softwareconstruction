@@ -1,6 +1,18 @@
 {
-  "title": "Advanced Software Construction",
+  "title": "Advanced Software Construction v2",
   "links": {},
+  "schedule": {
+    "id": "1f3c824b-fd26-497f-9a0f-f2aa40adef88",
+    "files": [
+      {
+        "id": "3431b5e4-3b80-4117-926e-a1c96f5d41d9",
+        "title": "📅 Fall 2026 Schedule",
+        "path": "schedule/schedule.md",
+        "default": true,
+        "state": "published"
+      }
+    ]
+  },
   "modules": [
     {
       "title": "Course info",
@@ -9,31 +21,41 @@
           "title": "Home",
           "type": "instruction",
           "path": "README.md",
-          "id": "700a970e-d602-437f-9f00-91136b1f8096",
+          "id": "97ae7242-6f80-4148-bd4a-503e2492d066",
           "state": "published",
-          "interactions": [],
+          "interactions": [
+            "624dbbb7-bbc1-4061-9c51-080623358b39"
+          ],
           "description": ""
         },
         {
           "title": "Syllabus",
           "path": "instruction/syllabus/syllabus.md",
-          "id": "afd15fd1-0747-4fed-bb39-2e3a561dc317",
+          "id": "c1a1ebe9-a8b7-4646-b4a0-25860a2bbe9f",
           "state": "published",
-          "interactions": []
-        },
-        {
-          "title": "Instruction topics",
-          "path": "instruction/modules.md",
-          "id": "5054878e-9c3c-4402-bb16-73614596a0b2",
-          "state": "published",
-          "interactions": []
+          "interactions": [
+            "bae08349-d561-4c4b-9a84-208fab172b36"
+          ]
         },
         {
           "title": "Asking questions",
           "path": "instruction/askingQuestions/askingQuestions.md",
-          "id": "cbd516e5-8b00-499f-9442-8b11fb587f79",
+          "id": "90015ed2-d4a9-4da1-8b21-a47786c99267",
           "state": "published",
-          "interactions": []
+          "interactions": [
+            "8f35a1b4-8968-4829-b951-bd7a1ad2ee08"
+          ]
+        },
+        {
+          "title": "Late policy",
+          "type": "instruction",
+          "path": "instruction/late-policy/late-policy.md",
+          "id": "93609927-67d6-4237-ad40-74b86d1cbf18",
+          "state": "published",
+          "interactions": [
+            "a819fd43-c894-4945-b851-3b513d659573"
+          ],
+          "description": ""
         }
       ]
     },
@@ -43,43 +65,62 @@
         {
           "title": "Introduction",
           "path": "instruction/introduction/introduction.md",
-          "id": "daa7f287-95e2-4add-84d2-2aa965b8b914",
-          "state": "published"
+          "id": "4c1fdd8c-572f-47a6-a220-26d13c97517d",
+          "state": "published",
+          "interactions": [
+            "ce3d8811-e669-4b43-a13c-b037d81e0d0f",
+            "e90d5eb9-6d56-454d-a036-0bb576b1322c",
+            "2fdc2fdb-e3de-49c9-ba25-f66b0da68d1a"
+          ]
         },
         {
           "title": "Git",
           "path": "instruction/git/git.md",
-          "id": "fb094a09-5777-4c76-8212-b63818461db4",
-          "state": "published"
+          "id": "b689ad9d-a894-4073-ae01-3190ff3cf151",
+          "state": "published",
+          "interactions": [
+            "955c39cf-a2b9-45ba-9cb4-62fde6b482a1",
+            "0b9bcfa9-87fb-45bc-8abf-b4cdc1e2df5a"
+          ]
         },
         {
           "title": "Chess",
           "path": "chess/chess.md",
-          "id": "436479a1-8a89-4361-b42a-3777d258677f",
-          "state": "published"
+          "id": "f518cf2b-bddd-4c0f-84ee-a08eae035082",
+          "state": "published",
+          "interactions": [
+            "ce4ac8ef-4bee-4c48-aa9a-7da6969d4d89",
+            "67e53d3b-397a-4a0d-998f-1aad6c08dbbd"
+          ]
         },
         {
           "title": "Pet Shop",
           "path": "petshop/petshop.md",
-          "id": "1bca77fe-6943-442e-a465-82c5d7a83b38",
-          "state": "published"
+          "id": "171fddea-bdfe-4aff-a3e3-d71f4742750c",
+          "state": "published",
+          "interactions": [
+            "409b54f0-93e2-4aea-9877-77f9367c82bf"
+          ]
         },
         {
-          "title": "☑ Chess GitHub Repository",
+          "title": "Chess GitHub Repository",
+          "type": "project",
+          "points": 100,
           "path": "chess/chess-github-repository/chess-github-repository.md",
-          "id": "9b5fb308-1844-40a4-a010-817251c6b101",
-          "state": "published"
+          "id": "1bf772fb-40cf-4d5c-a97e-f63d6218a542",
+          "state": "published",
+          "description": ""
         },
         {
           "title": "Programming Exam",
           "path": "instruction/programming-exam/programming-exam.md",
-          "id": "c669a059-fdb6-4ea1-bee3-ab7b838daf56",
+          "id": "644b4c1f-3088-444c-a3b4-4fb3a30ad3b0",
           "state": "published"
         },
         {
           "title": "TA Tips",
           "path": "instruction/chess-tips/chess-tips.md",
-          "id": "a23d676d-1ca9-4aad-b428-df6424f78a1e",
+          "id": "f9f845b1-efe1-4bbb-8182-ab405bf8ec13",
           "state": "published"
         }
       ]
@@ -88,113 +129,259 @@
       "title": "Object Oriented Programming",
       "topics": [
         {
+          "title": "Object Oriented Programming",
+          "type": "instruction",
+          "path": "instruction/object-oriented-programming/object-oriented-programming.md",
+          "id": "64ed9534-3644-4dd6-9538-45e149d1666d",
+          "state": "published",
+          "interactions": [
+            "6d998d67-76af-4c7e-af57-305de7dc1494",
+            "c1e93ca5-9be0-47dc-a826-3c73adb5be39",
+            "d67c59c4-3df9-4a4a-9d77-a4adaf3e104c",
+            "5f154b4b-762f-4bbf-8e0e-271e3bf05bcb"
+          ],
+          "description": "The basics of object oriented programming including:\n\nEncapsulation: Bundling data and the methods that operate on that data into a single unit.\nAbstraction: Simplifying complex systems by modeling classes appropriate to the problem.\nInheritance: Creating new classes based on existing ones to reuse and extend functionality.\nPolymorphism"
+        },
+        {
           "title": "Java Fundamentals",
           "path": "instruction/java-fundamentals/java-fundamentals.md",
-          "id": "4fccabcf-bf43-4c6c-9961-53c6e29d6c61",
-          "state": "published"
+          "id": "91501491-314b-421c-87e7-fa40639d0c60",
+          "state": "published",
+          "interactions": [
+            "77d4a535-9dc9-4de5-ad62-73d9872e2f0e"
+          ]
         },
         {
           "title": "Phase 0: Getting Started",
           "path": "chess/0-chess-moves/getting-started.md",
-          "id": "0ba83923-da38-49b7-aff4-84e1b95548c1",
-          "state": "published"
+          "id": "8d9c3c79-4bbb-475f-a2ed-269ffcfcb10d",
+          "state": "published",
+          "interactions": [
+            "57d595a3-6ae5-40a9-a512-041c1c1cd198",
+            "d6399d4e-74c3-4eb3-bdf4-799a1e18f01e"
+          ]
         },
         {
-          "title": "☑ Phase 0: Chess Moves",
+          "title": "Phase 0: Chess Moves",
+          "type": "project",
+          "points": 100,
           "path": "chess/0-chess-moves/chess-moves.md",
-          "id": "5d757f75-cc13-46aa-b3e4-966d17a18f61",
-          "state": "published"
+          "id": "807a1d1b-6dff-4ccb-a7bb-3293602b7931",
+          "state": "published",
+          "interactions": [
+            "0bf59ef9-4f30-440c-aad5-0fdcd1bc7778",
+            "ee5eb604-acc1-4231-bd9e-4e78db6eaab2",
+            "a5e9dfeb-b48f-4cb9-ae34-69f3a6a342bb",
+            "df3d6c21-e574-403a-ba99-65c7ebf273aa",
+            "b51f2fa9-a148-4859-9292-183f69dc9062",
+            "083dfa87-6954-4af8-b180-7514db11cc72"
+          ],
+          "description": ""
+        },
+        {
+          "title": "Phase 0: Architectural Patterns",
+          "type": "instruction",
+          "path": "instruction/phase-0-architecture/phase-0-architecture.md",
+          "id": "4419212e-ba5e-4298-86db-3b3374243973",
+          "state": "published",
+          "interactions": [
+            "4d5832eb-ebe3-415d-b792-094e95b9f305",
+            "2aba68a0-07ea-4f09-8b23-a4c5ac90ef86"
+          ],
+          "description": ""
         },
         {
           "title": "Java Object Class",
           "path": "instruction/java-object-class/java-object-class.md",
-          "id": "3332ad66-f879-4900-bd01-55e786c43ae0",
-          "state": "published"
+          "id": "d1e7971b-a868-4920-933d-9c7c1716d9df",
+          "state": "published",
+          "interactions": [
+            "6e801e6c-018a-498b-b702-2b5d76f81172",
+            "2ec94cfd-ac42-4ced-a34f-8cd81c95c0ef",
+            "9bacd403-f736-4fc4-b613-e31ca5612502"
+          ]
         },
         {
           "title": "Classes and Objects",
           "path": "instruction/classes-and-objects/classes-and-objects.md",
-          "id": "3bec3fad-f434-4441-a5d2-0153ee130cf7",
-          "state": "published"
+          "id": "e4725eb1-ac14-4229-b82c-69dbf98a5ccf",
+          "state": "published",
+          "interactions": [
+            "8818e31c-102f-4930-bc88-8f5662f09975",
+            "c935ba62-abf8-45a9-bb1c-22806e4296e2"
+          ]
         },
         {
           "title": "Java Records",
           "path": "instruction/records/records.md",
-          "id": "ebb28e8d-18c9-42fd-a0fc-0f50da89c6d8",
-          "state": "published"
+          "id": "1fdbe416-2d26-4e48-a761-b7a13ac2c012",
+          "state": "published",
+          "interactions": [
+            "dff0788f-db66-4a2f-bd87-1de307ac5bf0",
+            "23e9006e-f703-4ee0-a7bc-4f2ec146aef4"
+          ]
         },
         {
           "title": "Interfaces and Abstract Classes",
           "path": "instruction/interfaces-abstract-classes/interfaces-and-abstract-classes.md",
-          "id": "8d35e1bd-e7d0-4838-9272-e6902a5c4622",
+          "id": "3f4ab06f-03f4-49f6-ad69-2258e58f1b64",
           "state": "published",
-          "interactions": []
+          "interactions": [
+            "225e7b39-9011-4973-8c40-704c9740b897",
+            "968a7b21-92da-4bf4-99bb-28fdb740a30d",
+            "105e15d4-edac-4832-9fab-9cfa0234b89d"
+          ]
         },
         {
           "title": "Copying Objects",
           "path": "instruction/copying-objects/copying-objects.md",
-          "id": "5db046dd-94c1-4e29-b6c4-0786189252bb",
-          "state": "published"
+          "id": "4f0fba08-4979-49ba-8617-f4a9fd342ad6",
+          "state": "published",
+          "interactions": [
+            "bfcc9583-3d22-4026-a36f-34fceb6be366",
+            "113e9ac2-025a-40a3-bc30-7ffbbc94cbbb"
+          ]
         },
         {
           "title": "Java Exceptions",
           "path": "instruction/exceptions/exceptions.md",
-          "id": "09dd0b9b-6ddc-4b18-9b86-c3494c8f8c8a",
-          "state": "published"
+          "id": "5e40afed-8a52-4f66-9c93-a2406bed4eee",
+          "state": "published",
+          "interactions": [
+            "d58151e1-451a-44ff-96c0-21c801866979",
+            "96312950-c328-42db-96c5-94fbeea1b4fd",
+            "0db430e0-5fc8-4378-a384-47d2d427961e",
+            "555866da-7ace-4523-963b-e1a523cc6511"
+          ]
         },
         {
           "title": "Java Collections",
           "path": "instruction/collections/collections.md",
-          "id": "8fe712a4-ff54-4146-acdb-edbf23929c7d",
-          "state": "published"
+          "id": "b895636d-d167-498f-8df5-4d88a40d4952",
+          "state": "published",
+          "interactions": [
+            "04083ed9-a34d-4ab3-b8b6-06d7127de560",
+            "93f1825a-52bf-468d-9c05-881cdee91170"
+          ]
         },
         {
           "title": "Object Oriented Design",
           "path": "instruction/object-oriented-design/object-oriented-design.md",
-          "id": "f5a08e81-81a8-4f56-830d-b6714f96279b",
-          "state": "published"
+          "id": "7ca20c16-5111-45bb-9a94-13c05d46c411",
+          "state": "published",
+          "interactions": [
+            "6e9c6bce-f03e-448b-8bf4-c98ee16abc04",
+            "81466afd-b92c-4888-94e4-6f4b7fc5fc67",
+            "763b6916-a651-47db-a39c-ebdb3212b541",
+            "db625d9d-4e00-45ee-b230-122908109b1e"
+          ]
         },
         {
           "title": "Design Principles",
           "path": "instruction/design-principles/design-principles.md",
-          "id": "38005272-6339-43da-912b-886bda6bcbae",
-          "state": "published"
+          "id": "67bb907c-816b-40e0-8d46-efb270a0b000",
+          "state": "published",
+          "interactions": [
+            "24db3b5d-61c5-4488-a9f8-9116634d7b5a",
+            "08e88ca6-e6d9-467f-ae53-5502a601329d",
+            "32035b75-8e43-4ac3-9c02-d63e7517b65c",
+            "7943abe7-dde5-42f1-b3b3-1b47d62dd12e"
+          ]
+        },
+        {
+          "title": "SOLID",
+          "type": "instruction",
+          "path": "instruction/solid/solid.md",
+          "id": "f1af06ba-cd73-4be0-a060-980272b27a11",
+          "state": "published",
+          "interactions": [
+            "4a2c5b0d-28ff-4eeb-8d6a-e4ae4106f498",
+            "a1fe5de4-2909-4cbc-a60e-5fee8766bb78",
+            "e53eaabd-42da-4129-a443-6df423d93012",
+            "95bfa643-e853-44ae-975a-66915d280de4",
+            "c8f5ad82-4f54-4333-af24-709f99c55f23"
+          ],
+          "description": ""
         },
         {
           "title": "Java Inner Classes",
           "path": "instruction/inner-classes/inner-classes.md",
-          "id": "2de7e070-cb53-4810-b687-8fd6ef6121a0",
-          "state": "published"
-        },
-        {
-          "title": "Phase 1: Getting Started",
-          "path": "chess/1-chess-game/getting-started.md",
-          "id": "e3042209-a974-4d5e-967f-4899ee36ff77",
-          "state": "published"
-        },
-        {
-          "title": "☑ Phase 1: Chess Game",
-          "path": "chess/1-chess-game/chess-game.md",
-          "id": "3d7737da-c17e-413a-8596-2eac96d88274",
-          "state": "published"
-        },
-        {
-          "title": "Java Input and Output (IO)",
-          "path": "instruction/io/io.md",
-          "id": "9ac207b1-23da-46b6-a879-ad4b748c55c9",
-          "state": "published"
-        },
-        {
-          "title": "Java Generics",
-          "path": "instruction/generics/generics.md",
-          "id": "0ff096fb-b9c7-4447-92e9-8f5d22d481fd",
-          "state": "published"
+          "id": "983e7617-7fa0-48ca-8ccc-3f6f2f8ead90",
+          "state": "published",
+          "interactions": [
+            "650a7f59-34c9-45f6-8993-2229d72e0803",
+            "fba7642f-e9f8-484a-9147-c3c3f055db57"
+          ]
         },
         {
           "title": "Java Lambdas",
           "path": "instruction/lambdas/lambdas.md",
-          "id": "c8d41446-47a5-49ab-b48b-2605fbd99a66",
-          "state": "published"
+          "id": "5fc24ac6-e3ec-43f5-9ea5-1005ba1f41c2",
+          "state": "published",
+          "interactions": [
+            "8d174ea4-f27d-4e6b-a4bb-97b6392042a2",
+            "7d844be9-f784-47bd-98d1-6c16d71514af"
+          ]
+        },
+        {
+          "title": "Phase 1: Architectural Patterns",
+          "type": "instruction",
+          "path": "instruction/phase-1-architectural-patterns/phase-1-architectural-patterns.md",
+          "id": "e01491b5-6068-4dfa-8518-637d7a6cf1cd",
+          "state": "published",
+          "interactions": [
+            "fcb32d79-ec7c-4f58-bfc5-a7e1bd109c69"
+          ],
+          "description": ""
+        },
+        {
+          "title": "Phase 1: Getting Started",
+          "path": "chess/1-chess-game/getting-started.md",
+          "id": "2df6f94b-6d13-48e7-ba02-e820a93e3242",
+          "state": "published",
+          "interactions": [
+            "d3918a97-5dfd-45e0-99de-2eb8c7636785"
+          ]
+        },
+        {
+          "title": "Phase 1: Chess Game",
+          "type": "project",
+          "points": 100,
+          "path": "chess/1-chess-game/chess-game.md",
+          "id": "773b3a41-6df9-4796-8894-a9a8ae6036ae",
+          "state": "published",
+          "interactions": [
+            "92cb273b-e92d-4120-b720-8c40a3a87672",
+            "1a5b6586-b075-4b9b-9d61-3e1f469ba93b",
+            "1e68c21b-7b78-4cb2-b0f6-59eace8763db",
+            "e20bf737-288c-4c74-9327-9661ff4ccdd8",
+            "4935143c-88fb-4462-b7a4-2424d2d48821",
+            "cd733c72-dca6-4419-8685-b47db5d666a2"
+          ],
+          "description": ""
+        },
+        {
+          "title": "Java Input and Output (IO)",
+          "path": "instruction/io/io.md",
+          "id": "872db001-7cb9-4530-acab-b80d494e7880",
+          "state": "published",
+          "interactions": [
+            "7f4a04df-a0bf-41a2-9992-a29a38532709",
+            "8b2838fa-5094-416a-a0c7-4dfab43557e3",
+            "8d58b3aa-ce96-4f18-8f5f-59a22f5cf918",
+            "8e89fd3f-4cff-4fa8-909f-4b84c02036de"
+          ]
+        },
+        {
+          "title": "Java Generics",
+          "path": "instruction/generics/generics.md",
+          "id": "88238c79-271a-434c-aa98-5377424c433b",
+          "state": "published",
+          "interactions": [
+            "456c8942-f1aa-46a0-b24e-3337ad969702",
+            "f470d4bb-9996-49d1-8e91-6bb2a7337fa6",
+            "28bf0130-6f80-4b48-b224-2d137bdf1339"
+          ]
         }
       ]
     },
@@ -204,68 +391,142 @@
         {
           "title": "JSON and Serialization",
           "path": "instruction/json/json.md",
-          "id": "dd89a0d9-c456-4144-8d05-13e178044547",
-          "state": "published"
+          "id": "38ed2906-754f-4b0e-a59a-274a422bffcf",
+          "state": "published",
+          "interactions": [
+            "abf22efc-4823-4ae3-99c5-0847c7a6fd4d",
+            "1bfb9794-0fab-4bdc-8028-3029fe73365d"
+          ]
         },
         {
-          "title": "☑ Phase 2: Chess Server Design",
+          "title": "Phase 2: Architectural Patterns",
+          "type": "instruction",
+          "path": "instruction/phase-2-architectural-patterns/phase-2-architectural-patterns.md",
+          "id": "956bd54f-a1b7-45e1-8b5f-20ac0b7455b4",
+          "state": "published",
+          "description": "Describe architectural patterns and software design principles that would assist with the creation of a chess server design with the following directions:\n\n# ♕ Phase 2: Chess Server Design\n\n- [Chess Application Overview](../chess.md)\n- _This phase has no starter code._\n- 🖥️ [Slides](https://docs.google.com/presentation/d/12zsEJ-at5DsbKNy7a0Eac0D1ZWa4RBIC/edit?usp=sharing&ouid=117271818978464480745&rtpof=true&sd=true)\n- 🖥️ [Videos](#videos)\n- [TA Tips](../../instruction/chess-tips/chess-tips.md#phase-2---server-diagram): A collection of common problems for this phase\n\n#### 🥅 Outcomes of this Deliverable\n\n1. **Frame** software engineering problems by clarifying system purpose, constraints, and responsibilities, demonstrating both sound technical judgment and a sense of ownership for the long-term impact of software others depend on.\n1. **Explore** object-oriented frameworks, network protocols, distributed services, and databases with curiosity and discipline, developing accurate mental models while valuing learning as essential to responsible engineering practice.\n1. **Design** software systems using object-oriented principles and clear interfaces that support reliability and maintainability, motivated by care for future users, collaborators, and the evolution of the system over time.\n\n---\n\nIn this part of the Chess Project, you will create a [sequence diagram](https://en.wikipedia.org/wiki/Sequence_diagram) that represents the design of your chess server. Your chess server exposes seven endpoints. An endpoint is a URL that maps to a method that handles HTTP network requests. Your chess client calls the endpoints in order to play a game of chess. Each of these endpoints convert the HTTP network request into service object method calls, that in turn read and write data from data access objects. The data access objects persistently store data in a database. The service object method uses the information from the request and the data access objects to create a response that is sent back to the chess client through the HTTP server.\n\n## Application Components\n\nThe chess application components are demonstrated by the following diagram and description.\n\n![top level](top-level.png)\n\n| Component    | Sub-Component | Description                                                                                                                                                                                                                                                                                               |\n| ------------ | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |\n| Chess Client |               | A terminal based program that allows a user to play a game of chess. This includes actions to login, create, and play games. The client exchanges messages over the network with the chess server.                                                                                                        |\n| Chess Server |               | A command line program that accepts network requests from the chess client to login, create, and play games. Users and games are stored in the database. The server also sends game play commands to the chess clients that are participating in a specific game.                                         |\n|              | Server        | Receives network requests and locates correct endpoints.                                                                                                                                                                                                                                                  |\n|              | Handlers      | Deserialize information into java objects. Call service methods sending the objects to satisfy requests. <br> _Tip: You are not required to create your handlers in their own distinct classes. See [Web API instruction](../../instruction/web-api/web-api.md#implementing-endpoints) for alternatives._ |\n|              | Services      | Process the business logic for the application. This includes registering and logging in users and creating, listing, and playing chess games. Call the data access methods to retrieve and persist application data.                                                                                     |\n|              | DataAccess    | Provide methods that persistently store and retrieve the application data.                                                                                                                                                                                                                                |\n| Database     |               | Stores data persistently.                                                                                                                                                                                                                                                                                 |\n\n> [!NOTE]\n>\n> While we have the Handlers as distinct components here and later in the diagram, it is not required to have specific handler classes. You may implement this functionality directly in the lambda functions for the endpoints of your server.\n\n## Application Programming Interface (API)\n\nAs a first step for creating your design diagram, you need to carefully read the [Phase 3: Web API](../3-web-api/web-api.md) requirements so that you can internalize what each of the server endpoints do. This will help you understand the purpose and structure of the classes you are designing in this phase.\n\nThe server endpoints are summarized below, but it is critical that you completely understand their purpose, the data they expect, and the data that they return.\n\n| Endpoint    | Description                                                                                                                     |\n| ----------- | ------------------------------------------------------------------------------------------------------------------------------- |\n| Clear       | Clears the database. Removes all users, games, and authTokens.                                                                  |\n| Register    | Register a new user.                                                                                                            |\n| Login       | Logs in an existing user (returns a new authToken).                                                                             |\n| Logout      | Logs out the user represented by the provided authToken.                                                                        |\n| List Games  | Verifies the provided authToken and gives a list of all games.                                                                  |\n| Create Game | Verifies the provided authToken and creates a new game.                                                                         |\n| Join Game   | Verifies the provided authToken. Checks that the specified game exists, and adds the caller as the requested color to the game. |\n\n## Data Model Classes\n\nThe different components in your architecture will operate on three data model objects that your application must implement. This includes the following.\n\n| Object   | Description                                                                                                                                   |\n| -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |\n| UserData | A user is registered and authenticated as a player or observer in the application.                                                            |\n| AuthData | The association of a username and an authorization token that represents that the user has previously been authorized to use the application. |\n| GameData | The information about the state of a game. This includes the players, the board, and the current state of the game.                           |\n\nThese objects represent the core of what you are passing between your server, service, and data access components.\n\n## Creating Sequence Diagrams\n\nBased upon your understanding of the requirements provided by [Phase 3](../3-web-api/web-api.md) you now must create a sequence diagram for each endpoint that demonstrates the flow of interactions between your application objects. The diagram must include the successful happy path flow for each endpoint. You may also include error paths; doing so will likely be more helpful in preparing for Phase 3, but you will not lose points for not including error cases. You will need to at least consider error cases, as checking for some errors requires calls between layers which you are required to represent. For example, during registration we don't want to create a user with a username that's already taken, so there is a check for that in the starter diagram.\n\n### SequenceDiagram.Org\n\nYou will create your sequence diagram using a simple web based editing tool found at [sequencediagram.org](https://sequencediagram.org). The [instructions](https://sequencediagram.org/instructions.html) for using the tool document all of the basic elements necessary to create your diagram. It is not necessary for you to fully understand all the details of UML sequence diagrams, but it should be obvious from your diagrams what your application is designed to do.\n\nA basic sequence diagram uses object names separated by arrows that show the direction of the sequence. This is followed by a colon separated description of the sequence action. The following is a simple diagram for taking a class.\n\n```uml\nactor Student\n\ngroup #green Take class #white\nStudent -> University:register(className)\nStudent -> Class:attend(date)\nClass --> Student:knowledge\nend\n```\n\n### Register Example\n\nTo get you started on creating your sequence diagrams, we have provided you with a template that already contains a possible solution for the `register` endpoint and place holders for the other six endpoints.\n\n> [!IMPORTANT]\n>\n> Here is a link to your [Starter Diagram](https://sequencediagram.org/index.html#initialData=IYYwLg9gTgBAwgGwJYFMB2YBQAHYUxIhK4YwDKKUAbpTngUSWDABLBoAmCtu+hx7ZhWqEUdPo0EwAIsDDAAgiBAoAzqswc5wAEbBVKGBx2ZM6MFACeq3ETQBzGAAYAdAE5M9qBACu2AMQALADMABwATG4gMP7I9gAWYDoIPoYASij2SKoWckgQaJiIqKQAtAB85JQ0UABcMADaAAoA8mQAKgC6MAD0PgZQADpoAN4ARP2UaMAAtihjtWMwYwA0y7jqAO7QHAtLq8soM8BICHvLAL6YwjUwFazsXJT145NQ03PnB2MbqttQu0WyzWYyOJzOQLGVzYnG4sHuN1E9SgmWyYEoAAoMlkcpQMgBHVI5ACU12qojulVk8iUKnU9XsKDAAFUBhi3h8UKTqYplGpVJSjDpagAxJCcGCsyg8mA6SwwDmzMQ6FHAADWkoGME2SDA8QVA05MGACFVHHlKAAHmiNDzafy7gjySp6lKoDyySIVI7KjdnjAFKaUMBze11egAKKWlTYAgFT23Ur3YrmeqBJzBYbjObqYCMhbLCNQbx1A1TJXGoMh+XyNXoKFmTiYO189Q+qpelD1NA+BAIBMU+4tumqWogVXot3sgY87nae1t+7GWoKDgcTXS7QD71D+et0fj4PohQ+PUY4Cn+Kz5t7keC5er9cnvUexE7+4wp6l7FovFqXtYJ+cLtn6pavIaSpLPU+wgheertBAdZoFByyXAmlDtimGD1OEThOFmEwQZ8MDQcCyxwfECFISh+xXOgHCmF4vgBNA7CMjEIpwBG0hwAoMAADIQFkhRYcwTrUP6zRtF0vQGOo+RoFmipzGsvz-BwdFNp43h+P4XgoOgMRxIk+mGYJ9i+FgomCqB9QNNIEb8RG7QRt0PRyaoCnDBRVHoI2DHacx-gouu-jYOKGr8WiMAAOJKho1niTUdkxc5bn2Eq3mXr5hT0YxOkBBwADsbhOCgTgxBGwRwFxABs8AToYcVzDARTIOYNnVJJrQdOlmXTNliHoFmGVzAAckqmkBUxumWCgfYQJsRlIAkYBzQtS0AFIQOKsUVv4ySgGqbUlGJvpdaWzTMjJPSjSgWXwUNimjNgCDAHNUBwBACDQGsd0AJLSFN+VBV473LatYPyogwawMA2CvYQeQFK1iXnRJl0OU5LlucY-mYEAA). When you are done editing your diagram make sure you export a link as described in the **Deliverable** section below.\n\n![Register Sequence Diagram](register-sequence-diagram.png)\n\nThis example diagram represents the following sequence for registering and authorizing a player.\n\n> [!NOTE]\n>\n> This is one possible way to implement the register endpoint, but is not the only valid way this could be done\n\n1. A `client`, acting as a chess player, calls the `register` endpoint. This request is made as an HTTP network request with the `/user` URL path and a body that contains her username, password, and email in a JSON representation.\n2. The `server` gets the body with its information from the HTTP request and matches it to the correct handler.\n3. The `handler` takes the JSON information and creates an object to hold it and sends it to the correct service class.\n\n> [!TIP]\n>\n> You are not required to create your handlers in their own distinct classes. You may implement this functionality directly in the lambda functions for the endpoints of your server.\n\n4. The `service` calls a data access method in order to determine if there is already a user with that username.\n5. The `data access` method checks the database for a username matching the user.\n6. At this point there is a break in logic. If there is already a user with that username, the `data access` method will return a `UserData` of the user with that username. If there is no user with that name, it will return `null`.\n7. If there is a user with the username and the `data access` method returned a non-null UserData:\n   1. The `service` throws an `AlreadyTakenException`, a custom-made exception class in this example.\n   2. The `handler` doesn't have a catch block in this example, so the exception passes through to the server.\n   3. The `server` had been previously set up to send a specific response in case of an `AlreadyTakenException`, so it sends the error response.\n8. If there isn't a user with the username and the `data access` method returned null, the `service` then calls another data access method to create a new user with the given name and password.\n9. The `data access` method inserts the user into the database.\n10. The `service` then calls another data access method to create and store an authorization token (authToken) for the user. The authToken can be used on subsequent endpoint calls to represent that the user has already been authenticated.\n11. The `data access` method stores the username and associated authToken in the database.\n12. The `service` returns a result object containing the username and authToken.\n13. The `handler` converts the object into JSON text.\n14. The `server` returns this to the client.\n\n> [!NOTE]\n>\n> Note that the diagram includes simple representations of HTTP and database requests. You will learn how to use these technologies in later phases. You just need to understand that the `server` receives HTTP network requests and the database persistently stores your application data. It is also not important that you use correct UML Sequence diagram syntax for your diagrams. You just need to show that you understand what each of the endpoints are doing inside your code.\n\n### PetShop Example\n\nThere is an example [PetShop Server Sequence Diagram](../../petshop/petshop.md#endpoint-sequence-diagrams). The PetShop example as a whole is intended to demonstrate the core concepts of this course, but does not account for all the complexities that you will need to consider for your chess project. Learn from the example and walkthrough videos, and then do your own work to learn this new skill of diagramming.\n\n## Classes\n\nUsing your sequence diagram, you should be able to envision the Java classes and methods that are necessary for handling the interactions between your server, services, and data access components. You will create and implement these classes in the next phase.\n\nThe following is a recommended class structure:\n\n![sever design architecture](server-class-structure.png)\n\nThis architecture includes a handler method for each server endpoint that calls a corresponding service method. Each service method takes a request object and returns a response object. The service method interacts with the data access methods to store and retrieve data from the database. The application model objects serve as the primary data representations that are passed between the server, services, and data access components.\n\nYou can decompose your handlers, services, and data access components into multiple classes or leave them as a single class as your design requires in order to meet the principles of good software design.\n\n> [!TIP]\n>\n> You are not required to create your handlers in their own distinct classes. The [Web API instruction](../../instruction/web-api/web-api.md#implementing-endpoints) shows several other patterns; you are free to balance the pros & cons and choose the best approach for you.\n\n## ☑ Deliverable\n\n### Pass Off, Submission, and Grading\n\nOnce you have created your diagram you can create a URL that represents it by selecting the `export diagram` tool found on the toolbar to the left of the application. In the export dialog select `Presentation Mode Link` and copy the URL.\n\n Submit the URL to the `Chess Server Design` Canvas Assignment.\n\n![sequencediagram.org](sequence-diagram-org.gif)\n\nMake sure you save a copy of your sequence diagram URL in your GitHub repository. A good place for this is in the README.md file of your project.\n\n### Grading Rubric\n\nWhen initially graded, your design will be given one of three scores:\n\n| Criteria                                                                                                                                                                                                                                                                  | Score |\n| :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----: |\n| Your design is mostly correct with only minor adjustments needed. Read TA suggestions for improvement in Canvas.                                                                                                                                                          |    50 |\n| Your design has significant deficiencies. Meet with a TA to discuss your design, ideally the same TA who originally graded your design. Improve and resubmit your design within one week (or two days in a term) of initial grading, and receive a maximum score of 100%. |    25 |\n| The submitted design was not a serious attempt at doing the assignment correctly. Resubmit your design within one week (or two days in a term) of initial grading and receive a maximum score of 50%.                                                                     |     0 |\n\n\n#### 🥅 Outcome Reflections\n\nWith the completion of this chess server design deliverable checkpoint, it is time to reflect upon the course outcomes and your ability to master them.\n\n```masteryls\n{\"id\":\"ef7e108e-d6b3-49e8-9745-1f9a25d6eb91\",\"title\":\"Frame\",\"type\":\"essay\",\"gradingCriteria\":\"- Addresses the prompt directly\\n- Uses at least one concrete example\\n- Demonstrates accurate understanding of key concepts\"}\nWhat process did you use to frame your understanding of how chess server so that it properly reflected the requirements? How did you determine a correct understanding of the problem so that you were able to consider the factors that your users deem important and will depend on?\n```\n\n```masteryls\n{\"id\":\"c47c5b60-373f-47d8-81d7-2c5e48836b9a\",\"title\":\"Explore\",\"type\":\"essay\",\"gradingCriteria\":\"- Addresses the prompt directly\\n- Uses at least one concrete example\\n- Demonstrates accurate understanding of key concepts\"}\nWhat software engineering principles and practices did you consider when you were exploring how to represent a chess server? What did you do to advance your learning of the possible solution space?\n```\n\n```masteryls\n{\"id\":\"836e189e-364e-4030-907b-fd0b7a33a287\",\"title\":\"Design\",\"type\":\"essay\",\"gradingCriteria\":\"- Addresses the prompt directly\\n- Uses at least one concrete example\\n- Demonstrates accurate understanding of key concepts\"}\nWhat object-oriented and design principles did you consider as you converted your framing and exploration of the chess server into a design solution? What did you do to ensure you were considering the needs of future developers and users of the application?\n```\n\n\n## Videos\n\n- 🎥 [Chess Server Design - Introduction (16:15)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=bd253d7a-375d-4833-87e0-b17e015a6b7f) - [[transcript]](https://github.com/user-attachments/files/17706891/CS_240_Chess_Server_Design_Introduction_Transcript.pdf)\n- 🎥 [Chess Server Design - Software Design Principles (2:16)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=c8afd967-18dc-4396-b92e-b17e015f13b9) - [[transcript]](https://github.com/user-attachments/files/17706903/CS_240_Chess_Server_Design_Software_Design_Principles_Transcript.pdf)\n- 🎥 [Chess Server Design - Web API Functions (10:49)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=c5c80f46-0abc-4f9d-bb19-b17e015ffab0) - [[transcript]](https://github.com/user-attachments/files/17706921/CS_240_Chess_Server_Design_Web_API_Functions_Transcript.pdf)\n- 🎥 [Chess Server Design - Model Classes (7:43)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=789ab87f-a7b7-4b71-b8cd-b17e016353d9) - [[transcript]](https://github.com/user-attachments/files/17706930/CS_240_Chess_Server_Design_Model_Classes_Transcript.pdf)\n- 🎥 [Chess Server Design - Data Access Classes (14:31)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=b9cdbf1f-e8de-4da4-ad17-b17e0165ee50) - [[transcript]](https://github.com/user-attachments/files/17706935/CS_240_Chess_Server_Design_Data_Access_Classes_Transcript.pdf)\n- 🎥 [Chess Server Design - Service and Request/Result Classes (11:25)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=983ebf64-8210-454c-b28d-b17e016a588a) - [[transcript]](https://github.com/user-attachments/files/17706955/CS_240_Chess_Server_Design_Service_and_Request_Result_Classes_Transcript.pdf)\n- 🎥 [Chess Server Design - Server Class and HTTP Handler Classes (7:24)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=8f6c6bb0-5528-4a0b-a6c0-b17e016deda3) - [[transcript]](https://github.com/user-attachments/files/17706963/CS_240_Chess_Server_Design_Server_Class_and_http_Handler_Classes_Transcript.pdf)\n- 🎥 [Chess Server Design - Frequently Asked Questions (6:55)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=89324a09-d550-4fbd-8d9f-b17e01704a5a)- [[transcript]](https://github.com/user-attachments/files/17706972/CS_240_Chess_Server_Design._Frequently_Asked_Questions_Transcript.pdf)\n- 🎥 [Phase 2 Overview (14:25)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=1b3ed136-4ef1-41d0-8e6c-b17e0172c0bf)- [[transcript]](https://github.com/user-attachments/files/17706974/CS_240_Chess_Server_Design_Phase_2_Transcript.pdf)\n"
+        },
+        {
+          "title": "Phase 2: Chess Server Design",
+          "type": "project",
+          "points": 100,
           "path": "chess/2-server-design/server-design.md",
-          "id": "90e32a33-211e-4980-a5fe-bfbb39cda9af",
-          "state": "published"
+          "id": "f459c5a9-c14e-4383-96f7-21fbfef67bae",
+          "state": "published",
+          "interactions": [
+            "ef7e108e-d6b3-49e8-9745-1f9a25d6eb91",
+            "c47c5b60-373f-47d8-81d7-2c5e48836b9a",
+            "836e189e-364e-4030-907b-fd0b7a33a287"
+          ],
+          "description": ""
         },
         {
           "title": "HTTP",
           "path": "instruction/http/http.md",
-          "id": "f730776e-5b13-4a82-8fec-f4a7afd023d5",
-          "state": "published"
+          "id": "496c90f3-4c8d-446c-a5a3-b21bdacbc209",
+          "state": "published",
+          "interactions": [
+            "f4e03e17-bc29-4e17-b48e-45c138c3abfb",
+            "569eaf90-5ac2-46a1-a115-fe54bb1685ad"
+          ]
         },
         {
           "title": "cURL",
           "path": "instruction/curl/curl.md",
-          "id": "404c37c3-4205-4411-8d56-3613e0aad0d0",
-          "state": "published"
+          "id": "990189e6-efe2-44e9-8313-767c9074da9b",
+          "state": "published",
+          "interactions": [
+            "dc18f662-992d-4400-be14-87047258c032",
+            "f1ce14d7-1260-41dc-ab21-a4168974c180"
+          ]
         },
         {
           "title": "Web API",
           "path": "instruction/web-api/web-api.md",
-          "id": "5fab57d9-3faf-4ee4-8f89-9ce8bbfb94c5",
-          "state": "published"
+          "id": "def865eb-0fc9-4383-a2a2-05bb46528ab1",
+          "state": "published",
+          "interactions": [
+            "c95709c4-34f1-4e02-82aa-e2c7584bcc82",
+            "0eb7aa48-f799-4522-b7e5-02506de60f63"
+          ]
+        },
+        {
+          "title": "Phase 3: Architectural Patterns",
+          "type": "instruction",
+          "path": "instruction/phase-3-architectural-patterns/phase-3-architectural-patterns.md",
+          "id": "1ae9b65e-9a5f-413a-b224-de2fbecd11a2",
+          "state": "published",
+          "interactions": [
+            "b6c16aa7-1d68-4f2d-b159-d3da5e8e838a",
+            "5fbe2449-c027-496e-8996-6b927f882e57"
+          ],
+          "description": ""
         },
         {
           "title": "Phase 3: Getting Started",
           "path": "chess/3-web-api/getting-started.md",
-          "id": "082540e1-8dc1-4a2f-a467-7fcd58891e3c",
-          "state": "published"
+          "id": "afa916e8-a9dc-4b25-8c82-56f38395cb8e",
+          "state": "published",
+          "interactions": [
+            "c8f7653a-760f-4c62-8817-376b7e381ab5"
+          ]
         },
         {
-          "title": "☑ Phase 3: Chess Web API",
+          "title": "Phase 3: Chess Web API",
+          "type": "project",
+          "points": 100,
           "path": "chess/3-web-api/web-api.md",
-          "id": "0af6161c-03f7-4f9e-9e46-5a068eceb97b",
-          "state": "published"
+          "id": "8c6cf5d7-89e5-4af1-a3f7-6b25e8dfed82",
+          "state": "published",
+          "interactions": [
+            "8e3c0adc-1d43-44d3-b12d-32d81b0db1a6",
+            "a0ae347e-4e87-4f70-bc04-f88800c6af16",
+            "5f19d8ae-e2b5-4adb-8258-b87f5e157c6e",
+            "3ba8e4c9-7b05-4512-9dcf-80b5257717f4",
+            "dfd511cd-6a2c-4026-b184-81eccfe284e8",
+            "d2f284fd-f0e7-491e-9f33-ea17a4a6262a"
+          ],
+          "description": ""
         },
         {
           "title": "Writing Quality Code",
           "path": "instruction/quality-code/quality-code.md",
-          "id": "68137d10-937e-456e-bd2a-24367694cdbb",
-          "state": "published"
+          "id": "a0227764-2fb9-47d6-8f64-4f2db685af8a",
+          "state": "published",
+          "interactions": [
+            "efe6a0a3-b72a-4126-8591-60d39f110906",
+            "d602989d-7d2a-4286-959f-1e864df2aff9",
+            "06f01b46-4117-41d5-a6e7-b1fc1615ed9d"
+          ]
         },
         {
           "title": "Style Checking",
           "path": "instruction/style-checker/style-checker.md",
-          "id": "9d31d727-a7df-4c6a-84ee-841e513f62f9",
-          "state": "published"
+          "id": "1d84be1f-b7e0-4576-a716-daa4c7173511",
+          "state": "published",
+          "interactions": [
+            "95075348-bcd9-420f-83e3-02a4fb0aef05"
+          ]
         },
         {
           "title": "Unit Testing",
           "path": "instruction/unit-testing/unit-testing.md",
-          "id": "cdbf58b3-add0-4e29-8bfc-dfe0b265d223",
-          "state": "published"
+          "id": "00287eee-722f-450a-b48b-6be729d43573",
+          "state": "published",
+          "interactions": [
+            "e23f3eaf-fadc-4285-8273-35b9852057b7",
+            "da9ad5d7-2473-4385-a73c-1f5d9167e751"
+          ]
         },
         {
           "title": "Code Coverage",
           "path": "instruction/code-coverage/code-coverage.md",
-          "id": "559f4ee9-e45f-4c28-aaf4-314ce399e270",
-          "state": "published"
+          "id": "0412f5dd-9767-420a-b2c4-3b64c6b3e16c",
+          "state": "published",
+          "interactions": [
+            "4057882b-96e0-4013-8f40-6f182d587ba5",
+            "d74950d1-2903-4cda-ab9f-0d38a4dcb11c"
+          ]
         }
       ]
     },
@@ -275,62 +536,124 @@
         {
           "title": "Relational Model",
           "path": "instruction/db-model/db-model.md",
-          "id": "9c15e0e5-f0aa-4d9b-b413-370cf1e60793",
-          "state": "published"
+          "id": "b2865075-48d5-4df5-a507-adea207c51a5",
+          "state": "published",
+          "interactions": [
+            "919d8714-ed1e-46f4-bff4-a325ad6faa82",
+            "b71c6678-edec-4df5-91cf-0ea35c052fe9",
+            "bff5e1a4-9f58-4a88-9b7d-3f8a224a6cf4",
+            "1d3d77ad-0b50-47c5-933c-a3f4b715b436",
+            "dd51ad74-9844-4409-a5a7-08cf81aa1059"
+          ]
         },
         {
           "title": "MySQL",
           "path": "instruction/mysql/mysql.md",
-          "id": "bb1caff7-0fbf-4b70-8616-eefa357523f1",
-          "state": "published"
+          "id": "25c3b096-518e-438e-88dd-3443731f74d4",
+          "state": "published",
+          "interactions": [
+            "19d8fb82-cb67-4849-b5d1-2fce2786f6b7",
+            "5097a507-34c8-491d-8c15-f0d339002d8f"
+          ]
         },
         {
           "title": "SQL",
           "path": "instruction/db-sql/db-sql.md",
-          "id": "1e333ebb-b584-4355-b805-3ab84f168a49",
-          "state": "published"
+          "id": "8b21a842-4986-4984-af7f-457bff716739",
+          "state": "published",
+          "interactions": [
+            "b99232fb-8952-4891-820d-3d43c212c380",
+            "6752ac49-2730-4b99-bb34-51e62dcf5bc3"
+          ]
         },
         {
           "title": "JDBC",
           "path": "instruction/db-jdbc/db-jdbc.md",
-          "id": "126e3c20-f919-48ae-bcc8-b5ce90cd9a78",
-          "state": "published"
+          "id": "9773ec2e-938c-4f18-96b1-c76b6a835766",
+          "state": "published",
+          "interactions": [
+            "2975ae3a-d235-454d-a5b2-cb0e11cc0e97",
+            "d58d3fd8-6ba9-417d-b084-ed10e9bc459e",
+            "9393c3bb-b1de-4c25-8822-2cd06d2b8854",
+            "0aec7a29-50f8-4a16-9222-2eeb236fbfeb"
+          ]
         },
         {
           "title": "Securing Passwords",
           "path": "instruction/securing-passwords/securing-passwords.md",
-          "id": "b19b9486-c32e-4e7e-a89b-6523395b7399",
-          "state": "published"
+          "id": "7f39c46d-ccbd-4837-b559-d46b0997c5e4",
+          "state": "published",
+          "interactions": [
+            "7ea13f64-a461-4c6e-89ae-86a2da0e6a52",
+            "92b925c6-95ec-4402-939b-ce07d0623105"
+          ]
+        },
+        {
+          "title": "Phase 4: Architectural Patterns",
+          "type": "instruction",
+          "path": "instruction/phase-4-architectural-patterns/phase-4-architectural-patterns.md",
+          "id": "e8f3b4ad-dbaf-4d8f-a925-409c31c35fe0",
+          "state": "published",
+          "interactions": [
+            "b746e8d8-7f29-43b8-ad95-f52ae0ed6f19"
+          ],
+          "description": "Describe the important software engineering architectural patterns and design principles used to implement a data access layer to a service"
         },
         {
           "title": "Phase 4: Getting Started",
           "path": "chess/4-database/getting-started.md",
-          "id": "7015834a-21b5-4ce5-ba51-647900194cb7",
-          "state": "published"
+          "id": "edeec8a4-c238-47a1-866e-a190c7c6e0d0",
+          "state": "published",
+          "interactions": [
+            "dc4c1925-1449-4c42-a6cf-eda1740d1051"
+          ]
         },
         {
-          "title": "☑ Phase 4: Chess Database",
+          "title": "Phase 4: Chess Database",
+          "type": "project",
+          "points": 100,
           "path": "chess/4-database/database.md",
-          "id": "268b44ba-6f99-45c3-829a-7929d5614eb3",
-          "state": "published"
+          "id": "35fc7825-07b3-4400-82c1-9b06147291ea",
+          "state": "published",
+          "interactions": [
+            "bcc505a6-10fd-4994-bac8-28e2b37148b3",
+            "712d8fed-6c1f-449b-af7d-f8202d020522",
+            "ffb735d5-1e63-4a7b-b180-49894ad2d166",
+            "31b090f1-0051-4a91-9557-7bfbcd52a1d0",
+            "e0f6f56e-679b-4023-896d-4ea76530f513",
+            "38f734f7-3436-48d9-8b76-e0224b751d6f"
+          ],
+          "description": ""
         },
         {
           "title": "Logging",
           "path": "instruction/logging/logging.md",
-          "id": "4d22d359-6c0c-4e5d-a9ec-6f4a55e5bc54",
-          "state": "published"
+          "id": "7dd775ef-6131-4ac4-b58d-2017f27634e8",
+          "state": "published",
+          "interactions": [
+            "d2e8e289-dc32-4c79-8343-a9474f84b310",
+            "11fcc3e3-2f6e-42bf-b484-86dc8cb4f999"
+          ]
         },
         {
           "title": "Debugging",
           "path": "instruction/debugging/debugging.md",
-          "id": "739f3ab0-799e-404c-a003-89ff083c1498",
-          "state": "published"
+          "id": "5f56719a-a964-4d91-afb2-80537d39bff0",
+          "state": "published",
+          "interactions": [
+            "e98f9beb-df82-41d3-96b9-b0b82c53c670"
+          ]
         },
         {
           "title": "Defensive Programming",
           "path": "instruction/defensive-programming/defensive-programming.md",
-          "id": "adfb714a-a337-40ff-b2b6-b00f832e3932",
-          "state": "published"
+          "id": "7814003c-2643-4298-8452-b696a7fb4122",
+          "state": "published",
+          "interactions": [
+            "75dda285-9329-46b2-8c9e-3cba4efedb23",
+            "068fd0bf-baa3-4d1f-b12e-859d794716e2",
+            "fb9280b0-a467-4a9c-be3a-90b4ff2aa50b"
+          ]
         }
       ]
     },
@@ -340,61 +663,140 @@
         {
           "title": "Console UI",
           "path": "instruction/console-ui/console-ui.md",
-          "id": "ca7ac1b1-959d-4312-93b2-880c836d53df",
-          "state": "published"
+          "id": "b94dc1ae-a083-43cf-bbda-04b467b7ba04",
+          "state": "published",
+          "interactions": [
+            "c5b88226-5c50-4e90-86fa-342b4b8fb05d"
+          ]
+        },
+        {
+          "title": "Phase 5: Architectural Patterns",
+          "type": "instruction",
+          "path": "instruction/phase-5-architectural-patterns/phase-5-architectural-patterns.md",
+          "id": "1679af67-89cc-4c5a-bee7-53bad99f4d44",
+          "state": "published",
+          "interactions": [
+            "65911966-69cc-4552-9be7-a1b1ffe2ef7b",
+            "547ffb92-2b7d-4d99-9515-f15aa1ae2b76"
+          ],
+          "description": "Discuss the architectural patterns necessary to create a CLI program that communicates with a server over HTTP. Include software design patterns and pros and cons and common mistakes with the architecture.\n\nHere is the description of the project:\n\n\nIn this phase of the Chess Project, you will create the initial version of your Chess client. Your client will be a terminal-based (console) program providing a simple interface for interacting with the Chess server.\n\nYou will implement all user interactions that occur outside of active gameplay. Gameplay interactions will be implemented in the next phase. This includes functionality for displaying help text, registering, logging in, listing existing games, creating new games, joining a game, observing a game, logging out, and exiting. You will also write the client code responsible for drawing the chessboard.\n\nTo implement this, you will create a `ServerFacade` class to handle sending HTTP requests to your server and receiving responses. Your client code will use these `ServerFacade` methods to interact with the server API."
         },
         {
           "title": "Phase 5: Getting Started",
           "path": "chess/5-pregame/getting-started.md",
-          "id": "8476adc5-2796-4f8d-a54b-31fe09089551",
-          "state": "published"
+          "id": "2f9040df-795b-4847-bfe2-ac3d8de10d0b",
+          "state": "published",
+          "interactions": [
+            "e286f471-ddec-45b2-9f02-7d50634fa061"
+          ]
         },
         {
-          "title": "☑ Phase 5: Chess Pregame",
+          "title": "Phase 5: Chess Pregame",
+          "type": "project",
+          "points": 100,
           "path": "chess/5-pregame/pregame.md",
-          "id": "3d46a6ba-532c-4be5-8b73-d8353977825d",
-          "state": "published"
+          "id": "a9c3b3e6-bfe7-4247-a034-a08adbf35334",
+          "state": "published",
+          "interactions": [
+            "e21028f3-f5e5-413c-be2f-ee53b77d3f6b",
+            "939db0e5-dded-44d3-90a6-cd8e8ca21490",
+            "f9237c61-b9e6-49f4-bb60-d27952c2d113",
+            "4e1a8585-e1a7-4bcc-9d73-d8f46fccf4a8",
+            "368fa787-fc08-4b5d-b1ea-3f707fe87f40",
+            "19f7601e-39e4-4014-9888-14861455ba58"
+          ],
+          "description": ""
         },
         {
           "title": "WebSocket",
           "path": "instruction/websocket/websocket.md",
-          "id": "22efda8e-ff07-4e90-b84c-6c2e1092d42e",
-          "state": "published"
+          "id": "ea1daf23-33c1-4104-8fec-532d089e638d",
+          "state": "published",
+          "interactions": [
+            "2d0aa07e-3398-475a-8c0d-e767bd659a5a",
+            "527f286e-4439-40ef-9a8c-3c5891175325"
+          ]
+        },
+        {
+          "title": "Phase 6: Architectural Patterns",
+          "type": "instruction",
+          "path": "instruction/phase-6-architectural-patterns/phase-6-architectural-patterns.md",
+          "id": "44c48e77-2bae-460e-b1a0-f5ae2f0f850f",
+          "state": "published",
+          "interactions": [
+            "b0243709-feec-4de7-9dee-c55785397d85",
+            "33b01d41-39c5-45dc-9ae6-b61fd516d6e6"
+          ],
+          "description": "A discussion of architectural patterns and software engineering principles covered by the chess gameplay deliverable. Include pros and cons and suggestions for improvement\n\nFor the final part of the Chess Project, you will implement gameplay. Gameplay will use WebSocket to communicate between client and server (instead of Web APIs). When a user begins playing or observes a game, their client should establish a WebSocket connection with the server. The WebSocket connection exchanges messages between client and server (and vice versa). Figure 1 shows a recommended design for the chess client.\n\n```mermaid\n%%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%\n\nclassDiagram\n\n    direction LR\n    class ChessClient\n    class ServerFacade\n    class WebsocketCommunicator\n    class HttpCommunicator\n    class Internet\n    class Server\n\n    ServerFacade --> HttpCommunicator\n\n    ChessClient --> ServerFacade\n\n    ServerFacade --> WebsocketCommunicator : ctor(observer)\n\n    class ServerMessageObserver {\n        <<interface>>\n        +notify(ServerMessage message)\n    }\n\n    WebsocketCommunicator --> ServerMessageObserver : notify()\n\n    ChessClient --|> ServerMessageObserver\n\n    HttpCommunicator ..> Internet\n    WebsocketCommunicator <..> Internet\n    Internet <..> Server\n```\n_Figure 1: Recommended Chess Client Design_"
         },
         {
           "title": "Phase 6: Getting Started",
           "path": "chess/6-gameplay/getting-started.md",
-          "id": "40c0ada2-ebf7-4a75-b7e3-410533c1d4fc",
-          "state": "published"
+          "id": "855830c3-1eb0-4f72-befd-1398f534c493",
+          "state": "published",
+          "interactions": [
+            "0c644e53-10e0-46cb-aba5-7f59f3fa3293"
+          ]
         },
         {
-          "title": "☑ Phase 6: Chess Gameplay",
+          "title": "Phase 6: Chess Gameplay",
+          "type": "project",
+          "points": 100,
           "path": "chess/6-gameplay/gameplay.md",
-          "id": "6ea75270-9c65-4adc-ad0d-75b3195bf3e0",
-          "state": "published"
+          "id": "c4ee3fa9-aa3c-401c-8053-a29b5a12b0cb",
+          "state": "published",
+          "interactions": [
+            "d2d9ee04-2d9a-40f9-9c13-db1db990c162",
+            "ce464df0-a2d6-45a9-a659-a2eb2227d1b0",
+            "d586edeb-56ad-42da-a354-36a000e660b4",
+            "058feffa-056d-44fa-8a27-ab1e6a5c3762",
+            "27be87bf-8c65-484a-a25c-ce0553215a4e",
+            "a5dec25a-2131-4137-927a-abbc6d331abd"
+          ],
+          "description": ""
+        }
+      ]
+    },
+    {
+      "title": "Enrichment",
+      "topics": [
+        {
+          "title": "Concurrency",
+          "path": "instruction/concurrency/concurrency.md",
+          "id": "65803a0c-cc78-41f6-9c01-f935e26c00ab",
+          "state": "published",
+          "interactions": [
+            "4226f08f-09a1-49a3-a5cc-cd30f4760fbd",
+            "33d58c6f-e8af-4c3b-990f-7f7b05f860a6",
+            "d7ae2be0-5609-4b7c-8563-346ab36b286f"
+          ]
         },
         {
           "title": "Computer Security",
           "path": "instruction/computer-security/computer-security.md",
-          "id": "33ffe9db-8bc7-4091-943f-89bf6c368d4c",
-          "state": "published"
+          "id": "0ffff5f3-5a33-45e3-9e93-9213a75260b3",
+          "state": "published",
+          "interactions": [
+            "72e7da2d-4755-40ef-bcc6-cd3c0ebee3c0",
+            "c1c21706-2c8e-406e-a54d-62695cab0c42",
+            "848391d2-e265-4d53-ad15-a55fc760547c"
+          ]
         },
         {
-          "title": "Concurrency",
-          "path": "instruction/concurrency/concurrency.md",
-          "id": "186f08f3-7da3-4360-a650-6deb8f38d885",
-          "state": "published"
-        },
-        {
-          "title": "Command line tools",
-          "path": "instruction/command-line-builds/command-line-builds.md",
-          "id": "e71eb6ac-cde2-4982-a86d-d33372f70c5d",
-          "state": "published"
+          "title": "Distributed Architectures",
+          "type": "instruction",
+          "path": "instruction/distributed-application-architectures/distributed-application-architectures.md",
+          "id": "55fcd10b-d313-4f56-b69b-7608d05242cf",
+          "state": "published",
+          "interactions": [
+            "2c6e844f-d498-44ef-8ac3-2a25b99d7b34"
+          ],
+          "description": "This topic discusses five popular different distributed application architectures. They are compared and contrasted with coding examples and  UML dataflow diagrams for each. \n\nOther architectures are also mentioned.\n\n\nArchitecture Model\tDescription\tAdvantages\tDisadvantages\tCommon Examples\nClient-Server\tClients request services from centralized servers.\tSimple, easy to manage.\tServer can become a bottleneck or single point of failure.\tWeb applications, email systems\nThree-Tier Architecture\tPresentation, business logic, and data layers are separated.\tBetter maintainability and scalability.\tMore complexity than client-server.\tEnterprise applications\nN-Tier (Multi-Tier)\tMultiple layers for presentation, services, business logic, and data.\tHigh scalability and separation of concerns.\tIncreased deployment complexity.\tLarge enterprise systems\nPeer-to-Peer (P2P)\tEvery node acts as both client and server.\tHighly decentralized and fault tolerant.\tDifficult coordination and security.\tBitTorrent, blockchain networks\nService-Oriented Architecture (SOA)\tBusiness functions exposed as reusable services.\tReusability and enterprise integration.\tHeavy infrastructure and governance.\tEnterprise integration systems\nMicroservices Architecture\tApplication divided into small independently deployable services.\tScalability, independent deployments.\tDistributed system complexity.\tNetflix, Amazon, Uber\nEvent-Driven Architecture (EDA)\tComponents communicate through events.\tLoose coupling, highly scalable.\tDebugging and tracing can be difficult.\tIoT systems, real-time analytics\nMessage-Oriented Architecture\tComponents exchange messages through queues or brokers.\tReliability and asynchronous processing.\tIncreased latency and operational complexity.\tRabbitMQ, ActiveMQ systems\nServerless Architecture\tFunctions execute in response to events and are managed by cloud providers.\tNo server management, pay-per-use.\tVendor lock-in and cold starts.\tAWS Lambda, Azure Functions\nSpace-Based Architecture\tData and processing distributed across memory grids to eliminate database bottlenecks.\tHigh throughput and elasticity.\tComplex design and data consistency challenges.\tHigh-volume e-commerce platforms\nDistributed Object Architecture\tObjects communicate across network boundaries.\tNatural object-oriented design.\tTight coupling and scalability issues.\tCORBA, Java RMI\nActor Model Architecture\tIndependent actors communicate via asynchronous messages.\tExcellent concurrency and fault isolation.\tDifferent programming paradigm.\tErlang/OTP, Akka\nCQRS + Event Sourcing\tSeparate read and write models; state reconstructed from events.\tScalability, auditability.\tHigh complexity.\tFinancial systems, auditing platforms\nData-Centric Architecture\tShared distributed data store is the central integration point.\tSimplifies data sharing.\tCan create contention around data store.\tDistributed databases, data lakes"
         },
         {
           "title": "AWS Chess Server",
           "path": "instruction/aws-chess-server/aws-chess-server.md",
-          "id": "149ee1b9-6a89-480d-a7ac-2204ea78fcec",
+          "id": "8ed1bd15-0fa8-41f8-9dd3-8fe70af59fe3",
           "state": "published"
         }
       ]
@@ -405,8 +807,27 @@
         {
           "title": "Final Exam Review",
           "path": "instruction/final-exam-review/final-exam-review.md",
-          "id": "4cf0a717-093f-44f8-98b8-0b74320fcecc",
+          "id": "04fc421b-e9af-4ba9-9ae0-09c1133683ae",
           "state": "published"
+        },
+        {
+          "title": "Final - Job Interview",
+          "type": "interview",
+          "path": "instruction/job-interview/job-interview.md",
+          "id": "2075d10f-6f6b-47d5-8d25-0c1f3765bc2b",
+          "state": "published",
+          "description": ""
+        },
+        {
+          "title": "Wrap Up",
+          "type": "instruction",
+          "path": "instruction/wrap-up/wrap-up.md",
+          "id": "b2e86dda-b774-4cc6-b437-0ac650e42233",
+          "state": "published",
+          "interactions": [
+            "ae0cbb96-e945-4746-8c51-048cce855e1c"
+          ],
+          "description": "Conclusion of the class. A quick review of what was learned, suggestions on future areas of study and I review of the outcomes"
         }
       ]
     }
