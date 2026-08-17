@@ -1,6 +1,10 @@
 {
-  "title": "Advanced Software Construction v2",
+  "title": "Advanced Software Construction",
   "links": {},
+  "externalRefs": {
+    "canvasCourseId": "38426",
+    "canvasScheduleFileId": "3431b5e4-3b80-4117-926e-a1c96f5d41d9"
+  },
   "schedule": {
     "id": "1f3c824b-fd26-497f-9a0f-f2aa40adef88",
     "files": [
@@ -16,6 +20,9 @@
   "modules": [
     {
       "title": "Course info",
+      "externalRefs": {
+        "canvasModuleId": 412162
+      },
       "topics": [
         {
           "title": "Home",
@@ -26,7 +33,10 @@
           "interactions": [
             "624dbbb7-bbc1-4061-9c51-080623358b39"
           ],
-          "description": ""
+          "description": "",
+          "externalRefs": {
+            "canvasPageId": 1649552
+          }
         },
         {
           "title": "Syllabus",
@@ -35,7 +45,10 @@
           "state": "published",
           "interactions": [
             "bae08349-d561-4c4b-9a84-208fab172b36"
-          ]
+          ],
+          "externalRefs": {
+            "canvasPageId": 1649553
+          }
         },
         {
           "title": "Asking questions",
@@ -44,7 +57,10 @@
           "state": "published",
           "interactions": [
             "8f35a1b4-8968-4829-b951-bd7a1ad2ee08"
-          ]
+          ],
+          "externalRefs": {
+            "canvasPageId": 1649554
+          }
         },
         {
           "title": "Late policy",
@@ -803,6 +819,9 @@
     },
     {
       "title": "Final",
+      "externalRefs": {
+        "canvasModuleId": 412163
+      },
       "topics": [
         {
           "title": "Final Exam Review",
@@ -816,7 +835,10 @@
           "path": "instruction/job-interview/job-interview.md",
           "id": "2075d10f-6f6b-47d5-8d25-0c1f3765bc2b",
           "state": "published",
-          "description": ""
+          "description": "",
+          "externalRefs": {
+            "canvasAssignmentId": 1440824
+          }
         },
         {
           "title": "Wrap Up",
@@ -827,7 +849,10 @@
           "interactions": [
             "ae0cbb96-e945-4746-8c51-048cce855e1c"
           ],
-          "description": "Conclusion of the class. A quick review of what was learned, suggestions on future areas of study and I review of the outcomes"
+          "description": "Conclusion of the class. A quick review of what was learned, suggestions on future areas of study and I review of the outcomes",
+          "externalRefs": {
+            "canvasPageId": 1649555
+          }
         }
       ]
     }
