@@ -4,17 +4,17 @@
 
 ## Getting help
 
-- [Discord](https://discord.com) ([Invite](https://discord.gg/rY57bzYVUn))
+- [Discord](https://discord.com) ([Invite](https://discord.gg/jbgm5EYHDm))
 - [TA Office](https://docs.google.com/document/d/12ZrcsQAfVirCuCwzI0TKX_tSPyBOjqB9vDE-sx1n_S0) (1066 TMCB)
 - [Professor Jensen](https://cs.byu.edu/department/directories/faculty-directory/lee-jensen/) - Office hours through [Calendly](https://calendly.com/lee-cs/30min)
 - [Dr. Wilkerson](https://cs.byu.edu/department/directories/faculty-directory/jerod-wilkerson/)
 - [Dr. Rodham](https://cs.byu.edu/department/directories/faculty-directory/ken-rodham/)
 
-| Who        | How                 | Where                  | When                            |
-| ---------- | ------------------- | ---------------------- | ------------------------------- |
-| TA         | Online or in person | Discord, TA Office     | [TA Schedule](https://docs.google.com/document/d/12ZrcsQAfVirCuCwzI0TKX_tSPyBOjqB9vDE-sx1n_S0)                     |
-| Instructor | Online or in person | Discord, Class, Office | Office Hours, Class Times       |
-| Peers      | Online or in person | Discord, Class         | Depends on how friendly you are |
+| Who        | How                 | Where                  | When                                                                                           |
+| ---------- | ------------------- | ---------------------- | ---------------------------------------------------------------------------------------------- |
+| TA         | Online or in person | Discord, TA Office     | [TA Schedule](https://docs.google.com/document/d/12ZrcsQAfVirCuCwzI0TKX_tSPyBOjqB9vDE-sx1n_S0) |
+| Instructor | Online or in person | Discord, Class, Office | Office Hours, Class Times                                                                      |
+| Peers      | Online or in person | Discord, Class         | Depends on how friendly you are                                                                |
 
 ## How to ask questions
 
