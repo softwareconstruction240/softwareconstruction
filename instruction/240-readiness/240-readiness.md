@@ -16,7 +16,7 @@ You are considering participation in BYU's Computer Science 240 course, which co
 
 ## Learning Outcomes
 
-_Learning outcomes to be defined._
+- Prediction of your ability to succeed in CS 240.
 
 ## Assessment Definition
 
@@ -29,6 +29,6 @@ _Learning outcomes to be defined._
   "difficulty": 1,
   "practiceMode": true,
   "finalMode": false,
-  "learningOutcomes": ""
+  "learningOutcomes": "- Prediction of your ability to succeed in CS 240."
 }
 ```
