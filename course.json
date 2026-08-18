@@ -73,6 +73,14 @@
             "a819fd43-c894-4945-b851-3b513d659573"
           ],
           "description": ""
+        },
+        {
+          "title": "240 readiness",
+          "type": "interview",
+          "points": 100,
+          "path": "instruction/240-readiness/240-readiness.md",
+          "id": "017db324-c8e3-4a20-bba4-a26d455918fb",
+          "description": ""
         }
       ]
     },
