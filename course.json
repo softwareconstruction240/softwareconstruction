@@ -75,7 +75,7 @@
           "description": ""
         },
         {
-          "title": "240 readiness",
+          "title": "240 Readiness",
           "type": "interview",
           "points": 100,
           "path": "instruction/240-readiness/240-readiness.md",
