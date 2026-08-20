@@ -20,7 +20,7 @@ Advanced software construction (CS240) helps you become responsible software eng
 
 
 ```masteryls
-{"id":"624dbbb7-bbc1-4061-9c51-080623358b39", "title":"Outcomes", "type":"likert", "showResults":"editor" }
+{"id":"624dbbb7-bbc1-4061-9c51-080623358b39", "title":"Your current outcomes experience", "type":"likert", "showResults":"editor" }
 Let us know where you _currently_ are in regard to the course outcomes. This will help us know how to adjust the course to assist your success.
 
 Scale: Beginner|Intermediate|Proficient|Advanced|Expert
