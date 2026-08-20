@@ -17,8 +17,8 @@ Our exploration was built upon several foundational pillars that define modern s
 ## Outcomes
 
 ```masteryls
-{"id":"ae0cbb96-e945-4746-8c51-048cce855e1c","title":"Outcomes","type":"likert","showResults":"editor"}
-At the start of this course, we defined specific outcomes. Please take a moment and record where you currently stand.
+{"id":"ae0cbb96-e945-4746-8c51-048cce855e1c","title":"Your current outcomes experience","type":"likert","showResults":"editor"}
+Now that you have completed the course, please take a moment and record where you currently stand.
 
 Scale: Beginner|Intermediate|Proficient|Advanced|Expert
 
