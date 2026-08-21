@@ -14,7 +14,9 @@
         "title": "📅 Fall 2026 Schedule",
         "path": "schedule/schedule.md",
         "default": true,
-        "state": "published"
+        "state": "published",
+        "startDate": "2026-09-01",
+        "endDate": "2026-12-18"
       }
     ]
   },
@@ -80,6 +82,7 @@
           "points": 100,
           "path": "instruction/240-readiness/240-readiness.md",
           "id": "017db324-c8e3-4a20-bba4-a26d455918fb",
+          "state": "published",
           "description": ""
         }
       ]
