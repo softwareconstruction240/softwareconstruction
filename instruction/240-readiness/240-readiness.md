@@ -7,16 +7,36 @@
 
 ## Job Description
 
-You are considering participation in BYU's Computer Science 240 course, which covers Java development of a client-server CLI application using a database, HTTP, and WebSockets. To be successful in this course, a candidate must have:
+You are considering participation in BYU's Computer Science 240 course, which covers Java development of a client-server CLI application using a database, HTTP, and WebSocket.
 
-- Competency in fundamental programming skills such as expressions, conditionals, functions, and recursion.
-- A basic understanding of common data structures such as lists, trees, and maps.
-- The critical-thinking skills necessary to learn concepts such as abstraction, encapsulation, decomposition, and polymorphism.
-- Readiness to put forth consistent effort over a 14-week period, averaging 10 hours per week.
+### Outcomes
+
+It is not expected that you have significant experiences with the outcomes of the course as you will learn this during the course. 
+
+### Required preparation
+
+You are expected to have the following preparation:
+
+- **Programming**: Programming experience should include statements, variables, control flow (if/while), and functions
+- **Computing and Service**: Write programs that accomplish tasks relevant to computer science, such as data visualization or internet protocols. Students will view these technical applications as a means of service, using their intellectually enlarging skills to address the needs of a global society.
+- **Algorithms**: Effectively use basic algorithms including recursion, merge sort, and others. Students will engage in the intellectually enlarging study of algorithmic efficiency, recognizing the elegance and order inherent in well-designed computational logic.
+- **Data Structures**: Use data structures, modules, classes, and functions to organize information and behavior within a program. This mastery over data and complexity prepares students for lifelong learning by providing them with the mental frameworks necessary to adapt to a constantly evolving technical landscape.
+
+The course requires careful study of course materials, defining, designing, and building a mastery based project. Minimum workload for an average student is 3 hours in class and  5-7 hours out of class per week. 
+
+### Interviews
+
+You are interviewing to show that you are properly prepared to successfully complete the Introduction to Web Programming course. As part of this interview you will meet with:
+
+* TA
+* Previous student
+* Instructor
+
 
 ## Learning Outcomes
 
-- Prediction of your ability to succeed in CS 240.
+- Demonstrates the necessary preparation
+- Demonstrates the commitment to succeed
 
 ## Assessment Definition
 
@@ -25,10 +45,10 @@ You are considering participation in BYU's Computer Science 240 course, which co
   "title": "BYU CS 240 Readiness",
   "discipline": "Software Engineering",
   "jobTitle": "Software Construction Course Participant",
-  "jobDescription": "You are considering participation in BYU's Computer Science 240 course, which covers Java development of a client-server CLI application using a database, HTTP, and WebSockets. To be successful in this course, a candidate must have:\n\n- Competency in fundamental programming skills such as expressions, conditionals, functions, and recursion.\n- A basic understanding of common data structures such as lists, trees, and maps.\n- The critical-thinking skills necessary to learn concepts such as abstraction, encapsulation, decomposition, and polymorphism.\n- Readiness to put forth consistent effort over a 14-week period, averaging 10 hours per week.",
+  "jobDescription": "You are considering participation in BYU's Computer Science 240 course, which covers Java development of a client-server CLI application using a database, HTTP, and WebSocket.\n\n### Outcomes\n\nIt is not expected that you have significant experiences with the outcomes of the course as you will learn this during the course. \n\n### Required preparation\n\nYou are expected to have the following preparation:\n\n- **Programming**: Programming experience should include statements, variables, control flow (if/while), and functions\n- **Computing and Service**: Write programs that accomplish tasks relevant to computer science, such as data visualization or internet protocols. Students will view these technical applications as a means of service, using their intellectually enlarging skills to address the needs of a global society.\n- **Algorithms**: Effectively use basic algorithms including recursion, merge sort, and others. Students will engage in the intellectually enlarging study of algorithmic efficiency, recognizing the elegance and order inherent in well-designed computational logic.\n- **Data Structures**: Use data structures, modules, classes, and functions to organize information and behavior within a program. This mastery over data and complexity prepares students for lifelong learning by providing them with the mental frameworks necessary to adapt to a constantly evolving technical landscape.\n\nThe course requires careful study of course materials, defining, designing, and building a mastery based project. Minimum workload for an average student is 3 hours in class and  5-7 hours out of class per week. \n\n### Interviews\n\nYou are interviewing to show that you are properly prepared to successfully complete the Introduction to Web Programming course. As part of this interview you will meet with:\n\n* TA\n* Previous student\n* Instructor\n",
   "difficulty": 1,
   "practiceMode": true,
   "finalMode": false,
-  "learningOutcomes": "- Prediction of your ability to succeed in CS 240."
+  "learningOutcomes": "- Demonstrates the necessary preparation\n- Demonstrates the commitment to succeed"
 }
 ```
