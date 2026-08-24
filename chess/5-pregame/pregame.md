@@ -101,7 +101,7 @@ There are no new pass off test cases for this assignment.
 
 Reach 80% line coverage on your `ServerFacade` class. If you are unsure where to start, consider writing a positive and a negative test case for each public method.
 
-Your tests must be located in the file `client/src/test/java/client/ServerFacadeTests.java`, provided in the starter code.
+Your tests must be located in `client/src/test/java/client/ServerFacadeTests.java`.
 
 > [!TIP]
 >
@@ -132,25 +132,12 @@ public class ServerFacadeTests {
 }
 ```
 
-Replace the `sampleTest` method with your own unit tests.
+#### Testing Requirements:
+1. **Port Initialization:** Ensure your `ServerFacade` constructor accepts the port so it can connect to the dynamic port used by the test server.
+2. **Database Cleanup:** Use a `@BeforeEach` method to clear the database before every test to ensure a clean state.
+3. **Coverage:** Write tests that achieve at least 80% line coverage on your `ServerFacade` class, and include both successful and failure scenarios where appropriate.
 
-Your server facade will need to take the port that the server is running on as part of its initialization when running your tests. You can accomplish this by modifying the `init` method to create and initialize your server facade with code that is something like the following:
-
-```java
-private static Server server;
-static ServerFacade facade;
-
-@BeforeAll
-public static void init() {
-    server = new Server();
-    var port = server.run(0);
-    System.out.println("Started test HTTP server on " + port);
-    facade = new ServerFacade(port);
-}
-```
-
-You can then directly test your facade with tests such as demonstrated in the following `register` unit test example.
-
+Example test:
 ```java
 @Test
 void register() throws Exception {
@@ -183,10 +170,10 @@ Before coming to passoff with a TA, check to make sure your code functions prope
 
 | Category       | Criteria                                                                                                                                                                                        |       Points |
 | :------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -----------: |
-| GitHub History | At least 12 GitHub commits evenly spread over the assignment period that demonstrate proof of work                                                                                              | Prerequisite |
-| Functionality  | Program supports all required functionality                                                                                                                                                     |          100 |
-| Code Quality   | [Rubric](../code-quality-rubric.md)                                                                                                                                                             |           30 |
-| Unit Tests     | All test cases pass<br/>Line coverage on `SeverFacade` class is at least 80%<br/>Every test case includes an Assert statement of some type<br/>1.25 points of extra credit for 90% line coverage |           25 |
+| GitHub History | At least 12 GitHub commits spread evenly over the assignment period demonstrating proof of work.                                                                                              | Prerequisite |
+| Functionality  | Program supports all required UI and server interaction functionality.                                                                                                                                                     |          100 |
+| Code Quality   | Adherence to the [Code Quality Rubric](../code-quality-rubric.md).                                                                                                                                                             |           30 |
+| Unit Tests     | All test cases pass<br/>Line coverage on `ServerFacade` class is at least 80%<br/>Every test case includes an Assert statement of some type<br/>1.25 points of extra credit for 90% line coverage |           25 |
 |                | **Total**                                                                                                                                                                                       |      **155** |
 
 ## Videos
