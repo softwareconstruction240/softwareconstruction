@@ -55,7 +55,7 @@ If you do not have a computer of your own, you can rent one from the [BYU Office
 
 ## Late Policy
 
-See the [late policy](../latePolicy/latePolicy.md) instruction for a full description of the policy.
+See the [late policy](../late-policy/late-policy.md) instruction for a full description of the policy.
 
 ## Resubmissions
 
