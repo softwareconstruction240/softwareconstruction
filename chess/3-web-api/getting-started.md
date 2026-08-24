@@ -70,12 +70,12 @@ If you want to see how this works in greater depth or need help troubleshooting,
 
 ## Setup Code Coverage Runner
 
-For this phase, you will write your own unit tests. The autograder will test your unit tests and run code coverage on your tests using the JaCoCo library. IntelliJ uses it's own coverage runner by default, but you can swap to JaCoCo by doing the following:
+For this phase, you will write your own unit tests. The autograder will test your unit tests and run code coverage on your tests using the JaCoCo library. IntelliJ uses its own coverage runner by default, but you can swap to JaCoCo by doing the following:
 
-1. Go to your IntelliJ settings
-1. Click on `Build, Execution, Deployment`
-1. Click on Coverage
-1. Where it says `Choose Coverage Runner`, click the dropdown box
-1. Select JaCoCo
+1. Go to your IntelliJ settings.
+1. Click on `Build, Execution, Deployment`.
+1. Click on `Coverage`.
+1. Where it says `Choose Coverage Runner`, click the dropdown box.
+1. Select `JaCoCo`.
 
 ![coverage runner](coverage-runner.gif)
