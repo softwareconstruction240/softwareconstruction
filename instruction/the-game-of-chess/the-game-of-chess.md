@@ -96,6 +96,8 @@ The game of chess revolves around the status of the King. Understanding the dist
 
 **Checkmate** is the goal of the game. It occurs when a King is in check and there are no legal moves available to escape the threat. When checkmate is delivered, the game ends immediately.
 
+![checkmate.jpg](checkmate.jpg)
+
 **Stalemate** is a unique type of draw. It occurs when the player whose turn it is has no legal moves, but their King is **not** currently in check. In competitive play, this results in a split point, often frustrating the player who had the material advantage.
 
 ## Winning the Game
