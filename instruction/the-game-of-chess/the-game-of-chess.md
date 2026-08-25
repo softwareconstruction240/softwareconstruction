@@ -1,5 +1,7 @@
 # The Game of Chess
 
+![playingChess.png](playingChess.png)
+
 Chess is a strategy game where 2 players take turns moving pieces and capturing enemy pieces with the goal of trapping the enemy king. Each of the 6 types of pieces has a unique way of moving/capturing. A piece captures an enemy piece when moving to the enemy piece’s location, after which the enemy piece is removed from the game. You win when your opponent has no way to avoid you being able to capture their king.
 
 ## A Brief History of Strategy
