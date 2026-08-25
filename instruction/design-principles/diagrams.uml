@@ -1,0 +1,71 @@
+classDiagram
+    MyAbstraction <-- Input
+    MyAbstraction --> Output
+    class Input{
+      getA()
+      getB()
+    }
+    class MyAbstraction{
+      -private encapsulatedData
+      -private encapsulatedMethods()
+      process(Input):Output
+    }
+    class Output{
+      setC(c)
+    }
+
+    Game *-- Board
+    Game *-- Piece
+    Game *-- Participant
+
+    Board *-- Square
+    Participant <|-- Player
+    Participant <|-- Observer
+
+    Piece <|-- King
+    Piece <|-- Rook
+    Piece <|-- Pawn
+    
+
+    Person <-- FoodConsumption : uses-a
+    Person <-- OutdoorActivity : uses-a
+    Death --* Person : has-a 
+    Birth --* Person : has-a 
+    class Person{
+      name
+      birth
+      death
+    }
+
+    class FoodConsumption {
+        eat(Person, Meal)
+    }
+
+    class OutdoorActivity {
+        play(Person, Game)
+    }
+
+    Date <|-- Death
+    Date <|-- Birth
+    OutdoorActivity --> Game : uses-a
+
+    class Death {
+    }
+
+    class Birth {
+    }  
+
+
+   class FrankenPerson {
+     void drive()
+     void sleep()
+     void eat()
+     void work()
+     void die()
+     void play()
+     void setAlarm()
+     void planRoute()
+     void shopForFood()
+     void buyGymPass()
+   }
+
