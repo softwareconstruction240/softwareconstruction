@@ -75,7 +75,7 @@ The `.git` directory stores all version history. Now, use the `echo` command to 
 ➜ echo hello world > hello.txt
 ➜ git status
 
-On branch master
+On branch main
 No commits yet
 Untracked files:
   (use "git add <file>..." to include in what will be committed)
@@ -90,7 +90,7 @@ Git detects the new file `hello.txt` but isn't tracking it yet. To begin trackin
 git add .
 git status
 
-On branch master
+On branch main
 No commits yet
 Changes to be committed:
   (use "git rm --cached <file>..." to unstage)
@@ -101,12 +101,12 @@ Git reports that it has **staged** the file `hello.txt`, meaning it is ready to 
 
 ```sh
 git commit -m "initial draft"
-[master (root-commit) d43b07b] initial draft
+[main (root-commit) d43b07b] initial draft
  1 file changed, 1 insertion(+)
  create mode 100644 hello.txt
 
 git status
-On branch master
+On branch main
 nothing to commit, working tree clean
 ```
 
@@ -118,7 +118,7 @@ Let's edit the file and commit it again. This time, we will use the `-a` paramet
 echo goodbye world > hello.txt
 git commit -am "changed greeting to reflect the present mood"
 
-[master e65f983] changed greeting to reflect the present mood
+[main e65f983] changed greeting to reflect the present mood
  1 file changed, 1 insertion(+), 1 deletion(-)
 ```
 
@@ -127,7 +127,7 @@ To view the history of your repository, use `git log`.
 ```sh
 git log
 
-commit e65f9833ca8ee366d0d9c1676a91b1a977dab441 (HEAD -> master)
+commit e65f9833ca8ee366d0d9c1676a91b1a977dab441 (HEAD -> main)
 Author: Lee
 Date:   Thu Dec 1 23:32:22 2022 -0700
 
@@ -154,12 +154,12 @@ cat hello.txt
 hello world
 ```
 
-To return to the latest version, use `checkout` with the branch name (the default is often `master` or `main`).
+To return to the latest version, use `checkout` with the branch name (the default is often `main`).
 
 ```sh
-git checkout master
+git checkout main
 Previous HEAD position was d43b07b initial draft
-Switched to branch 'master'
+Switched to branch 'main'
 
 cat hello.txt
 goodbye world
