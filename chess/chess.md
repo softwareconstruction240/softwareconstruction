@@ -1,4 +1,4 @@
-# Chess
+# Chess Project
 
 🖥️ [Videos](#videos)
 
