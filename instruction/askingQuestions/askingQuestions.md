@@ -4,17 +4,17 @@
 
 ## Getting help
 
-- [Discord](https://discord.com) ([Invite](https://discord.gg/rY57bzYVUn))
+- [Discord](https://discord.com) ([Invite](https://discord.gg/jbgm5EYHDm))
 - [TA Office](https://docs.google.com/document/d/12ZrcsQAfVirCuCwzI0TKX_tSPyBOjqB9vDE-sx1n_S0) (1066 TMCB)
 - [Professor Jensen](https://cs.byu.edu/department/directories/faculty-directory/lee-jensen/) - Office hours through [Calendly](https://calendly.com/lee-cs/30min)
 - [Dr. Wilkerson](https://cs.byu.edu/department/directories/faculty-directory/jerod-wilkerson/)
 - [Dr. Rodham](https://cs.byu.edu/department/directories/faculty-directory/ken-rodham/)
 
-| Who        | How                 | Where                  | When                            |
-| ---------- | ------------------- | ---------------------- | ------------------------------- |
-| TA         | Online or in person | Discord, TA Office     | [TA Schedule](https://docs.google.com/document/d/12ZrcsQAfVirCuCwzI0TKX_tSPyBOjqB9vDE-sx1n_S0)                     |
-| Instructor | Online or in person | Discord, Class, Office | Office Hours, Class Times       |
-| Peers      | Online or in person | Discord, Class         | Depends on how friendly you are |
+| Who        | How                 | Where                  | When                                                                                           |
+| ---------- | ------------------- | ---------------------- | ---------------------------------------------------------------------------------------------- |
+| TA         | Online or in person | Discord, TA Office     | [TA Schedule](https://docs.google.com/document/d/12ZrcsQAfVirCuCwzI0TKX_tSPyBOjqB9vDE-sx1n_S0) |
+| Instructor | Online or in person | Discord, Class, Office | Office Hours, Class Times                                                                      |
+| Peers      | Online or in person | Discord, Class         | Depends on how friendly you are                                                                |
 
 ## How to ask questions
 
@@ -33,6 +33,14 @@ If you would like to get some help from others, please make sure that you have d
 - Remember one purpose of this class is for you to learn how to learn. If the TA feels you are not putting forth your full, they may ask you to return later when you have fulfilled these requirements.
 
 Remember that TAs are _assistants_. They are more than willing to assist you as you learn, but you need to do your part as well. Because of this, the help queue has a limit of 3 session per day per student. Exceptions are made for when you are attempting to passing off a deliverable.
+
+```masteryls
+{"id":"8f35a1b4-8968-4829-b951-bd7a1ad2ee08", "title":"Getting help", "type":"multiple-choice" }
+When I need help during this course:
+
+- [x] I know where to go and how to prepare to be successful
+- [ ] I still am unclear about what I should do
+```
 
 ## Pay it forward
 

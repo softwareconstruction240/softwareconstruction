@@ -4,23 +4,47 @@
 
 🖥️ [Lecture Videos](#videos)
 
+### 🔑 Key points
+
+- HTTP is unidirectional
+- WebSocket is bidirectional
+- WebSocket is useful for peer to peer communication and server events
+
+---
 ![webSocket](webServicesWebSocketsLogo.png)
 
-HTTP is based on a client-server architecture. A client always initiates the request and the server responds. This is great if you are building a global document library connected by hyperlinks, but for many other use cases it just doesn't work. Applications for notifications, distributed task processing, peer-to-peer communication, or asynchronous events need communication that is initiated by two or more connected devices.
+HTTP is based on a client-server architecture where the client always initiates the request and the server responds. This model is ideal for building a global document library connected by hyperlinks, but it is insufficient for many modern use cases. Applications requiring real-time notifications, distributed task processing, peer-to-peer communication, or asynchronous events need communication that can be initiated by any connected device.
 
-For years, web developers created hacks to work around the limitation of the client/server model. This included solutions like having the client frequently pinging the server to see if the server had anything to say, or keeping client-initiated connections open for a very long time as the client waited for some event to happen on the server. Needless to say, none of these solutions were elegant or efficient.
+For years, web developers used various workarounds to overcome the limitations of the client-server model. These solutions included "polling," where the client frequently pings the server to see if there are updates, or "long polling," where the client opens a connection and keeps it open while waiting for the server to respond with an event. These solutions were often inefficient and difficult to maintain.
 
-Finally, in 2011 the communication protocol WebSocket was created to solve this problem. The core feature of WebSocket is that it is fully duplexed. This means that after the initial connection is made from a client, using vanilla HTTP, and then upgraded by the server to a WebSocket connection, the relationship changes to a peer-to-peer connection where either party can efficiently send data at any time.
+In 2011, the WebSocket protocol was standardized to solve this problem. The core feature of WebSocket is that it is **full-duplex**. After an initial connection is made over HTTP and then "upgraded" by the server to a WebSocket connection, the relationship changes to a persistent, bi-directional connection where either party can send data at any time.
 
-![WebSocket Upgrade](webServicesWebSocketUpgrade.jpg)
+![websocket.png](websocket.png)
 
-WebSocket connections are still only between two parties. So if you want to facilitate a conversation between a group of users, the server must act as the intermediary. Each peer first connects to the server, and then the server forwards messages amongst the peers.
+WebSocket connections are strictly between two parties. To facilitate a conversation between a group of users, the server must act as an intermediary. Each peer connects to the server, and the server manages the logic to forward messages among the connected peers.
 
-![WebSocket Peers](webServicesWebSocketPeers.jpg)
+![webSocketPeers.png](webSocketPeers.png)
+
+## The WebSocket Protocol Details
+
+A WebSocket connection begins with a standard HTTP request. The client sends a "Handshake" request containing an `Upgrade: websocket` header. If the server supports the protocol, it responds with an HTTP 101 status code (Switching Protocols). Once this handshake is complete, the communication shifts from the HTTP request/response format to a binary-framed message format.
+
+### Security (WSS)
+Just as HTTP has HTTPS, the WebSocket protocol has a secure version: **WSS** (WebSocket Secure). 
+*   `ws://`: Unencrypted communication (port 80).
+*   `wss://`: Encrypted via TLS/SSL (port 443).
+
+In production environments, you should always use `wss://` to prevent man-in-the-middle attacks and to ensure that intermediary proxies do not accidentally block or interfere with the long-running connection.
+
+### Statefulness and Scalability
+
+Unlike RESTful HTTP services, which are **stateless**, WebSockets are **stateful**. The server must maintain an open TCP connection for every active client. 
+*   **Memory Impact:** Each connection consumes server resources (memory and threads).
+*   **Load Balancing:** Because the connection is persistent, standard load balancers can be problematic. If a client connects to "Server A," all subsequent messages must go to "Server A." This often requires "sticky sessions" or a specialized load balancer that understands the WebSocket protocol.
 
 ## Creating a WebSocket Server Connection
 
-Here is an example of a basic HTTP server that uses the `Javalin` library to support upgrading to the WebSocket protocol when the `/ws` endpoint is called by a client.
+The following example demonstrates a basic HTTP server using the `Javalin` library. It supports upgrading to the WebSocket protocol when a client calls the `/ws` endpoint.
 
 ```java
 import io.javalin.Javalin;
@@ -32,37 +56,38 @@ public class SimpleWsEchoServer {
                 .ws("/ws", ws -> {
                     ws.onConnect(ctx -> {
                         ctx.enableAutomaticPings();
-                        System.out.println("Websocket connected");
+                        System.out.println("WebSocket connected");
                     });
-                    ws.onMessage(ctx -> ctx.send("WebSocket response:" + ctx.message()));
-                    ws.onClose(_ -> System.out.println("Websocket closed"));
+                    ws.onMessage(ctx -> ctx.send("WebSocket response: " + ctx.message()));
+                    ws.onClose(ctx -> System.out.println("WebSocket closed"));
                 })
                 .start(8080);
     }
 }
 ```
 
-This code calls Javalin.create() to create an HTTP server, and then uses a fluent API to chain calls to get, which registers code for handling an HTTP GET request; ws, which registers code for handling WebSocket connections, messages, and closures coming from a peer; and start, which starts the server on the specified port.
+This code uses `Javalin.create()` to initialize the server and a fluent API to configure it:
+*   `.get()` registers a handler for standard HTTP GET requests.
+*   `.ws()` registers handlers for WebSocket lifecycle events (connecting, receiving messages, and closing) at a specific path.
+*   `.start(8080)` launches the server on the specified port.
 
-## Websocket Timeout
+## WebSocket Timeout
 
-By default, if Javalin has not heard from it's client for 30 seconds, the connection is deemed closed. Once the connection is closed, no messages can be sent. If you want to send something again, you have to open a new connection.
+By default, if Javalin does not receive communication from a client for 30 seconds, the connection is considered timed out and closed. Once closed, no further messages can be sent without establishing a new connection.
 
-Rather than open a new connection every 30 seconds, we can have Javalin ping it's connections. If a pong is recieved back, then we know the connection is still open. Javalin can be instructed to do this with every connection by calling `context.enableAutomaticPings()`. You'll notice in the above example that this is enabled when the connection is opened.
+To maintain a persistent connection, we can instruct Javalin to "ping" its clients. If a "pong" is received in response, the connection remains active. This is enabled by calling `ctx.enableAutomaticPings()` within the `onConnect` handler, as shown in the server example above.
 
 ## Creating a WebSocket Client Connection
 
-In order to initiate a WebSocket connection to a server from a client in Java you need a library that implements the `javax.websocket.WebSocketContainer` interface. In this course we use the `glassfish.tyrus` library to implement `WebSocketContainer`.
+To initiate a WebSocket connection from a Java client, you need a library that implements the `jakarta.websocket.WebSocketContainer` interface (formerly `javax.websocket`). In this course, we use the `Tyrus` library.
 
-> Install: org.glassfish.tyrus.bundles:tyrus-standalone-client:2.1.4
+> **Install:** `org.glassfish.tyrus.bundles:tyrus-standalone-client:2.1.4`
 
-Then you need to implement the `onOpen` method on the `javax.websocket.Endpoint` abstract class in order to create the class that will handle sending and receiving WebSocket messages.
+To handle the connection, you must extend the `jakarta.websocket.Endpoint` abstract class and override the `onOpen` method. You then use a `WebSocketContainer` to connect to the server URI, which returns a `Session` object used for communication.
 
-Now you are ready to create your connection by calling the `connectToServer` method on the container and providing a reference to an object for the class that extends the `Endpoint` class. This will return a `Session` object that you can use to send messages over your WebSocket connection.
+Incoming messages are handled by registering a `MessageHandler` with the session.
 
-You receive messages by registering an `onMessage` listener with the session's `addMessageHandler`.
-
-The following code gives you a full example.
+The following code provides a complete client example:
 
 ```java
 import jakarta.websocket.ContainerProvider;
@@ -93,7 +118,9 @@ public class WsEchoClient extends Endpoint {
     public WsEchoClient() throws Exception {
         URI uri = new URI("ws://localhost:8080/ws");
         WebSocketContainer container = ContainerProvider.getWebSocketContainer();
-        session = container.connectToServer(this, uri);
+        
+        // This call connects to the server and triggers onOpen
+        this.session = container.connectToServer(this, uri);
 
         this.session.addMessageHandler(new MessageHandler.Whole<String>() {
             public void onMessage(String message) {
@@ -104,21 +131,45 @@ public class WsEchoClient extends Endpoint {
     }
 
     public void send(String message) throws IOException {
-        session.getBasicRemote().sendText(message);
+        this.session.getBasicRemote().sendText(message);
     }
 
-    // This method must be overridden, but we don't have to do anything with it
+    // This method is called when the connection is established
+    @Override
     public void onOpen(Session session, EndpointConfig endpointConfig) {
     }
 }
-
 ```
 
-## Demonstration code
+## Alternative Technologies
 
-📁 [WebSocket Client Examples](example-code/client)
+While WebSockets are a powerful tool for bi-directional communication, they are not the only solution for real-time data.
 
-📁 [WebSocket Server Examples](example-code/server)
+| Technology | Direction | Use Case |
+| :--- | :--- | :--- |
+| **Long Polling** | Bi-directional (simulated) | Legacy systems where WebSockets are blocked by restrictive firewalls. |
+| **Server-Sent Events (SSE)** | Unidirectional (Server → Client) | Real-time dashboards, news feeds, or stock tickers where the client doesn't need to talk back. SSE is simpler to implement over standard HTTP. |
+| **WebTransport** | Bi-directional | A newer protocol (built on HTTP/3 and QUIC) designed for low-latency applications like gaming or live video processing. It handles congestion better than WebSockets. |
+| **gRPC Streams** | Bi-directional | High-performance microservice-to-microservice communication using Protocol Buffers. |
+
+## ☑ Exercise
+
+
+```masteryls
+{"id":"2d0aa07e-3398-475a-8c0d-e767bd659a5a","title":"Choosing between HTTP and WebSocket","type":"multiple-choice"}
+In which of the following application scenarios would implementing WebSockets provide a significant performance and architectural advantage over traditional HTTP?
+
+- [ ] Fetching a static list of product categories for an e-commerce landing page that updates once a week.
+- [ ] Submitting a secure one-time payment form that requires a transaction ID and a confirmation receipt.
+- [x] Building a high-frequency financial trading dashboard that requires sub-second updates of fluctuating market prices.
+- [ ] Delivering a long-form blog post where the user spends several minutes reading the content without further interaction.
+```
+
+```masteryls
+{"id":"527f286e-4439-40ef-9a8c-3c5891175325","title":"Connecting People","type":"essay"}
+How does building real-time communication that connects people reflect the values of community and service, and how can this kind of work draw people together in meaningful ways?
+```
+
 
 ## Videos
 

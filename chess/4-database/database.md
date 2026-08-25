@@ -4,15 +4,25 @@
 - 🖥️ [Videos](#videos)
 - [TA Tips](../../instruction/chess-tips/chess-tips.md#phase-4---database): A collection of common problems for this phase
 
-In this part of the Chess project, you will create a MySQL implementation of your Data Access interface and start calling it from your services. This enables the ability to store data persistently in a MySQL database instead of storing data in main memory. You will also write unit tests using JUnit for your DAO classes. This involves the following steps:
+#### 🥅 Outcomes of this Deliverable
 
-1. Install the MYSQL database management system (DBMS) on your development machine. Instructions to install [MYSQL](../../instruction/mysql/mysql.md).
-1. Modify `db.properties` to contain your username and password.
-1. Design your database tables (i.e., your database `schema`)
-1. Implement a MySQL implementation of your Data Access Interface. Initially you can just stub out all the methods.
-1. Add the ability to create your database and tables, if they don't exist, when your server starts up.
+1. **Frame** software engineering problems by clarifying system purpose, constraints, and responsibilities, demonstrating both sound technical judgment and a sense of ownership for the long-term impact of software others depend on.
+1. **Explore** object-oriented frameworks, network protocols, distributed services, and databases with curiosity and discipline, developing accurate mental models while valuing learning as essential to responsible engineering practice.
+1. **Design** software systems using object-oriented principles and clear interfaces that support reliability and maintainability, motivated by care for future users, collaborators, and the evolution of the system over time.
+1. **Build** distributed applications that faithfully translate design intent into readable, testable implementations, showing diligence and integrity in the quality of code produced.
+1. **Test** software systems systematically to validate behavior and uncover failure modes, valuing evidence, honesty, and accountability as foundations of trustworthy software.
+
+---
+
+In this part of the Chess project, you will create a MySQL-backed implementation of your Data Access interfaces and integrate it into your services. This enables the ability to store data persistently in a MySQL database instead of volatile main memory. You will also write unit tests using JUnit for your DAO classes. This involves the following steps:
+
+1. Install the MySQL database management system (DBMS) on your development machine. Instructions to [install MySQL](../../instruction/mysql/mysql.md).
+1. Modify `db.properties` to contain your database username and password.
+1. Design your database tables (i.e., your database `schema`).
+1. Implement a MySQL-backed version of your Data Access interfaces. Initially, you can just stub out the methods.
+1. Add functionality to create your database and tables automatically if they do not exist when your server starts up.
 1. Iteratively write a test for each of your Data Access interface methods along with the backing MySQL code.
-1. Ensure that all provided pass off tests work properly, including the DatabaseTests added for this assignment, and the StandardAPITests from the previous assignment.
+1. Ensure that all provided pass-off tests work properly, including the `DatabaseTests` added for this assignment and the `StandardAPITests` from the previous phase.
 
 ## Getting Started
 
@@ -20,7 +30,7 @@ Complete the [Getting Started](getting-started.md) instructions before working o
 
 ## Making Database Connections
 
-The getting started code found in the `server/src/main/dataaccess/DatabaseManager.java` file reads the database configuration information from `db.properties` and contains a static function for creating database connections. The following code gives you an example of how you can use this code.
+The starter code found in the `server/src/main/dataaccess/DatabaseManager.java` file reads the database configuration from `db.properties` and contains a static function for creating database connections. The following code demonstrates how to use this utility.
 
 ```java
 public void example() throws Exception {
@@ -34,7 +44,7 @@ public void example() throws Exception {
 }
 ```
 
-Make sure that you wrap your calls to get a connection with a `try-with-resources` block so that the connection gets cleaned up.
+Make sure that you wrap your calls to get a connection with a `try-with-resources` block so that the connection is automatically closed.
 
 ## Initializing Your Database and Tables
 
@@ -42,75 +52,75 @@ As you design your database schema, carefully consider data types, primary and f
 
 > [!WARNING]
 >
-> On some operating systems, MySQL treats database and table names as case-sensitive, and on others it does not. For this reason you should always make sure your database, table, and field names match the case of your query statements so they will execute correctly on all operating systems, even if your development environment doesn't require it.
+> On some operating systems, MySQL treats database and table names as case-sensitive, while on others it does not. To ensure cross-platform compatibility, always ensure your database, table, and field names in your Java code match the case used in your SQL query statements.
 
-The `DatabaseManager` class has a method for creating a database if it does not exist. You are not required to use this code, but it is required that on start up, your code creates both your database and tables if they do not exist, based on the values configured in `db.properties`. This allows the pass off tests to run without manual intervention to set up your database.
+The `DatabaseManager` class has a method for creating a database if it does not exist. While you are not strictly required to use that specific code, your server **must** automatically create both the database and the necessary tables on startup based on the values in `db.properties`. This allows the pass-off tests to run without manual database setup.
 
-The [Pet Shop](../../petshop/server/src/main/dataaccess/MySqlDataAccess.java) provides an example of how to initialize your database on start up if you are wondering how this is done.
+The [Pet Shop](../../petshop/server/src/main/dataaccess/MySqlDataAccess.java) example provides a reference for how to initialize your database on startup.
 
-Note that once your code creates the tables for the first time, changing your `CREATE TABLE` statements will **not** actually affect the existing table definitions. See the [Altering Tables](../../instruction/db-sql/db-sql.md#altering-tables) instruction for more information.
+Note that once your code creates the tables for the first time, changing your `CREATE TABLE` statements in code will **not** modify existing table definitions in the database. See the [Altering Tables](../../instruction/db-sql/db-sql.md#altering-tables) instruction for more information on how to handle schema changes.
 
 ## Password Hashing
 
-In order to protect the security of your user's password, you must encrypt their password using the bcrypt algorithm. When a user provides a password, hash it before storing it in the database.
+To protect the security of your users' passwords, you must hash them using the BCrypt algorithm. When a user registers or changes their password, hash it before storing it in the database.
 
 ```java
 void storeUserPassword(String username, String clearTextPassword) {
    String hashedPassword = BCrypt.hashpw(clearTextPassword, BCrypt.gensalt());
 
-   // write the hashed password in database along with the user's other information
+   // Write the hashed password to the database along with the user's other information
    writeHashedPasswordToDatabase(username, hashedPassword);
 }
 ```
 
-Then when a user attempts to log in, repeat the hashing process on the user supplied login password and then compare the resulting hash to the previously stored hash of the original password. If the two hashes match then you know the supplied password is correct.
+When a user attempts to log in, retrieve the stored hash and use BCrypt to verify the provided password.
 
 ```java
 boolean verifyUser(String username, String providedClearTextPassword) {
-   // read the previously hashed password from the database
+   // Read the previously hashed password from the database
    var hashedPassword = readHashedPasswordFromDatabase(username);
 
    return BCrypt.checkpw(providedClearTextPassword, hashedPassword);
 }
 ```
 
-The above code demonstrates the necessary concepts to implement secure password storage, but it will need to be adapted to your particular implementation. You do not need to create a different table to store your passwords. The hashed password may be stored along with your other user information in your `user` table.
+The code above demonstrates the concepts needed for secure password storage. You should adapt this to your specific DAO implementation. You do not need a separate table for passwords; the hashed password can be stored in your existing `user` table.
 
 ## ChessGame Serialization/Deserialization
 
-The easiest way to store the state of a ChessGame in MySQL is to serialize it to a JSON string, and then store the string in your database. Whenever your server needs to update the state of a game, it should:
+The most straightforward way to store the state of a `ChessGame` in MySQL is to serialize it to a JSON string and store that string in a `TEXT` or `VARCHAR` column. Whenever your server needs to update a game's state, it should:
 
-1. Select the game’s state (JSON string) from the database
-2. Deserialize the JSON string to a ChessGame Java object
-3. Update the state of the ChessGame object
-4. Re-serialize the Chess game to a JSON string
-5. Update the game’s JSON string in the database
+1. Select the game’s JSON string from the database.
+2. Deserialize the JSON string into a `ChessGame` Java object.
+3. Update the state of the `ChessGame` object.
+4. Re-serialize the updated `ChessGame` object to a JSON string.
+5. Update the game's JSON string in the database.
 
-You will want to carefully consider the need for a Gson type adapter when you do your serialization. If your classes have any interface fields then you will need to tell Gson how to instantiate a concrete class for the interface when it is deserializing. You might want to review the [instruction](../../instruction/json/json.md) on this topic.
+Carefully consider the need for a Gson type adapter during serialization. If your classes contain interface fields (like `ChessBoard` or `ChessPiece`), you must tell Gson how to instantiate the concrete classes during deserialization. Review the [instruction](../../instruction/json/json.md) on this topic for details.
 
 ## Relevant Instruction Topics
 
-- [JSON and Serialization](../../instruction/json/json.md): Serialization objects to the database.
+- [JSON and Serialization](../../instruction/json/json.md): Serializing objects for database storage.
 - [Relational Databases](../../instruction/db-model/db-model.md): How relational databases work.
-- [MYSQL](../../instruction/mysql/mysql.md): Getting MySQL installed.
+- [MySQL](../../instruction/mysql/mysql.md): Getting MySQL installed.
 - [SQL](../../instruction/db-sql/db-sql.md): Using SQL statements.
-- [JDBC](../../instruction/db-jdbc/db-jdbc.md): Using SQL from Java including type adapters.
+- [JDBC](../../instruction/db-jdbc/db-jdbc.md): Using SQL from Java, including type adapters.
 - [Liskov Substitution Principle](../../instruction/design-principles/design-principles.md#liskov-substitution-principle): Fully implementing DAO interfaces.
-- [Pet Shop](../../petshop/petshop.md): Multiple DataAccess implementations.
+- [Pet Shop](../../petshop/petshop.md): Example of multiple DataAccess implementations.
 
 ## ☑ Deliverable
 
-### Pass Off Tests
+### Pass-Off Tests
 
-The tests provided for this assignment are in the DatabaseTests class. These tests make HTTP requests to test your server.
+The tests provided for this assignment are in the `DatabaseTests` class. These tests make HTTP requests to test your server's end-to-end functionality.
 
-Additionally, run the StandardAPITests from the previous phase to make sure they still run successfully.
+Additionally, run the `StandardAPITests` from the previous phase to ensure that your move to a persistent database hasn't broken existing functionality.
 
 ### Database Unit Tests
 
-The pass off tests do not examine your game board. That means it is critical that you write tests that fully test everything you are persisting to the database. This includes tests that store an initial board, add players, make moves, and update the game state.
+The pass-off tests do not examine the internal state of your game board directly. Therefore, it is critical that you write unit tests that fully verify everything you are persisting to the database. This includes tests for storing an initial board, adding players, making moves, and updating game states.
 
-As part of your unit test deliverable you need to meet the following requirements.
+Your unit test deliverable must meet the following requirements:
 
 1. **Reach 80% line coverage on your SQL DAOs.** If you are unsure where to start, consider writing a positive and a negative JUnit test case for each public method on your DAO classes. A positive test case is one for which the action happens successfully (e.g., creating a new user in the database). A negative test case is one for which the operation fails (e.g., creating a user that has the same username as an existing user). Some methods may not need a negative test case.
 1. Ensure all unit tests pass, including the new DAO tests and the Service tests from the previous assignment.
@@ -123,27 +133,62 @@ As part of your unit test deliverable you need to meet the following requirement
 
 ### Code Quality
 
-For this phase the auto grader will grade the quality of your project's source code. The rubric used to evaluate code quality can be found here: [Rubric](../code-quality-rubric.md)
+For this phase, the autograder will evaluate the quality of your source code. The rubric used for this evaluation can be found here: [Rubric](../code-quality-rubric.md)
 
-### Pass Off, Submission, and Grading
+### Pass-Off, Submission, and Grading
 
-All the tests in your project must succeed in order to complete this phase.
+All tests in your project must pass to complete this phase.
 
-To pass off this assignment use the course [auto-grading](https://cs240.click/) tool. If your code passes then your grade will automatically be entered in Canvas.
+To pass off this assignment, use the course [auto-grading](https://cs240.click/) tool. If your code passes, your grade will automatically be entered in Canvas.
+
+```masteryls
+{"id":"bcc505a6-10fd-4994-bac8-28e2b37148b3","title":"Submission Precheck","type":"multiple-choice"}
+- [x] All of the test cases, including the DAO unit tests I wrote, are passing, I have verified my code quality, and my GitHub commit history complies with the course requirements.
+- [ ] I need to back and do some more work before submitting.
+```
 
 ### Grading Rubric
 
 > [!IMPORTANT]
 >
-> You are required to commit to GitHub with every minor milestone. For example, after you successfully pass a test. This should result in a commit history that clearly details your work on this phase. If your Git history does not demonstrate your efforts then your submission may be rejected.
+> You are required to commit to GitHub at every minor milestone (e.g., after passing a specific test). This should result in a commit history that clearly details your progress. If your Git history does not demonstrate consistent effort, your submission may be rejected.
 
 | Category       | Criteria                                                                                                                                                                            |       Points |
 | :------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -----------: |
 | GitHub History | At least 8 GitHub commits evenly spread over the assignment period that demonstrate proof of work                                                                                   | Prerequisite |
-| Functionality  | All pass off test cases succeed                                                                                                                                                     |          100 |
+| Functionality  | All pass-off test cases succeed                                                                                                                                                     |          100 |
 | Code Quality   | [Rubric](../code-quality-rubric.md)                                                                                                                                                 |           30 |
 | Unit Tests     | All test cases pass<br/>Line coverage on `dataaccess.sql` package is at least 80%<br/>Every test case includes an Assert statement of some type<br/>1.25 points of extra credit for 90% line coverage |           25 |
 |                | **Total**                                                                                                                                                                           |      **155** |
+
+#### 🥅 Outcome Reflections
+
+With the completion of this chess database deliverable checkpoint, it is time to reflect upon the course outcomes and your ability to master them.
+
+```masteryls
+{"id":"712d8fed-6c1f-449b-af7d-f8202d020522","title":"Frame","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+What process did you use to frame your understanding of the chess database so that it properly reflected the requirements? How did you determine a correct understanding of the problem so that you were able to consider the factors that your users deem important and will depend on?
+```
+
+```masteryls
+{"id":"ffb735d5-1e63-4a7b-b180-49894ad2d166","title":"Explore","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+What software engineering principles and practices did you consider when you were exploring how to represent the chess database? What did you do to advance your learning of the possible solution space?
+```
+
+```masteryls
+{"id":"31b090f1-0051-4a91-9557-7bfbcd52a1d0","title":"Design","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+What object-oriented and design principles did you consider as you converted your framing and exploration of the chess database into a design solution? What did you do to ensure you were considering the needs of future developers and users of the application?
+```
+
+```masteryls
+{"id":"e0f6f56e-679b-4023-896d-4ea76530f513","title":"Build","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+What went well and what did you find challenging as you implemented your chess database design? What did you do to demonstrate design integrity and the quality of the application?
+```
+
+```masteryls
+{"id":"38f734f7-3436-48d9-8b76-e0224b751d6f","title":"Test","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+What testing patterns did you employ to ensure a correct implementation of the chess database and encourage the foundation of a trustworthy application that others can rely on?
+```
 
 ## Videos
 

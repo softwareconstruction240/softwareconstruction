@@ -6,42 +6,52 @@
 
 📖 **Optional Reading**: [MDN An overview of HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview)
 
+### 🔑 Key points
+
+- Internet basics: IP addresses, domain names, and port numbers
+- Web basics: URLs and the HTTP protocol (headers, methods, and body)
+- URL scheme syntax
+
+
 ![Tim Berners Lee](timBernersLee.jpg)
 
 > “You affect the world by what you browse”
 >
 > — Tim Berners-Lee, (**Source**: _Answers for Young People_)
+---
 
 ## URL
 
-The Uniform Resource Locator (URL) represents the location of a web resource. A web resource can be anything, such as a web page, font, image, video stream, database record, or JSON object. It can also be completely ephemeral, such as a visitation counter, or gaming session.
+The Uniform Resource Locator (URL) represents the location of a web resource. A web resource can be anything: a web page, font, image, video stream, database record, or JSON object. It can also be ephemeral, such as a visitation counter or a gaming session.
 
-Looking at the different parts of a URL is a good way to understand what it represents. Here is an example URL that represents a query to BYU for cities that contain `pro` using secure HTTP.
+Analyzing the parts of a URL is a good way to understand how resources are identified. Here is an example URL representing a query to BYU for cities containing "pro" using secure HTTP (HTTPS).
 
-![url](url.png)
+![urlSchema.jpg](urlSchema.jpg)
 
-The URL syntax uses the following convention. Notice the delimiting punctuation between the parts of the URL. Most parts of the URL are optional. The only ones that are required are the scheme, and the domain name.
+The URL syntax follows this convention. Note the punctuation used to delimit the various parts. Most parts of the URL are optional; the only required elements are the scheme and the domain name.
 
 ```yaml
-<scheme>://<domain name>:<port>/<path>?<parameters>#<anchor>
+<scheme>://<domain name>:<port>/<path>?<query string>#<fragment>
 ```
 
 | Part        | Example                              | Meaning                                                                                                                                                                                                                                                                             |
 | ----------- | ------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Scheme      | https                                | The protocol required to ask for the resource. For web applications, this is usually HTTPS. But it could be any internet protocol such as FTP or MAILTO.                                                                                                                            |
+| Scheme      | https                                | The protocol required to request the resource. For web applications, this is usually HTTPS. It could also be other protocols like FTP or MAILTO.                                                                                                                                    |
 | Domain name | byu.edu                              | The domain name that owns the resource represented by the URL.                                                                                                                                                                                                                      |
-| Port        | 3000                                 | The port specifies the numbered network port used to connect to the domain server. Lower number ports are reserved for common internet protocols, higher number ports can be used for any purpose. The default port is 80 if the scheme is HTTP, or 443 if the scheme is HTTPS.     |
-| Path        | /school/byu/user/8014                | The path to the resource on the domain. The resource does not have to physically be located on the file system with this path. It can be a logical path representing endpoint parameters, a database table, or an object schema.                                                    |
-| Parameters  | filter=names&highlight=intro,summary | The parameters represent a list of key value pairs. Usually it provides additional qualifiers on the resource represented by the path. This might be a filter on the returned resource or how to highlight the resource. The parameters are also sometimes called the query string. |
-| Anchor      | summary                              | The anchor usually represents a sub-location in the resource. For HTML pages this represents a request for the browser to automatically scroll to the element with an ID that matches the anchor. The anchor is also sometimes called the hash, or fragment ID.                     |
+| Port        | 3000                                 | The numbered network port used to connect to the server. Lower-numbered ports are reserved for common internet protocols (e.g., 80 for HTTP, 443 for HTTPS). Higher numbers can be used for custom services.                                                                        |
+| Path        | /school/byu/user/8014                | The path to the resource on the server. This does not have to match a physical file system; it can be a logical path representing API endpoints, database records, or object schemas.                                                                                               |
+| Query string  | filter=names&highlight=intro,summary | A list of key-value pairs, also called the **query string**. These provide additional qualifiers, such as filters or formatting instructions for the requested resource.                                                                                                           |
+| Fragment      | summary                              | Also called a **hash** or **anchor**, this represents a sub-location within the resource. For HTML, the browser automatically scrolls to the element with a matching ID. Note: Anchors are handled by the browser and are not typically sent to the server.                   |
 
-Technically you can also provide a user name and password before the domain name. This was used historically to authenticate access, but for security reasons this is deprecated. However, you will still see this convention for URLs that represent database connection strings.
+Technically, you can also provide a username and password before the domain name (e.g., `https://user:pass@example.com`). This was used historically for authentication but is now deprecated for security reasons. However, you will still see this convention in database connection strings.
 
 ## HTTP
 
-Hypertext Transfer Protocol (`HTTP`) is how the web talks. When a web browser makes a request to a web server it does it using the HTTP protocol. The purpose of this instruction is help you master the high level internals of HTTP. Just like becoming fluent in a foreign language makes a visit to another country more enjoyable, understanding how to speak HTTP helps you communicate effectively when talking on the web.
+Hypertext Transfer Protocol (HTTP) is the language of the web. When a browser makes a request to a server, it uses HTTP. Understanding the high-level internals of HTTP is essential for web development; just as fluency in a language helps you navigate a foreign country, speaking HTTP helps you communicate effectively with web services.
 
-When a web client (e.g. a web browser) and a web server talk they exchange HTTP requests and responses. The browser will make an HTTP request and the server will generate an HTTP response. You can see the HTTP exchange by using the browser's debugger or by using a console tool like `curl`. For example, in your console you can use `curl` to make the following request.
+When a web client (the browser) and a web server communicate, they exchange **requests** and **responses**. You can inspect these exchanges using browser developer tools or command-line tools like `curl`.
+
+For example, you can use `curl` in your terminal to view the raw HTTP exchange:
 
 ```sh
 curl -v -s http://info.cern.ch/hypertext/WWW/Helping.html
@@ -49,7 +59,7 @@ curl -v -s http://info.cern.ch/hypertext/WWW/Helping.html
 
 ### Request
 
-The HTTP request for the above command would look like the following.
+An HTTP request for the command above looks like this:
 
 ```http
 GET /hypertext/WWW/Helping.html HTTP/1.1
@@ -57,10 +67,10 @@ Host: info.cern.ch
 Accept: text/html
 ```
 
-An HTTP request has this general syntax.
+The general syntax of an HTTP request is:
 
 ```yaml
-<verb> <url path, parameters, anchor> <version>
+<verb> <path and parameters> <version>
 [<header key: value>]*
 [
 
@@ -68,13 +78,13 @@ An HTTP request has this general syntax.
 ]
 ```
 
-The first line of the HTTP request contains the `verb` of the request, followed by the path, parameters, and anchor of the URL, and finally the version of HTTP being used. The following lines are optional headers that are defined by key value pairs. After the headers you have an optional body. The body start is delimited from the headers with two new lines.
+The first line (the **request line**) contains the `verb` (the action), followed by the path and parameters, and finally the HTTP version. The subsequent lines are optional **headers** defined as key-value pairs. After the headers, there is an optional **body**, separated from the headers by a blank line.
 
-In the above example, we are asking to `GET` a resource found at the path `/hypertext/WWW/Helping.html`. The version used by the request is `HTTP/1.1`. This is followed by two headers. The first specifies the requested host (i.e. domain name). The second specifies what type of resources the client will accept. The resource type is always a [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) as defined by internet governing body IANA. In this case we are asking for HTML.
+In the example above, we use the `GET` verb to request the resource at `/hypertext/WWW/Helping.html`. The `Host` header specifies the domain, and the `Accept` header tells the server that the client expects `text/html` (a [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types)).
 
 ### Response
 
-The response to the above request looks like this.
+The server's response to the request looks like this:
 
 ```yaml
 HTTP/1.1 200 OK
@@ -93,7 +103,7 @@ Content-Type: text/html
 the <A NAME=4 HREF=TheProject.html>web</A> grow and be even more useful...
 ```
 
-An HTTP response has the following syntax.
+The general syntax of an HTTP response is:
 
 ```yaml
 <version> <status code> <status string>
@@ -104,82 +114,89 @@ An HTTP response has the following syntax.
 ]
 ```
 
-You can see that the response syntax is similar to the request syntax. The major difference is that the first line represents the version and the status of the response.
+The response syntax mirrors the request syntax. The primary difference is the first line (the **status line**), which contains the HTTP version, a numeric status code, and a descriptive status message.
 
-Understanding the meaning of the common HTTP verbs, status codes, and headers is important for you to understand, as you will use them in developing a web application. Take some time to internalize the following common values.
+## Verbs (Methods)
 
-## Verbs
-
-There are several verbs that describe what the HTTP request is asking for. The list below only describes the most common ones.
+HTTP verbs describe the action the requester wants to perform.
 
 | Verb    | Meaning                                                                                                                                                                                                                                                  |
 | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| GET     | Get the requested resource. This can represent a request to get a single resource or a resource representing a list of resources.                                                                                                                        |
-| POST    | Create a new resource. The body of the request contains the resource. The response should include a unique ID of the newly created resource.                                                                                                             |
-| PUT     | Update a resource. Either the URL path, HTTP header, or body must contain the unique ID of the resource being updated. The body of the request should contain the updated resource. The body of the response may contain the resulting updated resource. |
-| DELETE  | Delete a resource. Either the URL path or HTTP header must contain the unique ID of the resource to delete.                                                                                                                                              |
-| OPTIONS | Get metadata about a resource. Usually only HTTP headers are returned. The resource itself is not returned.                                                                                                                                              |
+| GET     | Retrieve the requested resource. This can be a single item or a list of resources.                                                                                                                                                                       |
+| POST    | Create a new resource. The request body contains the data for the new resource. The response usually includes the unique ID of the created item.                                                                                                         |
+| PUT     | Update a resource. The URL or body must contain the unique ID of the resource. The request body contains the updated data.                                                                                                                               |
+| DELETE  | Remove a resource. The URL or headers must specify the unique ID of the resource to be deleted.                                                                                                                                                          |
+| OPTIONS | Retrieve metadata about the communication options for a resource. Usually, only headers are returned without a body.                                                                                                                                     |
 
-## Status codes
+## Status Codes
 
-It is important that you use the standard HTTP status codes in your HTTP responses so that the client of a request can know how to interpret the response. The codes are partitioned into five blocks.
+Standard HTTP status codes allow the client to understand the result of the request. Codes are grouped into five classes:
 
-- 1xx - Informational.
-- 2xx - Success.
-- 3xx - Redirect to some other location, or that the previously cached resource is still valid.
-- 4xx - Client errors. The request is invalid.
-- 5xx - Server errors. The request cannot be satisfied due to an error on the server.
+- **1xx (Informational):** The request was received, and the process is continuing.
+- **2xx (Success):** The action was successfully received, understood, and accepted.
+- **3xx (Redirection):** Further action is needed to complete the request.
+- **4xx (Client Error):** The request contains bad syntax or cannot be fulfilled.
+- **5xx (Server Error):** The server failed to fulfill an apparently valid request.
 
-Within those ranges here are some of the more common codes. See the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status) for a full description of status codes.
+Common codes include:
 
-| Code | Text                                                                                 | Meaning                                                                                                                           |
-| ---- | ------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------- |
-| 100  | Continue                                                                             | The service is working on the request                                                                                             |
-| 200  | Success                                                                              | The requested resource was found and returned as appropriate.                                                                     |
-| 201  | Created                                                                              | The request was successful and a new resource was created.                                                                        |
-| 204  | No Content                                                                           | The request was successful but no resource is returned.                                                                           |
-| 304  | Not Modified                                                                         | The cached version of the resource is still valid.                                                                                |
-| 307  | Permanent redirect                                                                   | The resource is no longer at the requested location. The new location is specified in the response location header.               |
-| 308  | Temporary redirect                                                                   | The resource is temporarily located at a different location. The temporary location is specified in the response location header. |
-| 400  | Bad request                                                                          | The request was malformed or invalid.                                                                                             |
-| 401  | Unauthorized                                                                         | The request did not provide a valid authentication token.                                                                         |
-| 403  | Forbidden                                                                            | The provided authentication token is not authorized for the resource.                                                             |
-| 404  | Not found                                                                            | An unknown resource was requested.                                                                                                |
-| 408  | Request timeout                                                                      | The request takes too long.                                                                                                       |
-| 409  | Conflict                                                                             | The provided resource represents an out of date version of the resource.                                                          |
-| 418  | [I'm a teapot](https://en.wikipedia.org/wiki/Hyper_Text_Coffee_Pot_Control_Protocol) | The service refuses to brew coffee in a teapot.                                                                                   |
-| 429  | Too many requests                                                                    | The client is making too many requests in too short of a time period.                                                             |
-| 500  | Internal server error                                                                | The server failed to properly process the request.                                                                                |
-| 503  | Service unavailable                                                                  | The server is temporarily down. The client should try again with an exponential back off.                                         |
+| Code | Text                  | Meaning                                                                                                                           |
+| ---- | --------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| 200  | OK                    | The request succeeded, and the resource is returned.                                                                              |
+| 201  | Created               | The request succeeded and a new resource was created.                                                                             |
+| 204  | No Content            | The request succeeded, but there is no content to send back (common for DELETE).                                                  |
+| 304  | Not Modified          | The cached version of the resource is still valid; no need to re-transfer data.                                                   |
+| 307  | Temporary Redirect    | The resource is temporarily at a different URL.                                                                                   |
+| 308  | Permanent Redirect    | The resource has been moved permanently to a new URL.                                                                             |
+| 400  | Bad Request           | The server cannot process the request due to a client error (e.g., malformed syntax).                                             |
+| 401  | Unauthorized          | The request lacks valid authentication credentials.                                                                               |
+| 403  | Forbidden             | The server understands the request but refuses to authorize it.                                                                   |
+| 404  | Not Found             | The server cannot find the requested resource.                                                                                    |
+| 429  | Too Many Requests     | The client has sent too many requests in a given amount of time (rate limiting).                                                  |
+| 500  | Internal Server Error | A generic error message when the server encounters an unexpected condition.                                                       |
+| 503  | Service Unavailable   | The server is currently unable to handle the request (due to maintenance or overload). Clients should try again later.            |
 
 ## Headers
 
 📖 **Optional Reading**: [MDN HTTP headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers)
 
-HTTP headers specify metadata about a request or response. This includes things like how to handle security, caching, data formats, and cookies. Some common headers that you will use include the following.
+Headers provide metadata about the request or response, such as security tokens, data formats, and caching instructions.
 
-| Header                      | Example                              | Meaning                                                                                                                                                                        |
-| --------------------------- | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Authorization               | Bearer bGciOiJIUzI1NiIsI             | A token that authorized the user making the request.                                                                                                                           |
-| Accept                      | image/\*                             | What content format the client accepts. This may include wildcards.                                                                                                            |
-| Content-Type                | text/html; charset=utf-8             | The format of the response content. These are described using standard [MIME](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types) types. |
-| Cookie                      | SessionID=39s8cgj34; csrftoken=9dck2 | Key value pairs that are generated by the server and stored on the client.                                                                                                     |
-| Host                        | info.cern.ch                         | The domain name of the server. This is required in all requests.                                                                                                               |
-| Origin                      | cs260.click                          | Identifies the origin that caused the request. A host may only allow requests from specific origins.                                                                           |
-| Access-Control-Allow-Origin | https://cs260.click                  | Server response of what origins can make a request. This may include a wildcard.                                                                                               |
-| Content-Length              | 368                                  | The number of bytes contained in the response.                                                                                                                                 |
-| Cache-Control               | public, max-age=604800               | Tells the client how it can cache the response.                                                                                                                                |
-| User-Agent                  | Mozilla/5.0 (Macintosh)              | The client application making the request.                                                                                                                                     |
+| Header                      | Example                              | Meaning                                                                                             |
+| --------------------------- | ------------------------------------ | --------------------------------------------------------------------------------------------------- |
+| Authorization               | Bearer bGciOiJIUzI1NiIsI             | Credentials for authenticating the client.                                                          |
+| Accept                      | application/json                     | The content formats the client is willing to receive.                                               |
+| Content-Type                | text/html; charset=utf-8             | The format of the data in the body of the message.                                                  |
+| Cookie                      | SessionID=39s8cgj34                  | Key-value pairs previously sent by the server and stored by the client.                             |
+| Host                        | info.cern.ch                         | The domain name of the server (required in HTTP/1.1).                                               |
+| Origin                      | https://cs260.click                  | Indicates where the request originated from (used for security).                                    |
+| Access-Control-Allow-Origin | *                                    | A response header indicating which origins are allowed to access the resource.                      |
+| Content-Length              | 368                                  | The size of the body in bytes.                                                                      |
+| Cache-Control               | public, max-age=604800               | Instructions for how the response should be cached by the browser or proxies.                       |
+| User-Agent                  | Mozilla/5.0 (Macintosh)...           | Information about the client software making the request.                                           |
 
 ## Body
 
-The format of the body of an HTTP request or response is defined by the `Content-Type` header. For example, it may be HTML text (text/html), a binary image format (image/png), JSON (application/json), or JavaScript (text/javascript). A client may specify what formats it accepts using the `accept` header.
+The body contains the actual data being transferred. Its format is defined by the `Content-Type` header. Common formats include HTML (`text/html`), images (`image/png`), JSON (`application/json`), and JavaScript (`text/javascript`). While `GET` requests typically do not have a body, `POST` and `PUT` requests use the body to send data to the server.
 
-## Things to Understand
+## ☑ Exercise
 
-- Internet basics: IP addresses, domain names, port numbers
-- Web basics: URLs, the HTTP protocol (Headers, methods, and body)
-- URL schema
+
+```masteryls
+{"id":"f4e03e17-bc29-4e17-b48e-45c138c3abfb","title":"Identifying URL Components","type":"multiple-choice"}
+In a standard URL (Uniform Resource Locator), which segment is used to pass data to the server as a series of key-value pairs, typically following the resource path and starting with a question mark (`?`)?
+
+- [ ] The fragment
+- [x] The query string
+- [ ] The scheme
+- [ ] The hostname
+```
+
+```masteryls
+{"id":"569eaf90-5ac2-46a1-a115-fe54bb1685ad", "title":"Essay", "type":"essay" }
+Describe the different parts of an HTTP request.
+```
+
 
 ## Videos
 

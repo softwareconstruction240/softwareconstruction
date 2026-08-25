@@ -6,6 +6,20 @@
 
 🖥️ [Lecture Videos](#videos)
 
+### 🔑 Key points
+
+- The importance of a good name.
+- Three reasons to create methods.
+- How to decompose a complex algorithm into sub methods.
+- How the use of good names and decomposition can reduce or eliminate the need to write inline comments.
+- How to properly use parameters.
+- How to properly layout your code to maximize readability.
+- How to make expressions easy to read and understand.
+- How to refactor your code.
+- Writing pseudo-code.
+
+---
+
 Despite stereotypes to the contrary, software engineering is an art form. It requires significant creativity to envision, architect, and create quality user experiences. That same care and artistic expression should be reflected in how your organize and write your code. One quality of a distinguished engineer is that they write code that is easy to discover, read, comprehend, manipulate, and extend. Take for example the following two small programs.
 
 **Example 1**
@@ -326,7 +340,31 @@ for (var i : Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7)) {
 
 Thinking through what you are trying to code before you start coding often leads to better quality code. You can do this by creating class or sequence diagrams and then verbally stepping through the common use cases.
 
-![Sequence Diagram](sequence-diagram.png)
+```mermaid
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
+
+sequenceDiagram
+    participant Client
+    participant Server
+    participant ChessGame
+    participant ChessBoard
+    participant ChessPiece
+
+    Client->>Server: validMoves()
+    activate Server
+
+    Server->>ChessGame: validMoves()
+    activate ChessGame
+
+    ChessGame->>ChessBoard: getPiece()
+    ChessGame->>ChessPiece: pieceMoves()
+
+    deactivate ChessGame
+    Server-->>Client: Collection<ChessMove>
+    deactivate Server
+
+    Client->>Server: makeMove(ChessMove)
+```
 
 You can also use a technique called pseudo-code, where you write out what the code does in plain text. For example:
 
@@ -340,17 +378,34 @@ client make move
 
 ```
 
-## Things to Understand
+## ☑ Exercise
 
-- The importance of a good name.
-- Three reasons to create methods.
-- How to decompose a complex algorithm into sub methods.
-- How the use of good names and decomposition can reduce or eliminate the need to write inline comments.
-- How to properly use parameters.
-- How to properly layout your code to maximize readability.
-- How to make expressions easy to read and understand.
-- How to refactor your code.
-- Writing pseudo-code.
+
+```masteryls
+{"id":"efe6a0a3-b72a-4126-8591-60d39f110906","title":"Code Readability and Intent","type":"multiple-choice"}
+When aiming to write high-quality, maintainable code, which approach to naming and documentation is considered a best practice?
+
+- [ ] Prioritizing short, single-letter variable names like `i`, `rs`, and `data` to minimize file size and speed up execution.
+- [ ] Writing a detailed comment for every line of code to explain the specific syntax being used.
+- [x] Using descriptive names for variables and functions that clearly communicate their intent and purpose without requiring extra explanation.
+- [ ] Nesting multiple logical operations within a single function to ensure all related tasks are handled in one location.
+```
+
+```masteryls
+{"id":"d602989d-7d2a-4286-959f-1e864df2aff9","title":"Defining Refactoring","type":"multiple-choice"}
+In the context of writing quality code, what is the primary purpose of refactoring?
+
+- [ ] Fixing critical security vulnerabilities and logic bugs discovered during the production phase
+- [x] Improving the internal structure and readability of code without changing its external behavior
+- [ ] Adding new functionality and features to an existing module to meet changing requirements
+- [ ] Rewriting a legacy system from scratch using a more modern programming language or framework
+```
+
+```masteryls
+{"id":"06f01b46-4117-41d5-a6e7-b1fc1615ed9d","title":"Serving through Code Quality","type":"essay"}
+In the context of software development as a vocation, how does prioritizing code quality serve as an act of service to God and your neighbor?
+```
+
 
 ## Videos
 

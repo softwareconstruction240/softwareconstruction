@@ -10,7 +10,18 @@
 
 🖥️ [Lecture Videos](#videos)
 
+### 🔑 Key points
+
+- Why unit testing is important
+- How to write unit tests using the JUnit testing framework
+- How to run Junit tests from Intellij
+- Special considerations for testing database code
+
+---
+
 Test driven development ([TDD](https://en.wikipedia.org/wiki/Test-driven_development)) was popularized in the 1990s as part of the [extreme programming](https://en.wikipedia.org/wiki/Extreme_programming) wave. The idea is that you begin writing software by creating tests that represent the consumer of your software. You then use the tests to drive the development of your code. When the tests pass you know that your code is complete.
+
+![tdd.jpg](tdd.jpg)
 
 TDD has been proven to decrease development time, provide documentation and examples for your code, result in less bugs, and prevent against the introduction of future bugs. Additionally, by writing your tests by focusing on the consumer of your code, you tend to design better interfaces and accurate domain models.
 
@@ -104,12 +115,24 @@ With IntelliJ, you can autogenerate your unit tests. To use this tool open up an
 
 ![generate tests](generate-tests.png)
 
-## Things to Understand
+## ☑ Exercise
 
-- Why unit testing is important
-- How to write unit tests using the JUnit testing framework
-- How to run Junit tests from Intellij
-- Special considerations for testing database code
+
+```masteryls
+{"id":"e23f3eaf-fadc-4285-8273-35b9852057b7","title":"Benefits of Test-Driven Development","type":"multiple-choice"}
+What is a primary architectural benefit of practicing Test-Driven Development (TDD)?
+
+- [ ] It guarantees that the software will be 100% free of logic errors and security vulnerabilities before the first deployment.
+- [ ] It speeds up the initial coding phase of a project by removing the need for detailed design specifications or documentation.
+- [x] It promotes the creation of modular, loosely coupled code because components must be designed to be testable in isolation.
+- [ ] It replaces the need for manual User Acceptance Testing (UAT) by ensuring that all business requirements are captured in code.
+```
+
+```masteryls
+{"id":"da9ad5d7-2473-4385-a73c-1f5d9167e751","title":"Building Trust through Testing","type":"essay"}
+Why is trustworthy software an act of service, and how does systematic unit testing contribute to that trust and reflect the BYU aim of developing character?
+```
+
 
 ## Videos
 
@@ -117,8 +140,3 @@ With IntelliJ, you can autogenerate your unit tests. To use this tool open up an
 - 🎥 [Unit Testing Overview (5:10)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=bb1884b3-55ab-4a8b-be05-ad6b01477df8&start=0) - [[transcript]](https://github.com/user-attachments/files/17805243/CS_240_Unit_Testing_Overview.pdf)
 - 🎥 [The JUnit Testing Framework (15:25)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=071e47be-a746-4e74-afd5-ad6b0149b2b8&start=0) - [[transcript]](https://github.com/user-attachments/files/17805245/CS_240_The_JUnit_Testing_Framework.pdf)
 
-## Demonstration code
-
-📁 [main](example-code/main/)
-
-📁 [test](example-code/test/)

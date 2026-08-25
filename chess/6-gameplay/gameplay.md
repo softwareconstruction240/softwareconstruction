@@ -4,10 +4,50 @@
 - 🖥️ [Videos](#videos)
 - [TA Tips](../../instruction/chess-tips/chess-tips.md#phase-6---gameplay): A collection of common problems for this phase
 
+#### 🥅 Outcomes of this Deliverable
+
+1. **Frame** software engineering problems by clarifying system purpose, constraints, and responsibilities, demonstrating both sound technical judgment and a sense of ownership for the long-term impact of software others depend on.
+1. **Explore** object-oriented frameworks, network protocols, distributed services, and databases with curiosity and discipline, developing accurate mental models while valuing learning as essential to responsible engineering practice.
+1. **Design** software systems using object-oriented principles and clear interfaces that support reliability and maintainability, motivated by care for future users, collaborators, and the evolution of the system over time.
+1. **Build** distributed applications that faithfully translate design intent into readable, testable implementations, showing diligence and integrity in the quality of code produced.
+1. **Test** software systems systematically to validate behavior and uncover failure modes, valuing evidence, honesty, and accountability as foundations of trustworthy software.
+
+---
+
 For the final part of the Chess Project, you will implement gameplay. Gameplay will use WebSocket to communicate between client and server (instead of Web APIs). When a user begins playing or observes a game, their client should establish a WebSocket connection with the server. The WebSocket connection exchanges messages between client and server (and vice versa). Figure 1 shows a recommended design for the chess client.
 
-![client design](client-design.png)
+```mermaid
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
 
+classDiagram
+
+    direction LR
+    class ChessClient
+    class ServerFacade
+    class WebsocketCommunicator
+    class HttpCommunicator
+    class Internet
+    class Server
+
+    ServerFacade --> HttpCommunicator
+
+    ChessClient --> ServerFacade
+
+    ServerFacade --> WebsocketCommunicator : ctor(observer)
+
+    class ServerMessageObserver {
+        <<interface>>
+        +notify(ServerMessage message)
+    }
+
+    WebsocketCommunicator --> ServerMessageObserver : notify()
+
+    ChessClient --|> ServerMessageObserver
+
+    HttpCommunicator ..> Internet
+    WebsocketCommunicator <..> Internet
+    Internet <..> Server
+```
 _Figure 1: Recommended Chess Client Design_
 
 
@@ -63,13 +103,11 @@ The following sections describe the messages that will be exchanged between clie
 
 ```mermaid
 flowchart LR
+classDef default fill:#ffffff,stroke:#000000,color:#000000,stroke-width:1px;
   client
   server
-  client e1@--> |UserGameCommand|server
-  server e2@--> |ServerMessage|client
-  e1@{ animation: fast }
-  e2@{ animation: fast }
-
+  client --> |UserGameCommand|server
+  server --> |ServerMessage|client
 ```
 
 Some WebSocket messages are sent from the client to server. As defined by the Chess application design, these are called `user game commands`. Other WebSocket messages are sent from the server to client. These are called `server messages`. In code, each of these message types are represented as a Java class that can be serialized and deserialized to and from JSON (similar to the Request and Result classes you created for the server’s Web API). The provided starter code includes a class named `UserGameCommand` which defines the required messages that originate from the client, and a class named `ServerMessage` which defines the required messages that originate from the server.
@@ -107,6 +145,8 @@ Here are the different command types that a user game command can represent.
 The following diagram represents a possible extension of the `UserGameCommand` class that you could make in order to support the required `ChessMove` field of the MAKE_MOVE command. You are free to follow this design, or come up with a representation of your own.
 
 ```mermaid
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
+
 classDiagram
     class UserGameCommand {
         commandType: CommandType
@@ -158,6 +198,8 @@ Here are the different command types that a server message can represent.
 The following diagram represents possible extensions of the `ServerMessage` class that you could use to support the different `ServerMessage` commands. You are free to follow this design, or come up with a representation of your own. Just make sure the required fields are included in your JSON serialization.
 
 ```mermaid
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
+
 classDiagram
     class ServerMessage {
         serverMessageType : ServerMessageType
@@ -243,6 +285,13 @@ To pass off this assignment submit your work to the course [auto-grading](https:
 
 Before coming to passoff with a TA, check to make sure your code functions properly and doesn't have any of these common problems past students have had. [Phase 6 Passoff Common Problems](../../instruction/chess-tips/chess-tips.md#passoff-frequently-encountered-problems-1)
 
+
+```masteryls
+{"id":"d2d9ee04-2d9a-40f9-9c13-db1db990c162","title":"Submission Precheck","type":"multiple-choice"}
+- [x] The functionatity is working, all of the tests are passing, I have verified my code quality, and my GitHub commit history complies with the course requirements.
+- [ ] I need to back and do some more work before submitting.
+```
+
 ### Grading Rubric
 
 > [!NOTE]
@@ -266,6 +315,36 @@ Before coming to passoff with a TA, check to make sure your code functions prope
 |                               | **Game completion**: No moves after game completion due to resignation, checkmate, or stalemate.                                                                     |              |
 | Code Quality                  | [Rubric](../code-quality-rubric.md)                                                                                                                                  |           30 |
 |                               | **Total**                                                                                                                                                            |      **155** |
+
+#### 🥅 Outcome Reflections
+
+With the completion of this chess gameplay deliverable checkpoint, it is time to reflect upon the course outcomes and your ability to master them.
+
+```masteryls
+{"id":"ce464df0-a2d6-45a9-a659-a2eb2227d1b0","title":"Frame","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+What process did you use to frame your understanding of the chess gameplay so that it properly reflected the requirements? How did you determine a correct understanding of the problem so that you were able to consider the factors that your users deem important and will depend on?
+```
+
+```masteryls
+{"id":"d586edeb-56ad-42da-a354-36a000e660b4","title":"Explore","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+What software engineering principles and practices did you consider when you were exploring how to represent a chess gameplay? What did you do to advance your learning of the possible solution space?
+```
+
+```masteryls
+{"id":"058feffa-056d-44fa-8a27-ab1e6a5c3762","title":"Design","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+What object-oriented and design principles did you consider as you converted your framing and exploration of the chess gameplay into a design solution? What did you do to ensure you were considering the needs of future developers and users of the application?
+```
+
+```masteryls
+{"id":"27be87bf-8c65-484a-a25c-ce0553215a4e","title":"Build","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+What went well and what did you find challenging as you implemented your chess gameplay? What did you do to demonstrate design integrity and the quality of the application?
+```
+
+```masteryls
+{"id":"a5dec25a-2131-4137-927a-abbc6d331abd","title":"Test","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+What testing patterns did you employ to ensure a correct implementation of the chess gameplay and encourage the foundation of a trustworthy application that others can rely on?
+```
+
 
 ## Videos
 

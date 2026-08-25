@@ -6,7 +6,23 @@
 
 🖥️ [Lecture Videos](#videos)
 
-Classes are the primary programming construct for Java. A class contains fields and methods. Fields represent variables within the class and methods represent operations that the class performs. For example, if we had a class that represents a person, we might have a field called `name` that contains the person's name, and a method called `sayName` that outputs the name. An object is an instantiation, or instance, of a class that has been initialized to contain values. A class may also have a constructor that provides the default values for the fields when the class is instantiated into an object.
+### 🔑 Key points
+
+- What object references are and why we need them
+- The differences between static methods and variables and instance methods and variables
+- How constructors work in Java
+- What constructor the compiler writes (and when it doesn't write one)
+- What code the compiler adds to some constructors and why
+- What the `this` reference is used for
+- When the `this` reference is required and when it is optional
+- What an enum is and how to implement one
+- The standard order of elements in a Java class
+
+---
+
+Classes are the fundamental building blocks of Java programs. A class contains **fields** and **methods**. Fields represent the state (data) within the class, and methods represent the behavior (operations) that the class performs. For example, if we had a class representing a person, we might have a field called `name` and a method called `sayName` that prints that name. 
+
+An **object** is an instantiation, or instance, of a class that has been initialized with specific values. A class often includes a **constructor**, which is a special block of code used to initialize the fields when the class is instantiated.
 
 ```java
 public class Person {
@@ -25,7 +41,7 @@ public class Person {
 }
 ```
 
-If you wanted to instantiate a `Person` object from the `Person` class, you use the `new` operator and pass the values you want to initialize the object with. The provided values then get passed to the class's constructor. Here is an example of a Java program that uses the `Person` class.
+To create a `Person` object from the `Person` class, you use the `new` operator and pass the required arguments to the constructor. Here is an example of a program that uses the `Person` class:
 
 ```java
 public class HelloPerson {
@@ -36,34 +52,41 @@ public class HelloPerson {
 }
 ```
 
-## This Keyword
+## The `this` Keyword
 
-When you use the `new` operator to instantiate an object it returns a pointer reference to the new object. You can then use that to call methods and access variables to the object.
+When you use the `new` operator to instantiate an object, it returns a **reference** to the new object. You use that reference to call methods and access fields.
 
 ```java
 var obj = new Object();
 obj.toString();
 ```
 
-That works great for code that uses your class, but sometimes you need a reference to the object within the class code. For example, consider the `toString` method. If you want to reference a class field as part of the output of the method then you can use the keyword `this`, as a substitute for the reference to the object.
+While external code uses a variable name to refer to an object, you sometimes need a way to refer to the current object from *within* its own class code. The keyword `this` acts as a reference to the current instance.
 
 ```java
 public class ThisExample {
     String value = "example";
 
+    @Override
     public String toString() {
         return this.value;
     }
 }
 ```
 
-In order to keep you from having to use the `this` keyword every time you reference a class field, Java will infer `this` when you reference a class field and there is no other conflicting variable with the same name. That makes it so you only have to use `this` when there is a conflict. This commonly happens in a class constructor method as demonstrated above in the `Person` example.
+To reduce verbosity, Java automatically infers `this` when you reference a class field, provided there is no local variable or parameter with the same name. You only *must* use `this` when a naming conflict occurs, which is common in constructors:
+
+```java
+public Person(String name) {
+    this.name = name; // 'this.name' refers to the field; 'name' refers to the parameter
+}
+```
 
 ## Constructors
 
-An object constructor receives parameters and executes the code necessary to completely construct an object. A constructor is specified with a method that has the same name as the class. You can have multiple, or overloaded, constructors by defining constructors that take different parameters. This is useful if you want the ability to construct an object with default values, or with explicit values.
+A constructor receives parameters and executes the code necessary to initialize a new object. A constructor must have the same name as the class and no return type. You can define multiple **overloaded** constructors with different parameter lists, allowing objects to be created with default or explicit values.
 
-A common pattern with constructors is to create what is called a `copy constructor` that takes an object of the class type, and deep copies all of the object's values to the new instance.
+A common pattern is the **copy constructor**, which takes an existing object of the same type and copies its values into a new instance.
 
 ```java
 public class ConstructorExample {
@@ -81,7 +104,7 @@ public class ConstructorExample {
 
     /** Copy constructor */
     public ConstructorExample(ConstructorExample copy) {
-        this(copy.value);
+        this(copy.value); // Calls the explicit constructor above
     }
 
     public static void main(String[] args) {
@@ -92,18 +115,18 @@ public class ConstructorExample {
 }
 ```
 
-If you don't provide a constructor then Java provides a default constructor that does nothing.
+If you do not provide any constructors, the Java compiler automatically provides a **default no-argument constructor** that does nothing. If you define at least one constructor, the compiler will not generate the default one.
 
 ## Getters and Setters
 
-An important concept in object oriented programming is the idea of encapsulation. This basically means that you only expose information on a `need to know basis`. Encapsulation makes it easier to change unexposed code.
+An important concept in object-oriented programming is **encapsulation**. This involves hiding the internal state of an object and requiring all interaction to be performed through a well-defined interface (a "need-to-know" basis). Encapsulation makes code easier to maintain and change without breaking other parts of the system.
 
-One common design pattern to enable encapsulation is the use of getters and setters methods to access fields instead of publicly exposing the field directly. These methods are often called `accessor methods`. A getter is simply a method that gets the value of the field, and a setter is a method that sets the value of a field. This makes it so you can hide how the field is implemented and protect the data integrity of your fields.
-
-Here is a simple example of using accessor methods.
+One common pattern for encapsulation is using **getters** (accessors) and **setters** (mutators) to manage access to private fields.
 
 ```java
 public class GetSetExample {
+    private String name; // Keep fields private
+
     public String getName() {
         return name;
     }
@@ -111,49 +134,45 @@ public class GetSetExample {
     public void setName(String name) {
         this.name = name;
     }
-
-    // Keep fields private
-    private String name;
 }
 ```
 
-Initially this may seem like overhead, but when your fields get more complex, or you decide to store your data in a different way, or even a different place, the value of accessor methods becomes clearer. Consider an example where the field type is an array, and you don't want to expose a mutable version of the array with the getter. Additionally, you want to check to make sure all the numbers in the array are less than 100 on the setter.
+While this may seem like extra work initially, it allows you to change how data is stored or validated later without changing the code that uses the class. For instance, you might want a getter to return a copy of an array (to prevent external modification) or a setter to validate data:
 
 ```java
 public class GetSetExample {
+    private int[] scores = new int[10];
+
     public int[] getScores() {
+        // Return a copy to protect the internal array
         int[] copy = new int[scores.length];
         System.arraycopy(scores, 0, copy, 0, scores.length);
         return copy;
     }
 
     public void setScores(int[] scores) {
-        for (var i = 0; i < scores.length; i++) {
-            if (scores[i] > 100) {
-                return;
+        // Validate data before updating
+        for (int score : scores) {
+            if (score > 100) {
+                return; // Or throw an exception
             }
         }
         this.scores = scores;
     }
-
-    private int[] scores = new int[10];
 }
 ```
 
-If you have accessor methods for your fields then you can make changes like this without having to worry about how the code is being used.
-
 ## Enums
 
-Enumerations allow you to create textual representations of labeled sets. You can define an enumeration in Java using the `enum` keyword.
+Enumerations (**enums**) allow you to define a fixed set of named constants. This makes your code more readable and prevents invalid values from being used.
 
 ```java
 public enum Peak {
     NEBO, PROVO, SANTAQUIN, TIMPANOGOS, CASCADE, SPANISH, LONE
 }
-
 ```
 
-Using enumerations help to make your code more readable, validate parameters, and restrict values to a closed set. Here is an example that uses the `Peak` enumeration to parse command line arguments.
+Enums are useful for validating parameters and restricting variables to a closed set of options. The following example demonstrates how to parse a string into an enum constant:
 
 ```java
 public static void main(String[] args) {
@@ -169,17 +188,25 @@ public static void main(String[] args) {
 }
 ```
 
-## Things to Understand
 
-- What object references are and why we need them
-- The differences between static methods and variables and instance methods and variables
-- How constructors work in Java
-- What constructor the compiler writes (and when it doesn't write one)
-- What code the compiler adds to some constructors and why
-- What the 'this' reference is used for
-- When the 'this' reference is required and when it is optional
-- What an enum is and how to implement one
-- The standard order of elements in a Java class
+## ☑ Exercise
+
+
+```masteryls
+{"id":"8818e31c-102f-4930-bc88-8f5662f09975","title":"Relationship Between Classes and Objects","type":"multiple-choice"}
+In object-oriented programming, which statement best describes the fundamental relationship between a **class** and an **object**?
+
+- [x] A class acts as a blueprint or template that defines properties and behaviors, while an object is a specific instance created from that blueprint.
+- [ ] An object is a static blueprint that defines the structure of a program, while a class is the dynamic memory allocated during execution.
+- [ ] A class is a specific realization of an object that contains unique data values assigned at runtime.
+- [ ] Classes and objects are synonymous terms used to describe the same data structures within a programming language.
+```
+
+```masteryls
+{"id":"c935ba62-abf8-45a9-bb1c-22806e4296e2","title":"Modeling with Integrity","type":"essay"}
+As you learn to model real-world things as classes and objects, how does striving to represent them accurately and honestly shape the way you build software, and how does this reflect the BYU aim of developing Christlike character?
+```
+
 
 ## Videos
 

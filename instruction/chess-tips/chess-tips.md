@@ -1,302 +1,230 @@
-# Chess Tips
+# TA Tips
 
-This is a collection of tips that the TAs have compiled for solving common problems.
+This is a collection of tips compiled by the TAs to help you solve common problems throughout the project.
 
-# General - all phases
+# General - All Phases
 
 ## I don't have enough GitHub commits to pass the autograder
 
-Try to avoid this by following these rules of thumb:
+The autograder requires a history of regular commits to verify your development process. Try to avoid falling short by following these guidelines:
 
-1. **Work in small chunks.** One common mistake is only committing when you hit a big milestone, like passing an entire test file - this is a sign that you could break the problem into smaller pieces. Commit when you hit small milestones, like finishing a function or passing a test.
-2. **Always set a clear goal for your next commit.** Something like "pass this test" or "create this piece of logic." Let the flow of regular commits drive your development process.
-3. Commits should **represent your changes in one short sentence.** If your commits are feeling hard to articulate because you don't remember all the things you changed, that's a good indicator that you should be committing more often.
-4. **Start working early.** The autograder has a requirement for number of days, so it'll flag you if you do everything on the same day.
+1.  **Work in small chunks.** A common mistake is committing only when hitting a major milestone, such as passing an entire test file. This usually indicates that you should break the problem into smaller pieces. Commit when you finish a single function or pass a specific test case.
+2.  **Set a clear goal for every commit.** Aim for specific targets like "implement pawn moves" or "fix board initialization logic." Let the flow of regular commits drive your development process.
+3.  **Keep commit messages concise.** Commits should represent your changes in one short sentence. If you find it hard to articulate what you changed because you modified too many things, you are waiting too long to commit.
+4.  **Start working early.** The autograder requires commits over a minimum number of days. If you complete the entire project in a single day, you will likely be flagged.
 
-If you turn in your code without enough commits, the autograder will let you know that you need TA approval. We recommend that you bring your number of commits up to the required amount before coming in. You can make further changes to your code by focusing on code quality and organization: analyze your program structure and work on applying principles you're learning in class, like decomposition, abstraction, and encapsulation.
+If you submit code without enough commits, the autograder will require TA approval. We recommend reaching the required commit count before seeking help. You can increase your commit count by focusing on code quality: analyze your program structure and apply principles like decomposition, abstraction, and encapsulation to refactor your code.
 
-# Phase 0 - Chess moves
+# Phase 0 - Chess Moves
 
-## These collections look identical to each other, but Java says they aren’t
+## These collections look identical, but Java says they aren't
 
-Look at the [specification](../../chess/0-chess-moves/chess-moves.md#object-overrides) for mentions of the `equals()` and `hashCode()` methods. It might also be worthwhile to implement a `toString()` method. Additionally, check the promotion piece (null in 99% of cases). Also, review the getters and setters for each class if that doesn’t work.
+Check the [specification](../../chess/0-chess-moves/chess-moves.md#object-overrides) regarding the `equals()` and `hashCode()` methods. If these aren't implemented correctly, Java will compare the memory addresses of the objects rather than their contents. 
+
+**Common pitfalls:**
+*   Ensure the `promotionPiece` is included in your equality checks (it is `null` in most cases, but still matters).
+*   Review your getters and setters to ensure data is being stored and retrieved as expected.
+*   Implement a `toString()` method to help you see the actual contents of the collections during debugging.
 
 ## JUnit - No test events received
 
-Go into File -> Project Structure -> Modules -> Paths and select “Inherit project compile output path” for each module.
+If IntelliJ fails to find or run tests, go to **File -> Project Structure -> Modules -> Paths** and select **"Inherit project compile output path"** for each module.
 
-## I can’t run any tests, there is no green button
+## I can’t run any tests; there is no green button
 
-First, check if your `test/java` folder is highlighted green. If it isn’t highlighted green, right-click on the `java` folder, then select "Mark Directory As…" and select "Test Sources Root". Now that IntelliJ understands that this is a test folder, there should be an option to run the tests inside of it.
+First, check if your `test/java` folder is highlighted in green. If it isn't:
+1.  Right-click the `java` folder.
+2.  Select **"Mark Directory As..."** 
+3.  Select **"Test Sources Root"**.
 
-If that doesn’t work, make sure that the shared folder is a module. You can check this by clicking File -> Project Structure. Then, in Project Structure select the Module option on the left. Here you can see a section of Modules, in which you should see shared, server, and client. If you only see chess or nothing at all, IntelliJ didn’t set it up right, so you should delete everything, reclone the repository, and set it up again.
+If the button still doesn't appear, ensure the `shared` folder is recognized as a module:
+1.  Go to **File -> Project Structure -> Modules**.
+2.  You should see `shared`, `server`, and `client`.
+3.  If you only see `chess` or nothing at all, the project structure is incorrect. You may need to re-import the project or re-clone the repository to ensure IntelliJ sets up the modules correctly.
 
 ## I don't have enough GitHub commits to pass the autograder
 
-See [previous](/instruction/chess-tips/chess-tips.md#General---all-phases)
+See the [General](#general---all-phases) section.
 
 # Phase 1 - Chess Game
 
 ## toString
 
-If you are struggling to understand how the board is looking during your code, and especially when comparing it with the expected test cases, what you can do is override a toString to your code. This means that instead of printing ChessGame@12345, it will print out the variables, and you can have it print out a mock chess board so you can visually see and understand what the current layout of the chessBoard.
+If you are struggling to visualize the board state during debugging—especially when comparing it with expected test results—override the `toString()` method in your `ChessBoard` class. Instead of a generic memory address like `ChessGame@12345`, you can make it print a text-based representation of the board layout.
 
-## `static` keyword
+## The `static` keyword
 
-In most cases you should not be using the `static` keyword for your classes and methods. Static classes and variables mean that there will only be one single instance, making it into a global variable. If you know what you are doing, you can use static, but only use it if you can know what you are using it for. If your IDE is telling you to use static, you should see why it is thinking it should be static, and fix it because 90-100% of your code shouldn't be static.
+In most cases, you should **not** use the `static` keyword for your classes and methods. Static variables act as global variables, meaning only one instance exists for the entire program. This can cause significant issues when the autograder runs multiple tests in sequence. 
+
+If your IDE suggests making something static, it’s usually because you are trying to access an instance member from a static context. Rather than following the suggestion, fix the underlying architectural issue. The vast majority of your project logic should be instance-based.
 
 ## Clone and Copy
 
-When in your `ChessGame.validMoves`, you may want to create a copy/clone of the ChessBoard so that you can make a piece move and see if you are still in check to know if that is a valid move or not. If you create a shallow copy, the ChessBoard will be the exact same, and will keep any changes you make. This needs to be a DeepCopy or clone so that it can be unique and different, so that if a chance happens on one instance, the other will stay the same. If you would like some explanations on how to incorporate clone and copy, look here for [copying objects](../copying-objects/copying-objects.md). One such method is to have ChessBoard implement Cloneable, then in the override clone method, you loop through the 2d ChessPiece array, and do `Arrays.copyOf` to copy the chess board row by row, then finally putting the 2d array into the cloned ChessBoard.
+In `ChessGame.validMoves`, you often need to create a copy of the `ChessBoard` to simulate a move and check if the king remains in check. 
+
+*   **Shallow Copy:** If you simply copy the reference or the outer array, the underlying pieces remain the same. Changes to the "copy" will affect the original board.
+*   **Deep Copy:** You must create a new `ChessBoard` and new `ChessPiece` objects (or use a structure that ensures independence).
+*   **Implementation Tip:** Have `ChessBoard` implement `Cloneable`. In the overridden `clone()` method, create a new 2D array and copy each piece. For more details, see the documentation on [copying objects](../copying-objects/copying-objects.md).
 
 ## `==` vs `.equals()` comparison
 
-If you are trying to see if a king is in check by doing `endPosition == kingPosition`, the answer will always return false. Instead, you should use `endPosition.equals(kingPosition)`. To understand why Objects require `.equals()` instead, please refer to [Java Object Class](../java-object-class/java-object-class.md).
+If you compare positions using `endPosition == kingPosition`, the result will almost always be `false` because `==` compares memory references. You must use `endPosition.equals(kingPosition)`. To understand why objects require `.equals()`, refer to the [Java Object Class](../java-object-class/java-object-class.md) documentation.
 
 ## I don't have enough GitHub commits to pass the autograder
 
-See [previous](/instruction/chess-tips/chess-tips.md#General---all-phases)
+See the [General](#general---all-phases) section.
 
 # Phase 2 - Server Diagram
+*(No specific tips for this phase yet.)*
 
 # Phase 3 - Web API
 
-## 5 Pro tips
+## 5 Pro Tips for Debugging
 
-5 Pro tips for solving your own coding problems (#4 will surprise you):
+1.  **Read the error messages.** The compiler and debugger provide specific line numbers and descriptions. Trust the output!
+2.  **Read the specs.** The documentation is detailed and intentionally structured to guide you through common pitfalls.
+3.  **Search Discord.** Use the search feature to see if your question has already been answered in previous semesters or by other students.
+4.  **Write your own tests.** Phase 3 tests are intentionally less granular than earlier phases. Rely on manual testing or write your own unit tests to isolate issues.
+5.  **Embrace the challenge.** This course is designed to push you into new concepts. Wrestling with these problems is where the actual learning happens.
 
-1. **Read the error messages.** The computer doesn’t lie, and it even tells you exactly which line caused the problem!
-2. **Read the specs.** The document is long, but it’s not redundant— it’s helpful. All the information has been carefully placed in there to help YOU as a student.
-3. **Search Discord.** It’s really to ask a new question, but first try to use the search feature to find a pre-existing answer.
-4. **Write your own tests.** Yes, it was convenient in the first phases when we had done that for you, but now we’re expecting you to do this yourself. The Phase 3 tests are intentionally less helpful than before. Rely on manual testing, or write your own tests from the beginning.
-5. **Appreciate the learning opportunity.** We (the instructors) designed this course to teach you new things. You are supposed to wrestle with new concepts and challenges, but it is possible. Think through the problems; you can do it!
+## Why is there no distinction between "Unauthorized" and "Unregistered" errors?
 
-## Why is there no distinction between `Unauthorized` and `Unregistered` errors?
+Returning a generic `401 Unauthorized` for both an incorrect password and a non-existent username is a security best practice known as preventing **information leakage**.
 
-> **Question:**
-> Would trying to sign in with an unregistered username generate a 401 error or a 500 error?
-> my guess is that it's a 401, since it was a user error, but calling it "Unauthorized" when it's more "Unregistered" doesn't feel quite right
+If your server returned `User Not Found`, a malicious actor could use that information to harvest a list of valid usernames. By returning the same error for both cases, you keep the existence of accounts private. This is why most professional login systems use generic "Invalid username or password" messages.
 
-While the user isn't registered, you still want to return `Unauthorized`, otherwise you would be "leaking" information.
+## "Variable is being received by server as null"
 
-For example, lets say you return `Unregistered` for users that don't exist and `Unauthorized` for users that do exist but just have the wrong password. If I'm a bad actor and I want to try and log in to someone else's account, if I get an `Unregistered` exception, that tells me that the account I'm trying to log into doesn't exist, and if I get an `Unauthorized` exception that means I have an account that exists, but I don't have the right password. So I could just spam different passwords at accounts I know exist, rather than waste my time with accounts that don't exist.
+This is almost always a naming mismatch during JSON serialization. GSON is case-sensitive. If your Java variable is named `authtoken` but the JSON expects `authToken`, the field will not be populated. Ensure your class variable names exactly match the naming conventions in the [specification](../../chess/3-web-api/web-api.md).
 
-Returning `Unauthorized` in both cases doesn't "leak" the information whether an account exists or not. Just think about when you try to log into somewhere, and if you put the wrong password, it usually says "wrong username/password" rather than just saying "wrong password."
-
-## "Variable is being received by server/tests as null” OR “Variable from the tests is arriving in my server as null”
-
-A variable in a request/result object is named incorrectly (casing matters with gson: authToken and authtoken are treated differently). Make sure that all class variable names in classes used for serialization exactly match the spec.
-
-Make sure the resources folder/directory is marked as the main resources root
+Also, ensure your `resources` directory is correctly marked as the **Resources Root** in IntelliJ.
 
 ## SyntaxError: Unexpected token ‘<’, “<html><bod”... is not valid JSON
 
-If an error is thrown and not caught, this can be encountered. You must fix the problem that is being thrown.
-Or if this problem is happening with error handling, try to return the error in valid json format like with the following code
+This happens when your client expects JSON but receives an HTML page instead. This usually occurs when the server throws an unhandled exception and returns a default 500 error page, or when a 404 error occurs.
 
+To fix this, ensure your server catches exceptions and returns a valid JSON error object:
 ```java
-Return new Gson().toJson(Map.of(“message”, ex.getMessage()));
+return new Gson().toJson(Map.of("message", ex.getMessage()));
 ```
 
 ## How do I read the authToken from an HTTP request?
 
-Refer to the [Web API](https://github.com/softwareconstruction240/softwareconstruction/blob/main/instruction/web-api/web-api.md#http-headers) instruction.
+Refer to the [Web API instruction](../web-api/web-api.md#http-headers) regarding HTTP headers.
 
 ## AutoGrader can’t find my Unit Tests
 
-Make sure the unit tests are in server/src/test/java/service and the Class ends with the word `Tests` or `Test`.
+Ensure your unit tests are located in `server/src/test/java/service` and that the class names end with `Test` or `Tests`.
 
 ## I don't have enough GitHub commits to pass the autograder
 
-See [previous](/instruction/chess-tips/chess-tips.md#General---all-phases)
+See the [General](#general---all-phases) section.
 
 # Phase 4 - Database
 
-Since Phase 4 requires interacting with an external program (the MySQL database), the likelihood of having auto-grader test output different from your local output is higher than previous phases. The most common issues are summarized here to save you time spent frustrated with a new technology.
+Phase 4 involves external dependencies (MySQL), which increases the chance of local behavior differing from the autograder.
 
 ## Database Schema Changes
 
 ### Database and Table Creation
-
-Your code must create the SQL database and tables correctly if they do not exist. This includes when the server is run from tests. This is done with the `IF NOT EXISTS` syntax for your database and table creation SQL statements. This must happend before any method tries to access the database. For example, if the register user endpoint is called, The user table must already exist. Otherwise the SQL call to inset the user will fail.
-
-Also make sure that your create statements are in correct SQL Format. A good example can be found in the [db-sql](../../instruction/db-sql/db-sql.md) instructions.
+Your code must programmatically create the database and tables if they do not exist. This should happen during server startup, before any endpoint is accessed. Use the `IF NOT EXISTS` syntax in your SQL.
 
 ### Altering Tables After Creation
-
-Since your database and tables are created the first time your server detected that they didn't exist, it **will not** automatically alter the tables if you change your table definitions in your code. That means that you will have to do one of the following in order to migrate your table scheme after a table is created.
-
-1. Use a MySQL client to drop the database or table. This will cause your service to recreate the table the next time it starts up.
-2. Use a MySQL client to execute SQL `ALTER` statements to match the changes you have made in the code. (Not recommended.)
+If you change your table schema in your Java code, MySQL **will not** automatically update your existing tables. You must either:
+1.  Use a MySQL client to `DROP` the table so your code can recreate it.
+2.  Manually `ALTER` the table (not recommended for beginners).
 
 ## Tests Not Passing on the AutoGrader
 
-### Database and Table Creation
-
-If the tests pass in your development environment but not with the autograder isn't passing, your create database and table code may be incorrect.
-
-Since your code will only create the database and tables if it isn't created already, it might be possible that you altered your create database and table code after it has been created, meaning that your local SQL database doesn't match the schema that is being used on the autograder.
-
-Try the following steps to reproduce the problem in your development environment:
-
-1. Drop your database/schema using a SQL client.
-2. Rerun the tests locally.
-3. If they fail, double-check the code for creating the database and tables.
-
 ### Hardcoded Database Name
+Do **not** hardcode the database name (e.g., `chess`) in your SQL strings. The autograder uses a dynamic database name (like `chess123`).
+*   Load the database name from `db.properties`.
+*   Use `SELECT * FROM table` rather than `SELECT * FROM chess.table`.
 
-It's fun to assume that your database will always be named `chess`, but the AutoGrader will break that assumption!
+### Case Sensitivity
+SQL table and column names are **case-sensitive** on the Linux environments used by the autograder, even if they appear case-insensitive on Windows or macOS.
+*   Ensure `CREATE TABLE myTable` and `INSERT INTO mytable` use the exact same casing.
+*   Be consistent in your `ResultSet.get*()` calls.
 
-The auto-grader inserts a new `db.properties` file for grading with most of the values different from those in your file. For example, instead of calling the database `chess`, it may call it `chess123456`.
+## Abstract Classes and Interfaces (GSON)
 
-Run through the following verifications in your code:
+You cannot directly instantiate abstract classes like `ChessPiece` or interfaces like `MoveCalculator` using GSON.
+*   **Option 1:** Use a `TypeAdapter` or `JsonDeserializer` to handle polymorphic types.
+*   **Option 2:** Refactor your Phase 0 code to use a single concrete `ChessPiece` class with a strategy pattern for move calculation that doesn't rely on inheritance.
 
-- Check for any place you may have hardcoded any values from `db.properties`. Instead you must use the variables loaded from `db.properties`
-- Do not include the database name in any SQL statement. The database is already set by the `DatabaseManager` and therefore does not need to be explicitly set.
-  - For example, use `SELECT * FROM table` instead of `SELECT * FROM database.table`.
+## Access Denied to Database
 
-### CasE SEnSiTiVitY
+This usually means you have hardcoded the database name to `chess` or failed to call your `createDatabase` logic. Ensure you are using the credentials provided in `db.properties`.
 
-SQL table and column names are **case-sensitive** on the AutoGrader. However, some operating systems, like Windows, treat names as **case-insensitive**, which can cause issues when submitting your project. Double-check capitalization in your SQL code to avoid errors.
+## No Driver Provided Error
 
-- Double-check the casing in all of your SQL statements.
-  - For example, if you have table named `foobar`, then you cannot later attempt to access it as `FooBar` (notice the capitalization change).
-- Make sure each **table** and **column** name uses the same casing each time you use it.
-  - Verify that the capitalization used in your `CREATE TABLE tablename` statements exactly matches all other uses, like in `INSERT INTO tablename`.
-  - Verify that the capitalization used in all references to table names are exactly the same. This includes references in:
-    - `CREATE TABLE` statement
-    - `INSERT INTO` statements
-    - Any other statements making reference to column names like `SELECT` or `WHERE` clauses.
-    - `ResultSet.get*()` or similar functions which require a column name
-- Storing table names and/or column names in **variables** gives a reliable foundation to avoid this kind of problem.
-
-## I don't have enough GitHub commits to pass the autograder
-
-See [previous](/instruction/chess-tips/chess-tips.md#General---all-phases)
-
-## Abstract Classes can’t be instantiated (ChessPiece)
-
-You’ll probably need to set up a TypeAdapter/JsonDeserializer. Alternatively you could switch your phase 0 code to use the move calculator strategy and only have one concrete ChessPiece class with no child classes.
-
-## Interfaces can’t be instantiated (Move Calculator)
-
-You probably made the move calculator a class variable inside ChessPiece. Remove that variable and decide on the calculator each time pieceMoves gets called.
-
-## Access denied to database chess or Access denied for user ‘dbUser173910573’@’%’ to database ‘chess’
-
-This means they hardcoded the database to chess. Or they need to call createDatabase. Look here for more information: [Ititializing Your Database and Tables](../../chess/4-database/database.md#initializing-your-database-and-tables)
-
-## No driver provided error
-
-Make sure they add both dependencies (specifically the mysql-connector one)
-
-## AutoGrader can’t find my Unit Tests
-
-Make sure the unit tests are in server/src/test/java/dataaccess and the Class ends with the word `Tests` or `Test`.
+Ensure you have added the `mysql-connector-java` dependency to your `pom.xml` or project configuration.
 
 ## Failed to Bind to /0.0.0.0:3306
 
-This is usually due to the fact that port 3306 is already being used by something. First thing is to make sure that the server isn’t running on port 3306 (for example sev.run(3306) instead of sev.run(8080)). If the server is running on port 3306, then mySQL can’t make connections on port 3306. Simple fix is to just make sure they are using different ports -> sev.run(8080) and db.properties has a db.port of 3306.
+This happens if you try to run your **Spark server** on port 3306. Port 3306 is reserved for MySQL. Your Spark server should typically run on port 8080, while it connects to MySQL on 3306.
 
 ## Invalid SQL Format
 
-The last line of the SQL String before the end parentheses should not have a comma, if it does that will throw an error
-
+Ensure you don't have trailing commas in your SQL statements.
 ```java
-String createUserTable = """
-CREATE TABLE IF NOT EXISTS user (
-username VARCHAR(255) NOT NULL,
-password VARCHAR(255) NOT NULL,
-email VARCHAR(255) NOT NULL,
-PRIMARY KEY (username),
-)""";
+// WRONG: Trailing comma after PRIMARY KEY
+String sql = "CREATE TABLE user (username VARCHAR(255), PRIMARY KEY (username), )"; 
 ```
-
-As a side note, you don’t need the Engine that is shown in Pet Shop.
-Primary Keys mean that it will be unique, and can’t have any duplicates
 
 ## Too Many Connections
 
-If you are running into this error, that means the connections aren’t being created and then closed. This can be done by simply putting the getConnection call in a try-with-resources block, as it will automatically close the connection afterwards. If you don’t want to use a try-with-resources block for whatever reason, you can instead call close on the connection afterwards.
+Always use **try-with-resources** when getting a connection. This ensures the connection is closed even if an exception is thrown. If you don't close connections, the database will eventually refuse new ones.
 
 ## Failing the Database Error Handling Test
 
-First off, if the test is failing at the line with getDeclaredMethod(“loadProperties”) then they need to update their DatabaseManager so that it has the loadProperties method in it.
+If the test fails on `getDeclaredMethod("loadProperties")`, ensure your `DatabaseManager` has that specific method.
 
-If that is not their problem, this test will basically run through all the endpoints, crash the server in order to have the DatabaseManager throw a DataAccessException either on the createDatabase call or getConnection call. This DataAccessException should be caught to create a 500 server error, and the error message should start with “Error: “. So make sure that the student is catching these DataAccessExceptions, setting the status code to 500, and having the error message start with “Error: ”
-
-A great way to debug this is to put a breakpoint in the DatabaseTests at line 128 (TestResult result = operation.get();), then pressing the step over button so you can see what is in result. Here you can see the error message (to make sure it has “Error: “ in the front, and if you press the step over button again, it will pass through the Assertions.assertEquals(500, serverFacade.getStatusCode()) and you will know if it did have a 500 status code or not. The order these operations go through are (Clear, Register, Login, Logout, CreateGame, ListGames, then JoinGame) so if they fail the 3rd check, result should have null value for authToken and username, but a message with “Error:”, so you can look into their Logout endpoint to see where there may be an issue.
-
-If it says “Error: Unauthorized” with a 401 error, that probably means that they have a catch (DataAccessException) into throw new DataAccessException (“Error: Unauthorized”), overriding the error message of failed to connect to the database and changing it into an Unauthorized exception. This makes the student’s code think this is a 401 error instead of a 500 server error.
+The error handling test simulates database failures. Your server should:
+1.  Catch `DataAccessException`.
+2.  Set the HTTP status code to `500`.
+3.  Return a JSON message starting with `"Error: "`.
 
 # Phase 5 - Pregame
 
 ## I can’t import ServerFacade in the tests
 
-Your ServerFacade is probably not in a package. Put it in a package (probably not your UI package, is it a UI class?) and you should be able to import it
+Ensure `ServerFacade` is in a proper package (e.g., `client.ui` or `client.net`). If it's in the default (empty) package, it cannot be imported by classes in other packages.
 
 ## Passoff Frequently Encountered Problems
 
-Here are a couple of things that students commonly forget to include as part of their code which causes them to fail their passoff. This is not a complete list of everything that your code needs to do in order to pass, just some of the common problems.
-
-- After registering, you will automatically enter the signed-in state, you don't need to login afterwards. [Prelogin UI Command Descriptions](../../chess/5-pregame/pregame.md#prelogin-ui)
-- Make your ListGames numbering be independent of the game IDs. [Postlogin UI Command Descriptions](../../chess/5-pregame/pregame.md#postlogin-ui)
-- Make sure your board is printed correctly! [Gameplay UI Description](../../chess/5-pregame/pregame.md#gameplay-ui)
-- Print readable errors and make sure your code doesn't crash. For example, make sure you handle trying to join or observe a game with an invalid game number input (`1000`, `-10`, `two`). [UI Requirements](../../chess/5-pregame/pregame.md#ui-requirements)
+*   **Registration Flow:** After registering, the user should be automatically logged in.
+*   **List Games:** The numbers shown to the user (1, 2, 3...) should be independent of the actual Database IDs.
+*   **Board Printing:** Ensure the board displays correctly for both white and black perspectives.
+*   **Error Handling:** If a user enters an invalid game number (like "abc"), your client should print a helpful error rather than crashing.
 
 ## Chess Board UI
 
-If you want to use the Chess Pieces, but are having some issues with making the board a square, here are some tips
-
-- Make sure that your spaces are including the unicode for the width of a chess piece "\u2003" and are following the same space configuration
-  - " ♛ " would have the same width as "\u2003a " because they each have a space on the right, the first example has a space which is the same width as the 'a' in the second example, and they both have the width of a chess piece as well, meaning that each of these square examples would be the same width
-- If you are sure that each square should be printing the same as stated above, then you might need to change your font. Go to IntelliJ Settings -> Editor -> Font
-  - This is because different laptop systems and processors can print the unicode "\u2003" and the actual chess pieces as different widths. Using the correct font will ensure that they are printed as the same width
-  - Make sure you still use a monospaced font, because monospaced means that a space is the same width as the letter 'a', but if you use a non monospaced font, they will no longer be the same width
-
-## I don't have enough GitHub commits to pass the autograder
-
-See [previous](/instruction/chess-tips/chess-tips.md#General---all-phases)
-
-## AutoGrader can’t find my Unit Tests
-
-Make sure the unit tests are in client/src/test/java/client and the Class ends with the word `Tests` or `Test`.
+To ensure the board looks like a square:
+*   Use the Unicode "Em Space" (`\u2003`) to match the width of chess piece characters.
+*   If the alignment is still off, change your IntelliJ console font to a **monospaced** font (Settings -> Editor -> Font).
 
 # Phase 6 - Gameplay
 
 ## Unknown opcode: 7
 
-If your server is throwing exceptions related to “opcode 7”, try changing your server port away from 8080 (or whatever port you are using). The cause of this is currently not known, but it seems to be more likely to occur on computers running macOS Sonoma.
+If you see "opcode 7" errors on macOS, try changing your server port from `8080` to something else (like `8081`). This is a known issue with macOS Sonoma's "AirPlay Receiver" service.
 
-## Variable is being received by server/tests as null
+## Message is sent from Server but not received by Client
 
-A variable in a ServerMessage/UserCommand object is named incorrectly (casing matters with gson). Make sure that all class variable names in classes used for serialization exactly match the spec.
+The `Tyrus` WebSocket library often suppresses exceptions that occur during message arrival. If your client-side JSON parsing fails, the message will simply disappear. Wrap your client's `onMessage` logic in a `try-catch (Throwable t)` block and print the stack trace to find the error.
 
-## message.toString
+## Too Many Messages / Race Conditions
 
-Note, make sure that you just aren’t copying Pet Shop code, but specifically the message.toString method, as Pet Shop will override that and turn it into a Gson.toJson of the class, while your code will just make it a string message of the whole Message class, which isn’t json.
+If you send a "Move" notification and then perform a database check for checkmate, a race condition might occur. Perform all game logic and database updates **before** sending out WebSocket notifications to ensure the client receives messages in the correct order.
 
-## Message is sent from Server but doesn’t look like it’s being received in the client
+## ClosedChannelException
 
-It’s possible that the code for receiving messages in the client could be throwing an exception (especially if the message isn’t formatted correctly in JSON). Tyrus has a bad habit of just eating those exceptions without logging them anywhere useful. I recommend wrapping the contents of the method with a try/catch block with a catch for any Exception or Throwable. Up to the student what to do in the catch block, but don’t throw a different exception otherwise they’ll be back at square one.
+Always check `session.isOpen()` before attempting to send a message to a WebSocket session.
 
-## Tests are failing because there are too many messages
+## Gameplay Requirements Checklist
 
-This could be from a race condition, if you send a notification that a move was made, then do a mysql check to see if the game is in check, checkmate, or stalemate, the mysql will take too long and send a message as part of the next tests. So do all checking first, then send the websocket messages afterwards to eliminate all race conditions.
-
-## Running into a ClosedChannelException
-
-This exception is thrown when you are trying to send a message to a closed channel. Have the student make sure they are checking that the session is open (session.isOpen()) before sending it a message.
-
-## Passoff Frequently Encountered Problems
-
-Here are a couple of things that students commonly forget to include as part of their code which causes them to fail their passoff. This is not a complete list of everything that your code needs to do in order to pass, just some of the common problems.
-
-- Resigning should require a confirmation, and does **not** kick players from the game. [Gameplay Functionality](../../chess/6-gameplay/gameplay.md#gameplay-functionality)
-- Anyone can highlight any piece, independent of whose turn it is. In addition, a user trying to highlight a position with no piece shouldn't break your code. [Gameplay Functionality](../../chess/6-gameplay/gameplay.md#gameplay-functionality)
-- Make sure you implement pawn promotion. [Pawn Functionality](../../chess/0-chess-moves/the-game-of-chess.md#pawn)
-- All messages should contain player usernames. Move messages should have a description of the move such as a2 to a4. [Notifications](../../chess/6-gameplay/gameplay.md#notifications)
-
-## I don't have enough GitHub commits to pass the autograder
-
-See [previous](/instruction/chess-tips/chess-tips.md#General---all-phases)
+*   **Resignation:** Requires a confirmation prompt and does **not** remove the players from the session.
+*   **Highlighting:** Should work for any piece regardless of whose turn it is.
+*   **Pawn Promotion:** Ensure the user can choose which piece to promote to.
+*   **Usernames:** All notifications should include the relevant usernames (e.g., "Player 'Alice' moved a2 to a4").

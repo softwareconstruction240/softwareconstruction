@@ -36,6 +36,14 @@ IntelliJ also contains many tools for refactoring your code. Using these tools w
 
 ![Refactor method](refactorTool.gif)
 
+## ☑ Exercise
+
+
+```masteryls
+{"id":"95075348-bcd9-420f-83e3-02a4fb0aef05", "title":"Style", "type":"essay" }
+What is the purpose of defining style guidelines for a code base?
+```
+
 ## Videos
 
 - 🎥 [Code Style Checker (5:44)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=20337bb3-64b5-4203-942f-b1a001136761&start=0) - [[transcript]](https://github.com/user-attachments/files/17752074/CS_240_Code_Style_Checking_Transcript.pdf)

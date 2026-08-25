@@ -5,6 +5,16 @@
 - 🖥️ [Videos](#videos)
 - [TA Tips](../../instruction/chess-tips/chess-tips.md#phase-3---web-api): A collection of common problems for this phase
 
+#### 🥅 Outcomes of this Deliverable
+
+1. **Frame** software engineering problems by clarifying system purpose, constraints, and responsibilities, demonstrating both sound technical judgment and a sense of ownership for the long-term impact of software others depend on.
+1. **Explore** object-oriented frameworks, network protocols, distributed services, and databases with curiosity and discipline, developing accurate mental models while valuing learning as essential to responsible engineering practice.
+1. **Design** software systems using object-oriented principles and clear interfaces that support reliability and maintainability, motivated by care for future users, collaborators, and the evolution of the system over time.
+1. **Build** distributed applications that faithfully translate design intent into readable, testable implementations, showing diligence and integrity in the quality of code produced.
+1. **Test** software systems systematically to validate behavior and uncover failure modes, valuing evidence, honesty, and accountability as foundations of trustworthy software.
+
+---
+
 In this phase, you will create your Chess server and implement seven HTTP endpoints that the chess client will use to communicate with your server. This will include creating your server, service, and data access classes. You will also write unit tests for your service classes.
 
 ![Sever class structure](server-class-structure.png)
@@ -217,7 +227,42 @@ Here are some examples of the kinds of methods your DAOs will need to support. T
 
 In order to abstract from your services where data is actually being stored, you must create a Java interface that hides all of the implementation details for accessing and retrieving data. In this phase you will create an implementation of your data access interface that stores your server’s data in main memory (RAM) using standard data structures (maps, sets, lists). In the next phase you will create an implementation of the data access interface that uses an external SQL database.
 
-![data access classes](data-access-classes.png)
+```mermaid
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
+
+classDiagram
+    direction LR
+
+    class UserDAO {
+        <<interface>>
+    }
+
+    class MemoryUserDAO
+    class SQLUserDAO
+
+    UserDAO <|.. MemoryUserDAO
+    UserDAO <|.. SQLUserDAO
+
+    class GameDAO {
+        <<interface>>
+    }
+
+    class MemoryGameDAO
+    class SQLGameDAO
+
+    GameDAO <|.. MemoryGameDAO
+    GameDAO <|.. SQLGameDAO
+
+    class AuthDAO {
+        <<interface>>
+    }
+
+    class MemoryAuthDAO
+    class SQLAuthDAO
+
+    AuthDAO <|.. MemoryAuthDAO
+    AuthDAO <|.. SQLAuthDAO
+```
 
 By using an interface you can hide, or encapsulate, how your data access works from the code that does not need to be aware of those details. This creates a flexible architecture that allows you to change how things work without rewriting all of your code. We see the benefits of this pattern in two ways.
 
@@ -461,6 +506,13 @@ All of the tests in your project must succeed in order to complete this phase.
 
 To pass off this assignment use the course [auto-grading](https://cs240.click/) tool. If your code passes then your grade will automatically be entered in Canvas.
 
+
+```masteryls
+{"id":"8e3c0adc-1d43-44d3-b12d-32d81b0db1a6","title":"Submission Precheck","type":"multiple-choice"}
+- [x] All of the test cases, including the service unit tests I wrote, are passing, I have verified my code quality, and my GitHub commit history complies with the course requirements.
+- [ ] I need to back and do some more work before submitting.
+```
+
 ### Grading Rubric
 
 > [!IMPORTANT]
@@ -474,6 +526,35 @@ To pass off this assignment use the course [auto-grading](https://cs240.click/) 
 | Code Quality   | [Rubric](../code-quality-rubric.md)                                                                                                                                                              |           30 |
 | Unit Tests     | All test cases pass<br/>Line coverage on `service` package is at least 80%<br/>Every test case includes an Assert statement of some type <br/> 1.25 points of extra credit for 90% line coverage|           25 |
 |                | **Total**                                                                                                                                                                                        |      **180** |
+
+#### 🥅 Outcome Reflections
+
+With the completion of this chess server deliverable checkpoint, it is time to reflect upon the course outcomes and your ability to master them.
+
+```masteryls
+{"id":"a0ae347e-4e87-4f70-bc04-f88800c6af16","title":"Frame","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+What process did you use to frame your understanding of the chess server so that it properly reflected the requirements? How did you determine a correct understanding of the problem so that you were able to consider the factors that your users deem important and will depend on?
+```
+
+```masteryls
+{"id":"5f19d8ae-e2b5-4adb-8258-b87f5e157c6e","title":"Explore","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+What software engineering principles and practices did you consider when you were exploring how to represent a chess server? What did you do to advance your learning of the possible solution space?
+```
+
+```masteryls
+{"id":"3ba8e4c9-7b05-4512-9dcf-80b5257717f4","title":"Design","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+What object-oriented and design principles did you consider as you converted your framing and exploration of the chess server into a design solution? What did you do to ensure you were considering the needs of future developers and users of the application?
+```
+
+```masteryls
+{"id":"dfd511cd-6a2c-4026-b184-81eccfe284e8","title":"Build","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+What went well and what did you find challenging as you implemented your chess server? What did you do to demonstrate design integrity and the quality of the application?
+```
+
+```masteryls
+{"id":"d2f284fd-f0e7-491e-9f33-ea17a4a6262a","title":"Test","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+What testing patterns did you employ to ensure a correct implementation of the chess server and encourage the foundation of a trustworthy application that others can rely on?
+```
 
 ## Videos
 

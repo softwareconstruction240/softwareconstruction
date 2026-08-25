@@ -8,6 +8,13 @@
 
 🖥️ [Lecture Videos](#videos)
 
+### 🔑 Key points
+
+- Java Lambdas are concise representations of anonymous functions
+- Java Method References are a more concise representation for pass through lambda functions
+
+---
+
 The Java programming language originally required everything to be defined within the scope of a class. That meant that defining a simple utility, or one off function, outside of a class was not allowed. This becomes problematic when you wanted to write small one line functions that do things like handle a mouse click event, or run a simple concurrent task. By forcing all functions to be defined in a class, Java effectively forced developers to new class, in a new file, for each single line function they wanted to implement. You can image hundreds or even thousands of these little files cluttering up a large sized application.
 
 Consider the following `Speaker` interface,
@@ -106,6 +113,16 @@ Notice how compact the lambda function representation is. If you need to provide
 }
 ```
 
+### Syntax Structure
+*   **Basic Syntax:** Consists of three parts: `(parameters) -> { body }`.
+*   **Parameter variations:**
+    *   Zero parameters: `() -> System.out.println("Hello")`
+    *   One parameter: `x -> x * x` (Parentheses are optional for a single inferred parameter).
+    *   Multiple parameters: `(a, b) -> a + b`
+*   **Body variations:**
+    *   **Expression body:** `(a, b) -> a + b` (Implicitly returns the result).
+    *   **Block body:** `(a, b) -> { return a + b; }` (Requires explicit braces and `return` keyword).
+
 ## Lambdas and JDK Collections
 
 Because many of the JDK collection classes provide operations that require a `Functional Interface`, they can use the simplified lambda syntax. For example, the `List.removeIf` operation requires an object that implements the `Predicate` interface. This interface is defined as the following.
@@ -141,6 +158,8 @@ Either way is equivalent, but the lambda represent is much more concise and easy
 
 Just like anonymous classes, lambda functions also support closure. That means you can reference variables and parameters that are declared in the scope that defines the lambda function. This is true even if the lambda function is passed out of the defining scope.
 
+*   **Scope:** Lambdas can access variables from their enclosing scope.
+*   **Effectively Final:** Any local variable accessed inside a lambda must be `final` or "effectively final" (meaning its value is never changed after initialization).
 ```java
     public static void main(String[] args) {
         var englishSpeaker = speakerFactory("hello");
@@ -152,6 +171,63 @@ Just like anonymous classes, lambda functions also support closure. That means y
     }
 ```
 
+
+## Method References
+
+Method references are a specialized form of lambda expressions that allow you to further simplify your code when a lambda expression does nothing but call an existing method. They act as "syntactic sugar," making the code more readable by pointing directly to the method by name rather than describing how to call it.
+
+When you use a method reference, the Java compiler automatically infers the parameters from the functional interface's abstract method. If the lambda expression `(s) -> System.out.println(s)` is replaced with `System.out::println`, the compiler understands that the argument passed to the functional interface should be passed directly into the `println` method.
+
+Consider a scenario where we want to sort a list of strings while ignoring case sensitivity. Using a standard lambda expression vs. a method reference demonstrates the gain in clarity:
+
+```java
+List<String> names = Arrays.asList("Alice", "bob", "Charlie", "david");
+
+// Approach 1: Using a Lambda Expression
+Collections.sort(names, (s1, s2) -> s1.compareToIgnoreCase(s2));
+
+// Approach 2: Using an Instance Method Reference of an Arbitrary Object
+// This is cleaner and more descriptive of the intent
+names.sort(String::compareToIgnoreCase);
+```
+
+Notice that because the lambda function is simply passing the exact parameters through
+
+```java
+(s1, s2) -> s1.compareToIgnoreCase(s2)
+```
+
+it can be replaced with the more concise **Method Reference** syntax.
+
+```java
+String::compareToIgnoreCase;
+```
+
+## ☑ Exercise
+
+
+```masteryls
+{"id":"8d174ea4-f27d-4e6b-a4bb-97b6392042a2","title":"Invalid Lambda Syntax for Sorting","type":"multiple-choice"}
+Given 
+
+`List<String> fruits = Arrays.asList("Apple", "Orange", "Banana");`
+
+which of the following is an **invalid** lambda expression replacement for an anonymous inner class `Comparator` when calling the `sort` method?
+
+- [ ] `fruits.sort((a, b) -> a.compareTo(b));`
+- [ ] `fruits.sort(String::compareTo);`
+- [x] `fruits.sort((f1, f2) -> { f1.compareTo(f2); });`
+- [ ] `fruits.sort((String f1, String f2) -> f1.length() - f2.length());`
+```
+
+
+
+```masteryls
+{"id":"7d844be9-f784-47bd-98d1-6c16d71514af", "title":"Lambda Functions", "type":"essay" }
+What is your opinion about the usefulness of Lambda Functions?
+```
+
+
 ## Videos
 
 - 🎥 [Lambda Expressions Overview (6:47)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=6cfff192-6903-40b0-bacb-b053010e7658) - [[transcript]](https://github.com/user-attachments/files/18563796/CS_240_Lambda_Expressions_Overview_Transcript.pdf)
@@ -162,15 +238,3 @@ Just like anonymous classes, lambda functions also support closure. That means y
 - 🎥 [Using Generic Interfaces Example Revisited (2:10)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=ceee1a53-7ff3-4a71-8b26-b0530116817b) - [[transcript]](https://github.com/user-attachments/files/18563838/CS_240_Using_Generic_Interfaces_Example_Revisited_Transcript.pdf)
 - 🎥 [Use of Lambdas in Existing Classes (3:22)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=19b04002-8028-4e50-bd68-b0530117654d) - [[transcript]](https://github.com/user-attachments/files/18563840/CS_240_Use_of_Lambdas_in_Existing_Java_ClassesTranscript.pdf)
 - 🎥 [Method References (4:16)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=465b91d6-210d-4838-b266-b0530119161e) - [[transcript]](https://github.com/user-attachments/files/18563848/CS_240_Method_References_Transcript.pdf)
-
-## Demonstration code
-
-📁 [ComparatorWithLambda.java](example-code/ComparatorWithLambda.java)
-
-📁 [ComparatorWithoutLambda.java](example-code/ComparatorWithoutLambda.java)
-
-📁 [RemoveIfExample.java](example-code/RemoveIfExample.java)
-
-📁 [StringManipulator.java](example-code/StringManipulator.java)
-
-📁 [StringSelectorExample.java](example-code/StringSelectorExample.java)
