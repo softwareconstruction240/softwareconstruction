@@ -2,7 +2,6 @@
 
 Chess is a strategy game where 2 players take turns moving pieces and capturing enemy pieces with the goal of trapping the enemy king. Each of the 6 types of pieces has a unique way of moving/capturing. A piece captures an enemy piece when moving to the enemy piece’s location, after which the enemy piece is removed from the game. You win when your opponent has no way to avoid you being able to capture their king.
 
-
 ## A Brief History of Strategy
 
 The origins of chess trace back nearly 1,500 years to 6th-century India, where it was known as *Chaturanga*. This early version represented the four divisions of the Indian military: infantry, cavalry, elephants, and chariots. As the game traveled along the Silk Road to Persia and eventually Europe, the pieces evolved to reflect medieval society—turning chariots into rooks and elephants into bishops.
@@ -109,6 +108,8 @@ While checkmate is the most common way to win, a game can also end if:
 - A **draw by repetition** occurs (the same board position appears three times).
 
 ## Strategic Foundations
+
+![chessStrategy.jpg](chessStrategy.jpg)
 
 To transition from knowing the rules to playing effectively, consider these three core principles:
 
