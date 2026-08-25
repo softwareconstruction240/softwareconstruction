@@ -97,7 +97,7 @@ The game of chess revolves around the status of the King. Understanding the dist
 
 **Checkmate** is the goal of the game. It occurs when a King is in check and there are no legal moves available to escape the threat. When checkmate is delivered, the game ends immediately.
 
-![checkmate.jpg](checkmate.jpg)
+![checkmateDemo.jpg](checkmateDemo.jpg)
 
 **Stalemate** is a unique type of draw. It occurs when the player whose turn it is has no legal moves, but their King is **not** currently in check. In competitive play, this results in a split point, often frustrating the player who had the material advantage.
 
@@ -111,13 +111,14 @@ While checkmate is the most common way to win, a game can also end if:
 
 ## Strategic Foundations
 
-![chessStrategy.jpg](chessStrategy.jpg)
-
 To transition from knowing the rules to playing effectively, consider these three core principles:
 
 1.  **Control the Center:** The squares d4, d5, e4, and e5 are the most important on the board. Pieces placed in the center have the greatest mobility and control.
 2.  **Develop Your Pieces:** Do not simply move pawns. Bring your Knights and Bishops out early to active squares where they can influence the game.
 3.  **King Safety:** Usually achieved through **castling**, a special move involving the King and a Rook. An uncastled King in the center is an easy target for an organized attack.
+
+
+![chessStrategy.jpg](chessStrategy.jpg)
 
 ## Summary
 
