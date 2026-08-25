@@ -117,7 +117,9 @@ There are no new automated pass-off test cases for this phase.
 ### Unit Tests
 You must write positive and negative unit tests for every method in your `ServerFacade` class. 
 
-Place your tests in `client/src/test/java/client/ServerFacadeTests.java`.
+Reach 80% line coverage on your `ServerFacade` class. If you are unsure where to start, consider writing a positive and a negative test case for each public method.
+
+Your tests must be located in `client/src/test/java/client/ServerFacadeTests.java`.
 
 > [!TIP]
 > The starter code in `ServerFacadeTests.java` includes logic to start and stop your server on a random port for testing. You will still need to run `ServerMain.main` manually when testing your client UI.
@@ -149,9 +151,9 @@ public class ServerFacadeTests {
 ```
 
 #### Testing Requirements:
-1.  **Port Initialization:** Ensure your `ServerFacade` constructor accepts the port so it can connect to the dynamic port used by the test server.
-2.  **Database Cleanup:** Use a `@BeforeEach` method to clear the database before every test to ensure a clean state.
-3.  **Coverage:** Write at least one positive test (successful operation) and one negative test (expected failure, such as unauthorized access or invalid input) for each public `ServerFacade` method.
+1. **Port Initialization:** Ensure your `ServerFacade` constructor accepts the port so it can connect to the dynamic port used by the test server.
+2. **Database Cleanup:** Use a `@BeforeEach` method to clear the database before every test to ensure a clean state.
+3. **Coverage:** Write tests that achieve at least 80% line coverage on your `ServerFacade` class, and include both successful and failure scenarios where appropriate.
 
 Example test:
 ```java
@@ -192,7 +194,7 @@ Review the [Phase 5 Passoff Common Problems](../../instruction/chess-tips/chess-
 | GitHub History | At least 12 GitHub commits spread evenly over the assignment period demonstrating proof of work.                                                                                              | Prerequisite |
 | Functionality  | Program supports all required UI and server interaction functionality.                                                                                                                                                     |          100 |
 | Code Quality   | Adherence to the [Code Quality Rubric](../code-quality-rubric.md).                                                                                                                                                             |           30 |
-| Unit Tests     | All test cases pass. Each public `ServerFacade` method has a positive and negative test. Every test includes appropriate assertions. |           25 |
+| Unit Tests     | All test cases pass<br/>Line coverage on `ServerFacade` class is at least 80%<br/>Every test case includes an Assert statement of some type<br/>1.25 points of extra credit for 90% line coverage |           25 |
 |                | **Total**                                                                                                                                                                                       |      **155** |
 #### 🥅 Outcome Reflections
 
@@ -230,6 +232,6 @@ What testing patterns did you employ to ensure a correct implementation of the c
 
 *Note: The "Drawing the Board" video is partially outdated. You should only print the board perspective relevant to the player's color (or White for observers), not both.*
 - 🎥 [Drawing the Board (1:26)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=6a77c895-f2b8-49d9-8b11-b19a0156aef8) - [[transcript]](https://github.com/user-attachments/files/17805392/CS_240_Drawing_the_Board_Transcript.pdf)
-- 🎥 [Server Facade (8:49)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=48c546dc-bdd6-491f-88c1-b2c80118cb9f)
-- 🎥 [Phase 5 Requirements (3:11)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=1a171c4d-c7dc-41d0-828f-b19a01594498) - [[transcript]](https://github.com/user-attachments/files/17805398/CS_240_Phase_5_Requirements_Transcript.pdf)
+- 🎥 [Server Facade (8:49)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=48c546dc-bdd6-491f-88c1-b2c80118cb9f)- [transcript]
+- 🎥 [Phase 5 Requirements (2:20)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=da07b0b6-d523-4d34-a765-b4580161b6be) - [transcript]
 - 🎥 [Client HTTP (12:11)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=781ae49b-6284-4e1a-836b-b1930162c54b) - [[transcript]](https://github.com/user-attachments/files/17805399/CS_240_Client_HTTP_Transcript.pdf)
