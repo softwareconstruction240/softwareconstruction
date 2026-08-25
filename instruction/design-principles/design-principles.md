@@ -6,6 +6,19 @@
 
 📖 **Required Reading**: None
 
+### 🔑 Key points
+
+- The goals of software design
+- Design is an iterative process
+- Abstraction
+- Decomposition
+- Simplicity
+- Good algorithm and data structure selection
+- Encapsulation - Information hiding
+- DRY - Avoiding code duplication
+
+---
+
 Software design is the process of defining, architecting, and creating an application. The primary goal of any application is to satisfy a customer's requirements. With a firm focus on the customer, you then apply the principles of good software design to identify the important actors, objects, and interactions necessary to represent the application's domain. This naturally leads to a code architecture that is easy to understand, debug, enhance, and maintain as requirements change.
 
 As you seek to design software you should focus on the following high level goals:
@@ -74,6 +87,7 @@ In object oriented programming `Interfaces` and `Objects` are used to provide th
 **Objects** abstract details by differentiating between private and public methods. Public methods can be accessed by other objects. Private methods can only be accessed by the object that defines them.
 
 ```mermaid
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
 classDiagram
     class car {
         - private engine
@@ -87,6 +101,7 @@ classDiagram
 An **interface** is a public description of functionality that provides no implementation. Think of it as a description without the ability to actually do anything. The interface description hides how the actual work is done. To use an interface, an object must first implement the interfaces definition. However, you can refer to the implementing object by any interface that the object implements. This hides not only how the functionality is implement, but who is implementing it.
 
 ```mermaid
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
 classDiagram
     class vehicle {
         <<interface>>
@@ -117,7 +132,6 @@ Whenever you program you should try and abstract things into the following parts
 
 Note that sometimes it is not necessary to create an interface when a single class representation can simply expose public methods and abstract away the details. Interfaces are useful when there are multiple different algorithms that can be used to satisfy the interface, or when there are classes that implement multiple interfaces.
 
-The important thing to remember about abstraction is that you **hide** all implementation details of domain and system objects until those details are required. Think of everything on a purely "need to know" basis. This makes the current system easier to understand and allows for enhancement in the future.
 
 ### Benefits of abstraction
 
@@ -130,11 +144,21 @@ Some of the benefits of abstraction include:
 
 One common mistake with abstraction is to think that it only applies to the public methods that you include in a class. You can also provide data hiding by implementing interfaces that restrict the view of what an object can do to a small set of methods. For example, you might have a class that represents a person. In order to provide abstraction of the class, the person might represent an `Object`, `LivingEntity` and `Animal` interface. By exposing different aspects of the person, the consumer of the object only needs to know about the aspect that is of interest to them. This provides all of the benefits of comprehension, extensibility, evolution, and security.
 
+
+The important thing to remember about abstraction is that it **exposes** objects only in the way that it needs to be used in a given context. This makes the current system easier to understand and allows for enhancement in the future.
+
+### Program to an Interface, Not an Implementation
+
+By defining variables and parameters using interface types or abstract classes rather than concrete implementations, the code becomes decoupled from specific classes. This allows for easier testing (via mocking) and the ability to swap implementations without modifying the consuming code.
+
 ## Encapsulation
 
-Encapsulation is a form of abstraction that takes an object that provides some functionality and encapsulates, or hides it, in another object. For example, a car encapsulates an engine, drive train, and suspension. The driver of the car does not need to know any of those details because the driver never interfaces with those components.
+![driverExample.png](driverExample.png)
+
+Encapsulation is a form of abstraction that takes an object that provides some functionality and encapsulates, or hides it, in another object. For example, a car encapsulates an engine, drive train, and suspension. The driver of the car does not need to know any of those details because the driver never interfaces with those components. By not allowing the driver to make assumptions about how she will drive based upon what is under the hood, a mechanic can change out the engine without impacting the driver.
 
 ```mermaid
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
 classDiagram
     class car {
         - private Engine
@@ -147,21 +171,61 @@ classDiagram
 
 However, the driver does need to be able to accelerate the car by pressing on the gas pedal which interfaces with the engine and drive train, but the car only exposes the gas pedal, not the engine or other encapsulated objects.
 
-## Inheritance
+You could even consider a higher level of encapsulation that only address how the car is used and not the details of how to drive it.
 
-Inheritance is another form of abstraction where one object can inherit the functionality of another object without knowing the details of how the parent object provides the functionality.
-
-For example, a `Car` could inherit a `WheeledVehicle` object that provides the wheels and suspension. The `wheeledVehicle` could inherit a `Vehicle` object that provides a place for passengers to sit.
 
 ```mermaid
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
 classDiagram
+    class car {
+        - private Engine
+        - private DriveTrain
+        - private Suspension
+        - private gasPedal
+        - private steeringWheel
+        + public drive(destination)
+    }
+```
+
+The important thing to remember about encapsulation is that it **hides** all implementation details of domain and system objects until those details are required. Think of everything on a purely "need to know" basis. This makes the current system easier to understand and allows for enhancement in the future.
+
+## Inheritance
+
+Inheritance is a form of abstraction that allows a new class (the subclass) to acquire the properties and behaviors (fields and methods) of an existing class (the superclass). This establishes an **"is-a" relationship**, where the subclass is a specialized version of the parent class.
+
+By using inheritance, developers can achieve:
+1.  **Code Reuse**: Common functionality is defined once in a superclass and automatically available to all subclasses, reducing redundancy.
+2.  **Polymorphism**: Subclasses can be treated as instances of their superclass. This allows a single method to operate on different types of objects as long as they share a common ancestor.
+3.  **Centralized Maintenance**: Changes made to a superclass's logic automatically propagate to all subclasses, making it easier to update shared behavior.
+
+For example, a `Car` could inherit from a `WheeledVehicle` class that handles the logic for wheels and suspension. The `WheeledVehicle` could further inherit from a `Vehicle` class that provides general attributes like a passenger capacity or a serial number.
+
+```mermaid
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
+classDiagram
+    class Vehicle {
+        +int passengerCapacity
+        +move()
+    }
+    class wheeledVehicle {
+        +int wheelCount
+        +checkSuspension()
+    }
+    class car {
+        +String fuelType
+        +turnOnRadio()
+    }
     car --|> wheeledVehicle
     wheeledVehicle --|> Vehicle
 ```
 
-## Prefer Encapsulation Over Inheritance
+## Prefer Composition Over Inheritance
 
-When you are creating your classes you need to carefully consider the different meanings and implications of using inheritance instead of encapsulation. However, by favoring encapsulation you can create composable objects that have the benefits of multiple inheritance without all of the complexity that multiple inheritance incurs. Encapsulated objects can demonstrate polymorphic behavior by exposing interfaces that are implemented by the contained objects. As long as interfaces are used to access the encapsulation, the containing class can replace the encapsulated objects without impacting any users of the objects. In short, when combined with interfaces, encapsulation can provide:
+When you are creating your classes you need to carefully consider the different meanings and implications of using inheritance of a parent class instead of composition that is exposed by the implementation of an interface.
+
+In Java inheritance is accomplished with the `extends` key word. Composition is accomplished with the `implements` key word.
+
+ By favoring composition you can create composable objects that have the benefits of multiple inheritance without all of the complexity that multiple inheritance incurs. Encapsulated objects can demonstrate polymorphic behavior by exposing interfaces that are implemented by the contained objects. As long as interfaces are used to access the composition, the containing class can replace the encapsulated objects without impacting any users of the objects. In short, when combined with interfaces, composition can provide:
 
 1. `has-a` and `is-a` relationships
 1. Benefits of multiple inheritance without the complexity
@@ -169,7 +233,7 @@ When you are creating your classes you need to carefully consider the different 
 1. Better hiding of details
 1. Increased interface segregation
 
-This suggests that in many cases Encapsulation should be preferred over inheritance.
+This suggests that in many cases componsition should be preferred over inheritance.
 
 ## Decomposition
 
@@ -178,6 +242,7 @@ The basic idea of decomposition is to create abstractions that represent layers 
 The advantage of decomposition is that you only need to think about the details of the layer when you are actually working on it. This includes defining its interfaces, implementing the details, and writing tests for that layer. For example, when defining the `Participant` layer, you only need to think about how a participant interacts with the `Game` and is represented by a `Player` or `Observer`. At the player level, you don't need to worry about what a `Board` is comprised of, or what the rules for moving a `King` are.
 
 ```mermaid
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
 classDiagram
     Game *-- Board
     Game *-- Piece
@@ -204,16 +269,78 @@ Programming languages themselves utilize decomposition to represent different pa
 | Expression    | Logic of a method                                                |
 
 Using decomposition at the program level helps you so that you don't have to keep the whole code base on your screen at the same time. You just need to open the files that represent the current task.
-
 ## High Cohesion and Low Coupling
 
-High cohesion means that an object only represents highly related data and functionality. You don't include tangentially related methods or fields in an object. Instead you create a cohesive object that executes in concert with other related objects.
+Effective software design seeks to maximize **cohesion** within a component and minimize **coupling** between components.
 
-Low coupling means that objects do not strongly rely on each other. High coupling occurs when an object that cannot be used without understanding the specific implementation details of another object, or when two objects require each other to operate. Generally, low coupling means that you are using interfaces appropriately and that objects do not have bidirectional bindings.
+High cohesion and low coupling together create **modularity**. When a system is modular, a change or bug in one part of the code has a minimal "ripple effect" on the rest of the application. This makes the system significantly easier to test, debug, and evolve as requirements change.
+
+![cohesionAndCoupling.jpg](cohesionAndCoupling.jpg)
+
+### Cohesion
+High cohesion means that an object only represents highly related data and functionality. You don't include tangentially related methods or fields in an object. Instead, you create a cohesive object that executes in concert with other related objects.
+
+*   **Example of High Cohesion:** A `Student` class that only manages a student's name, ID, and GPA. Every method in the class is dedicated to student-specific data.
+*   **Example of Low Cohesion:** A `Student` class that also contains methods for connecting to the university database, formatting PDF transcripts, and sending SMS alerts. This "God Object" is difficult to maintain because it has too many unrelated responsibilities.
+
+### Coupling
+Low coupling means that objects do not strongly rely on each other. High coupling occurs when an object cannot be used without understanding the specific implementation details of another object, or when two objects require each other to operate. Generally, low coupling means that you are using interfaces appropriately and that objects do not have bidirectional bindings.
+
+*   **Example of Low Coupling:** A `PaymentService` that interacts with a `PaymentProcessor` interface. It doesn't care if the actual implementation uses Stripe, PayPal, or a mock object for testing.
+*   **Example of High Coupling:** A `PaymentService` that directly instantiates a `StripeAPI` class and accesses its internal configuration fields. If you ever want to switch to a different provider, you have to rewrite the `PaymentService` code.
 
 ## Simplicity
 
-Simplicity is a core design principle. When given a choice between the simple and the complex always choose the simple. Dropping functionality is often preferable to introducing complexity that will make the system less usable and maintainable.
+Simplicity is a vital characteristic of effective good design. One form of simplicity is restricting the system to the smallest necessary number of objects. This applies to the number of interfaces, the depth of inheritance, and the operations an object exposes.
+
+However, you can simplify too far. Avoid creating thousands of classes that each contain only one line of code, or a single "God Object" that tries to represent everything. Aim for a straightforward model that stays as close to the real-world domain as possible.
+
+### Problem: Too many classes (Over-engineered)
+
+```mermaid
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000' } }}%%
+
+classDiagram
+    Creature --|> Object
+    Animal --|> Creature
+    Mammal --|> Animal
+    Person --|> Mammal
+
+    Animal o-- Soul
+    Animal *-- Body
+
+    Animal o-- Dwelling
+
+    Body o-- Head
+    Body *-- Torso
+    Body o-- Appendage
+
+    Leg --|> Appendage
+    Arm --|> Appendage
+```
+
+This design suffers from **speculative generality**. By creating deep inheritance hierarchies and over-decomposing objects (like splitting a `Body` into a `Head`, `Torso`, and `Appendage`), the system becomes brittle and difficult to navigate. Each additional layer adds cognitive load and makes the code harder to maintain, as changes to a base class like `Creature` ripple through every subclass. Unless the application specifically requires these fine-grained distinctions, this level of abstraction creates unnecessary complexity that obscures the actual domain logic.
+
+### Problem: Not enough classes (Anemic/Generic)
+
+```mermaid
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000' } }}%%
+
+classDiagram
+    class Object {
+        value
+    }
+
+    Object o-- Object : has-a
+```
+
+The "Not enough classes" design is problematic because it lacks semantic meaning and specific behavior. By reducing every concept to a generic `Object` with a recursive relationship, you lose the benefits of type safety and domain modeling. Instead of a `Person` who `eats` a `Fruit`, you have an anonymous `Object` interacting with another anonymous `Object`. This forces logic that should be encapsulated within classes out into the rest of the application, making the code significantly harder to maintain and debug.
+
+### Dealing with complexity
+
+When complexity cannot be avoided then make it more manageable by using **decomposition** to break the complexity into simpler parts,**encapulation** to restrict access internal workings, or **abstraction** to simplify the representation in the system. Always remember that your overriding goal should always be to trend to a simpler solution and not to manage unnecessary complexity.
+
+### Simplicity Quotes
 
 Simplicity is such an important principle that it is easy to find quotes from every thought leader on the subject.
 
@@ -228,8 +355,6 @@ Simplicity is such an important principle that it is easy to find quotes from ev
 > Any fool can write code that a computer can understand. Good programmers write code that humans can understand.
 >
 > — Martin Fowler
-
-When complexity cannot be avoided then make it more manageable by using decomposition to break the complexity into simpler parts, or by using abstraction to hide the complexity until it can be replaced by a simpler solution.
 
 ## Immutability
 
@@ -270,316 +395,79 @@ You can reduce duplicated code by:
 1. Using utility methods for common operations.
 1. Using generics to represent objects that only differ by type.
 
-## SOLID
+## The Law of Demeter (Principle of Least Knowledge)
 
-The SOLID principles of clean code were promoted by a popular software design consultant named Robert Martin (AKA Uncle Bob).
+> "Don't talk to strangers; only talk to your immediate friends"
 
-![Uncle Bob](robert-martin.png)
+The Law of Demeter (LoD) states that an object should have limited knowledge about the internal structure of other objects. Specifically, a method of an object should only invoke the methods of:
 
-> _source: [SmarterMSP.com](https://smartermsp.com/pioneers-in-tech-barbara-liskov-and-the-clu-programming-language/)_
+1. The object itself.
+2. Its parameters.
+3. Any objects it creates or instantiates.
+4. Its direct component objects (fields).
 
-> “Truth can only be found in one place: the code.”
->
-> — Robert Martin
+**Goal:** Minimize coupling between distant classes. By avoiding "chaining" calls, you prevent a class from becoming dependent on the internal navigation path of another object.
 
-SOLID represent five key principles.
+### Why It Matters
 
-1. Single Responsibility - An actor has only one reason to use you
-1. Open Closed - Open for extension, closed for modification
-1. Liskov Substitution - Actually implement the interface
-1. Interface Segregation - Keep interfaces cohesive
-1. Dependency Inversion - Make dependencies parameters
+LoD promotes **loose coupling** and **encapsulation**. When a class knows too much about the internal "guts" of its neighbors, the system becomes brittle. A change to a low-level object can cause a ripple effect, breaking unrelated classes that were reaching through several layers to access data.
 
-Let's look at each of these in detail.
+### Example of a Violation
 
-### Single Responsibility Principle
-
-The [Single Responsibility Principle](https://en.wikipedia.org/wiki/Single-responsibility_principle) represents the desirability of high cohesion. The idea here is that an actor only has one reason to use an object. You don't have a `Person` class that represents everything associated with a person. You have a `Person` class that represents the distinct attributes of a person such as `name` and `birthDate`, and then you have other classes that represent things associated with a Person.
-
-```mermaid
-classDiagram
-    Person <-- FoodConsumption : uses-a
-    Person <-- OutdoorActivity : uses-a
-    Death --* Person : has-a
-    Birth --* Person : has-a
-    class Person{
-      name
-      birth
-      death
-    }
-
-    class FoodConsumption {
-        eat(Person, Meal)
-    }
-
-    class OutdoorActivity {
-        play(Person, Game)
-    }
-
-    Date <|-- Death
-    Date <|-- Birth
-    OutdoorActivity --> Game : uses-a
-
-    class Death {
-    }
-
-    class Birth {
-    }
-```
-
-Following the single responsibility principle makes it so there is only one reason to manipulate the class. You manipulate the `Person` class to represent the person and the `Death` class to represent a death. If you find yourself making a `FrankenObject` that represents multiple objects, or responsibilities, then you should consider refactoring your code into multiple classes.
-
-The Java `String` class is a frequently cited example of violating the single responsibility principle as it not only represents an immutable string but provides operations for manipulating and converting the string. This makes the `String` class both a data container and a data mutator.
-
-Classes are not the only places where you need to consider the single responsibility principle. Methods and variables can also fall prey to confusing and conflicting responsibilities. For example, the following method has been overloaded with multiple responsibilities and interpret the parameters and return value in contradictory ways.
-
-If you find yourself changing a class for different reasons, functionality vs representation vs mutation vs display vs persistence, then you are probably in violation of the single responsibility principle.
-
-#### Violation Example
+Imagine a `Store` class processing a purchase:
 
 ```java
-public interface FrankenPerson {
-    public void drive();
-    public void sleep();
-    public void eat();
-    public void work();
-    public void die();
-    public void play();
-
-    public void setAlarm();
-    public void planRoute();
-    public void shopForFood();
-    public void buyGymPass();
-}
+// VIOLATION
+// The store reaches through the customer, into their wallet, to find a card.
+customer.getWallet().getCreditCard().charge(amount);
 ```
 
-```java
-public interface SRPViolation {
-    /**
-     * i < 0 delete the key and the empty string if successful
-     * i == 0 return the old value if different
-     * i > 0 replace the value and return the old value
-     */
-    public String dbAction(String key, String value, int i);
-}
+**Why this is problematic:**
+
+1.  **Tight Coupling:** The `Store` is now dependent on the internal structure of both the `Customer` and the `Wallet`.
+2.  **Fragility:** If you update the `Customer` class to use a mobile `PaymentApp` instead of a physical `Wallet`, the `Store` code breaks, even though the store's primary concern (getting paid) hasn't changed.
+3.  **Better Design:** The store should simply call `customer.pay(amount)`. The `Customer` object then decides internally whether to use a wallet, a card, or a phone app, keeping those details hidden from the `Store`.
+
+
+
+## ☑ Exercise
+
+
+```masteryls
+{"id":"24db3b5d-61c5-4488-a9f8-9116634d7b5a","title":"Coupling vs. Cohesion","type":"multiple-choice"}
+In software architecture, the design goal is typically to achieve **high cohesion** and **low coupling**. Which of the following scenarios best describes a system that successfully applies these principles?
+
+- [ ] A system where a single "God Object" manages all application logic to ensure that no external dependencies are required between different files.
+- [ ] A system where modules are highly interdependent to ensure rapid data transfer, but each module contains logic for several unrelated business features.
+- [x] A system where each module is responsible for a single, well-defined task and interacts with other modules through stable, minimal interfaces.
+- [ ] A system where code is split into many small modules to reduce complexity, even if those modules must frequently access and modify each other's internal private state.
 ```
 
-### Open Closed Principle
+```masteryls
+{"id":"08e88ca6-e6d9-467f-ae53-5502a601329d","title":"The Role of Decomposition","type":"multiple-choice"}
+In the context of software design principles, which statement best characterizes the primary objective of **decomposition**?
 
-Classes should be open to extension and closed for modification. The core concept is that you should generalize the functionality of a class so that you don't have to internally modify it in order to provide a desired extension of its functionality.
-
-A common example for the open closed principle involves passing in interfaces that control how the class works. This is in contrast to modifying the classes methods to provide new functionality.
-
-#### Violation Example
-
-As an example, the following code forces you to create a new method for every different type of format that you want the class to support. Additionally, the class has a constructor that represents a specific type of data. If you want to provide a different type of data, you must modify the class to include an additional constructor and internal data type.
-
-```java
-public static class OpenForModificationList {
-    final private String[] items;
-
-    public OpenForModificationList(String[] items) {
-        this.items = items;
-    }
-
-    public String formatCommaSeparated() {
-        return String.join(",", items);
-    }
-
-    public String formatQuotedCommaSeparated() {
-        var formattedItems = new ArrayList<String>();
-        for (var item : items) {
-            formattedItems.add(String.format("'%s'", item));
-        }
-
-        return String.join(",", formattedItems);
-    }
-}
+- [ ] The process of hiding the internal implementation details of a module to prevent external dependencies from accessing private data.
+- [x] Breaking a complex system into smaller, more manageable parts that can be developed, tested, and maintained independently.
+- [ ] Merging several small, related functions into a single "God object" to reduce the total number of files and classes within a project.
+- [ ] The systematic rewriting of existing code to improve its internal structure and performance without changing its external behavior.
 ```
 
-#### Correct Example
+```masteryls
+{"id":"32035b75-8e43-4ac3-9c02-d63e7517b65c","title":"Distinguishing Abstraction from Encapsulation","type":"multiple-choice"}
+In object-oriented design, while abstraction and encapsulation are closely related, they serve distinct purposes. Which statement best describes the primary difference between these two principles?
 
-We can improve the previous code by using interface parameters and Java generics to open the class to extension without ever modifying the code.
-
-```java
-public interface Formatter<T> {
-    String format(T s);
-}
-
-public static class OpenForExtensionList<T> {
-    final private List<T> items;
-
-    public OpenForExtensionList(List<T> items) {
-        this.items = items;
-    }
-
-    public String format(Formatter formatter, String separator) {
-        var formattedItems = new ArrayList<String>();
-        for (var item : items) {
-            formattedItems.add(formatter.format(item));
-        }
-
-        return String.join(separator, formattedItems);
-    }
-}
+- [ ] Abstraction is a mechanism for hiding the internal state of an object using access modifiers, while encapsulation is the process of defining a contract through interfaces.
+- [ ] Abstraction focuses on the "how" an object performs its internal logic, while encapsulation focuses on the "what" the object provides to the rest of the system.
+- [x] Abstraction focuses on hiding complexity by providing a simplified interface (the "what"), while encapsulation focuses on hiding implementation details and protecting data from outside interference (the "how").
+- [ ] Abstraction is used to achieve code reuse through inheritance, whereas encapsulation is used to achieve polymorphism through method overriding.
 ```
 
-In this example the `Formatter` interface extends how the class formats and the generic type extends the supported types.
-
-Dependency inversion and inheritance are both examples of the open closed principle.
-
-### Liskov Substitution Principle
-
-![Barbara Liskov](barbara-liskov.jpeg)
-
-> _source: [SmarterMSP.com](https://smartermsp.com/pioneers-in-tech-barbara-liskov-and-the-clu-programming-language/)_
-
-> “[be] aware not just of what you understand, but also what you don’t understand”
->
-> — Barbara Liskov
-
-If an operation is dependent on an interface, or base class, you must be able to substitute any derived class without altering the operation. This can happen if a base class throws an `UnsupportedException` for an interface or overridden method, or if the operation does a type cast on the interface.
-
-#### Violation Example
-
-```java
-public class LSPExample extends Object {
-    public int hashCode() {
-        throw new UnsupportedOperationException();
-    }
-}
+```masteryls
+{"id":"7943abe7-dde5-42f1-b3b3-1b47d62dd12e","title":"Building to Last","type":"essay"}
+How does applying sound design principles to create maintainable software demonstrate respect and care for future developers, and how does this reflect Christlike service?
 ```
 
-```java
-void lspViolation2(List list) {
-  var arrayList = (ArrayList)list;
-}
-```
-
-Violations of this principle cause unexpected behaviors within the application and require the developer to understand all of the code before they can safely make substitutions.
-
-### Interface Segregation Principle
-
-When you define an interface you only include methods that work together as a cohesive whole. You don't add methods that are related, but not necessary for the consumption of the primary usage of the interface. Put another way, the interface segregation principle states that that no consumer of an interface should be forced to depend on methods it does not use.
-
-Exposing methods to all consumers of the interface, without regard for the use of the methods by all the consumers, creates a significant maintenance problem. If you want to alter the interface then you must examine all uses of the interface. Instead, the preferred approach is to create multiple interfaces that an object uses and only use the interface that is appropriate to the consumer.
-
-#### Violation Example
-
-```java
-public interface ReaderWriter {
-    byte readByte();
-    String readString();
-    int readInt();
-
-    // Outside cohesive whole.
-    void writeByte(byte b);
-    void writeString(String s);
-    void writeInt(int i);
-}
-```
-
-#### Correct Example
-
-```java
-public interface Reader {
-    byte readByte();
-    String readString();
-    int readInt();
-}
-
-public interface Writer {
-    void writeByte(byte b);
-    void writeString(String s);
-    void writeInt(int i);
-}
-```
-
-### Dependency Inversion Principle
-
-The dependency inversion principle suggests that low level objects should not explicitly depend on high level objects. Instead of a low level object creating and using a high level object, you should provide the high level object to the low level object. Interfaces enable the core abstraction necessary to enable dependency inversion.At the very least you are exposing a specific implementation, constructor, and potentially extraneous methods that are unnecessary to the use of higher level object.
-
-Put another way, the principle says that dependencies are made on aspects of functionality, not on implementations of the functionality. In the following example, the low level `Route` object is highly coupled with the instantiation and use of the high level `Honda` object.
-
-#### Violation Example
-
-```java
-class Violation {
-    public static void main(String[] args) {
-        new Route().drive();
-    }
-
-    static class Route {
-        void drive() {
-            Honda honda = new Honda();
-
-            honda.go();
-        }
-
-    }
-
-    static class Honda {
-        void go() {
-            System.out.println("bruum");
-        }
-    }
-}
-```
-
-#### Correct Example
-
-In order to properly apply the dependency inversion principle you invert the use of high level object through an interface parameter. In the following example we use a factory method that uses reflection to load the desired high level object. Now the `Route` doesn't know anything about the vehicle that is being used. It just calls `go`. This breaks the coupling between the objects and moves the decision about what vehicle is actually used to be completely out of the code.
-
-```java
-class Correct {
-    interface Vehicle {
-        void go();
-    }
-
-    public static void main(String[] args) throws Exception {
-        var vehicleMakerClass = args.length == 1 ? args[0] : "Honda";
-        Vehicle vehicle = createVehicle(vehicleMakerClass);
-        new Route().drive(vehicle);
-    }
-
-    static class Route {
-        void drive(Vehicle vehicle) {
-            vehicle.go();
-        }
-    }
-
-    static Vehicle createVehicle(String vehicleMakerClass) throws Exception {
-        var vehicleClass = Class.forName("Correct$" + vehicleMakerClass);
-        var vehicleConstructor = (Constructor<Vehicle>) vehicleClass.getDeclaredConstructor();
-        return vehicleConstructor.newInstance();
-    }
-
-    static class Honda implements Vehicle {
-        public void go() {
-            System.out.println("bruuum");
-        }
-    }
-
-    static class BMW implements Vehicle {
-        public void go() {
-            System.out.println("vroom");
-        }
-    }
-}
-```
-
-By inverting the dependencies, you can decouple the code and move the commitment to an algorithm at a higher level. Now you can execute the code with different parameters and completely modify how it works.
-
-## Things to Understand
-
-- The goals of software design
-- Design is an iterative process
-- Abstraction
-- Single Responsibility Principle
-- Decomposition
-- Good algorithm and data structure selection
-- Encapsulation - Information hiding
-- DRY - Avoiding code duplication
 
 ## Videos
 

@@ -6,6 +6,14 @@
 - 🖥️ [Videos](#videos)
 - [TA Tips](../../instruction/chess-tips/chess-tips.md#phase-2---server-diagram): A collection of common problems for this phase
 
+#### 🥅 Outcomes of this Deliverable
+
+1. **Frame** software engineering problems by clarifying system purpose, constraints, and responsibilities, demonstrating both sound technical judgment and a sense of ownership for the long-term impact of software others depend on.
+1. **Explore** object-oriented frameworks, network protocols, distributed services, and databases with curiosity and discipline, developing accurate mental models while valuing learning as essential to responsible engineering practice.
+1. **Design** software systems using object-oriented principles and clear interfaces that support reliability and maintainability, motivated by care for future users, collaborators, and the evolution of the system over time.
+
+---
+
 In this part of the Chess Project, you will create a [sequence diagram](https://en.wikipedia.org/wiki/Sequence_diagram) that represents the design of your chess server. Your chess server exposes seven endpoints. An endpoint is a URL that maps to a method that handles HTTP network requests. Your chess client calls the endpoints in order to play a game of chess. Each of these endpoints convert the HTTP network request into service object method calls, that in turn read and write data from data access objects. The data access objects persistently store data in a database. The service object method uses the information from the request and the data access objects to create a response that is sent back to the chess client through the HTTP server.
 
 ## Application Components
@@ -30,7 +38,7 @@ The chess application components are demonstrated by the following diagram and d
 
 ## Application Programming Interface (API)
 
-As a first step for creating your design diagram, you need to carefully read the [Phase 3: Web API](../3-web-api/web-api.md) requirements so that you can internalize what each of the server endpoints do. This will help you understand the purpose and structure of the classes you are designing in this phase.
+As a first step for creating your design diagram, you need to **carefully read** the [Phase 3: Web API](../3-web-api/web-api.md) requirements so that you can internalize what each of the server endpoints do. This will help you understand the purpose and structure of the classes you are designing in this phase.
 
 The server endpoints are summarized below, but it is critical that you completely understand their purpose, the data they expect, and the data that they return.
 
@@ -56,9 +64,13 @@ The different components in your architecture will operate on three data model o
 
 These objects represent the core of what you are passing between your server, service, and data access components.
 
-## Creating Sequence Diagrams
+## Visualizing with Sequence Diagrams
 
-Based upon your understanding of the requirements provided by [Phase 3](../3-web-api/web-api.md) you now must create a sequence diagram for each endpoint that demonstrates the flow of interactions between your application objects. The diagram must include the successful happy path flow for each endpoint. You may also include error paths; doing so will likely be more helpful in preparing for Phase 3, but you will not lose points for not including error cases. You will need to at least consider error cases, as checking for some errors requires calls between layers which you are required to represent. For example, during registration we don't want to create a user with a username that's already taken, so there is a check for that in the starter diagram.
+Based upon your understanding of the requirements provided by [Phase 3](../3-web-api/web-api.md) you now must create a sequence diagram for each endpoint that demonstrates the flow of interactions between your application objects. Sequence diagrams are the industry standard for documenting these interactions. They use vertical "lifelines" to represent objects and horizontal arrows to represent method calls. 
+
+When creating your diagrams, focus on the **Happy Path** (the successful execution) but keep the **Error Paths** in mind. For instance, what happens if the `UserDAO` returns an error because the database is down? Your diagram should show the Service layer receiving that error and the Handler translating it into an appropriate HTTP status code (like `500 Internal Server Error`).
+
+You will need to at least consider error cases, as checking for some errors requires calls between layers which you are required to represent. For example, during registration we don't want to create a user with a username that's already taken, so there is a check for that in the starter diagram.
 
 ### SequenceDiagram.Org
 
@@ -143,7 +155,9 @@ You can decompose your handlers, services, and data access components into multi
 
 ### Pass Off, Submission, and Grading
 
-Once you have created your diagram you can create a URL that represents it by selecting the `export diagram` tool found on the toolbar to the left of the application. In the export dialog select `Presentation Mode Link` and copy the URL. Submit the URL to the `Chess Server Design` Canvas Assignment.
+Once you have created your diagram you can create a URL that represents it by selecting the `export diagram` tool found on the toolbar to the left of the application. In the export dialog select `Presentation Mode Link` and copy the URL.
+
+ Submit the URL to the `Chess Server Design` Canvas Assignment.
 
 ![sequencediagram.org](sequence-diagram-org.gif)
 
@@ -158,6 +172,27 @@ When initially graded, your design will be given one of three scores:
 | Your design is mostly correct with only minor adjustments needed. Read TA suggestions for improvement in Canvas.                                                                                                                                                          |    50 |
 | Your design has significant deficiencies. Meet with a TA to discuss your design, ideally the same TA who originally graded your design. Improve and resubmit your design within one week (or two days in a term) of initial grading, and receive a maximum score of 100%. |    25 |
 | The submitted design was not a serious attempt at doing the assignment correctly. Resubmit your design within one week (or two days in a term) of initial grading and receive a maximum score of 50%.                                                                     |     0 |
+
+
+#### 🥅 Outcome Reflections
+
+With the completion of this chess server design deliverable checkpoint, it is time to reflect upon the course outcomes and your ability to master them.
+
+```masteryls
+{"id":"ef7e108e-d6b3-49e8-9745-1f9a25d6eb91","title":"Frame","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+What process did you use to frame your understanding of how chess server so that it properly reflected the requirements? How did you determine a correct understanding of the problem so that you were able to consider the factors that your users deem important and will depend on?
+```
+
+```masteryls
+{"id":"c47c5b60-373f-47d8-81d7-2c5e48836b9a","title":"Explore","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+What software engineering principles and practices did you consider when you were exploring how to represent a chess server? What did you do to advance your learning of the possible solution space?
+```
+
+```masteryls
+{"id":"836e189e-364e-4030-907b-fd0b7a33a287","title":"Design","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+What object-oriented and design principles did you consider as you converted your framing and exploration of the chess server into a design solution? What did you do to ensure you were considering the needs of future developers and users of the application?
+```
+
 
 ## Videos
 

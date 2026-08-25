@@ -4,19 +4,27 @@
 
 🖥️ [Lecture Videos](#videos)
 
-Once you begin using test driven development, you start to rely on tests to tell you when something is broken. This can lead to a state of false confidence if your tests don't actually cover all of the paths through your code. This happens when you have tests that only cover some conditional branches, when the tests don't cover the exceptional branches, or when not all of the possible range of inputs are represented.
+### 🔑 Key points
 
-Modern integrated development environments (IDEs) often provide tools for determining the amount of code coverage that your tests provide. You can use the code coverage tool built into IntelliJ to see how much you should trust the tests in your project. To access the coverage tool, you choose the `Run test with Coverage` option from the test execution actions. This will pop up a window that shows you how much of your code is being executed by the test. The coverage tool shows a green marker next to all the code that was executed, and a red marker next to lines that were skipped by the test.
+- Code coverage provides a metric to help determine if code is sufficiently tested.
+- High coverage does not guarantee code correctness or the absence of bugs.
+- Coverage tools help identify untested paths, such as conditional branches and error-handling logic.
 
-The following video shows a function called `branch` that has three paths. In order to cover all the code of the function, the test must provide a `true`, `false`, and `null` value for the parameter. You can see the coverage increasing to 100% as we successively enable all of the necessary testing code required for all of the branches.
+---
+
+Once you begin using test-driven development (TDD), you rely on tests to alert you when something is broken. However, this can lead to a state of false confidence if your tests do not actually exercise all possible paths through your code. This happens when tests miss certain conditional branches, fail to trigger exceptional cases, or do not account for the full range of possible inputs.
+
+Modern Integrated Development Environments (IDEs) provide tools to measure the amount of code coverage your tests provide. You can use the built-in coverage tool in IntelliJ to evaluate the thoroughness of your test suite. To access it, select the **Run 'Test Name' with Coverage** option from the execution menu. This opens a coverage report showing the percentage of code executed. In the editor, the tool displays a green marker next to lines that were executed and a red marker next to lines that were skipped.
+
+The following animation shows a function called `branch` with three distinct execution paths. To achieve full coverage, the test suite must provide `true`, `false`, and `null` values for the parameter. You can see the coverage increasing to 100% as the necessary test cases are enabled for each branch.
 
 ![Code coverage](codeCoverage.gif)
 
 ## How much coverage?
 
-The subject of what percentage of coverage is necessary to enable confidence in your code is a very opinionated topic. Some developers feel that anything less that 100% is a problem. Others feel that obtaining 100% creates unmaintainable tests, causes harmful overhead in the actual code, and decrease productivity. The correct answer to this question is dependent on the specifics of the project you are working on.
+The question of what percentage of coverage is necessary is a subject of significant debate. Some developers believe that anything less than 100% is a risk. Others argue that striving for 100% coverage can lead to unmaintainable tests, introduce unnecessary complexity into the source code, and decrease overall productivity. The ideal coverage target often depends on the specific requirements and criticality of the project.
 
-You should note that just because you have 100% coverage, does not mean that all paths through the code are fully exercised, or that your code is correct. Consider the case where you have a function that takes an object and references it.
+It is important to note that 100% coverage does not mean all logic paths are fully exercised or that the code is correct. Consider the following function:
 
 ```java
 public static void oneHundredPercentCoverage(Object obj) {
@@ -24,11 +32,30 @@ public static void oneHundredPercentCoverage(Object obj) {
 }
 ```
 
-You can write a test that calls the function and obtains 100% coverage, but unless the test includes a call where `obj` is null, you will have an unhandled `RuntimeException` waiting to happen to your users.
+You can write a single test that calls this function with a valid object to achieve 100% code coverage. However, if the test suite does not include a case where `obj` is `null`, a `NullPointerException` remains a latent bug that will eventually affect users.
 
-Code coverage can also give you a false sense of security if all of your testing is simple unit tests. Many bugs only happen when your application is running from end to end. This includes a front end client, middleware business logic, and data services. Unit tests often stub out, or mock, input and output in order to isolate the test. That means it can easily miss real world parameter values, and failure cases, that occur only when the application is executing in a real world environment.
+Code coverage can also provide a false sense of security if the testing relies solely on simple unit tests. Many bugs only emerge when an application runs end-to-end, involving the front-end client, middleware, business logic, and data services. Because unit tests often "mock" or "stub" external dependencies to isolate the code, they may miss real-world edge cases and integration failures that occur in a production environment.
 
-With all of that said, code coverage does provide an important indicator of the value your testing is providing. It can also point you to locations in your code that are problematic and need review. This is especially true for code that is highly complex, has a high branching factor, or has paths the rarely get executed.
+Despite these limitations, code coverage is a vital indicator of testing quality. It highlights problematic areas that require review, particularly in code that is highly complex, has a high branching factor, or contains logic paths that are rarely executed.
+
+## ☑ Exercise
+
+
+```masteryls
+{"id":"4057882b-96e0-4013-8f40-6f182d587ba5","title":"Determining Ideal Code Coverage","type":"multiple-choice"}
+When establishing a target for code coverage within a software development team, which of the following best describes the "right" percentage to aim for?
+
+- [ ] 100% coverage should always be the mandatory goal to ensure that every line of code is executed and guaranteed to be bug-free.
+- [ ] Exactly 80% coverage, as this is the industry-standard threshold required for software to be considered "production-ready."
+- [ ] Coverage should be kept below 50% to ensure that the development team is focusing on writing new features rather than maintaining test suites.
+- [x] There is no universal "correct" percentage; the target should be based on the project's risk profile and the point of diminishing returns.
+```
+
+```masteryls
+{"id":"d74950d1-2903-4cda-ab9f-0d38a4dcb11c","title":"Diligence in Testing","type":"essay"}
+How does the discipline of measuring and improving code coverage cultivate the thoroughness and honesty that the BYU aim of character building seeks to develop, and how does that diligence serve the people who depend on your software?
+```
+
 
 ## Videos
 

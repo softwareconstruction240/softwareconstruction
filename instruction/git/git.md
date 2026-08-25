@@ -8,11 +8,11 @@
 
 📖 **Required reading**:
 
-- [GitHub create a repo](https://docs.github.com/en/get-started/quickstart/create-a-repo)
-- [GitHub cloning a repo](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
-- [GitHub personal access tokens](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
+- [GitHub: Create a repo](https://docs.github.com/en/get-started/quickstart/create-a-repo)
+- [GitHub: Cloning a repo](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
+- [GitHub: Personal access tokens](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
 
-[Linus Torvalds](https://en.wikipedia.org/wiki/Linus_Torvalds), the creator of Linux, was fed up with the proprietary version control software that he was using to track the code for the Linux kernel and so over a weekend he built Git, the world's most popular version control system.
+[Linus Torvalds](https://en.wikipedia.org/wiki/Linus_Torvalds), the creator of Linux, was dissatisfied with the proprietary version control software used to track the Linux kernel code. Over a single weekend, he built Git, which has since become the world's most popular version control system.
 
 ![Linus Torvalds](linusTorvalds.jpg)
 
@@ -24,52 +24,52 @@
 
 ## Overview
 
-Git is the industry standard **Version Control System** that powerfully manages the changes made to hundreds of files over the entire lifetime of a project. Git makes it easy to view, undo, redo, branch, and merge with collaborators in a trustable, secure way.
+Git is the industry-standard **Version Control System (VCS)**. It manages changes made to hundreds of files over the entire lifetime of a project, making it easy to view, undo, redo, branch, and merge code with collaborators in a secure and reliable way.
 
-Git provides two valuable functions. First, it allows you to track versions of files in a directory. Second, it allows you to clone all of those versions to a different location, usually to a different computer. We are going to focus on tracking versions in this instruction and cover cloning repositories when we talk later about GitHub.
+Git provides two primary functions. First, it allows you to track versions of files in a local directory. Second, it allows you to clone those versions to a different location—usually a remote server or another developer's computer. This instruction focuses on local version tracking; we will cover cloning repositories in detail when we discuss GitHub.
 
-The general Git development workflow is illustrated in the following diagram.
+The general Git development workflow is illustrated in the following diagram:
 
 ![Commit workflow](GitCommitWorkflow.png)
 
-To give a reference on the typically frequency of each of the stages, developers typically:
+To provide a reference for how often these stages occur, developers typically:
 
-- **Change** files all day long
-- **Stage** and **commit** changes multiple times per hour
-- **Review** commits and **push** about hourly
+- **Change** files throughout the day.
+- **Stage** and **commit** changes multiple times per hour.
+- **Review** commits and **push** to a remote server about every hour.
 
 ## Installing Git
 
-Before we can talk about Git you need to make sure it is installed in your development environment. Open a console and type `git --version`.
+Before diving into Git, ensure it is installed in your development environment. Open a terminal and type `git --version`.
 
 ```sh
-➜  git --version
+git --version
 git version 2.32.0 (Apple Git-132)
 ```
 
-If you do not see something like that, then you need to follow these [instructions](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) to install Git.
+If you do not see a version number, follow these [instructions](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) to install Git.
 
 ## Getting Started with Git
 
-You can track file versions of any files in a directory by initializing Git for that directory. You can do this right now by creating a new directory in a console window and initializing it as a Git repository.
+You can track file versions in any directory by initializing Git. To try this, create a new directory in your terminal and initialize it as a Git repository:
 
 ```sh
-➜  mkdir playingWithGit
-➜  cd playingWithGit
-➜  git init
+mkdir playingWithGit
+cd playingWithGit
+git init
 ```
 
-If you list all files in the directory you will see that you now have a hidden directory named `.git`.
+If you list all files in the directory, you will see a hidden directory named `.git`.
 
 ```sh
-➜  ls -la
+ls -la
 total 0
 drwxr-xr-x   3 lee  staff    96 Dec  1 22:59 .
 drwxr-xr-x+ 54 lee  staff  1728 Dec  1 23:00 ..
 drwxr-xr-x   9 lee  staff   288 Dec  1 22:59 .git
 ```
 
-The `.git` directory is where all of the versions get stored. Now use the `echo` command to create a file so that we can see how versioning works. After creating the new file, use `git status` to tell you what git is doing.
+The `.git` directory stores all version history. Now, use the `echo` command to create a file, then use `git status` to see how Git responds.
 
 ```sh
 ➜ echo hello world > hello.txt
@@ -84,11 +84,11 @@ Untracked files:
 nothing added to commit but untracked files present (use "git add" to track)
 ```
 
-Git status tells you that it detects a new file named `hello.txt`, but it isn't currently tracking versions for that file. To begin tracking versions you need to add it. Usually you track all files in a repository directory and so you can tell Git to track everything that it doesn't know about with `git add .`. Follow this with another call to `git status`.
+Git detects the new file `hello.txt` but isn't tracking it yet. To begin tracking versions, you must "add" the file. Usually, you want to track all files in a project, so you can tell Git to track everything new or modified with `git add .`.
 
 ```sh
-➜  git add .
-➜  git status
+git add .
+git status
 
 On branch master
 No commits yet
@@ -97,36 +97,35 @@ Changes to be committed:
 	new file:   hello.txt
 ```
 
-Now Git tells us that it has `staged` the file `hello.txt` and it is ready to be committed as a version in the repository. We commit a version with the `commit` command. We always want to have a meaningful comment about the version we are committing and so we use the `-m` parameter to provide a message that will live with the version. Follow this with another call to `git status`.
+Git reports that it has **staged** the file `hello.txt`, meaning it is ready to be committed. A **commit** records a snapshot of the staged changes. Every commit should include a meaningful comment using the `-m` parameter.
 
 ```sh
-➜  git commit -m "initial draft"
+git commit -m "initial draft"
 [master (root-commit) d43b07b] initial draft
  1 file changed, 1 insertion(+)
  create mode 100644 hello.txt
 
-➜  git status
+git status
 On branch master
 nothing to commit, working tree clean
 ```
 
-Congratulations! You have just committed your first file to a Git repository. It is important to note that we were only working with a single file in this example. However, a commit can represent multiple files. You just need to add them all before you execute the commit. Also, note that the point of the stage (add) step, is so that you can commit some files while still leaving other modified file out of the commit.
+You have successfully committed your first file. While this example uses one file, a single commit can represent changes across many files. The staging (add) step allows you to choose exactly which files to include in a commit while leaving other modified files out.
 
-Let's make an edit to our file and commit it again. This time we will tell Git that we want to add all the tracked modified files to our commit by including the `-a` parameter along with our message parameter.
+Let's edit the file and commit it again. This time, we will use the `-a` parameter to automatically stage all tracked files that have been modified.
 
 ```sh
-➜  echo goodbye world > hello.txt
-
-➜  git commit -am "changed greeting to reflect the present mood"
+echo goodbye world > hello.txt
+git commit -am "changed greeting to reflect the present mood"
 
 [master e65f983] changed greeting to reflect the present mood
  1 file changed, 1 insertion(+), 1 deletion(-)
 ```
 
-Now that we have a couple versions in our repository we can view the versions with the `git log` command.
+To view the history of your repository, use `git log`.
 
 ```sh
-➜  git log
+git log
 
 commit e65f9833ca8ee366d0d9c1676a91b1a977dab441 (HEAD -> master)
 Author: Lee
@@ -141,47 +140,43 @@ Date:   Thu Dec 1 23:29:11 2022 -0700
     initial draft
 ```
 
-This shows both commits with the associated comments.
-
 ## Commit SHA
 
-Every commit has a unique identifier that is generated by hashing the file along with the timestamp using the SHA hashing algorithm. You can always refer to a specific commit in your version history by using its SHA. For example, if we want to temporarily switch back to a previous version to see what it contains we can use the `checkout` command. You only need to provide the first few characters of the SHA.
+Every commit has a unique identifier (a SHA-1 hash) generated based on the file changes, metadata, and the previous commit. You can refer to a specific commit using this SHA. For example, to switch back to a previous version and see its content, use the `checkout` command with the first few characters of the SHA.
 
 ```sh
-➜  git checkout d43b07b8890f
+git checkout d43b07b8890f
 
 Note: switching to 'd43b07b8890f'.
 HEAD is now at d43b07b initial draft
 
-➜  cat hello.txt
+cat hello.txt
 hello world
 ```
 
-The above output omits a big message saying that you are no longer looking at the latest version, but the important thing is that you can see that we are now looking at our old version. To get back to the top of the version chain, use the `checkout` command and reference the branch name, which is by default `master`.
+To return to the latest version, use `checkout` with the branch name (the default is often `master` or `main`).
 
 ```sh
-➜  git checkout master
+git checkout master
 Previous HEAD position was d43b07b initial draft
 Switched to branch 'master'
 
-➜  cat hello.txt
+cat hello.txt
 goodbye world
 ```
 
-Now we are back to our latest version.
-
-The following diagram shows how your commits move from your working directory, to staging them for a commit, and then committing them to a repository.
+The following diagram shows how changes move from your working directory to the staging area, and finally into the repository as a commit.
 
 ![Git stage](GitStage.jpg)
 
-A commit is a full snapshot of what was staged from your directory at the time of the commit. That means all of the files contained in the commit were reverted when you executed the checkout command. Since we only had one file in our commit, it looks like we are only flipping that file around, but basically you can think of it as a time machine for the entire directory.
+A commit is a full snapshot of the staged files. When you check out a commit, Git reverts the entire directory to that specific point in time.
 
 ## Diff
 
-Most of the time you don't want to reverse back to an earlier commit. Instead you just want to compare the differences between commits. We can do that with the `diff` command. You can specify two SHAs that you would like to compare, or you can use the HEAD variable which points to the top of the commit change. To refer to earlier commits you just add `~` and the numerical distance from head that you want to reference. In this case we will compare HEAD and HEAD~1.
+Instead of switching versions, you often just want to see what changed. Use the `diff` command to compare commits. You can compare two SHAs or use the `HEAD` variable, which points to the most recent commit. Use `~` followed by a number to reference previous commits (e.g., `HEAD~1` is the commit before the current one).
 
 ```sh
-➜  git diff HEAD HEAD~1
+git diff HEAD HEAD~1
 ```
 
 ```diff
@@ -194,114 +189,133 @@ index 3b18e51..eeee2af 100644
 +goodbye world
 ```
 
-You can see that we made a change to `hello.txt` by removing `hello world` and adding `goodbye world`.
-
 ## Branches
 
-Git supports the ability to branch your code. This allows you to work on variations of the code while still allowing progress on the main branch. For example, if you wanted to work on a new feature named `A` without interrupting work on the master branch, you would use the `git branch A` command and start working on the `A` branch with the `git checkout A` command. Now commits can be done to both the master and the `A` branch. When you want to combine the work done on both branches you us checkout the master branch and execute `git merge A`. If you decide you want to abandon the new feature then you just don't ever merge it back into the master branch.
+Git allows you to "branch" your code to work on new features without affecting the main codebase. For example, to work on "Feature A," you would create a branch with `git branch A` and switch to it with `git checkout A`. When the feature is complete, you switch back to the main branch and run `git merge A`. If you decide to abandon the feature, you simply delete the branch without merging it.
 
-Here is a demonstration of this working on the visualization tool provided by [git-school.github.io](https://git-school.github.io/visualizing-git/).
+Here is a visualization of branching and merging:
 
 ![Branches](Branching.gif)
 
-## Commit often
+## Commit Often
 
-You will be required to commit frequently and consistently as you work on each phase of the chess project in order to get credit for the assignment. Commonly, this will be an initial commit that contains the set up for the phase, followed by commits at each working piece (test case, endpoint, sql query), and then a final commit for the working phase. Committing your code often is an important practice for you to develop. This protects you from losing your work, allows access from anywhere, makes it so you can quickly share changes, reduces conflicts with your peers, and enables you to efficiently explore different possibilities. This also enables others to review the progression of your development efforts in order to prove the originality of your work.
+You are expected to commit frequently and consistently as you work on projects. A typical workflow involves:
+1. An initial commit for project setup.
+2. Commits for each individual piece of logic (e.g., a test case, an endpoint, or a query).
+3. A final commit for the completed phase.
 
-Remember to make meaningful commit messages that describe the **what** and **why** of the changes made. Here is a [good post](https://www.freecodecamp.org/news/how-to-write-better-git-commit-messages/) on how make meaningful commit messages.
+Committing often protects you from losing work, allows you to experiment safely, and makes collaboration easier. It also provides a clear history of your development efforts.
 
-## Binary files
+Remember to write meaningful commit messages that describe **what** changed and **why**. For tips on writing great messages, see [this guide](https://www.freecodecamp.org/news/how-to-write-better-git-commit-messages/).
 
-You can store any type of file in Git, but be aware that if you store large binary files, such as images or videos, you are storing a copy of that file each time you make a change to it. For example, suppose you use Git to track the changes you make to a video production project. Every time you save a change to your 10 GB video file you store a complete copy of the file. That means 10 commits of the video file will store 100 GB of data in your repository.
+## Binary Files
+
+While Git can store any file type, be cautious with large binary files (images, videos, etc.). Git stores a full copy of a binary file every time it changes. If you commit a 10 GB video 10 times, your repository size will grow to 100 GB.
 
 ## GitHub
 
-When we introduced `Git`, we said that Git provides two things, 1) Version tracking in a repository, and 2) the ability to clone a copy of the repository to a different location. You can clone repositories between computers used by your development team, but the management of cloning repositories is much easier when you use a cloud based service such as `GitHub`.
+GitHub is a cloud-based service used to host Git repositories. It makes collaboration easier by providing a central location for teams to sync their code. GitHub also includes tools for hosting websites, project management, issue tracking, and AI-driven code generation.
 
-GitHub was launched in 2008 by a small group of developers that wanted to make code collaboration easy. GitHub was acquired by Microsoft in 2018 for $7.5 billion. Since its beginning as a simple web application for cloning and storing Git repositories, GitHub has added functionality for hosting websites, supporting community pull requests, tracking issues, hosting codespaces, running continuous deployment processes, managing projects, and even AI driven code generation.
+### Creating and Cloning a Repository
 
-### Creating and cloning a repository
+While you can initialize a repository locally and then connect it to GitHub, it is **always** easier to create the repository on GitHub first and then clone it to your machine.
 
-While you can create a repository in your development environment using `git init` and then connect it to an upstream repository on GitHub, it is **always** easier to create your repository first on GitHub and then clone it to your development environment. That way your repositories are automatically linked to each other.
-
-To create a repository in GitHub, log into your account, select the `Repositories` tab, and press `New repository`. You then specify a unique repository name, give a description, indicate that you want it to be public, add a default README.md file, and choose a license.
+To create a repository:
+1. Log in to GitHub and go to the **Repositories** tab.
+2. Click **New**.
+3. Name the repository `testbyu240`, add a description, and choose to make it public.
+4. Initialize with a README.md and a license.
 
 ![GitHub create repository](GitHubCreateRepo.jpg)
 
-Every repository in GitHub has a unique URL assigned to it. Assuming the repository is public, anyone with the URL can clone it to their development environment. A repository clone is an exact copy of the repository including all of the commits, comments, and SHAs. It also configures the clone to know what the remote source is so that you can use Git commands to keep them in sync as changes are made.
+Every GitHub repository has a unique URL. Anyone with access can "clone" it—creating an exact copy of the repository (including all history) on their local computer.
 
 ![GitHub clone](GitHubClone.jpg)
 
-You clone a repository by providing the GitHub repository's URL as a parameter to the `git clone` command from in a console window. You can get a copy of the URL from the repository's GitHub page and clicking on the green `Code` button, and then clicking on the copy button next to the HTTPS url.
+To clone, copy the HTTPS URL from the green **Code** button on the GitHub repository page.
 
 ![GitHub clone URL](GitUrlButton.jpg)
 
-When you clone a repository it is placed in a subdirectory named with the name of the repository. So make sure you are in the directory where you keep all of your source repositories before you run the command.
+Run the clone command from your terminal in the directory where you store your projects:
 
 ```sh
-➜  git clone https://github.com/YOURACCOUNT/chess.git
+git clone https://github.com/YOURACCOUNT/testbyu240.git
 
-Cloning into 'chess'...
+Cloning into 'testbyu240'...
 remote: Total 4 (delta 0), reused 0 (delta 0), pack-reused 0
 Receiving objects: 100% (4/4), done.
 
-➜  cd chess
+cd testbyu240
 ```
+
+Modify the README.md file to contain the text: `my first commit`, and then commit the file and push your changes back up to GitHub.
+
+
+```sh
+echo "my first commit" >> README.md
+git commit -am "My first commit"
+git push
+```
+
 
 ## IntelliJ and Git
 
-Knowing how to use Git from the console is a very valuable skill. Git offers a wide variety of functionality such as creating branches of the repository, temporarily stashing changes, and cloning repositories to other machines. However, by using a tool like IntelliJ you can hide all of the complexity of the command line and use a visual interface instead.
+While the command line is powerful, IDEs like IntelliJ IDEA provide a visual interface that simplifies Git operations.
 
-Here are the steps you need to take to successfully use Git, GitHub, and IntelliJ.
+### One-Time Setup
+1. Install Git.
+2. Create a GitHub account.
+3. Configure IntelliJ to access GitHub (via OAuth or a Personal Access Token).
 
-### One Time Steps
-
-1. Make sure Git is installed.
-1. Make sure you have a GitHub account.
-1. Make sure you have a personal access token or have configured IntelliJ to have access to your GitHub account using OAuth.
-
-### Per Project Steps
-
-1. Create a GitHub repo for the project. Creating your repo in GitHub and then cloning it locally is much easier than trying to associate a local Git repo to a newly created GitHub repo.
-1. Copy the URL for your GitHub repo.
-
+### Per-Project Steps
+1. Create a GitHub repository first.
+2. Copy the GitHub repository URL.
    ![GitHub Repo URL](github-url.png)
+3. Clone the repository to your local machine via the terminal or IntelliJ's "Get from VCS" option.
+4. Open or create your project in that cloned directory.
+5. Make a change, commit, and push to verify the connection.
 
-1. Clone the GitHub repo to your development environment using the GitHub repo URL.
-
-```sh
-➜  git clone https://github.com/YOURACCOUNT/YOURREPO.git
-```
-
-1. Create your project in IntelliJ. Set the target location for the project to be the same location where your cloned the repo.
-
-1. In the IntelliJ project, make a change, commit, and push to make sure it is working.
-
-The following video demonstrates committing and pushing code from IntelliJ to a GitHub repo. Once we have made our changes, we can use the `Commit` tab on the left to interact with Git and GitHub. On the `Commit` tab we can see all the changes we have made to the code. By clicking on the files we see the difference between the old and new version. If everything looks good we can press the `Commit and Push` button. If this is the first push you are making to your GitHub account then, you need to provide our Personal Access Token. Once you have done this once, you don't need to do it again.
+In IntelliJ, use the **Commit** tab (on the left) to view changes, compare versions, and perform "Commit and Push" operations.
 
 ![IntelliJ Git](GitIntelliJ.gif)
 
-You can also use the `Git` tab, at the bottom of the screen, to see the commit history for your project. This allows you to walk back in history and see where changes were introduced or even revert back to previous versions.
-
-Underneath the covers, IntelliJ is running Git commands just like we did on the command line, but using a visual tool makes working with versions much easier.
-
-Take some time and play with adding files, modifying them, committing, and diffing. You want to get to the point where this is second nature so that you can easily experiment and make mistakes, knowing that with Git, you can always easily recover.
+You can also use the **Git** tab (at the bottom) to view the commit history, which allows you to see when changes were introduced or revert to earlier versions.
 
 ### Connecting an Existing IntelliJ Project to GitHub
 
-If you already have a Git repo in your local development environment and you want to connect it to a GitHub repo then you need to take two steps.
+If you have a local Git repository that isn't connected to GitHub yet:
 
-1. Set the upstream origin for your local repo to point to the GitHub repo.
-
+1. Create a new repository on GitHub (do not initialize it with a README or license).
+2. Set the remote origin in your local terminal:
    ```sh
-   ➜  git remote add origin https://github.com/YOURACCOUNT/YOURREPO.git
+   git remote add origin https://github.com/YOURACCOUNT/YOURREPO.git
+   ```
+3. Push your code for the first time, setting the upstream branch:
+   ```sh
+   git push -u origin main
    ```
 
-1. Set the branch and remote for the origin. You do this the first time you push. Note that your branch may be `master` instead of `main` depending on how you have configured your GitHub repo.
 
-   ```sh
-   ➜  git push -u origin main
-   ```
+## ☑ Exercise
+
+
+```masteryls
+{"id":"955c39cf-a2b9-45ba-9cb4-62fde6b482a1", "title":"Git practice", "type":"url-submission", "syncGrade":false, "autoGrade":false, "validateUrl":true, "gradingCriteria":"- The response contains the text `My first commit", "urlPrompt":"Convert the user provided URL to create a URL that is the path to the raw GitHub content for the README.md file." }
+Create the `testbyu240` GitHub repository, clone the repo, make the changes, and push the changes back up to GitHub as explained above.
+
+Submit the URL of your test GitHub repository.
+
+_Example: https://github.com/youraccount/testbyu240_
+
+After you have successfully submitted your URL, you may delete the GitHub repository.
+```
+
+```masteryls
+{"id":"0b9bcfa9-87fb-45bc-8abf-b4cdc1e2df5a","title":"Working as a Team","type":"essay"}
+How does using version control to collaborate well with others reflect the value of community and service, and how does it prepare you to bless others through your profession?
+```
+
+
 
 ## Videos
 

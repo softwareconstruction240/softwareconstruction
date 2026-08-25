@@ -6,46 +6,67 @@
 
 📖 **Required Reading**: None
 
-Software systems conduct trillions of dollars in daily transactions, and manage access to billions of personal records. This makes these systems a valuable target for attack. Bad actors try to compromise systems in a variety of ways. They may try to gain unauthorized access to data and computers for the purposes of stealing, monitoring, damaging, or otherwise misusing these assets. In order to mitigate their efforts you must include security as a primary design criteria, understand historical and current attack vectors, vigilantly monitor for intrusion, and continually enhance your systems as new threats evolve.
+### 🔑 Key points
 
-This topic focuses on the core concepts and technologies necessary to securely store and transmit data. The core concepts of computer security include the following.
+- High-level goals of computer security
+  - Data confidentiality
+  - Authentication
+  - Data integrity
+  - Non-repudiation
+- Fundamental security concepts and technologies
+  - Cryptographic hash functions
+  - Symmetric encryption
+  - Asymmetric encryption with public and private keys
+  - Secure key exchange
+  - Digital signatures
+  - Public key certificates
+- Secure password storage and verification
+- Secure network communication using HTTPS
 
-- **Authentication**: Verifying the identity of an actor (e.g. user or system)
-- **Authorization**: Enforcing the rights that an actor has to access data or perform restricted operations
-- **Data Integrity**: Verifying that data has not been modified from its original form
-- **Non-Repudiation**: Verifying, or not rejecting, the origin or authorship of data
+---
 
-Cryptography plays a key technological role in supporting these security concepts. Cryptography is used to authenticate users, represent their rights and identity, encrypt their data, and digitally sign messages. Without cryptography it would be very difficult to securely exchange money or information in digital form.
+Software systems conduct trillions of dollars in daily transactions and manage access to billions of personal records. This makes these systems valuable targets for attack. Malicious actors attempt to compromise systems in a variety of ways, such as gaining unauthorized access to data and computers for the purposes of stealing, monitoring, damaging, or otherwise misusing assets. To mitigate these threats, you must include security as a primary design criterion, understand historical and current attack vectors, vigilantly monitor for intrusion, and continually enhance your systems as new threats evolve.
+
+![securityGoals.jpg](securityGoals.jpg)
+
+This topic focuses on the core concepts and technologies necessary to securely store and transmit data. The core concepts of computer security include the following:
+
+- **Authentication**: Verifying the identity of an actor (e.g., a user or system).
+- **Authorization**: Enforcing the rights an actor has to access data or perform restricted operations.
+- **Data Integrity**: Verifying that data has not been modified from its original form.
+- **Non-Repudiation**: Ensuring that the author of a statement or action cannot successfully deny their involvement.
+
+Cryptography plays a key technological role in supporting these security concepts. It is used to authenticate users, represent their rights and identity, encrypt their data, and digitally sign messages. Without cryptography, it would be nearly impossible to securely exchange money or information in digital form.
 
 ## Cryptographic Hash Functions
 
-Let's take a look at our first cryptographic tool, hash functions. A hash function is a mathematical function that converts data of arbitrary size into a fixed-size value. The value returned by a hash function are often called a hash value, hash code, digest, or simply a hash.
+A hash function is a mathematical function that converts data of arbitrary size into a fixed-size value. The value returned by a hash function is often called a hash value, hash code, digest, or simply a hash.
 
-Desirable features of a hash function include:
+Desirable features of a cryptographic hash function include:
 
-- **Fixed-Size**: The digest (or output) is always the same size (e.g., 160 bits), regardless of the input size
-- **Deterministic**: Given the same input, it produces the same digest
-- **One-Way**: Given the digest, you cannot recover the original text
-- **Resistance to collisions**: It should be difficult to find two different input values that produce the same digest
-- **Preimage resistance:** It should be difficult to find an input value that produces a given digest
+- **Fixed-Size**: The digest (output) is always the same size (e.g., 256 bits), regardless of the input size.
+- **Deterministic**: Given the same input, it always produces the same digest.
+- **One-Way**: Given a digest, it is computationally infeasible to recover the original input.
+- **Collision Resistance**: It should be extremely difficult to find two different input values that produce the same digest.
+- **Preimage Resistance**: Given a digest, it should be difficult to find any input value that produces that specific digest.
 
-There are many algorithms for computing digests. Here is a list of some of the more common ones along with their limitations and benefits.
+There are many algorithms for computing digests. The following table lists common ones along with their limitations and benefits.
 
-| Hash function | Benefits                                                                               | Limitations                                                                           |
-| ------------- | -------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
-| **MD5**       | Simple, fast, widely used, widely available                                            | Collision attacks have been found, considered insecure for cryptographic applications |
-| **SHA-1**     | More secure than MD5, widely used, widely available                                    | Collision attacks have been found, considered insecure for cryptographic applications |
-| **SHA-256**   | Secure against known attacks, widely used, widely available                            | Slower than MD5 and SHA-1, not as widely supported as MD5 and SHA-1                   |
-| **Bcrypt**    | Password hashing function, secure against known attacks, widely used, widely available | Slower than SHA-256                                                                   |
+| Hash function | Benefits | Limitations |
+| ------------- | -------- | ----------- |
+| **MD5** | Simple, fast, widely available | Vulnerable to collision attacks; considered insecure for cryptographic use |
+| **SHA-1** | Historically significant, widely available | Vulnerable to collision attacks; considered insecure for cryptographic use |
+| **SHA-256** | Secure against known attacks, industry standard | Slower than MD5 and SHA-1 |
+| **Bcrypt** | Specifically designed for password hashing; secure against brute force | Intentionally slow; not suitable for general data integrity checks |
 
-If you are using macOS or linux you can use the `shasum` command console utility to generate a hash using the **SHA-256** algorithm.
+If you are using macOS or Linux, you can use the `shasum` command-line utility to generate a hash using the **SHA-256** algorithm.
 
 ```sh
 ➜ echo -n "Fox" | shasum -a 256
 f55bd2cdfae7972827638f3691a5bc189199d7cff7188d5ead489afdea0e5403
 ```
 
-The following demonstrates doing the same thing with Java code.
+The following Java code demonstrates how to achieve the same result.
 
 ```java
 package demo;
@@ -54,8 +75,9 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.nio.charset.StandardCharsets;
 
-
 public class CryptoHashFunctionDemo {
+
+    private static final char[] HEX_ARRAY = "0123456789abcdef".toCharArray();
 
     public static void main(String[] args) throws NoSuchAlgorithmException {
 
@@ -74,37 +96,37 @@ public class CryptoHashFunctionDemo {
             MessageDigest md = MessageDigest.getInstance("SHA-256");
             byte[] digestBytes = md.digest(inputBytes);
 
-            System.out.println(input);
-            System.out.println(bytesToHex(digestBytes));
+            System.out.println("Input: " + input);
+            System.out.println("Hash:  " + bytesToHex(digestBytes));
             System.out.println();
         }
     }
 
     public static String bytesToHex(byte[] bytes) {
-      byte[] hexChars = new byte[bytes.length * 2];
-      for (int j = 0; j < bytes.length; j++) {
-          int v = bytes[j] & 0xFF;
-          hexChars[j * 2] = HEX_ARRAY[v >>> 4];
-          hexChars[j * 2 + 1] = HEX_ARRAY[v & 0x0F];
-      }
-      return new String(hexChars, StandardCharsets.UTF_8);
+        char[] hexChars = new char[bytes.length * 2];
+        for (int j = 0; j < bytes.length; j++) {
+            int v = bytes[j] & 0xFF;
+            hexChars[j * 2] = HEX_ARRAY[v >>> 4];
+            hexChars[j * 2 + 1] = HEX_ARRAY[v & 0x0F];
+        }
+        return new String(hexChars);
     }
 }
 ```
 
-Using either method should generate the same output for the word `Fox`. You can experiment with either the code or console command to see what happens with different inputs. Notice that changing the case of the text or including whitespace will produce different results.
+Both methods generate the same output for the word `Fox`. Notice that changing the case of the text or including whitespace will produce entirely different results.
 
 ### Creating Signatures
 
-One primary use for a hash function is to create a unique, short, fixed size signature that can represent data blocks of arbitrary length. With a signature you can use it as a compact representation of the data, and to determine equality to other data blocks.
+One primary use for a hash function is to create a unique, short, fixed-size signature that represents data blocks of arbitrary length. A signature acts as a compact representation of the data, allowing you to quickly determine if two blocks of data are identical.
 
-The key properties of a hash function that is used for generating signatures include speed, fixed size, determinism, and resistance to collisions. Therefore algorithms such as MD5 and SHA-1 work well for this purpose. As an example, Git uses SHA-1 to generate a unique signature for all the data in a given commit.
+Key properties for generating signatures include speed, fixed size, determinism, and collision resistance. While MD5 and SHA-1 are insecure for sensitive data, they are sometimes still used for non-security tasks like file identification. For example, Git uses SHA-1 to generate a unique signature for all data in a given commit.
 
 ### Securing Passwords
 
-If a hash function is one-way and preimage resistant, then it is a good candidate for representing passwords. Under this model you would hash the user's password when they register and then store it in the database. When you want to authenticate a user's password you simply hash the password at login, and compare it to the previously stored hashed value.
+Because hash functions are one-way and preimage resistant, they are ideal for storing passwords. Under this model, you hash the user's password when they register and store only the hash in your database. To authenticate a user later, you hash the password they provide at login and compare it to the stored hash.
 
-In order to understand why hashing passwords is valuable, consider the case where you simply store plain text representations of passwords in a database column.
+Storing hashes instead of plain text is vital. Consider a database storing passwords in plain text:
 
 | User  | Password       |
 | ----- | -------------- |
@@ -112,23 +134,19 @@ In order to understand why hashing passwords is valuable, consider the case wher
 | juan  | p@33w0r6       |
 | pat   | qwerty1        |
 
-> Plain text passwords
+If this database is compromised, the attacker gains every user's credentials. Because users often reuse passwords across different sites, a breach in your application could expose their bank accounts or email.
 
-If your database is ever compromised then the attacker now has all of the credentials for all of your users. That might allow them access to valuable monetary, proprietary, or confidential data. Even if your application has little value to compromise, it is common for passwords to be reused on different websites. For example, if Juan reused his super secret password `p@33w0r6` on his school account, bank application, and his shopping websites.
+Hashing prevents attackers from simply reading passwords:
 
-By hashing the passwords the attacker cannot simply read the password from the database and use it to log in to an account.
-
-| User  | HashedPassword                           |
+| User  | HashedPassword (SHA-1)                   |
 | ----- | ---------------------------------------- |
 | sally | fc80b22ff203a1a88470b19ab19228044d066d66 |
 | juan  | adb4c36db0466b9750a7a298ef39f98159eb219d |
 | pat   | ad70ab97ae1376e656002641cfb067c9c94906a2 |
 
-> Hashed passwords using SHA-1
+However, an attacker can still use a **rainbow table attack**. A rainbow table is a large database of precomputed hash codes for millions of common passwords. If an attacker finds your stored hash in their table, they immediately know the original password.
 
-However, even with a hashed version of the passwords a determined attacker can still succeed in revealing the credentials for your users by using what is known as a `rainbow table attack`. A `rainbow` table is a large database with an index of precomputed hash codes for common passwords and a specific hashing algorithm such as `SHA-256`. With such a table the hacker simply searches for the hashed password, and if there is a match then they know what the original password was and that `SHA-256` was used to hash it.
-
-In order to combat a rainbow table attack, it is common to combine the password with a random sequence of characters, called a `salt`, for each hashed password. By combining the salt with the password plain text the combination becomes unique and therefore no longer vulnerable to a rainbow table attack because the attacker would have to compute a database for every possible password, salt value, and algorithm.
+To combat rainbow table attacks, we use a **salt**—a random sequence of characters added to the password before hashing. A unique salt for every user ensures that even if two users have the same password, their hashes will be different.
 
 | User  | SaltedHashedPassword                           |
 | ----- | ---------------------------------------------- |
@@ -136,31 +154,29 @@ In order to combat a rainbow table attack, it is common to combine the password 
 | juan  | 92734:79241300a93bdda742159f1902db461b55be3982 |
 | pat   | 84723:fdfa32ac48e82803daa5b2a0849fb3c080b09cec |
 
-> Hashed passwords using SHA-1 and salt
-
-The following diagram demonstrates the flow necessary to use salted passwords.
+The following diagram demonstrates the flow for using salted passwords:
 
 ![Salting](salting.png)
 
-Note that the salt is not encrypted. It can be simply stored in your database along with the hashed password. The idea is to simply make it difficult for the attacker to precompute the hashed value. With the salt you are making each hash unique. To do a brute force attack against that representation an attacker would have to compute a rainbow table against each salted password.
+The salt does not need to be encrypted; it is stored in the database alongside the hash. It simply ensures that an attacker cannot use a generic rainbow table. They would have to compute a new table for every individual salt, which is computationally impractical.
 
 | Representation    | Benefit                                                                           |
 | ----------------- | --------------------------------------------------------------------------------- |
-| Plain text        | The password is kept safe in a non-public database                                |
-| Hashed            | The password in not immediately usable if the database is compromised             |
-| Hashed and salted | Each individual password must be analyzed in order to be successfully compromised |
+| Plain text        | None (dangerous)                                                                  |
+| Hashed            | Passwords are not immediately readable if the database is compromised             |
+| Hashed and salted | Protects against precomputed rainbow table attacks                                |
 
 ### Bcrypt
 
-As an additional protection for our user's passwords we want to use a hash algorithm that is expensive to calculate. That way it is difficult to create a table of precomputed passwords. With modern hardware that utilizes graphical processing units (GPUs), it is possible to try millions of possible hashes per second with the `SHA-256` algorithm. For this reason, algorithms such as `Bcrypt` were created to make it computationally expensive to generate a hash, while still maintaining all of the other desirable characteristics of a password hashing algorithm. That means that while `SHA-256` can create millions of hashes per second, `Bcrypt` will only generate a few thousand when running on the same hardware. The cost of generation makes it very difficult for an attacker to create a large rainbow table, and extremely difficult to do so with salted data.
+To further protect passwords, we use hashing algorithms that are "expensive" to calculate. Modern hardware with Graphics Processing Units (GPUs) can compute millions of SHA-256 hashes per second. **Bcrypt** was created to be intentionally slow. While SHA-256 might check millions of passwords per second, Bcrypt might only check a few thousand on the same hardware. This "work factor" makes brute-force attacks much more difficult.
 
-You can experiment with `Bcrypt` using the following library.
+You can use the following library for Bcrypt in Java:
 
 ```
 org.mindrot:jbcrypt:0.4
 ```
 
-This implementation of Bcrypt makes it so you can hash and salt a password with one line of code, and then later compare the hash to a candidate password with another line of code. The following example first hashes the password `toomanysecrets` and then compares it to three possible candidates.
+Bcrypt handles salting automatically. The following example hashes a password and then verifies it against candidates.
 
 ```java
 import org.mindrot.jbcrypt.BCrypt;
@@ -169,53 +185,40 @@ public class PasswordExample {
 
     public static void main(String[] args) {
         String secret = "toomanysecrets";
+        // gensalt() generates a random salt and includes the work factor
         String hash = BCrypt.hashpw(secret, BCrypt.gensalt());
 
         String[] passwords = {"cow", "toomanysecrets", "password"};
         for (var pw : passwords) {
             var match = BCrypt.checkpw(pw, hash) ? "==" : "!=";
-
             System.out.printf("%s %s %s%n", pw, match, secret);
         }
     }
 }
 ```
 
-Here are the results of running the program.
-
-```txt
-cow != toomanysecrets
-toomanysecrets == toomanysecrets
-password != toomanysecrets
-```
-
 ## Encryption and Decryption
 
-In Cryptography, `encryption` is the process of encoding data so that it is unreadable. Decryption is the process of decoding data back to its original form.
+**Encryption** is the process of encoding data so that it is unreadable to unauthorized parties. **Decryption** is the process of reverting encoded data back to its original form.
 
-Unlike hashing passwords, many applications need to both encrypt and decrypt information. For example, when you have to save confidential information such as a user's medical or financial records, you want to encrypt that data so that it is difficult to compromise, but you also need to be able to decrypt it so that it can be returned to the user on request.
-
-In the world of cryptography, the unencrypted text is called plain text. The encrypted text is called a cipher. Algorithms that both encrypt and decrypt data utilize a sequence of bytes, called a key, that enable conversion. Typically, the longer the key size, the more difficult it will be to defeat the encryption.
+Unlike one-way hashing, many applications need to recover the original data. For example, medical or financial records must be encrypted for storage but decrypted when a user requests to view them.
 
 | Term        | Purpose                                | Example             |
 | ----------- | -------------------------------------- | ------------------- |
-| Plain text  | unencrypted data                       | toomanysecrets      |
-| Key         | value used to encrypt and decrypt data | 9012434289054653828 |
-| Key size    | The length of the key                  | 1024 bits           |
-| Cipher text | encrypted data                         | 88338012387532      |
+| Plaintext   | Unencrypted data                       | toomanysecrets      |
+| Key         | Value used to encrypt and decrypt data | 9012434289054653828 |
+| Key size    | The length of the key (in bits)        | 256 bits            |
+| Ciphertext  | Encrypted data                         | 88338012387532      |
 
 ### Simple Example
 
-Consider a simple encryption algorithm that adds a number from one to 16, to each character of text. This would be easy to encrypt and decrypt text and only require a key size of four bits.
+Consider a simple "Caesar cipher" variation that adds a numeric key to each character.
 
-| Value       | Value          |
+| Value       | Example        |
 | ----------- | -------------- |
-| Plain text  | toomanysecrets |
+| Plaintext   | toomanysecrets |
 | Key         | 1              |
-| Key size    | 4 bits         |
-| Cipher text | uppoboztfdsfut |
-
-You could implement this algorithm for both encryption and decryption with the following code.
+| Ciphertext  | uppoboztfdsfut |
 
 ```java
 public class SimpleExample {
@@ -230,33 +233,28 @@ public class SimpleExample {
       }
 
       // decrypt
+      var decryptedText = new char[cipherText.length];
       for (var i = 0; i < cipherText.length; i++) {
-          plainText[i] = (char) (cipherText[i] - key);
+          decryptedText[i] = (char) (cipherText[i] - key);
       }
 
-      System.out.println(plainText);
+      System.out.println(decryptedText);
       System.out.println(cipherText);
   }
 }
 ```
 
-However, our simple encryption algorithm would be easy to defeat because you could simply try all `16` possible values of the key to decrypt any cipher text. In order for an algorithm to be viable, it needs to have a large key and an algorithm that exploits complex mathematics. For example, a key size of 1024 bits could require as many as `2^1024` attempts, or:
-
-```
-1,797,693,134,862,315,907,729,305,190,789,024,733,617,976,978,942,306,572,734,300,811,577,326,758,055,009,631,327,084,773,224,075,360,211,201,138,798,713,933,576,587,897,688,144,166,224,928,474,306,394,741,243,777,678,934,248,652,763,022,196,012,460,941,194,530,829,520,850,057,688,381,506,823,424,628,814,739,131,105,408,272,371,633,505,106,845,862,982,399,472,459,384,797,163,048,353,563,296,242,241,372,160
-```
-
-This number is significantly larger than the number of atoms in the observable universe, which is estimated to be around 10^80.
+This is easily defeated because there are only a few possible keys. Secure algorithms use large keys and complex mathematics. A key size of 1024 bits provides **2^1024** possible combinations—a number larger than the estimated number of atoms in the observable universe (**10^80**).
 
 ## Symmetric Key Encryption
 
-The `SimpleExample` encryption code that was demonstrated above is an example of a symmetric key encryption algorithm. Symmetric algorithms use the same key to both encryption and decryption. Symmetric encryption algorithms are attractive because they are very quick to compute and difficult to attack assuming that you have an appropriately sized key.
+Symmetric encryption uses the same key for both encryption and decryption. These algorithms are very fast and provide strong security if the key is kept secret.
 
-As we mentioned above, a good encryption algorithm will use complex mathematics to make it difficult to encrypt or decrypt without the proper key. One commonly used symmetric key algorithm is Advanced Encryption Standard (`AES`). This algorithm shifts blocks of characters around, across multiple rounds of manipulation, while applying a key size of 128, 192, or 256 bits. It also applies an `initialization vector` to create a unique cipher value for each `plain text`/`initialization vector` combination. The use of the initialization vector makes it so that the same plain text does not result in the same cipher representation. Without that, you would be able to determine the encrypted data by brute forcing an attack that guessed what the plain text was.
+A common symmetric algorithm is the Advanced Encryption Standard (**AES**). AES uses an **initialization vector (IV)** to ensure that encrypting the same plaintext twice results in different ciphertext, preventing attackers from identifying patterns in the encrypted data.
 
 ![symmetric encryption](symmetric.png)
 
-The following code demonstrates the use of `AES` to encrypt and decrypt data. The code begins by generating an appropriately sized key and then creating an initialization vector. These are then used to first encrypt and then decrypt the message.
+The following code demonstrates AES encryption and decryption in Java:
 
 ```java
 import javax.crypto.*;
@@ -311,24 +309,20 @@ public class SymmetricKeyExample {
 
 ### Asymmetric Key Encryption
 
-An alternative to symmetric key encryption is `asymmetric key encryption`. With this algorithm, two keys have a certain mathematical relationship to each other, and are generated at the same time as a `key pair`. The pair consists of a `public` key and a `private` key. Given one key you cannot determine the other key, but you can decrypt data that was encrypted by the other key. With a key pair you can publicly distribute the public key and then any party that has the public key can encrypt data that can only be decrypted by a party that has the private key.
+Asymmetric encryption uses a **key pair**: a **public key** and a **private key**. Data encrypted with the public key can only be decrypted with the corresponding private key.
 
-1. Generate a key pair
-1. Keep one of the keys secret. This is the `private key`.
-1. Give the other key to anyone who wants to send you data. This is the `public key`. There is no need to keep it secret.
-1. When sending you data, the sender encrypts the data with the public key
-1. When you receive the data, you decrypt the data with the private key
+1. Generate a key pair.
+2. Keep the **private key** secret.
+3. Distribute the **public key** to anyone who wants to send you data.
+4. The sender encrypts data using your public key.
+5. You decrypt the data using your private key.
 
 ![asymmetric encryption](asymmetric.png)
 
-In order for this exchange to work it is very important that you keep the private key secret. If the private key is ever publicly released then the pair becomes worthless.
+Popular implementations include:
 
-There are several implementations of asymmetric key encryption. Here are the two most popular ones.
-
-- **Rivest–Shamir–Adleman (RSA)**: This is a mature and well-respected algorithm that is widely used in a variety of applications, including secure communication, digital signatures, and certificate authorities.
-- **Elliptic curve cryptography (ECC)**: This is a newer algorithm that is more efficient than RSA and offers comparable security. ECC is becoming increasingly popular in a variety of applications, including mobile devices and lightweight devices.
-
-Asymmetric key encryption is built directly into the JDK `crypto` and `security` packages. The following code demonstrates how to create a key pair and then use it to encrypt and decrypt data.
+- **RSA (Rivest–Shamir–Adleman)**: A mature, widely used algorithm for secure communication and digital signatures.
+- **ECC (Elliptic Curve Cryptography)**: A newer algorithm that is more efficient than RSA, offering similar security with smaller key sizes—ideal for mobile devices.
 
 ```java
 import javax.crypto.Cipher;
@@ -337,17 +331,17 @@ import java.security.*;
 
 public class AsymmetricKeyExample {
     public static void main(String[] args) throws Exception {
-        KeyPair key = createRsaKeyPair();
+        KeyPair keyPair = createRsaKeyPair();
 
         final String secretMessage = "toomanysecrets";
 
         var plainTextIn = new ByteArrayInputStream(secretMessage.getBytes());
         var cipherTextOut = new ByteArrayOutputStream();
-        runRsa(Cipher.ENCRYPT_MODE, plainTextIn, cipherTextOut, key.getPublic());
+        runRsa(Cipher.ENCRYPT_MODE, plainTextIn, cipherTextOut, keyPair.getPublic());
 
         var cipherTextIn = new ByteArrayInputStream(cipherTextOut.toByteArray());
         var plainTextOut = new ByteArrayOutputStream();
-        runRsa(Cipher.DECRYPT_MODE, cipherTextIn, plainTextOut, key.getPrivate());
+        runRsa(Cipher.DECRYPT_MODE, cipherTextIn, plainTextOut, keyPair.getPrivate());
 
         System.out.printf("%s == %s%n", secretMessage, plainTextOut);
     }
@@ -373,95 +367,88 @@ public class AsymmetricKeyExample {
 }
 ```
 
-You can also generate an asymmetric key pair using the console command line tool `ssh-keygen`. The following command uses the RSA algorithm to generate a key pair with a length of 4096 bits.
-
+You can also generate an RSA key pair using the terminal:
 ```sh
 ssh-keygen -t rsa -b 4096
 ```
 
 ### Disadvantages of Asymmetric Key Encryption
 
-While asymmetric key cryptography is one of the most important inventions in the history of computing, asymmetric key encryption has several disadvantages when compared with symmetric key encryption.
-
-1. **Size restriction** - You can only encrypt a small amount of data. With RSA, you can only encrypt data less than the key size (e.g., 2048 bits, 4096 bits, etc.)
-1. **Performance** - Asymmetric encryption is much slower than symmetric encryption.
+Asymmetric encryption is critical for modern security, but it has two main drawbacks:
+1. **Size Restriction**: It can only encrypt small amounts of data (typically smaller than the key size).
+2. **Performance**: It is significantly slower than symmetric encryption.
 
 ## Secure Key Exchange
 
-While symmetric encryption is good at quickly providing secure encryption, it has one significant drawback. The key must be known to both the encryption and decryption software. That means if you are trying to transmit encrypted data to remote parties, you must also securely transmit the key. Either the key must be supplied in advance of the remote communication, or delivered with some other secure channel such as in-person communication. Using any means that also uses symmetric encryption simply creates another layer to the problem.
+Symmetric encryption requires both parties to share the same key. Securely getting that key to a remote party is a classic problem. We solve this using a hybrid approach: **asymmetric encryption** is used to securely exchange a **symmetric key**.
 
-One common way to solve this problem is to use `asymmetric key encryption` to exchange an encrypted `symmetric key`. Once both parties have the symmetric key they can use it to transmit large amounts of data. With this pattern you would do the following:
-
-1. Client generates an asymmetric key pair.
-1. Client publicly posts the public key.
-1. Server generates a symmetric key and encrypts it using the public key provided by Client.
-1. Server sends the encrypted key to Client.
-1. Client decrypts the encrypted key using her private key.
-1. Client sends a message back to Server that is encrypted using Server's symmetric key.
-1. Communication then continues using Server's symmetric key.
+1. The Client generates an asymmetric key pair and shares the public key.
+2. The Server generates a symmetric key and encrypts it using the Client's public key.
+3. The Server sends the encrypted symmetric key to the Client.
+4. The Client decrypts it using their private key.
+5. Both parties now have the same symmetric key and use it for fast, secure communication.
 
 ![Key exchange](keyExchange.png)
 
 ## Digital Signatures
 
-Asymmetric encryption also helps us solve the problems of `Non-Repudiation` and `Data Integrity`. Non-Repudiation is the task of guaranteeing that the party sending a message is actually who they say they are. Data Integrity guarantees that the data has not been tampered with since it left the sender. The basic idea is to create a `digital signature` that represents both the author of the data and the data sent in the message. This is done using the following steps:
+Digital signatures provide **non-repudiation** and **data integrity**. They prove that a message was sent by a specific author and has not been tampered with.
 
-1. Sally generates an asymmetric key pair.
-1. Sally publicly posts the public key.
-1. Sally generates a message.
-1. Sally hashes the message using SHA-1. This is called the `signer digest`.
-1. Sally encrypts the signer digest using her private key. This creates the `signature`.
-1. Sally posts the message and the signature publicly.
-1. Juan obtains the message and hashes it using the same algorithm Sally used. This is called the `receiver digest`.
-1. Juan uses Sally's public key to decrypt the signature. This returns the `signer digest` in a way that provides non-repudiation by guaranteeing it was created by Sally.
-1. Juan compares the `signer digest` to the `receiver digest`. If they match then that provides data integrity because the message has not changed since Sally signed it.
+1. Sally generates an asymmetric key pair and shares her public key.
+2. Sally hashes her message (e.g., using SHA-256).
+3. Sally encrypts the hash using her **private key**. This encrypted hash is the **digital signature**.
+4. Sally sends the message and the signature.
+5. Juan receives the message and hashes it himself.
+6. Juan decrypts the signature using Sally's **public key**.
+7. If Juan's hash matches the decrypted signature, he knows the message is authentic and unchanged.
 
 ![Digital Signatures](digitalCert.png)
 
-Digital signatures are used to sign emails, contracts, crypto currency transactions, and web certificates.
+## Web Certificates and HTTPS
 
-## Web Certificates and Secure Communication (HTTPS)
+HTTPS (Hypertext Transfer Protocol Secure) combines these concepts to secure the web.
 
-Let's move to an example that demonstrates everything we have learned about encryption including using digital signatures, symmetric keys, asymmetric keys, and key exchanges.
+Browsers trust **Certificate Authorities (CAs)**. A website owner proves their identity to a CA, which then issues a **web certificate**. This certificate contains the website's identity, its public key, and a digital signature from the CA.
 
-An important feature of the world wide web is knowing that the website you are talking to is actually the website you believe it to be. This is solved by gaining a web certificate, from an authority, called a certificate authority (`CA`), that is trusted by both the website owner and the website browser. A web certificate contains information about the website identity, a public asymmetric key, and a digital signature signed by the CA. The web certificate is used to demonstrate non-repudiation of the website owner using the following steps.
-
-1. The website is granted a web certificate and key pair from the CA.
-1. The web certificate contains a public asymmetric key. The website keeps the private key secure.
-1. A web browser makes a connection to the website.
-1. The website provides the certificate as part of the connection process.
-1. The browser verifies that the certificate was signed by the CA.
-
-Once a web browser has verified that the certificate is valid, it then attempts to create a secure connection to the website. The browser uses the asymmetric public key that was provided in the certificate to begin a secure key exchange.
-
-1. The browser creates a symmetric key.
-1. The browser encrypts the key using the public key provided in the certificate.
-1. The browser sends the encrypted key to the website.
-1. The website decrypts the key using the certificate's private key.
-1. The website responds with data encrypted using the browser's symmetric key.
-
-If the website cannot decrypt the symmetric key then that means the website is not actually the owner of the validated certificate and it terminates communication. That is why the website must be very careful to never publicly release their web certificate private key.
+1. A browser connects to a website.
+2. The website sends its certificate.
+3. The browser verifies the CA's signature to ensure the certificate is valid.
+4. The browser generates a random symmetric key, encrypts it with the website's public key, and sends it to the website.
+5. The website decrypts the key using its private key.
+6. All further communication is encrypted using that symmetric key.
 
 ![web certs](webCert.png)
 
-This demonstrates how modern cryptography forms the foundation of web security by providing user authentication, authorization, non-repudiation, data integrity, and secure communication.
+If the website cannot decrypt the symmetric key, it proves they do not own the private key associated with the certificate, and the browser terminates the connection.
 
-## Things to Understand
+## ☑ Exercise
 
-- High-level goals of computer security
-  - Data confidentiality
-  - Authentication
-  - Data integrity
-  - Non-Repudiation
-- Fundamental security concepts and technologies
-  - Cryptographic hash functions
-  - Symmetric encryption
-  - Asymmetric encryption with public and private keys
-  - Secure key exchange
-  - Digital signatures
-  - Public key certificates
-- Secure password storage and verification
-- Secure network communication using HTTPS
+
+```masteryls
+{"id":"72e7da2d-4755-40ef-bcc6-cd3c0ebee3c0","title":"Advantages of Symmetric Encryption","type":"multiple-choice"}
+When comparing symmetric and asymmetric cryptographic systems, which of the following represents a significant advantage of symmetric encryption?
+
+- [ ] It provides a native solution for the key distribution problem when communicating with unknown parties over the internet.
+- [ ] It inherently supports digital signatures, providing non-repudiation for all transmitted messages.
+- [x] It offers significantly higher processing speeds and lower computational overhead, making it ideal for bulk data encryption.
+- [ ] It simplifies key management in large networks by requiring only one pair of keys for every user.
+```
+
+```masteryls
+{"id":"c1c21706-2c8e-406e-a54d-62695cab0c42","title":"Role of Hashing in Digital Signatures","type":"multiple-choice"}
+In the process of creating a digital signature, what is the primary purpose of applying a cryptographic hash function to the original message before it is encrypted with a private key?
+
+- [ ] To provide confidentiality by ensuring that the message content remains hidden from any unauthorized third parties during transit.
+- [ ] To generate a shared symmetric key that both the sender and receiver will use to encrypt and decrypt the bulk of the message data.
+- [x] To produce a unique, fixed-size digest that allows the receiver to verify the integrity of the message by detecting any unauthorized modifications.
+- [ ] To increase the total length of the data string to ensure it meets the minimum bit-length requirements for asymmetric encryption algorithms.
+```
+
+```masteryls
+{"id":"848391d2-e265-4d53-ad15-a55fc760547c", "title":"Web Certificates", "type":"essay", "gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts" }
+You are analyzing the security of your web application. Where would an attacker gain the most value from compromising the web certificate generation and use?
+```
+
 
 ## Videos
 
@@ -476,15 +463,3 @@ This demonstrates how modern cryptography forms the foundation of web security b
 - 🎥 [Secure Key Exchange (4:51)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=a466805a-7a15-4859-b84e-b1af0148e79d) - [[transcript]](https://github.com/user-attachments/files/17736726/CS_240_Secure_Key_Exchange_Transcript.pdf)
 - 🎥 [Secure Communication with HTTPS (14:17)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=f02e79ed-fcca-4549-a8b7-b1af014aa782) - [[transcript]](https://github.com/user-attachments/files/17736732/CS_240_Secure_Communication_using_HTTPS_Transcript.pdf)
 - 🎥 [Digital Signatures (8:10)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=93205b28-04ef-4e11-b939-b1af014ef686) - [[transcript]](https://github.com/user-attachments/files/17736735/CS_240_Digital_Signatures_Transcript.pdf)
-
-## Demonstration code
-
-📁 [Cryptographic Hash Function Example](example-code/src/demo/CryptoHashFunctionDemo.java)
-
-📁 [Password Hashing and Verification Example](example-code/src/demo/PBKDF2WithHmacSHA1Hashing.java)
-
-📁 [Symmetric Key Encryption Example](example-code/src/demo/SymmetricKeyEncryptionDemo.java)
-
-📁 [Public Key Encryption Example](example-code/src/demo/PublicKeyEncryptionDemo.java)
-
-📁 [Security Utilities](example-code/src/demo/Utils.java)

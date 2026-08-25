@@ -4,27 +4,37 @@
 - 🖥️ [Videos](#videos)
 - [TA Tips](../../instruction/chess-tips/chess-tips.md#phase-5---pregame): A collection of common problems for this phase
 
-In this part of the Chess Project, you will create an initial version of your Chess client. Your Chess client will be a terminal-based (i.e., console-based) program that gives the user a simple interface for playing Chess. Your client should implement all user interactions that occur outside of actually playing a game. Game play interactions will be implemented in the next phase. This includes allowing the user to display help text, register, login, list existing games, create a new game, play a game, observe a game, logout, and exit. You will also write the client code that draws the chessboard.
+#### 🥅 Outcomes of this Deliverable
 
-To implement this, you will create a ServerFacade class to handle sending HTTP requests to your server and receiving responses from it. Your client code will then use your ServerFacade methods to make server API calls.
+1. **Frame** software engineering problems by clarifying system purpose, constraints, and responsibilities, demonstrating both sound technical judgment and a sense of ownership for the long-term impact of software others depend on.
+1. **Explore** object-oriented frameworks, network protocols, distributed services, and databases with curiosity and discipline, developing accurate mental models while valuing learning as essential to responsible engineering practice.
+1. **Design** software systems using object-oriented principles and clear interfaces that support reliability and maintainability, motivated by care for future users, collaborators, and the evolution of the system over time.
+1. **Build** distributed applications that faithfully translate design intent into readable, testable implementations, showing diligence and integrity in the quality of code produced.
+1. **Test** software systems systematically to validate behavior and uncover failure modes, valuing evidence, honesty, and accountability as foundations of trustworthy software.
 
+---
+
+In this phase of the Chess Project, you will create the initial version of your Chess client. Your client will be a terminal-based (console) program providing a simple interface for interacting with the Chess server.
+
+You will implement all user interactions that occur outside of active gameplay. Gameplay interactions will be implemented in the next phase. This includes functionality for displaying help text, registering, logging in, listing existing games, creating new games, joining a game, observing a game, logging out, and exiting. You will also write the client code responsible for drawing the chessboard.
+
+To implement this, you will create a `ServerFacade` class to handle sending HTTP requests to your server and receiving responses. Your client code will use these `ServerFacade` methods to interact with the server API.
 
 ## Getting Started
 Complete the [Getting Started](getting-started.md) instructions before working on this phase.
-
 
 ## Required Functionality
 
 ### Prelogin UI
 
-When the user first opens your Chess client application they can execute any of the Prelogin commands.
+When the user first opens the Chess client, they can execute any of the Prelogin commands.
 
 | Command      | Description                                                                                                                                                                                                      |
 | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Help**     | Displays text informing the user what actions they can take.                                                                                                                                                     |
+| **Help**     | Displays text informing the user of available actions.                                                                                                                                                     |
 | **Quit**     | Exits the program.                                                                                                                                                                                               |
-| **Login**    | Prompts the user to input login information. Calls the server login API to login the user. When successfully logged in, the client should transition to the Postlogin UI.                                        |
-| **Register** | Prompts the user to input registration information. Calls the server register API to register and login the user. If successfully registered, the client should be logged in and transition to the Postlogin UI. |
+| **Login**    | Prompts the user for login credentials and calls the server login API. Upon success, the client transitions to the Postlogin UI.                                        |
+| **Register** | Prompts the user for registration information and calls the server register API. Upon success, the user is logged in and the client transitions to the Postlogin UI. |
 
 #### Example Prelogin UI
 
@@ -32,16 +42,16 @@ When the user first opens your Chess client application they can execute any of 
 
 ### Postlogin UI
 
-After the user has registered or logged in they can then execute any of the Postlogin commands.
+After a user has registered or logged in, they can execute any of the Postlogin commands.
 
 | Command          | Description                                                                                                                                                                                                                                                                                                                          |
 | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Help**         | Displays text informing the user what actions they can take.                                                                                                                                                                                                                                                                         |
-| **Logout**       | Logs out the user. Calls the server logout API to logout the user. After logging out with the server, the client should transition to the Prelogin UI.                                                                                                                                                                               |
-| **Create Game**  | Allows the user to input a name for the new game. Calls the server create API to create the game. This does not join the player to the created game; it only creates the new game in the server.                                                                                                                                     |
-| **List Games**   | Lists all the games that currently exist on the server. Calls the server list API to get all the game data, and displays the games in a numbered list, including the game name and players (not observers) in the game. The numbering for the list should be independent of the game IDs and should start at 1.                      |
-| **Play Game**    | Allows the user to specify which game they want to join and what color they want to play. They should be able to enter the number of the desired game. Your client will need to keep track of which number corresponds to which game from the last time it listed the games. Calls the server join API to join the user to the game. |
-| **Observe Game** | Allows the user to specify which game they want to observe. They should be able to enter the number of the desired game. Your client will need to keep track of which number corresponds to which game from the last time it listed the games. Additional functionality will be added in Phase 6.                                    |
+| **Help**         | Displays text informing the user of available actions.                                                                                                                                                                                                                                                                         |
+| **Logout**       | Logs out the user via the server API and transitions the client back to the Prelogin UI.                                                                                                                                                                               |
+| **Create Game**  | Prompts the user for a game name and calls the server create API. This creates the game on the server but does not automatically join the user to it.                                                                                                                                     |
+| **List Games**   | Lists all existing games on the server. Calls the server list API and displays the games in a numbered list, including the game name and current players (excluding observers). The list numbering must start at 1 and be independent of the internal game IDs.                      |
+| **Play Game**    | Allows the user to join a game by specifying the list number and their desired color. The client must map this list number back to the correct internal game ID. Calls the server join API. |
+| **Observe Game** | Allows the user to specify a game to observe using the list number. The client must map this list number back to the correct internal game ID. (Full observer functionality will be added in Phase 6).                                    |
 
 #### Example Postlogin UI
 
@@ -49,81 +59,89 @@ After the user has registered or logged in they can then execute any of the Post
 
 ### Gameplay UI
 
-As stated previously, gameplay will not be implemented until later. For now, when a user plays or observes a game, the client should draw the initial state of a Chess game in the terminal, but not actually enter gameplay mode. If you join the game either as the white player or as an observer then the chessboard must be drawn from the perspective of the white player. That means that the first row and column of the board (a1) should be displayed in the **bottom left** corner.
+While full gameplay will be implemented later, the client must currently be able to draw the initial state of a Chess board when a user joins or observes a game.
+
+*   **White Perspective:** If a user joins as the white player or as an observer, the board must be drawn from the white player's perspective. The "a1" square must be in the **bottom left** corner.
 
 ![White board](whiteBoard.png)
 
-If you join as the black player then the board should be drawn from the perspective of the black player. That means that the first row and column of the board (a1) should be displayed in the **upper right** corner.
+*   **Black Perspective:** If a user joins as the black player, the board must be drawn from the black player's perspective. The "a1" square must be in the **upper right** corner.
 
 ![Black board](blackBoard.png)
 
-You are free to make your chessboard look different as long as the essential information is displayed in an **easily readable way**, but it must **look like a chess board**. You must have different colors for alternating squares, but they don't have to be white and black. Light and dark, or white and brown, or whatever you'd like is fine. Per official chess rules, the bottom-right and top-left squares (h1 and a8) must be the "lighter" color. This will mean each queen is "on her color" (white queen on a light square, black queen on a dark square). The border of the board must show the correct row numbers and column letters.
-
-Note that in the above images, the blue letters are black pieces and the red letters are white pieces.
+#### Board Aesthetics
+You may customize the look of your board as long as the information is **easily readable** and it **looks like a chessboard**.
+- Use different colors for alternating squares (e.g., light/dark, white/brown).
+- Per official rules, the bottom-right square (h1) and top-left square (a8) must be the "light" color. This ensures each queen begins "on her color" (white queen on a light square, black queen on a dark square).
+- The border must display correct row numbers (1-8) and column letters (a-h).
+- Note: In the example images above, blue letters represent black pieces and red letters represent white pieces.
 
 ### UI Requirements
 
-When developing a UI you should focus on the user experience and only present things in a way that the user can relate to. This means that you should not display programming jargon or debugging information. For example, you should avoid:
+Focus on user experience (UX). Present information in a way that is meaningful to a user and avoid displaying technical jargon or debugging data. Specifically, avoid:
 
-- Anything in JSON - If you have something in JSON, parse it and then print out only the information you want the user to see.
-- Authtokens and Game IDs - These are important to keep track of but the user should not be aware of these internal variables. See the requirements for the [Postlogin UI](#postlogin-ui) for what to display instead of Game IDs.
-- HTTP status codes - The user should not be made aware of internal details like this. Ask yourself, apart from 404, when was the last time you saw a status code on a professional website?
-- Exception stack traces - Hackers love these kinds of internal details as they show how your code works. These should never be displayed to users, although logging them to a place users will not find may be useful. Instead of a stack trace, a simple message informing the user an error occurred (and hopefully why the error occurred without too many details) should be sufficient.
+- **JSON:** Parse JSON responses and print only the relevant information.
+- **AuthTokens and Game IDs:** Keep track of these internally, but do not display them to the user. Use the numbered list for selecting games.
+- **HTTP Status Codes:** Users should not see internal details like "404" or "200".
+- **Stack Traces:** Never display stack traces to the user. Provide a simple, user-friendly error message explaining what went wrong without exposing internal code structures.
 
-To create a smooth user experience, make sure that your client doesn't freeze or crash in any way. If an exception occurs, catch it. A user may mistakenly put in all kinds of bad input and your client should be able to handle bad input without crashing. This includes incorrect number of arguments (too few or too many), wrong types of arguments (a word when the code expects a number, arguments in the wrong order, etc.), and arguments that the server rejects (register with an existing username, login with incorrect username/password, etc.). When you go to pass off, the TA will test for bad inputs, so _please test all of these examples on your own first_ and ensure the program does not crash and provides reasonable error messages when each error occurs. Test other examples of bad input that you can think of as well, as this list is not exhaustive. If the output your program produces is not reasonable, the TA will have you go and change it. You may then have to redo the pass off.
+#### Robustness
+Your client must not freeze or crash. Use try-catch blocks to handle exceptions. The program should gracefully handle bad input, including:
+- Incorrect number of arguments.
+- Invalid argument types (e.g., a string where a number is expected).
+- Server-side errors (e.g., registering an existing username or logging in with the wrong password).
 
-Even though your client does not implement gameplay yet, make sure that you can exit any menu you create. If your client gets stuck in a state that a user cannot exit from, the TAs will not pass you off and will have you come back when you have fixed your menu.
+Test these scenarios thoroughly. If the program crashes or provides unhelpful output during pass-off, you may be asked to fix it and return later. Additionally, ensure that every menu state has a clear exit path so the user never gets stuck.
 
 ### Relevant Instruction Topics
 
-- [Console UI](../../instruction/console-ui/console-ui.md): Reading from the keyboard and writing out fancy text.
+- [Console UI](../../instruction/console-ui/console-ui.md): Reading keyboard input and formatting terminal output.
 - [Web API](../../instruction/web-api/web-api.md#web-client): Making HTTP client requests.
-- [Single Responsibility Principle](../../instruction/design-principles/design-principles.md#single-responsibility-principle): Organizing many client files into comprehensible units.
-- [Pet Shop](../../petshop/petshop.md): REPL implementation.
+- [Single Responsibility Principle](../../instruction/design-principles/design-principles.md#single-responsibility-principle): Organizing client logic into manageable units.
+- [Pet Shop](../../petshop/petshop.md): An example REPL implementation.
 
-### Tips for using Unicode chess characters
+### Tips for Using Unicode Chess Characters
 
-Should you choose to use the unicode Chess characters, some machines by default don't render them in the console (this is often the case if you are using a .jar file). To fix this on Windows (it shouldn't be an issue on Mac/Linux), go to Settings > Time and Language > Language and Region > Administrative Language Settings and on the Administrative tab click Change System Locale and then check the box for using UTF-8 which requires system reboot. This should fix the issue.
-
-Additionally, you may notice that the chess characters might render slightly wider than everything else. To balance this out, a wider version of a space called an em-space can be used. It is denoted by \u2003 and is currently being used as the middle space in the `EMPTY` escape sequence, so if you choose not to use the Unicode chess pieces, you will have to replace that with a regular space to get everything to line up vertically.
+If you use Unicode Chess characters, they may not render by default in some Windows consoles (especially when running from a `.jar`).
+*   **Windows Fix:** Go to Settings > Time & Language > Language & Region > Administrative Language Settings. On the Administrative tab, click "Change System Locale" and check the box for "Beta: Use Unicode UTF-8 for worldwide language support." This requires a reboot.
+*   **Alignment:** Unicode chess characters are often wider than standard characters. To align them, you can use an "em-space" (`\u2003`). The provided `EMPTY` escape sequence uses an em-space; if you use standard characters instead of Unicode pieces, you may need to replace the em-space with a regular space to maintain vertical alignment.
 
 ## ☑ Deliverable
 
 > [!IMPORTANT]
->
-> You are required to commit to GitHub with every minor milestone. For example, after you successfully pass a test. This should result in a commit history that clearly details your work on this phase. If your Git history does not demonstrate your efforts then your submission may be rejected.
+> You are required to commit to GitHub at every minor milestone (e.g., after passing a specific test). Your commit history must clearly document your progress throughout the phase. Submissions with insufficient Git history may be rejected.
 
 ### Pass Off Tests
-
-There are no new pass off test cases for this assignment.
+There are no new automated pass-off test cases for this phase.
 
 ### Unit Tests
+You must write positive and negative unit tests for every method in your `ServerFacade` class. 
 
 Reach 80% line coverage on your `ServerFacade` class. If you are unsure where to start, consider writing a positive and a negative test case for each public method.
 
 Your tests must be located in `client/src/test/java/client/ServerFacadeTests.java`.
 
 > [!TIP]
->
-> `ServerFacadeTests.java` contains code that will automatically start and shutdown your server on a randomly assigned port as part of the test. However, you will still need to start your server using the `ServerMain.main` function when you manually run your client.
+> The starter code in `ServerFacadeTests.java` includes logic to start and stop your server on a random port for testing. You will still need to run `ServerMain.main` manually when testing your client UI.
 
 ```java
 public class ServerFacadeTests {
 
     private static Server server;
+    static ServerFacade facade;
 
     @BeforeAll
     public static void init() {
         server = new Server();
         var port = server.run(0);
         System.out.println("Started test HTTP server on " + port);
+        facade = new ServerFacade(port);
     }
 
     @AfterAll
     static void stopServer() {
         server.stop();
     }
-
 
     @Test
     public void sampleTest() {
@@ -146,27 +164,30 @@ void register() throws Exception {
 }
 ```
 
-Make sure you clear your database between each test. You can do this in a method that has the `@BeforeEach` annotation.
-
 ### Code Quality
-
-For this phase the auto grader will grade the quality of your project's source code. The rubric used to evaluate code quality can be found here: [Rubric](../code-quality-rubric.md)
+The autograder and TAs will evaluate the quality of your source code based on this [Rubric](../code-quality-rubric.md).
 
 ### Pass Off, Submission, and Grading
 
-All of the tests in your project must succeed in order to complete this phase.
+All project tests must pass to complete this phase. 
 
-To pass off this assignment, first submit your work to the course [auto-grading](https://cs240.click/) tool. Once it completely passes the autograder, meet with a TA and demonstrate that your Chess client and server meet all requirements and they will assign you a final grade.
+1.  Submit your code to the [auto-grading tool](https://cs240.click/).
+2.  Once you pass the autograder, schedule a meeting with a TA to demonstrate your client and server functionality for final grading.
 
-#### Passoff Common Problems
+#### Common Problems
+Review the [Phase 5 Passoff Common Problems](../../instruction/chess-tips/chess-tips.md#passoff-frequently-encountered-problems) before your meeting to ensure your code meets all expectations.
 
-Before coming to passoff with a TA, check to make sure your code functions properly and doesn't have any of these common problems past students have had. [Phase 5 Passoff Common Problems](../../instruction/chess-tips/chess-tips.md#passoff-frequently-encountered-problems)
+
+```masteryls
+{"id":"e21028f3-f5e5-413c-be2f-ee53b77d3f6b","title":"Submission Precheck","type":"multiple-choice"}
+- [x] All the required functionality is complete, all of the test cases I wrote are passing, I have verified my code quality, and my GitHub commit history complies with the course requirements.
+- [ ] I need to back and do some more work before submitting.
+```
 
 ### Grading Rubric
 
 > [!NOTE]
->
-> You can receive 4 points of extra credit by first receiving 100% from the autograder and then completing an in-person pass off before the final due date.
+> You can receive 4 points of extra credit by achieving 100% on the autograder and completing your in-person pass-off before the final due date.
 
 | Category       | Criteria                                                                                                                                                                                        |       Points |
 | :------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -----------: |
@@ -175,13 +196,41 @@ Before coming to passoff with a TA, check to make sure your code functions prope
 | Code Quality   | Adherence to the [Code Quality Rubric](../code-quality-rubric.md).                                                                                                                                                             |           30 |
 | Unit Tests     | All test cases pass<br/>Line coverage on `ServerFacade` class is at least 80%<br/>Every test case includes an Assert statement of some type<br/>1.25 points of extra credit for 90% line coverage |           25 |
 |                | **Total**                                                                                                                                                                                       |      **155** |
+#### 🥅 Outcome Reflections
+
+With the completion of this chess pregame deliverable checkpoint, it is time to reflect upon the course outcomes and your ability to master them.
+
+```masteryls
+{"id":"939db0e5-dded-44d3-90a6-cd8e8ca21490","title":"Frame","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+What process did you use to frame your understanding of the chess pregame so that it properly reflected the requirements? How did you determine a correct understanding of the problem so that you were able to consider the factors that your users deem important and will depend on?
+```
+
+```masteryls
+{"id":"f9237c61-b9e6-49f4-bb60-d27952c2d113","title":"Explore","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+What software engineering principles and practices did you consider when you were exploring how to represent a chess pregame? What did you do to advance your learning of the possible solution space?
+```
+
+```masteryls
+{"id":"4e1a8585-e1a7-4bcc-9d73-d8f46fccf4a8","title":"Design","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+What object-oriented and design principles did you consider as you converted your framing and exploration of the chess pregame into a design solution? What did you do to ensure you were considering the needs of future developers and users of the application?
+```
+
+```masteryls
+{"id":"368fa787-fc08-4b5d-b1ea-3f707fe87f40","title":"Build","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+What went well and what did you find challenging as you implemented your chess pregame? What did you do to demonstrate design integrity and the quality of the application?
+```
+
+```masteryls
+{"id":"19f7601e-39e4-4014-9888-14861455ba58","title":"Test","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+What testing patterns did you employ to ensure a correct implementation of the chess pregame and encourage the foundation of a trustworthy application that others can rely on?
+```
 
 ## Videos
 
 - 🎥 [Phase 5 Introduction (8:11)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=6e2c9d2f-5a74-4b60-989e-b19a0150a134) - [[transcript]](https://github.com/user-attachments/files/17805362/CS_240_Phase_5_Chess_UI_Demo_Transcript.pdf)
 - 🎥 [Read-Eval-Print-Loop (REPL) (8:11)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=29364420-9c98-4778-ba7a-b19a015380c7) - [[transcript]](https://github.com/user-attachments/files/17805365/CS_240_Read_Eval_Print_Loop_.REPL._Transcript.pdf)
 
-The Video for `Drawing the Board` is outdated. Instead, of printing both sides of the board, you should print the black board when you join the game as black and print the white board when you join the game as white or an observer, not both.  
+*Note: The "Drawing the Board" video is partially outdated. You should only print the board perspective relevant to the player's color (or White for observers), not both.*
 - 🎥 [Drawing the Board (1:26)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=6a77c895-f2b8-49d9-8b11-b19a0156aef8) - [[transcript]](https://github.com/user-attachments/files/17805392/CS_240_Drawing_the_Board_Transcript.pdf)
 - 🎥 [Server Facade (8:49)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=48c546dc-bdd6-491f-88c1-b2c80118cb9f)- [transcript]
 - 🎥 [Phase 5 Requirements (2:20)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=da07b0b6-d523-4d34-a765-b4580161b6be) - [transcript]

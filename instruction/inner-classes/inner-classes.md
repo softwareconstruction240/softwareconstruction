@@ -7,6 +7,17 @@
 
 🖥️ [Lecture Videos](#videos)
 
+### 🔑 Key points
+
+- What are static inner classes and what benefits do they provide?
+- What can regular inner classes do that static inner classes cannot?
+- What can local inner classes do that regular inner classes cannot?
+- What does it mean for a variable to be final or effectively final?
+- Why do local inner classes have a restriction on which local variables they can access?
+- How do you define an anonymous inner class and what benefit does it provide over a local inner class?
+
+---
+
 Normally in Java, a class must be defined at the top level of a file that has the same name as the class. However, there are times when a class is only used within the context of another class, method, or scope. This is where inner, or nested, classes come into play.
 
 There are four types of Inner (Nested) Classes in Java.
@@ -187,14 +198,26 @@ public class AnonymousExample {
 }
 ```
 
-## Things to Understand
 
-- What are static inner classes and what benefits do they provide?
-- What can regular inner classes do that static inner classes cannot?
-- What can local inner classes do that regular inner classes cannot?
-- What does it mean for a variable to be final or effectively final?
-- Why do local inner classes have a restriction on which local variables they can access?
-- How do you define an anonymous inner class and what benefit does it provide over a local inner class?
+## ☑ Exercise
+
+
+```masteryls
+{"id":"650a7f59-34c9-45f6-8993-2229d72e0803", "title":"Inner Classes", "type":"essay" }
+What is the difference between an **inner class** and a **static inner class**?
+```
+
+
+```masteryls
+{"id":"fba7642f-e9f8-484a-9147-c3c3f055db57","title":"Closure in Inner Classes","type":"multiple-choice"}
+In Java, when an anonymous inner class or a local inner class accesses a local variable defined in its enclosing method, what is the requirement for that variable and why?
+
+- [x] The variable must be `final` or "effectively final" because the inner class receives a captured copy of the variable, and allowing changes would cause data inconsistency between the stack and the heap.
+- [ ] The variable must be declared `volatile` to ensure that any changes made by the inner class are immediately visible to the method's thread.
+- [ ] The variable must be declared `static` because local variables are stored on the stack and inner classes only have access to the static segment of memory.
+- [ ] The variable must be an object reference rather than a primitive, as Java closures cannot capture primitive data types from the method scope.
+```
+
 
 ## Videos
 
@@ -204,14 +227,3 @@ public class AnonymousExample {
 - 🎥 [Local Inner Classes (7:09)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=817e3e88-8d19-4ffa-85b4-ad7201539033&start=0) - [[transcript]](https://github.com/user-attachments/files/17804799/CS_240_Local_Inner_Classes.pdf)
 - 🎥 [Anonymous Inner Classes (5:16)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=7faf22b0-00df-4429-818f-ad720155ad20&start=0) - [[transcript]](https://github.com/user-attachments/files/17804804/CS_240_Anonymous_Inner_Classes.pdf)
 
-## Demonstration code
-
-📁 [Iterator.java](example-code/Iterator.java)
-
-📁 [anonymousInnerClass](example-code/anonymousInnerClass)
-
-📁 [innerClass](example-code/innerClass)
-
-📁 [localInnerClass](example-code/localInnerClass)
-
-📁 [staticInnerClass](example-code/staticInnerClass)

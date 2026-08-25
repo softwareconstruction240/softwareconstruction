@@ -4,7 +4,18 @@
 
 🖥️ [Lecture Videos](#videos)
 
-Debugging is one of the most important development skills that you can master. If you can learn how to rapidly reproduce a problem, narrow down its cause, and quickly implement a solution, you will dramatically increase your value as a software engineer.
+### 🔑 Key points
+
+- How to set a breakpoint
+- How to step through code and into method calls
+- How to set conditional breakpoints
+- How to view local and instance variable values while stepping through code
+- How to view the current call stack
+- How to set watches
+
+---
+
+Debugging is one of the most important development skills you can master. If you can learn how to rapidly reproduce a problem, narrow down its cause, and implement a solution, you will dramatically increase your value as a software engineer.
 
 Knowing what debugging tools are available and how to effectively employ them is key to your success. Common categories of debugging tools include:
 
@@ -14,29 +25,30 @@ Knowing what debugging tools are available and how to effectively employ them is
 1. Metrics
 1. Customer reports
 1. Development and staging environments
-1. Unit, system, and end to end tests
+1. Unit, system, and end-to-end tests
 1. Code reviews
 1. Performance profilers
 
-The more you think about debugging as applying the scientific method, the more you will become adept at the debugging process.
+Treating debugging as an application of the scientific method will help you become more adept at the process:
 
-1. Concisely state the problem
-1. Reproduce the problem with a unit test
-1. Isolate the problem to its simplest representation
-1. Step through the tested code
-1. Implement a solution
-1. Verify that the unit test passes
-1. Verify that all tests pass
+1. **Observe:** Concisely state the problem.
+2. **Hypothesize:** Isolate the problem to its simplest representation.
+3. **Experiment:** Reproduce the problem with a unit test.
+4. **Analyze:** Step through the tested code.
+5. **Fix:** Implement a solution.
+6. **Verify:** Confirm that the unit test and all other tests pass.
 
-In this instruction we focus on `visual debuggers`. You are encouraged to become experts with the debugger that is available for your development environment. In our case this is IntelliJ. Learn how to quickly execute the debugger, use it with only keystrokes, maximize the use of breakpoints, inspect variables and execution stacks, and isolate a reproduction of the problem, possibly with new unit tests.
+In this instruction, we focus on **visual debuggers**. You are encouraged to become an expert with the debugger available in your development environment. In our case, this is IntelliJ. Learn how to quickly execute the debugger using keystrokes, maximize the use of breakpoints, inspect variables and execution stacks, and isolate problems with new unit tests.
 
-## Example Debugging
+## Debugging Example
 
-To demonstrate some debugging techniques let's consider a simple example of a function that has the following specification.
+To demonstrate debugging techniques, consider a function with the following specification:
 
-> Given a list of words, return a collection that only contains words of any length that start with a lowercase `c`, and words that are longer than five characters that start with a lowercase `a`.
+> Given a list of words, return a collection containing only:
+> 1. Words of any length that start with a lowercase `c`.
+> 2. Words longer than five characters that start with a lowercase `a`.
 
-With that description, we go ahead and write our code and deploy it to production.
+Based on that description, we write the following code and deploy it:
 
 ```java
 Collection<String> filterToCWordsAnyLengthAndAWordsGreaterThanFive(List<String> words) {
@@ -49,28 +61,29 @@ Collection<String> filterToCWordsAnyLengthAndAWordsGreaterThanFive(List<String> 
             }
         }
     } catch (Exception ignore) {
+        // Swallowing exceptions is a bad practice!
     }
     return result;
 }
 ```
 
-Sometime later we get a report from a user that says the function doesn't return the expected result. When they pass in:
+Sometime later, a user reports that the function doesn't return the expected result. When they pass in:
 
 `"cattle", "dog", "appalachian", "apple", "pig", "cat"`
 
-They are expecting to get back:
+They expect:
 
 `"cattle", "appalachian", "cat"`
 
-but instead they get back nothing.
+But instead, they receive an empty list.
 
 ## Reproducing the Bug with a Test
 
-When you, or a customer, finds a bug, the first step is to verify the bug by creating a test that reproduces the problem. IntelliJ helps with this by providing the `Generate Test` functionality. So we right click on the function name and choose the `Generate` option followed by `Test...`.
+When you or a customer finds a bug, the first step is to verify it by creating a test that reproduces the problem. IntelliJ provides **Generate Test** functionality to speed this up. Right-click on the function name and choose **Generate** > **Test...**.
 
 ![Generate Test](generate-test.png)
 
-This will write a stub test function.
+This creates a stub test method:
 
 ```java
 @Test
@@ -78,7 +91,7 @@ void filterToCWordsAnyLengthAndAWordsGreaterThanFive() {
 }
 ```
 
-We then fill in the test with the user's reported reproduction steps.
+We then fill in the test with the user's reported reproduction steps:
 
 ```java
 @Test
@@ -95,29 +108,29 @@ void filterToCWordsAnyLengthAndAWordsGreaterThanFive() {
 }
 ```
 
-Now we can run the test and verify that we get the same result as what the customer reported.
+Running the test confirms the bug:
 
-```
+```text
 org.opentest4j.AssertionFailedError: iterable lengths differ,
-Expected :2
+Expected :3
 Actual   :0
 ```
 
 ## Stepping Through Code
 
-Sometimes it is obvious what the problem is by simply looking at the test. Other times we need to step through the code using the debugger to see what is going on. To do this we put a breakpoint in our test on the line that makes the calling to our filtering function. You can set a breakpoint by clicking on the left margin.
+Sometimes the problem is obvious from the test output. Other times, you need to step through the code. Set a **breakpoint** on the line that calls the filtering function by clicking in the left margin.
 
 ![Set Breakpoint](set-breakpoint.png)
 
-With a breakpoint set, you can then click on the `debug` icon in the left margin associated with the function and select `Debug`. This will start up the test and execute until the breakpoint is reached.
+With a breakpoint set, click the **Debug** icon in the left margin next to the test function. The test will run and pause at your breakpoint.
 
 ![Run debug](run-debug.png)
 
-At this point you can view the variables and confirm any assumptions that you have. This is an important step. Oftentimes a bug is created when we make assumptions about the possible variable values. If everything looks good, then we can start stepping through the code.
+At this point, you can view variables and confirm your assumptions. Bugs often arise from incorrect assumptions about variable values.
 
 ### Pro Tip: Hotkeys
 
-An important skill to learn is the hotkeys for stepping through the code. Learning these keys will greatly increase your debugging speed. If you find yourself reaching for the mouse, take the time instead to learn the keystroke for the desired action. Each development environment is different, but here are the big ones for IntelliJ.
+Learning hotkeys for stepping through code will greatly increase your debugging speed. If you find yourself reaching for the mouse, try to use the keystroke instead.
 
 | Windows  | Mac   | Purpose           |
 | -------- | ----- | ----------------- |
@@ -128,13 +141,13 @@ An important skill to learn is the hotkeys for stepping through the code. Learni
 | Alt F9   | ⌥ F9  | Run to cursor     |
 | Ctrl F8  | ⌘ F8  | Toggle breakpoint |
 
-### Example Debugging: Stepping Through Code
+### Debugging Example: Stepping Through Code
 
-As we step through the execution of our test function we will see that we are referencing a position beyond the length of our list. This is going to throw an out of bounds exception. However, we incorrectly catch and ignore the exception and so the error is hidden and it appears to the caller that we filtered out all the words and returned an empty list.
+As we step through the execution, we see that we are referencing a position beyond the length of our list. This throws an `IndexOutOfBoundsException`. However, because we incorrectly catch and ignore the exception, the error is hidden, and the method simply returns an empty list.
 
 ![Debug stepping](debug-stepping.gif)
 
-Our first correction will be to remove the bad exception handling that is hiding our error. With this change our code now looks like this:
+Our first correction is to remove the empty `catch` block that is hiding the error:
 
 ```java
 Collection<String> filterToCWordsAnyLengthAndAWordsGreaterThanFive(List<String> words) {
@@ -151,50 +164,41 @@ Collection<String> filterToCWordsAnyLengthAndAWordsGreaterThanFive(List<String> 
 
 ## Error Messages
 
-The error messages generated while debugging often contain valuable information. Take that time to read them and digest what they are telling you. Also note that you can follow the links displayed in the stack traces to see exactly where the errors are occurring. You can then set a breakpoint on that line and rerun the test to debug what is going on.
+Error messages and stack traces contain valuable information. Read them carefully; they often point exactly to the source of the failure. You can click links in the stack trace to jump directly to the relevant line of code.
 
-### Example Debugging: Error Messages
+### Debugging Example: Error Messages
 
-When we run our test again, after removing the empty catch block, we see the following exception error written to the console window.
+Running the test again (without the `catch` block) reveals the exception:
 
 ```text
-java.lang.ArrayIndexOutOfBoundsException: Index 5 out of bounds for length 5
+java.lang.ArrayIndexOutOfBoundsException: Index 6 out of bounds for length 6
 
 	at java.base/java.util.ImmutableCollections$ListN.get(ImmutableCollections.java:680)
 	at debugging.BugExample.filterToCWordsAnyLengthAndAWordsGreaterThanFive(BugExample.java:16)
 	at debugging.BugExampleTest.filterToCWordsAnyLengthAndAWordsGreaterThanFive(BugExampleTest.java:15)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 ```
 
-This clearly describes what our problem is and points us to the line in our code that threw the exception. When we examine the line of code we see that the `for` loop incorrectly initializes with the size of the list instead of the last position in the list.
-
-```java
-for (var i = words.size(); i >= 0; i--) {
-```
-
-We fix this by subtracting one from the size.
+The `for` loop incorrectly initializes `i` with the size of the list instead of the last index (`size - 1`). We fix this:
 
 ```java
 for (var i = words.size() - 1; i >= 0; i--) {
 ```
 
-And run our test again. Now the test returns that it got an `apple` when it expected a `cat`. Since `apple` starts with `a` and is not greater than a length of five we have now reproduced another problem.
+Running the test again shows a new failure. The test expected a `cat` but got `apple`. Since `apple` starts with `a` but is not longer than five characters, we have found a logic error in our filtering criteria.
 
-```
+```text
 AssertionFailedError: iterable contents differ at index [1],
 Expected :cat
 Actual   :apple
 ```
 
-### Conditional Breakpoints
+## Conditional Breakpoints
 
-When you create a breakpoint in IntelliJ you can specify conditions such as the required value of a variable before the breakpoint will trigger. To set a conditional breakpoint, first set a breakpoint and then right click on it to bring up the conditions dialog.
+In IntelliJ, you can specify conditions for a breakpoint so it only triggers when a specific state is met. To set a conditional breakpoint, right-click on an existing breakpoint.
 
-### Example Debugging: Conditional Breakpoints
+### Debugging Example: Conditional Breakpoints
 
-We can use a conditional breakpoint to see what the code is doing when attempting to filter out the `apple`. The breakpoint is set by clicking on the margin next to the `word.matches` expression, and then right clicking on the breakpoint and specifying the condition:
+We can use a conditional breakpoint to see why `apple` is being included. Set a breakpoint on the `word.matches` line, right-click it, and set the condition:
 
 ```java
 word.equals("apple")
@@ -202,67 +206,56 @@ word.equals("apple")
 
 ![Conditional Breakpoint](conditional-breakpoint.png)
 
-With the conditional breakpoint in place we can debug the test and it will only stop when `word` equals `apple`.
+Now, the debugger will only stop when `word` is "apple".
 
 ![Conditional Breakpoint Hit](conditional-breakpoint-hit.png)
 
-If we step over the match call we see that `apple` does match, and it gets added to the list. That means we have a problem with our regular expression. We can take that regular expression and use a tool like [Regex101.com](https://regex101.com/) to figure out why it is matching. This leads us to realize that we need to change our regular expression to allow anything on `c` and change the starting limit from `3` to `5` for words beginning with `a`.
+Stepping over the `matches` call shows that "apple" returns `true`. Our regular expression is wrong. Using a tool like [Regex101.com](https://regex101.com/), we realize the regex needs to allow any length for `c` words and a minimum length of 6 for `a` words (since the requirement was *greater than* five).
 
 ```java
 ^(c.*|a.{5,100})$
 ```
 
-Now the test passes and we have improved our confidence that the code is doing what it is working correctly.
+## Examining the Call Stack
 
-## Examining up the Stack
+The **call stack** is the chain of function calls that led to the current line of code. You can use the **Debugger Stack Pane** to navigate up the stack and inspect the state of variables in parent functions.
 
-As you are debugging you might find that you need to know what happened in the functions that called the current function that you are debugging. The chain of parent function calls is referred to as the `call stack`. You can tell the debugger to move the current context up the call stack so that you can see what the variable values were. To do this open, or move to, the debugger stake pane and click on the function you wish to inspect. When you are done looking up the stack, you can click on the current function and continue debugging.
+### Debugging Example: Examining the Call Stack
 
-## Debugging Example: Examining up the Stack
-
-When we discovered that the regular expression matching wasn't working right, we could have stepped into the JDK code for the `match` function to see how it was computing the match. If, while examining the JDK code, we wanted to look back up the stack we can open the debugger stake pane and click on any of the previous functions. In the case shown below, we can look back at the filter function and see exactly what the variables looked like before we called `match`.
+If we stepped into the JDK's `matches` function, we might want to look back at our own code to see the context. By clicking on the previous frame in the stack pane, we can see exactly what our variables looked like before calling `matches`.
 
 ![Stack](stack.png)
 
 ## Executing Multiple Processes
 
-Sometimes you need to debug/run multiple processes at the same time. For example, you might want to debug both your server and your client so that you can see how requests from the client execute on your server. With IntelliJ, you can debug multiple programs by just starting each one up individually. In the following image you can see that the server is started and a breakpoint set on the `listNames` HTTP endpoint. Then we set a breakpoint in the client and start it up. As the request flow goes from client to server, the server breakpoint is hit. Once we resume execution, the client picks up the when call to the server returns. This allows us to see exactly what is happening in each application.
+Sometimes you need to debug a client and a server simultaneously. In IntelliJ, you can start multiple debug sessions. As a request flows from the client to the server, the server's breakpoint will hit. Once you resume the server, the client will receive the response and continue its own execution.
 
 ![debug multiple processes](debug-multiple-processes.gif)
 
 ## Executing the Same Process Multiple Times
 
-Sometimes you need to have multiple copies of the same application running. For example, when you deploy your client chess application you will need a client application running for each of the players and observers. By default, IntelliJ only allows a single instance of an application to execute. In order to enable multiple instances to run concurrently take the following steps.
+If you are building a multiplayer game like Chess, you may need multiple instances of the same client application running. By default, IntelliJ limits you to one instance. To change this:
 
-1. Right click on the `Run` icon next to the main function of your application.
-1. Choose the `Modify run configuration` option.
-1. Select the `Modify options` dropdown.
-1. Click on `Allow multiple instances`.
+1. Right-click the **Run** icon next to the `main` function.
+1. Choose **Modify Run Configuration**.
+1. Click the **Modify options** dropdown.
+1. Select **Allow multiple instances**.
 1. Save the changes.
 
-   ![Multiple instances](multipleInstances.gif)
-
-Now every time you launch the application it will run an additional instance. This also means that you will need to shut each of them down when you are finished debugging them.
+![Multiple instances](multipleInstances.gif)
 
 ## Enhancing Tests
 
-As you fix bugs you will often discover other problems that haven't been reported yet. You can also discover that the tests have a bug in them and the code is actually running fine. It is also possible that the test is succeeding, but not actually testing anything of value.
+As you fix bugs, you often discover edge cases. It is important to enhance your tests to ensure these cases are covered and to prevent future regressions.
 
-When you discover any of these situations it is important that you enhance your tests to increase your confidence that the code is correct.
+### Debugging Example: Enhancing Tests
 
-Once we are confident that everything is working we need to run all of the tests to make sure we didn't break some other functionality. If that passes then we commit our changes and push them to GitHub.
-
-### Example Debugging: Enhancing Tests
-
-As we wrote our tests and debugged our code you may have noticed that the regular expression limits the `c` words to a maximum of 100 characters. While this may seem reasonable, it is contrary to requirements and so we should alter our test to ensure everything is up to specification.
+Our current regular expression limits `c` words to 100 characters (`{3,100}`). The requirement stated *any* length for `c` words. We should update the test to include a very long word:
 
 ```java
 @Test
 void filterToCWordsAnyLengthAndAWordsGreaterThanFive() {
-    var big = "a";
-    for (var i = 0; i < 1005; i++) {
-        big += 'a';
-    }
+    var big = "c" + "a".repeat(1005);
 
     var words = List.of("cattle", "dog", "appalachian", "apple", "pig", big);
     var actual = BugExample.filterToCWordsAnyLengthAndAWordsGreaterThanFive(words);
@@ -275,28 +268,21 @@ void filterToCWordsAnyLengthAndAWordsGreaterThanFive() {
 }
 ```
 
-When we run this the test fails on a new big word.
-
-```
-AssertionFailedError: iterable contents differ at index [0],
-Expected :aaaaaaaaaaaaaaaaaaaa...
-Actual   :appalachian
-```
-
-A quick change to our regular expression corrects the problem.
+The test fails because our regex capped the length. We fix it by removing the upper limit:
 
 ```java
 "^(c.*|a.{5,})$"
 ```
 
-## Things to Understand
+Now the test passes, and our confidence in the code is restored.
 
-- How to set a breakpoint
-- How to step through code and into method calls
-- How to set conditional breakpoints
-- How to view the values and local and instance values while stepping through code
-- How to view the current call stack
-- How to set watches
+## ☑ Exercise
+
+
+```masteryls
+{"id":"e98f9beb-df82-41d3-96b9-b0b82c53c670", "title":"Essay", "type":"essay", "gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts" }
+Describe the common debugging process used by a successful software engineer.
+```
 
 ## Videos
 

@@ -17,11 +17,25 @@
 
 ## Polymorphism
 
-Polymorphism is the blanket term used in computer science to represent the idea of morphing an object to fit into many (i.e. poly) different contexts. In Java, the use of inheritance and abstract classes are the primary ways to provide polymorphism. You use the `extends` keyword to inherit another class's functionality, and you use the `implements` keyword to inherit an interface definition. Polymorphism allows you to decouple, or abstract, a class's internals, from how it is used. That makes it so you can significantly alter the class without having to change how the class is used.
+### 🔑 Key points
+
+- What polymorphism is
+- What abstract classes are and when to use them
+- What interfaces are and when to use them
+- How interfaces and abstract classes are similar and how they differ
+- How to implement an interface in a class
+- How to create an interface
+- How to implement inheritance in Java
+
+---
+
+Polymorphism is a term used in computer science to describe the ability of an object to take on many (poly) forms (morph) to fit into different contexts. In Java, inheritance and interfaces are the primary ways to achieve polymorphism. You use the `extends` keyword to inherit functionality from another class and the `implements` keyword to adhere to an interface definition. Polymorphism allows you to decouple, or abstract, a class's internal implementation from its external usage. This decoupling ensures you can significantly alter a class's internals without changing how the class is used by other parts of the program.
+
+![polymorphism.jpg](polymorphism.jpg)
 
 ## Interfaces
 
-Interfaces allow you to define what something does, without specifying how it does it. It also allows you to create and supply alternative implementations for the interface. For example, you can have an interface that defines what a `List` can do, and then create classes that provide different implementations of the `List`. Perhaps one implementation uses less memory, and a different one is faster. You can then write code that uses the `List` interface and not have to think about if it is using the fast version or the memory efficient version.
+Interfaces allow you to define *what* a class does without specifying *how* it does it. This allows you to create and supply alternative implementations for the same interface. For example, you can have an interface that defines what a `List` can do, and then create classes that provide different implementations of that `List`. One implementation might use less memory, while another is optimized for speed. You can then write code that uses the `List` interface without needing to know whether it is using the fast version or the memory-efficient version.
 
 ```java
 public interface List<E> extends SequencedCollection<E> {
@@ -33,7 +47,7 @@ public interface List<E> extends SequencedCollection<E> {
 }
 ```
 
-The following example shows two implementations of a `List`. One that uses an array, and one that uses a linked list. The two lists can be passed to a function, `addAndPrint` in this case, that doesn't know anything about the implementation of the list, it just knows that it can call the interface's `add` method.
+The following example shows two implementations of a `List`: one that uses an array (`ArrayList`) and one that uses a linked list (`LinkedList`). Both lists can be passed to the `addAndPrint` method. This method does not need to know the specific implementation of the list; it only needs to know that it can call the `add` method defined by the interface.
 
 ```java
 import java.util.List;
@@ -52,20 +66,20 @@ public class ListExample {
 
   // This function takes any implementation of the List interface.
   private void addAndPrint(List<String> list, String value) {
-    // The add method is defined on the list interface.
+    // The add method is defined on the List interface.
     list.add(value);
     System.out.println(value);
   }
 }
 ```
 
-Note that, because `addAndPrint()` doesn't know anything about `list`'s type except that it implements the `List` interface, it can only call methods on `list` that are declared in the interface. If `LinkedList` had an additional method that was not declared in the interface, and `addAndPrint()` tried to call that method on `list`, it would not compile, even if it was passed a `LinkedList`.
+Note that because `addAndPrint()` only knows that `list` implements the `List` interface, it can only call methods declared in that interface. If `LinkedList` had an additional method not declared in the `List` interface, `addAndPrint()` could not call that method on the `list` parameter, even if a `LinkedList` object was passed in.
 
 ## Writing Your Own Interface
 
-In addition to using a class that implements one of the JDK standard interfaces, you can write your own interface implementations, and even define completely new interfaces. Creating an interface is similar to creating a class, except you use the `interface` keyword and only define the signature of the methods that the interface represents.
+In addition to using standard JDK interfaces, you can define your own interfaces and write classes that implement them. Creating an interface is similar to creating a class, but you use the `interface` keyword and typically only define the signatures of the methods.
 
-For example, if you wanted to create a specialized iterator that returned each character in a string you could write the following:
+For example, if you wanted to create a specialized iterator that returns each character in a string, you could write the following:
 
 ```java
 public interface CharIterator {
@@ -77,7 +91,7 @@ public interface CharIterator {
 }
 ```
 
-You can then implement the `CharIterator` interface by specifying the `implements` keyword after the class name declaration, and writing each of the methods defined by the interface. The `@Override` annotation is not technically necessary, but it makes it clear that the method is part of an interface.
+You can then implement the `CharIterator` interface by using the `implements` keyword in your class declaration and providing the logic for each method. The `@Override` annotation is not strictly required by the compiler, but it is a best practice to clarify that the method is implementing an interface requirement.
 
 ```java
 public class AlphabetIterator implements CharIterator {
@@ -98,18 +112,22 @@ public class AlphabetIterator implements CharIterator {
 
 ## Extending Classes
 
-In the discussion for classes and objects we showed how you can inherit code from another class and treat it as if the code was included in a derived class. By default, all classes in Java derive from the Object class. That means they `inherit` the Object classes fields and methods. You can also explicitly state what class you derive from by using the `extends` keyword. In the following example, the `SubClass` extends the `SuperClass` and uses the SuperClass's toString method to implement its toString method. SubClass can do this because everything in the derived class literally becomes part of the subclass just as if the code had been written in the subclass.
+Inheritance allows a class to derive fields and methods from another class. In Java, every class implicitly extends the `Object` class unless specified otherwise, meaning they inherit `Object`'s methods (like `toString()` and `equals()`). You can explicitly inherit from a specific class using the `extends` keyword. 
+
+In the following example, `SubClass` extends `SuperClass`. `SubClass` can access the `SuperClass` implementation of `toString()` using the `super` keyword.
 
 ```java
-public static class SuperClass extends Object {
+public static class SuperClass {
     String name = "super";
 
+    @Override
     public String toString() {
         return name;
     }
 }
 
 public static class SubClass extends SuperClass {
+    @Override
     public String toString() {
         return "Sub-class of " + super.toString();
     }
@@ -118,26 +136,27 @@ public static class SubClass extends SuperClass {
 
 ## Abstract Classes
 
-Abstract classes provide another type of polymorphism. However, unlike interfaces, where the subclass implements all of the functionality of the interface, a base class that is an abstract class provides some of the implementation and leaves other methods to be implemented by the subclass.
+Abstract classes provide a different form of polymorphism. Unlike interfaces—where the implementing class must provide all functionality—an abstract base class can provide some implementation while leaving other methods to be defined by subclasses.
 
-The JDK's `Iterator` interface allows you to walk through, or iterate, through a collection of objects.
+The JDK's `Iterator` interface allows you to traverse a collection of objects:
 
 ```java
 public interface Iterator<E> {
     boolean hasNext();
     E next();
+}
 ```
 
-We can create a class that implements the iterator interface by returning the characters of a string, but also defines a new abstract method for iterating that allows for a string to be prefixed to each iteration result. This is done by specifying the `abstract` keyword on the `nextWithPrefix` method, without providing an implementation of the method.
+We can create an abstract class that implements the `Iterator` interface to return characters from a string, while also defining a new abstract method that subclasses must implement. This is done by using the `abstract` keyword on the method without providing a body.
 
-You can think of abstract classes as a class/interface hybrid.
+Think of abstract classes as a hybrid between a standard class and an interface.
 
 ```java
 /**
  * The abstract keyword signifies that this class contains methods
- * that must be implemented by a subclass
+ * that must be implemented by a subclass.
  */
-public static abstract class AlphabetIterator implements Iterator {
+public static abstract class AlphabetIterator implements Iterator<String> {
     int current = 0;
     String charString = "abcdefg";
 
@@ -145,42 +164,43 @@ public static abstract class AlphabetIterator implements Iterator {
         return current < charString.length();
     }
 
-    public Object next() {
+    public String next() {
         return charString.substring(current, ++current);
     }
 
     /**
-     * This method is not implemented by the abstract class and
-     * so it must be implemented by the subclass.
+     * This method is not implemented here, so it must be 
+     * implemented by any non-abstract subclass.
      */
     public abstract String nextWithPrefix(String prefix);
 }
 ```
 
-A subclass `extends` the abstract class by providing an implementation of the abstract `nextWithPrefix` method. Additionally, for instructive purposes, we also override the `next` method to include a default prefix that represents the numerical order of the iterated items.
+A subclass `extends` the abstract class and provides the implementation for `nextWithPrefix`. In this example, we also override the `next` method to include a default prefix.
 
-Note the use of the `super` keyword in the `nextWithPrefix` function. `super` allows you to access methods in the abstract base class when you have methods with the same name as the subclass. In this example, it is used to access the abstract class's `next` function instead of the `next` function implemented by `PrefixAlphabetIterator`. Without the use of `super`, the call to `next` would have created an infinite loop.
+Note the use of the `super` keyword in the `nextWithPrefix` function. This allows the subclass to call the original `next` implementation from the abstract base class. Without `super.next()`, calling `next()` would result in a recursive infinite loop.
 
 ```java
 public static class PrefixAlphabetIterator extends AlphabetIterator {
+    @Override
     public String next() {
         return nextWithPrefix(String.format("%d.", current + 1));
     }
 
+    @Override
     public String nextWithPrefix(String prefix) {
-        return String.format("%s. %s", prefix, super.next());
+        return String.format("%s %s", prefix, super.next());
     }
 }
 ```
 
-Like interfaces, the name of the abstract class can be used to represent the subclass when passed to functions that expect the abstract class. In the following code, we create an object of the type `PrefixAlphabetIterator` and then pass it to a function that expects the abstract class `AlphabetIterator`.
+Like interfaces, the name of the abstract class can be used as a type to represent any of its subclasses.
 
 ```java
 public static void main(String[] args) {
-    var iter = new PrefixAlphabetIterator();
-    print(new PrefixAlphabetIterator());
+    AlphabetIterator iter = new PrefixAlphabetIterator();
+    print(iter);
 }
-
 
 public static void print(AlphabetIterator iter) {
     while (iter.hasNext()) {
@@ -191,15 +211,15 @@ public static void print(AlphabetIterator iter) {
 
 ## instanceof
 
-Polymorphism is great because it makes it so code only needs to know about the provided interface. For example, if you want to have a list that can contain any type of object that extends the `Object` class, it can safely ignore the fact that those objects are also things like String, Integer, Person, or Map classes. However, sometimes you need to know if an object is of a specific type so that you can use it in different ways. This is where the `instanceof` operator comes in handy. `instanceof` will return true, if the provided variable is of the given type (including if it extends or implements it). A simple example of its use is demonstrated with a test to see if a string literal is an instance of type `String`.
+Polymorphism is powerful because it allows code to interact with objects through a shared interface. For instance, a list of `Object` types can hold `String`, `Integer`, or `Person` objects interchangeably. However, you sometimes need to determine an object's specific type at runtime. This is where the `instanceof` operator is used. It returns `true` if an object is an instance of a specific class or implements a specific interface.
 
 ```java
 if ("I am a string" instanceof String) {
-  // Always true
+  // This will be true
 }
 ```
 
-In the following example, we create a list that contains objects of different primitive types. We then iterate over this list and use the `instanceof` operator to execute different code based on the type of the list item.
+In the following example, we iterate over a list of different types and use `instanceof` to execute specific logic based on the type of each item.
 
 ```java
 public static void main(String[] args) {
@@ -217,7 +237,7 @@ public static void main(String[] args) {
 }
 ```
 
-Starting in Java version 17 the pattern matching version of instanceof that automatically casts the object if it is of the specified type. This makes it very convenient to both test and cast in the one statement.
+Starting in Java 17, **pattern matching for `instanceof`** allows you to test the type and cast it to a variable in a single statement, making the code cleaner and safer.
 
 ```java
 public class PatternMatchInstanceOfExample {
@@ -238,14 +258,14 @@ public class PatternMatchInstanceOfExample {
 
 ## final
 
-If you don't want a subclass to override a method in a base class then you can prefix the method with the keyword `final`. You can also use the final keyword to make a class's field value immutable. (You can still call methods on final fields, however, so it's not the same as the C++ `const`.)
+If you want to prevent a subclass from overriding a method, you can mark that method as `final`. You can also use the `final` keyword on fields to make them immutable (meaning the reference cannot be changed once assigned). Note that `final` on an object field prevents reassignment of the variable, but it does not prevent the object itself from being modified through its own methods (unlike `const` in C++).
 
 ```java
 public class FinalExample {
-    /** This variable cannot be changed */
+    /** This variable cannot be reassigned */
     final double PI = 3.14;
 
-    /** This method cannot be overridden */
+    /** This method cannot be overridden by subclasses */
     final public double getPI() {
         return PI;
     }
@@ -254,9 +274,11 @@ public class FinalExample {
 
 ## Thinking about Chess
 
-With what you have learned here, consider the Chess program. How should chess pieces be abstracted? Should the piece type be represented as a data field?
+Applying these concepts to a Chess program requires careful design. How should chess pieces be abstracted? Should the piece type be a simple data field?
 
 ```mermaid
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
+
 classDiagram
 
     class ChessPiece {
@@ -266,14 +288,16 @@ classDiagram
     }
 ```
 
-Or would it be more appropriate to represent it using abstract class inheritance?
+Or would it be more appropriate to use inheritance with an abstract class?
 
 ```mermaid
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
+
 classDiagram
 
     class ChessPiece {
         TeamColor
-        pieceMoves()
+        pieceMoves()*
     }
 
     ChessPiece <|-- King
@@ -293,9 +317,11 @@ classDiagram
 
 ```
 
-Or should the rules be abstracted out of the chess so that the chess piece only represents the properties of the piece and not the rules of a game?
+Alternatively, should the movement rules be decoupled from the piece itself? In this scenario, the `ChessPiece` represents properties (like color), while a `Rule` interface handles the logic.
 
 ```mermaid
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
+
 classDiagram
 
     class ChessPiece {
@@ -303,15 +329,14 @@ classDiagram
         pieceMoves()
     }
 
-
     class Rule {
         <<interface>>
         pieceMoves()
     }
 
-    KingRule  --|> Rule
-    QueenRule --|>  Rule
-    PawnRule  --|> Rule
+    KingRule  ..|> Rule
+    QueenRule ..|>  Rule
+    PawnRule  ..|> Rule
 
     class KingRule {
         pieceMoves()
@@ -325,11 +350,11 @@ classDiagram
     }
 ```
 
-Can I also use abstract classes, interfaces, and inheritances to build something that turns the dial even more? Or is this taking things too far? All of these questions are part of learning how to design software.
-
-Here is a possible design to incorporates all of the abstraction concepts into an architecture for representing rules.
+You could even combine these concepts to create a more robust architecture for game rules.
 
 ```mermaid
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
+
 classDiagram
 
     class Rules {
@@ -348,7 +373,7 @@ classDiagram
         private calculateMoves()
         pieceMoves()
     }
-    BaseMovementRule --|> MovementRule
+    BaseMovementRule ..|> MovementRule
 
     KingRule  --|> BaseMovementRule
     QueenRule --|>  BaseMovementRule
@@ -366,15 +391,33 @@ classDiagram
     }
 ```
 
-## Things to Understand
+Deciding which approach to take is a core part of software design.
 
-- What polymorphism is
-- What abstract classes are and when to use them
-- What interfaces are and when to use them
-- How interfaces and abstract classes are both similar and different
-- How to implement an interface in a class
-- How to create an interface
-- How to do inheritance in Java
+
+## ☑ Exercise
+
+
+```masteryls
+{"id":"225e7b39-9011-4973-8c40-704c9740b897","title":"Interface Characteristics","type":"multiple-choice"}
+Which statement accurately describes the primary characteristic of an interface in object-oriented programming?
+
+- [ ] It serves as a base class that can store and manage the internal state of its subclasses through private instance variables.
+- [ ] It allows for the direct instantiation of objects that provide a default set of behaviors for a specific system component.
+- [x] It defines a contract of method signatures that implementing classes must provide, enabling polymorphism without requiring a shared class hierarchy.
+- [ ] It restricts a class to inheriting from only one source of behavior to ensure strict hierarchical organization.
+```
+
+
+```masteryls
+{"id":"968a7b21-92da-4bf4-99bb-28fdb740a30d", "title":"Teaching", "type":"teaching" }
+What is the difference between the extends and implements keywords in Java? When should I use which?
+```
+
+```masteryls
+{"id":"105e15d4-edac-4832-9fab-9cfa0234b89d","title":"Honoring Your Commitments","type":"essay"}
+How does designing clear interfaces, which are promises that other code depends on, reflect personal integrity, and how does keeping such commitments relate to the BYU aim of building character?
+```
+
 
 ## Videos
 

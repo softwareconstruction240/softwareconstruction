@@ -1,19 +1,19 @@
-# Getting Started
+# Phase 3: Getting Started
 
-The Starter Code has four folders: `dataAccess`, `passoff`, `resources`, and `server`. Complete the following steps to move the starter code into your project for this phase.
+The starter code includes four folders: `dataAccess`, `passoff`, `resources`, and `server`. Complete the following steps to move the starter code into your project for this phase.
 
 1. Open your chess project directory.
-1. Copy the `starter-code/3-web-api/server/Server.java` file into the `server/src/main/java/server` folder. This contains a basic implementation of an HTTP server that allows the pass-off tests to programmatically start and stop your server, as well as the code to host a web browser interface for experimenting with your endpoints.
-1. Copy the `starter-code/3-web-api/dataaccess` folder into the `server/src/main/java` folder. This contains an exception class that you will throw whenever there is a data access error.
-1. Create the folder `server/src/test/java`. Right-click on the folder and select the option to mark the directory as `Test sources root`. This tells IntelliJ where to look for code to run as tests.
+1. Copy the `starter-code/3-web-api/server/Server.java` file into your project's `server/src/main/java/server` folder. This file contains a basic implementation of an HTTP server that allows the pass-off tests to programmatically start and stop your server. It also includes the code to host a web-based interface for experimenting with your endpoints.
+1. Copy the `starter-code/3-web-api/dataaccess` folder into the `server/src/main/java` folder. This contains an exception class you will throw whenever a data access error occurs.
+1. Create the folder `server/src/test/java`. Right-click on the folder in IntelliJ and select **Mark Directory as > Test Sources Root**. This tells IntelliJ where to look for test code.
 
    ![mark test root](mark-test-root.png)
 
 1. Copy the `starter-code/3-web-api/passoff` folder into the `server/src/test/java` folder. The `passoff/server` folder contains the server test cases.
-1. Create the folder `server/src/main/resources`. Right-click on the folder and select the option to mark the directory as `Resources root`. This tells IntelliJ that it should include the directory when compiling the code to your `out` directory.
-1. Copy the `starter-code/3-web-api/resources/web` folder to the `server/src/main/resources` folder. The `web` folder contains the files that implement the web browser interface for experimenting with your endpoints.
+1. Create the folder `server/src/main/resources`. Right-click on the folder and select **Mark Directory as > Resources Root**. This ensures IntelliJ includes these files when compiling your project.
+1. Copy the `starter-code/3-web-api/resources/web` folder into the `server/src/main/resources` folder. The `web` folder contains the files for the web-based interface used to experiment with your endpoints.
 
-This should result in the following structure:
+After these steps, your project structure should look like this:
 
 ```txt
 └── server
@@ -38,32 +38,38 @@ This should result in the following structure:
                         └── StandardAPITests.java
 ```
 
-## Getting the Webpage for Testing Setup
+## Testing the Setup via Webpage
 
-Once you have completed **all** of the previous steps, you should be able to launch your server and access a testing HTML page. This is a simple frontend that was made to help with basic testing of your server endpoints.
+Once you have completed all the previous steps, you should be able to launch your server and access a testing HTML page. This simple frontend helps you perform basic manual testing of your server endpoints.
 
-Inside of `server/src/main/java/server/ServerMain.java` in the main method, replace the code that is there with the creation of the Server object. Then call the server's run method. The run method needs the port you will run your server on, which is typically 8080 for testing.
+Open `server/src/main/java/server/ServerMain.java`. In the `main` method, replace the existing code with logic to instantiate the `Server` object and call its `run` method. The `run` method requires a port number; 8080 is the standard choice for local testing.
 
 ```java
 package server;
 
 public class ServerMain {
     public static void main(String[] args) {
+        var port = 8080;
         Server server = new Server();
-        server.run(8080);
+        server.run(port);
 
-        System.out.println("♕ 240 Chess Server");
+        System.out.println("♕ 240 Chess Server running on port " + port);
     }
 }
 ```
 
-When you run the main method, it will start the server. Intelij will display several informational lines of red text in the **Run** window, but if no errors are reported, you should be fine.
+When you run the `main` method, the server will start. IntelliJ may display several informational lines of red text in the **Run** window; as long as no stack traces or explicit "Error" messages appear, the server is likely running correctly.
 
-Open a browser and go to `http://localhost:8080` (If you picked another port, replace 8080 with that instead). If everything is set up correctly, you should be able to see this webpage.
 
-![Webpage](chess-server-webpage.png)
+```masteryls
+{"id":"c8f7653a-760f-4c62-8817-376b7e381ab5","title":"Phase 3: Getting started","type":"multiple-choice"}
+Open a web browser and navigate to `http://localhost:8080` (if you chose a different port, use that instead).
 
-You can use this to test your endpoints as you are coding the project.
+- [x] I see the following page: ![Webpage](chess-server-webpage.png)
+- [ ] I don't see server output. I will review the getting started instrucitons.
+```
+
+You can use this interface to test your endpoints as you develop the project.
 
 If you want to see how this works in greater depth or need help troubleshooting, take a look at [this page](../../instruction/web-api/web-api.md).
 
