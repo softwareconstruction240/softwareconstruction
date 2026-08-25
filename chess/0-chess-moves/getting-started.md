@@ -23,12 +23,6 @@ Open the project directory in IntelliJ to start developing, running, and debuggi
 
 The repository already contains IntelliJ configuration files. Creating a new project instead of opening the existing one will cause configuration errors.
 
-> [!NOTE]
->
-> If you receive a prompt asking you to build the project with Maven, make sure you **skip** that action.
-
-![build with Maven](build-with-maven-prompt.png)
-
 When the project opens, it should look like the image below. The `client`, `server`, and `shared` folders should be at the root level and marked with a blue square icon (indicating they are modules).
 
 ![open intellij](open-intellij.png)
