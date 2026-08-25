@@ -118,7 +118,16 @@ To get started developing with Java, you need to install the Java Developer Kit 
 
 ![downloadIntellij.png](downloadIntellij.png)
 
-After you have installed IntelliJ take some time to get familiar with the environment. Create a new project and, if you don't already have a JDK downloaded, download the latest version as part of creating the project. Additionally, if you select the `Add sample code` option it will create a simple `hello world` application for you.
+After you have installed IntelliJ you need to decide what type of subscription you want. ItelliJ will attempt to encourage you to create an Ultimate subscription with a 30 day trial as a hook. You cannot use any of the AI features of IntelliJ and so there is little reason to create an Ultimate subscription.
+
+
+![subscription.png](subscription.png)
+
+ The easiest thing to do is select the `Manage my subscription` option and then `Deactivate subscription`. This will keep you on the free tier for the duration of the course.
+
+![deactivateSubscription.png](deactivateSubscription.png)
+
+Once you have everything installed, take some time to get familiar with the environment. Create a new project and, if you don't already have a JDK downloaded, download the latest version as part of creating the project. Additionally, if you select the `Add sample code` option it will create a simple `hello world` application for you.
 
 ![InstallingJDK](installJDK.gif)
 
