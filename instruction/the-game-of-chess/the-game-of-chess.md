@@ -84,7 +84,6 @@ The Knight moves in an "L" shape: two squares in one cardinal direction and then
 ### The Pawn
 Pawns are the "soul of chess." They move forward one square at a time, but they capture diagonally. On their very first move, a pawn has the option to move forward two squares.
 
-#### Special pawn moves
  Pawns also have two special rules:
 - **Promotion:** If a pawn reaches the 8th rank, it must be promoted to any other piece (usually a Queen).
 - **En Passant:** A complex capture rule that occurs when a pawn moves two squares forward and lands horizontally adjacent to an opponent's pawn.
