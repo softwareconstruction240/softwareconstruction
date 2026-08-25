@@ -150,6 +150,13 @@
           "path": "instruction/chess-tips/chess-tips.md",
           "id": "f9f845b1-efe1-4bbb-8182-ab405bf8ec13",
           "state": "published"
+        },
+        {
+          "title": "The Game of Chess",
+          "type": "instruction",
+          "path": "instruction/the-game-of-chess/the-game-of-chess.md",
+          "id": "ed0ea7a4-f470-495c-a500-dd6f6a04bbb8",
+          "description": "Short description of the history of chess. Basic rules for playing the game including moves for each piece, checkmate, stalemate, and check. When a game is won. Short suggestions on strategy."
         }
       ]
     },
