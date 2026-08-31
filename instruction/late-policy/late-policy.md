@@ -10,7 +10,7 @@ Late submissions receive **zero** points. When determining if a submission is la
 
 ## Grace Days
 
-Each student begins the semester with **two grace day**. Grace days allow you to submit a deliverable past the assigned due date for full credit. Each grace day covers one day late, excluding Sundays. For each submitted deliverables, any grace days that are used will be deducted when it is graded.
+Each student begins the semester with **two grace days**. Grace days allow you to submit a deliverable past the assigned due date for full credit. Each grace day covers one day late, excluding Sundays. For each submitted deliverables, any grace days that are used will be deducted when it is graded.
 
 The grader applies grace days to every late submission made, even submissions that earn partial credit. If you need to resubmit, the previously deducted grace days are applied for that assignment. This means you can resubmit multiple times on the same day without using additional late days for each submission.
 
