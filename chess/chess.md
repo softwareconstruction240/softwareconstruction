@@ -15,7 +15,7 @@ We use the game of chess to help you develop and demonstrate mastery during this
 | 2. Server design | None                                    | [doc](2-server-design/server-design.md) |                                       | Designing the chess server.                                    |
 | 3. Web API       | [doc](3-web-api/getting-started.md)     | [doc](3-web-api/web-api.md)             |                                       | Creating an HTTP chess server.                                 |
 | 4. Database      | [doc](4-database/getting-started.md)    | [doc](4-database/database.md)           |                                       | Persistently storing players, games, and authentication.       |
-| 5. Pregame       | [doc](5-pregame/getting-started.md)     | [doc](5-pregame/pregame.md)             |                                       | Creating an command line interface (CLI) for the chess client. |
+| 5. Pregame       | [doc](5-pregame/getting-started.md)     | [doc](5-pregame/pregame.md)             |                                       | Creating a command line interface (CLI) for the chess client. |
 | 6. Gameplay      | [doc](6-gameplay/getting-started.md)    | [doc](6-gameplay/gameplay.md)           |                                       | Implementing gameplay with multiple players.                   |
 
 ## Starter Code
