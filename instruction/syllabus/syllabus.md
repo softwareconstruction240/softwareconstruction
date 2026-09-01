@@ -99,8 +99,6 @@ There is no partial credit on the Programming Exam; you either finish, or you do
 
 ## TAs
 
-### TAs
-
 TAs are here to help you complete the projects and answer your questions. However, we are often given tasks by your instructor that may be time-sensitive. If you come into the TA lab, do not be shy in interrupting us to ask for help. However, please understand if we ask you to wait for a moment if we are trying to complete another task.
 
 Also, please understand that even though the TAs have taken the class and passed with very high marks they do not know everything, nor can they explain every bug. We will try to help you, but if we do not understand the bug, we might refer you to another TA or the instructor. We might even offer suggestions (guesses) on what we would do if we ran into that bug.
