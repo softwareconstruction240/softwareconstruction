@@ -57,6 +57,13 @@ If you do not have a computer of your own, you can rent one from the [BYU Office
 
 See the [late policy](../late-policy/late-policy.md) instruction for a full description of the policy.
 
+## Accommodations
+
+In order to receive accommodations beyond the existing late policy you must complete a [Request for Accommodation](https://forms.gle/8RsmDmUntnUC9tZW7) before the due date of the deliverable or exam. This applies for those who have university approved accommodations and for those who experience difficulties that are outside their control such as sickness, injury, or disaster. When you submit your assignment, make sure you leave a comment for the TA that you have applied for an accommodation. The TA will then verify the request and modify the late penalty appropriately.
+
+1. Submit a request for each assignment you are seeking accommodations for.
+1. Make a comment when you submit so that the TA knows you applied for an accommodation.
+
 ## Resubmissions
 
 When you work on a deliverable you should follow this basic pattern:
