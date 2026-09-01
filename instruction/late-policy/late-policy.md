@@ -51,4 +51,4 @@ You have 3 grace days when you turn in an assignment on Tuesday that was due the
 
 Life happens, sometimes in ways we cannot foresee. If you encounter an extenuating circumstance or require university accommodations during the semester, please contact the professor as soon as possible. University accommodations require you to request extensions from the instructor **before** the deadline.
 
-Refer to the [Syllabus](/course/7b46ce1a-2b79-4455-b706-aea79f1b51ac/topic/c1a1ebe9-a8b7-4646-b4a0-25860a2bbe9f) for information on how to request extensions.
+Refer to the [Syllabus](../syllabus/syllabus.md) for information on how to request extensions.
