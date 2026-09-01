@@ -41,7 +41,7 @@ You can view your available grace days via the `Grace Days` assignment in Canvas
 You have 3 grace days when you turn in an assignment on Tuesday that was due the previous Friday. According to the policy, what is the result?
 
 - [ ] You receive a zero and you still have 3 grace days
-- [ ] You receive a zero and you have 0 grace days 
+- [ ] You receive a zero and you have 0 grace days
 - [x] Your assignment is graded and you have 0 grace days
 - [ ] Your assignment is graded and you have 1 grace day
 ```
@@ -50,4 +50,4 @@ You have 3 grace days when you turn in an assignment on Tuesday that was due the
 
 Life happens, sometimes in ways we cannot foresee. If you encounter an extenuating circumstance or require university accommodations during the semester, please contact the professor as soon as possible. University accommodations require you to request extensions from the instructor **before** the deadline.
 
-Refer to the [Syllabus](/course/12f2522b-d70d-4982-89e4-171435b02a63/topic/c1a1ebe9-a8b7-4646-b4a0-25860a2bbe9f) for information on how to request extensions.
+Refer to the [Syllabus](/course/7b46ce1a-2b79-4455-b706-aea79f1b51ac/topic/c1a1ebe9-a8b7-4646-b4a0-25860a2bbe9f) for information on how to request extensions.
