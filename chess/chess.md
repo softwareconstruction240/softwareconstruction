@@ -60,13 +60,13 @@ When you complete the entire project, you should have something similar to the f
 ## ☑ Exercise
 
 ```masteryls
-{"id":"ce4ac8ef-4bee-4c48-aa9a-7da6969d4d89", "title":"Playing chess", "type":"multiple-choice", "syncGrade":false, "autoGrade":false, "gradingCriteria":"The learner can provide any answer and get 100%" }
+{"id":"40824056-92f3-48e6-8f68-f0f63d67071f", "title":"Multiple select survey", "type":"survey",  "multipleSelect": "true" }
+How well do you know how to play chess?
 
-- [x] I don't know how to play chess
-- [x] I understand the rules of chess
-- [x] I am confortable playing chess
+- [ ] I don't know how to play chess
+- [ ] I understand the rules of chess
+- [ ] I am confortable playing chess
 ```
-
 
 ```masteryls
 {"id":"67e53d3b-397a-4a0d-998f-1aad6c08dbbd", "title":"Chess", "type":"essay" }
