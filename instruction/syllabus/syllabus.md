@@ -124,15 +124,6 @@ Since the Chess phases build on top of each other, the previous phase must be co
 
 In addition to getting your code to "work", a significant part of your project grade will be based on the quality of your work. Our class autograder will check for code quality and unit tests. Your code and automated test cases can be reviewed by a TA, and we may change your grade based on how well you have followed the good coding and testing practices discussed in class. Therefore, it is in your best interest to tidy up your code and test cases as you go along.
 
-
-### **Late Policies**
-
-The late penalty for all assignments is 10% off per school day (school day = Monday through Friday except for holidays). Non-school days count the same as the following school day (for example, if an assignment is due on a Wednesday and the next day (Thursday) is a holiday, Thursday and Friday would both have a 10% penalty and Saturday, Sunday, and Monday would all have a 20% penalty).
-
-The maximum late penalty on all assignments is 50% off (i.e., you will never lose more than 50% for being late on an assignment).
-
-For assignments with multiple independently graded rubric items, this late penalty is per rubric item as long as the main functionality of the assignment is complete and your pre-penalty score for that rubric item does not decrease. For example, if you submit Phase 3 on the due date with full points on the "Web API Works" item (the main functionality of the assignment) but with less than full points on the other two rubric items and then resubmit the next day with full points on all three, the "Web API Works" item would remain at full points while the other two would receive the 10% late penalty.
-
 ## Doing Your Own Work
 
 All deliverables must be your own work. You are encouraged to study with other students, discuss concepts, ideas, and general approaches. However, you may not submit someone else's solution as your deliverable or provide your solution to other students.
