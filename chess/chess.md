@@ -60,7 +60,7 @@ When you complete the entire project, you should have something similar to the f
 ## ☑ Exercise
 
 ```masteryls
-{"id":"40824056-92f3-48e6-8f68-f0f63d67071f", "title":"Multiple select survey", "type":"survey",  "multipleSelect": "false" }
+{"id":"40824056-92f3-48e6-8f68-f0f63d67071f", "title":"Chess familiarity", "type":"survey",  "multipleSelect": "false" }
 How well do you know how to play chess?
 
 - [ ] I don't know how to play chess
