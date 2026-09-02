@@ -60,7 +60,7 @@ When you complete the entire project, you should have something similar to the f
 ## ☑ Exercise
 
 ```masteryls
-{"id":"ce4ac8ef-4bee-4c48-aa9a-7da6969d4d89", "title":"Playing chess", "type":"multiple-choice", "syncGrade":false, "autoGrade":false, "gradingCriteria":"Any response results if full credit" }
+{"id":"ce4ac8ef-4bee-4c48-aa9a-7da6969d4d89", "title":"Playing chess", "type":"multiple-choice", "syncGrade":false, "autoGrade":false, "gradingCriteria":"The learner can provide any answer and get 100%" }
 
 - [x] I don't know how to play chess
 - [x] I understand the rules of chess
