@@ -86,6 +86,10 @@ boolean verifyUser(String username, String providedClearTextPassword) {
 
 The code above demonstrates the concepts needed for secure password storage. You should adapt this to your specific DAO implementation. You do not need a separate table for passwords; the hashed password can be stored in your existing `user` table.
 
+## Error Handling
+
+Now that your database is stored in MySQL, you must account for any errors trying to connect to that program. If any exception is thrown while an endpoint is trying to access the database, this should be considered an `Internal Server Error`, and an appropriate response must be handled. The status code must be set to `500` and the body of each of these responses must include a reasonable, relevant error message. You may recall this specification from [Phase 3](../3-web-api/web-api.md#endpoint-specifications).
+
 ## ChessGame Serialization/Deserialization
 
 The most straightforward way to store the state of a `ChessGame` in MySQL is to serialize it to a JSON string and store that string in a `TEXT` or `VARCHAR` column. Whenever your server needs to update a game's state, it should:
