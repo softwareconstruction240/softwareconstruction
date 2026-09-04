@@ -168,6 +168,7 @@ In order to demonstrate original authorship, you must:
 
 
 - [x] I have read this syllabus
+- [ ] I'm am ignoring the syllabus and hoping things work out
 ```
 
 ##   Grade Scheme
