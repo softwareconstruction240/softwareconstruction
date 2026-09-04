@@ -33,7 +33,7 @@
 |  | Thu Nov 5 |  |  | [WebSocket](../instruction/websocket/websocket.md) | [WebSocket](https://docs.google.com/presentation/d/19r2fC1VHMMTp7qUmRGh89swp7ZLgf3JcOUkEXIndKMg) |
 | 11 | Tue Nov 10 |  |  | [Phase 6: Architectural Patterns](../instruction/phase-6-architectural-patterns/phase-6-architectural-patterns.md)</br>[Phase 6: Getting Started](../chess/6-gameplay/getting-started.md)</br>[`Phase 6: Chess Gameplay`](../chess/6-gameplay/gameplay.md) | [Gameplay](https://docs.google.com/presentation/d/1xXsH2eCmbI0n6xW0Q6ClyXy2p5ZnaKf0nbOBuNN_exw) |
 |  | Thu Nov 12 | `Enrichment` |  | [Computer Security](../instruction/computer-security/computer-security.md) | [Hashing](https://docs.google.com/presentation/d/1mWgXs0u2Lr7ducLhPEALvu3DlINNzMY_ZZk0NGoku58) |
-|  | Sat Nov 14, 2026 |  | [☑ Phase 5: Chess Pregame](../chess/5-pregame/pregame.md) |  |  |
+|  | Fri Nov 13, 2026 |  | [☑ Phase 5: Chess Pregame](../chess/5-pregame/pregame.md) |  |  |
 | 12 | Tue Nov 17 |  |  | [Computer Security](../instruction/computer-security/computer-security.md) | [Encryption](https://docs.google.com/presentation/d/1rXrgWisZYZKIXz5Mh1t7PUA8mMNYL6e0ovY8hldKnLA) |
 |  | Thu Nov 19 |  |  | In class help session |  |
 |  | Fri Nov 20, 2026 |  | 2nd Programming Exam retake |  |  |
@@ -41,7 +41,7 @@
 |  | Thu Nov 26 |  |  | _Thanksgiving_ **NO CLASS** |  |
 | 14 | Tue Dec 1 |  |  | [Concurrency](../instruction/concurrency/concurrency.md) | [Concurrency](https://docs.google.com/presentation/d/1OcH2XYen-U0f1sBAxaaCswwzp_OergGhq7b9mopszRM) |
 |  | Thu Dec 3 |  |  | [Distributed Application Architectures](../instruction/distributed-application-architectures/distributed-application-architectures.md) | [Architecture](https://docs.google.com/presentation/d/1Mj5SeoHmskFz4GbOkdULgDfVrUxuQ542) |
-|  | Sat Dec 5, 2026 |  | [☑ Phase 6: Chess Gameplay](../chess/6-gameplay/gameplay.md) |  |  |
+|  | Fri Dec 4, 2026 |  | [☑ Phase 6: Chess Gameplay](../chess/6-gameplay/gameplay.md) |  |  |
 | 15 | Tue Dec 8 |  |  | [Final Exam Review](../instruction/final-exam-review/final-exam-review.md)</br>[Wrap Up](../instruction/wrap-up/wrap-up.md)</br>[Final - Job Interview](../instruction/job-interview/job-interview.md) |  |
 |  | Thu Dec 10 |  | _Dec 11-17_ - Final |  |  |
 
