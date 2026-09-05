@@ -70,7 +70,7 @@ How well do you know how to play chess?
 
 ```masteryls
 {"id":"67e53d3b-397a-4a0d-998f-1aad6c08dbbd", "title":"Chess", "type":"essay" }
-Which chess phase are you most worried about and why?
+Which of the 7 chess phases in this class are you most worried about and why?
 ```
 
 ## Videos
