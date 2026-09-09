@@ -65,7 +65,7 @@ How well do you know how to play chess?
 
 - [ ] I don't know how to play chess
 - [ ] I understand the rules of chess
-- [ ] I am confortable playing chess
+- [ ] I am comfortable playing chess
 ```
 
 ```masteryls
