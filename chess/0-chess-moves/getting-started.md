@@ -27,7 +27,7 @@ When the project opens, it should look like the image below. The `client`, `serv
 
 ![open intellij](open-intellij.png)
 
-You should not see a folder named `chess` inside your IntelliJ project view; only the items *inside* the `chess` folder should be visible. If you do see a `chess` folder, check that you haven't opened a parent directory by mistake. You can confirm that the modules are set up correctly by going to **File > Project Structure > Modules** and verifying that only `client`, `server`, and `shared` are listed. Feel free to ask a TA for help if your structure looks different.
+You can confirm that the modules are set up correctly by going to **File > Project Structure > Modules** and verifying that only `client`, `server`, and `shared` are listed. Feel free to ask a TA for help if your structure looks different.
 
 ![verify modules](verify-modules.png)
 
