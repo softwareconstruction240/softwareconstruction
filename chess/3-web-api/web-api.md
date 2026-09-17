@@ -527,9 +527,10 @@ To pass off this assignment use the course [auto-grading](https://cs240.click/) 
 | Unit Tests     | All test cases pass<br/>Line coverage on `service` package is at least 80%<br/>Every test case includes an Assert statement of some type <br/> 1.25 points of extra credit for 90% line coverage|           25 |
 |                | **Total**                                                                                                                                                                                        |      **180** |
 
-#### 🥅 Outcome Reflections
+## Outcome Reflections
 
-With the completion of this chess server deliverable checkpoint, it is time to reflect upon the course outcomes and your ability to master them.
+After you have completed this deliverable checkpoint come back and reflect upon the course outcomes and your ability to master them.
+
 
 ```masteryls
 {"id":"a0ae347e-4e87-4f70-bc04-f88800c6af16","title":"Frame","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
