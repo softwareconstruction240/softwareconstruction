@@ -161,9 +161,10 @@ To pass off this assignment, use the course [auto-grading](https://cs240.click/)
 | Unit Tests     | All test cases pass<br/>Line coverage on `dataaccess.sql` package is at least 80%<br/>Every test case includes an Assert statement of some type<br/>1.25 points of extra credit for 90% line coverage |           25 |
 |                | **Total**                                                                                                                                                                           |      **155** |
 
-#### 🥅 Outcome Reflections
+## Outcome Reflections
 
-With the completion of this chess database deliverable checkpoint, it is time to reflect upon the course outcomes and your ability to master them.
+After you have completed this deliverable checkpoint come back and reflect upon the course outcomes and your ability to master them.
+
 
 ```masteryls
 {"id":"712d8fed-6c1f-449b-af7d-f8202d020522","title":"Frame","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
