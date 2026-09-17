@@ -316,9 +316,10 @@ Before coming to passoff with a TA, check to make sure your code functions prope
 | Code Quality                  | [Rubric](../code-quality-rubric.md)                                                                                                                                  |           30 |
 |                               | **Total**                                                                                                                                                            |      **155** |
 
-#### 🥅 Outcome Reflections
+## Outcome Reflections
 
-With the completion of this chess gameplay deliverable checkpoint, it is time to reflect upon the course outcomes and your ability to master them.
+After you have completed this deliverable checkpoint come back and reflect upon the course outcomes and your ability to master them.
+
 
 ```masteryls
 {"id":"ce464df0-a2d6-45a9-a659-a2eb2227d1b0","title":"Frame","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
