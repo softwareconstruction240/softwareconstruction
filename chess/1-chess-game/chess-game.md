@@ -164,9 +164,10 @@ To pass off this assignment use the course [auto-grading](https://cs240.click/) 
 
 
 
-#### 🥅 Outcome Reflections
+## Outcome Reflections
 
-With the completion of this chess game deliverable checkpoint, it is time to reflect upon the course outcomes and your ability to master them.
+After you have completed this deliverable checkpoint come back and reflect upon the course outcomes and your ability to master them.
+
 
 ```masteryls
 {"id":"1a5b6586-b075-4b9b-9d61-3e1f469ba93b","title":"Frame","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
