@@ -174,9 +174,10 @@ When initially graded, your design will be given one of three scores:
 | The submitted design was not a serious attempt at doing the assignment correctly. Resubmit your design within one week (or two days in a term) of initial grading and receive a maximum score of 50%.                                                                     |     0 |
 
 
-#### 🥅 Outcome Reflections
+## Outcome Reflections
 
-With the completion of this chess server design deliverable checkpoint, it is time to reflect upon the course outcomes and your ability to master them.
+After you have completed this deliverable checkpoint come back and reflect upon the course outcomes and your ability to master them.
+
 
 ```masteryls
 {"id":"ef7e108e-d6b3-49e8-9745-1f9a25d6eb91","title":"Frame","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
