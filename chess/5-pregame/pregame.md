@@ -196,9 +196,11 @@ Review the [Phase 5 Passoff Common Problems](../../instruction/chess-tips/chess-
 | Code Quality   | Adherence to the [Code Quality Rubric](../code-quality-rubric.md).                                                                                                                                                             |           30 |
 | Unit Tests     | All test cases pass<br/>Line coverage on `ServerFacade` class is at least 80%<br/>Every test case includes an Assert statement of some type<br/>1.25 points of extra credit for 90% line coverage |           25 |
 |                | **Total**                                                                                                                                                                                       |      **155** |
-#### 🥅 Outcome Reflections
 
-With the completion of this chess pregame deliverable checkpoint, it is time to reflect upon the course outcomes and your ability to master them.
+## Outcome Reflections
+
+After you have completed this deliverable checkpoint come back and reflect upon the course outcomes and your ability to master them.
+
 
 ```masteryls
 {"id":"939db0e5-dded-44d3-90a6-cd8e8ca21490","title":"Frame","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
