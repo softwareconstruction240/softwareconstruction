@@ -202,7 +202,7 @@ What is the primary factor that distinguishes software engineering from simple p
 ```
 
 ```masteryls
-{"id":"e90d5eb9-6d56-454d-a036-0bb576b1322c", "title":"Disciplinary Excellence", "type":"essay", "gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Be generous in grading while giving feedback on missing concepts." }
+{"id":"e90d5eb9-6d56-454d-a036-0bb576b1322c", "title":"Disciplinary Excellence", "type":"essay", "gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit." }
 How does taking ownership of the long-term impact of your software prepare you to become a leader who blesses others through your profession?
 ```
 
