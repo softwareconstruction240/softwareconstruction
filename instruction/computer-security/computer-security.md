@@ -52,12 +52,12 @@ Desirable features of a cryptographic hash function include:
 
 There are many algorithms for computing digests. The following table lists common ones along with their limitations and benefits.
 
-| Hash function | Benefits | Limitations |
-| ------------- | -------- | ----------- |
-| **MD5** | Simple, fast, widely available | Vulnerable to collision attacks; considered insecure for cryptographic use |
-| **SHA-1** | Historically significant, widely available | Vulnerable to collision attacks; considered insecure for cryptographic use |
-| **SHA-256** | Secure against known attacks, industry standard | Slower than MD5 and SHA-1 |
-| **Bcrypt** | Specifically designed for password hashing; secure against brute force | Intentionally slow; not suitable for general data integrity checks |
+| Hash function | Benefits                                                               | Limitations                                                                |
+| ------------- | ---------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| **MD5**       | Simple, fast, widely available                                         | Vulnerable to collision attacks; considered insecure for cryptographic use |
+| **SHA-1**     | Historically significant, widely available                             | Vulnerable to collision attacks; considered insecure for cryptographic use |
+| **SHA-256**   | Secure against known attacks, industry standard                        | Slower than MD5 and SHA-1                                                  |
+| **Bcrypt**    | Specifically designed for password hashing; secure against brute force | Intentionally slow; not suitable for general data integrity checks         |
 
 If you are using macOS or Linux, you can use the `shasum` command-line utility to generate a hash using the **SHA-256** algorithm.
 
@@ -160,11 +160,11 @@ The following diagram demonstrates the flow for using salted passwords:
 
 The salt does not need to be encrypted; it is stored in the database alongside the hash. It simply ensures that an attacker cannot use a generic rainbow table. They would have to compute a new table for every individual salt, which is computationally impractical.
 
-| Representation    | Benefit                                                                           |
-| ----------------- | --------------------------------------------------------------------------------- |
-| Plain text        | None (dangerous)                                                                  |
-| Hashed            | Passwords are not immediately readable if the database is compromised             |
-| Hashed and salted | Protects against precomputed rainbow table attacks                                |
+| Representation    | Benefit                                                               |
+| ----------------- | --------------------------------------------------------------------- |
+| Plain text        | None (dangerous)                                                      |
+| Hashed            | Passwords are not immediately readable if the database is compromised |
+| Hashed and salted | Protects against precomputed rainbow table attacks                    |
 
 ### Bcrypt
 
@@ -203,22 +203,22 @@ public class PasswordExample {
 
 Unlike one-way hashing, many applications need to recover the original data. For example, medical or financial records must be encrypted for storage but decrypted when a user requests to view them.
 
-| Term        | Purpose                                | Example             |
-| ----------- | -------------------------------------- | ------------------- |
-| Plaintext   | Unencrypted data                       | toomanysecrets      |
-| Key         | Value used to encrypt and decrypt data | 9012434289054653828 |
-| Key size    | The length of the key (in bits)        | 256 bits            |
-| Ciphertext  | Encrypted data                         | 88338012387532      |
+| Term       | Purpose                                | Example             |
+| ---------- | -------------------------------------- | ------------------- |
+| Plaintext  | Unencrypted data                       | toomanysecrets      |
+| Key        | Value used to encrypt and decrypt data | 9012434289054653828 |
+| Key size   | The length of the key (in bits)        | 256 bits            |
+| Ciphertext | Encrypted data                         | 88338012387532      |
 
 ### Simple Example
 
 Consider a simple "Caesar cipher" variation that adds a numeric key to each character.
 
-| Value       | Example        |
-| ----------- | -------------- |
-| Plaintext   | toomanysecrets |
-| Key         | 1              |
-| Ciphertext  | uppoboztfdsfut |
+| Value      | Example        |
+| ---------- | -------------- |
+| Plaintext  | toomanysecrets |
+| Key        | 1              |
+| Ciphertext | uppoboztfdsfut |
 
 ```java
 public class SimpleExample {
@@ -368,6 +368,7 @@ public class AsymmetricKeyExample {
 ```
 
 You can also generate an RSA key pair using the terminal:
+
 ```sh
 ssh-keygen -t rsa -b 4096
 ```
@@ -375,6 +376,7 @@ ssh-keygen -t rsa -b 4096
 ### Disadvantages of Asymmetric Key Encryption
 
 Asymmetric encryption is critical for modern security, but it has two main drawbacks:
+
 1. **Size Restriction**: It can only encrypt small amounts of data (typically smaller than the key size).
 2. **Performance**: It is significantly slower than symmetric encryption.
 
@@ -423,7 +425,6 @@ If the website cannot decrypt the symmetric key, it proves they do not own the p
 
 ## ☑ Exercise
 
-
 ```masteryls
 {"id":"72e7da2d-4755-40ef-bcc6-cd3c0ebee3c0","title":"Advantages of Symmetric Encryption","type":"multiple-choice"}
 When comparing symmetric and asymmetric cryptographic systems, which of the following represents a significant advantage of symmetric encryption?
@@ -445,10 +446,9 @@ In the process of creating a digital signature, what is the primary purpose of a
 ```
 
 ```masteryls
-{"id":"848391d2-e265-4d53-ad15-a55fc760547c", "title":"Web Certificates", "type":"essay", "gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts" }
+{"id":"848391d2-e265-4d53-ad15-a55fc760547c", "title":"Web Certificates", "type":"essay", "gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit." }
 You are analyzing the security of your web application. Where would an attacker gain the most value from compromising the web certificate generation and use?
 ```
-
 
 ## Videos
 

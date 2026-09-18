@@ -506,7 +506,6 @@ All of the tests in your project must succeed in order to complete this phase.
 
 To pass off this assignment use the course [auto-grading](https://cs240.click/) tool. If your code passes then your grade will automatically be entered in Canvas.
 
-
 ```masteryls
 {"id":"8e3c0adc-1d43-44d3-b12d-32d81b0db1a6","title":"Submission Precheck","type":"multiple-choice"}
 - [x] All of the test cases, including the service unit tests I wrote, are passing, I have verified my code quality, and my GitHub commit history complies with the course requirements.
@@ -524,44 +523,43 @@ To pass off this assignment use the course [auto-grading](https://cs240.click/) 
 | GitHub History | At least 12 GitHub commits evenly spread over the assignment period that demonstrate proof of work                                                                                               | Prerequisite |
 | Web API Works  | All pass off test cases succeed                                                                                                                                                                  |          125 |
 | Code Quality   | [Rubric](../code-quality-rubric.md)                                                                                                                                                              |           30 |
-| Unit Tests     | All test cases pass<br/>Line coverage on `service` package is at least 80%<br/>Every test case includes an Assert statement of some type <br/> 1.25 points of extra credit for 90% line coverage|           25 |
+| Unit Tests     | All test cases pass<br/>Line coverage on `service` package is at least 80%<br/>Every test case includes an Assert statement of some type <br/> 1.25 points of extra credit for 90% line coverage |           25 |
 |                | **Total**                                                                                                                                                                                        |      **180** |
 
 ## Outcome Reflections
 
 After you have completed this deliverable checkpoint come back and reflect upon the course outcomes and your ability to master them.
 
-
 ```masteryls
-{"id":"a0ae347e-4e87-4f70-bc04-f88800c6af16","title":"Frame","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+{"id":"a0ae347e-4e87-4f70-bc04-f88800c6af16","title":"Frame","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit."}
 What process did you use to frame your understanding of the chess server so that it properly reflected the requirements? How did you determine a correct understanding of the problem so that you were able to consider the factors that your users deem important and will depend on?
 ```
 
 ```masteryls
-{"id":"5f19d8ae-e2b5-4adb-8258-b87f5e157c6e","title":"Explore","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+{"id":"5f19d8ae-e2b5-4adb-8258-b87f5e157c6e","title":"Explore","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit."}
 What software engineering principles and practices did you consider when you were exploring how to represent a chess server? What did you do to advance your learning of the possible solution space?
 ```
 
 ```masteryls
-{"id":"3ba8e4c9-7b05-4512-9dcf-80b5257717f4","title":"Design","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+{"id":"3ba8e4c9-7b05-4512-9dcf-80b5257717f4","title":"Design","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit."}
 What object-oriented and design principles did you consider as you converted your framing and exploration of the chess server into a design solution? What did you do to ensure you were considering the needs of future developers and users of the application?
 ```
 
 ```masteryls
-{"id":"dfd511cd-6a2c-4026-b184-81eccfe284e8","title":"Build","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+{"id":"dfd511cd-6a2c-4026-b184-81eccfe284e8","title":"Build","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit."}
 What went well and what did you find challenging as you implemented your chess server? What did you do to demonstrate design integrity and the quality of the application?
 ```
 
 ```masteryls
-{"id":"d2f284fd-f0e7-491e-9f33-ea17a4a6262a","title":"Test","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+{"id":"d2f284fd-f0e7-491e-9f33-ea17a4a6262a","title":"Test","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit."}
 What testing patterns did you employ to ensure a correct implementation of the chess server and encourage the foundation of a trustworthy application that others can rely on?
 ```
 
 ## Videos
 
-- 🎥 [Phase 3 Overview (4:11)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=ff20952c-4442-4c05-af4d-b458015da74d) 
-- 🎥 [Chess Server Implementation Tips (5:08)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=7fbada42-7406-4aed-8d4f-b4580159ecb7) 
-- 🎥 [JSON and Serialization Tips (2:33)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=edf929ac-0468-4539-bad7-b458015bfeac) 
-- 🎥 [Data Access Classes (3:28)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=40f18f38-908f-4b90-af61-b458015f03e5) 
-- 🎥 [Unit Tests (1:59)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=7179270b-92a3-42e3-a607-b45801605534) 
-- 🎥 [Code Quality (2:10)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=bc9dcdad-b376-41dc-b4d6-b4580161004d) 
+- 🎥 [Phase 3 Overview (4:11)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=ff20952c-4442-4c05-af4d-b458015da74d)
+- 🎥 [Chess Server Implementation Tips (5:08)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=7fbada42-7406-4aed-8d4f-b4580159ecb7)
+- 🎥 [JSON and Serialization Tips (2:33)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=edf929ac-0468-4539-bad7-b458015bfeac)
+- 🎥 [Data Access Classes (3:28)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=40f18f38-908f-4b90-af61-b458015f03e5)
+- 🎥 [Unit Tests (1:59)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=7179270b-92a3-42e3-a607-b45801605534)
+- 🎥 [Code Quality (2:10)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=bc9dcdad-b376-41dc-b4d6-b4580161004d)

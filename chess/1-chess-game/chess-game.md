@@ -4,7 +4,6 @@
 - 🖥️ [Videos](#videos)
 - [TA Tips](../../instruction/chess-tips/chess-tips.md#phase-1---chess-game): A collection of common problems for this phase
 
-
 #### Outcomes of this Deliverable
 
 1. **Frame** software engineering problems by clarifying system purpose, constraints, and responsibilities, demonstrating both sound technical judgment and a sense of ownership for the long-term impact of software others depend on.
@@ -15,10 +14,10 @@
 
 ---
 
-
 In the previous phase you implemented the board and pieces along with the rules for setting up the board and moving pieces. In this phase you will implement the `ChessGame` so that you can play a game by making moves and determining check, stalemate, and checkmate.
 
 ## Getting Started
+
 Complete the [Getting Started](getting-started.md) instructions before working on this phase.
 
 ## Code Class Structure
@@ -139,14 +138,11 @@ All of the tests in your project must succeed in order to complete this phase. I
 
 To pass off this assignment use the course [auto-grading](https://cs240.click/) tool. If your code passes then your grade will automatically be entered in Canvas.
 
-
 ```masteryls
 {"id":"92cb273b-e92d-4120-b720-8c40a3a87672","title":"Submission Precheck","type":"multiple-choice"}
 - [x] All of the test cases are passing and my GitHub commit history complies with the course requirements.
 - [ ] I need to back and do some more work before submitting.
 ```
-
-
 
 ### Grading Rubric
 
@@ -161,36 +157,32 @@ To pass off this assignment use the course [auto-grading](https://cs240.click/) 
 | Extra Credit   | `extracredit` test cases succeed                                                                  |    bonus +10 |
 |                | **Total**                                                                                         |      **125** |
 
-
-
-
 ## Outcome Reflections
 
 After you have completed this deliverable checkpoint come back and reflect upon the course outcomes and your ability to master them.
 
-
 ```masteryls
-{"id":"1a5b6586-b075-4b9b-9d61-3e1f469ba93b","title":"Frame","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+{"id":"1a5b6586-b075-4b9b-9d61-3e1f469ba93b","title":"Frame","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit."}
 What process did you use to frame your understanding of the game of chess so that it properly reflected the requirements? How did you determine a correct understanding of the problem so that you were able to consider the factors that your users deem important and will depend on?
 ```
 
 ```masteryls
-{"id":"1e68c21b-7b78-4cb2-b0f6-59eace8763db","title":"Explore","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+{"id":"1e68c21b-7b78-4cb2-b0f6-59eace8763db","title":"Explore","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit."}
 What software engineering principles and practices did you consider when you were exploring how to represent a chess game? What did you do to advance your learning of the possible solution space?
 ```
 
 ```masteryls
-{"id":"e20bf737-288c-4c74-9327-9661ff4ccdd8","title":"Design","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+{"id":"e20bf737-288c-4c74-9327-9661ff4ccdd8","title":"Design","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit."}
 What object-oriented and design principles did you consider as you converted your framing and exploration of the game of chess into a design solution? What did you do to ensure you were considering the needs of future developers and users of the application?
 ```
 
 ```masteryls
-{"id":"4935143c-88fb-4462-b7a4-2424d2d48821","title":"Build","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+{"id":"4935143c-88fb-4462-b7a4-2424d2d48821","title":"Build","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit."}
 What went well and what did you find challenging as you implemented your chess game design? What did you do to demonstrate design integrity and the quality of the application?
 ```
 
 ```masteryls
-{"id":"cd733c72-dca6-4419-8685-b47db5d666a2","title":"Test","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+{"id":"cd733c72-dca6-4419-8685-b47db5d666a2","title":"Test","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit."}
 What testing patterns did you employ to ensure a correct implementation of the game of chess and encourage the foundation of a trustworthy application that others can rely on?
 ```
 

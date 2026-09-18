@@ -30,17 +30,17 @@ To manage this complexity, software engineers follow a structured process known 
 
 It is helpful to distinguish between "programming" and "software engineering." While they overlap, the scope of software engineering is significantly broader.
 
-*   **Programming:** Primarily concerned with the act of writing code and implementing algorithms. It is often a solitary activity focused on making a specific module work.
-*   **Software Engineering:** Concerned with the entire system. It includes requirements gathering, architectural design, team collaboration, testing strategies, and long-term maintenance.
+- **Programming:** Primarily concerned with the act of writing code and implementing algorithms. It is often a solitary activity focused on making a specific module work.
+- **Software Engineering:** Concerned with the entire system. It includes requirements gathering, architectural design, team collaboration, testing strategies, and long-term maintenance.
 
 For example, consider the difference in how a simple task is handled. A programmer might write a script to process data once. A software engineer writes a robust service that handles errors, logs activity, and can be easily updated by other team members.
-
 
 ### Example: Modular Design
 
 One key principle of software engineering is **modularity**. Instead of writing one giant file of code (a "monolith"), engineers break systems into smaller, reusable components.
 
 **Poor Approach (Hard to maintain):**
+
 ```java
 public class Main {
     public static void main(String[] args) throws java.io.IOException {
@@ -53,9 +53,10 @@ public class Main {
 ```
 
 **Software Engineering Approach (Modular and Testable):**
+
 ```java
 public class DataProcessor {
-    
+
     /** Loads raw data from a source. */
     public String loadData(String filepath) {
         try {
@@ -83,11 +84,11 @@ public class DataProcessor {
 
     public static void main(String[] args) {
         DataProcessor processor = new DataProcessor();
-        
+
         String filepath = getFilePath(args);
         String content = processor.loadData(filepath);
         String result = processor.processData(content);
-  
+
         System.out.println("Result: " + result);
     }
 }
@@ -109,14 +110,13 @@ After implementing the first phase, you will rewrite the code from the base proj
 
 The remaining phases involve implementing a chess server that allows multiple client programs to connect, register users, and play games.
 
-
 ## Java
 
 You will use the Java programming language for all your work in this course. Java has been a leading industry language for decades. According to the [2025 Stack Overflow survey](https://survey.stackoverflow.co/2025/technology#most-popular-technologies), Java is used by approximately 30% of professional developers. Java is object-oriented, compiled, garbage-collected, and strongly typed. Mastering Java will significantly strengthen both your technical skill set and your resume.
 
 ![alt text](popularTechnologies.png)
 
-To learn Java effectively, you will need to reference selected chapters of the book *Core Java for the Impatient*. This book is available for free through the Safari Books collection via the Harold B. Lee Library. You should also utilize the many online resources available for mastering Java concepts.
+To learn Java effectively, you will need to reference selected chapters of the book _Core Java for the Impatient_. This book is available for free through the Safari Books collection via the Harold B. Lee Library. You should also utilize the many online resources available for mastering Java concepts.
 
 ![Java for the Impatient](CoreJavaForTheImpatient4thEdition.png)
 
@@ -178,18 +178,17 @@ Approach new challenges with the attitude that you will learn through trial and 
 
 Your mastery of advanced software construction is evaluated based on the following areas:
 
-| Area           | Percentage |
-| -------------- | ---------- |
-| Chess Project  | 90%        |
-| Phase 0 Exam   | 5%         |
-| Final Exam     | 5%         |
+| Area          | Percentage |
+| ------------- | ---------- |
+| Chess Project | 90%        |
+| Phase 0 Exam  | 5%         |
+| Final Exam    | 5%         |
 
 More important than your grade is the degree to which you stretch yourself. Software construction takes decades to master. If you approach this subject intentionally, with effort and curiosity, your value as a software engineer will increase greatly.
 
 Take time during the course to dive deep into topics you find interesting. Learn from external sources to gain a wide perspective. Question what is being taught and seek better ways to construct software. With this attitude, **you** might lead the next revolution in software construction.
 
 ## ☑ Exercise
-
 
 ```masteryls
 {"id":"ce3d8811-e669-4b43-a13c-b037d81e0d0f","title":"Defining Software Engineering","type":"multiple-choice"}

@@ -45,6 +45,7 @@ In this instruction, we focus on **visual debuggers**. You are encouraged to bec
 To demonstrate debugging techniques, consider a function with the following specification:
 
 > Given a list of words, return a collection containing only:
+>
 > 1. Words of any length that start with a lowercase `c`.
 > 2. Words longer than five characters that start with a lowercase `a`.
 
@@ -210,7 +211,7 @@ Now, the debugger will only stop when `word` is "apple".
 
 ![Conditional Breakpoint Hit](conditional-breakpoint-hit.png)
 
-Stepping over the `matches` call shows that "apple" returns `true`. Our regular expression is wrong. Using a tool like [Regex101.com](https://regex101.com/), we realize the regex needs to allow any length for `c` words and a minimum length of 6 for `a` words (since the requirement was *greater than* five).
+Stepping over the `matches` call shows that "apple" returns `true`. Our regular expression is wrong. Using a tool like [Regex101.com](https://regex101.com/), we realize the regex needs to allow any length for `c` words and a minimum length of 6 for `a` words (since the requirement was _greater than_ five).
 
 ```java
 ^(c.*|a.{5,100})$
@@ -250,7 +251,7 @@ As you fix bugs, you often discover edge cases. It is important to enhance your 
 
 ### Debugging Example: Enhancing Tests
 
-Our current regular expression limits `c` words to 100 characters (`{3,100}`). The requirement stated *any* length for `c` words. We should update the test to include a very long word:
+Our current regular expression limits `c` words to 100 characters (`{3,100}`). The requirement stated _any_ length for `c` words. We should update the test to include a very long word:
 
 ```java
 @Test
@@ -278,9 +279,8 @@ Now the test passes, and our confidence in the code is restored.
 
 ## ☑ Exercise
 
-
 ```masteryls
-{"id":"e98f9beb-df82-41d3-96b9-b0b82c53c670", "title":"Essay", "type":"essay", "gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts" }
+{"id":"e98f9beb-df82-41d3-96b9-b0b82c53c670", "title":"Essay", "type":"essay", "gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit." }
 Describe the common debugging process used by a successful software engineer.
 ```
 

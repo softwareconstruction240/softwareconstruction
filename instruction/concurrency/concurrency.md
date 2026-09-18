@@ -40,7 +40,7 @@ The pattern of concurrently executing tasks is a foundational principle in compu
 
 ## Parallel vs. Concurrent vs. Sequential
 
-When you have multiple tasks and a single CPU, the operating system will swap which task is executing so that each task gets a chance to run. This is known as **context switching**, and it allows tasks to run concurrently. If you have multiple CPUs (or multiple cores), the operating system can actually run the tasks at the **same time**, or in **parallel**. 
+When you have multiple tasks and a single CPU, the operating system will swap which task is executing so that each task gets a chance to run. This is known as **context switching**, and it allows tasks to run concurrently. If you have multiple CPUs (or multiple cores), the operating system can actually run the tasks at the **same time**, or in **parallel**.
 
 If each task must run to completion before another task can start, you are running **sequentially**. When running sequentially, you do not need to worry about data corruption, starvation, or deadlock because no other process can interrupt or interfere with the execution of a task.
 
@@ -196,12 +196,12 @@ In the example above, we used `newSingleThreadExecutor`. Other types include:
 
 ![Executor](executor.png)
 
-| Pool Type               | Description                                                                                                       |
-| ----------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| `newSingleThreadExecutor` | Uses a single thread for all tasks. Eliminates context switching overhead between tasks.                          |
-| `newFixedThreadPool`      | Reuses a fixed number of threads. Good for limiting resource usage.                                               |
-| `newCachedThreadPool`     | Reuses threads, but creates new ones as needed. Good for many short-lived tasks.                                  |
-| `newScheduledThreadPool`  | Runs threads periodically or after a delay.                                                                       |
+| Pool Type                 | Description                                                                              |
+| ------------------------- | ---------------------------------------------------------------------------------------- |
+| `newSingleThreadExecutor` | Uses a single thread for all tasks. Eliminates context switching overhead between tasks. |
+| `newFixedThreadPool`      | Reuses a fixed number of threads. Good for limiting resource usage.                      |
+| `newCachedThreadPool`     | Reuses threads, but creates new ones as needed. Good for many short-lived tasks.         |
+| `newScheduledThreadPool`  | Runs threads periodically or after a delay.                                              |
 
 ## Synchronizing Threads
 
@@ -242,7 +242,7 @@ public class PizzaRaceExample {
 }
 ```
 
-Running this code often results in an `IndexOutOfBoundsException`. This happens because one thread checks `isEmpty()`, finds it false, but before it can call `remove(0)`, another thread removes the last item. 
+Running this code often results in an `IndexOutOfBoundsException`. This happens because one thread checks `isEmpty()`, finds it false, but before it can call `remove(0)`, another thread removes the last item.
 
 Any code that accesses a resource manipulated by multiple threads is a **critical section**. This usually involves code that **reads** and **modifies** a resource over multiple non-atomic statements.
 
@@ -349,13 +349,13 @@ public class AtomicServerExample {
 
 Useful atomic and thread-safe classes include:
 
-| Class                | Description                                                                                                                                                                          |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `AtomicInteger`        | Atomically increments, decrements, or adds to an integer.                                                                                                                                 |
-| `AtomicBoolean`        | Atomically updates a boolean value.                                                                                                                                                  |
-| `BlockingQueue`        | A thread-safe queue for producer-consumer patterns.                                                                                                                                  |
-| `ConcurrentHashMap`    | A high-performance thread-safe map.                                                                                                                                                  |
-| `CopyOnWriteArrayList` | A thread-safe list optimized for scenarios where reads greatly outnumber writes.                                                                                                     |
+| Class                  | Description                                                                      |
+| ---------------------- | -------------------------------------------------------------------------------- |
+| `AtomicInteger`        | Atomically increments, decrements, or adds to an integer.                        |
+| `AtomicBoolean`        | Atomically updates a boolean value.                                              |
+| `BlockingQueue`        | A thread-safe queue for producer-consumer patterns.                              |
+| `ConcurrentHashMap`    | A high-performance thread-safe map.                                              |
+| `CopyOnWriteArrayList` | A thread-safe list optimized for scenarios where reads greatly outnumber writes. |
 
 ## Database Transactions
 
@@ -380,6 +380,7 @@ try (var conn = getConnection()) {
 ### Database Transaction Alternatives
 
 Transactions can be heavy. Alternatives include:
+
 - **Unique Constraints**: Make a column (like `username`) unique so the database rejects duplicates automatically.
 - **Atomic SQL**: Use `INSERT IGNORE` or `INSERT ... ON DUPLICATE KEY UPDATE` to handle logic within a single SQL statement.
 
@@ -388,6 +389,7 @@ Transactions can be heavy. Alternatives include:
 In your chess application, recognize that the server is multithreaded. Even the client can receive asynchronous WebSocket messages on a background thread while the UI thread is active.
 
 Potential issues:
+
 1. **Race for Colors**: Two users might try to join as "White" at the exact same time. Without synchronization, the server might tell both they succeeded.
 2. **Serialized State**: If you store the entire game as a serialized object in the database, you cannot rely on the database for fine-grained locking. You must synchronize access in your Java code to prevent one move from overwriting another.
 
@@ -395,15 +397,13 @@ Always identify your shared data and protect the critical sections where that da
 
 ## ☑ Exercise
 
-
 ```masteryls
-{"id":"4226f08f-09a1-49a3-a5cc-cd30f4760fbd", "title":"Concurrency", "type":"essay", "gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts" }
+{"id":"4226f08f-09a1-49a3-a5cc-cd30f4760fbd", "title":"Concurrency", "type":"essay", "gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit." }
 What is the difference between parallel and concurrent execution?
 ```
 
-
 ```masteryls
-{"id":"33d58c6f-e8af-4c3b-990f-7f7b05f860a6", "title":"Critical Sections", "type":"essay", "gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts" }
+{"id":"33d58c6f-e8af-4c3b-990f-7f7b05f860a6", "title":"Critical Sections", "type":"essay", "gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit." }
 What is a critical section and what are some Java constructs that you can use to protect it?
 ```
 
@@ -416,7 +416,6 @@ In Java's `java.util.concurrent.atomic` package, what is the primary advantage o
 - [ ] They ensure that variables are stored exclusively in the CPU cache to improve the performance of single-threaded applications.
 - [ ] They automatically detect and resolve deadlocks that occur when multiple threads attempt to update the same object simultaneously.
 ```
-
 
 ## Videos
 

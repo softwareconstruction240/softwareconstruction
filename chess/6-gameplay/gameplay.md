@@ -48,12 +48,12 @@ classDiagram
     WebsocketCommunicator <..> Internet
     Internet <..> Server
 ```
+
 _Figure 1: Recommended Chess Client Design_
 
-
 ## Getting Started
-Complete the [Getting Started](getting-started.md) instructions before working on this phase.
 
+Complete the [Getting Started](getting-started.md) instructions before working on this phase.
 
 ## Gameplay Functionality
 
@@ -285,7 +285,6 @@ To pass off this assignment submit your work to the course [auto-grading](https:
 
 Before coming to passoff with a TA, check to make sure your code functions properly and doesn't have any of these common problems past students have had. [Phase 6 Passoff Common Problems](../../instruction/chess-tips/chess-tips.md#passoff-frequently-encountered-problems-1)
 
-
 ```masteryls
 {"id":"d2d9ee04-2d9a-40f9-9c13-db1db990c162","title":"Submission Precheck","type":"multiple-choice"}
 - [x] The functionatity is working, all of the tests are passing, I have verified my code quality, and my GitHub commit history complies with the course requirements.
@@ -320,32 +319,30 @@ Before coming to passoff with a TA, check to make sure your code functions prope
 
 After you have completed this deliverable checkpoint come back and reflect upon the course outcomes and your ability to master them.
 
-
 ```masteryls
-{"id":"ce464df0-a2d6-45a9-a659-a2eb2227d1b0","title":"Frame","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+{"id":"ce464df0-a2d6-45a9-a659-a2eb2227d1b0","title":"Frame","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit."}
 What process did you use to frame your understanding of the chess gameplay so that it properly reflected the requirements? How did you determine a correct understanding of the problem so that you were able to consider the factors that your users deem important and will depend on?
 ```
 
 ```masteryls
-{"id":"d586edeb-56ad-42da-a354-36a000e660b4","title":"Explore","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+{"id":"d586edeb-56ad-42da-a354-36a000e660b4","title":"Explore","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit."}
 What software engineering principles and practices did you consider when you were exploring how to represent a chess gameplay? What did you do to advance your learning of the possible solution space?
 ```
 
 ```masteryls
-{"id":"058feffa-056d-44fa-8a27-ab1e6a5c3762","title":"Design","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+{"id":"058feffa-056d-44fa-8a27-ab1e6a5c3762","title":"Design","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit."}
 What object-oriented and design principles did you consider as you converted your framing and exploration of the chess gameplay into a design solution? What did you do to ensure you were considering the needs of future developers and users of the application?
 ```
 
 ```masteryls
-{"id":"27be87bf-8c65-484a-a25c-ce0553215a4e","title":"Build","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+{"id":"27be87bf-8c65-484a-a25c-ce0553215a4e","title":"Build","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit."}
 What went well and what did you find challenging as you implemented your chess gameplay? What did you do to demonstrate design integrity and the quality of the application?
 ```
 
 ```masteryls
-{"id":"a5dec25a-2131-4137-927a-abbc6d331abd","title":"Test","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+{"id":"a5dec25a-2131-4137-927a-abbc6d331abd","title":"Test","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit."}
 What testing patterns did you employ to ensure a correct implementation of the chess gameplay and encourage the foundation of a trustworthy application that others can rely on?
 ```
-
 
 ## Videos
 

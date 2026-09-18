@@ -66,7 +66,7 @@ These objects represent the core of what you are passing between your server, se
 
 ## Visualizing with Sequence Diagrams
 
-Based upon your understanding of the requirements provided by [Phase 3](../3-web-api/web-api.md) you now must create a sequence diagram for each endpoint that demonstrates the flow of interactions between your application objects. Sequence diagrams are the industry standard for documenting these interactions. They use vertical "lifelines" to represent objects and horizontal arrows to represent method calls. 
+Based upon your understanding of the requirements provided by [Phase 3](../3-web-api/web-api.md) you now must create a sequence diagram for each endpoint that demonstrates the flow of interactions between your application objects. Sequence diagrams are the industry standard for documenting these interactions. They use vertical "lifelines" to represent objects and horizontal arrows to represent method calls.
 
 When creating your diagrams, focus on the **Happy Path** (the successful execution) but keep the **Error Paths** in mind. For instance, what happens if the `UserDAO` returns an error because the database is down? Your diagram should show the Service layer receiving that error and the Handler translating it into an appropriate HTTP status code (like `500 Internal Server Error`).
 
@@ -157,7 +157,7 @@ You can decompose your handlers, services, and data access components into multi
 
 Once you have created your diagram you can create a URL that represents it by selecting the `export diagram` tool found on the toolbar to the left of the application. In the export dialog select `Presentation Mode Link` and copy the URL.
 
- Submit the URL to the `Chess Server Design` Canvas Assignment.
+Submit the URL to the `Chess Server Design` Canvas Assignment.
 
 ![sequencediagram.org](sequence-diagram-org.gif)
 
@@ -173,27 +173,24 @@ When initially graded, your design will be given one of three scores:
 | Your design has significant deficiencies. Meet with a TA to discuss your design, ideally the same TA who originally graded your design. Improve and resubmit your design within one week (or two days in a term) of initial grading, and receive a maximum score of 100%. |    25 |
 | The submitted design was not a serious attempt at doing the assignment correctly. Resubmit your design within one week (or two days in a term) of initial grading and receive a maximum score of 50%.                                                                     |     0 |
 
-
 ## Outcome Reflections
 
 After you have completed this deliverable checkpoint come back and reflect upon the course outcomes and your ability to master them.
 
-
 ```masteryls
-{"id":"ef7e108e-d6b3-49e8-9745-1f9a25d6eb91","title":"Frame","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+{"id":"ef7e108e-d6b3-49e8-9745-1f9a25d6eb91","title":"Frame","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit."}
 What process did you use to frame your understanding of how chess server so that it properly reflected the requirements? How did you determine a correct understanding of the problem so that you were able to consider the factors that your users deem important and will depend on?
 ```
 
 ```masteryls
-{"id":"c47c5b60-373f-47d8-81d7-2c5e48836b9a","title":"Explore","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+{"id":"c47c5b60-373f-47d8-81d7-2c5e48836b9a","title":"Explore","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit."}
 What software engineering principles and practices did you consider when you were exploring how to represent a chess server? What did you do to advance your learning of the possible solution space?
 ```
 
 ```masteryls
-{"id":"836e189e-364e-4030-907b-fd0b7a33a287","title":"Design","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+{"id":"836e189e-364e-4030-907b-fd0b7a33a287","title":"Design","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit."}
 What object-oriented and design principles did you consider as you converted your framing and exploration of the chess server into a design solution? What did you do to ensure you were considering the needs of future developers and users of the application?
 ```
-
 
 ## Videos
 

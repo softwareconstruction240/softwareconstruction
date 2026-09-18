@@ -12,7 +12,6 @@
 
 ---
 
-
 In software engineering, copying an object is rarely as simple as assigning one variable to another. Because objects are stored as references in memory, a simple assignment creates a new pointer to the same data, not a unique duplicate. Understanding the distinction between **Shallow Copies** and **Deep Copies** is fundamental to maintaining data integrity and preventing "spooky action at a distance," where modifying one variable unexpectedly alters another.
 
 Properly applying copying principles aligns with the **Principle of Least Astonishment**. Developers expect that if they pass an object to a function, that function won't permanently mutate the original data unless explicitly intended. To prevent these side effects, engineers often employ **Defensive Copying**, creating a copy of an object before passing it to a subsystem or storing it in a class property to ensure the internal state remains encapsulated.
@@ -43,7 +42,7 @@ public class MyClass {
 
 ## Shallow and Deep Copies
 
-When copying an object, you must distinguish between copying the **data** and copying a **reference** (pointer) to that data. 
+When copying an object, you must distinguish between copying the **data** and copying a **reference** (pointer) to that data.
 
 - **Deep Copy:** Creates an independent duplicate of the data. Changes to the original do not affect the copy.
 - **Shallow Copy:** Copies only the references to the data. Both the original and the copy point to the same underlying object. If that shared object is modified, the change is visible in both places.
@@ -51,6 +50,7 @@ When copying an object, you must distinguish between copying the **data** and co
 A shallow copy is perfectly acceptable if the fields are **immutable** (cannot be changed after creation). However, if the fields are **mutable**, a deep copy is necessary to ensure the copy remains independent of the source.
 
 ### Shallow Copy Example
+
 Notice that this example only copies the reference to the `data` array. If the values inside the array are changed via the `source` object, the `copy` object reflects those changes because they share the same array.
 
 ```java
@@ -81,6 +81,7 @@ public class ShallowCopy {
 ```
 
 ### Deep Copy Example
+
 To prevent side effects, we perform a deep copy by duplicating the actual contents of the array. This ensures the `copy` is independent of the `source`.
 
 ```java
@@ -148,11 +149,10 @@ public class CloneCopy implements Cloneable {
 
 In modern Java development, **copy constructors** are widely preferred over the `clone()` method. While `Object.clone()` was part of the original language design, it is now often considered "broken" or problematic by experts like Joshua Bloch for the following reasons:
 
-*   **Type Safety:** You don't need to cast the result from `Object` to your specific type.
-*   **Final Fields:** Copy constructors allow you to initialize `final` fields, which `clone()` cannot do.
-*   **No Checked Exceptions:** You don't have to catch `CloneNotSupportedException`.
-*   **Control:** It is easier to implement "deep copies" (copying nested objects) manually within a constructor.
-
+- **Type Safety:** You don't need to cast the result from `Object` to your specific type.
+- **Final Fields:** Copy constructors allow you to initialize `final` fields, which `clone()` cannot do.
+- **No Checked Exceptions:** You don't have to catch `CloneNotSupportedException`.
+- **Control:** It is easier to implement "deep copies" (copying nested objects) manually within a constructor.
 
 ## Engineering Principles for Object Copying
 
@@ -162,11 +162,10 @@ When designing robust systems, consider these three principles:
 2.  **Defensive Copying in Constructors:** If your class accepts a list or an object as a parameter, copy it during initialization. This prevents the caller from modifying the internal state of your instance from the outside.
 3.  **Performance Awareness:** Deep copies are computationally expensive. For large, deeply nested trees (like a DOM or a complex JSON response), frequent deep copying can lead to memory pressure and latency. In these cases, consider using **Immutable Data Structures** (like Immutable.js) which use structural sharing to make "copies" efficient.
 
-
 ## ☑ Exercise
 
 ```masteryls
-{"id":"bfcc9583-3d22-4026-a36f-34fceb6be366", "title":"Essay", "type":"essay", "gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts" }
+{"id":"bfcc9583-3d22-4026-a36f-34fceb6be366", "title":"Essay", "type":"essay", "gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit." }
 Which approach do you think would be easier to maintain if you added a list of grades to the `Student` class?
 ```
 

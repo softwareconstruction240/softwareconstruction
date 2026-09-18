@@ -47,7 +47,7 @@ public class BankAccount {
 
 ### Abstraction
 
-Abstraction is the process of hiding the complex internal details of an application and showing only the necessary features to the user (or other parts of the program). It reduces complexity by allowing the programmer to focus on *what* an object does rather than *how* it does it.
+Abstraction is the process of hiding the complex internal details of an application and showing only the necessary features to the user (or other parts of the program). It reduces complexity by allowing the programmer to focus on _what_ an object does rather than _how_ it does it.
 
 Think of a microwave. To use it, you only need to know how to press the buttons on the interface. You do not need to understand how the magnetron generates microwaves or how the internal cooling system functions. In programming, abstraction is achieved through the use of abstract classes and interfaces.
 
@@ -88,6 +88,7 @@ In this diagram, both `Car` and `Motorcycle` inherit from `Vehicle`. They share 
 Polymorphism, meaning "many shapes," allows objects of different types to be treated as objects of a common superclass. It is most commonly seen when a single method call behaves differently depending on the type of object it is called upon.
 
 There are two main types:
+
 1.  **Static Polymorphism (Method Overloading):** Multiple methods in the same class have the same name but different parameters (different signatures).
 2.  **Dynamic Polymorphism (Method Overriding):** A subclass provides a specific implementation of a method that is defined by its superclass or interface.
 
@@ -109,7 +110,6 @@ classDiagram
     Animal <|.. Cat
 ```
 
-
 **Practical Example:**
 If we have a method `makeSound()` in a superclass `Animal`, and subclasses `Dog` and `Cat` override that method, calling `animal.makeSound()` on a list of animals will result in "Woof" for the dog and "Meow" for the cat. The code calling the method doesn't need to know the specific subclass at compile time to execute the correct behavior.
 
@@ -117,19 +117,19 @@ If we have a method `makeSound()` in a superclass `Animal`, and subclasses `Dog`
 
 Transitioning to an object-oriented mindset can present several hurdles:
 
-*   **The "God Object" Problem:** Beginners often create a single class that tries to handle too many responsibilities. 
-    
-    *Solution:* Follow the **Single Responsibility Principle**. Each class should have one, and only one, reason to change.
-*   **Fragile Base Classes:** If an inheritance hierarchy is too deep, changing the parent class can inadvertently break dozens of child classes.
-    
-    *Solution:* Favor **composition over inheritance** when possible. Instead of saying a class *is* something (inheritance), ask if it *has* something (composition).
-*   **Over-Engineering:** It is easy to get carried away with abstraction, creating interfaces for logic that will only ever have one implementation.
-    
-    *Solution:* Keep it simple. Don't add abstraction until you actually need to support multiple variations of a behavior or need to decouple components for testing.
+- **The "God Object" Problem:** Beginners often create a single class that tries to handle too many responsibilities.
 
+  _Solution:_ Follow the **Single Responsibility Principle**. Each class should have one, and only one, reason to change.
+
+- **Fragile Base Classes:** If an inheritance hierarchy is too deep, changing the parent class can inadvertently break dozens of child classes.
+
+  _Solution:_ Favor **composition over inheritance** when possible. Instead of saying a class _is_ something (inheritance), ask if it _has_ something (composition).
+
+- **Over-Engineering:** It is easy to get carried away with abstraction, creating interfaces for logic that will only ever have one implementation.
+
+  _Solution:_ Keep it simple. Don't add abstraction until you actually need to support multiple variations of a behavior or need to decouple components for testing.
 
 ## ☑ Exercise
-
 
 ```masteryls
 {"id":"6d998d67-76af-4c7e-af57-305de7dc1494","title":"Understanding Polymorphism","type":"multiple-choice"}
@@ -151,7 +151,6 @@ In object-oriented programming, which of the following best describes how **enca
 - [ ] By breaking a complex system down into smaller, independent functions that do not share any state.
 ```
 
-
 ```masteryls
 {"id":"d67c59c4-3df9-4a4a-9d77-a4adaf3e104c","title":"Encapsulation vs. Abstraction","type":"multiple-choice"}
 In Object-Oriented Programming, both encapsulation and abstraction are used to hide information, but they serve different purposes. Which of the following best describes the difference between the two?
@@ -162,8 +161,7 @@ In Object-Oriented Programming, both encapsulation and abstraction are used to h
 - [ ] Abstraction is an implementation-level technique used to protect data from outside interference, while encapsulation is a design-level technique used to simplify the system for the user.
 ```
 
-
 ```masteryls
-{"id":"5f154b4b-762f-4bbf-8e0e-271e3bf05bcb", "title":"The Second Great Commandment", "type":"essay", "gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts" }
+{"id":"5f154b4b-762f-4bbf-8e0e-271e3bf05bcb", "title":"The Second Great Commandment", "type":"essay", "gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit." }
 How can modeling your code using Object Oriented Programming principles help you better serve your customers and also other developers that follow after you?
 ```

@@ -153,41 +153,40 @@ To pass off this assignment, use the course [auto-grading](https://cs240.click/)
 >
 > You are required to commit to GitHub at every minor milestone (e.g., after passing a specific test). This should result in a commit history that clearly details your progress. If your Git history does not demonstrate consistent effort, your submission may be rejected.
 
-| Category       | Criteria                                                                                                                                                                            |       Points |
-| :------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -----------: |
-| GitHub History | At least 8 GitHub commits evenly spread over the assignment period that demonstrate proof of work                                                                                   | Prerequisite |
-| Functionality  | All pass-off test cases succeed                                                                                                                                                     |          100 |
-| Code Quality   | [Rubric](../code-quality-rubric.md)                                                                                                                                                 |           30 |
+| Category       | Criteria                                                                                                                                                                                              |       Points |
+| :------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -----------: |
+| GitHub History | At least 8 GitHub commits evenly spread over the assignment period that demonstrate proof of work                                                                                                     | Prerequisite |
+| Functionality  | All pass-off test cases succeed                                                                                                                                                                       |          100 |
+| Code Quality   | [Rubric](../code-quality-rubric.md)                                                                                                                                                                   |           30 |
 | Unit Tests     | All test cases pass<br/>Line coverage on `dataaccess.sql` package is at least 80%<br/>Every test case includes an Assert statement of some type<br/>1.25 points of extra credit for 90% line coverage |           25 |
-|                | **Total**                                                                                                                                                                           |      **155** |
+|                | **Total**                                                                                                                                                                                             |      **155** |
 
 ## Outcome Reflections
 
 After you have completed this deliverable checkpoint come back and reflect upon the course outcomes and your ability to master them.
 
-
 ```masteryls
-{"id":"712d8fed-6c1f-449b-af7d-f8202d020522","title":"Frame","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+{"id":"712d8fed-6c1f-449b-af7d-f8202d020522","title":"Frame","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit."}
 What process did you use to frame your understanding of the chess database so that it properly reflected the requirements? How did you determine a correct understanding of the problem so that you were able to consider the factors that your users deem important and will depend on?
 ```
 
 ```masteryls
-{"id":"ffb735d5-1e63-4a7b-b180-49894ad2d166","title":"Explore","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+{"id":"ffb735d5-1e63-4a7b-b180-49894ad2d166","title":"Explore","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit."}
 What software engineering principles and practices did you consider when you were exploring how to represent the chess database? What did you do to advance your learning of the possible solution space?
 ```
 
 ```masteryls
-{"id":"31b090f1-0051-4a91-9557-7bfbcd52a1d0","title":"Design","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+{"id":"31b090f1-0051-4a91-9557-7bfbcd52a1d0","title":"Design","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit."}
 What object-oriented and design principles did you consider as you converted your framing and exploration of the chess database into a design solution? What did you do to ensure you were considering the needs of future developers and users of the application?
 ```
 
 ```masteryls
-{"id":"e0f6f56e-679b-4023-896d-4ea76530f513","title":"Build","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+{"id":"e0f6f56e-679b-4023-896d-4ea76530f513","title":"Build","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit."}
 What went well and what did you find challenging as you implemented your chess database design? What did you do to demonstrate design integrity and the quality of the application?
 ```
 
 ```masteryls
-{"id":"38f734f7-3436-48d9-8b76-e0224b751d6f","title":"Test","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+{"id":"38f734f7-3436-48d9-8b76-e0224b751d6f","title":"Test","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit."}
 What testing patterns did you employ to ensure a correct implementation of the chess database and encourage the foundation of a trustworthy application that others can rely on?
 ```
 
