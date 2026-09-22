@@ -165,12 +165,12 @@ When designing robust systems, consider these three principles:
 ## ☑ Exercise
 
 ```masteryls
-{"id":"bfcc9583-3d22-4026-a36f-34fceb6be366", "title":"Essay", "type":"essay", "gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit." }
+{"id":"bfcc9583-3d22-4026-a36f-34fceb6be366", "title":"Enhancing the Student class", "type":"essay", "gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit." }
 Which approach do you think would be easier to maintain if you added a list of grades to the `Student` class?
 ```
 
 ```masteryls
-{"id":"113e9ac2-025a-40a3-bc30-7ffbbc94cbbb", "title":"Essay", "type":"essay" }
+{"id":"113e9ac2-025a-40a3-bc30-7ffbbc94cbbb", "title":"Copy constructors", "type":"essay" }
 Write a simply copy constructor for a chess piece that has a color and type property.
 ```
 
