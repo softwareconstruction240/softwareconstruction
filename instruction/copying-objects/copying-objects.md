@@ -165,8 +165,8 @@ When designing robust systems, consider these three principles:
 ## ☑ Exercise
 
 ```masteryls
-{"id":"bfcc9583-3d22-4026-a36f-34fceb6be366", "title":"Enhancing the Student class", "type":"essay", "gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit." }
-Which approach do you think would be easier to maintain if you added a list of grades to the `Student` class?
+{"id":"bfcc9583-3d22-4026-a36f-34fceb6be366", "title":"Copying grades", "type":"essay", "gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit." }
+Which copy approach do you think would be easier to maintain if you added a list of grades to the `Student` class?
 ```
 
 ```masteryls
