@@ -176,7 +176,7 @@ void register() throws Exception {
 
 ### Code Quality
 
-The autograder and TAs will evaluate the quality of your source code based on this [Rubric](../code-quality-rubric.md).
+The autograder and TAs will evaluate the quality of your source code based on this [Rubric](../../instruction/code-quality-rubric/code-quality-rubric.md).
 
 ### Pass Off, Submission, and Grading
 
@@ -204,7 +204,7 @@ Review the [Phase 5 Passoff Common Problems](../../instruction/chess-tips/chess-
 | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -----------: |
 | GitHub History | At least 12 GitHub commits spread evenly over the assignment period demonstrating proof of work.                                                                                                  | Prerequisite |
 | Functionality  | Program supports all required UI and server interaction functionality.                                                                                                                            |          100 |
-| Code Quality   | Adherence to the [Code Quality Rubric](../code-quality-rubric.md).                                                                                                                                |           30 |
+| Code Quality   | Adherence to the [Code Quality Rubric](../../instruction/code-quality-rubric/code-quality-rubric.md).                                                                                             |           30 |
 | Unit Tests     | All test cases pass<br/>Line coverage on `ServerFacade` class is at least 80%<br/>Every test case includes an Assert statement of some type<br/>1.25 points of extra credit for 90% line coverage |           25 |
 |                | **Total**                                                                                                                                                                                         |      **155** |
 

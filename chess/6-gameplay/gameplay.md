@@ -273,7 +273,7 @@ The provided tests for this assignment are in the `WebSocketTests` class. These 
 
 ### Code Quality
 
-For this phase the auto grader will grade the quality of your project's source code. The rubric used to evaluate code quality can be found here: [Rubric](../code-quality-rubric.md)
+For this phase the auto grader will grade the quality of your project's source code. The rubric used to evaluate code quality can be found here: [Rubric](../../instruction/code-quality-rubric/code-quality-rubric.md)
 
 ### Pass Off, Submission, and Grading
 
@@ -312,7 +312,7 @@ Before coming to passoff with a TA, check to make sure your code functions prope
 |                               | **Display Legal Moves**: Any player or observer can display the legal moves available to any piece on the board regardless of whose turn it is.                      |              |
 |                               | **Redraw Board**: The board redraws when requested by the user (player or observer).                                                                                 |              |
 |                               | **Game completion**: No moves after game completion due to resignation, checkmate, or stalemate.                                                                     |              |
-| Code Quality                  | [Rubric](../code-quality-rubric.md)                                                                                                                                  |           30 |
+| Code Quality                  | [Rubric](../../instruction/code-quality-rubric/code-quality-rubric.md)                                                                                               |           30 |
 |                               | **Total**                                                                                                                                                            |      **155** |
 
 ## Outcome Reflections

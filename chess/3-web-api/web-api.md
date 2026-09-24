@@ -496,7 +496,7 @@ Successfully run the service unit tests that you created. They must directly cal
 
 ### Code Quality
 
-For this phase the auto grader will grade the quality of all your project's source code. The rubric used to evaluate code quality can be found here: [Rubric](../code-quality-rubric.md). You can also test your quality with the auto grader independent of a specific phase submission.
+For this phase the auto grader will grade the quality of all your project's source code. The rubric used to evaluate code quality can be found here: [Rubric](../../instruction/code-quality-rubric/code-quality-rubric.md). You can also test your quality with the auto grader independent of a specific phase submission.
 
 ![Code Quality](../codeQuality.png)
 
@@ -522,7 +522,7 @@ To pass off this assignment use the course [auto-grading](https://cs240.click/) 
 | :------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -----------: |
 | GitHub History | At least 12 GitHub commits evenly spread over the assignment period that demonstrate proof of work                                                                                               | Prerequisite |
 | Web API Works  | All pass off test cases succeed                                                                                                                                                                  |          125 |
-| Code Quality   | [Rubric](../code-quality-rubric.md)                                                                                                                                                              |           30 |
+| Code Quality   | [Rubric](../../instruction/code-quality-rubric/code-quality-rubric.md)                                                                                                                           |           30 |
 | Unit Tests     | All test cases pass<br/>Line coverage on `service` package is at least 80%<br/>Every test case includes an Assert statement of some type <br/> 1.25 points of extra credit for 90% line coverage |           25 |
 |                | **Total**                                                                                                                                                                                        |      **180** |
 
