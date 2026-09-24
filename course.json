@@ -399,6 +399,14 @@
           "description": ""
         },
         {
+          "title": "Code Quality Rubric",
+          "type": "instruction",
+          "path": "instruction/code-quality-rubric/code-quality-rubric.md",
+          "id": "bed839c9-c341-414f-80af-eaa9df3101e0",
+          "state": "published",
+          "description": ""
+        },
+        {
           "title": "Java Input and Output (IO)",
           "path": "instruction/io/io.md",
           "id": "872db001-7cb9-4530-acab-b80d494e7880",
@@ -420,13 +428,6 @@
             "f470d4bb-9996-49d1-8e91-6bb2a7337fa6",
             "28bf0130-6f80-4b48-b224-2d137bdf1339"
           ]
-        },
-        {
-          "title": "Code Quality Rubric",
-          "type": "instruction",
-          "path": "instruction/code-quality-rubric/code-quality-rubric.md",
-          "id": "bed839c9-c341-414f-80af-eaa9df3101e0",
-          "description": ""
         }
       ]
     },
