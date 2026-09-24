@@ -1,6 +1,6 @@
 # Chess Code Quality Rubric
 
-This document lists the criteria that the TAs will be using to grade your source code quality.
+This document lists the criteria used to grade your source code quality.
 
 
 | Category | Criteria | Weight |
