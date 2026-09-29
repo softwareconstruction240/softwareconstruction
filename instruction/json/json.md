@@ -88,9 +88,18 @@ JSON is always encoded with [UTF-8](https://en.wikipedia.org/wiki/UTF-8), allowi
 
 ## Gson
 
-The `Gson` library was created by Google to support JSON processing in Java. If your project references the Gson library, you can easily convert a Java object to a JSON string (serialization) or a JSON string back into a Java object (deserialization). The following code demonstrates this:
+The `Gson` library was created by Google to support JSON processing in Java. If your project references the Gson library then can can go ahead and import `com.google.gson.Gson` into your files. If you haven't downloaded the Gson library from maven then use this Package path after selected **File > Project Structure... > Project Settings > Libraries > +**.
+
+```txt
+com.google.gson.Gson
+```
+
+You can use Gson to easily convert a Java object to a JSON string (serialization) or a JSON string back into a Java object (deserialization). The following code demonstrates this:
 
 ```java
+import com.google.gson.Gson;
+import java.util.*;
+
 public class GsonExample {
     public static void main(String[] args) {
         var obj = Map.of(
