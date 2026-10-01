@@ -182,7 +182,7 @@ You are graded purely on the following assignments:
 | **Total**                                       | **1240** | **100 %** |
 
 
-##   Grade Scheme
+## Grade Scheme
 
 The following grading standards will be used in this class:
 
