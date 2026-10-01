@@ -162,14 +162,25 @@ In order to demonstrate original authorship, you must:
 **Rule of thumb**: If your prompt includes text copied from the assignment, it is not allowed.
 
 
+## Grade Breakdown
 
-```masteryls
-{"id":"bae08349-d561-4c4b-9a84-208fab172b36", "title":"Acknowledgement", "type":"multiple-choice" }
+You are graded purely on the following assignments:
 
+| Assignment                                      | Points | % of Grade |
+| :---------------------------------------------- | :----- | :--------- |
+| Official Programming Exam (Proctored)           | 100    | 8.06 %     |
+| Chess GitHub Repository                         | 15     | 1.21 %     |
+| ♟️ Phase 0: Chess Moves                         | 125    | 10.08 %    |
+| ♟️ Phase 1: Chess Game                          | 125    | 10.08 %    |
+| ♟️ Phase 2: Chess Server Design                 | 50     | 4.03 %     |
+| ♟️ Phase 3: Chess Web API                        | 180    | 14.52 %    |
+| ♟️ Phase 4: Chess Database                       | 155    | 12.50 %    |
+| ♟️ Phase 5: Chess Pregame                        | 155    | 12.50 %    |
+| ♟️ Phase 6: Chess Gameplay.                     | 155    | 12.50 %    |
+| Reading interactions                            | 80     | 6.45 %     |
+| Final - Job Interview                            | 100    | 8.06 %     |
+| **Total**                                       | **1240** | **100 %** |
 
-- [x] I have read this syllabus
-- [ ] I'm am ignoring the syllabus and hoping things work out
-```
 
 ##   Grade Scheme
 
@@ -189,6 +200,15 @@ The following grading standards will be used in this class:
 | D     | < 67.0 % to 63.0% |
 | D-    | < 63.0 % to 60.0% |
 | F     | < 60.0 % to 0.0%  |
+
+```masteryls
+{"id":"bae08349-d561-4c4b-9a84-208fab172b36", "title":"Acknowledgement", "type":"multiple-choice" }
+
+
+- [x] I have read this syllabus
+- [ ] I'm am ignoring the syllabus and hoping things work out
+```
+
 
 ## CS 240 Flag
 
