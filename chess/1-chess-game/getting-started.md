@@ -11,6 +11,6 @@ Complete the following steps to move the starter code into your project for this
 {"id":"d3918a97-5dfd-45e0-99de-2eb8c7636785", "title":"Phase 1: Getting started", "type":"multiple-choice" }
 Simple **multiple choice** question
 
-- [x] I have completed the above instructions and my project structure in IntelliJ looks like the following: ![directory](directory.png)
+- [x] I have completed the above instructions and my project structure in IntelliJ looks like the following: (Note that the **extracredit** folder is optional and should not be copied if you are not attempting extra credit.) ![directory](directory.png)
 - [ ] I don't see those folders and files when I open IntelliJ.
 ```
