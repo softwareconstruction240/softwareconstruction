@@ -187,9 +187,30 @@ The body contains the actual data being transferred. Its format is defined by th
 In a standard URL (Uniform Resource Locator), which segment is used to pass data to the server as a series of key-value pairs, typically following the resource path and starting with a question mark (`?`)?
 
 - [ ] The fragment
+  Good effort. The fragment is another part of a URL that comes after the path.
+
+  The fragment starts with `#`, though, and it identifies a location *within* a page. Browsers don't even send it to the server.
+
+  Reread the lesson's breakdown of URL parts.
+
 - [x] The query string
+  **Exactly!** The query string begins with `?` and holds `key=value` pairs separated by `&`, such as `?gameID=3&color=white`.
+
+  It's a common way to pass parameters to a server in an HTTP `GET` request.
+
 - [ ] The scheme
+  Good effort. The scheme is the first part of a URL.
+
+  The scheme identifies the protocol, such as `https`, and comes before `://`. It doesn't carry data.
+
+  Revisit the lesson's breakdown of URL parts and find the one that starts with `?`.
+
 - [ ] The hostname
+  Good effort. The hostname is an essential part of every URL.
+
+  It identifies *which server* to contact, such as `byu.edu`. It doesn't carry key-value data.
+
+  Reread the description of each URL part in the lesson.
 ```
 
 ```masteryls

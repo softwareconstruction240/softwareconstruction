@@ -86,9 +86,30 @@ Take some time to get familiar with Curl. You can use it to test your server, pr
 When troubleshooting a network request or inspecting the details of a TLS handshake, which flag should you add to a `curl` command to display the full communication details between the client and the server?
 
 - [ ] `-i`
+  Good effort. `-i` does show more than the body; it includes the response headers.
+
+  It doesn't show the whole conversation, though, such as the connection, the request headers, or TLS details.
+
+  Reread the paragraph in the lesson about seeing the details of an HTTP connection.
+
 - [ ] `-d`
+  You're thinking about request options, and `-d` is one you'll use a lot.
+
+  `-d` sends data in the request body, such as JSON for a POST. It doesn't change how much detail Curl displays.
+
+  Look back at the lesson's example that shows the full connection and request details.
+
 - [x] `-v`
+  **Exactly!** `-v` (verbose) shows the full exchange: the connection, the TLS handshake, the request headers you sent, and the response headers you got back.
+
+  It's one of the fastest ways to debug an API call. When your chess server returns something unexpected, `curl -v` shows you exactly what went over the wire.
+
 - [ ] `-L`
+  Good effort. `-L` is a useful flag.
+
+  It tells Curl to follow redirects, though. It doesn't reveal the details of the communication.
+
+  Reread the lesson's discussion of debugging HTTP headers and security interactions.
 ```
 
 ```masteryls

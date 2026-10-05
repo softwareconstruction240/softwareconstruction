@@ -195,9 +195,30 @@ Take time during the course to dive deep into topics you find interesting. Learn
 What is the primary factor that distinguishes software engineering from simple programming?
 
 - [ ] Software engineering is only concerned with writing code in complex languages like Java
+  Good effort. Software engineering does involve writing code.
+
+  The choice of language isn't what defines it, though. You can do careful engineering, or careless programming, in any language.
+
+  Reread the lesson's definition of software engineering.
+
 - [ ] Programming is done by teams, while software engineering is always done individually
+  You're thinking about how teams fit in, which is important.
+
+  This option reverses reality, though. Software engineering usually involves teams, and it focuses on making that collaboration work.
+
+  Revisit how the lesson describes the work of a software engineer.
+
 - [ ] Software engineering is the process of fixing bugs after a programmer has finished the code
+  Good effort. Fixing bugs is part of the job.
+
+  Software engineering covers the *whole* lifecycle, though: requirements, design, testing, deployment, and maintenance, not just cleanup after coding.
+
+  Reread the lesson's definition of software engineering.
+
 - [x] Software engineering applies a systematic, disciplined approach to the entire software lifecycle
+  **Exactly!** Programming is writing code. Software engineering is the disciplined process around it.
+
+  That process includes understanding requirements, designing, testing, and maintaining software over time. This course is built around that broader view, which is why design and testing matter as much as getting the code to run.
 ```
 
 ```masteryls
@@ -210,7 +231,14 @@ How does taking ownership of the long-term impact of your software prepare you t
 We often send out critical notifications for the course using Canvas announcements. Log into Canvas and verify that you have the correct email address and notification settings associated with your account.
 
 - [x] My email address is associated with Canvas, and I frequently check for notifications.
+  **Great!** Canvas announcements are how you'll hear about deadline changes and other important course updates.
+
+  Now that your email and notification settings are correct, make checking announcements part of your weekly routine so nothing catches you by surprise.
+
 - [ ] I want to stay in the dark and miss important notifications.
+  We appreciate the humor, but missing announcements can really cost you in this course.
+
+  Take two minutes now: log into Canvas, confirm your email address, and turn on notifications for announcements. You'll be glad you did the first time a deadline or assignment detail changes.
 ```
 
 ## Videos

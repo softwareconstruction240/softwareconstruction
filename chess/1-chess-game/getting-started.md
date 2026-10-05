@@ -12,5 +12,12 @@ Complete the following steps to move the starter code into your project for this
 Simple **multiple choice** question
 
 - [x] I have completed the above instructions and my project structure in IntelliJ looks like the following: (Note that the **extracredit** folder is optional and should not be copied if you are not attempting extra credit.) ![directory](directory.png)
+  **Perfect, your project is set up!** With the correct folder structure in place, IntelliJ can find the starter code and tests for this phase.
+
+  Commit this setup now so that you have a clean starting point to return to if anything goes wrong later.
+
 - [ ] I don't see those folders and files when I open IntelliJ.
+  Thanks for checking. It's much better to catch this now than halfway through the phase.
+
+  Go back through the instructions above step by step, and make sure you copied the folders into the correct location in your repository. Then reload the project in IntelliJ. If the folders still don't appear, take a screenshot of your project structure and share it with a TA.
 ```

@@ -175,6 +175,8 @@ An anonymous inner class, is defined inline by referencing an interface, followe
 
 Note that anonymous inner classes also have closure on the scope that they were declared in.
 
+A local variable that an inner class captures must be `final` or **effectively final**, meaning that it is never reassigned after it is initialized. The inner class receives its own copy of the variable's value, so allowing the original variable to change would cause the two copies to disagree.
+
 ```java
 public class AnonymousExample {
     public interface Speaker {
@@ -213,9 +215,30 @@ What is the difference between an **inner class** and a **static inner class**?
 In Java, when an anonymous inner class or a local inner class accesses a local variable defined in its enclosing method, what is the requirement for that variable and why?
 
 - [x] The variable must be `final` or "effectively final" because the inner class receives a captured copy of the variable, and allowing changes would cause data inconsistency between the stack and the heap.
+  **Exactly right!** The inner class gets its own copy of the variable's value when it's created.
+
+  If Java allowed the original variable to change later, the copy and the original would disagree. Requiring the variable to be `final`, or never reassigned ("effectively final"), guarantees that they always match. Lambdas follow the same rule.
+
 - [ ] The variable must be declared `volatile` to ensure that any changes made by the inner class are immediately visible to the method's thread.
+  Good effort. `volatile` is a real concurrency keyword.
+
+  It's about visibility between *threads*, though, and it has nothing to do with closure. Local variables can't be declared `volatile` at all.
+
+  Reread the *Closure* section and its explanation of what an inner class captures.
+
 - [ ] The variable must be declared `static` because local variables are stored on the stack and inner classes only have access to the static segment of memory.
+  You're thinking about where variables live in memory, which is the right direction.
+
+  Local variables can't be `static`, though, and inner classes aren't limited to static memory. The real rule involves *copying* the variable's value.
+
+  Revisit the *Closure* section.
+
 - [ ] The variable must be an object reference rather than a primitive, as Java closures cannot capture primitive data types from the method scope.
+  Good effort. The difference between primitives and objects matters in many places in Java.
+
+  Closures can capture primitives just fine, though. The lesson's examples capture ordinary local values.
+
+  Reread the *Closure* section and look for the rule about whether a captured variable can change.
 ```
 
 

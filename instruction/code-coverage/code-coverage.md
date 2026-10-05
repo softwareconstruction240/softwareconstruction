@@ -46,9 +46,30 @@ Despite these limitations, code coverage is a vital indicator of testing quality
 When establishing a target for code coverage within a software development team, which of the following best describes the "right" percentage to aim for?
 
 - [ ] 100% coverage should always be the mandatory goal to ensure that every line of code is executed and guaranteed to be bug-free.
+  You're right to aim high. Thorough testing is valuable, and some developers do argue for 100%.
+
+  Coverage only shows that lines *ran*, though, not that they're correct. The lesson's example shows a function with 100% coverage that still fails on certain inputs. Chasing 100% can also lead to brittle tests and extra complexity.
+
+  Revisit the *How much coverage?* section and its example.
+
 - [ ] Exactly 80% coverage, as this is the industry-standard threshold required for software to be considered "production-ready."
+  Good effort. 80% is a common rule of thumb, and many teams use it.
+
+  It isn't an industry standard or a requirement for "production-ready" software, though. Some systems need much more coverage than others, depending on their requirements and how critical they are.
+
+  Reread the *How much coverage?* section and notice what the lesson says the right target depends on.
+
 - [ ] Coverage should be kept below 50% to ensure that the development team is focusing on writing new features rather than maintaining test suites.
+  You're thinking about the cost of maintaining tests, and that cost is real.
+
+  Deliberately keeping coverage low, though, means large parts of the code are never verified. Bugs then reach users, and the time "saved" goes into fixing them later.
+
+  Revisit the debate described in the *How much coverage?* section and notice the factors that should drive the target.
+
 - [x] There is no universal "correct" percentage; the target should be based on the project's risk profile and the point of diminishing returns.
+  **Well reasoned!** There's no magic number.
+
+  A payment system or medical device may justify very high coverage. A prototype may not. Beyond a certain point, each extra percentage point costs more than it's worth. Remember too that coverage measures which lines ran, not whether the results are correct, so pair it with meaningful assertions.
 ```
 
 ```masteryls

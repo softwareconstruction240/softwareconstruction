@@ -509,7 +509,14 @@ To pass off this assignment use the course [auto-grading](https://cs240.click/) 
 ```masteryls
 {"id":"8e3c0adc-1d43-44d3-b12d-32d81b0db1a6","title":"Submission Precheck","type":"multiple-choice"}
 - [x] All of the test cases, including the service unit tests I wrote, are passing, I have verified my code quality, and my GitHub commit history complies with the course requirements.
-- [ ] I need to back and do some more work before submitting.
+  **Excellent work on Phase 3!** Passing both the provided tests and your own service unit tests shows that your endpoints and business logic are working.
+
+  Your attention to code quality now will pay off in later phases, since the database, client, and gameplay phases all build on this server.
+
+- [ ] I need to go back and do some more work before submitting.
+  Smart move to double-check before submitting. Phase 3 has several requirements beyond passing the provided tests.
+
+  Make sure your service unit tests call your service classes directly and include both positive and negative cases. Review your code against the Code Quality Rubric, and then confirm that your commit history meets the requirement. If a test fails and the cause isn't clear, debug the handler, service, and data access layers one at a time.
 ```
 
 ### Grading Rubric

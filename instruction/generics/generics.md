@@ -98,6 +98,10 @@ public class Box<T> {
 }
 ```
 
+### Bounded Wildcards
+
+A **bounded wildcard** such as `List<? extends Number>` accepts a list of `Number` or any of its subtypes, such as `List<Integer>` or `List<Double>`. You can safely read elements from it as `Number`, because every element is some kind of number. However, the compiler won't let you add elements to it (other than `null`), because it can't know which specific subtype the list actually holds.
+
 ### Key Design Benefits
 
 The integration of generics into software design provides several architectural advantages:
@@ -130,9 +134,30 @@ public void processElements(List<? extends Number> elements) {
 ```
 
 - [ ] `Number num = elements.get(0);`
+  Good effort. It's wise to be suspicious of wildcard code.
+
+  Reading is safe here, though. Whatever the list actually holds, every element is some kind of `Number`.
+
+  Reread the *Bounded Wildcards* section, and compare what you can safely *read* with what you can safely *add*.
+
 - [ ] `Object obj = elements.get(0);`
+  You're right to look closely at assignments from a wildcard list.
+
+  Every element is a `Number`, though, and every `Number` is an `Object`, so this assignment always compiles.
+
+  Revisit the *Bounded Wildcards* section and focus on which operations the compiler restricts.
+
 - [x] `elements.add(10.5);`
+  **Correct!** `List<? extends Number>` could really be a `List<Integer>`, a `List<Long>`, or a list of another `Number` subtype.
+
+  The compiler can't know which one, so it won't let you add a `Double`. If the list were a `List<Integer>`, that would corrupt it. Reading is safe because every element is a `Number`, but adding a specific type is not.
+
 - [ ] `elements.add(null);`
+  Good thinking. This looks like it should fail if adding is restricted.
+
+  `null` is the one special case, though. It's a valid value for *every* reference type, so adding it can't break the list's actual element type.
+
+  Reread the *Bounded Wildcards* section.
 ````
 
 ```masteryls

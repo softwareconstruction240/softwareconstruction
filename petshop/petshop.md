@@ -161,7 +161,28 @@ The Pet Shop [WebSocket Communication Diagram](https://sequencediagram.org/index
 What is the primary purpose of the Pet Shop application in the context of this course?
 
 - [ ] To provide me with code I can blindly copy into my chess application
+  Good effort. It's natural to look for working code to build from.
+
+  The lesson cautions against copying without understanding, though. Many of Pet Shop's representations are simplified and won't fit the chess requirements.
+
+  Reread the note near the top of the Pet Shop lesson.
+
 - [ ] To demonstrate the one and only solution for building distributed applications
+  You're right that Pet Shop demonstrates how to build a distributed application.
+
+  There's no single correct solution, though. Pet Shop shows *one* reasonable approach, and your chess design can differ.
+
+  Revisit the lesson's description of Pet Shop's purpose.
+
 - [x] To serve as a reference architecture that demonstrates design patterns and one possible solution for building a distributed application
-- [ ] To serve as a blueprint that I should following for my chess application
+  **Exactly right!** Pet Shop shows how the course concepts fit together in a complete application, from the client to the server to the database.
+
+  Use it to understand patterns and see working examples. Then design your own chess solution, making sure you understand any code you choose to reuse.
+
+- [ ] To serve as a blueprint that I should follow for my chess application
+  Good effort. Pet Shop is a helpful guide.
+
+  It isn't a blueprint to follow line by line, though. The chess application has its own requirements, and Pet Shop is simplified in ways that won't always translate.
+
+  Reread the note near the top of the Pet Shop lesson.
 ```

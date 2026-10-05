@@ -287,8 +287,15 @@ Before coming to passoff with a TA, check to make sure your code functions prope
 
 ```masteryls
 {"id":"d2d9ee04-2d9a-40f9-9c13-db1db990c162","title":"Submission Precheck","type":"multiple-choice"}
-- [x] The functionatity is working, all of the tests are passing, I have verified my code quality, and my GitHub commit history complies with the course requirements.
-- [ ] I need to back and do some more work before submitting.
+- [x] The functionality is working, all of the tests are passing, I have verified my code quality, and my GitHub commit history complies with the course requirements.
+  **Congratulations on finishing gameplay!** Real-time moves, notifications, and game state working across multiple clients bring together everything you've built this semester.
+
+  Take a moment to appreciate how the layers you designed in earlier phases made this final phase possible.
+
+- [ ] I need to go back and do some more work before submitting.
+  Good choice to finish strong. Gameplay has many moving parts, and testing with real clients reveals problems that unit tests can miss.
+
+  Open two or three clients at once and play through a full game, including resigning, leaving, and making invalid moves. Watch the server logs for WebSocket errors. Then review your code against the Code Quality Rubric and confirm your commit history before you submit.
 ```
 
 ### Grading Rubric

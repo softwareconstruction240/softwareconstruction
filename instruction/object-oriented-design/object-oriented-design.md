@@ -261,9 +261,30 @@ The following table highlights the core differences in how these models approach
 When applying the principle of **Composition over Inheritance** in object-oriented design, which of the following statements best describes the primary advantage of utilizing composition?
 
 - [ ] It reduces the total number of classes in the system by consolidating multiple behaviors into a single, deep class hierarchy.
+  Good effort. Reducing the number of classes can simplify a design.
+
+  Deep inheritance hierarchies are what composition is meant to *avoid*, though. They're rigid and hard to change.
+
+  Reread the lesson's discussion of composition over inheritance.
+
 - [ ] It enforces a strict **is-a** relationship between objects, ensuring that a subclass can always be used in place of its parent class.
+  You're thinking about *is-a* relationships, which is what inheritance provides.
+
+  Composition creates a *has-a* relationship instead. The flexibility comes from *not* locking objects into a fixed hierarchy.
+
+  Revisit the lesson's descriptions of *is-a* and *has-a*.
+
 - [x] It provides greater runtime flexibility by allowing an object to change its behavior by swapping out its internal component parts.
+  **Exactly right!** With composition, an object holds references to the parts that provide its behavior.
+
+  Because those parts can be swapped, often through an interface, you can change what the object does without rewriting it or building new subclasses. You'll see this idea again in the Strategy pattern and dependency injection.
+
 - [ ] It allows subclasses to gain direct access to the private member variables and protected methods of a base class, simplifying internal logic.
+  Good effort. Access between classes is an important design consideration.
+
+  Subclasses can't access a parent's `private` members, though, and composition doesn't give that access either. It keeps parts encapsulated behind their own interfaces.
+
+  Reread the lesson's discussion of composition.
 ```
 
 ```masteryls
@@ -273,9 +294,34 @@ A developer is designing a mobile device management system. They define a `Smart
 Which of the following correctly identifies the relationships between these classes?
 
 - [ ] `Smartphone` is-a `Battery`, `iPhone` has-a `Smartphone`, and `Smartphone` uses-a `Contact`
+  Good effort. You correctly identified that `Smartphone` uses a `Contact`.
+
+  Look at the other two relationships again, though. A battery is a *part* of a phone, and `iPhone` *inherits* from `Smartphone`.
+
+  Reread the lesson's definitions of *is-a*, *has-a*, and *uses-a*.
+
 - [ ] `iPhone` uses-a `Smartphone`, `Smartphone` is-a `Battery`, and `Contact` has-a `Smartphone`
+  You're working with the right three relationship types.
+
+  Each one is attached to the wrong pair of classes, though. Match the relationships to the code. Which class *inherits*, which one *stores* another as a field, and which one *receives* an object as a parameter?
+
+  Revisit the definitions of *is-a*, *has-a*, and *uses-a* in the lesson.
+
 - [x] `iPhone` is-a `Smartphone`, `Smartphone` has-a `Battery`, and `Smartphone` uses-a `Contact`
+  **Correct!**
+
+  - Inheritance creates **is-a**: an `iPhone` is a `Smartphone`.
+  - A member variable creates **has-a**: a `Smartphone` has a `Battery`.
+  - A parameter creates **uses-a**: a `Smartphone` uses a `Contact` during a call.
+
+  Recognizing these from code is exactly the skill you'll use when you design your chess classes.
+
 - [ ] `Smartphone` has-a `iPhone`, `iPhone` uses-a `Battery`, and `Contact` is-a `Smartphone`
+  Good effort. You're working with the right three relationship types.
+
+  The directions are reversed, though. A parent class doesn't contain its subclasses, and a `Contact` isn't a kind of `Smartphone`.
+
+  Reread the lesson's definitions. Then match each relationship to inheritance, member variables, and parameters.
 ```
 
 
@@ -284,9 +330,30 @@ Which of the following correctly identifies the relationships between these clas
 Which of the following characteristics is a core pillar of the Functional Programming paradigm, distinguishing it from standard Object-Oriented Design?
 
 - [ ] Encapsulation of state within class instances
+  Good effort. Encapsulating state is a central idea in programming.
+
+  It's a pillar of **object-oriented** design, though. Functional programming tries to *avoid* changing state altogether.
+
+  Reread the lesson's comparison of programming paradigms.
+
 - [x] Emphasis on immutability and pure functions
+  **Exactly!** Functional programming favors immutable data and pure functions, which always produce the same output for the same input and have no side effects.
+
+  Code written this way is easier to test and safer to run in parallel. Java's lambdas and streams bring many of these ideas into object-oriented code.
+
 - [ ] Extensive use of class inheritance hierarchies
+  You're thinking about inheritance, which is central to object-oriented design.
+
+  Functional programming doesn't rely on class hierarchies, though. It builds behavior by combining functions.
+
+  Revisit the lesson's description of functional programming.
+
 - [ ] Optimizing memory layout for CPU cache hits
+  Good effort. Memory layout and cache use matter for performance.
+
+  That's a low-level optimization concern, though, not what defines a programming paradigm.
+
+  Reread the lesson's comparison of object-oriented and functional programming.
 ```
 
 ```masteryls

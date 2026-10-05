@@ -261,9 +261,30 @@ public class UniversalContainer {
 Which software design principle is best demonstrated by the fact that any Java object can be passed to a method expecting a parameter of type `java.lang.Object`?
 
 - [ ] Encapsulation, because it hides the internal state of the object.
+  Good effort. Encapsulation is a core object-oriented principle.
+
+  Encapsulation is about hiding an object's internals, though, not about which types can be used where.
+
+  Reread the lesson's discussion of Java's single-root hierarchy.
+
 - [x] Liskov Substitution Principle, because a subtype can replace its supertype without breaking the program.
+  **Exactly right!** Every class is a subtype of `Object`, so an instance of any class can stand in wherever an `Object` is expected.
+
+  That's the Liskov Substitution Principle at work. It's also why methods like `equals` and `toString`, which take or return values based on `Object`, work with every class.
+
 - [ ] Composition, because the object is composed of multiple superclasses.
+  You're thinking about how objects are built from parts, which is a useful design idea.
+
+  Java doesn't allow multiple superclasses, though, and composition is a *has-a* relationship. This question is about an *is-a* relationship.
+
+  Revisit the lesson's discussion of the class hierarchy.
+
 - [ ] Dependency Inversion, because high-level modules are not depending on low-level modules.
+  Good effort. Dependency inversion is an important principle.
+
+  It's about depending on abstractions in your design, though, not about subtypes being usable in place of their parent type.
+
+  Reread the section on Java's single-root hierarchy and the principle it names.
 ```
 
 ```masteryls
@@ -271,9 +292,30 @@ Which software design principle is best demonstrated by the fact that any Java o
 In the Java programming language, the `java.lang.Object` class occupies a unique position. Which of the following statements correctly describes the fundamental structural difference between the `Object` class and every other class in Java?
 
 - [x] It is the only class in the Java hierarchy that does not have a superclass.
+  **Correct!** Every other class has exactly one superclass, either one you name with `extends` or `Object` by default.
+
+  `Object` sits at the root, so it's the only class with no parent. That single root is what makes `Object` a universal type that can refer to any instance.
+
 - [ ] It is the only class that is automatically imported into every Java source file by the compiler.
+  Good effort. `Object` is available everywhere without an import.
+
+  So is every class in `java.lang`, though, including `String` and `Math`, so that isn't unique to `Object`.
+
+  Reread the lesson's description of where `Object` sits in the class hierarchy.
+
 - [ ] It is the only class that cannot be extended by a user-defined subclass.
+  You're thinking about inheritance limits, which is good.
+
+  It's the opposite, though. *Every* class extends `Object`, directly or indirectly. Classes marked `final`, like `String`, are the ones that can't be extended.
+
+  Revisit the opening of the lesson.
+
 - [ ] It is the only class that provides a default implementation for the `toString()` and `equals()` methods.
+  Good effort. `Object` does provide default `toString()` and `equals()` methods.
+
+  Many other classes provide their own implementations of these methods too, though, by overriding them. That isn't what makes `Object` structurally unique.
+
+  Reread the lesson's description of `Object` as the root of the hierarchy.
 ```
 
 ```masteryls

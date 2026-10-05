@@ -330,9 +330,30 @@ Can you explain Dependency Inversion to me? How do I invert a dependency?
 According to the Liskov Substitution Principle (LSP), which of the following statements best describes the requirement for a subclass when it inherits from a base class?
 
 - [ ] A subclass should be able to strengthen the pre-conditions of a method to ensure more rigorous data validation than the base class.
+  Good effort. Stricter validation can sound safer.
+
+  If a subclass demands *more* from callers than its parent does, though, code written for the parent can suddenly break. A subclass may weaken preconditions, but it must not strengthen them.
+
+  Reread the *Liskov Substitution Principle* section.
+
 - [ ] A subclass can throw an exception if the method is not applicable to the subclass's specific context.
+  You're thinking about cases where inherited behavior doesn't fit, which is a real design problem.
+
+  Throwing an exception there is the classic LSP violation, though. Code that works with the base class breaks when it receives the subclass.
+
+  Revisit the LSP section and its example.
+
 - [x] Objects of a superclass should be replaceable with objects of its subclasses without breaking the application or changing its expected behavior.
+  **Correct!** If code works with a base type, it should keep working with any subtype, without knowing the difference.
+
+  When a subclass breaks that promise, every caller has to start checking types, and polymorphism stops paying off. Good subclasses keep the base class's contract.
+
 - [ ] Derived classes should focus on extending the base class by adding new public methods rather than overriding existing ones to prevent side effects.
+  Good effort. Being careful with overrides is wise.
+
+  LSP doesn't forbid overriding, though. It requires that overrides keep the behavior callers expect.
+
+  Reread the lesson's statement of the Liskov Substitution Principle.
 ```
 
 
@@ -352,9 +373,30 @@ A developer is designing a `ChessGame` class. Currently, the class is responsibl
 Does this design violate the Single Responsibility Principle (SRP)?
 
 - [ ] No, because all these responsibilities are logically grouped under the "Chess" domain, ensuring high functional cohesion.
+  Good effort. Grouping related code by domain sounds reasonable.
+
+  Being about chess doesn't make something a single responsibility, though. A UI change and a database change are unrelated reasons to change the same class.
+
+  Reread the *Single Responsibility Principle* section.
+
 - [ ] Yes, but only because the database logic is present; move validation and UI rendering are considered part of the same core game responsibility.
+  You correctly spotted that the database logic doesn't belong.
+
+  UI rendering is a separate responsibility too, though. Game rules shouldn't change because you switch from a console to a graphical interface.
+
+  Revisit how the lesson defines a "reason to change."
+
 - [x] Yes, because the class has multiple reasons to change, such as a change in the UI framework or a change in the database schema.
+  **Exactly right!** This class has at least three reasons to change: chess rules, the user interface, and storage.
+
+  A change to any one of them risks breaking the others. Splitting them, with game logic in `ChessGame`, rendering in the client, and persistence in DAOs, is exactly the structure the chess project uses.
+
 - [ ] No, as long as the class is properly encapsulated and the methods are kept relatively short and well-documented.
+  Good effort. Encapsulation and clean methods are good practices.
+
+  They don't fix having too many responsibilities, though. SRP is about *why* a class changes, not how neatly it's written.
+
+  Reread the *Single Responsibility Principle* section.
 ```
 
 
@@ -363,8 +405,29 @@ Does this design violate the Single Responsibility Principle (SRP)?
 A developer needs to add a new "SMS Notification" feature to an existing system that currently only sends "Email Notifications." According to the Open/Closed Principle (OCP), what is the most appropriate way to implement this?
 
 - [ ] Modify the existing `NotificationService` class to include a switch statement that handles both Email and SMS types.
+  Good effort. A switch statement does work, at least at first.
+
+  It requires *modifying* existing code every time you add a new type, though, which is exactly what OCP tries to avoid.
+
+  Reread the *Open-Closed Principle* section.
+
 - [x] Define a common `Notification` interface and create a new `SmsNotification` class that implements it, allowing the system to use the new class without changing existing code.
+  **Correct!** With a `Notification` interface, adding SMS means adding a new class. Nothing that already works needs to change.
+
+  Existing code that uses `Notification` automatically works with the new type. This lowers the risk of breaking working features each time you extend the system.
+
 - [ ] Update the original `EmailNotification` class by adding a boolean flag and conditional logic to determine whether to send an Email or an SMS.
+  You're thinking about reusing existing code, which is a good instinct.
+
+  Adding flags and conditionals means modifying a class that already works, though. It also mixes two responsibilities in one place.
+
+  Revisit the *Open-Closed Principle* section.
+
 - [ ] Replace the existing `EmailNotification` class with a single "UniversalNotification" class that contains the logic for all current and future notification types.
+  Good effort. Consolidating logic can seem simpler.
+
+  A class that handles every current and future type has to change whenever anything new is added, though. That breaks both OCP and SRP.
+
+  Reread the lesson's OCP example.
 ```
 

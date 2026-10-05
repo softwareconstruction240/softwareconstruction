@@ -348,9 +348,30 @@ Collection<Pet> listPets(Connection conn) throws SQLException {
 When working with a `java.sql.Connection` object in JDBC, what is the primary purpose of invoking the `setCatalog(String catalog)` method?
 
 - [ ] It updates the JDBC driver's connection string to point to a different physical database server or host.
+  Good effort. Connecting to the right server is an important first step.
+
+  The server and host are fixed when you create the connection from the connection URL, though. `setCatalog` works within that existing connection.
+
+  Reread the lesson's explanation of `setCatalog` and notice when it's called relative to `getConnection`.
+
 - [ ] It creates a new schema or database on the server using the provided string as the identifier.
+  You're right that it involves choosing a database, which is a good start.
+
+  `setCatalog` doesn't create anything, though. The database must already exist; the lesson creates it first with a `CREATE DATABASE` statement.
+
+  Revisit the lesson's example that creates a database and then selects it.
+
 - [x] It instructs the driver to select a specific subspace (such as a database) within the current connection to be used for subsequent statements.
+  **Correct!** `setCatalog` selects which database within the server your subsequent statements will use.
+
+  It's the JDBC equivalent of the SQL `USE` command. This lets you connect to the server once, create your database if it doesn't exist, and then switch to it without opening a new connection.
+
 - [ ] It sets the default character encoding (cataloging) for all `String` data types sent to the database.
+  Good effort. The name "catalog" does sound like it might relate to formats.
+
+  Character encoding is configured elsewhere, though, such as in the connection URL or the database's settings. In JDBC, a catalog refers to a database within the server.
+
+  Reread the lesson's description of `setCatalog`.
 ```
 
 ```masteryls
@@ -358,9 +379,30 @@ When working with a `java.sql.Connection` object in JDBC, what is the primary pu
 In JDBC, what is the primary advantage of using a `PreparedStatement` instead of a standard `Statement`?
 
 - [ ] It is the only statement type that supports batch processing for multiple DML operations in a single database round-trip.
+  Good effort. Batch processing is a useful JDBC feature.
+
+  Regular `Statement` objects also support batches, though, so that isn't what makes `PreparedStatement` special.
+
+  Reread the lesson's discussion of `PreparedStatement` and focus on what happens to user-supplied values.
+
 - [ ] It automatically manages database connection pooling to ensure that resources are released immediately after a query executes.
+  You're thinking about resource management, which is important in JDBC.
+
+  Statements don't manage connection pooling, though. That's handled separately. Resources are released when you close them, usually with try-with-resources.
+
+  Revisit the lesson's explanation of why to prefer `PreparedStatement`.
+
 - [x] It improves performance through precompilation and enhances security by preventing SQL injection via parameterized inputs.
+  **Exactly right!** Precompiling the SQL means it can be reused efficiently.
+
+  More importantly, parameters set with methods like `setString` are always treated as *data*, never as SQL code. A username like `' OR '1'='1` can't change the meaning of your query. That's why the chess project should use `PreparedStatement` for every query that includes user input.
+
 - [ ] It allows the execution of multiple unrelated SQL command strings within a single object to minimize JVM memory overhead.
+  Good effort. Reducing memory overhead is a reasonable concern.
+
+  A `PreparedStatement` represents *one* parameterized SQL statement, though, not a collection of unrelated commands.
+
+  Reread the lesson's examples of `PreparedStatement` and notice how each one is created from a single SQL string.
 ```
 
 ````masteryls
@@ -388,9 +430,30 @@ try (PreparedStatement pstmt = conn.prepareStatement(sql, Statement.RETURN_GENER
 What is the primary purpose of passing `Statement.RETURN_GENERATED_KEYS` to the `prepareStatement` method in this context?
 
 - [ ] It forces the JDBC driver to execute a `SELECT LAST_INSERT_ID()` query as a separate transaction to ensure data integrity.
+  Good effort. `LAST_INSERT_ID()` is one way to get an auto-generated key in MySQL.
+
+  The flag doesn't make you run a separate query or transaction, though. It asks the driver to return the key from the insert itself.
+
+  Reread the lesson's example that uses `getGeneratedKeys`.
+
 - [x] It instructs the driver to make the automatically generated column values available for retrieval after the command executes.
+  **Correct!** `RETURN_GENERATED_KEYS` asks the driver to hold on to the values the database generated.
+
+  After `executeUpdate`, you call `getGeneratedKeys()` to read them, such as the new ID for a game you just inserted. Without the flag, the driver isn't required to make those keys available.
+
 - [ ] It tells the Java application to generate a unique identifier locally and send it to the database as part of the insert statement.
+  You're thinking about where unique IDs come from, which is a good question.
+
+  With an auto-increment column, though, the *database* generates the ID. Your Java code doesn't create it or send it.
+
+  Revisit the lesson's insert example. Notice that the SQL doesn't include an ID value at all.
+
 - [ ] It acts as a validation check that ensures the target table has an auto-increment column defined before the execution begins.
+  Good effort. Validation before running a statement is often a good idea.
+
+  This flag doesn't validate anything, though. It only affects whether generated values can be retrieved afterward.
+
+  Reread the lesson's explanation of how to retrieve an auto-generated key.
 ````
 
 ```masteryls

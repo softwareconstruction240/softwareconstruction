@@ -42,9 +42,26 @@ You can view your available balance in the `Grace Days` assignment in Canvas.
 You have 3 grace days when you turn in an assignment on Tuesday that was due the previous Friday. According to the policy, what is the result?
 
 - [ ] You receive a zero and you still have 3 grace days
+  You correctly remembered that a submission later than your grace days allow earns a zero without using up your grace days.
+
+  Check whether that rule applies here, though. Count the days from Friday to Tuesday, remembering that Sunday and Monday count as a single day, and then compare that number with your 3 grace days.
+
 - [ ] You receive a zero and you have 0 grace days
+  Good effort working through the policy.
+
+  This outcome can't happen under the rules, though. When a submission earns a zero for being too late, your grace days are **not** deducted.
+
+  Reread the paragraph about exceeding your grace days. Then count the days late from Friday to Tuesday, treating Sunday and Monday as one day.
+
 - [x] Your assignment is graded and you have 0 grace days
+  **Correct!** Saturday is 1 day late, Sunday and Monday together count as 1 more, and Tuesday adds 1, for a total of 3 days late.
+
+  You have exactly 3 grace days, so they cover the lateness. The assignment is graded normally, and your balance drops to 0. Remember that you can earn grace days back by submitting early with a score of 100%.
+
 - [ ] Your assignment is graded and you have 1 grace day
+  You're right that the assignment gets graded, so your grace days do cover this submission.
+
+  Recount the days late, though. Saturday, the combined Sunday and Monday, and Tuesday each count as one day. Compare your total with the number of grace days you started with.
 ```
 
 ## Extenuating Circumstances and Accommodations

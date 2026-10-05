@@ -93,9 +93,30 @@ public class ChessServer {
 In a properly architected Javalin chess application, which layer is responsible for determining if a move results in a "Checkmate" state?
 
 - [ ] The Server (Web Layer), because it needs to send the result back to the user.
+  Good effort. The server does send the result to the user.
+
+  Sending a result and *deciding* it are separate responsibilities, though. The web layer should only translate between HTTP and your services.
+
+  Reread the lesson's description of each layer's responsibilities.
+
 - [ ] The Data Access Object (DAO), because the state must be saved to the database.
+  You're right that the game state must be saved.
+
+  The DAO's job is storage and retrieval, though, not deciding what the state *means*. Putting game rules in a DAO mixes concerns.
+
+  Revisit the lesson's description of the data access layer.
+
 - [x] The Service Layer, because this is business logic specific to the rules of chess.
+  **Exactly right!** Checkmate is a rule of chess, which makes it business logic, and business logic belongs in the service layer.
+
+  Keeping it there means you can test it without HTTP or a database. You could also replace the web or storage layer without touching the chess rules.
+
 - [ ] The Javalin Routing Layer, because it manages the flow of the application.
+  Good effort. Routing does manage how requests flow through the application.
+
+  Routing should only decide *which* handler runs, though, not evaluate the rules of chess.
+
+  Reread the lesson's breakdown of layer responsibilities.
 ```
 
 ```masteryls

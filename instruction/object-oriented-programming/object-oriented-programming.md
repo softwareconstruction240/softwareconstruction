@@ -136,9 +136,30 @@ Transitioning to an object-oriented mindset can present several hurdles:
 In Object-Oriented Programming, which of the following best describes the concept of polymorphism?
 
 - [ ] The process of hiding the internal state of an object and requiring all interaction to be performed through a strictly defined interface.
+  Good effort. Hiding internal state behind an interface is an important idea.
+
+  That describes **encapsulation**, though, not polymorphism.
+
+  Reread the lesson's definition of polymorphism and think about what "many forms" refers to.
+
 - [ ] The ability to create a new class based on an existing class to reuse its fields and methods while adding new features.
+  You're describing a real object-oriented concept: reusing an existing class.
+
+  That's **inheritance**, though. Polymorphism often *uses* inheritance, but it's about treating different objects through a shared type.
+
+  Revisit the polymorphism section of the lesson.
+
 - [ ] The practice of reducing complexity by modeling classes that only include the essential characteristics relevant to the current problem.
+  Good effort. Modeling only what matters is a key design skill.
+
+  That describes **abstraction**, though, not polymorphism.
+
+  Reread the lesson's definitions of the object-oriented principles and compare them.
+
 - [x] The ability of different classes to be treated as instances of the same parent class through a uniform interface, with each class implementing its own specific behavior.
+  **Exactly right!** Polymorphism lets you write code against a shared type and get the right behavior for each actual object.
+
+  For example, code that calls `pieceMoves` on a `ChessPiece` gets bishop moves for a bishop and knight moves for a knight, without a single `if` statement checking the type.
 ```
 
 ```masteryls
@@ -146,9 +167,30 @@ In Object-Oriented Programming, which of the following best describes the concep
 In object-oriented programming, which of the following best describes how **encapsulation** is implemented within a class?
 
 - [ ] By defining a base class that provides a common interface for multiple derived subclasses to implement.
+  Good effort. Base classes with common interfaces are an important object-oriented tool.
+
+  That describes inheritance and polymorphism, though, not encapsulation.
+
+  Reread the lesson's definition of encapsulation.
+
 - [x] By making data members private and providing controlled access through public getter and setter methods.
+  **Correct!** Encapsulation keeps an object's data private and exposes only the operations that make sense.
+
+  Because outside code must go through those methods, the class can validate changes and keep its data consistent. It can also change its internal representation later without breaking anyone who uses it.
+
 - [ ] By allowing a single method name to perform different tasks based on the number or type of arguments passed to it.
+  You're describing a real Java feature: one method name that does different things depending on its arguments.
+
+  That's **method overloading**, though, not encapsulation.
+
+  Revisit the lesson's explanation of encapsulation and access modifiers.
+
 - [ ] By breaking a complex system down into smaller, independent functions that do not share any state.
+  Good effort. Breaking a system into smaller pieces is a valuable practice.
+
+  That's **decomposition**, though. Encapsulation is about protecting the data *inside* an object.
+
+  Reread the lesson's definition of encapsulation.
 ```
 
 ```masteryls
@@ -156,9 +198,28 @@ In object-oriented programming, which of the following best describes how **enca
 In Object-Oriented Programming, both encapsulation and abstraction are used to hide information, but they serve different purposes. Which of the following best describes the difference between the two?
 
 - [ ] Abstraction is the process of restricting access to specific data members using access modifiers, while encapsulation is the process of hiding the background details of a function.
+  Good effort. You've linked one of these principles to access modifiers and the other to hiding details, which are the right ideas.
+
+  They're attached to the wrong principles, though.
+
+  Reread the lesson's definitions of encapsulation and abstraction.
+
 - [x] Encapsulation focuses on bundling data and methods while hiding the internal state of an object, whereas abstraction focuses on hiding implementation complexity to show only the essential interface.
+  **Exactly right!** Encapsulation bundles data with the methods that use it and hides the internal state.
+
+  Abstraction exposes only what users of a class need, hiding *how* the work gets done. They often work together, but they answer different questions. One asks what's protected, and the other asks what's shown.
+
 - [ ] Encapsulation is used to share behaviors between a parent and child class, while abstraction is used to ensure that a method can perform different tasks based on the input.
+  You're describing real object-oriented ideas: sharing behavior and varying it by input.
+
+  Those are **inheritance** and **polymorphism or overloading**, though, not encapsulation and abstraction.
+
+  Revisit the lesson's definitions of each principle.
+
 - [ ] Abstraction is an implementation-level technique used to protect data from outside interference, while encapsulation is a design-level technique used to simplify the system for the user.
+  Good effort. You've identified that one principle is about protecting data and the other about simplifying the system.
+
+  The labels are reversed, though. Reread the lesson and ask which principle uses access modifiers to protect data.
 ```
 
 ```masteryls

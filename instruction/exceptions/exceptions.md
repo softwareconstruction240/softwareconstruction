@@ -91,7 +91,7 @@ The exception to the `throws` declaration rule is the **unchecked exception**. U
 
 ## Finally
 
-The `finally` block follows `try` or `catch` blocks and contains code that **always** executes, regardless of whether an exception was thrown or caught. This is useful for cleaning up resources, such as closing database connections. If an exception is thrown and not caught in the current method, the `finally` block executes before the exception continues up the call stack.
+The `finally` block follows `try` or `catch` blocks and contains code that **always** executes, regardless of whether an exception was thrown or caught. This is useful for cleaning up resources, such as closing database connections. If an exception is thrown and not caught in the current method, the `finally` block executes before the exception continues up the call stack. The same is true when the `try` block contains a `return` statement: the return value is evaluated first, then the `finally` block runs, and only then does the method return.
 
 ```java
 try {
@@ -174,7 +174,7 @@ public void TryWithFinally() throws IOException {
 }
 ```
 
-This pattern is verbose. To simplify this, Java introduced the **try-with-resources** syntax. This can be used with any class that implements the `AutoCloseable` or `Closeable` interface. The Java compiler automatically generates the `finally` block to close the resource for you.
+This pattern is verbose. To simplify this, Java introduced the **try-with-resources** syntax. This can be used with any class that implements the `AutoCloseable` or `Closeable` interface. The Java compiler automatically generates the `finally` block to close the resource for you. Resources are closed as soon as the `try` block exits, whether it completes normally or throws an exception. This happens before any `catch` or `finally` blocks run.
 
 ```java
 public void tryWithResources() throws IOException {
@@ -275,9 +275,30 @@ public int example() {
 How does the `finally` block behave when the `return` statement is executed within the `try` block?
 
 - [ ] The `finally` block is bypassed because the `return` statement terminates the method execution immediately.
+  It's a natural assumption that `return` ends a method immediately. In most code, it does.
+
+  A `finally` block is the exception, though. Java guarantees it runs whenever control leaves the `try` block, including through a `return`.
+
+  Reread the *Finally* section, and pay attention to the word **always**.
+
 - [ ] The `finally` block executes only if the `try` block finishes normally without encountering a `return` or a `throw` statement.
+  You've noticed that `return` and `throw` both cause control to leave the `try` block. That's the right thing to focus on.
+
+  Leaving early doesn't skip `finally`, though. That's exactly when it's most useful, because cleanup code must run no matter how the block exits.
+
+  Revisit the *Finally* section and its explanation of when the block executes.
+
 - [ ] The `finally` block will only execute if an exception occurs; otherwise, the `return` statement in the `try` block skips it.
+  Good effort. `finally` blocks are often discussed together with exceptions.
+
+  They run whether or not an exception occurs, though. That's what separates `finally` from `catch`, which runs only when an exception is thrown.
+
+  Reread the *Finally* section and compare it with how `catch` works.
+
 - [x] The `finally` block executes even if a `return` statement is present in the `try` block, running after the return expression is evaluated but before the method returns.
+  **Exactly right!** The return value (`result + 2`) is computed first. Then the `finally` block runs, and only then does the method actually return.
+
+  This guarantee is why `finally`, and the try-with-resources syntax built on it, is the right place to release resources such as database connections, no matter how a method exits.
 ````
 
 
@@ -310,9 +331,30 @@ public class Main {
 What is the output when this code is executed?
 
 - [ ] `Try Catch Close Finally `
+  Good effort. You've got the right first and last steps.
+
+  The resource is closed *before* the `catch` block runs, though. A resource declared in the `try` parentheses belongs only to the `try` block, so Java closes it as soon as that block exits, even when it exits because of an exception.
+
+  Reread the *Try-With-Resources* section.
+
 - [x] `Try Close Catch Finally `
+  **Correct!** When the exception is thrown, Java first closes the resource (`Close`), then runs the matching `catch` (`Catch`), and finally runs the `finally` block (`Finally`).
+
+  Closing first means that your `catch` and `finally` code can never accidentally use a resource that's still open. Knowing this order matters when debugging JDBC code that relies on try-with-resources.
+
 - [ ] `Try Catch Finally Close `
+  You're right that `Try` comes first and that the exception is caught.
+
+  Resources aren't closed at the very end, though. They're closed as soon as the `try` block exits, before `catch` or `finally` runs.
+
+  Revisit the *Try-With-Resources* section and its explanation of when resources are closed.
+
 - [ ] `Try Close Finally `
+  You correctly placed `Close` right after `Try`. That's the trickiest part.
+
+  You skipped the `catch` block, though. The `RuntimeException` is an `Exception`, so the `catch (Exception e)` block handles it and prints `Catch`.
+
+  Trace the code again, step by step, starting from the `throw`.
 ````
 
 
@@ -321,9 +363,30 @@ What is the output when this code is executed?
 Which of the following best describes the 'Fail-Fast' principle in the context of Java exception handling?
 
 - [x] Validating inputs and state at the beginning of a method and throwing an exception immediately if requirements are not met.
+  **Correct!** Failing fast means checking inputs and state up front and throwing as soon as something is wrong.
+
+  The error then appears right where the problem started, with a clear message, instead of surfacing later as a confusing failure deep in the code. This pairs well with guard clauses at the start of a method.
+
 - [ ] Catching all possible exceptions at the lowest level to prevent the program from crashing.
+  Good effort. Keeping a program from crashing is a reasonable goal.
+
+  Catching every exception at the lowest level, though, often *hides* problems. The program keeps running in a bad state, and the real cause becomes harder to find.
+
+  Reread the fail-fast guidance and the advice about where to handle exceptions.
+
 - [ ] Using a try-catch block to wrap the entire main method of an application.
+  You're thinking about a safety net, and top-level handlers do have a place.
+
+  Wrapping all of `main` in one try-catch doesn't make anything fail *fast*, though. Errors are still discovered late, far from where they started.
+
+  Revisit the lesson's discussion of fail-fast.
+
 - [ ] Retrying a failed network connection multiple times before finally throwing an exception.
+  Good effort. Retrying is a legitimate strategy for some network failures.
+
+  Retrying *delays* failure on purpose, though, which is close to the opposite of failing fast.
+
+  Reread the fail-fast principle and how it relates to validating inputs early.
 ```
 
 ```masteryls

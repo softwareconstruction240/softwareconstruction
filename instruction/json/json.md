@@ -54,7 +54,7 @@ A JSON document contains one of the following data types:
 | object  | {"a":1, "b":"crockford"}|
 | null    | null                    |
 
-Most commonly, a JSON document contains an object. Objects consist of zero or more key-value pairs. The key is always a string, and the value must be one of the valid JSON data types. Key-value pairs are delimited with commas. Curly braces `{}` delimit an object, square brackets `[]` delimit arrays, and strings are always enclosed in double quotes.
+Most commonly, a JSON document contains an object. Objects consist of zero or more key-value pairs. The key is always a string, and the value must be one of the valid JSON data types. Key-value pairs are delimited with commas. Curly braces `{}` delimit an object, square brackets `[]` delimit arrays, and strings are always enclosed in double quotes. Unlike many programming languages, JSON does not allow a trailing comma after the last element in an object or array.
 
 
 ```json
@@ -207,9 +207,30 @@ Is the following JSON object valid? If not, identify the error.
 ```
 
 - [ ] No, because the integer value `2048` must be wrapped in double quotes to be a valid JSON number.
+  Good effort. Quoting rules are important in JSON.
+
+  Numbers are written *without* quotes, though. `2048` is a valid JSON number, while `"2048"` would be a string.
+
+  Reread the lesson's table of JSON data types.
+
 - [ ] No, because JSON keys must be defined using single quotes (`'`) instead of double quotes (`"`).
+  You're right to check how keys are quoted.
+
+  JSON requires *double* quotes, though, and this object already uses them correctly. Single quotes are not valid JSON.
+
+  Revisit the lesson's description of JSON objects.
+
 - [x] No, because JSON does not allow trailing commas after the last element in an object or array.
+  **Correct!** The comma after `["item1", "item2"]` is a trailing comma, and JSON doesn't allow it.
+
+  Many programming languages, including Java and JavaScript, accept trailing commas, which is why this mistake is so common. A strict parser like Gson will reject the whole document, so it's worth checking for trailing commas whenever a parse fails unexpectedly.
+
 - [ ] Yes, this is a valid JSON object and can be successfully parsed by any standard JSON library.
+  Good effort. Most of this object does look correct.
+
+  There's one small error that a standard parser will reject, though. Look carefully at the end of the last key-value pair.
+
+  Reread the lesson's description of how key-value pairs are separated.
 ````
 
 

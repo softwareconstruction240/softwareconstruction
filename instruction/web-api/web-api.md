@@ -580,9 +580,30 @@ private void listNames(Context context) {
 A developer moves all SQL query logic out of a server class route handler and into a separate 'DataAccess' class. Which software engineering principle is being primarily demonstrated?
 
 - [x] Separation of Concerns
+  **Correct!** The route handler now deals with HTTP, and the data access class deals with SQL.
+
+  Each class has one concern, so you can change the database without touching the web code, and you can test each piece on its own. This is the same layering the chess server uses.
+
 - [ ] DRY (Don't Repeat Yourself)
+  Good effort. DRY is often a reason to move code.
+
+  This move is about separating *kinds* of work, though, not removing duplication. The SQL might appear only once.
+
+  Reread the lesson's discussion of separation of concerns.
+
 - [ ] YAGNI (You Ain't Gonna Need It)
+  You're thinking about which features are necessary, which is a good habit.
+
+  YAGNI warns against building things before you need them, though. Moving existing SQL into its own class is about organization, not about avoiding extra features.
+
+  Revisit the lesson's discussion of separation of concerns.
+
 - [ ] Interface Segregation
+  Good effort. Interface Segregation is a SOLID principle.
+
+  It's about keeping interfaces small and focused for their clients, though. This scenario moves SQL out of a route handler, which is a broader separation of responsibilities.
+
+  Reread the lesson's discussion of separation of concerns.
 ```
 
 ## Videos

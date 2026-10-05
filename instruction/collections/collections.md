@@ -317,9 +317,30 @@ instead of
 `ArrayList<String> list = new ArrayList<>()`
 
 - [ ] It improves the runtime performance of the application by reducing memory overhead.
+  Good effort. Performance is always worth thinking about.
+
+  The declared type doesn't change the object that's created, though. Both lines create the same `ArrayList`, so memory use and speed are identical.
+
+  Reread the lesson's discussion of interfaces and implementations. Think about what the declared type affects in the *rest* of your code.
+
 - [ ] It allows the compiler to automatically choose the most efficient implementation at runtime.
+  You're thinking about how Java chooses implementations, which is an interesting question.
+
+  The compiler doesn't pick the implementation, though. You chose `ArrayList` explicitly with `new ArrayList<>()`. The declared type only controls which methods the rest of your code can depend on.
+
+  Revisit how the lesson separates the `List` interface from classes like `ArrayList` and `LinkedList`.
+
 - [x] It decouples the code from a specific implementation, making it easier to switch to a different List type (like LinkedList) later.
+  **Exactly!** Declaring the variable as `List` means the rest of your code depends only on what *any* list can do.
+
+  If you later decide that `LinkedList` fits better, you change one line, and nothing else breaks. This is the same "program to an interface" idea behind the design principles you'll apply throughout the course.
+
 - [ ] It is a requirement of the Java Language Specification to prevent compilation errors in modern JDKs.
+  Good effort. Java does enforce many rules at compile time.
+
+  Both declarations compile without any problem, though. Declaring a variable as the concrete class is legal; it's just less flexible.
+
+  Reread the lesson's discussion of the `List` interface. Think about why you might want to avoid tying your code to one specific implementation.
 ```
 
 

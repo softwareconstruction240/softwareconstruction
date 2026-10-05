@@ -103,7 +103,28 @@ public class ChessBoard {
 In the provided UML diagram, the `ChessPiece` class has a method `pieceMoves(ChessBoard, ChessPosition)`. Which design principle is most directly supported by placing this method in `ChessPiece` rather than in `ChessGame`?
 
 - [x] Information Expert — because the piece possesses the knowledge of its own movement rules.
+  **Correct!** Information Expert says to give a responsibility to the class that has the information needed to fulfill it.
+
+  A piece knows its own type and color, so it's best placed to figure out how it moves. This keeps movement logic out of `ChessGame`, which can focus on game-level rules such as turns and check.
+
 - [ ] High Coupling — because the piece now depends on the board.
+  Good effort. You noticed that the piece depends on the board.
+
+  High coupling is something to *avoid*, though, not a principle to support. The design works because the dependency is small and necessary.
+
+  Reread the lesson's discussion of Information Expert.
+
 - [ ] Liskov Substitution Principle — because it allows different pieces to be swapped.
+  You're thinking about substitutability, which is a valid principle.
+
+  Liskov Substitution is about subtypes replacing their base type. This question asks *which class* should own the method, which is a different question.
+
+  Revisit the lesson's explanation of where `pieceMoves` lives.
+
 - [ ] Encapsulation — because it hides the row and column data of the position.
+  Good effort. Encapsulation is an important principle.
+
+  Placing `pieceMoves` in `ChessPiece` isn't mainly about hiding row and column data, though. It's about which class knows enough to calculate the moves.
+
+  Reread the lesson's discussion of Information Expert.
 ```

@@ -386,9 +386,30 @@ client make move
 When aiming to write high-quality, maintainable code, which approach to naming and documentation is considered a best practice?
 
 - [ ] Prioritizing short, single-letter variable names like `i`, `rs`, and `data` to minimize file size and speed up execution.
+  Good effort. Short names can be fine in a very small scope, like a loop counter.
+
+  Names don't affect execution speed or the size of the compiled program, though, and terse names make code much harder to read.
+
+  Reread the *Names* section of the lesson.
+
 - [ ] Writing a detailed comment for every line of code to explain the specific syntax being used.
+  You're right that explaining code matters.
+
+  Commenting every line usually adds noise, though, and comments drift out of date as the code changes. Good names and small functions often remove the need for comments.
+
+  Revisit the lesson's discussion of names and comments.
+
 - [x] Using descriptive names for variables and functions that clearly communicate their intent and purpose without requiring extra explanation.
+  **Exactly!** A good name tells the reader what something is for, so the code explains itself.
+
+  `validMoves` says far more than `vm` or `list`, and it stays accurate as long as the code does. Descriptive names also reduce the need for comments, which can drift out of date.
+
 - [ ] Nesting multiple logical operations within a single function to ensure all related tasks are handled in one location.
+  Good effort. Keeping related logic together is a reasonable instinct.
+
+  Packing many operations into one function makes it harder to read, test, and change, though. Quality code favors small, focused functions.
+
+  Reread the lesson's guidance on decomposition.
 ```
 
 ```masteryls
@@ -396,9 +417,30 @@ When aiming to write high-quality, maintainable code, which approach to naming a
 In the context of writing quality code, what is the primary purpose of refactoring?
 
 - [ ] Fixing critical security vulnerabilities and logic bugs discovered during the production phase
+  Good effort. Fixing bugs and vulnerabilities is essential work.
+
+  That's *bug fixing*, though, which changes behavior on purpose. Refactoring keeps behavior exactly the same.
+
+  Reread the lesson's definition of refactoring.
+
 - [x] Improving the internal structure and readability of code without changing its external behavior
+  **Correct!** Refactoring improves the code's internal quality, such as names, structure, and duplication, while the external behavior stays the same.
+
+  That's why a good unit test suite is so valuable. If the tests pass before and after a refactoring, you know the behavior didn't change.
+
 - [ ] Adding new functionality and features to an existing module to meet changing requirements
+  You're thinking about evolving code, which is an everyday part of development.
+
+  Adding features changes what the code *does*, though. Refactoring improves the code without changing its behavior.
+
+  Revisit the *Refactoring* section.
+
 - [ ] Rewriting a legacy system from scratch using a more modern programming language or framework
+  Good effort. Rewrites do happen, especially with legacy systems.
+
+  A full rewrite is a much larger, riskier change, though. Refactoring is a series of small, safe improvements to existing code.
+
+  Reread the lesson's description of common refactoring techniques.
 ```
 
 ```masteryls

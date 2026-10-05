@@ -144,7 +144,14 @@ To pass off this assignment, use the course [auto-grading](https://cs240.click/)
 ```masteryls
 {"id":"bcc505a6-10fd-4994-bac8-28e2b37148b3","title":"Submission Precheck","type":"multiple-choice"}
 - [x] All of the test cases, including the DAO unit tests I wrote, are passing, I have verified my code quality, and my GitHub commit history complies with the course requirements.
-- [ ] I need to back and do some more work before submitting.
+  **Well done on Phase 4!** Passing your DAO unit tests means that your data now persists correctly in MySQL, and the rest of your server didn't need to know it changed.
+
+  That's the payoff of keeping data access behind interfaces.
+
+- [ ] I need to go back and do some more work before submitting.
+  Good call taking another look before submitting. Database phases have a lot of small details to get right.
+
+  Check that your DAO tests reach 80% line coverage with both positive and negative cases, and that passwords are hashed with BCrypt before they're stored. Then review your code against the Code Quality Rubric and confirm your commit history. If a test fails, inspect the database directly to see what was actually written.
 ```
 
 ### Grading Rubric

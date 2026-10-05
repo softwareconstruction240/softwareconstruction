@@ -195,7 +195,14 @@ To pass off this assignment use the course [auto-grading](https://cs240.click/) 
 ```masteryls
 {"id":"0bf59ef9-4f30-440c-aad5-0fdcd1bc7778", "title":"Submission Precheck", "type":"multiple-choice" }
 - [x] All of the test cases are passing and my GitHub Commit history complies with the course requirements.
-- [ ] I need to back and do some more work before submitting.
+  **Nice work on Phase 0!** Passing tests and a steady commit history show that your move calculations work and that you built them step by step.
+
+  Before you submit, take one more look at your commit messages. A history of small, clearly described commits makes it easy for graders, and for you, to see how your solution came together.
+
+- [ ] I need to go back and do some more work before submitting.
+  Good call checking before you submit. It's much easier to fix things now than after grading.
+
+  Run the full test suite and focus on the first failing test, since one bug in a shared helper often breaks many pieces. Then review the GitHub History requirement: commit after every minor milestone, such as passing a test. If you get stuck, bring a specific failing test to a TA.
 ```
 
 ### Grading Rubric

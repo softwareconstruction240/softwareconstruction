@@ -7,7 +7,14 @@ At this point, you should have already made your own copy of the [Chess GitHub R
 {"id":"57d595a3-6ae5-40a9-a512-041c1c1cd198", "title":"Phase 0: Getting started", "type":"multiple-choice" }
 
 - [x] I used the [Chess GitHub Repository](../chess-github-repository/chess-github-repository.md) template to create a repository in my GitHub account and have cloned it locally.
+  **You're ready to start coding!** Creating your repository from the template and cloning it locally gives you the starting code and a place to record your progress.
+
+  Remember to commit and push often as you work. Your commit history is part of every phase's requirements.
+
 - [ ] I was not able to successfully create the repo and am reaching out to a TA for help.
+  Reaching out to a TA is exactly the right move. Repository setup problems are usually quick to fix with a second pair of eyes.
+
+  While you wait, reread the Chess GitHub Repository instructions and note exactly where things went wrong, including any error messages. That detail will help your TA solve the problem quickly.
 ```
 
 
@@ -53,6 +60,13 @@ Specifically, IntelliJ Ultimate Edition includes a local deep learning model and
 {"id":"d6399d4e-74c3-4eb3-bdf4-799a1e18f01e", "title":"Disabled AI", "type":"multiple-choice" }
 I confirm that I have:
 
-- [x] Disaabled AI in my development environment for this class
+- [x] Disabled AI in my development environment for this class
+  **Thank you for confirming.** Working through the problems yourself builds the debugging and design skills this course is meant to develop.
+
+  When you get stuck, use the course's help resources: TAs, peers, and the instructor. Struggling through a problem with the right support is where most of the learning happens.
+
 - [ ] Not disabled AI and have chosen not to take this class
+  Thanks for being honest about your choice. This course requires that AI assistance be disabled so that you build these skills yourself.
+
+  If you've reconsidered and want to stay in the class, disable the AI features in your development environment and return to this question. If you have concerns about the policy, talk with the instructor.
 ```

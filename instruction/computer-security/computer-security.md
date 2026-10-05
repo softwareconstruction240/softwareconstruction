@@ -430,9 +430,30 @@ If the website cannot decrypt the symmetric key, it proves they do not own the p
 When comparing symmetric and asymmetric cryptographic systems, which of the following represents a significant advantage of symmetric encryption?
 
 - [ ] It provides a native solution for the key distribution problem when communicating with unknown parties over the internet.
+  You're thinking about the key distribution problem, which is one of the most important ideas in this lesson.
+
+  Symmetric encryption is actually the one that *has* that problem, though. Both parties need the same secret key, and getting it to them securely is hard.
+
+  Reread the *Secure Key Exchange* section and notice which type of encryption is used to solve this problem.
+
 - [ ] It inherently supports digital signatures, providing non-repudiation for all transmitted messages.
+  Good effort. Digital signatures and non-repudiation are important security properties.
+
+  Signatures depend on a key **pair**, though: a private key that only the signer has and a public key anyone can use to verify. With a single shared key, either party could have produced the message.
+
+  Revisit the *Digital Signatures* section and notice which keys Sally and Juan use.
+
 - [x] It offers significantly higher processing speeds and lower computational overhead, making it ideal for bulk data encryption.
+  **Correct!** Symmetric algorithms like AES are very fast and efficient.
+
+  That's why real systems use a hybrid approach. Asymmetric encryption securely exchanges a symmetric key, and then the symmetric key encrypts the bulk of the data. You can see this pattern in the HTTPS handshake at the end of the lesson.
+
 - [ ] It simplifies key management in large networks by requiring only one pair of keys for every user.
+  You're thinking about key management at scale, which is a real challenge.
+
+  A "pair of keys for every user" describes **asymmetric** encryption, though. With symmetric encryption, every pair of parties needs its own shared secret, which gets harder to manage as a network grows.
+
+  Compare the *Symmetric Key Encryption* and *Asymmetric Key Encryption* sections.
 ```
 
 ```masteryls
@@ -440,9 +461,30 @@ When comparing symmetric and asymmetric cryptographic systems, which of the foll
 In the process of creating a digital signature, what is the primary purpose of applying a cryptographic hash function to the original message before it is encrypted with a private key?
 
 - [ ] To provide confidentiality by ensuring that the message content remains hidden from any unauthorized third parties during transit.
+  Good effort. Confidentiality is an important security goal.
+
+  A digital signature doesn't hide the message, though. Sally sends the message along with the signature, and anyone can read it. Signatures prove *who* sent a message and that it *hasn't changed*.
+
+  Reread the first sentence of the *Digital Signatures* section.
+
 - [ ] To generate a shared symmetric key that both the sender and receiver will use to encrypt and decrypt the bulk of the message data.
+  You're connecting this to the hybrid approach, where a symmetric key protects bulk data. That's a real pattern.
+
+  It belongs to *key exchange*, though, not digital signatures. In a signature, the hash is compared, not used as a key.
+
+  Revisit the steps in the *Digital Signatures* section and follow what happens to the hash.
+
 - [x] To produce a unique, fixed-size digest that allows the receiver to verify the integrity of the message by detecting any unauthorized modifications.
+  **Exactly right!** The hash is a compact fingerprint of the message.
+
+  Sally encrypts the hash with her private key. Juan hashes the message himself and compares his result with the decrypted signature. If even one character changed, the hashes won't match. Hashing first also keeps the slow asymmetric step small, because a digest is much shorter than the full message.
+
 - [ ] To increase the total length of the data string to ensure it meets the minimum bit-length requirements for asymmetric encryption algorithms.
+  Good effort. Asymmetric algorithms do have size limits.
+
+  Hash functions produce a *fixed-size* output, though, often much smaller than the original message. The point isn't to make the data longer; it's to create a fingerprint that reveals any change.
+
+  Reread the *Cryptographic Hash Functions* section and the properties it lists.
 ```
 
 ```masteryls

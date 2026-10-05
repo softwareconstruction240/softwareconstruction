@@ -402,9 +402,30 @@ Deciding which approach to take is a core part of software design.
 Which statement accurately describes the primary characteristic of an interface in object-oriented programming?
 
 - [ ] It serves as a base class that can store and manage the internal state of its subclasses through private instance variables.
+  Good effort. Managing shared state for subclasses is a real design need.
+
+  That describes an **abstract class** or base class, though. Interfaces can't have instance fields that store state.
+
+  Compare the *Interfaces* and *Abstract Classes* sections of the lesson.
+
 - [ ] It allows for the direct instantiation of objects that provide a default set of behaviors for a specific system component.
+  You're thinking about default behavior, which interfaces can provide in modern Java through default methods.
+
+  Interfaces can't be instantiated directly, though. You always create an object of a class that implements the interface.
+
+  Reread the *Interfaces* section.
+
 - [x] It defines a contract of method signatures that implementing classes must provide, enabling polymorphism without requiring a shared class hierarchy.
+  **Correct!** An interface defines *what* a class can do, not *how* it does it.
+
+  Any class can implement an interface, regardless of what it extends, and code that uses the interface works with every implementation. That's how your chess code can treat different pieces through a common type.
+
 - [ ] It restricts a class to inheriting from only one source of behavior to ensure strict hierarchical organization.
+  Good effort. You're thinking about inheritance rules.
+
+  It's the other way around, though. A Java class can extend only one class, but it can implement *many* interfaces. Interfaces add flexibility rather than restricting it.
+
+  Revisit the *Interfaces* and *Extending Classes* sections.
 ```
 
 

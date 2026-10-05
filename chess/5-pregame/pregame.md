@@ -192,7 +192,14 @@ Review the [Phase 5 Passoff Common Problems](../../instruction/chess-tips/chess-
 ```masteryls
 {"id":"e21028f3-f5e5-413c-be2f-ee53b77d3f6b","title":"Submission Precheck","type":"multiple-choice"}
 - [x] All the required functionality is complete, all of the test cases I wrote are passing, I have verified my code quality, and my GitHub commit history complies with the course requirements.
-- [ ] I need to back and do some more work before submitting.
+  **Great progress on Phase 5!** A working client, passing tests, and clean code show that your user interface and server are communicating correctly.
+
+  You're well positioned for gameplay, which builds directly on the server facade you just created.
+
+- [ ] I need to go back and do some more work before submitting.
+  Taking time to finish well is a good choice. Phase 5 touches the client, the server facade, and your server.
+
+  Walk through every required command in the client, including error cases such as bad input or a server that's down. Make sure your `ServerFacade` tests pass and reach 80% line coverage. Then review your code against the Code Quality Rubric and confirm your commit history.
 ```
 
 ### Grading Rubric

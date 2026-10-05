@@ -313,9 +313,30 @@ Java's direct support for logging via the `java.util.logging` package was not in
 In professional software development, why is it considered a best practice to use a logging framework (such as SLF4J, Log4j, or Logback) instead of using `System.out.println` for tracking application behavior?
 
 - [ ] `System.out.println` statements are automatically stripped out by the Java compiler during production builds, making them unreliable for debugging deployed code.
+  Good effort. It's true that `System.out.println` is a poor fit for production code.
+
+  The compiler doesn't remove it, though. Every `println` call runs in production exactly as written, which is part of the problem.
+
+  Reread the *Log Levels* and *Logging Classes* sections, and notice what a logging framework lets you control.
+
 - [ ] Standard output streams are strictly limited to console display and cannot be redirected to external files or databases.
+  You're thinking about where output goes, which is the right question.
+
+  Standard output *can* be redirected to a file, though. The real limitation is that you can't control it by severity or send different messages to different places without changing code.
+
+  Revisit the *Log Levels* section and the lesson's discussion of configuring logging from a file.
+
 - [x] Logging frameworks provide granular control over message severity levels and allow for the dynamic configuration of output destinations without changing the code.
+  **Exactly right!** With a logging framework, each message has a level, such as `DEBUG`, `INFO`, `WARN`, or `ERROR`.
+
+  Configuration decides which levels to keep and where to send them: the console, a file, or a remote service. You can turn on detailed debugging for one class in production without rebuilding the app.
+
 - [ ] Using `System.out.println` triggers a mandatory `SecurityException` when the application is executed in a containerized environment like Docker or Kubernetes.
+  Good effort. Containers do change how output is handled.
+
+  `System.out.println` doesn't throw a security exception in Docker or Kubernetes, though. Container platforms usually collect standard output.
+
+  Reread the *Log Levels* and *Logging Classes* sections to see what a logging framework adds.
 ```
 
 ```masteryls

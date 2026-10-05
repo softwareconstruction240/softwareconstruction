@@ -43,7 +43,7 @@ In a relational database, data is organized into structured formats where each r
 
 ![relationalModelBenefit.jpg](relationalModelBenefit.jpg)
 
-The enduring popularity of the relational model stems from its balance of simplicity and rigorous data integrity. Before its adoption, developers had to understand the physical storage of data on a disk to retrieve it. The relational model introduced **Logical Data Independence**, meaning the way data is stored physically does not affect how it is accessed logically.
+The enduring popularity of the relational model stems from its balance of simplicity and rigorous data integrity. Before its adoption, developers had to understand the physical storage of data on a disk to retrieve it. The relational model introduced **Physical Data Independence**, meaning the way data is stored physically does not affect how it is accessed logically.
 
 1.  **Data Integrity and Constraints:** Relational databases enforce rules (constraints) that prevent orphaned records or duplicate data, ensuring that the information remains accurate and reliable over time.
 2.  **SQL Standardization:** The Structured Query Language (SQL) provides a universal, declarative way to interact with data. Instead of writing complex loops to find a record, a user simply tells the database *what* they want, and the engine determines *how* to get it.
@@ -242,9 +242,30 @@ In practical terms, relational data is stored in a Relational Database Managemen
 In the relational data model, how is a **relation** logically represented and organized?
 
 - [ ] As a *graph* of interconnected nodes and edges representing physical pointers
+  Good effort. Graphs are a real way to model connected data.
+
+  Graphs belong to the network and graph data models, though, not the relational model. In fact, the relational model was designed so that you don't navigate physical pointers.
+
+  Reread the opening description of the relational model.
+
 - [x] As a *two-dimensional table* composed of rows and columns
+  **Exactly!** A relation is a table: each row is a tuple, and each column is an attribute.
+
+  Because every relation has this same simple shape, you can query and combine tables with a single, consistent language: SQL.
+
 - [ ] As a *hierarchical tree* structure where data is organized into parent-child segments
+  You're thinking about hierarchical data, which was a common approach before relational databases.
+
+  The relational model replaced hierarchical trees with flat tables that can be joined in any direction, though.
+
+  Revisit how the lesson contrasts the relational model with earlier hierarchical and network models.
+
 - [ ] As a *multidimensional cube* designed specifically for analytical processing
+  Good effort. Multidimensional cubes are real data structures used in analytics.
+
+  They're a specialized structure built for analysis, though, not how the relational model organizes data.
+
+  Reread how the lesson describes relations, tuples, and attributes.
 ```
 
 
@@ -259,9 +280,30 @@ I don't understand how rows and columns represent relationships.
 What is the primary benefit of "Logical Data Independence" in the relational model?
 
 - [ ] It allows the database to store data without using any tables or columns.
+  Good effort. Data independence does give you flexibility.
+
+  The relational model still organizes data into tables and columns, though. Logical data independence is about changing *that* structure without breaking the applications that depend on it.
+
+  Reread the *Data Independence and Abstraction* section.
+
 - [ ] It ensures that data is stored in a single, massive file for faster access.
-- [x] It allows users to query data without needing to know how that data is physically stored on the disk.
+  You're thinking about storage and access speed, which databases care about a lot.
+
+  How data is laid out in files is a *physical* storage concern, though, and this question asks about the logical kind of data independence.
+
+  Revisit the two kinds of data independence in the *Data Independence and Abstraction* section.
+
+- [x] It allows the schema to change, such as splitting a table, while views keep the original structure available to existing applications.
+  **Correct!** Logical data independence means the schema can evolve without breaking the applications that use it.
+
+  If you split a table in two, you can create a view that presents the original table's shape, so existing queries keep working. Its partner, physical data independence, does the same thing one layer down: it lets storage structures such as indexes change without affecting the schema.
+
 - [ ] It forces the user to write manual loops to navigate through physical memory addresses.
+  Good effort. Navigating memory manually is how earlier systems worked.
+
+  The relational model was designed to *remove* that burden, though. You describe *what* data you want, and the database figures out how to get it.
+
+  Reread the lesson's comparison with earlier database systems.
 ```
 
 ```masteryls
@@ -269,9 +311,30 @@ What is the primary benefit of "Logical Data Independence" in the relational mod
 Which software engineering principle is most directly supported by the ability to change a database's underlying indexing strategy without modifying the application's source code?
 
 - [ ] Encapsulation through private class members
+  Good effort. Encapsulation and data independence share a goal: hiding details behind an interface.
+
+  This question is about a database concept, though, not class design. Private members don't control how a database stores its indexes.
+
+  Revisit the *Data Independence and Abstraction* section.
+
 - [ ] The DRY (Don't Repeat Yourself) principle
+  You're right that DRY is an important principle.
+
+  DRY is about avoiding duplicated logic or knowledge, though. Changing an index without touching the application is about *isolating* your code from storage details, not about duplication.
+
+  Reread the two kinds of data independence described in the lesson.
+
 - [x] Physical Data Independence
+  **Exactly right!** Changing an index is a change to physical storage.
+
+  Because SQL queries describe *what* data you want rather than *how* to find it, the database can switch from a B-Tree index to a hash index, and your application code doesn't change at all.
+
 - [ ] Imperative logic flow
+  Good effort. Imperative and declarative styles are worth comparing.
+
+  Imperative logic actually describes *how* to do something step by step, though. That's what ties code to storage details. SQL's declarative style is what makes this kind of independence possible.
+
+  Revisit the *Data Independence and Abstraction* section.
 ```
 
 ```masteryls

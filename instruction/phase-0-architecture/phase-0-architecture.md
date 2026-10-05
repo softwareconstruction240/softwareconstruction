@@ -138,9 +138,30 @@ Map<String, MoveStrategy> ruleRegistry = Map.of(
 Why is it considered better architecture to separate a Piece's identity from its movement rules?
 
 - [ ] It reduces the total amount of code required to render the board.
+  Good effort. Less code is often a nice side effect of good design.
+
+  Rendering the board isn't related to where movement rules live, though.
+
+  Reread the lesson's discussion of separating pieces from their movement rules.
+
 - [ ] It allows the Piece class to store more metadata about the game history.
+  You're thinking about what a `Piece` class should know.
+
+  Game history doesn't belong to an individual piece, though, and storing more data isn't the goal of this separation.
+
+  Revisit the lesson's explanation of why the rules are separated.
+
 - [x] It enables the game to support rule variants or behavior changes without modifying the Piece entity classes.
+  **Correct!** When movement rules live in their own classes, a piece only has to know *what* it is.
+
+  To support a variant, or to change how a piece moves, you change or swap the rule without touching the piece classes. This is the Open/Closed Principle in action.
+
 - [ ] It ensures that the user interface can directly access the move validation logic.
+  Good effort. The user interface does eventually need to know which moves are valid.
+
+  Giving the UI direct access to validation logic would *increase* coupling between layers, though, which isn't the goal.
+
+  Reread the lesson's architecture discussion.
 ```
 
 
@@ -154,9 +175,30 @@ The `ChessPiece`, `ChessMove` and `ChessPosition` classes act as **Data Transfer
 Why is it better to use a `ChessPiece` interface with a `pieceMoves()` method rather than a single `calculateMoves(Piece p)` method inside the `ChessBoard` class?
 
 - [ ] It makes the code run faster by reducing memory overhead
+  Good effort. Performance is worth considering.
+
+  This design choice is about structure, though, not speed. Both approaches run in roughly the same time.
+
+  Reread the lesson's explanation of why `pieceMoves` belongs with the piece.
+
 - [x] It follows the Open/Closed Principle, allowing new piece types to be added without modifying the board class
+  **Exactly right!** With a `pieceMoves()` method on each piece type, adding a new piece means writing one new class.
+
+  `ChessBoard` doesn't change, and there's no growing `switch` statement in `calculateMoves`. The code is open for extension but closed for modification.
+
 - [ ] It ensures that the board has direct control over the internal state of every piece
+  You're thinking about control over state, which is an important design question.
+
+  Having the board control every piece's internals would *break* encapsulation and increase coupling, though.
+
+  Revisit the lesson's discussion of polymorphism and the Open/Closed Principle.
+
 - [ ] It prevents the use of Data Transfer Objects (DTOs), which simplifies the architecture
+  Good effort. DTOs are a real part of the chess architecture.
+
+  Using an interface doesn't prevent or replace DTOs, though. The two serve different purposes.
+
+  Reread the lesson's explanation of the `ChessPiece` interface.
 ```
 
 

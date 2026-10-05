@@ -66,7 +66,14 @@ When you run the `main` method, the server will start. IntelliJ may display seve
 Open a web browser and navigate to `http://localhost:8080` (if you chose a different port, use that instead).
 
 - [x] I see the following page: ![Webpage](chess-server-webpage.png)
-- [ ] I don't see server output. I will review the getting started instrucitons.
+  **Your server is running!** Seeing this page means that your server started, is listening on the port, and is serving static files correctly.
+
+  That gives you a solid foundation for adding the web API endpoints in this phase.
+
+- [ ] I don't see server output. I will review the getting started instructions.
+  Good plan to review the instructions. Server startup problems usually come down to a small configuration detail.
+
+  Check that your server is actually running and that you're using the same port it reports at startup. Also confirm that the static web files are in the location the instructions specify. The console output and stack traces in IntelliJ are often the fastest way to find the problem.
 ```
 
 You can use this interface to test your endpoints as you develop the project.

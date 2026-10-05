@@ -329,7 +329,7 @@ synchronized (lock) {
 
 ## Atomic Concurrency
 
-Java's `java.util.concurrent.atomic` package provides classes that perform operations atomically without explicit synchronization. For example, `AtomicInteger` allows you to add values in a single, thread-safe step.
+Java's `java.util.concurrent.atomic` package provides classes that perform operations atomically without explicit synchronization. For example, `AtomicInteger` allows you to add values in a single, thread-safe step. Instead of locking, these classes use low-level hardware instructions such as **compare-and-swap (CAS)**, which updates a value only if no other thread has changed it since it was read. If another thread did change it, the operation simply retries. Because no thread ever waits on a lock, atomic operations are **non-blocking**.
 
 ```java
 public class AtomicServerExample {
@@ -412,9 +412,30 @@ What is a critical section and what are some Java constructs that you can use to
 In Java's `java.util.concurrent.atomic` package, what is the primary advantage of using classes such as `AtomicInteger` or `AtomicReference` instead of standard primitive types with `synchronized` blocks?
 
 - [ ] They prevent other threads from reading a value while an update is in progress by applying a pessimistic lock on the underlying memory address.
+  You're right that thread safety is the goal. Preventing inconsistent reads is important.
+
+  Pessimistic locking is how `synchronized` works, though. Atomic classes avoid locks entirely.
+
+  Reread the *Atomic Concurrency* section and notice how these classes update a value without explicit synchronization.
+
 - [x] They provide a way to perform thread-safe, non-blocking operations on single variables using low-level hardware primitives like Compare-And-Swap (CAS).
+  **Correct!** Atomic classes use hardware instructions such as compare-and-swap (CAS) instead of locks.
+
+  A thread reads the value, computes the new one, and swaps it in only if no other thread changed it in the meantime. If something did change, it simply tries again. Threads never wait on a lock, so a single shared counter, like the one in the lesson's server example, stays both correct and fast.
+
 - [ ] They ensure that variables are stored exclusively in the CPU cache to improve the performance of single-threaded applications.
+  Good effort. Performance is part of the appeal of atomic classes.
+
+  Their purpose is safe *multithreaded* access, though, not single-threaded speed. They also don't control which cache the value is stored in.
+
+  Revisit why `sum += value` fails with multiple threads, and how `AtomicInteger` fixes it.
+
 - [ ] They automatically detect and resolve deadlocks that occur when multiple threads attempt to update the same object simultaneously.
+  You're right to think about deadlocks. They're one of the hardest concurrency problems.
+
+  Atomic classes don't detect or resolve deadlocks, though. They help *avoid* certain lock-related problems because they don't use locks for single-variable updates.
+
+  Reread the *Deadlock* and *Atomic Concurrency* sections, and think about why code with no locks can't deadlock on that variable.
 ```
 
 ## Videos

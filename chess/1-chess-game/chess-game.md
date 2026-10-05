@@ -141,7 +141,14 @@ To pass off this assignment use the course [auto-grading](https://cs240.click/) 
 ```masteryls
 {"id":"92cb273b-e92d-4120-b720-8c40a3a87672","title":"Submission Precheck","type":"multiple-choice"}
 - [x] All of the test cases are passing and my GitHub commit history complies with the course requirements.
-- [ ] I need to back and do some more work before submitting.
+  **Great job on Phase 1!** Passing all of the game tests means that your move validation, check, checkmate, and turn logic are working together correctly.
+
+  Take a moment to confirm that your commit history clearly shows your progress through the phase before you submit.
+
+- [ ] I need to go back and do some more work before submitting.
+  Good decision to pause before submitting. Phase 1 has more interacting pieces than Phase 0, so there's more to verify.
+
+  Run the test suite and work through failures one at a time, starting with the simplest. Check-related bugs often come from testing a move on the real board instead of a copy. Make sure your commit history meets the requirement, and bring specific failing tests to a TA if you're stuck.
 ```
 
 ### Grading Rubric

@@ -438,9 +438,30 @@ customer.getWallet().getCreditCard().charge(amount);
 In software architecture, the design goal is typically to achieve **high cohesion** and **low coupling**. Which of the following scenarios best describes a system that successfully applies these principles?
 
 - [ ] A system where a single "God Object" manages all application logic to ensure that no external dependencies are required between different files.
+  Good effort. Fewer dependencies between files can sound appealing.
+
+  A God Object has *very low* cohesion, though, because it mixes every responsibility into one place. Everything that uses it becomes tightly coupled to it.
+
+  Reread the lesson's description of the God Object.
+
 - [ ] A system where modules are highly interdependent to ensure rapid data transfer, but each module contains logic for several unrelated business features.
+  You're right that modules need to communicate.
+
+  This option describes the opposite of the goal, though. Highly interdependent modules mean *high coupling*, and unrelated features in one module mean *low cohesion*.
+
+  Revisit the definitions of cohesion and coupling.
+
 - [x] A system where each module is responsible for a single, well-defined task and interacts with other modules through stable, minimal interfaces.
+  **Exactly right!** Each module does one thing well, which is high cohesion, and depends on others only through small, stable interfaces, which is low coupling.
+
+  You can change one module without breaking the others, test each one in isolation, and understand it on its own. This is the structure you're building in the chess server's layers.
+
 - [ ] A system where code is split into many small modules to reduce complexity, even if those modules must frequently access and modify each other's internal private state.
+  Good effort. Splitting code into small modules is often a good step.
+
+  Reaching into each other's private state, though, creates *tight* coupling. A change inside one module breaks the others, so the small modules don't really help.
+
+  Reread the lesson's discussion of coupling.
 ```
 
 ```masteryls
@@ -448,9 +469,30 @@ In software architecture, the design goal is typically to achieve **high cohesio
 In the context of software design principles, which statement best characterizes the primary objective of **decomposition**?
 
 - [ ] The process of hiding the internal implementation details of a module to prevent external dependencies from accessing private data.
+  Good effort. Hiding implementation details is an important design principle.
+
+  That describes **encapsulation**, though, not decomposition.
+
+  Reread how the lesson defines decomposition. Think about what you do to a large problem before you can solve it.
+
 - [x] Breaking a complex system into smaller, more manageable parts that can be developed, tested, and maintained independently.
+  **Correct!** Decomposition breaks a big problem into smaller pieces that you can understand, build, and test on their own.
+
+  The chess project is a good example. Instead of one huge program, you build pieces, a board, a game, a server, and a client, each with a clear job.
+
 - [ ] Merging several small, related functions into a single "God object" to reduce the total number of files and classes within a project.
+  You're thinking about how code is organized, which is the right topic.
+
+  Merging everything into a God Object is the *opposite* of decomposition, though, and it leads to low cohesion.
+
+  Revisit the lesson's discussion of decomposition and the God Object.
+
 - [ ] The systematic rewriting of existing code to improve its internal structure and performance without changing its external behavior.
+  Good effort. That's a solid definition, of a different concept.
+
+  Rewriting code to improve its structure without changing behavior is **refactoring**. Decomposition is about how you divide a system into parts in the first place.
+
+  Reread the decomposition section.
 ```
 
 ```masteryls
@@ -458,9 +500,30 @@ In the context of software design principles, which statement best characterizes
 In object-oriented design, while abstraction and encapsulation are closely related, they serve distinct purposes. Which statement best describes the primary difference between these two principles?
 
 - [ ] Abstraction is a mechanism for hiding the internal state of an object using access modifiers, while encapsulation is the process of defining a contract through interfaces.
+  Good effort. You're right that one involves access modifiers and the other involves interfaces.
+
+  The two are swapped here, though.
+
+  Reread how the lesson defines each principle, and notice which one uses `private` fields and which one describes the contract the outside world sees.
+
 - [ ] Abstraction focuses on the "how" an object performs its internal logic, while encapsulation focuses on the "what" the object provides to the rest of the system.
+  You've identified the "what" versus "how" distinction, which is the key idea.
+
+  The labels are attached to the wrong principles, though.
+
+  Revisit the lesson's definitions. Ask which principle presents a simplified view to the outside world and which one protects internal details.
+
 - [x] Abstraction focuses on hiding complexity by providing a simplified interface (the "what"), while encapsulation focuses on hiding implementation details and protecting data from outside interference (the "how").
+  **Exactly right!** Abstraction decides *what* to show: a simple interface that hides complexity.
+
+  Encapsulation decides *how* to protect what's hidden, keeping internal data private and controlling access to it. They work together. A `ChessBoard` offers simple methods (abstraction) while keeping its array of squares private (encapsulation).
+
 - [ ] Abstraction is used to achieve code reuse through inheritance, whereas encapsulation is used to achieve polymorphism through method overriding.
+  Good effort. Reuse and polymorphism are important object-oriented ideas.
+
+  They're associated with inheritance and interfaces, though, not with these two principles.
+
+  Reread the lesson's definitions of abstraction and encapsulation, and focus on what each one hides.
 ```
 
 ```masteryls

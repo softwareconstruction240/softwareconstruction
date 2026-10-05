@@ -170,7 +170,14 @@ In order to demonstrate original authorship, you must:
 
 
 - [x] I have read this syllabus
-- [ ] I'm am ignoring the syllabus and hoping things work out
+  **Thanks for reading!** The syllabus explains how the course is graded, how the chess project works, and how course policies affect you.
+
+  Bookmark it. When a question comes up about deadlines, grading, or expectations, the answer is often already here.
+
+- [ ] I am ignoring the syllabus and hoping things work out
+  We appreciate your honesty, and the syllabus does have a lot to take in.
+
+  Take a few minutes to go through it now, though. Knowing how assignments are weighted and how the late policy works can save you from losing points later. Start with the grading and policy sections, and then skim the rest.
 ```
 
 ##   Grade Scheme

@@ -160,9 +160,30 @@ While WebSockets are a powerful tool for bi-directional communication, they are 
 In which of the following application scenarios would implementing WebSockets provide a significant performance and architectural advantage over traditional HTTP?
 
 - [ ] Fetching a static list of product categories for an e-commerce landing page that updates once a week.
+  Good effort. Performance matters for every page.
+
+  Data that changes once a week is perfectly served by ordinary HTTP requests, especially with caching, though. A persistent connection would waste resources.
+
+  Reread the lesson's explanation of what WebSocket adds over HTTP.
+
 - [ ] Submitting a secure one-time payment form that requires a transaction ID and a confirmation receipt.
+  You're right that payments need to be secure and reliable.
+
+  A one-time request and response is exactly what HTTP does well, though. WebSocket's advantage comes from ongoing, two-way communication.
+
+  Revisit the lesson's comparison of HTTP and WebSocket.
+
 - [x] Building a high-frequency financial trading dashboard that requires sub-second updates of fluctuating market prices.
+  **Exactly right!** Prices change constantly, and the server needs to *push* each update the moment it happens.
+
+  With WebSocket, one open, full-duplex connection carries a stream of small messages, with no repeated requests or polling. That's the same reason your chess game uses WebSocket to notify every player about each move.
+
 - [ ] Delivering a long-form blog post where the user spends several minutes reading the content without further interaction.
+  Good effort. Reading time can be long.
+
+  Nothing needs to be sent while the user reads, though. A single HTTP response delivers the whole post, and an open connection would just sit idle.
+
+  Reread the lesson's description of when WebSocket is useful.
 ```
 
 ```masteryls

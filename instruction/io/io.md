@@ -234,9 +234,30 @@ When working with Java IO design patterns, adhering to established practices ens
 In the Java IO framework, what is the fundamental functional difference between an `InputStream` and an `OutputStream`?
 
 - [x] An input stream is used to read data from a source into a program, whereas an output stream is used to write data from a program to a destination.
+  **Correct!** Directions are described from the program's point of view.
+
+  An input stream brings data *in*, from a file, network, or keyboard. An output stream sends data *out*, to a file, network, or console. You'll use both when your chess server reads requests and writes responses.
+
 - [ ] Input streams transfer data from the program to an external destination, while output streams fetch data from an external source into the program.
+  Good effort. You know that one stream moves data in and the other moves data out.
+
+  The directions are reversed here, though. Think about it from the *program's* point of view.
+
+  Reread the lesson's introduction to input and output streams.
+
 - [ ] Input streams are designed exclusively for handling character-based data, while output streams are used for handling raw byte-based data.
+  You're thinking about the difference between bytes and characters, which is important in Java IO.
+
+  That distinction separates streams from *readers and writers*, though, not input from output. Both input and output streams handle raw bytes.
+
+  Revisit the lesson's overview of the IO class families.
+
 - [ ] An input stream represents data that has already been processed by the CPU, while an output stream represents data waiting in the system's RAM.
+  Good effort. CPU and memory are part of every IO operation.
+
+  Streams aren't defined by where data sits in the computer, though. They're defined by the direction the data moves relative to your program.
+
+  Reread the lesson's definitions of input and output streams.
 ```
 
 
@@ -245,9 +266,30 @@ In the Java IO framework, what is the fundamental functional difference between 
 In Java's `java.io` package, what is the fundamental difference between an `InputStream` and a `Reader`?
 
 - [ ] `InputStream` classes are used for reading data from a source, while `Reader` classes are used for writing data to a destination.
+  Good effort. Reading and writing is an important distinction in Java IO.
+
+  Both `InputStream` and `Reader` are for *reading*, though. Their writing counterparts are `OutputStream` and `Writer`.
+
+  Reread the lesson's overview of the IO class families.
+
 - [ ] `InputStream` is a concrete class used for unbuffered IO, while `Reader` is an interface used to implement buffered IO.
+  You're thinking about buffering, which matters a lot for performance.
+
+  Buffering is added by wrapping one stream or reader in another, though, such as `BufferedInputStream` or `BufferedReader`. Both `InputStream` and `Reader` are abstract classes, not interfaces.
+
+  Revisit the lesson's explanation of these base classes.
+
 - [ ] `InputStream` classes are designed specifically for memory-based buffers, while `Reader` classes are designed specifically for disk-based files.
+  Good effort. Different sources do require different classes.
+
+  Both families can read from memory, files, and networks, though. The source is chosen by the specific subclass, such as `FileInputStream` or `FileReader`.
+
+  Reread what the lesson says the two families read *as*.
+
 - [x] `InputStream` handles data as a sequence of raw 8-bit bytes, whereas `Reader` handles data as a sequence of 16-bit Unicode characters.
+  **Exactly!** An `InputStream` reads raw bytes, and a `Reader` reads characters.
+
+  Use streams for binary data, such as images, and readers for text. An `InputStreamReader` bridges the two, decoding bytes into characters with a character encoding.
 ```
 
 
@@ -256,9 +298,30 @@ In Java's `java.io` package, what is the fundamental difference between an `Inpu
 Which design pattern is primarily responsible for the ability to wrap a 'FileInputStream' inside a 'BufferedInputStream' to add performance enhancements without changing the underlying interface?
 
 - [ ] The Singleton Pattern
+  Good effort. Singleton is a well-known design pattern.
+
+  It ensures that a class has only one instance, though. Wrapping one stream in another doesn't involve that.
+
+  Reread the lesson's discussion of wrapping streams.
+
 - [ ] The Adapter Pattern
+  You're close. Adapter is another wrapping pattern.
+
+  An adapter *changes* an interface so that it fits another one, though. Here, `BufferedInputStream` keeps the same `InputStream` interface and adds behavior.
+
+  Revisit the design pattern the lesson names for IO wrappers.
+
 - [x] The Decorator Pattern
+  **Correct!** A decorator wraps an object, keeps the same interface, and adds behavior.
+
+  `BufferedInputStream` is still an `InputStream`, so any code that reads from a stream works unchanged, but now reads are buffered. You can stack decorators, too, adding buffering and then other behavior, one layer at a time.
+
 - [ ] The Factory Pattern
+  Good effort. Factories are useful for creating objects.
+
+  A factory decides *which* object to create, though. It doesn't add behavior to an existing object by wrapping it.
+
+  Reread the lesson's discussion of how streams are wrapped.
 ```
 
 ```masteryls

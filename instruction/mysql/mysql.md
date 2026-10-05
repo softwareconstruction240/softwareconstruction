@@ -156,9 +156,30 @@ At this point, ensure your MySQL server is running and that you can access it us
 In which of the following scenarios would MySQL be a better choice than SQLite?
 
 - [ ] When building a small, local mobile application that requires no network connection.
+  Good effort. You're thinking about where each database fits.
+
+  A small, offline mobile app is SQLite's strength, though. It needs no separate server and stores everything in one local file.
+
+  Reread the comparison table in the lesson.
+
 - [ ] When you need to store unstructured JSON data with no predefined schema.
+  You're right that some applications need flexible, schema-less data.
+
+  Neither MySQL nor SQLite is designed for that, though. Both are relational. The lesson points to MongoDB for unstructured data.
+
+  Revisit the comparison table.
+
 - [x] When building a multi-user web application that requires high-concurrency read operations.
+  **Correct!** MySQL runs as a server that many clients can connect to at once.
+
+  It's built to handle many simultaneous users, which is exactly what a web application like your chess server needs. SQLite is excellent for local, single-application storage, but it isn't designed to be a shared database server.
+
 - [ ] When you need a database that exists as a single, portable file on a disk.
+  Good effort. A single, portable file is a real advantage for some applications.
+
+  That describes **SQLite**, though, not MySQL.
+
+  Reread the *Scalability* row of the comparison table.
 ```
 
 ```masteryls
