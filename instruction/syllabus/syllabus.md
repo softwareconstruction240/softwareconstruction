@@ -180,6 +180,25 @@ In order to demonstrate original authorship, you must:
   Take a few minutes to go through it now, though. Knowing how assignments are weighted and how the late policy works can save you from losing points later. Start with the grading and policy sections, and then skim the rest.
 ```
 
+## Grade Breakdown
+
+You are graded purely on the following assignments:
+
+| Assignment                                      | Points | % of Grade |
+| :---------------------------------------------- | :----- | :--------- |
+| Official Programming Exam (Proctored)           | 100    | 8.06 %     |
+| Chess GitHub Repository                         | 15     | 1.21 %     |
+| ♟️ Phase 0: Chess Moves                         | 125    | 10.08 %    |
+| ♟️ Phase 1: Chess Game                          | 125    | 10.08 %    |
+| ♟️ Phase 2: Chess Server Design                 | 50     | 4.03 %     |
+| ♟️ Phase 3: Chess Web API                        | 180    | 14.52 %    |
+| ♟️ Phase 4: Chess Database                       | 155    | 12.50 %    |
+| ♟️ Phase 5: Chess Pregame                        | 155    | 12.50 %    |
+| ♟️ Phase 6: Chess Gameplay.                     | 155    | 12.50 %    |
+| Reading interactions                            | 80     | 6.45 %     |
+| Final - Job Interview                            | 100    | 8.06 %     |
+| **Total**                                       | **1240** | **100 %** |
+
 ##   Grade Scheme
 
 The following grading standards will be used in this class:
