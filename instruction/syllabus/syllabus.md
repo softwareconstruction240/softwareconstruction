@@ -165,21 +165,6 @@ In order to demonstrate original authorship, you must:
 
 
 
-```masteryls
-{"id":"bae08349-d561-4c4b-9a84-208fab172b36", "title":"Acknowledgement", "type":"multiple-choice" }
-
-
-- [x] I have read this syllabus
-  **Thanks for reading!** The syllabus explains how the course is graded, how the chess project works, and how course policies affect you.
-
-  Bookmark it. When a question comes up about deadlines, grading, or expectations, the answer is often already here.
-
-- [ ] I am ignoring the syllabus and hoping things work out
-  We appreciate your honesty, and the syllabus does have a lot to take in.
-
-  Take a few minutes to go through it now, though. Knowing how assignments are weighted and how the late policy works can save you from losing points later. Start with the grading and policy sections, and then skim the rest.
-```
-
 ## Grade Breakdown
 
 You are graded purely on the following assignments:
@@ -225,6 +210,23 @@ In order to register for CS classes beyond CS 240, the "CS 240 flag" must be set
 For CS majors, you must meet with Lynnette Nelson in the CS Dept. office to get your CS 240 flag set. When you meet with her, Lynnette will give you some important information about the CS major. A meeting time with Lynnette can be arranged by contacting her at lnelson@cs.byu.edu.
 
 For non-CS majors, your CS 240 flag will be set automatically after the add/drop deadline. You do not need to meet with Lynnette.
+
+
+```masteryls
+{"id":"bae08349-d561-4c4b-9a84-208fab172b36", "title":"Acknowledgement", "type":"multiple-choice" }
+
+
+- [x] I have read this syllabus
+  **Thanks for reading!** The syllabus explains how the course is graded, how the chess project works, and how course policies affect you.
+
+  Bookmark it. When a question comes up about deadlines, grading, or expectations, the answer is often already here.
+
+- [ ] I am ignoring the syllabus and hoping things work out
+  We appreciate your honesty, and the syllabus does have a lot to take in.
+
+  Take a few minutes to go through it now, though. Knowing how assignments are weighted and how the late policy works can save you from losing points later. Start with the grading and policy sections, and then skim the rest.
+```
+
 
 ##  BYU Online Policies
 
