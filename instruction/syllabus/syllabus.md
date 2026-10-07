@@ -167,22 +167,21 @@ In order to demonstrate original authorship, you must:
 
 ## Grade Breakdown
 
-You are graded purely on the following assignments:
+Your mastery is determined by the following deliverables:
 
-| Assignment                                      | Points | % of Grade |
-| :---------------------------------------------- | :----- | :--------- |
-| Official Programming Exam (Proctored)           | 100    | 8.06 %     |
-| Chess GitHub Repository                         | 15     | 1.21 %     |
-| ♟️ Phase 0: Chess Moves                         | 125    | 10.08 %    |
-| ♟️ Phase 1: Chess Game                          | 125    | 10.08 %    |
-| ♟️ Phase 2: Chess Server Design                 | 50     | 4.03 %     |
-| ♟️ Phase 3: Chess Web API                        | 180    | 14.52 %    |
-| ♟️ Phase 4: Chess Database                       | 155    | 12.50 %    |
-| ♟️ Phase 5: Chess Pregame                        | 155    | 12.50 %    |
-| ♟️ Phase 6: Chess Gameplay.                     | 155    | 12.50 %    |
-| Reading interactions                            | 80     | 6.45 %     |
-| Final - Job Interview                            | 100    | 8.06 %     |
-| **Total**                                       | **1240** | **100 %** |
+| Assignment | Category | Points | Category Weight | Overall Grade % |
+|---|---|---:|---:|---:|
+| Programming Exam | Programming Exam | 100 | 5% | **5.00%** |
+| Chess GitHub Repository | Chess | 15 | 90% | **1.30%** |
+| Phase 0: Chess Moves | Chess | 125 | 90% | **10.82%** |
+| Phase 1: Chess Game | Chess | 125 | 90% | **10.82%** |
+| Phase 2: Chess Server Design | Chess | 50 | 90% | **4.33%** |
+| Phase 3: Chess Web API | Chess | 180 | 90% | **15.58%** |
+| Phase 4: Chess Database | Chess | 155 | 90% | **13.41%** |
+| Phase 5: Chess Pregame | Chess | 155 | 90% | **13.41%** |
+| Phase 6: Chess Gameplay | Chess | 155 | 90% | **13.41%** |
+| Reading Interactions | Chess | 80 | 90% | **6.92%** |
+| Final – Job Interview | Final Exam | 100 | 5% | **5.00%** |
 
 ##   Grade Scheme
 
