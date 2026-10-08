@@ -231,7 +231,7 @@ In order to abstract from your services where data is actually being stored, you
 %%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
 
 classDiagram
-    direction LR
+    direction TB
 
     class UserDAO {
         <<interface>>
