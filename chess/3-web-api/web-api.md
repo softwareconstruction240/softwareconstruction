@@ -273,6 +273,22 @@ By using an interface you can hide, or encapsulate, how your data access works f
 
 Achieving the correct level of decomposition has significant impact on the architecture of your application. Considering the principles of abstraction, single responsibility, cohesion, and coupling will help you achive better solutions. For example, consider this alternative design. Is it better, worse, or about the same. Think about why you might prefer one model over another one.
 
+```mermaid
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
+
+classDiagram
+    direction TB
+
+    class DataAccess {
+        <<interface>>
+    }
+
+    class MemoryDataAccess
+    class SQLDataAccess
+
+    DataAccess <|.. MemoryDataAccess
+    DataAccess <|.. SQLDataAccess
+```
 
 
 > [!IMPORTANT]
