@@ -165,23 +165,20 @@ In order to demonstrate original authorship, you must:
 
 
 
-## Grade Breakdown
+```masteryls
+{"id":"bae08349-d561-4c4b-9a84-208fab172b36", "title":"Acknowledgement", "type":"multiple-choice" }
 
-Your mastery is determined by the following deliverables:
 
-| Assignment | Category | Points | Category Weight | Overall Grade % |
-|---|---|---:|---:|---:|
-| Programming Exam | Programming Exam | 100 | 5% | **5.00%** |
-| Chess GitHub Repository | Chess | 15 | 90% | **1.30%** |
-| Phase 0: Chess Moves | Chess | 125 | 90% | **10.82%** |
-| Phase 1: Chess Game | Chess | 125 | 90% | **10.82%** |
-| Phase 2: Chess Server Design | Chess | 50 | 90% | **4.33%** |
-| Phase 3: Chess Web API | Chess | 180 | 90% | **15.58%** |
-| Phase 4: Chess Database | Chess | 155 | 90% | **13.41%** |
-| Phase 5: Chess Pregame | Chess | 155 | 90% | **13.41%** |
-| Phase 6: Chess Gameplay | Chess | 155 | 90% | **13.41%** |
-| Reading Interactions | Chess | 80 | 90% | **6.92%** |
-| Final – Job Interview | Final Exam | 100 | 5% | **5.00%** |
+- [x] I have read this syllabus
+  **Thanks for reading!** The syllabus explains how the course is graded, how the chess project works, and how course policies affect you.
+
+  Bookmark it. When a question comes up about deadlines, grading, or expectations, the answer is often already here.
+
+- [ ] I am ignoring the syllabus and hoping things work out
+  We appreciate your honesty, and the syllabus does have a lot to take in.
+
+  Take a few minutes to go through it now, though. Knowing how assignments are weighted and how the late policy works can save you from losing points later. Start with the grading and policy sections, and then skim the rest.
+```
 
 ##   Grade Scheme
 
@@ -206,26 +203,9 @@ The following grading standards will be used in this class:
 
 In order to register for CS classes beyond CS 240, the "CS 240 flag" must be set in your student record (this is enforced by the BYU class registration system).
 
-For CS majors, you must meet with Lynnette Nelson in the CS Dept. office to get your CS 240 flag set. When you meet with her, Lynnette will give you some important information about the CS major. A meeting time with Lynnette can be arranged by contacting her at lnelson@cs.byu.edu.
+For CS majors, you must meet with a CS undergraduate advisor to get your CS 240 flag set. When you meet, your advisor will give you some important information about the CS major. To select an advisor and schedule a meeting see the [Undergraduate Advisement](https://cs.byu.edu/advisement) page on the CS department website.
 
-For non-CS majors, your CS 240 flag will be set automatically after the add/drop deadline. You do not need to meet with Lynnette.
-
-
-```masteryls
-{"id":"bae08349-d561-4c4b-9a84-208fab172b36", "title":"Acknowledgement", "type":"multiple-choice" }
-
-
-- [x] I have read this syllabus
-  **Thanks for reading!** The syllabus explains how the course is graded, how the chess project works, and how course policies affect you.
-
-  Bookmark it. When a question comes up about deadlines, grading, or expectations, the answer is often already here.
-
-- [ ] I am ignoring the syllabus and hoping things work out
-  We appreciate your honesty, and the syllabus does have a lot to take in.
-
-  Take a few minutes to go through it now, though. Knowing how assignments are weighted and how the late policy works can save you from losing points later. Start with the grading and policy sections, and then skim the rest.
-```
-
+For non-CS majors, your CS 240 flag will be set automatically after the add/drop deadline. You do not need to meet with an undergraduate advisor.
 
 ##  BYU Online Policies
 
