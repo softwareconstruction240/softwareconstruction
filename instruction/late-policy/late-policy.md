@@ -16,7 +16,7 @@ The grader applies grace days to every late submission, including those that ear
 
 If the number of days late exceeds your available grace days, you will receive a **zero** for that submission. In this case, your remaining grace days will not be deducted and will remain available for future assignments. For example, if you have two grace days but submit an assignment three days late, you will receive zero points, but you will still have two grace days available for a later date.
 
-The only exception to the grace day policy is the **university deadline on the last day of instruction**. All work must be submitted by this time; any work missing after this deadline will receive a **zero**.
+The grace day policy only applies to project deliverables and do not apply after the **university deadline on the last day of instruction**. All work must be submitted by this time; any work missing after this deadline will receive a **zero**.
 
 We encourage you to submit all work even if it is late and you receive no credit. Most deliverables depend on previous ones to be successful, and you will receive helpful feedback on every submission, regardless of the score.
 
