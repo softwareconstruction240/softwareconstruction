@@ -46,9 +46,13 @@
 
 ## Special days
 
-- **Sept 3**: First day of class
-- **Nov 24**: Withdraw deadline
-- **Nov 26**: No classes
-- **Nov 27-28**: Holiday
-- **Dec 10**: Last day of class
-- **Dec 17**: Last day of finals
+- **Sep 2 2026**: First day of class
+- **Sep 7 2026**: Holiday
+- **Sep 10 2026**: Drop deadline
+- **Feb 16 2026**: Holiday
+- **Nov 24 2026**: Withdraw deadline
+- **Nov 25 2026**: No class
+- **Nov 26 2026**: Holiday
+- **Nov 27 2026**: Holiday
+- **Dec 10 2026**: Last day of class
+- **Dec 17 2026**: Last day of finals
