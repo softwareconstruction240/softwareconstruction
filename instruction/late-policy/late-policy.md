@@ -8,7 +8,6 @@ To help you stay current with the class, we implement the following late policy:
 
 Late submissions receive **zero** points. For the purpose of calculating lateness, Sunday and Monday are treated as a single day.
 
-
 ## Grace Days
 
 Grace days allow you to submit a deliverable past the assigned due date for full credit. Each grace day covers one day of lateness, excluding Sundays. For each submitted deliverable, any grace days used will be deducted when the deliverable is graded.
@@ -19,11 +18,11 @@ Grace days allow you to submit a deliverable past the assigned due date for full
 Each student begins the semester with **two grace days**.
 To encourage you to stay ahead and to provide a buffer for life's surprises, such as illness, emergencies, or even a "powder day", you can earn additional grace days.
 
-You earn **one grace day** for every day (excluding Sundays) that a deliverable is submitted early, provided the submission receives a score of **100%**.
+You earn **one grace day** for every day (excluding Sundays) that a deliverable is submitted early, provided the submission receives a score of **100%**. You can only earn a maximum of **five** grace days per deliverable.
 
 You can view your available balance in the `Grace Days` assignment in Canvas.
 
-### Using Gracer Days
+### Using Grace Days
 
 The grader applies grace days to every late submission, including those that earn only partial credit. If you resubmit a deliverable, the grace days are calculated for the last day you submitted.
 
@@ -40,6 +39,7 @@ We encourage you to submit all work even if it is late and you receive no credit
 3. **Exceeding balance:** You have 2 grace days. You turn in a deliverable 3 days late. You receive no credit, but you still have 2 grace days.
 4. **The Sunday rule (Late):** You have 2 grace days. The deliverable is due on Saturday, and you turn it in on Monday. Because Sunday and Monday count as one day, you are 1 day late. You now have 1 grace day.
 5. **The Sunday rule (Early):** You have 2 grace days. The deliverable is due on Monday, and you turn it in on Saturday. You are 1 day early. If you score 100%, you now have 3 grace days.
+
 
 ```masteryls
 {"id":"a819fd43-c894-4945-b851-3b513d659573", "title":"Grace days", "type":"multiple-choice" }
