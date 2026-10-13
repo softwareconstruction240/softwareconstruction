@@ -535,6 +535,16 @@
           "description": ""
         },
         {
+          "title": "Unit Testing",
+          "path": "instruction/unit-testing/unit-testing.md",
+          "id": "00287eee-722f-450a-b48b-6be729d43573",
+          "state": "published",
+          "interactions": [
+            "e23f3eaf-fadc-4285-8273-35b9852057b7",
+            "da9ad5d7-2473-4385-a73c-1f5d9167e751"
+          ]
+        },
+        {
           "title": "Writing Quality Code",
           "path": "instruction/quality-code/quality-code.md",
           "id": "a0227764-2fb9-47d6-8f64-4f2db685af8a",
@@ -552,16 +562,6 @@
           "state": "published",
           "interactions": [
             "95075348-bcd9-420f-83e3-02a4fb0aef05"
-          ]
-        },
-        {
-          "title": "Unit Testing",
-          "path": "instruction/unit-testing/unit-testing.md",
-          "id": "00287eee-722f-450a-b48b-6be729d43573",
-          "state": "published",
-          "interactions": [
-            "e23f3eaf-fadc-4285-8273-35b9852057b7",
-            "da9ad5d7-2473-4385-a73c-1f5d9167e751"
           ]
         },
         {
