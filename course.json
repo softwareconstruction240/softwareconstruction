@@ -545,6 +545,16 @@
           ]
         },
         {
+          "title": "Code Coverage",
+          "path": "instruction/code-coverage/code-coverage.md",
+          "id": "0412f5dd-9767-420a-b2c4-3b64c6b3e16c",
+          "state": "published",
+          "interactions": [
+            "4057882b-96e0-4013-8f40-6f182d587ba5",
+            "d74950d1-2903-4cda-ab9f-0d38a4dcb11c"
+          ]
+        },
+        {
           "title": "Writing Quality Code",
           "path": "instruction/quality-code/quality-code.md",
           "id": "a0227764-2fb9-47d6-8f64-4f2db685af8a",
@@ -562,16 +572,6 @@
           "state": "published",
           "interactions": [
             "95075348-bcd9-420f-83e3-02a4fb0aef05"
-          ]
-        },
-        {
-          "title": "Code Coverage",
-          "path": "instruction/code-coverage/code-coverage.md",
-          "id": "0412f5dd-9767-420a-b2c4-3b64c6b3e16c",
-          "state": "published",
-          "interactions": [
-            "4057882b-96e0-4013-8f40-6f182d587ba5",
-            "d74950d1-2903-4cda-ab9f-0d38a4dcb11c"
           ]
         }
       ]
