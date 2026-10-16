@@ -112,6 +112,10 @@ return new Gson().toJson(Map.of("message", ex.getMessage()));
 
 Refer to the [Web API instruction](../web-api/web-api.md#http-headers) regarding HTTP headers.
 
+## My tests work individually but not when I run them all
+
+This means you are keeping state between tests. The tests call the `clear` endpoint between tests and usually that will clear your state out, but if you haven't properly implement `clear` then you could be impacted by previous tests.
+
 ## AutoGrader can’t find my Unit Tests
 
 Ensure your unit tests are located in `server/src/test/java/service` and that the class names end with `Test` or `Tests`.
