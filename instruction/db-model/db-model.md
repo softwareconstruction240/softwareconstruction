@@ -17,7 +17,7 @@
 
 > _source: [Wikipedia](https://en.wikipedia.org/wiki/Edgar_F._Codd)_
 
-> “At the time, Nixon was normalizing relations with China. I figured that if he could normalize relations, then so could I.”
+> “Twelve distinct ways of representing data at the logical level are eleven too many.”
 >
 > — Edgar F. Codd
 
