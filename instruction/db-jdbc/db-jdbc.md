@@ -51,6 +51,8 @@ The JDK `java.sql` package contains interfaces and abstract classes for connecti
 
 ![MySQL connector](mysql-connector.png)
 
+In the getting started instruction for the database phase you will add the MySQL connector to your Chess project. If you want to experiment with it now you can use this package: `com.mysql:mysql-connector-j:9.4.0`.
+
 Most modern connector packages do not require you to manually initialize the driver. Including the JAR in your classpath allows the driver to register itself automatically. Once the package is installed in your project, you are ready to create connections.
 
 ## Obtaining a Connection
