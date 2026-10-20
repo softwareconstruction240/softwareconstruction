@@ -26,8 +26,8 @@ The following example demonstrates basic SQL statements used to create a databas
 
 ```sql
 -- Create and select the database
-CREATE DATABASE pet_store;
-USE pet_store;
+CREATE DATABASE pets;
+USE pets;
 
 -- Create a basic table structure
 CREATE TABLE pet (
@@ -80,20 +80,20 @@ SQL is a **declarative** language. Unlike imperative languages (like Java or Pyt
 A database server (RDBMS) can host multiple independent databases. You create a database with the `CREATE DATABASE` statement. After creation, use the `USE` statement to set it as the active database for subsequent commands.
 
 ```sql
-CREATE DATABASE pet_store;
-USE pet_store;
+CREATE DATABASE pets;
+USE pets;
 ```
 
 Databases use a character set to define how text is encoded. While you can specify this during creation, you can also modify an existing database using `ALTER DATABASE`. For full international character and emoji support, it is common to use `utf8mb4`:
 
 ```sql
-ALTER DATABASE pet_store CHARACTER SET utf8mb4;
+ALTER DATABASE pets CHARACTER SET utf8mb4;
 ```
 
 To delete a database and all of its data, use the `DROP DATABASE` statement. **Warning:** This action is permanent and cannot be undone.
 
 ```sql
-DROP DATABASE pet_store;
+DROP DATABASE pets;
 ```
 
 ## Working with Tables
@@ -276,8 +276,8 @@ In SQL, you start a transaction with `START TRANSACTION`, then execute your comm
 When developing applications, it is best practice to ensure the database schema is automatically created upon startup. Using the `IF NOT EXISTS` clause makes scripts **idempotent**, meaning they can be run multiple times without causing errors or duplicate structures.
 
 ```sql
-CREATE DATABASE IF NOT EXISTS pet_store;
-USE pet_store;
+CREATE DATABASE IF NOT EXISTS pets;
+USE pets;
 
 CREATE TABLE IF NOT EXISTS pet (
     id INT NOT NULL AUTO_INCREMENT,
