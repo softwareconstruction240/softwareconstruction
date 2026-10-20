@@ -15,7 +15,7 @@
 
 ![Edgar Codd](edgar-codd.png)
 
-> _source: [Wikipedia](https://en.wikipedia.org/wiki/Edgar_F._Codd)_
+_source: [Wikipedia](https://en.wikipedia.org/wiki/Edgar_F._Codd)_
 
 > “Twelve distinct ways of representing data at the logical level are eleven too many.”
 >
