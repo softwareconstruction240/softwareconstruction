@@ -90,6 +90,76 @@ In addition to annotating a function as a unit test, JUnit has several other use
 | Test              | A simple unit test.                                                                              |
 | ParameterizedTest | A parameterized unit test. This test is called once for each supplied parameter.                 |
 
+
+## Mastering JUnit Assertions
+
+In unit testing, **assertions** are the criteria used to determine if a test case passes or fails. In JUnit, the `org.junit.jupiter.api.Assertions` class provides a collection of static methods that compare the results produced by your code against the expected outcomes. If the assertion condition is met, the test continues; if it fails, an `AssertionFailedError` is thrown, and the test is marked as failed.
+
+### Core Assertion Methods
+
+The most frequently used assertion methods include:
+
+| Assertion Method | Description |
+| :--- | :--- |
+| **`assertEquals(expected, actual)`** | Validates that two values are equal. It is critical to put the expected value first to ensure clear failure messages. |
+| **`assertNotEquals(unexpected, actual)`** | Ensures that the actual value does not match the specified unexpected value. |
+| **`assertTrue(condition)` / `assertFalse(condition)`** | Checks if a boolean expression evaluates to true or false. |
+| **`assertNull(object)` / `assertNotNull(object)`** | Verifies the presence or absence of an object reference. |
+| **`assertSame(expected, actual)`** | Asserts that two variables refer to the exact same (or different) object instance in memory (identity check). |
+| **`assertArrayEquals(expectedArray, actualArray)`** | Validates that two arrays are deeply equal, containing the same elements in the same order. |
+| **`assertIterableEquals(expected, actual)`** | Asserts that two iterables (such as `List` or `Set`) are deeply equal. |
+| **`assertThrows(Exception.class, executable)`** | Asserts that a specific block of code throws a particular exception. |
+
+The following diagram illustrates the logical flow of a standard assertion:
+
+```mermaid
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
+flowchart TD
+    A[Start Test Method] --> B[Execute Subject Under Test]
+    B --> C{Assertion Check}
+    C -- Expected == Actual --> D[Test Passes]
+    C -- Expected != Actual --> E[Throw AssertionFailedError]
+    E --> F[Test Fails]
+```
+
+### Grouping Assertions with assertAll
+
+One limitation of standard assertions is that the test stops executing immediately upon the first failure. If you have five assertions in a test and the first one fails, you won't know the status of the remaining four. **`assertAll`** (also known as "grouped assertions") solves this by ensuring all assertions within the group are executed, reporting all failures together.
+
+```java
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+class UserTest {
+    @Test
+    void testUserProperties() {
+        User user = new User("Jane", "Doe", 28);
+
+        // Grouped assertions: all are executed even if one fails
+        assertAll("user validation",
+            () -> assertEquals("Jane", user.getFirstName(), "First name mismatch"),
+            () -> assertEquals("Doe", user.getLastName(), "Last name mismatch"),
+            () -> assertTrue(user.getAge() > 18, "User should be an adult")
+        );
+    }
+    
+    @Test
+    void testException() {
+        User user = new User();
+        // Asserting that an exception is thrown for invalid input
+        assertThrows(IllegalArgumentException.class, () -> {
+            user.setAge(-1);
+        });
+    }
+}
+```
+
+### Best Practices for Assertions
+
+1.  **Descriptive Messages**: Most assertion methods accept an optional string message as the last parameter. Use this to explain *why* a test might have failed.
+2.  **Specific Assertions**: Use the most specific assertion possible. For example, `assertTrue(list.isEmpty())` provides a better semantic meaning than `assertEquals(0, list.size())`.
+3.  **Single Responsibility**: While `assertAll` allows multiple checks, a single test method should generally focus on one specific behavior or logical unit.
+
 ## Parameterization
 
 When testing interfaces it is desireable to create one set of tests for all implementations of the interface instead of duplicating the tests for each implementation. In order to accomplish this you care a `ParameterizedTest` instead of a simple `Test`. There are different ways to parameterize a test using JUnit, but one way is to use the `ValueSource` annotation to provide multiple alternate values to pass into the test. JUnit then repeatedly invokes the test with the different provided values.
