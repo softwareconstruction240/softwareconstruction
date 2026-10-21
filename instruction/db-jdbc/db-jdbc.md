@@ -27,7 +27,7 @@ public class DatabaseExample {
     public static void main(String[] args) throws Exception {
         // Use try-with-resources to ensure the connection is closed automatically
         try (var conn = DriverManager.getConnection("jdbc:mysql://localhost:3306", "root", "monkeypie")) {
-            conn.setCatalog("pet_store");
+            conn.setCatalog("pets");
 
             try (var preparedStatement = conn.prepareStatement("SELECT id, name, type FROM pet")) {
                 try (var rs = preparedStatement.executeQuery()) {
