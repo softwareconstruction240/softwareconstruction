@@ -82,16 +82,16 @@ Once you have a connection, you can use it to create databases and tables. It is
 We can configure a theoretical pet store application by following these steps:
 
 1. Obtain a connection to the RDBMS.
-2. Create the `pet_store` database if it does not exist.
+2. Create the `pets` database if it does not exist.
 3. Create the `pet` table if it does not exist.
 
 ```java
 void configureDatabase() throws SQLException {
     try (var conn = getConnection()) {
-        var createDbStatement = conn.prepareStatement("CREATE DATABASE IF NOT EXISTS pet_store");
+        var createDbStatement = conn.prepareStatement("CREATE DATABASE IF NOT EXISTS pets");
         createDbStatement.executeUpdate();
 
-        conn.setCatalog("pet_store");
+        conn.setCatalog("pets");
 
         var createPetTable = """
             CREATE TABLE IF NOT EXISTS pet (
@@ -181,7 +181,7 @@ Using the `set` functions on a prepared statement helps prevent against what is 
 
 ```java
 void insertPet(String name) throws SQLException {
-        var conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pet_store?allowMultiQueries=true", "root", "monkeypie");
+        var conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pets?allowMultiQueries=true", "root", "monkeypie");
 
         var statement = "INSERT INTO pet (name) VALUES('" + name + "')";
         System.out.println(statement);
@@ -207,7 +207,7 @@ In addition to using the database connection prepared statements properly you al
 
 ```java
 void insertPet(String name) throws SQLException {
-    var conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pet_store", "root", "monkeypie");
+    var conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pets", "root", "monkeypie");
 
     if (name.matches("[a-zA-Z]+")) {
         var statement = "INSERT INTO pet (name) VALUES(?)";
