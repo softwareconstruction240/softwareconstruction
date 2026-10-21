@@ -499,9 +499,9 @@ Once you have written the `clear` and `register` endpoints, you can run the `Sta
 ## Relevant Instruction Topics
 
 - [Web API](../../instruction/web-api/web-api.md): Creating an HTTP server.
-- [Single Responsibility Principle](../../instruction/design-principles/design-principles.md#single-responsibility-principle): Organizing many server responsibilities into comprehensible units
-- [Dependency Inversion Principle](../../instruction/design-principles/design-principles.md#dependency-inversion-principle): Organizing the layers of the server.
-- [Interface Segregation Principle](../../instruction/design-principles/design-principles.md#interface-segregation-principle): Organizing the DAO interfaces.
+- [Single Responsibility Principle](../../instruction/solid/solid.md#single-responsibility-principle): Organizing many server responsibilities into comprehensible units
+- [Dependency Inversion Principle](../../instruction/solid/solid.md#dependency-inversion-principle): Organizing the layers of the server.
+- [Interface Segregation Principle](../../instruction/solid/solid.md#interface-segregation-principle): Organizing the DAO interfaces.
 - [Unit Testing](../../instruction/unit-testing/unit-testing.md): How to write unit tests
 - [Code Coverage](../../instruction/code-coverage/code-coverage.md): The benefits and drawbacks of code coverage
 - [PetShop Server Architecture](../../petshop/petshop.md): Layer organization and component architecture.
