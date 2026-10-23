@@ -6,11 +6,11 @@
 
 #### Outcomes of this Deliverable
 
-1. **Frame** software engineering problems by clarifying system purpose, constraints, and responsibilities, demonstrating both sound technical judgment and a sense of ownership for the long-term impact of software others depend on.
-1. **Explore** object-oriented frameworks, network protocols, distributed services, and databases with curiosity and discipline, developing accurate mental models while valuing learning as essential to responsible engineering practice.
-1. **Design** software systems using object-oriented principles and clear interfaces that support reliability and maintainability, motivated by care for future users, collaborators, and the evolution of the system over time.
-1. **Build** distributed applications that faithfully translate design intent into readable, testable implementations, showing diligence and integrity in the quality of code produced.
-1. **Test** software systems systematically to validate behavior and uncover failure modes, valuing evidence, honesty, and accountability as foundations of trustworthy software.
+1. **Frame** the user's task for this phase in a way that considers their current need without consideration of technical details that might impact you.
+1. **Explore** existing processes, technologies, and patterns that would enable the task defined during framing by humbling leveraging the work of others.
+1. **Design** a solution to the user's task using software engineer principles and practices that support reliability and maintainability, motivated by care for future users, collaborators, and the evolution of the system over time.
+1. **Build** an implementation that faithfully translate design intent into readable, testable implementations, showing diligence and integrity in the quality of code produced.
+1. **Test** the implementation to validate behavior and uncover failure modes, valuing evidence, honesty, and accountability as foundations of trustworthy software.
 
 ---
 
@@ -222,28 +222,28 @@ To pass off this assignment use the course [auto-grading](https://cs240.click/) 
 After you have completed this deliverable checkpoint come back and reflect upon the course outcomes and your ability to master them.
 
 ```masteryls
-{"id":"ee5eb604-acc1-4231-bd9e-4e78db6eaab2", "title":"Frame", "type":"essay", "gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit." }
-What process did you use to frame your understanding of how chess pieces move so that it properly reflected the requirements? How did you determine a correct understanding of the problem so that you were able to consider the factors that your users deem important and will depend on?
+{"id":"ee5eb604-acc1-4231-bd9e-4e78db6eaab2", "title":"Frame", "type":"essay", "gradingCriteria":"- This phase implements the basic movement of chess pieces. The learner should identify this as the primary problem framing." }
+How did you frame as the user's need that you are trying to solve in this phase?
 ```
 
 ```masteryls
-{"id":"a5e9dfeb-b48f-4cb9-ae34-69f3a6a342bb","title":"Explore","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit."}
-What software engineering principles and practices did you consider when you were exploring how to represent how chess pieces move? What did you do to advance your learning of the possible solution space?
+{"id":"a5e9dfeb-b48f-4cb9-ae34-69f3a6a342bb","title":"Explore","type":"essay","gradingCriteria":"- Framing identified the problem as implementing the basic movement of chess pieces. Exploration should have led them to learn the rules of chess and consider different algorithms for representing how pieces move."}
+What exploration did you conduct in order to address the problem that you identified during framing?
 ```
 
 ```masteryls
-{"id":"df3d6c21-e574-403a-ba99-65c7ebf273aa","title":"Design","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit."}
-What object-oriented and design principles did you consider as you converted your framing and exploration of chess piece movement into a design solution? What did you do to ensure you were considering the needs of future developers and users of the application?
+{"id":"df3d6c21-e574-403a-ba99-65c7ebf273aa","title":"Design","type":"essay","gradingCriteria":"- The design should focus on representing how chess pieces move with an object oriented approach. Abstraction and encapsulation should be included in the design.\n- Exploration should have lead them to consider a mathematical representation of piece movements."}
+What object-oriented and design principles did you consider as you converted your framing and exploration of chess piece movement into a design solution?
 ```
 
 ```masteryls
-{"id":"b51f2fa9-a148-4859-9292-183f69dc9062","title":"Build","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit."}
+{"id":"b51f2fa9-a148-4859-9292-183f69dc9062","title":"Build","type":"essay"}
 What went well and what did you find challenging as you implemented your chess piece movement design? What did you do to demonstrate design integrity and the quality of the application?
 ```
 
 ```masteryls
-{"id":"083dfa87-6954-4af8-b180-7514db11cc72","title":"Test","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit."}
-What testing patterns did you employ to ensure a correct implementation of chess piece movement and encourage the foundation of a trustworthy application that others can rely on?
+{"id":"083dfa87-6954-4af8-b180-7514db11cc72","title":"Test","type":"essay","gradingCriteria":"- Course provided unit tests were the primary means for testing the correctness of the code. The learner should have felt greater confidence in their implementation once the tests succeeded."}
+How did you test the validity of your implementation? How did this impact your confidence in your ability to satisfy the user's need.
 ```
 
 ---
