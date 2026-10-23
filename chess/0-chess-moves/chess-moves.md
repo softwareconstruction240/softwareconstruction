@@ -238,7 +238,7 @@ What object-oriented and design principles did you consider as you converted you
 
 ```masteryls
 {"id":"b51f2fa9-a148-4859-9292-183f69dc9062","title":"Build","type":"essay"}
-What went well and what did you find challenging as you implemented your chess piece movement design? What did you do to demonstrate design integrity and the quality of the application?
+What went well and what did you find challenging as you implemented your chess piece movement design? How well did the software engineering principles you identified during design map to the actual implementation?
 ```
 
 ```masteryls
