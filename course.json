@@ -190,6 +190,18 @@
           ]
         },
         {
+          "title": "Phase 0: Architectural Patterns",
+          "type": "instruction",
+          "path": "instruction/phase-0-architecture/phase-0-architecture.md",
+          "id": "4419212e-ba5e-4298-86db-3b3374243973",
+          "state": "published",
+          "interactions": [
+            "4d5832eb-ebe3-415d-b792-094e95b9f305",
+            "2aba68a0-07ea-4f09-8b23-a4c5ac90ef86"
+          ],
+          "description": ""
+        },
+        {
           "title": "Phase 0: Getting Started",
           "path": "chess/0-chess-moves/getting-started.md",
           "id": "8d9c3c79-4bbb-475f-a2ed-269ffcfcb10d",
@@ -213,18 +225,6 @@
             "df3d6c21-e574-403a-ba99-65c7ebf273aa",
             "b51f2fa9-a148-4859-9292-183f69dc9062",
             "083dfa87-6954-4af8-b180-7514db11cc72"
-          ],
-          "description": ""
-        },
-        {
-          "title": "Phase 0: Architectural Patterns",
-          "type": "instruction",
-          "path": "instruction/phase-0-architecture/phase-0-architecture.md",
-          "id": "4419212e-ba5e-4298-86db-3b3374243973",
-          "state": "published",
-          "interactions": [
-            "4d5832eb-ebe3-415d-b792-094e95b9f305",
-            "2aba68a0-07ea-4f09-8b23-a4c5ac90ef86"
           ],
           "description": ""
         },
