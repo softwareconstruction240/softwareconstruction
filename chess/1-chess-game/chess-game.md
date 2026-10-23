@@ -169,28 +169,28 @@ To pass off this assignment use the course [auto-grading](https://cs240.click/) 
 After you have completed this deliverable checkpoint come back and reflect upon the course outcomes and your ability to master them.
 
 ```masteryls
-{"id":"1a5b6586-b075-4b9b-9d61-3e1f469ba93b","title":"Frame","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit."}
+{"id":"1a5b6586-b075-4b9b-9d61-3e1f469ba93b","title":"Frame","type":"essay","gradingCriteria":"- This phase implements the basic chess rules that govern observing whose turn it is, invalid moves based on exposing the king, check, checkmate, and stalemate. The learner should identify this as the primary problem framing."}
 What process did you use to frame your understanding of the game of chess so that it properly reflected the requirements? How did you determine a correct understanding of the problem so that you were able to consider the factors that your users deem important and will depend on?
 ```
 
 ```masteryls
-{"id":"1e68c21b-7b78-4cb2-b0f6-59eace8763db","title":"Explore","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit."}
+{"id":"1e68c21b-7b78-4cb2-b0f6-59eace8763db","title":"Explore","type":"essay","gradingCriteria":"- Framing identified the problem as implementing the rules of chess that govern how a game is won. Exploration should have led them to learn what check, checkmate, and stalemate is and consider how a human determines when these states occur."}
 What software engineering principles and practices did you consider when you were exploring how to represent a chess game? What did you do to advance your learning of the possible solution space?
 ```
 
 ```masteryls
-{"id":"e20bf737-288c-4c74-9327-9661ff4ccdd8","title":"Design","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit."}
-What object-oriented and design principles did you consider as you converted your framing and exploration of the game of chess into a design solution? What did you do to ensure you were considering the needs of future developers and users of the application?
+{"id":"e20bf737-288c-4c74-9327-9661ff4ccdd8","title":"Design","type":"essay","gradingCriteria":"- The design should focus on representing the chess rules that determine when a game is won using an object oriented approach. Abstraction and encapsulation should be included in the design.\n- Creating immutable copies of the chess board for exploring possible valid moves is one strategy they should incorporate into their design."}
+What object-oriented and design principles did you consider as you converted your framing and exploration of the game of chess into a design solution? What did you do to ensure that you can efficiently calculate if a move is invalid because it exposes the king?
 ```
 
 ```masteryls
-{"id":"4935143c-88fb-4462-b7a4-2424d2d48821","title":"Build","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit."}
-What went well and what did you find challenging as you implemented your chess game design? What did you do to demonstrate design integrity and the quality of the application?
+{"id":"4935143c-88fb-4462-b7a4-2424d2d48821","title":"Build","type":"essay"}
+What went well and what did you find challenging as you implemented your chess game rules design? How well did the software engineering principles you identified during design map to the actual implementation?
 ```
 
 ```masteryls
-{"id":"cd733c72-dca6-4419-8685-b47db5d666a2","title":"Test","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit."}
-What testing patterns did you employ to ensure a correct implementation of the game of chess and encourage the foundation of a trustworthy application that others can rely on?
+{"id":"cd733c72-dca6-4419-8685-b47db5d666a2","title":"Test","type":"essay","gradingCriteria":"- Course provided unit tests were the primary means for testing the correctness of the code. The learner should have felt greater confidence in their implementation once the tests succeeded."}
+How did you test the validity of your implementation? How did this impact your confidence in your ability to satisfy the user's task.
 ```
 
 ## Videos
