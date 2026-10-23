@@ -8,9 +8,9 @@
 
 #### Outcomes of this Deliverable
 
-1. **Frame** software engineering problems by clarifying system purpose, constraints, and responsibilities, demonstrating both sound technical judgment and a sense of ownership for the long-term impact of software others depend on.
-1. **Explore** object-oriented frameworks, network protocols, distributed services, and databases with curiosity and discipline, developing accurate mental models while valuing learning as essential to responsible engineering practice.
-1. **Design** software systems using object-oriented principles and clear interfaces that support reliability and maintainability, motivated by care for future users, collaborators, and the evolution of the system over time.
+1. **Frame** the user's task for this phase in a way that considers their current need without consideration of technical details that might impact you.
+1. **Explore** existing processes, technologies, and patterns that would enable the task defined during framing by humbling leveraging the work of others.
+1. **Design** a solution to the user's task using software engineer principles and practices that support reliability and maintainability, motivated by care for future users, collaborators, and the evolution of the system over time.
 
 ---
 
