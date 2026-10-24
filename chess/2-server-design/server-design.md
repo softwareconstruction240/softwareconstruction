@@ -178,17 +178,17 @@ When initially graded, your design will be given one of three scores:
 After you have completed this deliverable checkpoint come back and reflect upon the course outcomes and your ability to master them.
 
 ```masteryls
-{"id":"ef7e108e-d6b3-49e8-9745-1f9a25d6eb91","title":"Frame","type":"essay","gradingCriteria":"- This phase creates a design for the next phase where an HTTP chess server is created. A proper framing would include the definition of the required endpoints that a client will call. This includes endpoints for authentication and creating and joining games.\n- Framing also includes the need to store user data related to authentication and game management."}
+{"id":"ef7e108e-d6b3-49e8-9745-1f9a25d6eb91","title":"Frame","type":"essay","gradingCriteria":"- This phase creates a design for the next phase where an HTTP chess server is created. A proper framing would include an understanding of the required HTTP endpoints that a client will call. This includes endpoints for authentication users, creating games, and joining games.\n- Framing also includes the need to store user data related to authentication and game management."}
 How did you frame as the user's need that you are trying to solve in this phase?
 ```
 
 ```masteryls
-{"id":"c47c5b60-373f-47d8-81d7-2c5e48836b9a","title":"Explore","type":"essay","gradingCriteria":"- Framing identified the endpoints an HTTP chess server must implement. This requires an understanding of HTTP and possible options for storing user data in-memory."}
+{"id":"c47c5b60-373f-47d8-81d7-2c5e48836b9a","title":"Explore","type":"essay","gradingCriteria":"- Framing identified the endpoints an HTTP chess server must implement. This requires an understanding of how HTTP works, the identification of the JavaLin library as a framework for implementing an HTTP server, and possible ways user's data can be stored in memory."}
 What exploration did you conduct in order to address the problem that you identified during framing?
 ```
 
 ```masteryls
-{"id":"836e189e-364e-4030-907b-fd0b7a33a287","title":"Design","type":"essay","gradingCriteria":"- The design should focus on defining an HTTP chess server with endpoints that support user and management. The design should represent a decomposed representation of network, service, and data access components.\n- Individual endpoints are represented that show the flow of the request through the server's different components."}
+{"id":"836e189e-364e-4030-907b-fd0b7a33a287","title":"Design","type":"essay","gradingCriteria":"- The design should focus on defining an HTTP chess server with endpoints that support user and management. The design should represent a decomposed representation of network, service, and data access components.\n- A UML Sequence diagram should have been created to show the flow of individual endpoint requests through the server, service, and data access components.\n- Critical engineering principles should include abstraction, encapsulation, and single responsibility."}
 What did you do to successfully combine the framing of the user's task and your exploration to create a valid design that satisfies the user's needs. What were the core elements of your design and what software engineering principles and patterns did you employ?
 ```
 
