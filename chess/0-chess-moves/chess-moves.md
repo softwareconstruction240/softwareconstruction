@@ -228,12 +228,12 @@ How did you frame as the user's need that you are trying to solve in this phase?
 
 ```masteryls
 {"id":"a5e9dfeb-b48f-4cb9-ae34-69f3a6a342bb","title":"Explore","type":"essay","gradingCriteria":"- Framing identified the problem as implementing the basic movement of chess pieces. Exploration should have led them to learn the rules of chess and consider different algorithms for representing how pieces move."}
-What exploration did you conduct in order to address the problem that you identified during framing?
+What previous work and solutions did you explore in order to address the problem that you identified during framing?
 ```
 
 ```masteryls
 {"id":"df3d6c21-e574-403a-ba99-65c7ebf273aa","title":"Design","type":"essay","gradingCriteria":"- The design should focus on representing how chess pieces move with an object oriented approach. Abstraction and encapsulation should be included in the design.\n- The design should include a mathematical representation of piece movements."}
-What object-oriented and design principles did you consider as you converted your framing and exploration of chess piece movement into a design solution?
+What object-oriented and design principles did you consider as you converted your framing and exploration of chess piece movement into a design solution? What did you do to ensure that you can detect if a piece is blocked by another piece?
 ```
 
 ```masteryls

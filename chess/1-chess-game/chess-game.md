@@ -170,12 +170,12 @@ After you have completed this deliverable checkpoint come back and reflect upon 
 
 ```masteryls
 {"id":"1a5b6586-b075-4b9b-9d61-3e1f469ba93b","title":"Frame","type":"essay","gradingCriteria":"- This phase implements the basic chess rules that govern observing whose turn it is, invalid moves based on exposing the king, check, checkmate, and stalemate. The learner should identify this as the primary problem framing."}
-What process did you use to frame your understanding of the game of chess so that it properly reflected the requirements? How did you determine a correct understanding of the problem so that you were able to consider the factors that your users deem important and will depend on?
+How did you frame as the user's need that you are trying to solve in this phase?
 ```
 
 ```masteryls
 {"id":"1e68c21b-7b78-4cb2-b0f6-59eace8763db","title":"Explore","type":"essay","gradingCriteria":"- Framing identified the problem as implementing the rules of chess that govern how a game is won. Exploration should have led them to learn what check, checkmate, and stalemate is and consider how a human determines when these states occur."}
-What software engineering principles and practices did you consider when you were exploring how to represent a chess game? What did you do to advance your learning of the possible solution space?
+What previous work and solutions did you explore in order to address the problem that you identified during framing?
 ```
 
 ```masteryls
