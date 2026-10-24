@@ -281,6 +281,12 @@ However, now days, most professionals agree that stylistic differences are not a
 
 The key point with styling, is to drop the ego and focus on the team when picking a style, and preferably let your tool enforce the style.
 
+## Code Inspection
+
+IntelliJ has a tool that will inspect your code and suggest changes to comply with commonly accepted coding practices. You can run the tool from the **Code | Inspect Code...** menu. The following is an example of the types of reports it generates. You can see that the convention of starting your class names with a capital letter has not been observed.
+
+![inspectCode.png](inspectCode.png)
+
 ## Refactoring
 
 The term `refactoring` refers to improving the internal quality of your code without modify the external representation. There are many common refactoring techniques that will significantly increase the quality of your code. The following table briefly describes some of the more common ones.
