@@ -222,12 +222,12 @@ To pass off this assignment use the course [auto-grading](https://cs240.click/) 
 After you have completed this deliverable checkpoint come back and reflect upon the course outcomes and your ability to master them.
 
 ```masteryls
-{"id":"ee5eb604-acc1-4231-bd9e-4e78db6eaab2", "title":"Frame", "type":"essay", "gradingCriteria":"- This phase implements the basic movement of chess pieces. The learner should identify this as the primary problem framing." }
+{"id":"ee5eb604-acc1-4231-bd9e-4e78db6eaab2", "title":"Frame", "type":"essay", "gradingCriteria":"- This phase implements the basic movement of chess pieces. The learner should identify this as the primary need framing." }
 How did you frame as the user's need that you are trying to solve in this phase?
 ```
 
 ```masteryls
-{"id":"a5e9dfeb-b48f-4cb9-ae34-69f3a6a342bb","title":"Explore","type":"essay","gradingCriteria":"- Framing identified the problem as implementing the basic movement of chess pieces. Exploration should have led them to learn the rules of chess and consider different algorithms for representing how pieces move."}
+{"id":"a5e9dfeb-b48f-4cb9-ae34-69f3a6a342bb","title":"Explore","type":"essay","gradingCriteria":"- Framing identified the need as implementing the basic movement of chess pieces. Exploration should have led them to learn the rules of chess and consider different algorithms for representing how pieces move."}
 What previous work and solutions did you explore in order to address the problem that you identified during framing?
 ```
 

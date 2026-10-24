@@ -173,28 +173,29 @@ To pass off this assignment, use the course [auto-grading](https://cs240.click/)
 After you have completed this deliverable checkpoint come back and reflect upon the course outcomes and your ability to master them.
 
 ```masteryls
-{"id":"712d8fed-6c1f-449b-af7d-f8202d020522","title":"Frame","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit."}
-What process did you use to frame your understanding of the chess database so that it properly reflected the requirements? How did you determine a correct understanding of the problem so that you were able to consider the factors that your users deem important and will depend on?
+{"id":"712d8fed-6c1f-449b-af7d-f8202d020522","title":"Frame","type":"essay","gradingCriteria":"- This phase implements the replacement of the in-memory persistence layer with a SQL implementation. The learner should identify this as the primary need framing."}
+How did you frame as the user's need that you are trying to solve in this phase?
 ```
 
 ```masteryls
-{"id":"ffb735d5-1e63-4a7b-b180-49894ad2d166","title":"Explore","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit."}
-What software engineering principles and practices did you consider when you were exploring how to represent the chess database? What did you do to advance your learning of the possible solution space?
+{"id":"ffb735d5-1e63-4a7b-b180-49894ad2d166","title":"Explore","type":"essay","gradingCriteria":"- Framing identified the need as the replacement of the in-memory persistence layer with a SQL implementation. Exploration should have led them to understand how Relational Databases work, how to use SQL, and how to install and use a MySQL databases."}
+What previous work and solutions did you explore in order to address the problem that you identified during framing?
+
 ```
 
 ```masteryls
-{"id":"31b090f1-0051-4a91-9557-7bfbcd52a1d0","title":"Design","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit."}
-What object-oriented and design principles did you consider as you converted your framing and exploration of the chess database into a design solution? What did you do to ensure you were considering the needs of future developers and users of the application?
+{"id":"31b090f1-0051-4a91-9557-7bfbcd52a1d0","title":"Design","type":"essay","gradingCriteria":"- The design should focus on representing the Data Access layer as an abstraction using one or more Java interfaces. Encapsulation should be included in the design so that no other layers in the program know that MySQL is being used to persist data."}
+What object-oriented and design principles did you consider as you converted your framing and exploration of the chess database into a design solution? What did you do to ensure you were considering the needs of future developers and users of the application? For example, how much of your code would need to change if you moved to an Oracle database implementation in the future?
 ```
 
 ```masteryls
-{"id":"e0f6f56e-679b-4023-896d-4ea76530f513","title":"Build","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit."}
-What went well and what did you find challenging as you implemented your chess database design? What did you do to demonstrate design integrity and the quality of the application?
+{"id":"e0f6f56e-679b-4023-896d-4ea76530f513","title":"Build","type":"essay"}
+What went well and what did you find challenging as you implemented your chess piece movement design? How well did the software engineering principles you identified during design map to the actual implementation?
 ```
 
 ```masteryls
-{"id":"38f734f7-3436-48d9-8b76-e0224b751d6f","title":"Test","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit."}
-What testing patterns did you employ to ensure a correct implementation of the chess database and encourage the foundation of a trustworthy application that others can rely on?
+{"id":"38f734f7-3436-48d9-8b76-e0224b751d6f","title":"Test","type":"essay","gradingCriteria":"- Course provided unit tests provided e2e testing\n- The learner provided unit testing of the MySQL implementation is the primary validation mechanism.\n- The learner should have felt greater confidence in their implementation once the tests succeeded."}
+How did you test the validity of your implementation? How did this impact your confidence in your ability to satisfy the user's need.
 ```
 
 ## Videos
