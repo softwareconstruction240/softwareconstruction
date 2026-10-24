@@ -220,28 +220,29 @@ Review the [Phase 5 Passoff Common Problems](../../instruction/chess-tips/chess-
 After you have completed this deliverable checkpoint come back and reflect upon the course outcomes and your ability to master them.
 
 ```masteryls
-{"id":"939db0e5-dded-44d3-90a6-cd8e8ca21490","title":"Frame","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit."}
-What process did you use to frame your understanding of the chess pregame so that it properly reflected the requirements? How did you determine a correct understanding of the problem so that you were able to consider the factors that your users deem important and will depend on?
+{"id":"939db0e5-dded-44d3-90a6-cd8e8ca21490","title":"Frame","type":"essay","gradingCriteria":"- This phase implements a way for a user to authenticate, see what chess games exist, create a new one, and join one as either a player or observer. The learner should identify this as the primary need framing."}
+How did you frame as the user's need that you are trying to solve in this phase?
 ```
 
 ```masteryls
-{"id":"f9237c61-b9e6-49f4-bb60-d27952c2d113","title":"Explore","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit."}
-What software engineering principles and practices did you consider when you were exploring how to represent a chess pregame? What did you do to advance your learning of the possible solution space?
+{"id":"f9237c61-b9e6-49f4-bb60-d27952c2d113","title":"Explore","type":"essay","gradingCriteria":"- Framing identified the need as providing a way for a user to authenticate, see what chess games exist, create a new one, and join one as either a player or observer. Exploration should include how CLI programs are typically implemented and how to render a chess board using a terminal."}
+What previous work and solutions did you explore in order to address the problem that you identified during framing?
+
 ```
 
 ```masteryls
-{"id":"4e1a8585-e1a7-4bcc-9d73-d8f46fccf4a8","title":"Design","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit."}
-What object-oriented and design principles did you consider as you converted your framing and exploration of the chess pregame into a design solution? What did you do to ensure you were considering the needs of future developers and users of the application?
+{"id":"4e1a8585-e1a7-4bcc-9d73-d8f46fccf4a8","title":"Design","type":"essay","gradingCriteria":"- The design should focus on representing how the chess CLI will separate the REPL loop, client logic representing move validation and available commands, and network communication layers. Abstraction and encapsulation should be included in the design."}
+What object-oriented and design principles did you consider as you converted your framing and exploration of chess piece movement into a design solution? What did you do to decompose the architecture of the client into layers that honor the single responsibility principle?
 ```
 
 ```masteryls
-{"id":"368fa787-fc08-4b5d-b1ea-3f707fe87f40","title":"Build","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit."}
-What went well and what did you find challenging as you implemented your chess pregame? What did you do to demonstrate design integrity and the quality of the application?
+{"id":"368fa787-fc08-4b5d-b1ea-3f707fe87f40","title":"Build","type":"essay"}
+What went well and what did you find challenging as you implemented your chess piece movement design? How well did the software engineering principles you identified during design map to the actual implementation?
 ```
 
 ```masteryls
-{"id":"19f7601e-39e4-4014-9888-14861455ba58","title":"Test","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit."}
-What testing patterns did you employ to ensure a correct implementation of the chess pregame and encourage the foundation of a trustworthy application that others can rely on?
+{"id":"19f7601e-39e4-4014-9888-14861455ba58","title":"Test","type":"essay","gradingCriteria":"- The learner should have provided their own tests using a server facade to make requests to server using end to end testing."}
+How did you test the validity of your implementation? How did this impact your confidence in your ability to satisfy the user's need.
 ```
 
 ## Videos
