@@ -128,7 +128,7 @@ In addition to getting your code to "work", a significant part of your project g
 
 ## Doing Your Own Work
 
-All deliverables must be your own work. You are encouraged to study with other students, discuss concepts, ideas, and general approaches. However, you may not submit someone else's solution as your deliverable or provide your solution to other students.
+All deliverables must be your own work. You are encouraged to study with other students, discuss concepts, ideas, and general approaches. However, you **may not share, copy, or submit someone else's solution** as your deliverable or provide your solution to other students.
 
 You may use AI at the **Reference** level as defined by the Computer Science Department Policy on AI. The reference level allows you to use AI as a tutor only. You may ask for help understanding concepts, practice implementation, or ask for explanations. You may **not** ask AI to generate or rewrite code. The goal is for you to use AI to learn concepts, not to replace fundamental programming skills.
 
