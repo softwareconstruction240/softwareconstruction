@@ -178,7 +178,7 @@ When initially graded, your design will be given one of three scores:
 After you have completed this deliverable checkpoint come back and reflect upon the course outcomes and your ability to master them.
 
 ```masteryls
-{"id":"ef7e108e-d6b3-49e8-9745-1f9a25d6eb91","title":"Frame","type":"essay","gradingCriteria":"- This phase creates a design for the next phase where an HTTP chess server is created. A proper framing would include an understanding of the required HTTP endpoints that a client will call. This includes endpoints for authentication users, creating games, and joining games.\n- Framing also includes the need to store user data related to authentication and game management."}
+{"id":"ef7e108e-d6b3-49e8-9745-1f9a25d6eb91","title":"Frame","type":"essay","gradingCriteria":"- This phase creates a design for the next phase where an HTTP chess server is created. A proper framing would include an understanding of the required HTTP endpoints that a client will call. This includes endpoints for authentication users, creating games, and joining games.\n- Framing also includes the need for an in-memory store of user data for authentication and game management. This is a temporary implementation until a SQL implementation is completed in a future phase."}
 How did you frame as the user's need that you are trying to solve in this phase?
 ```
 

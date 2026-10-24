@@ -559,28 +559,13 @@ To pass off this assignment use the course [auto-grading](https://cs240.click/) 
 After you have completed this deliverable checkpoint come back and reflect upon the course outcomes and your ability to master them.
 
 ```masteryls
-{"id":"a0ae347e-4e87-4f70-bc04-f88800c6af16","title":"Frame","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit."}
-What process did you use to frame your understanding of the chess server so that it properly reflected the requirements? How did you determine a correct understanding of the problem so that you were able to consider the factors that your users deem important and will depend on?
+{"id":"dfd511cd-6a2c-4026-b184-81eccfe284e8","title":"Build","type":"essay"}
+What went well and what did you find challenging as you implemented your chess server? How well did the software engineering principles you identified during design map to the actual implementation?
 ```
 
 ```masteryls
-{"id":"5f19d8ae-e2b5-4adb-8258-b87f5e157c6e","title":"Explore","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit."}
-What software engineering principles and practices did you consider when you were exploring how to represent a chess server? What did you do to advance your learning of the possible solution space?
-```
-
-```masteryls
-{"id":"3ba8e4c9-7b05-4512-9dcf-80b5257717f4","title":"Design","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit."}
-What object-oriented and design principles did you consider as you converted your framing and exploration of the chess server into a design solution? What did you do to ensure you were considering the needs of future developers and users of the application?
-```
-
-```masteryls
-{"id":"dfd511cd-6a2c-4026-b184-81eccfe284e8","title":"Build","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit."}
-What went well and what did you find challenging as you implemented your chess server? What did you do to demonstrate design integrity and the quality of the application?
-```
-
-```masteryls
-{"id":"d2f284fd-f0e7-491e-9f33-ea17a4a6262a","title":"Test","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit."}
-What testing patterns did you employ to ensure a correct implementation of the chess server and encourage the foundation of a trustworthy application that others can rely on?
+{"id":"d2f284fd-f0e7-491e-9f33-ea17a4a6262a","title":"Test","type":"essay","gradingCriteria":"- Course provided unit tests were the primary means for testing the correctness of the code.\n- The learner should have written their own unit tests for the service layer of their implementation.\n- The learner should have felt greater confidence in their implementation once the tests succeeded."}
+How did you test the validity of your implementation? How did this impact your confidence in your ability to satisfy the user's need.
 ```
 
 ## Videos
