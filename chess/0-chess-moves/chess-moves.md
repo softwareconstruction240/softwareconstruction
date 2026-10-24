@@ -232,7 +232,7 @@ What exploration did you conduct in order to address the problem that you identi
 ```
 
 ```masteryls
-{"id":"df3d6c21-e574-403a-ba99-65c7ebf273aa","title":"Design","type":"essay","gradingCriteria":"- The design should focus on representing how chess pieces move with an object oriented approach. Abstraction and encapsulation should be included in the design.\n- Exploration should have lead them to consider a mathematical representation of piece movements."}
+{"id":"df3d6c21-e574-403a-ba99-65c7ebf273aa","title":"Design","type":"essay","gradingCriteria":"- The design should focus on representing how chess pieces move with an object oriented approach. Abstraction and encapsulation should be included in the design.\n- The design should include a mathematical representation of piece movements."}
 What object-oriented and design principles did you consider as you converted your framing and exploration of chess piece movement into a design solution?
 ```
 
