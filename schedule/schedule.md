@@ -1,6 +1,5 @@
-# 📅 Fall 2026 Schedule
-
 [BYU Academic Calendar](https://academiccalendar.byu.edu/)
+[AutoGrader](https://cs240.click)
 
 | Week | Date | Module | Due | Topics Covered | Slides |
 | :--: | ---- | ------ | --- | -------------- | ------ |
