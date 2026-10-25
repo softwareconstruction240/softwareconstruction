@@ -220,12 +220,12 @@ Review the [Phase 5 Passoff Common Problems](../../instruction/chess-tips/chess-
 After you have completed this deliverable checkpoint come back and reflect upon the course outcomes and your ability to master them.
 
 ```masteryls
-{"id":"939db0e5-dded-44d3-90a6-cd8e8ca21490","title":"Frame","type":"essay","gradingCriteria":"- This phase implements a way for a user to authenticate, see what chess games exist, create a new one, and join one as either a player or observer. The learner should identify this as the primary need framing."}
+{"id":"939db0e5-dded-44d3-90a6-cd8e8ca21490","title":"Frame","type":"essay","gradingCriteria":"- This phase implements that CLI client that allows a user to authenticate, see what chess games exist, create a new one, and join one as either a player or observer. The learner should identify this as the primary need framing."}
 How did you frame as the user's need that you are trying to solve in this phase?
 ```
 
 ```masteryls
-{"id":"f9237c61-b9e6-49f4-bb60-d27952c2d113","title":"Explore","type":"essay","gradingCriteria":"- Framing identified the need as providing a way for a user to authenticate, see what chess games exist, create a new one, and join one as either a player or observer. Exploration should include how CLI programs are typically implemented and how to render a chess board using a terminal."}
+{"id":"f9237c61-b9e6-49f4-bb60-d27952c2d113","title":"Explore","type":"essay","gradingCriteria":"- Framing identified the need as providing a CLI client for a user to authenticate, see what chess games exist, create a new one, and join one as either a player or observer. Exploration should include how CLI programs are typically implemented and how to render a chess board using a terminal."}
 What previous work and solutions did you explore in order to address the problem that you identified during framing?
 
 ```
@@ -237,7 +237,7 @@ What object-oriented and design principles did you consider as you converted you
 
 ```masteryls
 {"id":"368fa787-fc08-4b5d-b1ea-3f707fe87f40","title":"Build","type":"essay"}
-What went well and what did you find challenging as you implemented your chess piece movement design? How well did the software engineering principles you identified during design map to the actual implementation?
+What went well and what did you find challenging as you implemented your CLI chess client? How well did the software engineering principles you identified during design map to the actual implementation?
 ```
 
 ```masteryls

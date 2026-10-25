@@ -190,7 +190,7 @@ What object-oriented and design principles did you consider as you converted you
 
 ```masteryls
 {"id":"e0f6f56e-679b-4023-896d-4ea76530f513","title":"Build","type":"essay"}
-What went well and what did you find challenging as you implemented your chess piece movement design? How well did the software engineering principles you identified during design map to the actual implementation?
+What went well and what did you find challenging with your MySQL database implementation? How well did the software engineering principles you identified during design map to the actual implementation?
 ```
 
 ```masteryls
