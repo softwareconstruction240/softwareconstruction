@@ -327,28 +327,28 @@ Before coming to passoff with a TA, check to make sure your code functions prope
 After you have completed this deliverable checkpoint come back and reflect upon the course outcomes and your ability to master them.
 
 ```masteryls
-{"id":"ce464df0-a2d6-45a9-a659-a2eb2227d1b0","title":"Frame","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit."}
-What process did you use to frame your understanding of the chess gameplay so that it properly reflected the requirements? How did you determine a correct understanding of the problem so that you were able to consider the factors that your users deem important and will depend on?
+{"id":"ce464df0-a2d6-45a9-a659-a2eb2227d1b0","title":"Frame","type":"essay","gradingCriteria":"- This phase enhances the CLI chess client functionality that allows a user to play or observe a chess game. The learner should identify this as the primary need framing"}
+How did you frame as the user's need that you are trying to solve in this phase?
 ```
 
 ```masteryls
-{"id":"d586edeb-56ad-42da-a354-36a000e660b4","title":"Explore","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit."}
-What software engineering principles and practices did you consider when you were exploring how to represent a chess gameplay? What did you do to advance your learning of the possible solution space?
+{"id":"d586edeb-56ad-42da-a354-36a000e660b4","title":"Explore","type":"essay","gradingCriteria":"- Framing identified the need as enhancing the CLI client to play or observe a game of chess. Exploration should include how the WebSocket protocol works to send chess moves asynchronously."}
+What previous work and solutions did you explore in order to address the problem that you identified during framing?
 ```
 
 ```masteryls
-{"id":"058feffa-056d-44fa-8a27-ab1e6a5c3762","title":"Design","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit."}
-What object-oriented and design principles did you consider as you converted your framing and exploration of the chess gameplay into a design solution? What did you do to ensure you were considering the needs of future developers and users of the application?
+{"id":"058feffa-056d-44fa-8a27-ab1e6a5c3762","title":"Design","type":"essay","gradingCriteria":"- The design should focus on representing abstracting out the asynchronous nature of making and receiving WebSocket requests that represent moves made by other players. Abstraction and encapsulation should be included in the design."}
+What object-oriented and design principles did you consider as you converted your framing and exploration of the chess game play into a design solution? What did you do to abstract the asynchronous nature of WebSocket communication?
 ```
 
 ```masteryls
-{"id":"27be87bf-8c65-484a-a25c-ce0553215a4e","title":"Build","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit."}
-What went well and what did you find challenging as you implemented your chess gameplay? What did you do to demonstrate design integrity and the quality of the application?
+{"id":"27be87bf-8c65-484a-a25c-ce0553215a4e","title":"Build","type":"essay"}
+What went well and what did you find challenging as you implemented your chess game play? How well did the software engineering principles you identified during design map to the actual implementation?
 ```
 
 ```masteryls
-{"id":"a5dec25a-2131-4137-927a-abbc6d331abd","title":"Test","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit."}
-What testing patterns did you employ to ensure a correct implementation of the chess gameplay and encourage the foundation of a trustworthy application that others can rely on?
+{"id":"a5dec25a-2131-4137-927a-abbc6d331abd","title":"Test","type":"essay","gradingCriteria":"- The learner should have used the provided tests to validate proper WebSocket communication for game play. Manual tests should have also be used to do complete e2e testing of a full game of chess."}
+How did you test the validity of your implementation? How did this impact your confidence in your ability to satisfy the user's need.
 ```
 
 ## Videos

@@ -220,19 +220,19 @@ Review the [Phase 5 Passoff Common Problems](../../instruction/chess-tips/chess-
 After you have completed this deliverable checkpoint come back and reflect upon the course outcomes and your ability to master them.
 
 ```masteryls
-{"id":"939db0e5-dded-44d3-90a6-cd8e8ca21490","title":"Frame","type":"essay","gradingCriteria":"- This phase implements that CLI client that allows a user to authenticate, see what chess games exist, create a new one, and join one as either a player or observer. The learner should identify this as the primary need framing."}
+{"id":"939db0e5-dded-44d3-90a6-cd8e8ca21490","title":"Frame","type":"essay","gradingCriteria":"- This phase implements a CLI chess client that allows registration and game play setup as either a player or observer. The learner should identify this as the primary need framing."}
 How did you frame as the user's need that you are trying to solve in this phase?
 ```
 
 ```masteryls
-{"id":"f9237c61-b9e6-49f4-bb60-d27952c2d113","title":"Explore","type":"essay","gradingCriteria":"- Framing identified the need as providing a CLI client for a user to authenticate, see what chess games exist, create a new one, and join one as either a player or observer. Exploration should include how CLI programs are typically implemented and how to render a chess board using a terminal."}
+{"id":"f9237c61-b9e6-49f4-bb60-d27952c2d113","title":"Explore","type":"essay","gradingCriteria":"- Framing identified the need as providing a CLI chess client allows registration and game play setup as either a player or observer. Exploration should include how CLI programs are typically implemented and how to render a chess board using a terminal."}
 What previous work and solutions did you explore in order to address the problem that you identified during framing?
 
 ```
 
 ```masteryls
 {"id":"4e1a8585-e1a7-4bcc-9d73-d8f46fccf4a8","title":"Design","type":"essay","gradingCriteria":"- The design should focus on representing how the chess CLI will separate the REPL loop, client logic representing move validation and available commands, and network communication layers. Abstraction and encapsulation should be included in the design."}
-What object-oriented and design principles did you consider as you converted your framing and exploration of chess piece movement into a design solution? What did you do to decompose the architecture of the client into layers that honor the single responsibility principle?
+What object-oriented and design principles did you consider as you converted your framing registration and game setup into a design solution? What did you do to decompose the architecture of the client into layers that honor the single responsibility principle?
 ```
 
 ```masteryls
@@ -241,7 +241,7 @@ What went well and what did you find challenging as you implemented your CLI che
 ```
 
 ```masteryls
-{"id":"19f7601e-39e4-4014-9888-14861455ba58","title":"Test","type":"essay","gradingCriteria":"- The learner should have provided their own tests using a server facade to make requests to server using end to end testing."}
+{"id":"19f7601e-39e4-4014-9888-14861455ba58","title":"Test","type":"essay","gradingCriteria":"- The learner should have provided their own tests using a server facade to make requests to server using end to end testing. Manual testing should have been used to validate the proper rendering of a chess game."}
 How did you test the validity of your implementation? How did this impact your confidence in your ability to satisfy the user's need.
 ```
 
