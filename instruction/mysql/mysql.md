@@ -10,7 +10,7 @@
 - It follows the relational data model, using tables, rows, and columns to organize data.
 - To interact with a MySQL server, you use a SQL client (either command-line or GUI).
 
-___
+---
 
 `MySQL` is an open-source relational database that powers many popular applications and websites. Learning how MySQL works will help you understand the relational data model, give you experience with an industry-standard tool, and teach you how to use it to power your own applications.
 
@@ -20,10 +20,10 @@ MySQL has long been the cornerstone of the web, powering everything from small p
 
 Choosing MySQL is often a strategic decision based on the following factors:
 
-*   **Open-Source and Cost-Effective:** The Community Edition is free, reducing the total cost of ownership for startups and individual developers.
-*   **High Performance:** MySQL is optimized for fast read operations, making it ideal for content-heavy websites and e-commerce platforms.
-*   **Scalability:** It supports "sharding" and "replication," allowing databases to grow alongside the application's user base.
-*   **Strong Community Support:** Because it is so widely used, finding documentation, third-party tools, and expert help is incredibly easy.
+- **Open-Source and Cost-Effective:** The Community Edition is free, reducing the total cost of ownership for startups and individual developers.
+- **High Performance:** MySQL is optimized for fast read operations, making it ideal for content-heavy websites and e-commerce platforms.
+- **Scalability:** It supports "sharding" and "replication," allowing databases to grow alongside the application's user base.
+- **Strong Community Support:** Because it is so widely used, finding documentation, third-party tools, and expert help is incredibly easy.
 
 The following diagram illustrates how MySQL fits into the broader database ecosystem, categorized by data structure:
 
@@ -31,11 +31,11 @@ The following diagram illustrates how MySQL fits into the broader database ecosy
 graph TD
     DB[Database Systems] --> RDBMS[Relational - SQL]
     DB --> NoSQL[Non-Relational - NoSQL]
-    
+
     RDBMS --> MySQL[MySQL]
     RDBMS --> PostgreSQL[PostgreSQL]
     RDBMS --> SQLite[SQLite]
-    
+
     NoSQL --> MongoDB[MongoDB - Document]
     NoSQL --> Redis[Redis - Key-Value]
 
@@ -46,13 +46,13 @@ While MySQL is a powerhouse, it is not the only tool available. Depending on you
 
 ### Comparison of Popular Database Options
 
-| Feature | MySQL | PostgreSQL | SQLite | MongoDB |
-| :--- | :--- | :--- | :--- | :--- |
-| **Type** | Relational (RDBMS) | Relational (RDBMS) | Relational (RDBMS) | Document (NoSQL) |
-| **Best For** | Web apps, E-commerce | Complex queries, Data integrity | Mobile apps, Testing | Big data, Unstructured data |
-| **Scalability** | High (Read-heavy) | High (Complex writes) | Low (Single file) | Very High (Horizontal) |
-| **Acid Compliance** | Yes (with InnoDB) | Yes (Full) | Yes | Partial / Tunable |
-| **Ease of Setup** | Easy | Moderate | Very Easy | Easy |
+| Feature             | MySQL                | PostgreSQL                      | SQLite               | MongoDB                     |
+| :------------------ | :------------------- | :------------------------------ | :------------------- | :-------------------------- |
+| **Type**            | Relational (RDBMS)   | Relational (RDBMS)              | Relational (RDBMS)   | Document (NoSQL)            |
+| **Best For**        | Web apps, E-commerce | Complex queries, Data integrity | Mobile apps, Testing | Big data, Unstructured data |
+| **Scalability**     | High (Read-heavy)    | High (Complex writes)           | Low (Single file)    | Very High (Horizontal)      |
+| **Acid Compliance** | Yes (with InnoDB)    | Yes (Full)                      | Yes                  | Partial / Tunable           |
+| **Ease of Setup**   | Easy                 | Moderate                        | Very Easy            | Easy                        |
 
 ## MySQL Server Installation
 
@@ -100,20 +100,20 @@ Alternatively, if you prefer a visual MySQL client, you might try [MySQL Workben
 
 Here is a list of common SQL commands used to administer a database.
 
-| Command | Purpose | Example |
-| :--- | :--- | :--- |
-| `SHOW DATABASES` | Lists all available databases | `SHOW DATABASES;` |
-| `USE name` | Opens a specific database | `USE student;` |
-| `SHOW TABLES` | Lists all tables in the currently selected database | `SHOW TABLES;` |
-| `DESCRIBE name` | Lists the fields (columns) for a specific table | `DESCRIBE student;` |
-| `SHOW INDEX FROM name` | Lists the indexes for a specific table | `SHOW INDEX FROM student;` |
-| `SHOW FULL PROCESSLIST` | Lists currently executing queries | `SHOW FULL PROCESSLIST;` |
-| `CREATE DATABASE name` | Creates a new database | `CREATE DATABASE student;` |
-| `DROP DATABASE name` | Deletes a database | `DROP DATABASE student;` |
-| `CREATE TABLE name` | Creates a new table | `CREATE TABLE pet (name VARCHAR(128), age INT);` |
-| `INSERT INTO name` | Inserts data into a table | `INSERT INTO pet VALUES ("zoe", 3);` |
-| `SELECT * FROM name` | Queries data from a table | `SELECT * FROM pet;` |
-| `DROP TABLE name` | Deletes a table | `DROP TABLE pet;` |
+| Command                 | Purpose                                             | Example                                          |
+| :---------------------- | :-------------------------------------------------- | :----------------------------------------------- |
+| `SHOW DATABASES`        | Lists all available databases                       | `SHOW DATABASES;`                                |
+| `USE name`              | Opens a specific database                           | `USE student;`                                   |
+| `SHOW TABLES`           | Lists all tables in the currently selected database | `SHOW TABLES;`                                   |
+| `DESCRIBE name`         | Lists the fields (columns) for a specific table     | `DESCRIBE student;`                              |
+| `SHOW INDEX FROM name`  | Lists the indexes for a specific table              | `SHOW INDEX FROM student;`                       |
+| `SHOW FULL PROCESSLIST` | Lists currently executing queries                   | `SHOW FULL PROCESSLIST;`                         |
+| `CREATE DATABASE name`  | Creates a new database                              | `CREATE DATABASE student;`                       |
+| `DROP DATABASE name`    | Deletes a database                                  | `DROP DATABASE student;`                         |
+| `CREATE TABLE name`     | Creates a new table                                 | `CREATE TABLE pet (name VARCHAR(128), age INT);` |
+| `INSERT INTO name`      | Inserts data into a table                           | `INSERT INTO pet VALUES ("zoe", 3);`             |
+| `SELECT * FROM name`    | Queries data from a table                           | `SELECT * FROM pet;`                             |
+| `DROP TABLE name`       | Deletes a table                                     | `DROP TABLE pet;`                                |
 
 ## Experimenting
 
@@ -184,9 +184,8 @@ In which of the following scenarios would MySQL be a better choice than SQLite?
 
 ```masteryls
 {"id":"5097a507-34c8-491d-8c15-f0d339002d8f","title":"Stewardship of What You Store","type":"essay"}
-As you persist information in a database, how does the responsibility of caring for users' data reflect Christlike service and the BYU aim of developing character?
+As you persist information in a database, how does the responsibility of caring for users' data reflect your concern for others?
 ```
-
 
 ## Videos
 

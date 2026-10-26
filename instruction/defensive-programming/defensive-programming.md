@@ -66,7 +66,7 @@ While exceptions are used for public-facing validation, you can protect internal
 
 ```java
 private String normalize(String name) {
-    // If the logic elsewhere fails and passes a numeric string, 
+    // If the logic elsewhere fails and passes a numeric string,
     // this assertion will catch the bug during development.
     assert !name.matches("\\d+") : "Numeric name provided to internal method";
 
@@ -133,11 +133,12 @@ graph TD
   Check1 -- Yes --> Check2{Authorized?}
   Check2 -- No --> Exit2[Throw Exception / Return]
   Check2 -- Yes --> HappyPath[Execute Core Logic]
-  
+
   classDef default fill:#ffffff,stroke:#000000,color:#000000,stroke-width:1px;
 ```
 
 The use of guard clauses provides several distinct advantages:
+
 1.  **Reduced Cognitive Load:** You don't have to keep track of multiple `else` branches or remember which `if` block you are currently inside.
 2.  **Clear Intent:** The preconditions are explicitly stated at the top of the method, acting as a form of executable documentation.
 3.  **Linear Execution:** The main logic of the function stays at the lowest level of indentation, making it the focal point of the method.
@@ -147,6 +148,7 @@ The use of guard clauses provides several distinct advantages:
 Consider a method that processes a bank withdrawal. Without guard clauses, the logic becomes "nested" and harder to follow.
 
 **The Nested Approach (Harder to Read):**
+
 ```java
 public void processWithdrawal(Account account, double amount) {
     if (account != null) {
@@ -165,6 +167,7 @@ public void processWithdrawal(Account account, double amount) {
 ```
 
 **The Guard Clause Approach (Clean and Defensive):**
+
 ```java
 public void processWithdrawal(Account account, double amount) {
     // Guard Clauses: Handle edge cases immediately
@@ -179,13 +182,12 @@ public void processWithdrawal(Account account, double amount) {
 ```
 
 ### Best Practices for Guard Clauses
-*   **Be Specific:** Throw the most relevant exception (e.g., `NullPointerException`, `IllegalArgumentException`, or `IllegalStateException`).
-*   **Order Matters:** Check for nulls first, followed by range validations, and finally business state logic.
-*   **Keep them simple:** A guard clause should ideally be a single `if` statement followed by a `return` or `throw`.
 
+- **Be Specific:** Throw the most relevant exception (e.g., `NullPointerException`, `IllegalArgumentException`, or `IllegalStateException`).
+- **Order Matters:** Check for nulls first, followed by range validations, and finally business state logic.
+- **Keep them simple:** A guard clause should ideally be a single `if` statement followed by a `return` or `throw`.
 
 ## ☑ Exercise
-
 
 ```masteryls
 {"id":"75dda285-9329-46b2-8c9e-3cba4efedb23","title":"Perimeter Input Validation","type":"multiple-choice"}
@@ -251,9 +253,8 @@ What is the primary architectural benefit of using guard clauses at the beginnin
 
 ```masteryls
 {"id":"fb9280b0-a467-4a9c-be3a-90b4ff2aa50b","title":"Protecting Your Neighbor","type":"essay"}
-How does writing defensive code that anticipates misuse and failure demonstrate love and care for your users, reflecting the second great commandment and the BYU aim of character building?
+How does writing defensive code that anticipates misuse and failure demonstrate love and care for your users?
 ```
-
 
 ## Videos
 

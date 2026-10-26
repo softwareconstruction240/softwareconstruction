@@ -23,7 +23,6 @@ _source: [Wikipedia](https://en.wikipedia.org/wiki/Edgar_F._Codd)_
 
 ---
 
-
 ## Foundations of the Relational Model
 
 The Relational Model is the predominant method for managing data in modern computing, first proposed by E.F. Codd in 1970. At its core, the model represents data as a collection of **relations** (commonly known as tables). Each relation consists of **tuples** (rows) and **attributes** (columns). Unlike earlier hierarchical or network models, the relational model is based on mathematical set theory and first-order predicate logic, which allows for a high degree of data independence.
@@ -32,12 +31,11 @@ In a relational database, data is organized into structured formats where each r
 
 ### Key Components of the Model
 
-*   **Relation (Table):** A structure of columns and rows.
-*   **Attribute (Column):** A named field representing a specific type of data (e.g., `EmailAddress`).
-*   **Tuple (Row):** A single record containing data for all attributes in the relation.
-*   **Primary Key:** A unique identifier for every tuple within a table.
-*   **Foreign Key:** An attribute in one table that provides a link to the primary key of another table.
-
+- **Relation (Table):** A structure of columns and rows.
+- **Attribute (Column):** A named field representing a specific type of data (e.g., `EmailAddress`).
+- **Tuple (Row):** A single record containing data for all attributes in the relation.
+- **Primary Key:** A unique identifier for every tuple within a table.
+- **Foreign Key:** An attribute in one table that provides a link to the primary key of another table.
 
 ### Why the Relational Model is Popular
 
@@ -46,10 +44,9 @@ In a relational database, data is organized into structured formats where each r
 The enduring popularity of the relational model stems from its balance of simplicity and rigorous data integrity. Before its adoption, developers had to understand the physical storage of data on a disk to retrieve it. The relational model introduced **Physical Data Independence**, meaning the way data is stored physically does not affect how it is accessed logically.
 
 1.  **Data Integrity and Constraints:** Relational databases enforce rules (constraints) that prevent orphaned records or duplicate data, ensuring that the information remains accurate and reliable over time.
-2.  **SQL Standardization:** The Structured Query Language (SQL) provides a universal, declarative way to interact with data. Instead of writing complex loops to find a record, a user simply tells the database *what* they want, and the engine determines *how* to get it.
+2.  **SQL Standardization:** The Structured Query Language (SQL) provides a universal, declarative way to interact with data. Instead of writing complex loops to find a record, a user simply tells the database _what_ they want, and the engine determines _how_ to get it.
 3.  **ACID Compliance:** Most relational systems support ACID (Atomicity, Consistency, Isolation, Durability) properties, which guarantee that database transactions are processed reliably, even in the event of a system crash.
 4.  **Normalization:** The model encourages "normalization," a process of organizing data to minimize redundancy, which saves storage space and prevents update anomalies.
-
 
 By separating entities into distinct tables and linking them through keys, the relational model allows for complex data structures that are easy to navigate, scale, and maintain.
 
@@ -119,7 +116,7 @@ The following example shows a database named `pet-store` containing tables for `
 | 51  | 81      | 93    |
 | 52  | 82      | 77    |
 
-With data stored in relational tables, you can use the ID fields to cross-reference, or **join**, the data together. 
+With data stored in relational tables, you can use the ID fields to cross-reference, or **join**, the data together.
 
 - **Primary Key**: A table column that represents the unique identifier for a row.
 - **Foreign Key**: A column in one table that contains the primary key of a different table, creating a link between them.
@@ -150,7 +147,6 @@ classDiagram
     purchase --> pet : petId -> id
     purchase --> owner : ownerId -> id
 ```
-
 
 A good primary key has the following characteristics:
 
@@ -187,7 +183,8 @@ Data views are often created temporarily so an application can use the aggregate
 
 ## Modeling Inheritance
 
-In object-oriented programming, we use inheritance (e.g., a `Dog` *is a* `Pet`). In the relational model, inheritance is usually modeled in one of two ways:
+In object-oriented programming, we use inheritance (e.g., a `Dog` _is a_ `Pet`). In the relational model, inheritance is usually modeled in one of two ways:
+
 1.  **Table-per-Hierarchy**: All classes in the hierarchy are stored in a single table with a "discriminator" column to identify the type.
 2.  **Table-per-Type**: Each class has its own table, and the child table's primary key also serves as a foreign key to the parent table's primary key.
 
@@ -198,16 +195,17 @@ These relationships, along with one-to-one, one-to-many, and many-to-many relati
 The relational model is more than just a method for storing data; it is a masterclass in software engineering design principles. At its core, the model leverages **abstraction**, **separation of concerns**, and **declarative programming** to manage complexity. By decoupling how data is logically organized from how it is physically stored, the relational model allows systems to evolve without breaking the applications that depend on them.
 
 ### Data Independence and Abstraction
+
 One of the most significant contributions of the relational model is the concept of **Data Independence**. In early database systems, the application code had to know exactly how data was laid out on the disk (e.g., specific byte offsets). If the file format changed, the code broke. The relational model introduces a logical layer—the table—which acts as an abstraction.
 
-*   **Physical Data Independence:** You can change storage structures (like moving from a B-Tree index to a Hash index) without modifying the SQL queries.
-*   **Logical Data Independence:** You can change the schema (like splitting a table) and use "Views" to ensure the original interface remains available to the application.
+- **Physical Data Independence:** You can change storage structures (like moving from a B-Tree index to a Hash index) without modifying the SQL queries.
+- **Logical Data Independence:** You can change the schema (like splitting a table) and use "Views" to ensure the original interface remains available to the application.
 
 ```mermaid
 graph LR
     User[Application Code] -- "Declarative Query (SQL)" --> Logic[Logical Schema: Tables/Constraints]
     Logic -- "Storage Engine" --> Phys[Physical Schema: Files/Indexes]
-    
+
     subgraph "Separation of Concerns"
     Logic
     Phys
@@ -217,25 +215,26 @@ graph LR
 ```
 
 ### Normalization and the DRY Principle
+
 Software engineers often follow the **DRY (Don't Repeat Yourself)** principle to reduce redundancy and maintain consistency. In the relational model, this is achieved through **Normalization**. By decomposing large, redundant tables into smaller, related tables, we ensure that a single piece of information is stored in exactly one place.
 
 For example, instead of storing a customer's address every time they place an order, we store a `customer_id`. This prevents "update anomalies"—where you update an address in one record but forget to update it in another.
 
 ### Declarative vs. Imperative Design
-Relational databases promote a **declarative approach**. In imperative programming, you tell the computer *how* to do something (loop through a list, check a condition, move a pointer). In the relational model, you use SQL to describe *what* you want, and the database's query optimizer determines the most efficient execution plan.
 
-| Feature | Imperative Approach (Code) | Declarative Approach (Relational) |
-| :--- | :--- | :--- |
-| **Focus** | Process and Flow | Result and Logic |
-| **Optimization** | Manual (Developer writes loops) | Automatic (Query Optimizer) |
-| **Maintenance** | High (Changes require code refactor) | Low (Schema and Logic are decoupled) |
+Relational databases promote a **declarative approach**. In imperative programming, you tell the computer _how_ to do something (loop through a list, check a condition, move a pointer). In the relational model, you use SQL to describe _what_ you want, and the database's query optimizer determines the most efficient execution plan.
+
+| Feature          | Imperative Approach (Code)           | Declarative Approach (Relational)    |
+| :--------------- | :----------------------------------- | :----------------------------------- |
+| **Focus**        | Process and Flow                     | Result and Logic                     |
+| **Optimization** | Manual (Developer writes loops)      | Automatic (Query Optimizer)          |
+| **Maintenance**  | High (Changes require code refactor) | Low (Schema and Logic are decoupled) |
 
 ## Working with Relational Data
 
 In practical terms, relational data is stored in a Relational Database Management System (RDBMS). For this course, we will use **MySQL**. The language used to read, write, and query this data is **Structured Query Language (SQL)**, a declarative language we will explore in future topics.
 
 ## ☑ Exercise
-
 
 ```masteryls
 {"id":"919d8714-ed1e-46f4-bff4-a325ad6faa82","title":"Representation of Relations","type":"multiple-choice"}
@@ -268,12 +267,10 @@ In the relational data model, how is a **relation** logically represented and or
   Reread how the lesson describes relations, tuples, and attributes.
 ```
 
-
 ```masteryls
 {"id":"b71c6678-edec-4df5-91cf-0ea35c052fe9", "title":"Rows and Columns", "type":"teaching" }
 I don't understand how rows and columns represent relationships.
 ```
-
 
 ```masteryls
 {"id":"bff5e1a4-9f58-4a88-9b7d-3f8a224a6cf4","title":"The Core of the Relational Model","type":"multiple-choice"}
@@ -339,7 +336,7 @@ Which software engineering principle is most directly supported by the ability t
 
 ```masteryls
 {"id":"dd51ad74-9844-4409-a5a7-08cf81aa1059","title":"Designing for Those Who Follow","type":"essay"}
-How does thoughtfully designing a data model demonstrate respect and care for the future developers and users who will depend on it, and how does this relate to the BYU aim of lifelong learning and service?
+How does thoughtfully designing a data model demonstrate respect and care for the future developers and users who will depend on it?
 ```
 
 ## Videos

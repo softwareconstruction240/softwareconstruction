@@ -11,10 +11,9 @@
 
 ---
 
+When writing object-oriented code, it is common to use classes that exist solely to act as containers for data. These are often called "data objects" or "data-carrier classes." Their primary purpose is to store state and pass it between different parts of an application.
 
-When writing object-oriented code, it is common to use classes that exist solely to act as containers for data. These are often called "data objects" or "data-carrier classes." Their primary purpose is to store state and pass it between different parts of an application. 
-
-For example, you might have a `Pet` object with `id`, `name`, and `type` fields. This object could be passed to a `Walker` object to track exercise or to a `PetHealth` object to monitor medical history. This type of encapsulation helps create cohesive objects with a single responsibility. 
+For example, you might have a `Pet` object with `id`, `name`, and `type` fields. This object could be passed to a `Walker` object to track exercise or to a `PetHealth` object to monitor medical history. This type of encapsulation helps create cohesive objects with a single responsibility.
 
 A key characteristic of well-designed data objects is **immutability**. An immutable object's state cannot be modified after it is created. This makes them safer to use in multi-threaded environments and easier to reason about, as you do not have to worry about their values changing unexpectedly when passed to other methods.
 
@@ -51,8 +50,8 @@ class PetClass {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         PetClass petClass = (PetClass) o;
-        return id == petClass.id && 
-               Objects.equals(name, petClass.name) && 
+        return id == petClass.id &&
+               Objects.equals(name, petClass.name) &&
                Objects.equals(type, petClass.type);
     }
 
@@ -102,9 +101,7 @@ public record PetRecord(int id, String name, String type) {
 }
 ```
 
-
 ## ☑ Exercise
-
 
 ```masteryls
 {"id":"dff0788f-db66-4a2f-bd87-1de307ac5bf0", "title":"Records", "type":"teaching" }
@@ -113,9 +110,8 @@ What is the value of a Java record? Why not just always use a class?
 
 ```masteryls
 {"id":"23e9006e-f703-4ee0-a7bc-4f2ec146aef4","title":"Clarity as Kindness","type":"essay"}
-How does using records to express data clearly and concisely make life easier for those who read your code, and how does writing for others' understanding reflect the BYU aim of building character?
+How does using records to express data clearly and concisely make life easier for those who read your code?
 ```
-
 
 ## Videos
 

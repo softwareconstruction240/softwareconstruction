@@ -27,7 +27,7 @@ If you attempt to add an integer to `stringList`, the compiler will generate a *
 
 ### Why Use Generics?
 
-Before generics were introduced in Java 5, developers had to either create a separate class implementation for every supported type or use the `Object` class to represent data. Using `Object` required manual type casting, which is both tedious and error-prone.  Generics move these risks to compile-time, following the "fail-fast" design philosophy.
+Before generics were introduced in Java 5, developers had to either create a separate class implementation for every supported type or use the `Object` class to represent data. Using `Object` required manual type casting, which is both tedious and error-prone. Generics move these risks to compile-time, following the "fail-fast" design philosophy.
 
 ![generics.jpg](generics.jpg)
 
@@ -40,7 +40,7 @@ list.add("cow");
 
 Integer integerItem = (Integer) list.get(0);
 // The following line throws a ClassCastException at runtime
-String stringItem = (String) list.get(0); 
+String stringItem = (String) list.get(0);
 ```
 
 Not only does this approach require the overhead of type casting, but it is also dangerous. Because the list can contain any type of object, the compiler cannot verify that your casts are correct. If you cast an object to the wrong type, your program will crash with a runtime exception. Generics move these errors from **runtime** to **compile-time**, making your code significantly safer.
@@ -70,7 +70,6 @@ var stringStorage = new Storage<String>();
 ```
 
 In the example above, `T` is a placeholder. When you declare `Storage<Integer>`, the compiler treats `T` as an `Integer` for that specific instance.
-
 
 ## Design Principles in Java Generics
 
@@ -113,12 +112,10 @@ The integration of generics into software design provides several architectural 
 
 ## ☑ Exercise
 
-
 ```masteryls
 {"id":"456c8942-f1aa-46a0-b24e-3337ad969702", "title":"Generics", "type":"teaching" }
 Generics seem complicated with strange syntax. I don't understand why I really need them.
 ```
-
 
 ````masteryls
 {"id":"f470d4bb-9996-49d1-8e91-6bb2a7337fa6","title":"Java Generics Bounded Wildcards","type":"multiple-choice"}
@@ -162,10 +159,8 @@ public void processElements(List<? extends Number> elements) {
 
 ```masteryls
 {"id":"28bf0130-6f80-4b48-b224-2d137bdf1339","title":"Intellectual Enlargement","type":"essay"}
-How has learning to write flexible, reusable code with generics stretched the way you think about solving problems, and how does embracing such abstraction support the BYU aim of being intellectually enlarged?
+How has learning to write flexible, reusable code with generics stretched the way you think about solving problems?
 ```
-
-
 
 ## Videos
 

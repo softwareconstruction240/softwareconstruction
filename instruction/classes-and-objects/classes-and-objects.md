@@ -20,7 +20,7 @@
 
 ---
 
-Classes are the fundamental building blocks of Java programs. A class contains **fields** and **methods**. Fields represent the state (data) within the class, and methods represent the behavior (operations) that the class performs. For example, if we had a class representing a person, we might have a field called `name` and a method called `sayName` that prints that name. 
+Classes are the fundamental building blocks of Java programs. A class contains **fields** and **methods**. Fields represent the state (data) within the class, and methods represent the behavior (operations) that the class performs. For example, if we had a class representing a person, we might have a field called `name` and a method called `sayName` that prints that name.
 
 An **object** is an instantiation, or instance, of a class that has been initialized with specific values. A class often includes a **constructor**, which is a special block of code used to initialize the fields when the class is instantiated.
 
@@ -61,7 +61,7 @@ var obj = new Object();
 obj.toString();
 ```
 
-While external code uses a variable name to refer to an object, you sometimes need a way to refer to the current object from *within* its own class code. The keyword `this` acts as a reference to the current instance.
+While external code uses a variable name to refer to an object, you sometimes need a way to refer to the current object from _within_ its own class code. The keyword `this` acts as a reference to the current instance.
 
 ```java
 public class ThisExample {
@@ -74,7 +74,7 @@ public class ThisExample {
 }
 ```
 
-To reduce verbosity, Java automatically infers `this` when you reference a class field, provided there is no local variable or parameter with the same name. You only *must* use `this` when a naming conflict occurs, which is common in constructors:
+To reduce verbosity, Java automatically infers `this` when you reference a class field, provided there is no local variable or parameter with the same name. You only _must_ use `this` when a naming conflict occurs, which is common in constructors:
 
 ```java
 public Person(String name) {
@@ -188,9 +188,7 @@ public static void main(String[] args) {
 }
 ```
 
-
 ## ☑ Exercise
-
 
 ```masteryls
 {"id":"8818e31c-102f-4930-bc88-8f5662f09975","title":"Relationship Between Classes and Objects","type":"multiple-choice"}
@@ -223,9 +221,8 @@ In object-oriented programming, which statement best describes the fundamental r
 
 ```masteryls
 {"id":"c935ba62-abf8-45a9-bb1c-22806e4296e2","title":"Modeling with Integrity","type":"essay"}
-As you learn to model real-world things as classes and objects, how does striving to represent them accurately and honestly shape the way you build software, and how does this reflect the BYU aim of developing Christlike character?
+As you learn to model real-world things as classes and objects, how does striving to represent them accurately and honestly shape the way you build software, and how you consider that actual user need of the software you build?
 ```
-
 
 ## Videos
 

@@ -90,7 +90,6 @@ In addition to annotating a function as a unit test, JUnit has several other use
 | Test              | A simple unit test.                                                                              |
 | ParameterizedTest | A parameterized unit test. This test is called once for each supplied parameter.                 |
 
-
 ## Mastering JUnit Assertions
 
 In unit testing, **assertions** are the criteria used to determine if a test case passes or fails. In JUnit, the `org.junit.jupiter.api.Assertions` class provides a collection of static methods that compare the results produced by your code against the expected outcomes. If the assertion condition is met, the test continues; if it fails, an `AssertionFailedError` is thrown, and the test is marked as failed.
@@ -99,16 +98,16 @@ In unit testing, **assertions** are the criteria used to determine if a test cas
 
 The most frequently used assertion methods include:
 
-| Assertion Method | Description |
-| :--- | :--- |
-| **`assertEquals(expected, actual)`** | Validates that two values are equal. It is critical to put the expected value first to ensure clear failure messages. |
-| **`assertNotEquals(unexpected, actual)`** | Ensures that the actual value does not match the specified unexpected value. |
-| **`assertTrue(condition)` / `assertFalse(condition)`** | Checks if a boolean expression evaluates to true or false. |
-| **`assertNull(object)` / `assertNotNull(object)`** | Verifies the presence or absence of an object reference. |
-| **`assertSame(expected, actual)`** | Asserts that two variables refer to the exact same (or different) object instance in memory (identity check). |
-| **`assertArrayEquals(expectedArray, actualArray)`** | Validates that two arrays are deeply equal, containing the same elements in the same order. |
-| **`assertIterableEquals(expected, actual)`** | Asserts that two iterables (such as `List` or `Set`) are deeply equal. |
-| **`assertThrows(Exception.class, executable)`** | Asserts that a specific block of code throws a particular exception. |
+| Assertion Method                                       | Description                                                                                                           |
+| :----------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------- |
+| **`assertEquals(expected, actual)`**                   | Validates that two values are equal. It is critical to put the expected value first to ensure clear failure messages. |
+| **`assertNotEquals(unexpected, actual)`**              | Ensures that the actual value does not match the specified unexpected value.                                          |
+| **`assertTrue(condition)` / `assertFalse(condition)`** | Checks if a boolean expression evaluates to true or false.                                                            |
+| **`assertNull(object)` / `assertNotNull(object)`**     | Verifies the presence or absence of an object reference.                                                              |
+| **`assertSame(expected, actual)`**                     | Asserts that two variables refer to the exact same (or different) object instance in memory (identity check).         |
+| **`assertArrayEquals(expectedArray, actualArray)`**    | Validates that two arrays are deeply equal, containing the same elements in the same order.                           |
+| **`assertIterableEquals(expected, actual)`**           | Asserts that two iterables (such as `List` or `Set`) are deeply equal.                                                |
+| **`assertThrows(Exception.class, executable)`**        | Asserts that a specific block of code throws a particular exception.                                                  |
 
 The following diagram illustrates the logical flow of a standard assertion:
 
@@ -142,7 +141,7 @@ class UserTest {
             () -> assertTrue(user.getAge() > 18, "User should be an adult")
         );
     }
-    
+
     @Test
     void testException() {
         User user = new User();
@@ -156,7 +155,7 @@ class UserTest {
 
 ### Best Practices for Assertions
 
-1.  **Descriptive Messages**: Most assertion methods accept an optional string message as the last parameter. Use this to explain *why* a test might have failed.
+1.  **Descriptive Messages**: Most assertion methods accept an optional string message as the last parameter. Use this to explain _why_ a test might have failed.
 2.  **Specific Assertions**: Use the most specific assertion possible. For example, `assertTrue(list.isEmpty())` provides a better semantic meaning than `assertEquals(0, list.size())`.
 3.  **Single Responsibility**: While `assertAll` allows multiple checks, a single test method should generally focus on one specific behavior or logical unit.
 
@@ -186,7 +185,6 @@ With IntelliJ, you can autogenerate your unit tests. To use this tool open up an
 ![generate tests](generate-tests.png)
 
 ## ☑ Exercise
-
 
 ```masteryls
 {"id":"e23f3eaf-fadc-4285-8273-35b9852057b7","title":"Benefits of Test-Driven Development","type":"multiple-choice"}
@@ -221,13 +219,11 @@ What is a primary architectural benefit of practicing Test-Driven Development (T
 
 ```masteryls
 {"id":"da9ad5d7-2473-4385-a73c-1f5d9167e751","title":"Building Trust through Testing","type":"essay"}
-Why is trustworthy software an act of service, and how does systematic unit testing contribute to that trust and reflect the BYU aim of developing character?
+Why is trustworthy software an act of service, and how does systematic unit testing contribute to that trust?
 ```
-
 
 ## Videos
 
 - 🎥 [Why We Need Unit Testing (4:30)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=c5707c4c-77d9-43d7-b96b-ad6b014612ca&start=0) - [[transcript]](https://github.com/user-attachments/files/17805242/CS_240_Why_We_Need_Unit_Testing.pdf)
 - 🎥 [Unit Testing Overview (5:10)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=bb1884b3-55ab-4a8b-be05-ad6b01477df8&start=0) - [[transcript]](https://github.com/user-attachments/files/17805243/CS_240_Unit_Testing_Overview.pdf)
 - 🎥 [The JUnit Testing Framework (15:25)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=071e47be-a746-4e74-afd5-ad6b0149b2b8&start=0) - [[transcript]](https://github.com/user-attachments/files/17805245/CS_240_The_JUnit_Testing_Framework.pdf)
-

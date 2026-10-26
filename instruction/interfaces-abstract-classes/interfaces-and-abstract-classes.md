@@ -35,7 +35,7 @@ Polymorphism is a term used in computer science to describe the ability of an ob
 
 ## Interfaces
 
-Interfaces allow you to define *what* a class does without specifying *how* it does it. This allows you to create and supply alternative implementations for the same interface. For example, you can have an interface that defines what a `List` can do, and then create classes that provide different implementations of that `List`. One implementation might use less memory, while another is optimized for speed. You can then write code that uses the `List` interface without needing to know whether it is using the fast version or the memory-efficient version.
+Interfaces allow you to define _what_ a class does without specifying _how_ it does it. This allows you to create and supply alternative implementations for the same interface. For example, you can have an interface that defines what a `List` can do, and then create classes that provide different implementations of that `List`. One implementation might use less memory, while another is optimized for speed. You can then write code that uses the `List` interface without needing to know whether it is using the fast version or the memory-efficient version.
 
 ```java
 public interface List<E> extends SequencedCollection<E> {
@@ -112,7 +112,7 @@ public class AlphabetIterator implements CharIterator {
 
 ## Extending Classes
 
-Inheritance allows a class to derive fields and methods from another class. In Java, every class implicitly extends the `Object` class unless specified otherwise, meaning they inherit `Object`'s methods (like `toString()` and `equals()`). You can explicitly inherit from a specific class using the `extends` keyword. 
+Inheritance allows a class to derive fields and methods from another class. In Java, every class implicitly extends the `Object` class unless specified otherwise, meaning they inherit `Object`'s methods (like `toString()` and `equals()`). You can explicitly inherit from a specific class using the `extends` keyword.
 
 In the following example, `SubClass` extends `SuperClass`. `SubClass` can access the `SuperClass` implementation of `toString()` using the `super` keyword.
 
@@ -169,7 +169,7 @@ public static abstract class AlphabetIterator implements Iterator<String> {
     }
 
     /**
-     * This method is not implemented here, so it must be 
+     * This method is not implemented here, so it must be
      * implemented by any non-abstract subclass.
      */
     public abstract String nextWithPrefix(String prefix);
@@ -393,9 +393,7 @@ classDiagram
 
 Deciding which approach to take is a core part of software design.
 
-
 ## ☑ Exercise
-
 
 ```masteryls
 {"id":"225e7b39-9011-4973-8c40-704c9740b897","title":"Interface Characteristics","type":"multiple-choice"}
@@ -428,7 +426,6 @@ Which statement accurately describes the primary characteristic of an interface 
   Revisit the *Interfaces* and *Extending Classes* sections.
 ```
 
-
 ```masteryls
 {"id":"968a7b21-92da-4bf4-99bb-28fdb740a30d", "title":"Teaching", "type":"teaching" }
 What is the difference between the extends and implements keywords in Java? When should I use which?
@@ -436,9 +433,8 @@ What is the difference between the extends and implements keywords in Java? When
 
 ```masteryls
 {"id":"105e15d4-edac-4832-9fab-9cfa0234b89d","title":"Honoring Your Commitments","type":"essay"}
-How does designing clear interfaces, which are promises that other code depends on, reflect personal integrity, and how does keeping such commitments relate to the BYU aim of building character?
+How does designing clear interfaces, which are promises that other code depends on, reflect your personal integrity?
 ```
-
 
 ## Videos
 

@@ -108,7 +108,7 @@ void configureDatabase() throws SQLException {
 }
 ```
 
-We execute SQL statements by first creating a `PreparedStatement`. You can think of a prepared statement as a SQL statement template. In the code above, we create two prepared statements using hard-coded strings. 
+We execute SQL statements by first creating a `PreparedStatement`. You can think of a prepared statement as a SQL statement template. In the code above, we create two prepared statements using hard-coded strings.
 
 Just as you use try-with-resources to close a connection, you must also ensure that the `PreparedStatement` is closed when you are finished with it.
 
@@ -170,7 +170,6 @@ if (resultSet.next()) {
 }
 ```
 
-
 ### Protecting Against SQL Injections
 
 ![XKCD SQL Injection](xkcd-sql-injection.png)
@@ -224,7 +223,6 @@ This does the following to help prevent a SQL injection.
 1. Validates the input is of the expected format.
 1. Uses the prepared statement `set` functions which also validates the format.
 1. Does not allow multiple statements to execute in a single `executeUpdate` request by removing the `allowMultiQueries` from the connection string.
-
 
 ## Updates
 
@@ -460,9 +458,8 @@ What is the primary purpose of passing `Statement.RETURN_GENERATED_KEYS` to the 
 
 ```masteryls
 {"id":"0aec7a29-50f8-4a16-9222-2eeb236fbfeb","title":"Stewardship of Data","type":"essay"}
-As you connect applications to databases, how does the responsibility of safely handling other people's data reflect Christlike service and the BYU aim of building character?
+As you connect applications to databases, how does the responsibility of safely handling other people's data reflect your love of your neighbor?
 ```
-
 
 ## Videos
 

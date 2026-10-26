@@ -255,7 +255,6 @@ public class UniversalContainer {
 
 ## ☑ Exercise
 
-
 ```masteryls
 {"id":"6e801e6c-018a-498b-b702-2b5d76f81172","title":"Universal Inheritance","type":"multiple-choice"}
 Which software design principle is best demonstrated by the fact that any Java object can be passed to a method expecting a parameter of type `java.lang.Object`?
@@ -320,7 +319,7 @@ In the Java programming language, the `java.lang.Object` class occupies a unique
 
 ```masteryls
 {"id":"9bacd403-f736-4fc4-b613-e31ca5612502","title":"Foundations and Humility","type":"essay"}
-How does taking time to master the fundamentals that every Java object inherits cultivate the humility and discipline that support the BYU aim of lifelong learning and service?
+How does taking time to master the fundamentals that every Java object inherits cultivate an attitude of lifelong learning and service?
 ```
 
 ## Videos

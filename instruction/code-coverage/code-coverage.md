@@ -40,7 +40,6 @@ Despite these limitations, code coverage is a vital indicator of testing quality
 
 ## ☑ Exercise
 
-
 ```masteryls
 {"id":"4057882b-96e0-4013-8f40-6f182d587ba5","title":"Determining Ideal Code Coverage","type":"multiple-choice"}
 When establishing a target for code coverage within a software development team, which of the following best describes the "right" percentage to aim for?
@@ -74,9 +73,8 @@ When establishing a target for code coverage within a software development team,
 
 ```masteryls
 {"id":"d74950d1-2903-4cda-ab9f-0d38a4dcb11c","title":"Diligence in Testing","type":"essay"}
-How does the discipline of measuring and improving code coverage cultivate the thoroughness and honesty that the BYU aim of character building seeks to develop, and how does that diligence serve the people who depend on your software?
+How does the discipline of measuring and improving code coverage cultivate confidence that you are serving the people who depend on your software?
 ```
-
 
 ## Videos
 
