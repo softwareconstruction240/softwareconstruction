@@ -8,15 +8,15 @@
 
 We use the game of chess to help you develop and demonstrate mastery during this course. Your development work is divided into different phases. Each phase demonstrates a different architectural concept or technology.
 
-| Phase            | Getting Started                         | Requirements                            | Video                                 | Description                                                    |
-| ---------------- | --------------------------------------- | --------------------------------------- | ------------------------------------- | -------------------------------------------------------------- |
-| 0. Chess moves   | [doc](0-chess-moves/getting-started.md) | [doc](0-chess-moves/chess-moves.md)     | [Moves](https://youtu.be/mTtK8iRXsZo) | Initial chess project.                                         |
-| 1. Chess game    | [doc](1-chess-game/getting-started.md)  | [doc](1-chess-game/chess-game.md)       |                                       | Creating the game.                                             |
-| 2. Server design | None                                    | [doc](2-server-design/server-design.md) |                                       | Designing the chess server.                                    |
-| 3. Web API       | [doc](3-web-api/getting-started.md)     | [doc](3-web-api/web-api.md)             |                                       | Creating an HTTP chess server.                                 |
-| 4. Database      | [doc](4-database/getting-started.md)    | [doc](4-database/database.md)           |                                       | Persistently storing players, games, and authentication.       |
+| Phase            | Getting Started                         | Requirements                            | Video                                 | Description                                                   |
+| ---------------- | --------------------------------------- | --------------------------------------- | ------------------------------------- | ------------------------------------------------------------- |
+| 0. Chess moves   | [doc](0-chess-moves/getting-started.md) | [doc](0-chess-moves/chess-moves.md)     | [Moves](https://youtu.be/mTtK8iRXsZo) | Initial chess project.                                        |
+| 1. Chess game    | [doc](1-chess-game/getting-started.md)  | [doc](1-chess-game/chess-game.md)       |                                       | Creating the game.                                            |
+| 2. Server design | None                                    | [doc](2-server-design/server-design.md) |                                       | Designing the chess server.                                   |
+| 3. Web API       | [doc](3-web-api/getting-started.md)     | [doc](3-web-api/web-api.md)             |                                       | Creating an HTTP chess server.                                |
+| 4. Database      | [doc](4-database/getting-started.md)    | [doc](4-database/database.md)           |                                       | Persistently storing players, games, and authentication.      |
 | 5. Pregame       | [doc](5-pregame/getting-started.md)     | [doc](5-pregame/pregame.md)             |                                       | Creating a command line interface (CLI) for the chess client. |
-| 6. Gameplay      | [doc](6-gameplay/getting-started.md)    | [doc](6-gameplay/gameplay.md)           |                                       | Implementing gameplay with multiple players.                   |
+| 6. Gameplay      | [doc](6-gameplay/getting-started.md)    | [doc](6-gameplay/gameplay.md)           |                                       | Implementing gameplay with multiple players.                  |
 
 ## Starter Code
 
@@ -56,7 +56,6 @@ When you complete the entire project, you should have something similar to the f
 
 ![chess board](chess-demo.gif)
 
-
 ## ☑ Exercise
 
 ```masteryls
@@ -70,7 +69,7 @@ How well do you know how to play chess?
 
 ```masteryls
 {"id":"67e53d3b-397a-4a0d-998f-1aad6c08dbbd", "title":"Chess", "type":"essay" }
-Which of the 7 chess phases in this class are you most worried about and why?
+Which of the 7 phases of building your distributed chess application are you most worried about and why?
 ```
 
 ## Videos
