@@ -1,6 +1,7 @@
 package server;
 
 import com.google.gson.Gson;
+import dataaccess.DataAccess;
 import dataaccess.MemoryDataAccess;
 import exception.ResponseException;
 import model.Pet;
@@ -15,13 +16,12 @@ public class PetServer {
     private final Javalin httpHandler;
 
     public PetServer() {
-        this(new PetService(new MemoryDataAccess()));
+        this(new MemoryDataAccess());
     }
 
-    public PetServer(PetService service) {
-        this.service = service;
-
+    public PetServer(DataAccess dataAccess) {
         webSocketHandler = new WebSocketHandler();
+        service = new PetService(dataAccess, webSocketHandler);
 
         httpHandler = Javalin.create(config -> config.staticFiles.add("public"))
                 .post("/pet", this::addPet)
@@ -57,7 +57,6 @@ public class PetServer {
     private void addPet(Context ctx) throws ResponseException {
         Pet pet = new Gson().fromJson(ctx.body(), Pet.class);
         pet = service.addPet(pet);
-        webSocketHandler.makeNoise(pet.name(), pet.sound());
         ctx.json(pet.toString());
     }
 
@@ -69,8 +68,7 @@ public class PetServer {
         var id = Integer.parseInt(ctx.pathParam("id"));
         Pet pet = service.getPet(id);
         if (pet != null) {
-            service.deletePet(id);
-            webSocketHandler.makeNoise(pet.name(), pet.sound());
+            service.deletePet(pet);
             ctx.status(204);
         } else {
             ctx.status(404);

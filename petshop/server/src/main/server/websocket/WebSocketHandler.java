@@ -8,13 +8,15 @@ import io.javalin.websocket.WsConnectContext;
 import io.javalin.websocket.WsConnectHandler;
 import io.javalin.websocket.WsMessageContext;
 import io.javalin.websocket.WsMessageHandler;
+import model.Pet;
 import org.eclipse.jetty.websocket.api.Session;
+import server.NoiseMaker;
 import webSocketMessages.Action;
 import webSocketMessages.Notification;
 
 import java.io.IOException;
 
-public class WebSocketHandler implements WsConnectHandler, WsMessageHandler, WsCloseHandler {
+public class WebSocketHandler implements NoiseMaker, WsConnectHandler, WsMessageHandler, WsCloseHandler {
 
     private final ConnectionManager connections = new ConnectionManager();
 
@@ -56,9 +58,9 @@ public class WebSocketHandler implements WsConnectHandler, WsMessageHandler, WsC
         connections.remove(session);
     }
 
-    public void makeNoise(String petName, String sound) throws ResponseException {
+    public void makeNoise(Pet pet) throws ResponseException {
         try {
-            var message = String.format("%s says %s", petName, sound);
+            var message = String.format("%s says %s", pet.name(), pet.sound());
             var notification = new Notification(Notification.Type.NOISE, message);
             connections.broadcast(null, notification);
         } catch (Exception ex) {

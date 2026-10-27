@@ -2,7 +2,6 @@ import dataaccess.DataAccess;
 import dataaccess.MemoryDataAccess;
 import dataaccess.MySqlDataAccess;
 import server.PetServer;
-import service.PetService;
 
 public class ServerMain {
 
@@ -21,8 +20,7 @@ public class ServerMain {
                 dataAccess = new MySqlDataAccess();
             }
 
-            var service = new PetService(dataAccess);
-            var server = new PetServer(service).run(port);
+            var server = new PetServer(dataAccess).run(port);
             port = server.port();
             System.out.printf("Server started on port %d with %s%n", port, dataAccess.getClass());
             return;

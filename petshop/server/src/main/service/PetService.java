@@ -4,15 +4,18 @@ import dataaccess.DataAccess;
 import model.*;
 import exception.ResponseException;
 import model.PetType;
+import server.NoiseMaker;
 
 import java.util.Collection;
 
 public class PetService {
 
     private final DataAccess dataAccess;
+    private final NoiseMaker noiseMaker;
 
-    public PetService(DataAccess dataAccess) {
+    public PetService(DataAccess dataAccess, NoiseMaker noiseMaker) {
         this.dataAccess = dataAccess;
+        this.noiseMaker = noiseMaker;
     }
 
     // Pet Shop is very simple.
@@ -22,6 +25,8 @@ public class PetService {
         if (pet.type() == PetType.DOG && pet.name().equals("fleas")) {
             throw new ResponseException(ResponseException.Code.ClientError, "Error: no dogs with fleas");
         }
+
+        noiseMaker.makeNoise(pet);
         return dataAccess.addPet(pet);
     }
 
@@ -34,9 +39,11 @@ public class PetService {
         return dataAccess.getPet(id);
     }
 
-    public void deletePet(Integer id) throws ResponseException {
-        validateId(id);
-        dataAccess.deletePet(id);
+    public void deletePet(Pet pet) throws ResponseException {
+        validateId(pet.id());
+
+        noiseMaker.makeNoise(pet);
+        dataAccess.deletePet(pet.id());
     }
 
     public void deleteAllPets() throws ResponseException {

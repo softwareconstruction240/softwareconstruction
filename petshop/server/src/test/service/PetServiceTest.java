@@ -6,6 +6,7 @@ import model.Pet;
 import model.PetType;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import server.NoiseMaker;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -14,7 +15,8 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 class PetServiceTest {
-    static final PetService service = new PetService(new MemoryDataAccess());
+    static final PetService service = new PetService(new MemoryDataAccess(), (pet) -> {
+    });
 
     @BeforeEach
     void clear() throws ResponseException {
@@ -49,7 +51,7 @@ class PetServiceTest {
         expected.add(service.addPet(new Pet(0, "sally", PetType.CAT)));
         expected.add(service.addPet(new Pet(0, "fido", PetType.DOG)));
 
-        service.deletePet(pet.id());
+        service.deletePet(pet);
         Collection<Pet> actual = service.listPets();
         assertIterableEquals(expected, actual);
     }
@@ -68,5 +70,15 @@ class PetServiceTest {
     void noDogsWithFleas() {
         assertThrows(ResponseException.class, () ->
                 service.addPet(new Pet(0, "fleas", PetType.DOG)));
+    }
+
+    @Test
+    void makeNoise() throws ResponseException {
+        StringBuilder noises = new StringBuilder();
+        NoiseMaker noiseMaker = (pet) -> noises.append(pet.sound());
+        var service = new PetService(new MemoryDataAccess(), noiseMaker);
+        service.addPet(new Pet(0, "betty", PetType.DOG));
+
+        assertEquals("bark", noises.toString());
     }
 }
