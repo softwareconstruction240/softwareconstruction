@@ -60,6 +60,10 @@ To get started, you will need to install MySQL in your development environment. 
 
 ![MySQL install](mysql-install.png)
 
+> [!Important]
+>
+> Makes sure you use simple alphabetic characters for your password. Such as a memorable phrase like `greentroublemonkeybike`. Otherwise you will have trouble when you send your password over the network.
+
 ## SQL Clients
 
 Once you have installed MySQL, it is time to start executing SQL statements. To do this, you need a SQL client application that can communicate with the SQL server running in your development environment.
