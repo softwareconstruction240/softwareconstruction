@@ -128,4 +128,5 @@ Chess is a game of perfect information; nothing is hidden, and there is no luck 
 ### External Resources
 - [Lichess.org - Learn Chess](https://lichess.org/learn): An excellent interactive tool for practicing piece movements.
 - [Chess.com - Rules and Basics](https://www.chess.com/learn-how-to-play-chess): Comprehensive guides on opening theory and tactics.
+- [Coddy - Chess Rules](https://coddy.tech/landing/chess-rules): Interactive lessons on how every piece moves, check and checkmate, castling, promotion and en passant.
 - [FIDE Laws of Chess](https://handbook.fide.com/chapter/E012023): The official handbook for competitive play.
