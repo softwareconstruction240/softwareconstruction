@@ -95,6 +95,11 @@ public class OuterExample {
 Inner: OuterExample$InnerExample has access to Outer: OuterExample
 ```
 
+```masteryls
+{"id":"650a7f59-34c9-45f6-8993-2229d72e0803", "title":"Inner Classes", "type":"essay" }
+What is the difference between an **inner class** and a **static inner class**?
+```
+
 ## Local Inner Class
 
 A local inner class is like a normal inner class, but are declared within the scope of the block. A declaration scope may be a method, or something like a `for loop`. An important property of local inner classes is that, whatever variables exist within the declaration scope are also available to the local inner class.
@@ -169,47 +174,6 @@ Spanish: Hola
 German: Hallo
 ```
 
-## Anonymous Inner Class
-
-An anonymous inner class, is defined inline by referencing an interface, followed by the implementation. This is useful in cases where you have commonly used interfaces that only have a single method. This saves you from creating lots of little classes that are only used once. In the following example we can create two different implementations of the `Speaker` interface by defining the `sayHello` method inline.
-
-Note that anonymous inner classes also have closure on the scope that they were declared in.
-
-A local variable that an inner class captures must be `final` or **effectively final**, meaning that it is never reassigned after it is initialized. The inner class receives its own copy of the variable's value, so allowing the original variable to change would cause the two copies to disagree.
-
-```java
-public class AnonymousExample {
-    public interface Speaker {
-        String sayHello();
-    }
-
-    public static void main(String[] args) {
-        var spanish = new Speaker() {
-            public String sayHello() {
-                return "Hola";
-            }
-        };
-        var german = new Speaker() {
-            public String sayHello() {
-                return "Hallo";
-            }
-        };
-
-        System.out.printf("Spanish: %s\nGerman: %s", spanish.sayHello(), german.sayHello());
-    }
-}
-```
-
-
-## ☑ Exercise
-
-
-```masteryls
-{"id":"650a7f59-34c9-45f6-8993-2229d72e0803", "title":"Inner Classes", "type":"essay" }
-What is the difference between an **inner class** and a **static inner class**?
-```
-
-
 ```masteryls
 {"id":"fba7642f-e9f8-484a-9147-c3c3f055db57","title":"Closure in Inner Classes","type":"multiple-choice"}
 In Java, when an anonymous inner class or a local inner class accesses a local variable defined in its enclosing method, what is the requirement for that variable and why?
@@ -241,6 +205,36 @@ In Java, when an anonymous inner class or a local inner class accesses a local v
   Reread the *Closure* section and look for the rule about whether a captured variable can change.
 ```
 
+## Anonymous Inner Class
+
+An anonymous inner class, is defined inline by referencing an interface, followed by the implementation. This is useful in cases where you have commonly used interfaces that only have a single method. This saves you from creating lots of little classes that are only used once. In the following example we can create two different implementations of the `Speaker` interface by defining the `sayHello` method inline.
+
+Note that anonymous inner classes also have closure on the scope that they were declared in.
+
+A local variable that an inner class captures must be `final` or **effectively final**, meaning that it is never reassigned after it is initialized. The inner class receives its own copy of the variable's value, so allowing the original variable to change would cause the two copies to disagree.
+
+```java
+public class AnonymousExample {
+    public interface Speaker {
+        String sayHello();
+    }
+
+    public static void main(String[] args) {
+        var spanish = new Speaker() {
+            public String sayHello() {
+                return "Hola";
+            }
+        };
+        var german = new Speaker() {
+            public String sayHello() {
+                return "Hallo";
+            }
+        };
+
+        System.out.printf("Spanish: %s\nGerman: %s", spanish.sayHello(), german.sayHello());
+    }
+}
+```
 
 ## Videos
 

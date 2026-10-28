@@ -93,6 +93,20 @@ Javalin.create()
     .post("/name{name}", this::addName)
 ```
 
+````masteryls
+{"id":"c95709c4-34f1-4e02-82aa-e2c7584bcc82", "title":"Essay", "type":"essay", "gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit." }
+What does the following code do?
+
+```java
+Javalin.create().get("/names", this::listNames)
+
+private void listNames(Context context) {
+    String jsonNames = new Gson().toJson(Map.of("name", names));
+    context.json(jsonNames);
+}
+```
+````
+
 ## HTTP Headers
 
 In addition to passing information through the HTTP path and body, you can pass information using HTTP headers. For example, if you needed a valid authorization token for some of your endpoints then you could write a method that gets a authorization HTTP header and checks the value against an existing list of valid tokens. If the token is not provided in the HTTP `authorization` header, or it is not valid then an HTTP 401 status code is returned.
@@ -489,6 +503,37 @@ graph TD
     classDef default fill:#ffffff,stroke:#000000,color:#000000,stroke-width:1px;
 ```
 
+```masteryls
+{"id":"0eb7aa48-f799-4522-b7e5-02506de60f63","title":"Identifying Separation of Concerns","type":"multiple-choice"}
+A developer moves all SQL query logic out of a server class route handler and into a separate 'DataAccess' class. Which software engineering principle is being primarily demonstrated?
+
+- [x] Separation of Concerns
+  **Correct!** The route handler now deals with HTTP, and the data access class deals with SQL.
+
+  Each class has one concern, so you can change the database without touching the web code, and you can test each piece on its own. This is the same layering the chess server uses.
+
+- [ ] DRY (Don't Repeat Yourself)
+  Good effort. DRY is often a reason to move code.
+
+  This move is about separating *kinds* of work, though, not removing duplication. The SQL might appear only once.
+
+  Reread the lesson's discussion of separation of concerns.
+
+- [ ] YAGNI (You Ain't Gonna Need It)
+  You're thinking about which features are necessary, which is a good habit.
+
+  YAGNI warns against building things before you need them, though. Moving existing SQL into its own class is about organization, not about avoiding extra features.
+
+  Revisit the lesson's discussion of separation of concerns.
+
+- [ ] Interface Segregation
+  Good effort. Interface Segregation is a SOLID principle.
+
+  It's about keeping interfaces small and focused for their clients, though. This scenario moves SQL out of a route handler, which is a broader separation of responsibilities.
+
+  Reread the lesson's discussion of separation of concerns.
+```
+
 ### Single Responsibility Principle (SRP)
 
 The Single Responsibility Principle states that a class or module should have one, and only one, reason to change. In the context of a Web API, this means your route handlers should not be responsible for calculating taxes, validating complex business rules, or writing raw SQL queries.
@@ -558,53 +603,6 @@ A Web API acts as a contract. By using **Data Transfer Objects (DTOs)**, a serve
 | **Encapsulation**         | Returning a `UserDTO` that hides the `password_hash`. | Returning `SELECT * FROM users` directly to the client.        |
 | **KISS (Keep It Simple)** | Using standard HTTP status codes (200, 404, 500).     | Creating custom "Status" fields inside a 200 OK response body. |
 | **Least Privilege**       | API keys that only allow `GET` access to public data. | Using a single "Root" API key for all client integrations.     |
-
-## ☑ Exercise
-
-````masteryls
-{"id":"c95709c4-34f1-4e02-82aa-e2c7584bcc82", "title":"Essay", "type":"essay", "gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit." }
-What does the following code do?
-
-```java
-Javalin.create().get("/names", this::listNames)
-
-private void listNames(Context context) {
-    String jsonNames = new Gson().toJson(Map.of("name", names));
-    context.json(jsonNames);
-}
-```
-````
-
-```masteryls
-{"id":"0eb7aa48-f799-4522-b7e5-02506de60f63","title":"Identifying Separation of Concerns","type":"multiple-choice"}
-A developer moves all SQL query logic out of a server class route handler and into a separate 'DataAccess' class. Which software engineering principle is being primarily demonstrated?
-
-- [x] Separation of Concerns
-  **Correct!** The route handler now deals with HTTP, and the data access class deals with SQL.
-
-  Each class has one concern, so you can change the database without touching the web code, and you can test each piece on its own. This is the same layering the chess server uses.
-
-- [ ] DRY (Don't Repeat Yourself)
-  Good effort. DRY is often a reason to move code.
-
-  This move is about separating *kinds* of work, though, not removing duplication. The SQL might appear only once.
-
-  Reread the lesson's discussion of separation of concerns.
-
-- [ ] YAGNI (You Ain't Gonna Need It)
-  You're thinking about which features are necessary, which is a good habit.
-
-  YAGNI warns against building things before you need them, though. Moving existing SQL into its own class is about organization, not about avoiding extra features.
-
-  Revisit the lesson's discussion of separation of concerns.
-
-- [ ] Interface Segregation
-  Good effort. Interface Segregation is a SOLID principle.
-
-  It's about keeping interfaces small and focused for their clients, though. This scenario moves SQL out of a route handler, which is a broader separation of responsibilities.
-
-  Reread the lesson's discussion of separation of concerns.
-```
 
 ## Videos
 

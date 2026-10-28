@@ -12,7 +12,6 @@
 - Web basics: URLs and the HTTP protocol (headers, methods, and body)
 - URL scheme syntax
 
-
 ![Tim Berners Lee](timBernersLee.jpg)
 
 > “You affect the world by what you browse”
@@ -44,6 +43,37 @@ The URL syntax follows this convention. Note the punctuation used to delimit the
 | Fragment      | summary                              | Also called a **hash** or **anchor**, this represents a sub-location within the resource. For HTML, the browser automatically scrolls to the element with a matching ID. Note: Anchors are handled by the browser and are not typically sent to the server.                   |
 
 Technically, you can also provide a username and password before the domain name (e.g., `https://user:pass@example.com`). This was used historically for authentication but is now deprecated for security reasons. However, you will still see this convention in database connection strings.
+
+```masteryls
+{"id":"f4e03e17-bc29-4e17-b48e-45c138c3abfb","title":"Identifying URL Components","type":"multiple-choice"}
+In a standard URL (Uniform Resource Locator), which segment is used to pass data to the server as a series of key-value pairs, typically following the resource path and starting with a question mark (`?`)?
+
+- [ ] The fragment
+  Good effort. The fragment is another part of a URL that comes after the path.
+
+  The fragment starts with `#`, though, and it identifies a location *within* a page. Browsers don't even send it to the server.
+
+  Reread the lesson's breakdown of URL parts.
+
+- [x] The query string
+  **Exactly!** The query string begins with `?` and holds `key=value` pairs separated by `&`, such as `?gameID=3&color=white`.
+
+  It's a common way to pass parameters to a server in an HTTP `GET` request.
+
+- [ ] The scheme
+  Good effort. The scheme is the first part of a URL.
+
+  The scheme identifies the protocol, such as `https`, and comes before `://`. It doesn't carry data.
+
+  Revisit the lesson's breakdown of URL parts and find the one that starts with `?`.
+
+- [ ] The hostname
+  Good effort. The hostname is an essential part of every URL.
+
+  It identifies *which server* to contact, such as `byu.edu`. It doesn't carry key-value data.
+
+  Reread the description of each URL part in the lesson.
+```
 
 ## HTTP
 
@@ -181,43 +211,10 @@ The body contains the actual data being transferred. Its format is defined by th
 
 ## ☑ Exercise
 
-
-```masteryls
-{"id":"f4e03e17-bc29-4e17-b48e-45c138c3abfb","title":"Identifying URL Components","type":"multiple-choice"}
-In a standard URL (Uniform Resource Locator), which segment is used to pass data to the server as a series of key-value pairs, typically following the resource path and starting with a question mark (`?`)?
-
-- [ ] The fragment
-  Good effort. The fragment is another part of a URL that comes after the path.
-
-  The fragment starts with `#`, though, and it identifies a location *within* a page. Browsers don't even send it to the server.
-
-  Reread the lesson's breakdown of URL parts.
-
-- [x] The query string
-  **Exactly!** The query string begins with `?` and holds `key=value` pairs separated by `&`, such as `?gameID=3&color=white`.
-
-  It's a common way to pass parameters to a server in an HTTP `GET` request.
-
-- [ ] The scheme
-  Good effort. The scheme is the first part of a URL.
-
-  The scheme identifies the protocol, such as `https`, and comes before `://`. It doesn't carry data.
-
-  Revisit the lesson's breakdown of URL parts and find the one that starts with `?`.
-
-- [ ] The hostname
-  Good effort. The hostname is an essential part of every URL.
-
-  It identifies *which server* to contact, such as `byu.edu`. It doesn't carry key-value data.
-
-  Reread the description of each URL part in the lesson.
-```
-
 ```masteryls
 {"id":"569eaf90-5ac2-46a1-a115-fe54bb1685ad", "title":"Essay", "type":"essay" }
 Describe the different parts of an HTTP request.
 ```
-
 
 ## Videos
 

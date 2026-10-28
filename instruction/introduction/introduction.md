@@ -96,6 +96,37 @@ public class DataProcessor {
 
 By separating concerns, the software engineer makes it possible to test the `processData` function independently of the file system, making the code more reliable and easier for a team to manage.
 
+```masteryls
+{"id":"ce3d8811-e669-4b43-a13c-b037d81e0d0f","title":"Defining Software Engineering","type":"multiple-choice"}
+What is the primary factor that distinguishes software engineering from simple programming?
+
+- [ ] Software engineering is only concerned with writing code in complex languages like Java
+  Good effort. Software engineering does involve writing code.
+
+  The choice of language isn't what defines it, though. You can do careful engineering, or careless programming, in any language.
+
+  Reread the lesson's definition of software engineering.
+
+- [ ] Programming is done by teams, while software engineering is always done individually
+  You're thinking about how teams fit in, which is important.
+
+  This option reverses reality, though. Software engineering usually involves teams, and it focuses on making that collaboration work.
+
+  Revisit how the lesson describes the work of a software engineer.
+
+- [ ] Software engineering is the process of fixing bugs after a programmer has finished the code
+  Good effort. Fixing bugs is part of the job.
+
+  Software engineering covers the *whole* lifecycle, though: requirements, design, testing, deployment, and maintenance, not just cleanup after coding.
+
+  Reread the lesson's definition of software engineering.
+
+- [x] Software engineering applies a systematic, disciplined approach to the entire software lifecycle
+  **Exactly!** Programming is writing code. Software engineering is the disciplined process around it.
+
+  That process includes understanding requirements, designing, testing, and maintaining software over time. This course is built around that broader view, which is why design and testing matter as much as getting the code to run.
+```
+
 ## Chess Project
 
 To teach the principles of software engineering, we need an application with enough complexity to warrant a structured architectural approach, yet simple enough that you do not get lost in the details.
@@ -136,6 +167,21 @@ While all course instruction is hosted on GitHub, we use Canvas for notification
 > [!IMPORTANT]
 > Ensure you have enabled Canvas to send notifications to an email account that you monitor regularly. Missing important notifications could negatively impact your progress and grade.
 
+```masteryls
+{"id":"2fdc2fdb-e3de-49c9-ba25-f66b0da68d1a", "title":"Canvas notifications", "type":"multiple-choice" }
+We often send out critical notifications for the course using Canvas announcements. Log into Canvas and verify that you have the correct email address and notification settings associated with your account.
+
+- [x] My email address is associated with Canvas, and I frequently check for notifications.
+  **Great!** Canvas announcements are how you'll hear about deadline changes and other important course updates.
+
+  Now that your email and notification settings are correct, make checking announcements part of your weekly routine so nothing catches you by surprise.
+
+- [ ] I want to stay in the dark and miss important notifications.
+  We appreciate the humor, but missing announcements can really cost you in this course.
+
+  Take two minutes now: log into Canvas, confirm your email address, and turn on notifications for announcements. You'll be glad you did the first time a deadline or assignment detail changes.
+```
+
 ## Well-Rounded Software Engineers
 
 Becoming an exceptional software engineer requires continual improvement in four key areas.
@@ -164,6 +210,11 @@ As you tap into these principles, you will find greater motivation and enjoyment
 >
 > — President Russell M. Nelson, ([source](https://www.churchofjesuschrist.org/study/general-conference/2023/10/51nelson))
 
+```masteryls
+{"id":"e90d5eb9-6d56-454d-a036-0bb576b1322c", "title":"Disciplinary Excellence", "type":"essay", "gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit." }
+How does taking ownership of the long-term impact of your software prepare you to become a leader who blesses others through your profession?
+```
+
 ## Making Mistakes
 
 Making mistakes is a vital component of learning. Embracing the power of mistakes will help you learn faster and more deeply. Many of history's most important discoveries resulted from understanding errors. No one learns to walk without falling. However, you should establish a framework to make mistakes safely—using version control repositories, notebooks, simulations, peer reviews, and automation to minimize their impact on your progress.
@@ -187,59 +238,6 @@ Your mastery of advanced software construction is evaluated based on the followi
 More important than your grade is the degree to which you stretch yourself. Software construction takes decades to master. If you approach this subject intentionally, with effort and curiosity, your value as a software engineer will increase greatly.
 
 Take time during the course to dive deep into topics you find interesting. Learn from external sources to gain a wide perspective. Question what is being taught and seek better ways to construct software. With this attitude, **you** might lead the next revolution in software construction.
-
-## ☑ Exercise
-
-```masteryls
-{"id":"ce3d8811-e669-4b43-a13c-b037d81e0d0f","title":"Defining Software Engineering","type":"multiple-choice"}
-What is the primary factor that distinguishes software engineering from simple programming?
-
-- [ ] Software engineering is only concerned with writing code in complex languages like Java
-  Good effort. Software engineering does involve writing code.
-
-  The choice of language isn't what defines it, though. You can do careful engineering, or careless programming, in any language.
-
-  Reread the lesson's definition of software engineering.
-
-- [ ] Programming is done by teams, while software engineering is always done individually
-  You're thinking about how teams fit in, which is important.
-
-  This option reverses reality, though. Software engineering usually involves teams, and it focuses on making that collaboration work.
-
-  Revisit how the lesson describes the work of a software engineer.
-
-- [ ] Software engineering is the process of fixing bugs after a programmer has finished the code
-  Good effort. Fixing bugs is part of the job.
-
-  Software engineering covers the *whole* lifecycle, though: requirements, design, testing, deployment, and maintenance, not just cleanup after coding.
-
-  Reread the lesson's definition of software engineering.
-
-- [x] Software engineering applies a systematic, disciplined approach to the entire software lifecycle
-  **Exactly!** Programming is writing code. Software engineering is the disciplined process around it.
-
-  That process includes understanding requirements, designing, testing, and maintaining software over time. This course is built around that broader view, which is why design and testing matter as much as getting the code to run.
-```
-
-```masteryls
-{"id":"e90d5eb9-6d56-454d-a036-0bb576b1322c", "title":"Disciplinary Excellence", "type":"essay", "gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit." }
-How does taking ownership of the long-term impact of your software prepare you to become a leader who blesses others through your profession?
-```
-
-```masteryls
-{"id":"2fdc2fdb-e3de-49c9-ba25-f66b0da68d1a", "title":"Canvas notifications", "type":"multiple-choice" }
-We often send out critical notifications for the course using Canvas announcements. Log into Canvas and verify that you have the correct email address and notification settings associated with your account.
-
-- [x] My email address is associated with Canvas, and I frequently check for notifications.
-  **Great!** Canvas announcements are how you'll hear about deadline changes and other important course updates.
-
-  Now that your email and notification settings are correct, make checking announcements part of your weekly routine so nothing catches you by surprise.
-
-- [ ] I want to stay in the dark and miss important notifications.
-  We appreciate the humor, but missing announcements can really cost you in this course.
-
-  Take two minutes now: log into Canvas, confirm your email address, and turn on notifications for announcements. You'll be glad you did the first time a deadline or assignment detail changes.
-```
 
 ## Videos
 

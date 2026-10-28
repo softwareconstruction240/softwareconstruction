@@ -132,7 +132,6 @@ Whenever you program you should try and abstract things into the following parts
 
 Note that sometimes it is not necessary to create an interface when a single class representation can simply expose public methods and abstract away the details. Interfaces are useful when there are multiple different algorithms that can be used to satisfy the interface, or when there are classes that implement multiple interfaces.
 
-
 ### Benefits of abstraction
 
 Some of the benefits of abstraction include:
@@ -143,7 +142,6 @@ Some of the benefits of abstraction include:
 1. **Security** - Anything that is hidden by an object is less likely to be subject to attack through the object's interface.
 
 One common mistake with abstraction is to think that it only applies to the public methods that you include in a class. You can also provide data hiding by implementing interfaces that restrict the view of what an object can do to a small set of methods. For example, you might have a class that represents a person. In order to provide abstraction of the class, the person might represent an `Object`, `LivingEntity` and `Animal` interface. By exposing different aspects of the person, the consumer of the object only needs to know about the aspect that is of interest to them. This provides all of the benefits of comprehension, extensibility, evolution, and security.
-
 
 The important thing to remember about abstraction is that it **exposes** objects only in the way that it needs to be used in a given context. This makes the current system easier to understand and allows for enhancement in the future.
 
@@ -173,7 +171,6 @@ However, the driver does need to be able to accelerate the car by pressing on th
 
 You could even consider a higher level of encapsulation that only address how the car is used and not the details of how to drive it.
 
-
 ```mermaid
 %%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
 classDiagram
@@ -188,6 +185,37 @@ classDiagram
 ```
 
 The important thing to remember about encapsulation is that it **hides** all implementation details of domain and system objects until those details are required. Think of everything on a purely "need to know" basis. This makes the current system easier to understand and allows for enhancement in the future.
+
+```masteryls
+{"id":"32035b75-8e43-4ac3-9c02-d63e7517b65c","title":"Distinguishing Abstraction from Encapsulation","type":"multiple-choice"}
+In object-oriented design, while abstraction and encapsulation are closely related, they serve distinct purposes. Which statement best describes the primary difference between these two principles?
+
+- [ ] Abstraction is a mechanism for hiding the internal state of an object using access modifiers, while encapsulation is the process of defining a contract through interfaces.
+  Good effort. You're right that one involves access modifiers and the other involves interfaces.
+
+  The two are swapped here, though.
+
+  Reread how the lesson defines each principle, and notice which one uses `private` fields and which one describes the contract the outside world sees.
+
+- [ ] Abstraction focuses on the "how" an object performs its internal logic, while encapsulation focuses on the "what" the object provides to the rest of the system.
+  You've identified the "what" versus "how" distinction, which is the key idea.
+
+  The labels are attached to the wrong principles, though.
+
+  Revisit the lesson's definitions. Ask which principle presents a simplified view to the outside world and which one protects internal details.
+
+- [x] Abstraction focuses on hiding complexity by providing a simplified interface (the "what"), while encapsulation focuses on hiding implementation details and protecting data from outside interference (the "how").
+  **Exactly right!** Abstraction decides *what* to show: a simple interface that hides complexity.
+
+  Encapsulation decides *how* to protect what's hidden, keeping internal data private and controlling access to it. They work together. A `ChessBoard` offers simple methods (abstraction) while keeping its array of squares private (encapsulation).
+
+- [ ] Abstraction is used to achieve code reuse through inheritance, whereas encapsulation is used to achieve polymorphism through method overriding.
+  Good effort. Reuse and polymorphism are important object-oriented ideas.
+
+  They're associated with inheritance and interfaces, though, not with these two principles.
+
+  Reread the lesson's definitions of abstraction and encapsulation, and focus on what each one hides.
+```
 
 ## Inheritance
 
@@ -269,6 +297,37 @@ Programming languages themselves utilize decomposition to represent different pa
 | Expression    | Logic of a method                                                |
 
 Using decomposition at the program level helps you so that you don't have to keep the whole code base on your screen at the same time. You just need to open the files that represent the current task.
+```masteryls
+{"id":"08e88ca6-e6d9-467f-ae53-5502a601329d","title":"The Role of Decomposition","type":"multiple-choice"}
+In the context of software design principles, which statement best characterizes the primary objective of **decomposition**?
+
+- [ ] The process of hiding the internal implementation details of a module to prevent external dependencies from accessing private data.
+  Good effort. Hiding implementation details is an important design principle.
+
+  That describes **encapsulation**, though, not decomposition.
+
+  Reread how the lesson defines decomposition. Think about what you do to a large problem before you can solve it.
+
+- [x] Breaking a complex system into smaller, more manageable parts that can be developed, tested, and maintained independently.
+  **Correct!** Decomposition breaks a big problem into smaller pieces that you can understand, build, and test on their own.
+
+  The chess project is a good example. Instead of one huge program, you build pieces, a board, a game, a server, and a client, each with a clear job.
+
+- [ ] Merging several small, related functions into a single "God object" to reduce the total number of files and classes within a project.
+  You're thinking about how code is organized, which is the right topic.
+
+  Merging everything into a God Object is the *opposite* of decomposition, though, and it leads to low cohesion.
+
+  Revisit the lesson's discussion of decomposition and the God Object.
+
+- [ ] The systematic rewriting of existing code to improve its internal structure and performance without changing its external behavior.
+  Good effort. That's a solid definition, of a different concept.
+
+  Rewriting code to improve its structure without changing behavior is **refactoring**. Decomposition is about how you divide a system into parts in the first place.
+
+  Reread the decomposition section.
+```
+
 ## High Cohesion and Low Coupling
 
 Effective software design seeks to maximize **cohesion** within a component and minimize **coupling** between components.
@@ -288,6 +347,37 @@ Low coupling means that objects do not strongly rely on each other. High couplin
 
 *   **Example of Low Coupling:** A `PaymentService` that interacts with a `PaymentProcessor` interface. It doesn't care if the actual implementation uses Stripe, PayPal, or a mock object for testing.
 *   **Example of High Coupling:** A `PaymentService` that directly instantiates a `StripeAPI` class and accesses its internal configuration fields. If you ever want to switch to a different provider, you have to rewrite the `PaymentService` code.
+
+```masteryls
+{"id":"24db3b5d-61c5-4488-a9f8-9116634d7b5a","title":"Coupling vs. Cohesion","type":"multiple-choice"}
+In software architecture, the design goal is typically to achieve **high cohesion** and **low coupling**. Which of the following scenarios best describes a system that successfully applies these principles?
+
+- [ ] A system where a single "God Object" manages all application logic to ensure that no external dependencies are required between different files.
+  Good effort. Fewer dependencies between files can sound appealing.
+
+  A God Object has *very low* cohesion, though, because it mixes every responsibility into one place. Everything that uses it becomes tightly coupled to it.
+
+  Reread the lesson's description of the God Object.
+
+- [ ] A system where modules are highly interdependent to ensure rapid data transfer, but each module contains logic for several unrelated business features.
+  You're right that modules need to communicate.
+
+  This option describes the opposite of the goal, though. Highly interdependent modules mean *high coupling*, and unrelated features in one module mean *low cohesion*.
+
+  Revisit the definitions of cohesion and coupling.
+
+- [x] A system where each module is responsible for a single, well-defined task and interacts with other modules through stable, minimal interfaces.
+  **Exactly right!** Each module does one thing well, which is high cohesion, and depends on others only through small, stable interfaces, which is low coupling.
+
+  You can change one module without breaking the others, test each one in isolation, and understand it on its own. This is the structure you're building in the chess server's layers.
+
+- [ ] A system where code is split into many small modules to reduce complexity, even if those modules must frequently access and modify each other's internal private state.
+  Good effort. Splitting code into small modules is often a good step.
+
+  Reaching into each other's private state, though, creates *tight* coupling. A change inside one module breaks the others, so the small modules don't really help.
+
+  Reread the lesson's discussion of coupling.
+```
 
 ## Simplicity
 
@@ -428,109 +518,12 @@ customer.getWallet().getCreditCard().charge(amount);
 2.  **Fragility:** If you update the `Customer` class to use a mobile `PaymentApp` instead of a physical `Wallet`, the `Store` code breaks, even though the store's primary concern (getting paid) hasn't changed.
 3.  **Better Design:** The store should simply call `customer.pay(amount)`. The `Customer` object then decides internally whether to use a wallet, a card, or a phone app, keeping those details hidden from the `Store`.
 
-
-
 ## ☑ Exercise
-
-
-```masteryls
-{"id":"24db3b5d-61c5-4488-a9f8-9116634d7b5a","title":"Coupling vs. Cohesion","type":"multiple-choice"}
-In software architecture, the design goal is typically to achieve **high cohesion** and **low coupling**. Which of the following scenarios best describes a system that successfully applies these principles?
-
-- [ ] A system where a single "God Object" manages all application logic to ensure that no external dependencies are required between different files.
-  Good effort. Fewer dependencies between files can sound appealing.
-
-  A God Object has *very low* cohesion, though, because it mixes every responsibility into one place. Everything that uses it becomes tightly coupled to it.
-
-  Reread the lesson's description of the God Object.
-
-- [ ] A system where modules are highly interdependent to ensure rapid data transfer, but each module contains logic for several unrelated business features.
-  You're right that modules need to communicate.
-
-  This option describes the opposite of the goal, though. Highly interdependent modules mean *high coupling*, and unrelated features in one module mean *low cohesion*.
-
-  Revisit the definitions of cohesion and coupling.
-
-- [x] A system where each module is responsible for a single, well-defined task and interacts with other modules through stable, minimal interfaces.
-  **Exactly right!** Each module does one thing well, which is high cohesion, and depends on others only through small, stable interfaces, which is low coupling.
-
-  You can change one module without breaking the others, test each one in isolation, and understand it on its own. This is the structure you're building in the chess server's layers.
-
-- [ ] A system where code is split into many small modules to reduce complexity, even if those modules must frequently access and modify each other's internal private state.
-  Good effort. Splitting code into small modules is often a good step.
-
-  Reaching into each other's private state, though, creates *tight* coupling. A change inside one module breaks the others, so the small modules don't really help.
-
-  Reread the lesson's discussion of coupling.
-```
-
-```masteryls
-{"id":"08e88ca6-e6d9-467f-ae53-5502a601329d","title":"The Role of Decomposition","type":"multiple-choice"}
-In the context of software design principles, which statement best characterizes the primary objective of **decomposition**?
-
-- [ ] The process of hiding the internal implementation details of a module to prevent external dependencies from accessing private data.
-  Good effort. Hiding implementation details is an important design principle.
-
-  That describes **encapsulation**, though, not decomposition.
-
-  Reread how the lesson defines decomposition. Think about what you do to a large problem before you can solve it.
-
-- [x] Breaking a complex system into smaller, more manageable parts that can be developed, tested, and maintained independently.
-  **Correct!** Decomposition breaks a big problem into smaller pieces that you can understand, build, and test on their own.
-
-  The chess project is a good example. Instead of one huge program, you build pieces, a board, a game, a server, and a client, each with a clear job.
-
-- [ ] Merging several small, related functions into a single "God object" to reduce the total number of files and classes within a project.
-  You're thinking about how code is organized, which is the right topic.
-
-  Merging everything into a God Object is the *opposite* of decomposition, though, and it leads to low cohesion.
-
-  Revisit the lesson's discussion of decomposition and the God Object.
-
-- [ ] The systematic rewriting of existing code to improve its internal structure and performance without changing its external behavior.
-  Good effort. That's a solid definition, of a different concept.
-
-  Rewriting code to improve its structure without changing behavior is **refactoring**. Decomposition is about how you divide a system into parts in the first place.
-
-  Reread the decomposition section.
-```
-
-```masteryls
-{"id":"32035b75-8e43-4ac3-9c02-d63e7517b65c","title":"Distinguishing Abstraction from Encapsulation","type":"multiple-choice"}
-In object-oriented design, while abstraction and encapsulation are closely related, they serve distinct purposes. Which statement best describes the primary difference between these two principles?
-
-- [ ] Abstraction is a mechanism for hiding the internal state of an object using access modifiers, while encapsulation is the process of defining a contract through interfaces.
-  Good effort. You're right that one involves access modifiers and the other involves interfaces.
-
-  The two are swapped here, though.
-
-  Reread how the lesson defines each principle, and notice which one uses `private` fields and which one describes the contract the outside world sees.
-
-- [ ] Abstraction focuses on the "how" an object performs its internal logic, while encapsulation focuses on the "what" the object provides to the rest of the system.
-  You've identified the "what" versus "how" distinction, which is the key idea.
-
-  The labels are attached to the wrong principles, though.
-
-  Revisit the lesson's definitions. Ask which principle presents a simplified view to the outside world and which one protects internal details.
-
-- [x] Abstraction focuses on hiding complexity by providing a simplified interface (the "what"), while encapsulation focuses on hiding implementation details and protecting data from outside interference (the "how").
-  **Exactly right!** Abstraction decides *what* to show: a simple interface that hides complexity.
-
-  Encapsulation decides *how* to protect what's hidden, keeping internal data private and controlling access to it. They work together. A `ChessBoard` offers simple methods (abstraction) while keeping its array of squares private (encapsulation).
-
-- [ ] Abstraction is used to achieve code reuse through inheritance, whereas encapsulation is used to achieve polymorphism through method overriding.
-  Good effort. Reuse and polymorphism are important object-oriented ideas.
-
-  They're associated with inheritance and interfaces, though, not with these two principles.
-
-  Reread the lesson's definitions of abstraction and encapsulation, and focus on what each one hides.
-```
 
 ```masteryls
 {"id":"7943abe7-dde5-42f1-b3b3-1b47d62dd12e","title":"Building to Last","type":"essay"}
 How does applying sound design principles to create maintainable software demonstrate respect and care for future developers, and how does this reflect Christlike service?
 ```
-
 
 ## Videos
 

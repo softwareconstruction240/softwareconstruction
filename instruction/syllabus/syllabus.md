@@ -4,7 +4,6 @@
 
 Advanced software development with an object-oriented focus. Design, implementation, and testing of medium-sized programs including a server program.
 
-
 ## Learning Environment
 
 We use [MasteryLS](https://masteryls.com) as the primary learning system for this course. MasteryLS provides efficient content navigation, search, and consistent structure. MasteryLS also enables extensive AI support for personalized learning and automated feedback. 
@@ -163,23 +162,6 @@ In order to demonstrate original authorship, you must:
 
 **Rule of thumb**: If your prompt includes text copied from the assignment, it is not allowed.
 
-
-
-```masteryls
-{"id":"bae08349-d561-4c4b-9a84-208fab172b36", "title":"Acknowledgement", "type":"multiple-choice" }
-
-
-- [x] I have read this syllabus
-  **Thanks for reading!** The syllabus explains how the course is graded, how the chess project works, and how course policies affect you.
-
-  Bookmark it. When a question comes up about deadlines, grading, or expectations, the answer is often already here.
-
-- [ ] I am ignoring the syllabus and hoping things work out
-  We appreciate your honesty, and the syllabus does have a lot to take in.
-
-  Take a few minutes to go through it now, though. Knowing how assignments are weighted and how the late policy works can save you from losing points later. Start with the grading and policy sections, and then skim the rest.
-```
-
 ##   Grade Scheme
 
 The following grading standards will be used in this class:
@@ -318,3 +300,16 @@ The materials used in connection with this online course are only for the use of
 "Members of the BYU community who willfully disregard this Copyright Policy or the BYU Copyright Guidelines place themselves individually at risk of legal action and may incur personal liability for their conduct. The unauthorized use or distribution of copyrighted material, including unauthorized peer-to-peer file sharing, may subject individuals to civil and criminal liabilities, including actual and statutory damages, costs and fees of litigation, fines, and imprisonment. . . .
 
 Violations of the Copyright Policy may result in university disciplinary action including termination of university enrollment or employment" (Excerpt taken from the [BYU Copyright Policy](https://policy.byu.edu/view/index.php?p=36)).
+```masteryls
+{"id":"bae08349-d561-4c4b-9a84-208fab172b36", "title":"Acknowledgement", "type":"multiple-choice" }
+
+- [x] I have read this syllabus
+  **Thanks for reading!** The syllabus explains how the course is graded, how the chess project works, and how course policies affect you.
+
+  Bookmark it. When a question comes up about deadlines, grading, or expectations, the answer is often already here.
+
+- [ ] I am ignoring the syllabus and hoping things work out
+  We appreciate your honesty, and the syllabus does have a lot to take in.
+
+  Take a few minutes to go through it now, though. Knowing how assignments are weighted and how the late policy works can save you from losing points later. Start with the grading and policy sections, and then skim the rest.
+```

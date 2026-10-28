@@ -45,6 +45,11 @@ String stringItem = (String) list.get(0);
 
 Not only does this approach require the overhead of type casting, but it is also dangerous. Because the list can contain any type of object, the compiler cannot verify that your casts are correct. If you cast an object to the wrong type, your program will crash with a runtime exception. Generics move these errors from **runtime** to **compile-time**, making your code significantly safer.
 
+```masteryls
+{"id":"456c8942-f1aa-46a0-b24e-3337ad969702", "title":"Generics", "type":"teaching" }
+Generics seem complicated with strange syntax. I don't understand why I really need them.
+```
+
 ## Writing Your Own Generic Classes
 
 You can define your own generic classes by using placeholders for types. The following example creates a generic `Storage` object that can be initialized to hold any specific type.
@@ -101,22 +106,6 @@ public class Box<T> {
 
 A **bounded wildcard** such as `List<? extends Number>` accepts a list of `Number` or any of its subtypes, such as `List<Integer>` or `List<Double>`. You can safely read elements from it as `Number`, because every element is some kind of number. However, the compiler won't let you add elements to it (other than `null`), because it can't know which specific subtype the list actually holds.
 
-### Key Design Benefits
-
-The integration of generics into software design provides several architectural advantages:
-
-1.  **Elimination of Explicit Casts:** The compiler inserts implicit casts, reducing boilerplate and making the code more readable.
-2.  **Stronger Type Checks at Compile Time:** Errors are caught during development rather than in production.
-3.  **Enabling Generic Algorithms:** Developers can write methods that work on different types of collections while still being type-safe (e.g., `Collections.sort()`).
-4.  **Self-Documenting Code:** By looking at a signature like `Map<String, User>`, a developer immediately understands the expected input and output without digging into the implementation.
-
-## ☑ Exercise
-
-```masteryls
-{"id":"456c8942-f1aa-46a0-b24e-3337ad969702", "title":"Generics", "type":"teaching" }
-Generics seem complicated with strange syntax. I don't understand why I really need them.
-```
-
 ````masteryls
 {"id":"f470d4bb-9996-49d1-8e91-6bb2a7337fa6","title":"Java Generics Bounded Wildcards","type":"multiple-choice"}
 Consider the following Java method which uses a bounded wildcard. Which of the following operations inside the method will cause a **compile-time error**?
@@ -156,6 +145,17 @@ public void processElements(List<? extends Number> elements) {
 
   Reread the *Bounded Wildcards* section.
 ````
+
+### Key Design Benefits
+
+The integration of generics into software design provides several architectural advantages:
+
+1.  **Elimination of Explicit Casts:** The compiler inserts implicit casts, reducing boilerplate and making the code more readable.
+2.  **Stronger Type Checks at Compile Time:** Errors are caught during development rather than in production.
+3.  **Enabling Generic Algorithms:** Developers can write methods that work on different types of collections while still being type-safe (e.g., `Collections.sort()`).
+4.  **Self-Documenting Code:** By looking at a signature like `Map<String, User>`, a developer immediately understands the expected input and output without digging into the implementation.
+
+## ☑ Exercise
 
 ```masteryls
 {"id":"28bf0130-6f80-4b48-b224-2d137bdf1339","title":"Intellectual Enlargement","type":"essay"}

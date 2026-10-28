@@ -45,6 +45,37 @@ public class BankAccount {
 }
 ```
 
+```masteryls
+{"id":"c1e93ca5-9be0-47dc-a826-3c73adb5be39","title":"The Principle of Encapsulation","type":"multiple-choice"}
+In object-oriented programming, which of the following best describes how **encapsulation** is implemented within a class?
+
+- [ ] By defining a base class that provides a common interface for multiple derived subclasses to implement.
+  Good effort. Base classes with common interfaces are an important object-oriented tool.
+
+  That describes inheritance and polymorphism, though, not encapsulation.
+
+  Reread the lesson's definition of encapsulation.
+
+- [x] By making data members private and providing controlled access through public getter and setter methods.
+  **Correct!** Encapsulation keeps an object's data private and exposes only the operations that make sense.
+
+  Because outside code must go through those methods, the class can validate changes and keep its data consistent. It can also change its internal representation later without breaking anyone who uses it.
+
+- [ ] By allowing a single method name to perform different tasks based on the number or type of arguments passed to it.
+  You're describing a real Java feature: one method name that does different things depending on its arguments.
+
+  That's **method overloading**, though, not encapsulation.
+
+  Revisit the lesson's explanation of encapsulation and access modifiers.
+
+- [ ] By breaking a complex system down into smaller, independent functions that do not share any state.
+  Good effort. Breaking a system into smaller pieces is a valuable practice.
+
+  That's **decomposition**, though. Encapsulation is about protecting the data *inside* an object.
+
+  Reread the lesson's definition of encapsulation.
+```
+
 ### Abstraction
 
 Abstraction is the process of hiding the complex internal details of an application and showing only the necessary features to the user (or other parts of the program). It reduces complexity by allowing the programmer to focus on _what_ an object does rather than _how_ it does it.
@@ -52,6 +83,35 @@ Abstraction is the process of hiding the complex internal details of an applicat
 Think of a microwave. To use it, you only need to know how to press the buttons on the interface. You do not need to understand how the magnetron generates microwaves or how the internal cooling system functions. In programming, abstraction is achieved through the use of abstract classes and interfaces.
 
 > **Thoughtful Engagement:** Consider the software you use daily. How many "interfaces" do you interact with where you have no idea how the underlying code is written? This is the power of abstraction: it allows us to build upon complex tools without being overwhelmed by their internal mechanics.
+
+```masteryls
+{"id":"d67c59c4-3df9-4a4a-9d77-a4adaf3e104c","title":"Encapsulation vs. Abstraction","type":"multiple-choice"}
+In Object-Oriented Programming, both encapsulation and abstraction are used to hide information, but they serve different purposes. Which of the following best describes the difference between the two?
+
+- [ ] Abstraction is the process of restricting access to specific data members using access modifiers, while encapsulation is the process of hiding the background details of a function.
+  Good effort. You've linked one of these principles to access modifiers and the other to hiding details, which are the right ideas.
+
+  They're attached to the wrong principles, though.
+
+  Reread the lesson's definitions of encapsulation and abstraction.
+
+- [x] Encapsulation focuses on bundling data and methods while hiding the internal state of an object, whereas abstraction focuses on hiding implementation complexity to show only the essential interface.
+  **Exactly right!** Encapsulation bundles data with the methods that use it and hides the internal state.
+
+  Abstraction exposes only what users of a class need, hiding *how* the work gets done. They often work together, but they answer different questions. One asks what's protected, and the other asks what's shown.
+
+- [ ] Encapsulation is used to share behaviors between a parent and child class, while abstraction is used to ensure that a method can perform different tasks based on the input.
+  You're describing real object-oriented ideas: sharing behavior and varying it by input.
+
+  Those are **inheritance** and **polymorphism or overloading**, though, not encapsulation and abstraction.
+
+  Revisit the lesson's definitions of each principle.
+
+- [ ] Abstraction is an implementation-level technique used to protect data from outside interference, while encapsulation is a design-level technique used to simplify the system for the user.
+  Good effort. You've identified that one principle is about protecting data and the other about simplifying the system.
+
+  The labels are reversed, though. Reread the lesson and ask which principle uses access modifiers to protect data.
+```
 
 ### Inheritance
 
@@ -113,24 +173,6 @@ classDiagram
 **Practical Example:**
 If we have a method `makeSound()` in a superclass `Animal`, and subclasses `Dog` and `Cat` override that method, calling `animal.makeSound()` on a list of animals will result in "Woof" for the dog and "Meow" for the cat. The code calling the method doesn't need to know the specific subclass at compile time to execute the correct behavior.
 
-### Common Challenges and Solutions
-
-Transitioning to an object-oriented mindset can present several hurdles:
-
-- **The "God Object" Problem:** Beginners often create a single class that tries to handle too many responsibilities.
-
-  _Solution:_ Follow the **Single Responsibility Principle**. Each class should have one, and only one, reason to change.
-
-- **Fragile Base Classes:** If an inheritance hierarchy is too deep, changing the parent class can inadvertently break dozens of child classes.
-
-  _Solution:_ Favor **composition over inheritance** when possible. Instead of saying a class _is_ something (inheritance), ask if it _has_ something (composition).
-
-- **Over-Engineering:** It is easy to get carried away with abstraction, creating interfaces for logic that will only ever have one implementation.
-
-  _Solution:_ Keep it simple. Don't add abstraction until you actually need to support multiple variations of a behavior or need to decouple components for testing.
-
-## ☑ Exercise
-
 ```masteryls
 {"id":"6d998d67-76af-4c7e-af57-305de7dc1494","title":"Understanding Polymorphism","type":"multiple-choice"}
 In Object-Oriented Programming, which of the following best describes the concept of polymorphism?
@@ -162,65 +204,23 @@ In Object-Oriented Programming, which of the following best describes the concep
   For example, code that calls `pieceMoves` on a `ChessPiece` gets bishop moves for a bishop and knight moves for a knight, without a single `if` statement checking the type.
 ```
 
-```masteryls
-{"id":"c1e93ca5-9be0-47dc-a826-3c73adb5be39","title":"The Principle of Encapsulation","type":"multiple-choice"}
-In object-oriented programming, which of the following best describes how **encapsulation** is implemented within a class?
+### Common Challenges and Solutions
 
-- [ ] By defining a base class that provides a common interface for multiple derived subclasses to implement.
-  Good effort. Base classes with common interfaces are an important object-oriented tool.
+Transitioning to an object-oriented mindset can present several hurdles:
 
-  That describes inheritance and polymorphism, though, not encapsulation.
+- **The "God Object" Problem:** Beginners often create a single class that tries to handle too many responsibilities.
 
-  Reread the lesson's definition of encapsulation.
+  _Solution:_ Follow the **Single Responsibility Principle**. Each class should have one, and only one, reason to change.
 
-- [x] By making data members private and providing controlled access through public getter and setter methods.
-  **Correct!** Encapsulation keeps an object's data private and exposes only the operations that make sense.
+- **Fragile Base Classes:** If an inheritance hierarchy is too deep, changing the parent class can inadvertently break dozens of child classes.
 
-  Because outside code must go through those methods, the class can validate changes and keep its data consistent. It can also change its internal representation later without breaking anyone who uses it.
+  _Solution:_ Favor **composition over inheritance** when possible. Instead of saying a class _is_ something (inheritance), ask if it _has_ something (composition).
 
-- [ ] By allowing a single method name to perform different tasks based on the number or type of arguments passed to it.
-  You're describing a real Java feature: one method name that does different things depending on its arguments.
+- **Over-Engineering:** It is easy to get carried away with abstraction, creating interfaces for logic that will only ever have one implementation.
 
-  That's **method overloading**, though, not encapsulation.
+  _Solution:_ Keep it simple. Don't add abstraction until you actually need to support multiple variations of a behavior or need to decouple components for testing.
 
-  Revisit the lesson's explanation of encapsulation and access modifiers.
-
-- [ ] By breaking a complex system down into smaller, independent functions that do not share any state.
-  Good effort. Breaking a system into smaller pieces is a valuable practice.
-
-  That's **decomposition**, though. Encapsulation is about protecting the data *inside* an object.
-
-  Reread the lesson's definition of encapsulation.
-```
-
-```masteryls
-{"id":"d67c59c4-3df9-4a4a-9d77-a4adaf3e104c","title":"Encapsulation vs. Abstraction","type":"multiple-choice"}
-In Object-Oriented Programming, both encapsulation and abstraction are used to hide information, but they serve different purposes. Which of the following best describes the difference between the two?
-
-- [ ] Abstraction is the process of restricting access to specific data members using access modifiers, while encapsulation is the process of hiding the background details of a function.
-  Good effort. You've linked one of these principles to access modifiers and the other to hiding details, which are the right ideas.
-
-  They're attached to the wrong principles, though.
-
-  Reread the lesson's definitions of encapsulation and abstraction.
-
-- [x] Encapsulation focuses on bundling data and methods while hiding the internal state of an object, whereas abstraction focuses on hiding implementation complexity to show only the essential interface.
-  **Exactly right!** Encapsulation bundles data with the methods that use it and hides the internal state.
-
-  Abstraction exposes only what users of a class need, hiding *how* the work gets done. They often work together, but they answer different questions. One asks what's protected, and the other asks what's shown.
-
-- [ ] Encapsulation is used to share behaviors between a parent and child class, while abstraction is used to ensure that a method can perform different tasks based on the input.
-  You're describing real object-oriented ideas: sharing behavior and varying it by input.
-
-  Those are **inheritance** and **polymorphism or overloading**, though, not encapsulation and abstraction.
-
-  Revisit the lesson's definitions of each principle.
-
-- [ ] Abstraction is an implementation-level technique used to protect data from outside interference, while encapsulation is a design-level technique used to simplify the system for the user.
-  Good effort. You've identified that one principle is about protecting data and the other about simplifying the system.
-
-  The labels are reversed, though. Reread the lesson and ask which principle uses access modifiers to protect data.
-```
+## ☑ Exercise
 
 ```masteryls
 {"id":"5f154b4b-762f-4bbf-8e0e-271e3bf05bcb", "title":"The Second Great Commandment", "type":"essay", "gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit." }

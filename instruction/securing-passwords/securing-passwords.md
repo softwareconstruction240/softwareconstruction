@@ -22,6 +22,37 @@ When a user attempts to log in, BCrypt allows you to compare the new password at
 
 By hashing passwords, your application never stores sensitive credentials in a readable format. You can still verify a user's identity while significantly reducing the risk of a data breach.
 
+```masteryls
+{"id":"7ea13f64-a461-4c6e-89ae-86a2da0e6a52","title":"The Purpose of Password Hashing","type":"multiple-choice"}
+When a system stores user credentials, why is it considered a security best practice to hash the passwords instead of encrypting them or storing them in plaintext?
+
+- [x] To store a one-way cryptographic representation of the password so that the original plaintext is never exposed, even if the database is compromised.
+  **Exactly right!** A hash is a one-way function. You can verify a password by hashing what the user types and comparing the results, but you can't turn the hash back into the password.
+
+  If your database is stolen, attackers don't get the passwords. BCrypt also adds a salt and is intentionally slow, which makes guessing attacks expensive.
+
+- [ ] To scramble the password during transmission from the user's browser to the web server to prevent man-in-the-middle attacks.
+  Good effort. Protecting passwords in transit is important.
+
+  That's the job of HTTPS, though, not password hashing. Hashing protects passwords *stored* in your database.
+
+  Reread the lesson's explanation of why passwords are hashed before storage.
+
+- [ ] To compress the password into a smaller fixed-length string to reduce the storage space required by the database.
+  You're right that hashes have a fixed length.
+
+  Saving storage space isn't the reason to hash passwords, though. A BCrypt hash is often *longer* than the original password.
+
+  Revisit the lesson's discussion of one-way hashing.
+
+- [ ] To transform the password into a format that can be easily decrypted by a system administrator if the user forgets their login credentials.
+  Good effort. Helping users who forget passwords is a real need.
+
+  If an administrator can decrypt a password, though, so can an attacker who steals the key. That's why systems *reset* passwords instead of recovering them.
+
+  Reread the lesson's explanation of irreversible hashing.
+```
+
 ## Implementing BCrypt
 
 You can use BCrypt in your application by including the following library in your project dependencies:
@@ -68,39 +99,6 @@ Candidate: password        != Stored Secret
 Using this approach, you can now securely store and verify passwords within your application, ensuring that user credentials remain protected even if your database is compromised.
 
 ## ☑ Exercise
-
-
-
-```masteryls
-{"id":"7ea13f64-a461-4c6e-89ae-86a2da0e6a52","title":"The Purpose of Password Hashing","type":"multiple-choice"}
-When a system stores user credentials, why is it considered a security best practice to hash the passwords instead of encrypting them or storing them in plaintext?
-
-- [x] To store a one-way cryptographic representation of the password so that the original plaintext is never exposed, even if the database is compromised.
-  **Exactly right!** A hash is a one-way function. You can verify a password by hashing what the user types and comparing the results, but you can't turn the hash back into the password.
-
-  If your database is stolen, attackers don't get the passwords. BCrypt also adds a salt and is intentionally slow, which makes guessing attacks expensive.
-
-- [ ] To scramble the password during transmission from the user's browser to the web server to prevent man-in-the-middle attacks.
-  Good effort. Protecting passwords in transit is important.
-
-  That's the job of HTTPS, though, not password hashing. Hashing protects passwords *stored* in your database.
-
-  Reread the lesson's explanation of why passwords are hashed before storage.
-
-- [ ] To compress the password into a smaller fixed-length string to reduce the storage space required by the database.
-  You're right that hashes have a fixed length.
-
-  Saving storage space isn't the reason to hash passwords, though. A BCrypt hash is often *longer* than the original password.
-
-  Revisit the lesson's discussion of one-way hashing.
-
-- [ ] To transform the password into a format that can be easily decrypted by a system administrator if the user forgets their login credentials.
-  Good effort. Helping users who forget passwords is a real need.
-
-  If an administrator can decrypt a password, though, so can an attacker who steals the key. That's why systems *reset* passwords instead of recovering them.
-
-  Reread the lesson's explanation of irreversible hashing.
-```
 
 ```masteryls
 {"id":"92b925c6-95ec-4402-939b-ce07d0623105","title":"Guarding the Trust of Others","type":"essay"}

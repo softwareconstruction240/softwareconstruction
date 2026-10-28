@@ -8,7 +8,6 @@ In this phase, we examine how specific architectural patterns—primarily the Fa
 
 The recommended design for the chess client relies on a clear hierarchy of responsibility. At the top level, the `ChessClient` serves as the orchestrator, managing the user's input and updating the display. However, the `ChessClient` does not handle the "how" of network communication. Instead, it delegates those concerns to a `ServerFacade`.
 
-
 ```mermaid
 %%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
 
@@ -38,8 +37,6 @@ classDiagram
     Internet <..> Server
 ```
 
-
-
 This structure utilizes the **Facade Pattern**. The `ServerFacade` provides a simplified interface to the rest of the application. Whether a command requires a standard HTTP POST request (like logging in) or a WebSocket message (like making a move), the `ChessClient` simply calls a method on the Facade. This hides the underlying complexity of JSON serialization, header management, and protocol selection.
 
 ## The Observer Pattern and Asynchrony
@@ -53,6 +50,11 @@ The **Observer Pattern** is the standard solution for this "push" model. By havi
 3.  **The Reaction:** The `ChessClient` receives the notification and decides how to update the UI (e.g., re-drawing the board or printing a notification).
 
 This decoupling ensures that the networking code doesn't need to know anything about the UI implementation. It simply knows that it has an object capable of receiving messages.
+
+```masteryls
+{"id":"b0243709-feec-4de7-9dee-c55785397d85", "title":"Observer", "type":"essay" }
+What are the advantages of using the Observer pattern in this architecture? What alternative patterns could you employ?
+```
 
 ## Architectural Observations
 
@@ -132,13 +134,6 @@ The architecture of the Chess Project gameplay deliverable is a practical applic
 For further reading on these patterns, the [Refactoring Guru](https://refactoring.guru/design-patterns) guide provides excellent visual and code-based examples of the Facade and Observer patterns in various programming languages.
 
 ## ☑ Exercise
-
-
-```masteryls
-{"id":"b0243709-feec-4de7-9dee-c55785397d85", "title":"Observer", "type":"essay" }
-What are the advantages of using the Observer pattern in this architecture? What alternative patterns could you employ?
-```
-
 
 ```masteryls
 {"id":"33b01d41-39c5-45dc-9ae6-b61fd516d6e6","title":"Coupling","type":"essay"}

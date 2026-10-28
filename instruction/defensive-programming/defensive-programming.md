@@ -60,6 +60,37 @@ public class DefensiveExample {
 }
 ```
 
+```masteryls
+{"id":"75dda285-9329-46b2-8c9e-3cba4efedb23","title":"Perimeter Input Validation","type":"multiple-choice"}
+When implementing defensive programming at a system's perimeter, which approach best describes how incoming data should be handled before it reaches the internal business logic?
+
+- [ ] Assume data originating from internal microservices is safe and only apply strict validation to public-facing user inputs.
+  Good effort. Public inputs do deserve strict validation.
+
+  Trusting internal services is risky, though. They can have bugs, be misconfigured, or be compromised. Defensive programming treats every boundary as a perimeter.
+
+  Reread the lesson's discussion of where to validate inputs.
+
+- [ ] Use a "deny-list" approach to filter out known malicious characters or patterns while allowing all other data to pass through.
+  You're right that filtering malicious input is part of defense.
+
+  Deny-lists only block what you've thought of, though. Attackers keep finding new patterns that slip through.
+
+  Revisit how the lesson compares deny-lists and allow-lists.
+
+- [ ] Rely on global exception handlers to catch errors that occur when the internal logic attempts to process malformed data.
+  Good effort. Global exception handlers are a useful safety net.
+
+  By the time malformed data causes an exception deep in your logic, though, it may already have done damage, such as corrupting state or reaching the database.
+
+  Reread the lesson's guidance on validating data at the perimeter.
+
+- [x] Enforce a strict "allow-list" policy, verifying that all data conforms exactly to expected types, ranges, and formats.
+  **Exactly right!** An allow-list defines what *valid* data looks like and rejects everything else.
+
+  Because you check type, range, and format up front, the rest of your code can trust its inputs. That's why your chess server should validate request bodies, such as checking for a missing username or an invalid game ID, before passing them to the service layer.
+```
+
 ## Protecting Internal Assumptions
 
 While exceptions are used for public-facing validation, you can protect internal objects and methods from unexpected states by using the Java `assert` keyword. Assertions verify assumptions you make about your own code's logic.
@@ -190,37 +221,6 @@ public void processWithdrawal(Account account, double amount) {
 ## ☑ Exercise
 
 ```masteryls
-{"id":"75dda285-9329-46b2-8c9e-3cba4efedb23","title":"Perimeter Input Validation","type":"multiple-choice"}
-When implementing defensive programming at a system's perimeter, which approach best describes how incoming data should be handled before it reaches the internal business logic?
-
-- [ ] Assume data originating from internal microservices is safe and only apply strict validation to public-facing user inputs.
-  Good effort. Public inputs do deserve strict validation.
-
-  Trusting internal services is risky, though. They can have bugs, be misconfigured, or be compromised. Defensive programming treats every boundary as a perimeter.
-
-  Reread the lesson's discussion of where to validate inputs.
-
-- [ ] Use a "deny-list" approach to filter out known malicious characters or patterns while allowing all other data to pass through.
-  You're right that filtering malicious input is part of defense.
-
-  Deny-lists only block what you've thought of, though. Attackers keep finding new patterns that slip through.
-
-  Revisit how the lesson compares deny-lists and allow-lists.
-
-- [ ] Rely on global exception handlers to catch errors that occur when the internal logic attempts to process malformed data.
-  Good effort. Global exception handlers are a useful safety net.
-
-  By the time malformed data causes an exception deep in your logic, though, it may already have done damage, such as corrupting state or reaching the database.
-
-  Reread the lesson's guidance on validating data at the perimeter.
-
-- [x] Enforce a strict "allow-list" policy, verifying that all data conforms exactly to expected types, ranges, and formats.
-  **Exactly right!** An allow-list defines what *valid* data looks like and rejects everything else.
-
-  Because you check type, range, and format up front, the rest of your code can trust its inputs. That's why your chess server should validate request bodies, such as checking for a missing username or an invalid game ID, before passing them to the service layer.
-```
-
-```masteryls
 {"id":"068fd0bf-baa3-4d1f-b12e-859d794716e2","title":"Identifying Guard Clause Benefits","type":"multiple-choice"}
 What is the primary architectural benefit of using guard clauses at the beginning of a Java method?
 
@@ -250,7 +250,6 @@ What is the primary architectural benefit of using guard clauses at the beginnin
 
   Reread the definition of a guard clause in the lesson.
 ```
-
 ```masteryls
 {"id":"fb9280b0-a467-4a9c-be3a-90b4ff2aa50b","title":"Protecting Your Neighbor","type":"essay"}
 How does writing defensive code that anticipates misuse and failure demonstrate love and care for your users?

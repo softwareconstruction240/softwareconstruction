@@ -19,7 +19,6 @@
 
 `Object-oriented` design focuses on describing objects in the application domain as literal programming constructs. For example, if your application involves people eating fruit, you model the application by creating `Person` and `Fruit` objects. These objects have properties such as name, ripeness, and color, as well as operations (methods) such as `eat`, `plant`, `grow`, or `purchase`. You then write your code to reflect real-world interactions between these core objects. In this example, a `Person` might `purchase` a `Fruit` object and then `eat` it.
 
-
 ```mermaid
 %%{init: { 'theme': 'neutral', 'look': 'handDrawn',
   'sequence': { 
@@ -108,6 +107,43 @@ The key is to understand your domain and distill the important fields, operation
 
 For example, in the diagram above, a `Programmer` is modeled as having a single `Computer`. In reality, a programmer might use multiple computers or only use a computer transiently (`uses-a`). If our application doesn't require that complexity, we can simplify the model by assuming every programmer has one computer. This allows us to encapsulate (hide) the `Computer` and `GitHubRepo` details when the `writeCode` method is called.
 
+```masteryls
+{"id":"81466afd-b92c-4888-94e4-6f4b7fc5fc67","title":"Identifying Class Relationships","type":"multiple-choice"}
+A developer is designing a mobile device management system. They define a `Smartphone` class that contains a `Battery` object as a member variable. The `Smartphone` class also includes a method `void call(Contact person)` where the `Contact` object is passed as a parameter. Finally, they create a `iPhone` class that inherits from the `Smartphone` class.
+
+Which of the following correctly identifies the relationships between these classes?
+
+- [ ] `Smartphone` is-a `Battery`, `iPhone` has-a `Smartphone`, and `Smartphone` uses-a `Contact`
+  Good effort. You correctly identified that `Smartphone` uses a `Contact`.
+
+  Look at the other two relationships again, though. A battery is a *part* of a phone, and `iPhone` *inherits* from `Smartphone`.
+
+  Reread the lesson's definitions of *is-a*, *has-a*, and *uses-a*.
+
+- [ ] `iPhone` uses-a `Smartphone`, `Smartphone` is-a `Battery`, and `Contact` has-a `Smartphone`
+  You're working with the right three relationship types.
+
+  Each one is attached to the wrong pair of classes, though. Match the relationships to the code. Which class *inherits*, which one *stores* another as a field, and which one *receives* an object as a parameter?
+
+  Revisit the definitions of *is-a*, *has-a*, and *uses-a* in the lesson.
+
+- [x] `iPhone` is-a `Smartphone`, `Smartphone` has-a `Battery`, and `Smartphone` uses-a `Contact`
+  **Correct!**
+
+  - Inheritance creates **is-a**: an `iPhone` is a `Smartphone`.
+  - A member variable creates **has-a**: a `Smartphone` has a `Battery`.
+  - A parameter creates **uses-a**: a `Smartphone` uses a `Contact` during a call.
+
+  Recognizing these from code is exactly the skill you'll use when you design your chess classes.
+
+- [ ] `Smartphone` has-a `iPhone`, `iPhone` uses-a `Battery`, and `Contact` is-a `Smartphone`
+  Good effort. You're working with the right three relationship types.
+
+  The directions are reversed, though. A parent class doesn't contain its subclasses, and a `Contact` isn't a kind of `Smartphone`.
+
+  Reread the lesson's definitions. Then match each relationship to inheritance, member variables, and parameters.
+```
+
 ## Core Class Design Principles
 
 Effective class design focuses on creating modules that are highly cohesive and loosely coupled. A class should ideally represent a single concept or entity within your application domain, adhering to the principle of single responsibility. By keeping classes focused on a specific task, you make the system easier to test, maintain, and extend without causing unintended side effects in unrelated areas.
@@ -122,7 +158,6 @@ Effective class design focuses on creating modules that are highly cohesive and 
 
 Composition is the practice of building complex objects by combining simpler ones. Instead of relying solely on inheritance to share behavior, composition uses "has-a" relationships to delegate tasks to internal components. This approach is often more flexible than inheritance because internal components can be replaced or updated at runtime, allowing for more dynamic and modular system behavior.
 
-
 ```mermaid
 %%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000' } }}%%
 
@@ -134,13 +169,42 @@ classDiagram
     }
 ```
 
-
 Composition is often preferable to inheritance because it is more extensible. Inheritance (using `extends`) explicitly and publicly exposes both the methods and the implementation of the parent class. Composition (using `implements`) keeps these details private and decoupled.
+
+```masteryls
+{"id":"6e9c6bce-f03e-448b-8bf4-c98ee16abc04","title":"Benefits of Composition over Inheritance","type":"multiple-choice"}
+When applying the principle of **Composition over Inheritance** in object-oriented design, which of the following statements best describes the primary advantage of utilizing composition?
+
+- [ ] It reduces the total number of classes in the system by consolidating multiple behaviors into a single, deep class hierarchy.
+  Good effort. Reducing the number of classes can simplify a design.
+
+  Deep inheritance hierarchies are what composition is meant to *avoid*, though. They're rigid and hard to change.
+
+  Reread the lesson's discussion of composition over inheritance.
+
+- [ ] It enforces a strict **is-a** relationship between objects, ensuring that a subclass can always be used in place of its parent class.
+  You're thinking about *is-a* relationships, which is what inheritance provides.
+
+  Composition creates a *has-a* relationship instead. The flexibility comes from *not* locking objects into a fixed hierarchy.
+
+  Revisit the lesson's descriptions of *is-a* and *has-a*.
+
+- [x] It provides greater runtime flexibility by allowing an object to change its behavior by swapping out its internal component parts.
+  **Exactly right!** With composition, an object holds references to the parts that provide its behavior.
+
+  Because those parts can be swapped, often through an interface, you can change what the object does without rewriting it or building new subclasses. You'll see this idea again in the Strategy pattern and dependency injection.
+
+- [ ] It allows subclasses to gain direct access to the private member variables and protected methods of a base class, simplifying internal logic.
+  Good effort. Access between classes is an important design consideration.
+
+  Subclasses can't access a parent's `private` members, though, and composition doesn't give that access either. It keeps parts encapsulated behind their own interfaces.
+
+  Reread the lesson's discussion of composition.
+```
 
 ### Decomposition
 
 Decomposition is the process of breaking a complex system or problem into smaller, more manageable parts. In OOD, this involves identifying the distinct entities and behaviors within a domain and assigning them to specific classes. By decomposing a large problem, developers can focus on solving individual pieces of logic in isolation, which reduces overall complexity and improves the clarity of the design.
-
 
 ```mermaid
 %%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000' } }}%%
@@ -169,7 +233,6 @@ We can expose the `Computer` later if necessary, but keeping it hidden allows us
 ### Abstraction
 
 Abstraction involves identifying the essential characteristics of an object while hiding the non-essential implementation details. It allows a developer to focus on *what* an object does rather than *how* it does it. By defining clear interfaces and abstracting away the underlying complexity, you create a simplified model that is easier for other parts of the system to interact with.
-
 
 ```mermaid
 %%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000' } }}%%
@@ -209,6 +272,37 @@ for n in numbers:
 squared_functional = list(map(lambda x: x**2, numbers))
 ```
 
+```masteryls
+{"id":"763b6916-a651-47db-a39c-ebdb3212b541","title":"Identifying Functional Programming","type":"multiple-choice"}
+Which of the following characteristics is a core pillar of the Functional Programming paradigm, distinguishing it from standard Object-Oriented Design?
+
+- [ ] Encapsulation of state within class instances
+  Good effort. Encapsulating state is a central idea in programming.
+
+  It's a pillar of **object-oriented** design, though. Functional programming tries to *avoid* changing state altogether.
+
+  Reread the lesson's comparison of programming paradigms.
+
+- [x] Emphasis on immutability and pure functions
+  **Exactly!** Functional programming favors immutable data and pure functions, which always produce the same output for the same input and have no side effects.
+
+  Code written this way is easier to test and safer to run in parallel. Java's lambdas and streams bring many of these ideas into object-oriented code.
+
+- [ ] Extensive use of class inheritance hierarchies
+  You're thinking about inheritance, which is central to object-oriented design.
+
+  Functional programming doesn't rely on class hierarchies, though. It builds behavior by combining functions.
+
+  Revisit the lesson's description of functional programming.
+
+- [ ] Optimizing memory layout for CPU cache hits
+  Good effort. Memory layout and cache use matter for performance.
+
+  That's a low-level optimization concern, though, not what defines a programming paradigm.
+
+  Reread the lesson's comparison of object-oriented and functional programming.
+```
+
 ### Event-Driven Programming
 Event-driven programming centers the program's flow around events—such as user actions (clicks, key presses), sensor outputs, or messages from other programs. Instead of a single linear path of execution, the program sits in a loop and "listens" for events to occur, triggering specific callback functions or handlers when they do.
 
@@ -241,7 +335,6 @@ graph TD
     classDef default fill:#ffffff,stroke:#000000,color:#000000,stroke-width:1px;
 ```
 
-
 ### Comparing Paradigms
 The following table highlights the core differences in how these models approach design:
 
@@ -255,112 +348,10 @@ The following table highlights the core differences in how these models approach
 
 ## ☑ Exercise
 
-
-```masteryls
-{"id":"6e9c6bce-f03e-448b-8bf4-c98ee16abc04","title":"Benefits of Composition over Inheritance","type":"multiple-choice"}
-When applying the principle of **Composition over Inheritance** in object-oriented design, which of the following statements best describes the primary advantage of utilizing composition?
-
-- [ ] It reduces the total number of classes in the system by consolidating multiple behaviors into a single, deep class hierarchy.
-  Good effort. Reducing the number of classes can simplify a design.
-
-  Deep inheritance hierarchies are what composition is meant to *avoid*, though. They're rigid and hard to change.
-
-  Reread the lesson's discussion of composition over inheritance.
-
-- [ ] It enforces a strict **is-a** relationship between objects, ensuring that a subclass can always be used in place of its parent class.
-  You're thinking about *is-a* relationships, which is what inheritance provides.
-
-  Composition creates a *has-a* relationship instead. The flexibility comes from *not* locking objects into a fixed hierarchy.
-
-  Revisit the lesson's descriptions of *is-a* and *has-a*.
-
-- [x] It provides greater runtime flexibility by allowing an object to change its behavior by swapping out its internal component parts.
-  **Exactly right!** With composition, an object holds references to the parts that provide its behavior.
-
-  Because those parts can be swapped, often through an interface, you can change what the object does without rewriting it or building new subclasses. You'll see this idea again in the Strategy pattern and dependency injection.
-
-- [ ] It allows subclasses to gain direct access to the private member variables and protected methods of a base class, simplifying internal logic.
-  Good effort. Access between classes is an important design consideration.
-
-  Subclasses can't access a parent's `private` members, though, and composition doesn't give that access either. It keeps parts encapsulated behind their own interfaces.
-
-  Reread the lesson's discussion of composition.
-```
-
-```masteryls
-{"id":"81466afd-b92c-4888-94e4-6f4b7fc5fc67","title":"Identifying Class Relationships","type":"multiple-choice"}
-A developer is designing a mobile device management system. They define a `Smartphone` class that contains a `Battery` object as a member variable. The `Smartphone` class also includes a method `void call(Contact person)` where the `Contact` object is passed as a parameter. Finally, they create a `iPhone` class that inherits from the `Smartphone` class. 
-
-Which of the following correctly identifies the relationships between these classes?
-
-- [ ] `Smartphone` is-a `Battery`, `iPhone` has-a `Smartphone`, and `Smartphone` uses-a `Contact`
-  Good effort. You correctly identified that `Smartphone` uses a `Contact`.
-
-  Look at the other two relationships again, though. A battery is a *part* of a phone, and `iPhone` *inherits* from `Smartphone`.
-
-  Reread the lesson's definitions of *is-a*, *has-a*, and *uses-a*.
-
-- [ ] `iPhone` uses-a `Smartphone`, `Smartphone` is-a `Battery`, and `Contact` has-a `Smartphone`
-  You're working with the right three relationship types.
-
-  Each one is attached to the wrong pair of classes, though. Match the relationships to the code. Which class *inherits*, which one *stores* another as a field, and which one *receives* an object as a parameter?
-
-  Revisit the definitions of *is-a*, *has-a*, and *uses-a* in the lesson.
-
-- [x] `iPhone` is-a `Smartphone`, `Smartphone` has-a `Battery`, and `Smartphone` uses-a `Contact`
-  **Correct!**
-
-  - Inheritance creates **is-a**: an `iPhone` is a `Smartphone`.
-  - A member variable creates **has-a**: a `Smartphone` has a `Battery`.
-  - A parameter creates **uses-a**: a `Smartphone` uses a `Contact` during a call.
-
-  Recognizing these from code is exactly the skill you'll use when you design your chess classes.
-
-- [ ] `Smartphone` has-a `iPhone`, `iPhone` uses-a `Battery`, and `Contact` is-a `Smartphone`
-  Good effort. You're working with the right three relationship types.
-
-  The directions are reversed, though. A parent class doesn't contain its subclasses, and a `Contact` isn't a kind of `Smartphone`.
-
-  Reread the lesson's definitions. Then match each relationship to inheritance, member variables, and parameters.
-```
-
-
-```masteryls
-{"id":"763b6916-a651-47db-a39c-ebdb3212b541","title":"Identifying Functional Programming","type":"multiple-choice"}
-Which of the following characteristics is a core pillar of the Functional Programming paradigm, distinguishing it from standard Object-Oriented Design?
-
-- [ ] Encapsulation of state within class instances
-  Good effort. Encapsulating state is a central idea in programming.
-
-  It's a pillar of **object-oriented** design, though. Functional programming tries to *avoid* changing state altogether.
-
-  Reread the lesson's comparison of programming paradigms.
-
-- [x] Emphasis on immutability and pure functions
-  **Exactly!** Functional programming favors immutable data and pure functions, which always produce the same output for the same input and have no side effects.
-
-  Code written this way is easier to test and safer to run in parallel. Java's lambdas and streams bring many of these ideas into object-oriented code.
-
-- [ ] Extensive use of class inheritance hierarchies
-  You're thinking about inheritance, which is central to object-oriented design.
-
-  Functional programming doesn't rely on class hierarchies, though. It builds behavior by combining functions.
-
-  Revisit the lesson's description of functional programming.
-
-- [ ] Optimizing memory layout for CPU cache hits
-  Good effort. Memory layout and cache use matter for performance.
-
-  That's a low-level optimization concern, though, not what defines a programming paradigm.
-
-  Reread the lesson's comparison of object-oriented and functional programming.
-```
-
 ```masteryls
 {"id":"db625d9d-4e00-45ee-b230-122908109b1e", "title":"Essay", "type":"essay" }
 Describe what differentiates Object Oriented Design from Procedural, Functional, or Event Driven programming.
 ```
-
 
 ## Videos
 

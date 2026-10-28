@@ -54,6 +54,37 @@ While MySQL is a powerhouse, it is not the only tool available. Depending on you
 | **Acid Compliance** | Yes (with InnoDB)    | Yes (Full)                      | Yes                  | Partial / Tunable           |
 | **Ease of Setup**   | Easy                 | Moderate                        | Very Easy            | Easy                        |
 
+```masteryls
+{"id":"19d8fb82-cb67-4849-b5d1-2fce2786f6b7","title":"Choosing the Right Database","type":"multiple-choice"}
+In which of the following scenarios would MySQL be a better choice than SQLite?
+
+- [ ] When building a small, local mobile application that requires no network connection.
+  Good effort. You're thinking about where each database fits.
+
+  A small, offline mobile app is SQLite's strength, though. It needs no separate server and stores everything in one local file.
+
+  Reread the comparison table in the lesson.
+
+- [ ] When you need to store unstructured JSON data with no predefined schema.
+  You're right that some applications need flexible, schema-less data.
+
+  Neither MySQL nor SQLite is designed for that, though. Both are relational. The lesson points to MongoDB for unstructured data.
+
+  Revisit the comparison table.
+
+- [x] When building a multi-user web application that requires high-concurrency read operations.
+  **Correct!** MySQL runs as a server that many clients can connect to at once.
+
+  It's built to handle many simultaneous users, which is exactly what a web application like your chess server needs. SQLite is excellent for local, single-application storage, but it isn't designed to be a shared database server.
+
+- [ ] When you need a database that exists as a single, portable file on a disk.
+  Good effort. A single, portable file is a real advantage for some applications.
+
+  That describes **SQLite**, though, not MySQL.
+
+  Reread the *Scalability* row of the comparison table.
+```
+
 ## MySQL Server Installation
 
 To get started, you will need to install MySQL in your development environment. You can install the latest LTS (Long Term Support) free MySQL Community Server version from [MySQL.com](https://dev.mysql.com/downloads/mysql/).
@@ -154,37 +185,6 @@ In future topics, you will learn how to create tables, insert data, and perform 
 At this point, ensure your MySQL server is running and that you can access it using a client program.
 
 ## ☑ Exercise
-
-```masteryls
-{"id":"19d8fb82-cb67-4849-b5d1-2fce2786f6b7","title":"Choosing the Right Database","type":"multiple-choice"}
-In which of the following scenarios would MySQL be a better choice than SQLite?
-
-- [ ] When building a small, local mobile application that requires no network connection.
-  Good effort. You're thinking about where each database fits.
-
-  A small, offline mobile app is SQLite's strength, though. It needs no separate server and stores everything in one local file.
-
-  Reread the comparison table in the lesson.
-
-- [ ] When you need to store unstructured JSON data with no predefined schema.
-  You're right that some applications need flexible, schema-less data.
-
-  Neither MySQL nor SQLite is designed for that, though. Both are relational. The lesson points to MongoDB for unstructured data.
-
-  Revisit the comparison table.
-
-- [x] When building a multi-user web application that requires high-concurrency read operations.
-  **Correct!** MySQL runs as a server that many clients can connect to at once.
-
-  It's built to handle many simultaneous users, which is exactly what a web application like your chess server needs. SQLite is excellent for local, single-application storage, but it isn't designed to be a shared database server.
-
-- [ ] When you need a database that exists as a single, portable file on a disk.
-  Good effort. A single, portable file is a real advantage for some applications.
-
-  That describes **SQLite**, though, not MySQL.
-
-  Reread the *Scalability* row of the comparison table.
-```
 
 ```masteryls
 {"id":"5097a507-34c8-491d-8c15-f0d339002d8f","title":"Stewardship of What You Store","type":"essay"}

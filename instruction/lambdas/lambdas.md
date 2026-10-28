@@ -154,6 +154,41 @@ list.removeIf(n -> n > 2);
 
 Either way is equivalent, but the lambda represent is much more concise and easy to digest once you are familiar with it.
 
+```masteryls
+{"id":"8d174ea4-f27d-4e6b-a4bb-97b6392042a2","title":"Invalid Lambda Syntax for Sorting","type":"multiple-choice"}
+Given
+
+`List<String> fruits = Arrays.asList("Apple", "Orange", "Banana");`
+
+which of the following is an **invalid** lambda expression replacement for an anonymous inner class `Comparator` when calling the `sort` method?
+
+- [ ] `fruits.sort((a, b) -> a.compareTo(b));`
+  Good effort. This lambda takes two parameters and returns the result of `compareTo`.
+
+  It's an expression-body lambda, though, so the result is returned implicitly. This is a valid comparator.
+
+  Reread the lesson's comparison of expression and block bodies.
+
+- [ ] `fruits.sort(String::compareTo);`
+  You're right to look carefully at method references, since they're the least familiar syntax here.
+
+  `String::compareTo` is a valid comparator, though. Java treats it as `(a, b) -> a.compareTo(b)`.
+
+  Revisit the lesson's examples of method references.
+
+- [x] `fruits.sort((f1, f2) -> { f1.compareTo(f2); });`
+  **Correct!** With curly braces, a lambda has a block body, and a block body must use an explicit `return` to produce a value.
+
+  This lambda calls `compareTo` but throws away the result, so it doesn't return the `int` that a `Comparator` requires, and the code won't compile. Writing `{ return f1.compareTo(f2); }` fixes it.
+
+- [ ] `fruits.sort((String f1, String f2) -> f1.length() - f2.length());`
+  Good effort. Explicit parameter types look unusual in a lambda.
+
+  They're allowed, though, and the body correctly returns an `int`, comparing fruits by length instead of alphabetically.
+
+  Reread the lesson's description of lambda syntax.
+```
+
 ## Closure
 
 Just like anonymous classes, lambda functions also support closure. That means you can reference variables and parameters that are declared in the scope that defines the lambda function. This is true even if the lambda function is passed out of the defining scope.
@@ -170,7 +205,6 @@ Just like anonymous classes, lambda functions also support closure. That means y
         return () -> msg;
     }
 ```
-
 
 ## Method References
 
@@ -205,49 +239,10 @@ String::compareToIgnoreCase;
 
 ## ☑ Exercise
 
-
-```masteryls
-{"id":"8d174ea4-f27d-4e6b-a4bb-97b6392042a2","title":"Invalid Lambda Syntax for Sorting","type":"multiple-choice"}
-Given 
-
-`List<String> fruits = Arrays.asList("Apple", "Orange", "Banana");`
-
-which of the following is an **invalid** lambda expression replacement for an anonymous inner class `Comparator` when calling the `sort` method?
-
-- [ ] `fruits.sort((a, b) -> a.compareTo(b));`
-  Good effort. This lambda takes two parameters and returns the result of `compareTo`.
-
-  It's an expression-body lambda, though, so the result is returned implicitly. This is a valid comparator.
-
-  Reread the lesson's comparison of expression and block bodies.
-
-- [ ] `fruits.sort(String::compareTo);`
-  You're right to look carefully at method references, since they're the least familiar syntax here.
-
-  `String::compareTo` is a valid comparator, though. Java treats it as `(a, b) -> a.compareTo(b)`.
-
-  Revisit the lesson's examples of method references.
-
-- [x] `fruits.sort((f1, f2) -> { f1.compareTo(f2); });`
-  **Correct!** With curly braces, a lambda has a block body, and a block body must use an explicit `return` to produce a value.
-
-  This lambda calls `compareTo` but throws away the result, so it doesn't return the `int` that a `Comparator` requires, and the code won't compile. Writing `{ return f1.compareTo(f2); }` fixes it.
-
-- [ ] `fruits.sort((String f1, String f2) -> f1.length() - f2.length());`
-  Good effort. Explicit parameter types look unusual in a lambda.
-
-  They're allowed, though, and the body correctly returns an `int`, comparing fruits by length instead of alphabetically.
-
-  Reread the lesson's description of lambda syntax.
-```
-
-
-
 ```masteryls
 {"id":"7d844be9-f784-47bd-98d1-6c16d71514af", "title":"Lambda Functions", "type":"essay" }
 What is your opinion about the usefulness of Lambda Functions?
 ```
-
 
 ## Videos
 

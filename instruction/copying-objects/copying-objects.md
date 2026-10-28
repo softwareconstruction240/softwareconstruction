@@ -40,6 +40,11 @@ public class MyClass {
 }
 ```
 
+```masteryls
+{"id":"113e9ac2-025a-40a3-bc30-7ffbbc94cbbb", "title":"Copy constructors", "type":"essay" }
+Write a simply copy constructor for a chess piece that has a color and type property.
+```
+
 ## Shallow and Deep Copies
 
 When copying an object, you must distinguish between copying the **data** and copying a **reference** (pointer) to that data.
@@ -154,6 +159,11 @@ In modern Java development, **copy constructors** are widely preferred over the 
 - **No Checked Exceptions:** You don't have to catch `CloneNotSupportedException`.
 - **Control:** It is easier to implement "deep copies" (copying nested objects) manually within a constructor.
 
+```masteryls
+{"id":"bfcc9583-3d22-4026-a36f-34fceb6be366", "title":"Copying grades", "type":"essay", "gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit." }
+Which copy approach do you think would be easier to maintain if you added a list of grades to the `Student` class?
+```
+
 ## Engineering Principles for Object Copying
 
 When designing robust systems, consider these three principles:
@@ -161,18 +171,6 @@ When designing robust systems, consider these three principles:
 1.  **Immutability by Default:** Whenever possible, treat objects as immutable. Instead of modifying an existing object, always return a new copy with the updated values. This simplifies debugging and state management (e.g., in React or Redux).
 2.  **Defensive Copying in Constructors:** If your class accepts a list or an object as a parameter, copy it during initialization. This prevents the caller from modifying the internal state of your instance from the outside.
 3.  **Performance Awareness:** Deep copies are computationally expensive. For large, deeply nested trees (like a DOM or a complex JSON response), frequent deep copying can lead to memory pressure and latency. In these cases, consider using **Immutable Data Structures** (like Immutable.js) which use structural sharing to make "copies" efficient.
-
-## ☑ Exercise
-
-```masteryls
-{"id":"bfcc9583-3d22-4026-a36f-34fceb6be366", "title":"Copying grades", "type":"essay", "gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit." }
-Which copy approach do you think would be easier to maintain if you added a list of grades to the `Student` class?
-```
-
-```masteryls
-{"id":"113e9ac2-025a-40a3-bc30-7ffbbc94cbbb", "title":"Copy constructors", "type":"essay" }
-Write a simply copy constructor for a chess piece that has a color and type property.
-```
 
 ## Videos
 

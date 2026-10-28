@@ -120,7 +120,6 @@ To get started developing with Java, you need to install the Java Developer Kit 
 
 After you have installed IntelliJ you need to decide what type of subscription you want. ItelliJ will attempt to encourage you to create an Ultimate subscription with a 30 day trial as a hook. You cannot use any of the AI features of IntelliJ and so there is little reason to create an Ultimate subscription.
 
-
 ![subscription.png](subscription.png)
 
  The easiest thing to do is select the `Manage my subscription` option and then `Deactivate subscription`. This will keep you on the free tier for the duration of the course.
@@ -148,6 +147,11 @@ public class Main {
 ```
 
 You can execute your code by pressing the little green arrow button to the immediate left of your source code.
+
+```masteryls
+{"id":"77d4a535-9dc9-4de5-ad62-73d9872e2f0e", "title":"Your first Java program", "type":"essay", "gradingCriteria":"- The program properly compiles and outputs the conosole text: 'Hello World'" }
+Before you break out your compiler and make your first Java program. Try to create a Java Program that prints `Hello World` to the console. Do this from your memory of what you learned above without copying any code. The feedback you receive will help you get things right.
+```
 
 ## JDK Documentation
 
@@ -409,13 +413,6 @@ public class ScannerExample {
         }
     }
 }
-```
-
-## ☑ Exercise
-
-```masteryls
-{"id":"77d4a535-9dc9-4de5-ad62-73d9872e2f0e", "title":"Your first Java program", "type":"essay", "gradingCriteria":"- The program properly compiles and outputs the conosole text: 'Hello World'" }
-Before you break out your compiler and make your first Java program. Try to create a Java Program that prints `Hello World` to the console. Do this from your memory of what you learned above without copying any code. The feedback you receive will help you get things right.
 ```
 
 ## Videos

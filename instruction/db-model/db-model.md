@@ -37,6 +37,42 @@ In a relational database, data is organized into structured formats where each r
 - **Primary Key:** A unique identifier for every tuple within a table.
 - **Foreign Key:** An attribute in one table that provides a link to the primary key of another table.
 
+```masteryls
+{"id":"919d8714-ed1e-46f4-bff4-a325ad6faa82","title":"Representation of Relations","type":"multiple-choice"}
+In the relational data model, how is a **relation** logically represented and organized?
+
+- [ ] As a *graph* of interconnected nodes and edges representing physical pointers
+  Good effort. Graphs are a real way to model connected data.
+
+  Graphs belong to the network and graph data models, though, not the relational model. In fact, the relational model was designed so that you don't navigate physical pointers.
+
+  Reread the opening description of the relational model.
+
+- [x] As a *two-dimensional table* composed of rows and columns
+  **Exactly!** A relation is a table: each row is a tuple, and each column is an attribute.
+
+  Because every relation has this same simple shape, you can query and combine tables with a single, consistent language: SQL.
+
+- [ ] As a *hierarchical tree* structure where data is organized into parent-child segments
+  You're thinking about hierarchical data, which was a common approach before relational databases.
+
+  The relational model replaced hierarchical trees with flat tables that can be joined in any direction, though.
+
+  Revisit how the lesson contrasts the relational model with earlier hierarchical and network models.
+
+- [ ] As a *multidimensional cube* designed specifically for analytical processing
+  Good effort. Multidimensional cubes are real data structures used in analytics.
+
+  They're a specialized structure built for analysis, though, not how the relational model organizes data.
+
+  Reread how the lesson describes relations, tuples, and attributes.
+```
+
+```masteryls
+{"id":"b71c6678-edec-4df5-91cf-0ea35c052fe9", "title":"Rows and Columns", "type":"teaching" }
+I don't understand how rows and columns represent relationships.
+```
+
 ### Why the Relational Model is Popular
 
 ![relationalModelBenefit.jpg](relationalModelBenefit.jpg)
@@ -214,64 +250,6 @@ graph LR
     classDef default fill:#ffffff,stroke:#000000,color:#000000,stroke-width:1px;
 ```
 
-### Normalization and the DRY Principle
-
-Software engineers often follow the **DRY (Don't Repeat Yourself)** principle to reduce redundancy and maintain consistency. In the relational model, this is achieved through **Normalization**. By decomposing large, redundant tables into smaller, related tables, we ensure that a single piece of information is stored in exactly one place.
-
-For example, instead of storing a customer's address every time they place an order, we store a `customer_id`. This prevents "update anomalies"—where you update an address in one record but forget to update it in another.
-
-### Declarative vs. Imperative Design
-
-Relational databases promote a **declarative approach**. In imperative programming, you tell the computer _how_ to do something (loop through a list, check a condition, move a pointer). In the relational model, you use SQL to describe _what_ you want, and the database's query optimizer determines the most efficient execution plan.
-
-| Feature          | Imperative Approach (Code)           | Declarative Approach (Relational)    |
-| :--------------- | :----------------------------------- | :----------------------------------- |
-| **Focus**        | Process and Flow                     | Result and Logic                     |
-| **Optimization** | Manual (Developer writes loops)      | Automatic (Query Optimizer)          |
-| **Maintenance**  | High (Changes require code refactor) | Low (Schema and Logic are decoupled) |
-
-## Working with Relational Data
-
-In practical terms, relational data is stored in a Relational Database Management System (RDBMS). For this course, we will use **MySQL**. The language used to read, write, and query this data is **Structured Query Language (SQL)**, a declarative language we will explore in future topics.
-
-## ☑ Exercise
-
-```masteryls
-{"id":"919d8714-ed1e-46f4-bff4-a325ad6faa82","title":"Representation of Relations","type":"multiple-choice"}
-In the relational data model, how is a **relation** logically represented and organized?
-
-- [ ] As a *graph* of interconnected nodes and edges representing physical pointers
-  Good effort. Graphs are a real way to model connected data.
-
-  Graphs belong to the network and graph data models, though, not the relational model. In fact, the relational model was designed so that you don't navigate physical pointers.
-
-  Reread the opening description of the relational model.
-
-- [x] As a *two-dimensional table* composed of rows and columns
-  **Exactly!** A relation is a table: each row is a tuple, and each column is an attribute.
-
-  Because every relation has this same simple shape, you can query and combine tables with a single, consistent language: SQL.
-
-- [ ] As a *hierarchical tree* structure where data is organized into parent-child segments
-  You're thinking about hierarchical data, which was a common approach before relational databases.
-
-  The relational model replaced hierarchical trees with flat tables that can be joined in any direction, though.
-
-  Revisit how the lesson contrasts the relational model with earlier hierarchical and network models.
-
-- [ ] As a *multidimensional cube* designed specifically for analytical processing
-  Good effort. Multidimensional cubes are real data structures used in analytics.
-
-  They're a specialized structure built for analysis, though, not how the relational model organizes data.
-
-  Reread how the lesson describes relations, tuples, and attributes.
-```
-
-```masteryls
-{"id":"b71c6678-edec-4df5-91cf-0ea35c052fe9", "title":"Rows and Columns", "type":"teaching" }
-I don't understand how rows and columns represent relationships.
-```
-
 ```masteryls
 {"id":"bff5e1a4-9f58-4a88-9b7d-3f8a224a6cf4","title":"The Core of the Relational Model","type":"multiple-choice"}
 What is the primary benefit of "Logical Data Independence" in the relational model?
@@ -333,6 +311,28 @@ Which software engineering principle is most directly supported by the ability t
 
   Revisit the *Data Independence and Abstraction* section.
 ```
+
+### Normalization and the DRY Principle
+
+Software engineers often follow the **DRY (Don't Repeat Yourself)** principle to reduce redundancy and maintain consistency. In the relational model, this is achieved through **Normalization**. By decomposing large, redundant tables into smaller, related tables, we ensure that a single piece of information is stored in exactly one place.
+
+For example, instead of storing a customer's address every time they place an order, we store a `customer_id`. This prevents "update anomalies"—where you update an address in one record but forget to update it in another.
+
+### Declarative vs. Imperative Design
+
+Relational databases promote a **declarative approach**. In imperative programming, you tell the computer _how_ to do something (loop through a list, check a condition, move a pointer). In the relational model, you use SQL to describe _what_ you want, and the database's query optimizer determines the most efficient execution plan.
+
+| Feature          | Imperative Approach (Code)           | Declarative Approach (Relational)    |
+| :--------------- | :----------------------------------- | :----------------------------------- |
+| **Focus**        | Process and Flow                     | Result and Logic                     |
+| **Optimization** | Manual (Developer writes loops)      | Automatic (Query Optimizer)          |
+| **Maintenance**  | High (Changes require code refactor) | Low (Schema and Logic are decoupled) |
+
+## Working with Relational Data
+
+In practical terms, relational data is stored in a Relational Database Management System (RDBMS). For this course, we will use **MySQL**. The language used to read, write, and query this data is **Structured Query Language (SQL)**, a declarative language we will explore in future topics.
+
+## ☑ Exercise
 
 ```masteryls
 {"id":"dd51ad74-9844-4409-a5a7-08cf81aa1059","title":"Designing for Those Who Follow","type":"essay"}

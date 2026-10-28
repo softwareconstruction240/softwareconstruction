@@ -52,6 +52,35 @@ public class HelloPerson {
 }
 ```
 
+```masteryls
+{"id":"8818e31c-102f-4930-bc88-8f5662f09975","title":"Relationship Between Classes and Objects","type":"multiple-choice"}
+In object-oriented programming, which statement best describes the fundamental relationship between a **class** and an **object**?
+
+- [x] A class acts as a blueprint or template that defines properties and behaviors, while an object is a specific instance created from that blueprint.
+  **Exactly right!** A class is the blueprint, and an object is a specific thing built from it.
+
+  The class defines what fields and methods every instance will have. Each object has its own copy of the data. You can create many `ChessPiece` objects from one class, each with a different color and type.
+
+- [ ] An object is a static blueprint that defines the structure of a program, while a class is the dynamic memory allocated during execution.
+  You've picked up on the idea that one of these defines structure and the other exists at runtime. That's the key distinction.
+
+  The roles are reversed here, though. Reread how the lesson introduces classes and objects, and notice which one is created with the `new` keyword.
+
+- [ ] A class is a specific realization of an object that contains unique data values assigned at runtime.
+  Good effort. You're right that unique data values are assigned at runtime.
+
+  That describes an **object**, though, not a class. A class doesn't hold the data of a specific instance; it defines what data each instance will have.
+
+  Revisit the lesson's explanation of instances. Think about which one comes first and which one is created from the other.
+
+- [ ] Classes and objects are synonymous terms used to describe the same data structures within a programming language.
+  It's easy to see why these terms get mixed up. People often use them loosely in conversation.
+
+  In Java, though, they mean different things. A class is written once in your source code, while many objects can be created from it while the program runs.
+
+  Reread the opening sections of the lesson and compare what you write in a `.java` file with what `new` creates.
+```
+
 ## The `this` Keyword
 
 When you use the `new` operator to instantiate an object, it returns a **reference** to the new object. You use that reference to call methods and access fields.
@@ -188,36 +217,13 @@ public static void main(String[] args) {
 }
 ```
 
-## ☑ Exercise
+## Modeling Reality
 
-```masteryls
-{"id":"8818e31c-102f-4930-bc88-8f5662f09975","title":"Relationship Between Classes and Objects","type":"multiple-choice"}
-In object-oriented programming, which statement best describes the fundamental relationship between a **class** and an **object**?
+A primary goal of object oriented programming is to create a abstraction of the real world task the user is attempting to accomplish. That is why OOP languages constructs map directly to concepts that human's use to represent their reality. Here are a few examples:
 
-- [x] A class acts as a blueprint or template that defines properties and behaviors, while an object is a specific instance created from that blueprint.
-  **Exactly right!** A class is the blueprint, and an object is a specific thing built from it.
-
-  The class defines what fields and methods every instance will have. Each object has its own copy of the data. You can create many `ChessPiece` objects from one class, each with a different color and type.
-
-- [ ] An object is a static blueprint that defines the structure of a program, while a class is the dynamic memory allocated during execution.
-  You've picked up on the idea that one of these defines structure and the other exists at runtime. That's the key distinction.
-
-  The roles are reversed here, though. Reread how the lesson introduces classes and objects, and notice which one is created with the `new` keyword.
-
-- [ ] A class is a specific realization of an object that contains unique data values assigned at runtime.
-  Good effort. You're right that unique data values are assigned at runtime.
-
-  That describes an **object**, though, not a class. A class doesn't hold the data of a specific instance; it defines what data each instance will have.
-
-  Revisit the lesson's explanation of instances. Think about which one comes first and which one is created from the other.
-
-- [ ] Classes and objects are synonymous terms used to describe the same data structures within a programming language.
-  It's easy to see why these terms get mixed up. People often use them loosely in conversation.
-
-  In Java, though, they mean different things. A class is written once in your source code, while many objects can be created from it while the program runs.
-
-  Reread the opening sections of the lesson and compare what you write in a `.java` file with what `new` creates.
-```
+- **Class** - A definition of a concept has properties and actions. For example, a `student` has a name and can attend classes and complete homework.
+- **Object** - An instance of the definition. For example, John is an instance of a `student`. John completed the 3rd homework assignment.
+- **Enum** - Labels that represent real world state.
 
 ```masteryls
 {"id":"c935ba62-abf8-45a9-bb1c-22806e4296e2","title":"Modeling with Integrity","type":"essay"}

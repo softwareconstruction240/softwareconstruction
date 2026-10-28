@@ -33,6 +33,11 @@ The `ServerFacade` acts as a translator. The rest of your client code should not
 
 By using a Facade, you decouple your UI logic from your communication logic. If you later decided to switch from HTTP to WebSockets or a different data format, you would only need to change the code inside the `ServerFacade`, leaving the rest of your client untouched.
 
+```masteryls
+{"id":"65911966-69cc-4552-9be7-a1b1ffe2ef7b", "title":"Facade", "type":"teaching" }
+I don't understand the difference between the Facade and Adapter pattern.
+```
+
 ## Managing State with the State Pattern
 
 A CLI typically operates in a loop, often called a REPL (Read-Eval-Print Loop). However, the commands available to a user change depending on their status. For example, a user cannot "Create Game" until they have logged in, and they shouldn't see the "Login" prompt once they are already authenticated.
@@ -86,17 +91,10 @@ As you build, ask yourself: "If I replaced the server with a local database tomo
 
 ## ☑ Exercise
 
-
-```masteryls
-{"id":"65911966-69cc-4552-9be7-a1b1ffe2ef7b", "title":"Facade", "type":"teaching" }
-I don't understand the difference between the Facade and Adapter pattern.
-```
-
 ```masteryls
 {"id":"547ffb92-2b7d-4d99-9515-f15aa1ae2b76","title":"Simplicity for Others","type":"essay"}
 How do design patterns that hide complexity, such as the Facade, demonstrate care for the people who use your code, and how does making things simpler for others reflect Christlike service?
 ```
-
 
 ***
 

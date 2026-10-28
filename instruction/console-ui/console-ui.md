@@ -165,6 +165,16 @@ Now, when we run the calculator, the output is stylized:
 
 ![calculator](calculator.png)
 
+````masteryls
+{"id":"c5b88226-5c50-4e90-86fa-342b4b8fb05d","title":"Console color","type":"essay"}
+Change the following Java code so that it prints out the text with a red foreground and a green background.
+
+```java
+System.out.print("\u001b[35;100m");
+System.out.printf("Merry Christmas");
+```
+````
+
 ## Clearing the Terminal
 
 To create a clean UI, you may want to clear the terminal screen. You can do this using the escape sequence `\u001b[H\u001b[2J`. 
@@ -243,20 +253,6 @@ Input your numbers
 >>> 1 2 3
 1 + 2 + 3 = 6
 ```
-
-## ☑ Exercise
-
-
-````masteryls
-{"id":"c5b88226-5c50-4e90-86fa-342b4b8fb05d","title":"Console color","type":"essay"}
-Change the following Java code so that it prints out the text with a red foreground and a green background.
-
-```java
-System.out.print("\u001b[35;100m");
-System.out.printf("Merry Christmas");
-```
-````
-
 
 ## Videos
 

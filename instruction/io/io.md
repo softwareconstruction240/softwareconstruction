@@ -47,7 +47,6 @@ At the lowest level, Java represents I/O with a data abstraction known as a **st
 
 The two base classes for dealing with byte-oriented streams in Java are [InputStream](https://docs.oracle.com/javase/20/docs/api/java/io/InputStream.html) and [OutputStream](https://docs.oracle.com/javase/20/docs/api/java/io/OutputStream.html). You read data from an `InputStream` and you write data to an `OutputStream`. Both are abstract classes and require a specific subclass to provide functionality. For example, you use a `FileInputStream` to read bytes from a file and a `FileOutputStream` to write bytes to a file. Other subclasses include `ByteArrayOutputStream`, `ObjectOutputStream`, and `SequenceInputStream`.
 
-
 ```mermaid
 %%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
 classDiagram
@@ -66,6 +65,37 @@ classDiagram
         read() byte
     }
     InputStream <|-- ByteArrayInputStream
+```
+
+```masteryls
+{"id":"7f4a04df-a0bf-41a2-9992-a29a38532709","title":"Input vs. Output Streams","type":"multiple-choice"}
+In the Java IO framework, what is the fundamental functional difference between an `InputStream` and an `OutputStream`?
+
+- [x] An input stream is used to read data from a source into a program, whereas an output stream is used to write data from a program to a destination.
+  **Correct!** Directions are described from the program's point of view.
+
+  An input stream brings data *in*, from a file, network, or keyboard. An output stream sends data *out*, to a file, network, or console. You'll use both when your chess server reads requests and writes responses.
+
+- [ ] Input streams transfer data from the program to an external destination, while output streams fetch data from an external source into the program.
+  Good effort. You know that one stream moves data in and the other moves data out.
+
+  The directions are reversed here, though. Think about it from the *program's* point of view.
+
+  Reread the lesson's introduction to input and output streams.
+
+- [ ] Input streams are designed exclusively for handling character-based data, while output streams are used for handling raw byte-based data.
+  You're thinking about the difference between bytes and characters, which is important in Java IO.
+
+  That distinction separates streams from *readers and writers*, though, not input from output. Both input and output streams handle raw bytes.
+
+  Revisit the lesson's overview of the IO class families.
+
+- [ ] An input stream represents data that has already been processed by the CPU, while an output stream represents data waiting in the system's RAM.
+  Good effort. CPU and memory are part of every IO operation.
+
+  Streams aren't defined by where data sits in the computer, though. They're defined by the direction the data moves relative to your program.
+
+  Reread the lesson's definitions of input and output streams.
 ```
 
 ## System.in and System.out
@@ -130,6 +160,37 @@ public class ReaderWriter {
 1. this
 2. or
 3. that
+```
+
+```masteryls
+{"id":"8b2838fa-5094-416a-a0c7-4dfab43557e3","title":"Streams vs. Readers","type":"multiple-choice"}
+In Java's `java.io` package, what is the fundamental difference between an `InputStream` and a `Reader`?
+
+- [ ] `InputStream` classes are used for reading data from a source, while `Reader` classes are used for writing data to a destination.
+  Good effort. Reading and writing is an important distinction in Java IO.
+
+  Both `InputStream` and `Reader` are for *reading*, though. Their writing counterparts are `OutputStream` and `Writer`.
+
+  Reread the lesson's overview of the IO class families.
+
+- [ ] `InputStream` is a concrete class used for unbuffered IO, while `Reader` is an interface used to implement buffered IO.
+  You're thinking about buffering, which matters a lot for performance.
+
+  Buffering is added by wrapping one stream or reader in another, though, such as `BufferedInputStream` or `BufferedReader`. Both `InputStream` and `Reader` are abstract classes, not interfaces.
+
+  Revisit the lesson's explanation of these base classes.
+
+- [ ] `InputStream` classes are designed specifically for memory-based buffers, while `Reader` classes are designed specifically for disk-based files.
+  Good effort. Different sources do require different classes.
+
+  Both families can read from memory, files, and networks, though. The source is chosen by the specific subclass, such as `FileInputStream` or `FileReader`.
+
+  Reread what the lesson says the two families read *as*.
+
+- [x] `InputStream` handles data as a sequence of raw 8-bit bytes, whereas `Reader` handles data as a sequence of 16-bit Unicode characters.
+  **Exactly!** An `InputStream` reads raw bytes, and a `Reader` reads characters.
+
+  Use streams for binary data, such as images, and readers for text. An `InputStreamReader` bridges the two, decoding bytes into characters with a character encoding.
 ```
 
 ## Scanner
@@ -225,73 +286,7 @@ When working with Java IO design patterns, adhering to established practices ens
 *   **Ignoring the Decorator Chain:** Don't forget that closing the outermost decorator (the "top" of the wrapper) will automatically close all underlying streams in the chain. You do not need to close each one individually.
 *   **Byte-by-Byte Processing:** Processing large files using `InputStream.read()` without a buffer leads to excessive system calls and poor performance.
 
-
 ## ☑ Exercise
-
-
-```masteryls
-{"id":"7f4a04df-a0bf-41a2-9992-a29a38532709","title":"Input vs. Output Streams","type":"multiple-choice"}
-In the Java IO framework, what is the fundamental functional difference between an `InputStream` and an `OutputStream`?
-
-- [x] An input stream is used to read data from a source into a program, whereas an output stream is used to write data from a program to a destination.
-  **Correct!** Directions are described from the program's point of view.
-
-  An input stream brings data *in*, from a file, network, or keyboard. An output stream sends data *out*, to a file, network, or console. You'll use both when your chess server reads requests and writes responses.
-
-- [ ] Input streams transfer data from the program to an external destination, while output streams fetch data from an external source into the program.
-  Good effort. You know that one stream moves data in and the other moves data out.
-
-  The directions are reversed here, though. Think about it from the *program's* point of view.
-
-  Reread the lesson's introduction to input and output streams.
-
-- [ ] Input streams are designed exclusively for handling character-based data, while output streams are used for handling raw byte-based data.
-  You're thinking about the difference between bytes and characters, which is important in Java IO.
-
-  That distinction separates streams from *readers and writers*, though, not input from output. Both input and output streams handle raw bytes.
-
-  Revisit the lesson's overview of the IO class families.
-
-- [ ] An input stream represents data that has already been processed by the CPU, while an output stream represents data waiting in the system's RAM.
-  Good effort. CPU and memory are part of every IO operation.
-
-  Streams aren't defined by where data sits in the computer, though. They're defined by the direction the data moves relative to your program.
-
-  Reread the lesson's definitions of input and output streams.
-```
-
-
-```masteryls
-{"id":"8b2838fa-5094-416a-a0c7-4dfab43557e3","title":"Streams vs. Readers","type":"multiple-choice"}
-In Java's `java.io` package, what is the fundamental difference between an `InputStream` and a `Reader`?
-
-- [ ] `InputStream` classes are used for reading data from a source, while `Reader` classes are used for writing data to a destination.
-  Good effort. Reading and writing is an important distinction in Java IO.
-
-  Both `InputStream` and `Reader` are for *reading*, though. Their writing counterparts are `OutputStream` and `Writer`.
-
-  Reread the lesson's overview of the IO class families.
-
-- [ ] `InputStream` is a concrete class used for unbuffered IO, while `Reader` is an interface used to implement buffered IO.
-  You're thinking about buffering, which matters a lot for performance.
-
-  Buffering is added by wrapping one stream or reader in another, though, such as `BufferedInputStream` or `BufferedReader`. Both `InputStream` and `Reader` are abstract classes, not interfaces.
-
-  Revisit the lesson's explanation of these base classes.
-
-- [ ] `InputStream` classes are designed specifically for memory-based buffers, while `Reader` classes are designed specifically for disk-based files.
-  Good effort. Different sources do require different classes.
-
-  Both families can read from memory, files, and networks, though. The source is chosen by the specific subclass, such as `FileInputStream` or `FileReader`.
-
-  Reread what the lesson says the two families read *as*.
-
-- [x] `InputStream` handles data as a sequence of raw 8-bit bytes, whereas `Reader` handles data as a sequence of 16-bit Unicode characters.
-  **Exactly!** An `InputStream` reads raw bytes, and a `Reader` reads characters.
-
-  Use streams for binary data, such as images, and readers for text. An `InputStreamReader` bridges the two, decoding bytes into characters with a character encoding.
-```
-
 
 ```masteryls
 {"id":"8d58b3aa-ce96-4f18-8f5f-59a22f5cf918","title":"Identifying IO Design Patterns","type":"multiple-choice"}
@@ -328,8 +323,6 @@ Which design pattern is primarily responsible for the ability to wrap a 'FileInp
 {"id":"8e89fd3f-4cff-4fa8-909f-4b84c02036de","title":"Reliability as Service","type":"essay"}
 As you learn to read and write data reliably, how does building software that people can trust reflect Christlike service toward those who depend on it?
 ```
-
-
 
 ## Videos
 

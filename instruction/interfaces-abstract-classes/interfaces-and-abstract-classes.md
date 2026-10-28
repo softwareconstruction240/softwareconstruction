@@ -75,6 +75,37 @@ public class ListExample {
 
 Note that because `addAndPrint()` only knows that `list` implements the `List` interface, it can only call methods declared in that interface. If `LinkedList` had an additional method not declared in the `List` interface, `addAndPrint()` could not call that method on the `list` parameter, even if a `LinkedList` object was passed in.
 
+```masteryls
+{"id":"225e7b39-9011-4973-8c40-704c9740b897","title":"Interface Characteristics","type":"multiple-choice"}
+Which statement accurately describes the primary characteristic of an interface in object-oriented programming?
+
+- [ ] It serves as a base class that can store and manage the internal state of its subclasses through private instance variables.
+  Good effort. Managing shared state for subclasses is a real design need.
+
+  That describes an **abstract class** or base class, though. Interfaces can't have instance fields that store state.
+
+  Compare the *Interfaces* and *Abstract Classes* sections of the lesson.
+
+- [ ] It allows for the direct instantiation of objects that provide a default set of behaviors for a specific system component.
+  You're thinking about default behavior, which interfaces can provide in modern Java through default methods.
+
+  Interfaces can't be instantiated directly, though. You always create an object of a class that implements the interface.
+
+  Reread the *Interfaces* section.
+
+- [x] It defines a contract of method signatures that implementing classes must provide, enabling polymorphism without requiring a shared class hierarchy.
+  **Correct!** An interface defines *what* a class can do, not *how* it does it.
+
+  Any class can implement an interface, regardless of what it extends, and code that uses the interface works with every implementation. That's how your chess code can treat different pieces through a common type.
+
+- [ ] It restricts a class to inheriting from only one source of behavior to ensure strict hierarchical organization.
+  Good effort. You're thinking about inheritance rules.
+
+  It's the other way around, though. A Java class can extend only one class, but it can implement *many* interfaces. Interfaces add flexibility rather than restricting it.
+
+  Revisit the *Interfaces* and *Extending Classes* sections.
+```
+
 ## Writing Your Own Interface
 
 In addition to using standard JDK interfaces, you can define your own interfaces and write classes that implement them. Creating an interface is similar to creating a class, but you use the `interface` keyword and typically only define the signatures of the methods.
@@ -207,6 +238,11 @@ public static void print(AlphabetIterator iter) {
         System.out.println(iter.nextWithPrefix("+ "));
     }
 }
+```
+
+```masteryls
+{"id":"968a7b21-92da-4bf4-99bb-28fdb740a30d", "title":"Teaching", "type":"teaching" }
+What is the difference between the extends and implements keywords in Java? When should I use which?
 ```
 
 ## instanceof
@@ -394,42 +430,6 @@ classDiagram
 Deciding which approach to take is a core part of software design.
 
 ## ☑ Exercise
-
-```masteryls
-{"id":"225e7b39-9011-4973-8c40-704c9740b897","title":"Interface Characteristics","type":"multiple-choice"}
-Which statement accurately describes the primary characteristic of an interface in object-oriented programming?
-
-- [ ] It serves as a base class that can store and manage the internal state of its subclasses through private instance variables.
-  Good effort. Managing shared state for subclasses is a real design need.
-
-  That describes an **abstract class** or base class, though. Interfaces can't have instance fields that store state.
-
-  Compare the *Interfaces* and *Abstract Classes* sections of the lesson.
-
-- [ ] It allows for the direct instantiation of objects that provide a default set of behaviors for a specific system component.
-  You're thinking about default behavior, which interfaces can provide in modern Java through default methods.
-
-  Interfaces can't be instantiated directly, though. You always create an object of a class that implements the interface.
-
-  Reread the *Interfaces* section.
-
-- [x] It defines a contract of method signatures that implementing classes must provide, enabling polymorphism without requiring a shared class hierarchy.
-  **Correct!** An interface defines *what* a class can do, not *how* it does it.
-
-  Any class can implement an interface, regardless of what it extends, and code that uses the interface works with every implementation. That's how your chess code can treat different pieces through a common type.
-
-- [ ] It restricts a class to inheriting from only one source of behavior to ensure strict hierarchical organization.
-  Good effort. You're thinking about inheritance rules.
-
-  It's the other way around, though. A Java class can extend only one class, but it can implement *many* interfaces. Interfaces add flexibility rather than restricting it.
-
-  Revisit the *Interfaces* and *Extending Classes* sections.
-```
-
-```masteryls
-{"id":"968a7b21-92da-4bf4-99bb-28fdb740a30d", "title":"Teaching", "type":"teaching" }
-What is the difference between the extends and implements keywords in Java? When should I use which?
-```
 
 ```masteryls
 {"id":"105e15d4-edac-4832-9fab-9cfa0234b89d","title":"Honoring Your Commitments","type":"essay"}

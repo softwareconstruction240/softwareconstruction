@@ -142,6 +142,37 @@ There are standard conventions that should be followed when choosing names. For 
 1. Constants are all uppercase
 1. CamelCase should be used for all names, except constants
 
+```masteryls
+{"id":"efe6a0a3-b72a-4126-8591-60d39f110906","title":"Code Readability and Intent","type":"multiple-choice"}
+When aiming to write high-quality, maintainable code, which approach to naming and documentation is considered a best practice?
+
+- [ ] Prioritizing short, single-letter variable names like `i`, `rs`, and `data` to minimize file size and speed up execution.
+  Good effort. Short names can be fine in a very small scope, like a loop counter.
+
+  Names don't affect execution speed or the size of the compiled program, though, and terse names make code much harder to read.
+
+  Reread the *Names* section of the lesson.
+
+- [ ] Writing a detailed comment for every line of code to explain the specific syntax being used.
+  You're right that explaining code matters.
+
+  Commenting every line usually adds noise, though, and comments drift out of date as the code changes. Good names and small functions often remove the need for comments.
+
+  Revisit the lesson's discussion of names and comments.
+
+- [x] Using descriptive names for variables and functions that clearly communicate their intent and purpose without requiring extra explanation.
+  **Exactly!** A good name tells the reader what something is for, so the code explains itself.
+
+  `validMoves` says far more than `vm` or `list`, and it stays accurate as long as the code does. Descriptive names also reduce the need for comments, which can drift out of date.
+
+- [ ] Nesting multiple logical operations within a single function to ensure all related tasks are handled in one location.
+  Good effort. Keeping related logic together is a reasonable instinct.
+
+  Packing many operations into one function makes it harder to read, test, and change, though. Quality code favors small, focused functions.
+
+  Reread the lesson's guidance on decomposition.
+```
+
 ## Parameters
 
 When declaring a method's parameters you want to make sure you consider their complexity. Having too many parameters, parameters that interact in complex ways, or parameters that are ambiguous in their meaning are a common source of bugs. Here are some suggestions to keeping your parameters clean.
@@ -342,6 +373,37 @@ for (var i : Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7)) {
 }
 ```
 
+```masteryls
+{"id":"d602989d-7d2a-4286-959f-1e864df2aff9","title":"Defining Refactoring","type":"multiple-choice"}
+In the context of writing quality code, what is the primary purpose of refactoring?
+
+- [ ] Fixing critical security vulnerabilities and logic bugs discovered during the production phase
+  Good effort. Fixing bugs and vulnerabilities is essential work.
+
+  That's *bug fixing*, though, which changes behavior on purpose. Refactoring keeps behavior exactly the same.
+
+  Reread the lesson's definition of refactoring.
+
+- [x] Improving the internal structure and readability of code without changing its external behavior
+  **Correct!** Refactoring improves the code's internal quality, such as names, structure, and duplication, while the external behavior stays the same.
+
+  That's why a good unit test suite is so valuable. If the tests pass before and after a refactoring, you know the behavior didn't change.
+
+- [ ] Adding new functionality and features to an existing module to meet changing requirements
+  You're thinking about evolving code, which is an everyday part of development.
+
+  Adding features changes what the code *does*, though. Refactoring improves the code without changing its behavior.
+
+  Revisit the *Refactoring* section.
+
+- [ ] Rewriting a legacy system from scratch using a more modern programming language or framework
+  Good effort. Rewrites do happen, especially with legacy systems.
+
+  A full rewrite is a much larger, riskier change, though. Refactoring is a series of small, safe improvements to existing code.
+
+  Reread the lesson's description of common refactoring techniques.
+```
+
 ## Model Before Coding
 
 Thinking through what you are trying to code before you start coding often leads to better quality code. You can do this by creating class or sequence diagrams and then verbally stepping through the common use cases.
@@ -386,74 +448,10 @@ client make move
 
 ## ☑ Exercise
 
-
-```masteryls
-{"id":"efe6a0a3-b72a-4126-8591-60d39f110906","title":"Code Readability and Intent","type":"multiple-choice"}
-When aiming to write high-quality, maintainable code, which approach to naming and documentation is considered a best practice?
-
-- [ ] Prioritizing short, single-letter variable names like `i`, `rs`, and `data` to minimize file size and speed up execution.
-  Good effort. Short names can be fine in a very small scope, like a loop counter.
-
-  Names don't affect execution speed or the size of the compiled program, though, and terse names make code much harder to read.
-
-  Reread the *Names* section of the lesson.
-
-- [ ] Writing a detailed comment for every line of code to explain the specific syntax being used.
-  You're right that explaining code matters.
-
-  Commenting every line usually adds noise, though, and comments drift out of date as the code changes. Good names and small functions often remove the need for comments.
-
-  Revisit the lesson's discussion of names and comments.
-
-- [x] Using descriptive names for variables and functions that clearly communicate their intent and purpose without requiring extra explanation.
-  **Exactly!** A good name tells the reader what something is for, so the code explains itself.
-
-  `validMoves` says far more than `vm` or `list`, and it stays accurate as long as the code does. Descriptive names also reduce the need for comments, which can drift out of date.
-
-- [ ] Nesting multiple logical operations within a single function to ensure all related tasks are handled in one location.
-  Good effort. Keeping related logic together is a reasonable instinct.
-
-  Packing many operations into one function makes it harder to read, test, and change, though. Quality code favors small, focused functions.
-
-  Reread the lesson's guidance on decomposition.
-```
-
-```masteryls
-{"id":"d602989d-7d2a-4286-959f-1e864df2aff9","title":"Defining Refactoring","type":"multiple-choice"}
-In the context of writing quality code, what is the primary purpose of refactoring?
-
-- [ ] Fixing critical security vulnerabilities and logic bugs discovered during the production phase
-  Good effort. Fixing bugs and vulnerabilities is essential work.
-
-  That's *bug fixing*, though, which changes behavior on purpose. Refactoring keeps behavior exactly the same.
-
-  Reread the lesson's definition of refactoring.
-
-- [x] Improving the internal structure and readability of code without changing its external behavior
-  **Correct!** Refactoring improves the code's internal quality, such as names, structure, and duplication, while the external behavior stays the same.
-
-  That's why a good unit test suite is so valuable. If the tests pass before and after a refactoring, you know the behavior didn't change.
-
-- [ ] Adding new functionality and features to an existing module to meet changing requirements
-  You're thinking about evolving code, which is an everyday part of development.
-
-  Adding features changes what the code *does*, though. Refactoring improves the code without changing its behavior.
-
-  Revisit the *Refactoring* section.
-
-- [ ] Rewriting a legacy system from scratch using a more modern programming language or framework
-  Good effort. Rewrites do happen, especially with legacy systems.
-
-  A full rewrite is a much larger, riskier change, though. Refactoring is a series of small, safe improvements to existing code.
-
-  Reread the lesson's description of common refactoring techniques.
-```
-
 ```masteryls
 {"id":"06f01b46-4117-41d5-a6e7-b1fc1615ed9d","title":"Serving through Code Quality","type":"essay"}
 In the context of software development as a vocation, how does prioritizing code quality serve as an act of service to God and your neighbor?
 ```
-
 
 ## Videos
 

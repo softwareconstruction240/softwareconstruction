@@ -40,13 +40,18 @@ The pattern of concurrently executing tasks is a foundational principle in compu
 
 ## Parallel vs. Concurrent vs. Sequential
 
-When you have multiple tasks and a single CPU, the operating system will swap which task is executing so that each task gets a chance to run. This is known as **context switching**, and it allows tasks to run concurrently. If you have multiple CPUs (or multiple cores), the operating system can actually run the tasks at the **same time**, or in **parallel**.
+When you have multiple tasks and a single CPU, the operating system will swap which task is executing so that each task gets a chance to run. This is known as **context switching**, and it allows tasks to run **concurrently**. If you have multiple CPUs (or multiple cores), the operating system can actually run the tasks at the **same time**, or in **parallel**.
 
 If each task must run to completion before another task can start, you are running **sequentially**. When running sequentially, you do not need to worry about data corruption, starvation, or deadlock because no other process can interrupt or interfere with the execution of a task.
 
 The following diagram shows two tasks, one yellow and one blue, that need to execute. Depending on how you write your code and the device it runs on, it may run under any of the following models:
 
 ![Models](models.png)
+
+```masteryls
+{"id":"4226f08f-09a1-49a3-a5cc-cd30f4760fbd", "title":"Concurrency", "type":"essay", "gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit." }
+What is the difference between parallel and concurrent execution?
+```
 
 ## Concurrency at the System Level
 
@@ -297,6 +302,11 @@ public class PizzaSyncExample {
 
 If an entire method is a critical section, you can use the `synchronized` keyword in the method signature, which synchronizes on `this` (the current instance).
 
+```masteryls
+{"id":"33d58c6f-e8af-4c3b-990f-7f7b05f860a6", "title":"Critical Sections", "type":"essay", "gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit." }
+What is a critical section and what are some Java constructs that you can use to protect it?
+```
+
 ## Multithreaded HTTP Requests
 
 Every HTTP server is a multithreaded application. Multiple browsers may connect concurrently, and the server creates a thread for each request.
@@ -357,6 +367,37 @@ Useful atomic and thread-safe classes include:
 | `ConcurrentHashMap`    | A high-performance thread-safe map.                                              |
 | `CopyOnWriteArrayList` | A thread-safe list optimized for scenarios where reads greatly outnumber writes. |
 
+```masteryls
+{"id":"d7ae2be0-5609-4b7c-8563-346ab36b286f","title":"Purpose of Atomic Objects","type":"multiple-choice"}
+In Java's `java.util.concurrent.atomic` package, what is the primary advantage of using classes such as `AtomicInteger` or `AtomicReference` instead of standard primitive types with `synchronized` blocks?
+
+- [ ] They prevent other threads from reading a value while an update is in progress by applying a pessimistic lock on the underlying memory address.
+  You're right that thread safety is the goal. Preventing inconsistent reads is important.
+
+  Pessimistic locking is how `synchronized` works, though. Atomic classes avoid locks entirely.
+
+  Reread the *Atomic Concurrency* section and notice how these classes update a value without explicit synchronization.
+
+- [x] They provide a way to perform thread-safe, non-blocking operations on single variables using low-level hardware primitives like Compare-And-Swap (CAS).
+  **Correct!** Atomic classes use hardware instructions such as compare-and-swap (CAS) instead of locks.
+
+  A thread reads the value, computes the new one, and swaps it in only if no other thread changed it in the meantime. If something did change, it simply tries again. Threads never wait on a lock, so a single shared counter, like the one in the lesson's server example, stays both correct and fast.
+
+- [ ] They ensure that variables are stored exclusively in the CPU cache to improve the performance of single-threaded applications.
+  Good effort. Performance is part of the appeal of atomic classes.
+
+  Their purpose is safe *multithreaded* access, though, not single-threaded speed. They also don't control which cache the value is stored in.
+
+  Revisit why `sum += value` fails with multiple threads, and how `AtomicInteger` fixes it.
+
+- [ ] They automatically detect and resolve deadlocks that occur when multiple threads attempt to update the same object simultaneously.
+  You're right to think about deadlocks. They're one of the hardest concurrency problems.
+
+  Atomic classes don't detect or resolve deadlocks, though. They help *avoid* certain lock-related problems because they don't use locks for single-variable updates.
+
+  Reread the *Deadlock* and *Atomic Concurrency* sections, and think about why code with no locks can't deadlock on that variable.
+```
+
 ## Database Transactions
 
 Databases also face concurrency issues. If you read a value, modify it in Java, and write it back, another thread might have changed the database in the meantime.
@@ -394,49 +435,6 @@ Potential issues:
 2. **Serialized State**: If you store the entire game as a serialized object in the database, you cannot rely on the database for fine-grained locking. You must synchronize access in your Java code to prevent one move from overwriting another.
 
 Always identify your shared data and protect the critical sections where that data is read and modified.
-
-## ☑ Exercise
-
-```masteryls
-{"id":"4226f08f-09a1-49a3-a5cc-cd30f4760fbd", "title":"Concurrency", "type":"essay", "gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit." }
-What is the difference between parallel and concurrent execution?
-```
-
-```masteryls
-{"id":"33d58c6f-e8af-4c3b-990f-7f7b05f860a6", "title":"Critical Sections", "type":"essay", "gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit." }
-What is a critical section and what are some Java constructs that you can use to protect it?
-```
-
-```masteryls
-{"id":"d7ae2be0-5609-4b7c-8563-346ab36b286f","title":"Purpose of Atomic Objects","type":"multiple-choice"}
-In Java's `java.util.concurrent.atomic` package, what is the primary advantage of using classes such as `AtomicInteger` or `AtomicReference` instead of standard primitive types with `synchronized` blocks?
-
-- [ ] They prevent other threads from reading a value while an update is in progress by applying a pessimistic lock on the underlying memory address.
-  You're right that thread safety is the goal. Preventing inconsistent reads is important.
-
-  Pessimistic locking is how `synchronized` works, though. Atomic classes avoid locks entirely.
-
-  Reread the *Atomic Concurrency* section and notice how these classes update a value without explicit synchronization.
-
-- [x] They provide a way to perform thread-safe, non-blocking operations on single variables using low-level hardware primitives like Compare-And-Swap (CAS).
-  **Correct!** Atomic classes use hardware instructions such as compare-and-swap (CAS) instead of locks.
-
-  A thread reads the value, computes the new one, and swaps it in only if no other thread changed it in the meantime. If something did change, it simply tries again. Threads never wait on a lock, so a single shared counter, like the one in the lesson's server example, stays both correct and fast.
-
-- [ ] They ensure that variables are stored exclusively in the CPU cache to improve the performance of single-threaded applications.
-  Good effort. Performance is part of the appeal of atomic classes.
-
-  Their purpose is safe *multithreaded* access, though, not single-threaded speed. They also don't control which cache the value is stored in.
-
-  Revisit why `sum += value` fails with multiple threads, and how `AtomicInteger` fixes it.
-
-- [ ] They automatically detect and resolve deadlocks that occur when multiple threads attempt to update the same object simultaneously.
-  You're right to think about deadlocks. They're one of the hardest concurrency problems.
-
-  Atomic classes don't detect or resolve deadlocks, though. They help *avoid* certain lock-related problems because they don't use locks for single-variable updates.
-
-  Reread the *Deadlock* and *Atomic Concurrency* sections, and think about why code with no locks can't deadlock on that variable.
-```
 
 ## Videos
 

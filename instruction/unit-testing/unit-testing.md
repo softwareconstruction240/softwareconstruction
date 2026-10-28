@@ -27,6 +27,37 @@ TDD has been proven to decrease development time, provide documentation and exam
 
 Today, TDD is a common industry practice that you will be expected to use on a daily basis. However, it takes effort to learn how to write tests that are effective and efficient. Making this a standard part of your development process will give you a significant advantage as you progress in your professional career.
 
+```masteryls
+{"id":"e23f3eaf-fadc-4285-8273-35b9852057b7","title":"Benefits of Test-Driven Development","type":"multiple-choice"}
+What is a primary architectural benefit of practicing Test-Driven Development (TDD)?
+
+- [ ] It guarantees that the software will be 100% free of logic errors and security vulnerabilities before the first deployment.
+  Good effort. TDD does reduce bugs.
+
+  No practice can *guarantee* bug-free software, though. Tests only check the cases you thought to write.
+
+  Reread the lesson's description of the benefits of TDD.
+
+- [ ] It speeds up the initial coding phase of a project by removing the need for detailed design specifications or documentation.
+  You're right that TDD affects how you start coding.
+
+  It doesn't replace design, though. Writing tests first is itself a design activity that forces you to decide how your code will be used.
+
+  Revisit the TDD section of the lesson.
+
+- [x] It promotes the creation of modular, loosely coupled code because components must be designed to be testable in isolation.
+  **Exactly right!** To write a test before the code exists, you have to decide how the code will be called and what it depends on.
+
+  Code that's hard to test in isolation is usually tightly coupled, so TDD pushes you toward small, independent units with clear interfaces.
+
+- [ ] It replaces the need for manual User Acceptance Testing (UAT) by ensuring that all business requirements are captured in code.
+  Good effort. Capturing requirements in tests is valuable.
+
+  Automated tests check what developers *thought* the requirements were, though. Users still need to confirm that the software actually meets their needs.
+
+  Reread the lesson's description of what TDD provides.
+```
+
 ## Creating Unit Tests
 
 The process of test driven development follows a specific process that includes the following steps.
@@ -185,37 +216,6 @@ With IntelliJ, you can autogenerate your unit tests. To use this tool open up an
 ![generate tests](generate-tests.png)
 
 ## ☑ Exercise
-
-```masteryls
-{"id":"e23f3eaf-fadc-4285-8273-35b9852057b7","title":"Benefits of Test-Driven Development","type":"multiple-choice"}
-What is a primary architectural benefit of practicing Test-Driven Development (TDD)?
-
-- [ ] It guarantees that the software will be 100% free of logic errors and security vulnerabilities before the first deployment.
-  Good effort. TDD does reduce bugs.
-
-  No practice can *guarantee* bug-free software, though. Tests only check the cases you thought to write.
-
-  Reread the lesson's description of the benefits of TDD.
-
-- [ ] It speeds up the initial coding phase of a project by removing the need for detailed design specifications or documentation.
-  You're right that TDD affects how you start coding.
-
-  It doesn't replace design, though. Writing tests first is itself a design activity that forces you to decide how your code will be used.
-
-  Revisit the TDD section of the lesson.
-
-- [x] It promotes the creation of modular, loosely coupled code because components must be designed to be testable in isolation.
-  **Exactly right!** To write a test before the code exists, you have to decide how the code will be called and what it depends on.
-
-  Code that's hard to test in isolation is usually tightly coupled, so TDD pushes you toward small, independent units with clear interfaces.
-
-- [ ] It replaces the need for manual User Acceptance Testing (UAT) by ensuring that all business requirements are captured in code.
-  Good effort. Capturing requirements in tests is valuable.
-
-  Automated tests check what developers *thought* the requirements were, though. Users still need to confirm that the software actually meets their needs.
-
-  Reread the lesson's description of what TDD provides.
-```
 
 ```masteryls
 {"id":"da9ad5d7-2473-4385-a73c-1f5d9167e751","title":"Building Trust through Testing","type":"essay"}

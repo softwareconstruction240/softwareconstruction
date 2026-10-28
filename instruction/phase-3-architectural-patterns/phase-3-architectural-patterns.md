@@ -1,7 +1,6 @@
 
 # Phase 3: Architectural Patterns
 
-
 ## Layered Architecture in Javalin Chess Backends
 
 When building a Java-based chess backend with Javalin, the most effective way to ensure maintainability and scalability is through a **Layered Architecture** (often called N-Tier). This pattern organizes the application into distinct layers, each with a specific responsibility. In a chess application, where complex move validation meets persistent game states, failing to separate these concerns leads to "Spaghetti Code" that is difficult to test and debug.
@@ -31,6 +30,37 @@ To keep this architecture clean, we rely on several key software design principl
 *   **Separation of Concerns (SoC):** The Server shouldn't know how to check for "Checkmate," and the DAO shouldn't know anything about HTTP status codes.
 *   **Single Responsibility Principle (SRP):** Each class should have one, and only one, reason to change. If you change your database from MySQL to MongoDB, only the DAO layer should be affected.
 *   **Dependency Injection (DI):** Instead of a Server creating its own Service instance (e.g., `new ChessService()`), the Service should be "injected" via a constructor. This makes unit testing significantly easier by allowing the use of "Mocks."
+
+```masteryls
+{"id":"b6c16aa7-1d68-4f2d-b159-d3da5e8e838a","title":"Identifying Layer Responsibilities","type":"multiple-choice"}
+In a properly architected Javalin chess application, which layer is responsible for determining if a move results in a "Checkmate" state?
+
+- [ ] The Server (Web Layer), because it needs to send the result back to the user.
+  Good effort. The server does send the result to the user.
+
+  Sending a result and *deciding* it are separate responsibilities, though. The web layer should only translate between HTTP and your services.
+
+  Reread the lesson's description of each layer's responsibilities.
+
+- [ ] The Data Access Object (DAO), because the state must be saved to the database.
+  You're right that the game state must be saved.
+
+  The DAO's job is storage and retrieval, though, not deciding what the state *means*. Putting game rules in a DAO mixes concerns.
+
+  Revisit the lesson's description of the data access layer.
+
+- [x] The Service Layer, because this is business logic specific to the rules of chess.
+  **Exactly right!** Checkmate is a rule of chess, which makes it business logic, and business logic belongs in the service layer.
+
+  Keeping it there means you can test it without HTTP or a database. You could also replace the web or storage layer without touching the chess rules.
+
+- [ ] The Javalin Routing Layer, because it manages the flow of the application.
+  Good effort. Routing does manage how requests flow through the application.
+
+  Routing should only decide *which* handler runs, though, not evaluate the rules of chess.
+
+  Reread the lesson's breakdown of layer responsibilities.
+```
 
 ### Good vs. Bad Practices
 
@@ -87,37 +117,6 @@ public class ChessServer {
 | **Hardcoding Dependencies** | Using `new` to instantiate dependencies inside a constructor. | Use Constructor Injection to pass dependencies from the main application entry point. |
 
 ## ☑ Exercise
-
-```masteryls
-{"id":"b6c16aa7-1d68-4f2d-b159-d3da5e8e838a","title":"Identifying Layer Responsibilities","type":"multiple-choice"}
-In a properly architected Javalin chess application, which layer is responsible for determining if a move results in a "Checkmate" state?
-
-- [ ] The Server (Web Layer), because it needs to send the result back to the user.
-  Good effort. The server does send the result to the user.
-
-  Sending a result and *deciding* it are separate responsibilities, though. The web layer should only translate between HTTP and your services.
-
-  Reread the lesson's description of each layer's responsibilities.
-
-- [ ] The Data Access Object (DAO), because the state must be saved to the database.
-  You're right that the game state must be saved.
-
-  The DAO's job is storage and retrieval, though, not deciding what the state *means*. Putting game rules in a DAO mixes concerns.
-
-  Revisit the lesson's description of the data access layer.
-
-- [x] The Service Layer, because this is business logic specific to the rules of chess.
-  **Exactly right!** Checkmate is a rule of chess, which makes it business logic, and business logic belongs in the service layer.
-
-  Keeping it there means you can test it without HTTP or a database. You could also replace the web or storage layer without touching the chess rules.
-
-- [ ] The Javalin Routing Layer, because it manages the flow of the application.
-  Good effort. Routing does manage how requests flow through the application.
-
-  Routing should only decide *which* handler runs, though, not evaluate the rules of chess.
-
-  Reread the lesson's breakdown of layer responsibilities.
-```
 
 ```masteryls
 {"id":"5fbe2449-c027-496e-8996-6b927f882e57","title":"Order and Good Design","type":"essay"}

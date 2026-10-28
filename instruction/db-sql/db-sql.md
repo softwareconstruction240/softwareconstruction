@@ -216,6 +216,50 @@ SELECT * FROM pet;
 SELECT COUNT(*) FROM pet WHERE type = 'dog';
 ```
 
+````masteryls
+{"id":"b99232fb-8952-4891-820d-3d43c212c380","title":"Interpreting a Basic SELECT Statement","type":"multiple-choice"}
+Consider the following MySQL query:
+
+```sql
+SELECT title, author
+FROM books
+WHERE pages > 300
+ORDER BY title DESC;
+```
+
+What will be the result of executing this query?
+
+- [ ] It returns every column for books that have 300 or more pages, sorted alphabetically by title from A to Z.
+  Good effort. You noticed the `WHERE` and `ORDER BY` clauses.
+
+  Look closely at the details, though. `SELECT title, author` returns only two columns, not every column. `> 300` excludes books with exactly 300 pages, and `DESC` reverses the sort order.
+
+  Reread the lesson's explanations of `SELECT`, `WHERE`, and `ORDER BY`.
+
+- [ ] It returns only the `title` and `author` for every book in the table, regardless of page count, sorted by title.
+  You correctly identified the two columns being selected.
+
+  The `WHERE pages > 300` clause filters the rows, though, so not every book is returned.
+
+  Revisit how the `WHERE` clause limits which rows a query returns.
+
+- [x] It returns the `title` and `author` of books with more than 300 pages, sorted by the title in reverse alphabetical order.
+  **Correct!** Each clause plays its part:
+
+  - `SELECT title, author` picks the columns.
+  - `WHERE pages > 300` keeps only longer books.
+  - `ORDER BY title DESC` sorts the titles from Z to A.
+
+  Reading a query clause by clause like this makes even complex SQL easier to understand.
+
+- [ ] It updates the `books` table to set the page count to 300 for any book where the title starts with the letter D.
+  Good effort. You're thinking about how SQL changes data.
+
+  `SELECT` only *reads* data, though; it never modifies it. Changing rows requires an `UPDATE` statement. Also, `DESC` controls sort order; it has nothing to do with the letter D.
+
+  Reread the lesson's descriptions of `SELECT` and `UPDATE`.
+````
+
 ## Joining Tables
 
 In relational databases, data is often normalized—split into multiple tables—to reduce redundancy. To combine data from related tables, use a `JOIN` clause. This links rows based on a common column, typically a foreign key.
@@ -315,50 +359,6 @@ mysqlsh -u username -p --sql < initialize.sql
 | **CREATE VIEW** | Creates a virtual table from a query. | `CREATE VIEW dogs AS SELECT * FROM pet WHERE type='dog';` |
 
 ## ☑ Exercise
-
-````masteryls
-{"id":"b99232fb-8952-4891-820d-3d43c212c380","title":"Interpreting a Basic SELECT Statement","type":"multiple-choice"}
-Consider the following MySQL query:
-
-```sql
-SELECT title, author
-FROM books
-WHERE pages > 300
-ORDER BY title DESC;
-```
-
-What will be the result of executing this query?
-
-- [ ] It returns every column for books that have 300 or more pages, sorted alphabetically by title from A to Z.
-  Good effort. You noticed the `WHERE` and `ORDER BY` clauses.
-
-  Look closely at the details, though. `SELECT title, author` returns only two columns, not every column. `> 300` excludes books with exactly 300 pages, and `DESC` reverses the sort order.
-
-  Reread the lesson's explanations of `SELECT`, `WHERE`, and `ORDER BY`.
-
-- [ ] It returns only the `title` and `author` for every book in the table, regardless of page count, sorted by title.
-  You correctly identified the two columns being selected.
-
-  The `WHERE pages > 300` clause filters the rows, though, so not every book is returned.
-
-  Revisit how the `WHERE` clause limits which rows a query returns.
-
-- [x] It returns the `title` and `author` of books with more than 300 pages, sorted by the title in reverse alphabetical order.
-  **Correct!** Each clause plays its part:
-
-  - `SELECT title, author` picks the columns.
-  - `WHERE pages > 300` keeps only longer books.
-  - `ORDER BY title DESC` sorts the titles from Z to A.
-
-  Reading a query clause by clause like this makes even complex SQL easier to understand.
-
-- [ ] It updates the `books` table to set the page count to 300 for any book where the title starts with the letter D.
-  Good effort. You're thinking about how SQL changes data.
-
-  `SELECT` only *reads* data, though; it never modifies it. Changing rows requires an `UPDATE` statement. Also, `DESC` controls sort order; it has nothing to do with the letter D.
-
-  Reread the lesson's descriptions of `SELECT` and `UPDATE`.
-````
 
 ```masteryls
 {"id":"6752ac49-2730-4b99-bb34-51e62dcf5bc3","title":"Precision and Care","type":"essay"}

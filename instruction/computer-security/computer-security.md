@@ -373,6 +373,37 @@ You can also generate an RSA key pair using the terminal:
 ssh-keygen -t rsa -b 4096
 ```
 
+```masteryls
+{"id":"72e7da2d-4755-40ef-bcc6-cd3c0ebee3c0","title":"Advantages of Symmetric Encryption","type":"multiple-choice"}
+When comparing symmetric and asymmetric cryptographic systems, which of the following represents a significant advantage of symmetric encryption?
+
+- [ ] It provides a native solution for the key distribution problem when communicating with unknown parties over the internet.
+  You're thinking about the key distribution problem, which is one of the most important ideas in this lesson.
+
+  Symmetric encryption is actually the one that *has* that problem, though. Both parties need the same secret key, and getting it to them securely is hard.
+
+  Reread the *Secure Key Exchange* section and notice which type of encryption is used to solve this problem.
+
+- [ ] It inherently supports digital signatures, providing non-repudiation for all transmitted messages.
+  Good effort. Digital signatures and non-repudiation are important security properties.
+
+  Signatures depend on a key **pair**, though: a private key that only the signer has and a public key anyone can use to verify. With a single shared key, either party could have produced the message.
+
+  Revisit the *Digital Signatures* section and notice which keys Sally and Juan use.
+
+- [x] It offers significantly higher processing speeds and lower computational overhead, making it ideal for bulk data encryption.
+  **Correct!** Symmetric algorithms like AES are very fast and efficient.
+
+  That's why real systems use a hybrid approach. Asymmetric encryption securely exchanges a symmetric key, and then the symmetric key encrypts the bulk of the data. You can see this pattern in the HTTPS handshake at the end of the lesson.
+
+- [ ] It simplifies key management in large networks by requiring only one pair of keys for every user.
+  You're thinking about key management at scale, which is a real challenge.
+
+  A "pair of keys for every user" describes **asymmetric** encryption, though. With symmetric encryption, every pair of parties needs its own shared secret, which gets harder to manage as a network grows.
+
+  Compare the *Symmetric Key Encryption* and *Asymmetric Key Encryption* sections.
+```
+
 ### Disadvantages of Asymmetric Key Encryption
 
 Asymmetric encryption is critical for modern security, but it has two main drawbacks:
@@ -406,56 +437,6 @@ Digital signatures provide **non-repudiation** and **data integrity**. They prov
 
 ![Digital Signatures](digitalCert.png)
 
-## Web Certificates and HTTPS
-
-HTTPS (Hypertext Transfer Protocol Secure) combines these concepts to secure the web.
-
-Browsers trust **Certificate Authorities (CAs)**. A website owner proves their identity to a CA, which then issues a **web certificate**. This certificate contains the website's identity, its public key, and a digital signature from the CA.
-
-1. A browser connects to a website.
-2. The website sends its certificate.
-3. The browser verifies the CA's signature to ensure the certificate is valid.
-4. The browser generates a random symmetric key, encrypts it with the website's public key, and sends it to the website.
-5. The website decrypts the key using its private key.
-6. All further communication is encrypted using that symmetric key.
-
-![web certs](webCert.png)
-
-If the website cannot decrypt the symmetric key, it proves they do not own the private key associated with the certificate, and the browser terminates the connection.
-
-## ☑ Exercise
-
-```masteryls
-{"id":"72e7da2d-4755-40ef-bcc6-cd3c0ebee3c0","title":"Advantages of Symmetric Encryption","type":"multiple-choice"}
-When comparing symmetric and asymmetric cryptographic systems, which of the following represents a significant advantage of symmetric encryption?
-
-- [ ] It provides a native solution for the key distribution problem when communicating with unknown parties over the internet.
-  You're thinking about the key distribution problem, which is one of the most important ideas in this lesson.
-
-  Symmetric encryption is actually the one that *has* that problem, though. Both parties need the same secret key, and getting it to them securely is hard.
-
-  Reread the *Secure Key Exchange* section and notice which type of encryption is used to solve this problem.
-
-- [ ] It inherently supports digital signatures, providing non-repudiation for all transmitted messages.
-  Good effort. Digital signatures and non-repudiation are important security properties.
-
-  Signatures depend on a key **pair**, though: a private key that only the signer has and a public key anyone can use to verify. With a single shared key, either party could have produced the message.
-
-  Revisit the *Digital Signatures* section and notice which keys Sally and Juan use.
-
-- [x] It offers significantly higher processing speeds and lower computational overhead, making it ideal for bulk data encryption.
-  **Correct!** Symmetric algorithms like AES are very fast and efficient.
-
-  That's why real systems use a hybrid approach. Asymmetric encryption securely exchanges a symmetric key, and then the symmetric key encrypts the bulk of the data. You can see this pattern in the HTTPS handshake at the end of the lesson.
-
-- [ ] It simplifies key management in large networks by requiring only one pair of keys for every user.
-  You're thinking about key management at scale, which is a real challenge.
-
-  A "pair of keys for every user" describes **asymmetric** encryption, though. With symmetric encryption, every pair of parties needs its own shared secret, which gets harder to manage as a network grows.
-
-  Compare the *Symmetric Key Encryption* and *Asymmetric Key Encryption* sections.
-```
-
 ```masteryls
 {"id":"c1c21706-2c8e-406e-a54d-62695cab0c42","title":"Role of Hashing in Digital Signatures","type":"multiple-choice"}
 In the process of creating a digital signature, what is the primary purpose of applying a cryptographic hash function to the original message before it is encrypted with a private key?
@@ -486,6 +467,23 @@ In the process of creating a digital signature, what is the primary purpose of a
 
   Reread the *Cryptographic Hash Functions* section and the properties it lists.
 ```
+
+## Web Certificates and HTTPS
+
+HTTPS (Hypertext Transfer Protocol Secure) combines these concepts to secure the web.
+
+Browsers trust **Certificate Authorities (CAs)**. A website owner proves their identity to a CA, which then issues a **web certificate**. This certificate contains the website's identity, its public key, and a digital signature from the CA.
+
+1. A browser connects to a website.
+2. The website sends its certificate.
+3. The browser verifies the CA's signature to ensure the certificate is valid.
+4. The browser generates a random symmetric key, encrypts it with the website's public key, and sends it to the website.
+5. The website decrypts the key using its private key.
+6. All further communication is encrypted using that symmetric key.
+
+![web certs](webCert.png)
+
+If the website cannot decrypt the symmetric key, it proves they do not own the private key associated with the certificate, and the browser terminates the connection.
 
 ```masteryls
 {"id":"848391d2-e265-4d53-ad15-a55fc760547c", "title":"Web Certificates", "type":"essay", "gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit." }
