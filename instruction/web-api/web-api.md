@@ -11,8 +11,7 @@
 - Writing the main Server class
 - Writing HTTP handlers for GET and POST requests
 - Implementing the Test Web Page using a FileHandler
-- Writing a web client
-- Server and client code examples
+- Server architectural principles
 
 ---
 
