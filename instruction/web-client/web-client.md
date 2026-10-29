@@ -1,6 +1,8 @@
 
 # Web Client
 
+🖥️ [Slides: Client](https://docs.google.com/presentation/d/11UOJixn1VLDDcmioRWEpIfPXvBXFT8cR/edit?usp=sharing&ouid=110961336761942794636&rtpof=true&sd=true)
+
 
 ## Web Client
 
