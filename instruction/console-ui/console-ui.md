@@ -237,7 +237,7 @@ public class InteractiveCalculatorExample {
                     result += Integer.parseInt(number);
                 }
                 var equation = String.join(" + ", numbers);
-                System.out.printf("%s = %d%n", equation, result);
+                System.out.printf("[31m%d[0m%n", equation, result);
             } catch (NumberFormatException e) {
                 System.err.println("Error: Please provide only integers.");
             }
