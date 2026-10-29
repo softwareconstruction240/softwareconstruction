@@ -714,6 +714,23 @@
           ]
         },
         {
+          "title": "Phase 5: Chess Pregame",
+          "type": "project",
+          "points": 100,
+          "path": "chess/5-pregame/pregame.md",
+          "id": "a9c3b3e6-bfe7-4247-a034-a08adbf35334",
+          "state": "published",
+          "interactions": [
+            "e21028f3-f5e5-413c-be2f-ee53b77d3f6b",
+            "939db0e5-dded-44d3-90a6-cd8e8ca21490",
+            "f9237c61-b9e6-49f4-bb60-d27952c2d113",
+            "4e1a8585-e1a7-4bcc-9d73-d8f46fccf4a8",
+            "368fa787-fc08-4b5d-b1ea-3f707fe87f40",
+            "19f7601e-39e4-4014-9888-14861455ba58"
+          ],
+          "description": ""
+        },
+        {
           "title": "Debugging",
           "path": "instruction/debugging/debugging.md",
           "id": "5f56719a-a964-4d91-afb2-80537d39bff0",
@@ -742,23 +759,6 @@
             "068fd0bf-baa3-4d1f-b12e-859d794716e2",
             "fb9280b0-a467-4a9c-be3a-90b4ff2aa50b"
           ]
-        },
-        {
-          "title": "Phase 5: Chess Pregame",
-          "type": "project",
-          "points": 100,
-          "path": "chess/5-pregame/pregame.md",
-          "id": "a9c3b3e6-bfe7-4247-a034-a08adbf35334",
-          "state": "published",
-          "interactions": [
-            "e21028f3-f5e5-413c-be2f-ee53b77d3f6b",
-            "939db0e5-dded-44d3-90a6-cd8e8ca21490",
-            "f9237c61-b9e6-49f4-bb60-d27952c2d113",
-            "4e1a8585-e1a7-4bcc-9d73-d8f46fccf4a8",
-            "368fa787-fc08-4b5d-b1ea-3f707fe87f40",
-            "19f7601e-39e4-4014-9888-14861455ba58"
-          ],
-          "description": ""
         },
         {
           "title": "WebSocket",
