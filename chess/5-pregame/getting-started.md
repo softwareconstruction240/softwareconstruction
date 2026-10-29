@@ -11,7 +11,7 @@ The starter code contains two folders: `client` and `ui`. Complete the following
 
 
 ````masteryls
-{"id":"e286f471-ddec-45b2-9f02-7d50634fa061","title":"Phase 5: Getting started","type":"multiple-select"}
+{"id":"e286f471-ddec-45b2-9f02-7d50634fa061","title":"Phase 5: Getting started","type":"multiple-choice"}
 Once finished, your project structure should include the following additions:
 
 ```text
@@ -28,5 +28,15 @@ Once finished, your project structure should include the following additions:
 ```
 
 - [x] I completed the getting started steps and my project settings and structure look correct.
+
+    Great job getting your environment set up! You correctly confirmed that your project structure now includes the necessary components for Phase 5.
+
+    Ensuring that `EscapeSequences.java` is in your main UI package and `ServerFacadeTests.java` is properly placed in the test directory is a vital first step. This organization is key for maintaining clean code and allows you to begin building out the client-side logic and testing your server interactions with confidence.
+
+    Make sure you commit your changes so that you have a solid foundation to build on.
+
+- [ ] My structure doesn't look like that. I need to go back and review the instruction.
+
+    I'm glad you noticed the problem now rather than when you start your implementation. It is always good to build on a solid foundation. 
 ````
 
