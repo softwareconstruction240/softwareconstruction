@@ -4,9 +4,21 @@
 🖥️ [Slides: Client](https://docs.google.com/presentation/d/11UOJixn1VLDDcmioRWEpIfPXvBXFT8cR/edit?usp=sharing&ouid=110961336761942794636&rtpof=true&sd=true)
 
 
-## Web Client
+### 🔑 Key points
 
-For our client code we can use the `HttpClient` class from the standard JDK `java.net` library to make HTTP requests.
+- Writing the main Server class
+- Writing HTTP handlers for GET and POST requests
+- Implementing the Test Web Page using a FileHandler
+- Writing a web client
+- Server and client code examples
+
+---
+
+
+A web client is a software application or component that requests resources and services from a server over a network, typically using the Hypertext Transfer Protocol (HTTP). In the foundational client-server architecture, the web client acts as the requester, initiating communication by sending structured requests for specific data or files. While the most common example of a web client is a web browser—which retrieves and renders HTML, CSS, and JavaScript into a visual interface—the term also encompasses mobile applications, command-line tools, and automated scripts that interact with web-based APIs. By processing server responses and presenting them to the user or a downstream system, the web client serves as the essential gateway to accessing content on the World Wide Web.
+
+
+One way to create a web client is to use the `HttpClient` class from the standard JDK `java.net` library to make HTTP requests.
 
 ```java
 import java.net.URI;
