@@ -723,6 +723,16 @@
           ]
         },
         {
+          "title": "Logging",
+          "path": "instruction/logging/logging.md",
+          "id": "7dd775ef-6131-4ac4-b58d-2017f27634e8",
+          "state": "published",
+          "interactions": [
+            "d2e8e289-dc32-4c79-8343-a9474f84b310",
+            "11fcc3e3-2f6e-42bf-b484-86dc8cb4f999"
+          ]
+        },
+        {
           "title": "Defensive Programming",
           "path": "instruction/defensive-programming/defensive-programming.md",
           "id": "7814003c-2643-4298-8452-b696a7fb4122",
@@ -731,16 +741,6 @@
             "75dda285-9329-46b2-8c9e-3cba4efedb23",
             "068fd0bf-baa3-4d1f-b12e-859d794716e2",
             "fb9280b0-a467-4a9c-be3a-90b4ff2aa50b"
-          ]
-        },
-        {
-          "title": "Logging",
-          "path": "instruction/logging/logging.md",
-          "id": "7dd775ef-6131-4ac4-b58d-2017f27634e8",
-          "state": "published",
-          "interactions": [
-            "d2e8e289-dc32-4c79-8343-a9474f84b310",
-            "11fcc3e3-2f6e-42bf-b484-86dc8cb4f999"
           ]
         },
         {
