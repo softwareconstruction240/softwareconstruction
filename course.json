@@ -716,6 +716,13 @@
           ]
         },
         {
+          "title": "Web Client",
+          "type": "instruction",
+          "path": "instruction/web-client/web-client.md",
+          "id": "2f72cb2a-26ef-4063-b4df-64cccc09d3c3",
+          "description": ""
+        },
+        {
           "title": "Phase 5: Architectural Patterns",
           "type": "instruction",
           "path": "instruction/phase-5-architectural-patterns/phase-5-architectural-patterns.md",
@@ -799,13 +806,6 @@
             "27be87bf-8c65-484a-a25c-ce0553215a4e",
             "a5dec25a-2131-4137-927a-abbc6d331abd"
           ],
-          "description": ""
-        },
-        {
-          "title": "Web Client",
-          "type": "instruction",
-          "path": "instruction/web-client/web-client.md",
-          "id": "2f72cb2a-26ef-4063-b4df-64cccc09d3c3",
           "description": ""
         }
       ]
