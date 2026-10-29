@@ -672,15 +672,6 @@
           "description": ""
         },
         {
-          "title": "Debugging",
-          "path": "instruction/debugging/debugging.md",
-          "id": "5f56719a-a964-4d91-afb2-80537d39bff0",
-          "state": "published",
-          "interactions": [
-            "e98f9beb-df82-41d3-96b9-b0b82c53c670"
-          ]
-        },
-        {
           "title": "Defensive Programming",
           "path": "instruction/defensive-programming/defensive-programming.md",
           "id": "7814003c-2643-4298-8452-b696a7fb4122",
@@ -731,6 +722,15 @@
           "state": "published",
           "interactions": [
             "e286f471-ddec-45b2-9f02-7d50634fa061"
+          ]
+        },
+        {
+          "title": "Debugging",
+          "path": "instruction/debugging/debugging.md",
+          "id": "5f56719a-a964-4d91-afb2-80537d39bff0",
+          "state": "published",
+          "interactions": [
+            "e98f9beb-df82-41d3-96b9-b0b82c53c670"
           ]
         },
         {
