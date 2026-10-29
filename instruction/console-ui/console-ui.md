@@ -63,8 +63,8 @@ public class ClientMain {
 
 Java provides two primary output streams for the console:
 
-1.  **`System.out`**: Used for standard output (normal program results).
-2.  **`System.err`**: Used for error messages. By default, both usually print to the same console, but `System.err` is often used so that errors can be redirected or logged separately from standard output.
+1.  **System.out**: Used for standard output (normal program results).
+2.  **System.err**: Used for error messages. By default, both usually print to the same console, but `System.err` is often used so that errors can be redirected or logged separately from standard output.
 
 We can combine application arguments and `System.out` to create a rudimentary calculator.
 
