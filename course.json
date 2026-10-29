@@ -84,6 +84,13 @@
           "id": "017db324-c8e3-4a20-bba4-a26d455918fb",
           "state": "published",
           "description": ""
+        },
+        {
+          "title": "Inspiration",
+          "type": "embedded",
+          "path": "https://class.cs260.click/#/l",
+          "id": "7ef2e92b-72e3-4804-b497-9ce849316e17",
+          "description": "https://class.cs260.click/#/l"
         }
       ]
     },
@@ -690,6 +697,7 @@
           "type": "instruction",
           "path": "instruction/web-client/web-client.md",
           "id": "2f72cb2a-26ef-4063-b4df-64cccc09d3c3",
+          "state": "published",
           "description": ""
         },
         {
