@@ -731,15 +731,6 @@
           "description": ""
         },
         {
-          "title": "Debugging",
-          "path": "instruction/debugging/debugging.md",
-          "id": "5f56719a-a964-4d91-afb2-80537d39bff0",
-          "state": "published",
-          "interactions": [
-            "e98f9beb-df82-41d3-96b9-b0b82c53c670"
-          ]
-        },
-        {
           "title": "Logging",
           "path": "instruction/logging/logging.md",
           "id": "7dd775ef-6131-4ac4-b58d-2017f27634e8",
@@ -747,6 +738,15 @@
           "interactions": [
             "d2e8e289-dc32-4c79-8343-a9474f84b310",
             "11fcc3e3-2f6e-42bf-b484-86dc8cb4f999"
+          ]
+        },
+        {
+          "title": "Debugging",
+          "path": "instruction/debugging/debugging.md",
+          "id": "5f56719a-a964-4d91-afb2-80537d39bff0",
+          "state": "published",
+          "interactions": [
+            "e98f9beb-df82-41d3-96b9-b0b82c53c670"
           ]
         },
         {
