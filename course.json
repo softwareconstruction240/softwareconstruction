@@ -670,17 +670,6 @@
             "38f734f7-3436-48d9-8b76-e0224b751d6f"
           ],
           "description": ""
-        },
-        {
-          "title": "Defensive Programming",
-          "path": "instruction/defensive-programming/defensive-programming.md",
-          "id": "7814003c-2643-4298-8452-b696a7fb4122",
-          "state": "published",
-          "interactions": [
-            "75dda285-9329-46b2-8c9e-3cba4efedb23",
-            "068fd0bf-baa3-4d1f-b12e-859d794716e2",
-            "fb9280b0-a467-4a9c-be3a-90b4ff2aa50b"
-          ]
         }
       ]
     },
@@ -731,6 +720,17 @@
           "state": "published",
           "interactions": [
             "e98f9beb-df82-41d3-96b9-b0b82c53c670"
+          ]
+        },
+        {
+          "title": "Defensive Programming",
+          "path": "instruction/defensive-programming/defensive-programming.md",
+          "id": "7814003c-2643-4298-8452-b696a7fb4122",
+          "state": "published",
+          "interactions": [
+            "75dda285-9329-46b2-8c9e-3cba4efedb23",
+            "068fd0bf-baa3-4d1f-b12e-859d794716e2",
+            "fb9280b0-a467-4a9c-be3a-90b4ff2aa50b"
           ]
         },
         {
