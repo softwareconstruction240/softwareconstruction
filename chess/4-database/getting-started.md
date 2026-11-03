@@ -6,6 +6,10 @@ The starter code includes three folders: `resources`, `dataaccess`, and `passoff
 2.  Copy the `starter-code/4-database/resources/db.properties` file into your project’s `server/src/main/resources` folder. This file contains your database configuration settings. You must replace the placeholder values with your actual database username and password.
 3.  Copy the `starter-code/4-database/dataaccess/DatabaseManager.java` file into your project's `server/src/main/java/dataaccess` folder. This class reads your configuration settings and establishes connections to your database server.
 4.  Copy the `starter-code/4-database/passoff/server/DatabaseTests.java` file into your project’s `server/src/test/java/passoff/server` folder. These tests verify that your application is correctly persisting information to the database.
+5.  Create a folder named `server/src/main/java/dataaccess/sql` for your SQL data access implementation classes.
+6.  Create a folder named `server/src/test/java/dataaccess/sql`. This is where you will put your SQL test classes. Your test class must also end with the suffix Test or Tests.
+
+
 
 After following these steps, your project structure should include the following additions:
 
@@ -15,11 +19,14 @@ After following these steps, your project structure should include the following
         ├── main
         │   ├── java
         │   │   └── dataaccess
+        │   │       ├── sql
         │   │       └── DatabaseManager.java
         │   └── resources
         │       └── db.properties
         └── test
             └── java
+                └── dataaccess
+                    └── sql
                 └── passoff
                     └── server
                         └── DatabaseTests.java
