@@ -129,7 +129,7 @@ Your unit test deliverable must meet the following requirements:
 >
 > You must place your data access sql test cases in a folder named `server/src/test/java/dataaccess/sql`. Your test class must also end with the suffix `Test` or `Tests`. Without this the autograder will not find your tests.
 >
-> Coverage will be collected on the folder `server/src/main/java/dataccess/sql`. If you do not have this package, the autograder will not be able to grade your unit tests.
+> Coverage will be collected on the folder `server/src/main/java/dataaccess/sql`. If you do not have this package, the autograder will not be able to grade your unit tests.
 
 ### Code Quality
 
