@@ -70,11 +70,11 @@ Collection<String> filterToCWordsAnyLengthAndAWordsGreaterThanFive(List<String> 
 
 Sometime later, a user reports that the function doesn't return the expected result. When they pass in:
 
-`"cattle", "dog", "appalachian", "apple", "pig", "cat"`
+`cattle dog appalachian apple pig cat`
 
 They expect:
 
-`"cattle", "appalachian", "cat"`
+`cattle appalachian cat`
 
 But instead, they receive an empty list.
 
