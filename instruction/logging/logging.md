@@ -341,7 +341,7 @@ In professional software development, why is it considered a best practice to us
 
 ```masteryls
 {"id":"11fcc3e3-2f6e-42bf-b484-86dc8cb4f999","title":"Accountability and Transparency","type":"essay"}
-How does adding thoughtful logging to make a system observable reflect the values of honesty and accountability, and how does it serve the people who must understand and maintain your software?
+How does adding thoughtful logging to make a system observable reflect the values of honesty and accountability, and how does it protect the people who depend upon the security of your software?
 ```
 
 ## Videos
