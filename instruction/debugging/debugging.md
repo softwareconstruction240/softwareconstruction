@@ -280,7 +280,7 @@ Now the test passes, and our confidence in the code is restored.
 ## ☑ Exercise
 
 ```masteryls
-{"id":"e98f9beb-df82-41d3-96b9-b0b82c53c670", "title":"Essay", "type":"essay", "gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts\n- Complete coverage of the topic is not necessary for full credit." }
+{"id":"e98f9beb-df82-41d3-96b9-b0b82c53c670", "title":"Essay", "type":"essay" }
 Describe the common debugging process used by a successful software engineer.
 ```
 
