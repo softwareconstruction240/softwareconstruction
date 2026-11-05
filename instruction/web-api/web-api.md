@@ -142,7 +142,7 @@ An HTTP resource can represent anything. In the above example we are representin
 Javalin javalinServer = Javalin.create(config -> config.staticFiles.add("web"));
 ```
 
-By adding the above code to your server you can now make a request to the server with a path like `/index.html` and it will return the `index.html` file found in a directory named `web` that is found in a parent directory on your application's Classpath. In Intellij, the parent directory is typically any directory marked as a `Rousources Root`.
+By adding the above code to your server you can now make a request to the server with a path like `/index.html` and it will return the `index.html` file found in a directory named `web` that is found in a parent directory on your application's Classpath. In Intellij, the parent directory is typically any directory marked as a `Resources Root`.
 
 ## Complete Server Example
 
