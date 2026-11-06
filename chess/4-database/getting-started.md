@@ -54,11 +54,18 @@ Now, you need to include additional dependencies to connect to your MySQL databa
 
 
 ```masteryls
-{"id":"dc4c1925-1449-4c42-a6cf-eda1740d1051","title":"Phase 4: Getting started","type":"multiple-select"}
+{"id":"dc4c1925-1449-4c42-a6cf-eda1740d1051","title":"Phase 4: Getting started","type":"multiple-choice"}
 Add the following dependencies for the MySQL driver and BCrypt, associating them with your `server` module:
 
 *   **com.mysql:mysql-connector-j:9.4.0** with   **Scope:** Compile
 *   **org.mindrot:jbcrypt:0.4** with   **Scope:** Compile
 
 - [x] I have added the required dependencies to my project.
+
+
+    Since your structure is now perfectly aligned with the specifications, you are in an excellent position to begin implementing the game's real-time features. Keep up the great momentum as you move forward into the coding phase!
+
+- [ ] My structure doesn't look like that. I need to go back and review the instruction.
+
+    No worries. Take your time to make sure you got it right.
 ```
