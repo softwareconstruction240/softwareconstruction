@@ -15,7 +15,7 @@ The Starter Code has 2 folders, `server` and `websocket`. Complete the following
 
 
 ````masteryls
-{"id":"0c644e53-10e0-46cb-aba5-7f59f3fa3293","title":"Phase 6: Getting started","type":"multiple-select"}
+{"id":"0c644e53-10e0-46cb-aba5-7f59f3fa3293","title":"Phase 6: Getting started","type":"multiple-choice"}
 Once finished, your project structure should include the following additions:
 
 ```text
@@ -39,5 +39,11 @@ Once finished, your project structure should include the following additions:
 ```
 
 - [x] I completed the getting started steps and my project settings and structure look correct.
+
+    Since your structure is now perfectly aligned with the specifications, you are in an excellent position to begin implementing the game's real-time features. Keep up the great momentum as you move forward into the coding phase!
+
+- [ ] My structure doesn't look like that. I need to go back and review the instruction.
+
+    No worries. Take your time to make sure you got it right.
 ````
 
