@@ -7,7 +7,9 @@ The Starter Code has 2 folders, `server` and `websocket`. Complete the following
 1. Copy the `starter-code/6-gameplay/websocket` folder into your project’s `shared/src/main/java` folder. This folder contains the `UserGameCommand` and `ServerMessage` superclasses for the websocket message classes you will create.
 1. Install the following library from Maven and add a dependency to the `client` and `server` modules.
 
-    - **org.glassfish.tyrus.bundles:tyrus-standalone-client:2.1.4** - Scope: **Compile**
+    ```txt
+    org.glassfish.tyrus.bundles:tyrus-standalone-client:2.1.4
+    ```
 
 
 
