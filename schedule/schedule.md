@@ -40,7 +40,7 @@
 |  | Thu Dec 3 |  |  | [Distributed Application Architectures](../instruction/distributed-application-architectures/distributed-application-architectures.md) | [Architecture](https://docs.google.com/presentation/d/1Mj5SeoHmskFz4GbOkdULgDfVrUxuQ542) |
 |  | Fri Dec 4, 2026 |  | [☑ Phase 6: Chess Gameplay](../chess/6-gameplay/gameplay.md) |  |  |
 | 15 | Tue Dec 8 |  |  | [Final Exam Review](../instruction/final-exam-review/final-exam-review.md)</br>[Wrap Up](../instruction/wrap-up/wrap-up.md)</br>[Final - Job Interview](../instruction/job-interview/job-interview.md) |  |
-|  | Thu Dec 10 |  | _Dec 11-17_ - Final |  |  |
+|  | Thu Dec 10 |  | _Dec 11-17_ - Final</br>[Final - Job Interview](../instruction/job-interview/job-interview.md) |  |  |
 
 ## Special days
 
