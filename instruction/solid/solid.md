@@ -129,6 +129,8 @@ Does this design violate the Single Responsibility Principle (SRP)?
 
   A change to any one of them risks breaking the others. Splitting them, with game logic in `ChessGame`, rendering in the client, and persistence in DAOs, is exactly the structure the chess project uses.
 
+  If the ChessGame was changed to simply be an orchestrator of the aggregated functionality, without actually implementing any of that functionality itself, then it would be in compliance with SRP.
+
 - [ ] No, as long as the class is properly encapsulated and the methods are kept relatively short and well-documented.
   Good effort. Encapsulation and clean methods are good practices.
 
@@ -136,6 +138,13 @@ Does this design violate the Single Responsibility Principle (SRP)?
 
   Reread the *Single Responsibility Principle* section.
 ```
+
+
+```masteryls
+{"id":"e1e2ae06-c5e5-4ec5-b0c8-d43d0fed6afc", "title":"SRP and the String class", "type":"essay" }
+Does the Java `String` class violate the **Single Responsibility Principle**?
+```
+
 
 ## Open-Closed Principle
 
@@ -341,7 +350,7 @@ public interface Writer {
 
 ```masteryls
 {"id":"e53eaabd-42da-4129-a443-6df423d93012", "title":"Interface Segregation", "type":"essay" }
-How does the Java `String` class violate the **Interface Segregation Principle**?
+How does the Java `ReaderWriter` class violate the **Interface Segregation Principle**?
 ```
 
 ## Dependency Inversion Principle
