@@ -90,6 +90,7 @@
           "type": "embedded",
           "path": "https://class.cs260.click/#/l",
           "id": "0f80b2f4-5941-419b-b737-29e92574da27",
+          "state": "published",
           "description": "https://class.cs260.click/#/l"
         }
       ]
@@ -822,17 +823,6 @@
       "title": "Enrichment",
       "topics": [
         {
-          "title": "Concurrency",
-          "path": "instruction/concurrency/concurrency.md",
-          "id": "65803a0c-cc78-41f6-9c01-f935e26c00ab",
-          "state": "published",
-          "interactions": [
-            "4226f08f-09a1-49a3-a5cc-cd30f4760fbd",
-            "33d58c6f-e8af-4c3b-990f-7f7b05f860a6",
-            "d7ae2be0-5609-4b7c-8563-346ab36b286f"
-          ]
-        },
-        {
           "title": "Computer Security",
           "path": "instruction/computer-security/computer-security.md",
           "id": "0ffff5f3-5a33-45e3-9e93-9213a75260b3",
@@ -841,6 +831,17 @@
             "72e7da2d-4755-40ef-bcc6-cd3c0ebee3c0",
             "c1c21706-2c8e-406e-a54d-62695cab0c42",
             "848391d2-e265-4d53-ad15-a55fc760547c"
+          ]
+        },
+        {
+          "title": "Concurrency",
+          "path": "instruction/concurrency/concurrency.md",
+          "id": "65803a0c-cc78-41f6-9c01-f935e26c00ab",
+          "state": "published",
+          "interactions": [
+            "4226f08f-09a1-49a3-a5cc-cd30f4760fbd",
+            "33d58c6f-e8af-4c3b-990f-7f7b05f860a6",
+            "d7ae2be0-5609-4b7c-8563-346ab36b286f"
           ]
         },
         {
