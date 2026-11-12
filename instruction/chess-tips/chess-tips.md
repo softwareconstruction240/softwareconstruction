@@ -19,12 +19,13 @@ If you submit code without enough commits, the autograder will require TA approv
 
 ## These collections look identical, but Java says they aren't
 
-Check the [specification](../../chess/0-chess-moves/chess-moves.md#object-overrides) regarding the `equals()` and `hashCode()` methods. If these aren't implemented correctly, Java will compare the memory addresses of the objects rather than their contents. 
+Check the [specification](../../chess/0-chess-moves/chess-moves.md#object-overrides) regarding the `equals()` and `hashCode()` methods. If these aren't implemented correctly, Java will compare the memory addresses of the objects rather than their contents.
 
 **Common pitfalls:**
-*   Ensure the `promotionPiece` is included in your equality checks (it is `null` in most cases, but still matters).
-*   Review your getters and setters to ensure data is being stored and retrieved as expected.
-*   Implement a `toString()` method to help you see the actual contents of the collections during debugging.
+
+- Ensure the `promotionPiece` is included in your equality checks (it is `null` in most cases, but still matters).
+- Review your getters and setters to ensure data is being stored and retrieved as expected.
+- Implement a `toString()` method to help you see the actual contents of the collections during debugging.
 
 ## JUnit - No test events received
 
@@ -33,11 +34,13 @@ If IntelliJ fails to find or run tests, go to **File -> Project Structure -> Mod
 ## I can’t run any tests; there is no green button
 
 First, check if your `test/java` folder is highlighted in green. If it isn't:
+
 1.  Right-click the `java` folder.
-2.  Select **"Mark Directory As..."** 
+2.  Select **"Mark Directory As..."**
 3.  Select **"Test Sources Root"**.
 
 If the button still doesn't appear, ensure the `shared` folder is recognized as a module:
+
 1.  Go to **File -> Project Structure -> Modules**.
 2.  You should see `shared`, `server`, and `client`.
 3.  If you only see `chess` or nothing at all, the project structure is incorrect. You may need to re-import the project or re-clone the repository to ensure IntelliJ sets up the modules correctly.
@@ -54,17 +57,17 @@ If you are struggling to visualize the board state during debugging—especially
 
 ## The `static` keyword
 
-In most cases, you should **not** use the `static` keyword for your classes and methods. Static variables act as global variables, meaning only one instance exists for the entire program. This can cause significant issues when the autograder runs multiple tests in sequence. 
+In most cases, you should **not** use the `static` keyword for your classes and methods. Static variables act as global variables, meaning only one instance exists for the entire program. This can cause significant issues when the autograder runs multiple tests in sequence.
 
 If your IDE suggests making something static, it’s usually because you are trying to access an instance member from a static context. Rather than following the suggestion, fix the underlying architectural issue. The vast majority of your project logic should be instance-based.
 
 ## Clone and Copy
 
-In `ChessGame.validMoves`, you often need to create a copy of the `ChessBoard` to simulate a move and check if the king remains in check. 
+In `ChessGame.validMoves`, you often need to create a copy of the `ChessBoard` to simulate a move and check if the king remains in check.
 
-*   **Shallow Copy:** If you simply copy the reference or the outer array, the underlying pieces remain the same. Changes to the "copy" will affect the original board.
-*   **Deep Copy:** You must create a new `ChessBoard` and new `ChessPiece` objects (or use a structure that ensures independence).
-*   **Implementation Tip:** Have `ChessBoard` implement `Cloneable`. In the overridden `clone()` method, create a new 2D array and copy each piece. For more details, see the documentation on [copying objects](../copying-objects/copying-objects.md).
+- **Shallow Copy:** If you simply copy the reference or the outer array, the underlying pieces remain the same. Changes to the "copy" will affect the original board.
+- **Deep Copy:** You must create a new `ChessBoard` and new `ChessPiece` objects (or use a structure that ensures independence).
+- **Implementation Tip:** Have `ChessBoard` implement `Cloneable`. In the overridden `clone()` method, create a new 2D array and copy each piece. For more details, see the documentation on [copying objects](../copying-objects/copying-objects.md).
 
 ## `==` vs `.equals()` comparison
 
@@ -75,7 +78,8 @@ If you compare positions using `endPosition == kingPosition`, the result will al
 See the [General](#general---all-phases) section.
 
 # Phase 2 - Server Diagram
-*(No specific tips for this phase yet.)*
+
+_(No specific tips for this phase yet.)_
 
 # Phase 3 - Web API
 
@@ -104,6 +108,7 @@ Also, ensure your `resources` directory is correctly marked as the **Resources R
 This happens when your client expects JSON but receives an HTML page instead. This usually occurs when the server throws an unhandled exception and returns a default 500 error page, or when a 404 error occurs.
 
 To fix this, ensure your server catches exceptions and returns a valid JSON error object:
+
 ```java
 return new Gson().toJson(Map.of("message", ex.getMessage()));
 ```
@@ -131,30 +136,38 @@ Phase 4 involves external dependencies (MySQL), which increases the chance of lo
 ## Database Schema Changes
 
 ### Database and Table Creation
+
 Your code must programmatically create the database and tables if they do not exist. This should happen during server startup, before any endpoint is accessed. Use the `IF NOT EXISTS` syntax in your SQL.
 
 ### Altering Tables After Creation
+
 If you change your table schema in your Java code, MySQL **will not** automatically update your existing tables. You must either:
+
 1.  Use a MySQL client to `DROP` the table so your code can recreate it.
 2.  Manually `ALTER` the table (not recommended for beginners).
 
 ## Tests Not Passing on the AutoGrader
 
 ### Hardcoded Database Name
+
 Do **not** hardcode the database name (e.g., `chess`) in your SQL strings. The autograder uses a dynamic database name (like `chess123`).
-*   Load the database name from `db.properties`.
-*   Use `SELECT * FROM table` rather than `SELECT * FROM chess.table`.
+
+- Load the database name from `db.properties`.
+- Use `SELECT * FROM table` rather than `SELECT * FROM chess.table`.
 
 ### Case Sensitivity
+
 SQL table and column names are **case-sensitive** on the Linux environments used by the autograder, even if they appear case-insensitive on Windows or macOS.
-*   Ensure `CREATE TABLE myTable` and `INSERT INTO mytable` use the exact same casing.
-*   Be consistent in your `ResultSet.get*()` calls.
+
+- Ensure `CREATE TABLE myTable` and `INSERT INTO mytable` use the exact same casing.
+- Be consistent in your `ResultSet.get*()` calls.
 
 ## Abstract Classes and Interfaces (GSON)
 
 You cannot directly instantiate abstract classes like `ChessPiece` or interfaces like `MoveCalculator` using GSON.
-*   **Option 1:** Use a `TypeAdapter` or `JsonDeserializer` to handle polymorphic types.
-*   **Option 2:** Refactor your Phase 0 code to use a single concrete `ChessPiece` class with a strategy pattern for move calculation that doesn't rely on inheritance.
+
+- **Option 1:** Use a `TypeAdapter` or `JsonDeserializer` to handle polymorphic types.
+- **Option 2:** Refactor your Phase 0 code to use a single concrete `ChessPiece` class with a strategy pattern for move calculation that doesn't rely on inheritance.
 
 ## Access Denied to Database
 
@@ -171,9 +184,10 @@ This happens if you try to run your **Spark server** on port 3306. Port 3306 is 
 ## Invalid SQL Format
 
 Ensure you don't have trailing commas in your SQL statements.
+
 ```java
 // WRONG: Trailing comma after PRIMARY KEY
-String sql = "CREATE TABLE user (username VARCHAR(255), PRIMARY KEY (username), )"; 
+String sql = "CREATE TABLE user (username VARCHAR(255), PRIMARY KEY (username), )";
 ```
 
 ## Too Many Connections
@@ -185,6 +199,7 @@ Always use **try-with-resources** when getting a connection. This ensures the co
 If the test fails on `getDeclaredMethod("loadProperties")`, ensure your `DatabaseManager` has that specific method.
 
 The error handling test simulates database failures. Your server should:
+
 1.  Catch `DataAccessException`.
 2.  Set the HTTP status code to `500`.
 3.  Return a JSON message starting with `"Error: "`.
@@ -195,18 +210,36 @@ The error handling test simulates database failures. Your server should:
 
 Ensure `ServerFacade` is in a proper package (e.g., `client.ui` or `client.net`). If it's in the default (empty) package, it cannot be imported by classes in other packages.
 
+## Passoff Example Walkthrough
+
+For phases 5 and 6, you are required to do a manual passoff. The following is meant to give you a good idea of what that will entail and what we will be looking for.
+The instruction already includes all of this information, but this is a good checklist to use to debug your UI.
+The list is not exhaustive, however, so be sure to do some testing on your own.
+
+- Help message reflects user state (logged in/logged out/in-game).
+- Error messages are user-friendly (i.e. your grandma should be able to understand what it means).
+- Errors are handled properly (no crashing, no printing stack traces to the UI).
+- Giving invalid parameters should fail gracefully.
+- GameID stored in the database is not displayed to the user.
+- Chess board is displayed properly, colors are correct, and pieces are in the right spots for black and white perspectives.
+- For **phase 6 only**, we will play some games to ensure that the WebSocket messages are received/displayed properly and that gameplay is functional.
+  Make sure highlight behaves properly when a team is in check. See also: [Gameplay Requirements](#gameplay-requirements-checklist).
+
+Good luck!
+
 ## Passoff Frequently Encountered Problems
 
-*   **Registration Flow:** After registering, the user should be automatically logged in.
-*   **List Games:** The numbers shown to the user (1, 2, 3...) should be independent of the actual Database IDs.
-*   **Board Printing:** Ensure the board displays correctly for both white and black perspectives.
-*   **Error Handling:** If a user enters an invalid game number (like "abc"), your client should print a helpful error rather than crashing.
+- **Registration Flow:** After registering, the user should be automatically logged in.
+- **List Games:** The numbers shown to the user (1, 2, 3...) should be independent of the actual Database IDs.
+- **Board Printing:** Ensure the board displays correctly for both white and black perspectives.
+- **Error Handling:** If a user enters an invalid game number (like "abc"), your client should print a helpful error rather than crashing.
 
 ## Chess Board UI
 
 To ensure the board looks like a square:
-*   Use the Unicode "Em Space" (`\u2003`) to match the width of chess piece characters.
-*   If the alignment is still off, change your IntelliJ console font to a **monospaced** font (Settings -> Editor -> Font).
+
+- Use the Unicode "Em Space" (`\u2003`) to match the width of chess piece characters.
+- If the alignment is still off, change your IntelliJ console font to a **monospaced** font (Settings -> Editor -> Font).
 
 # Phase 6 - Gameplay
 
@@ -228,7 +261,7 @@ Always check `session.isOpen()` before attempting to send a message to a WebSock
 
 ## Gameplay Requirements Checklist
 
-*   **Resignation:** Requires a confirmation prompt and does **not** remove the players from the session.
-*   **Highlighting:** Should work for any piece regardless of whose turn it is.
-*   **Pawn Promotion:** Ensure the user can choose which piece to promote to.
-*   **Usernames:** All notifications should include the relevant usernames (e.g., "Player 'Alice' moved a2 to a4").
+- **Resignation:** Requires a confirmation prompt and does **not** remove the players from the session.
+- **Highlighting:** Should work for any piece regardless of whose turn it is.
+- **Pawn Promotion:** Ensure the user can choose which piece to promote to.
+- **Usernames:** All notifications should include the relevant usernames (e.g., "Player 'Alice' moved a2 to a4").

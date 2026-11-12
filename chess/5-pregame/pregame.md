@@ -183,7 +183,7 @@ The autograder and TAs will evaluate the quality of your source code based on th
 All project tests must pass to complete this phase.
 
 1.  Submit your code to the [auto-grading tool](https://cs240.click/).
-2.  Once you pass the autograder, schedule a meeting with a TA to demonstrate your client and server functionality for final grading.
+2.  Once you pass the autograder, schedule a meeting with a TA to demonstrate your client and server functionality for final grading. See [this checklist](../../instruction/chess-tips/chess-tips.md#passoff-example-walkthrough) to get a good idea of what the TAs will be expecting to see.
 
 #### Common Problems
 

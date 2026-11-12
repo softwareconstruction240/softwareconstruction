@@ -279,7 +279,7 @@ For this phase the auto grader will grade the quality of your project's source c
 
 All of the tests in your project must succeed in order to complete this phase.
 
-To pass off this assignment submit your work to the course [auto-grading](https://cs240.click/) tool. When that is done, meet with a TA and demonstrate that your Chess client and server meet all requirements and assign you a final grade.
+To pass off this assignment submit your work to the course [auto-grading](https://cs240.click/) tool. When that is done, meet with a TA and demonstrate that your Chess client and server meet all requirements and assign you a final grade. See [this checklist](../../instruction/chess-tips/chess-tips.md#passoff-example-walkthrough) to get a good idea of what the TAs will be expecting to see.
 
 #### Passoff Common Problems
 
