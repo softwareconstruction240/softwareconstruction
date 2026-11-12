@@ -861,6 +861,13 @@
           "path": "instruction/aws-chess-server/aws-chess-server.md",
           "id": "8ed1bd15-0fa8-41f8-9dd3-8fe70af59fe3",
           "state": "published"
+        },
+        {
+          "title": "Encryption",
+          "type": "instruction",
+          "path": "instruction/encryption/encryption.md",
+          "id": "20d8ba2a-4f40-45f3-b43e-fcf3e55aeb4f",
+          "description": "Symetrric and asymmetric encryption with public and private keys for secure key exchange, dital signatures and public key certificates. Secure network communication using HTTPS demonstrates putting everything together.\n"
         }
       ]
     },
