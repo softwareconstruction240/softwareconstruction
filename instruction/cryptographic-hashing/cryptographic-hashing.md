@@ -175,6 +175,78 @@ public class PasswordExample {
 }
 ```
 
+
+## The Mathematical Foundations of Hash Functions
+
+Cryptographic hash functions are mathematical algorithms that transform an arbitrary amount of data into a fixed-size bitstring, known as the "hash" or "digest." To be useful in security, these functions must satisfy several rigorous mathematical properties. At their core, these functions rely on **modular arithmetic** and **bitwise operations** (like XOR, AND, and bit-rotations) to create a "mixing" effect that is computationally easy to perform in one direction but virtually impossible to reverse.
+
+One of the defining mathematical characteristics is the **Pigeonhole Principle**. Because the input space is infinite (you can hash a file of any size) but the output space is finite (e.g., exactly 256 bits for SHA-256), mathematical "collisions"—where two different inputs produce the same output—must exist. However, the math is designed so that finding such a collision is statistically improbable, requiring a "brute force" effort of `2^{n/2}` operations, where `n` is the bit length.
+
+### Key Mathematical Properties
+
+The security of a hash function is measured by its resistance to three types of attacks:
+
+1.  **Pre-image Resistance (One-wayness):** Given a hash `h`, it should be computationally infeasible to find any input `m` such that `hash(m) = h`.
+2.  **Second Pre-image Resistance:** Given an input `m_1`, it should be infeasible to find a different input `m_2` such that `hash(m_1) = hash(m_2)`.
+3.  **Collision Resistance:** It should be infeasible to find *any* two distinct inputs `m_1` and `m_2` such that `hash(m_1) = hash(m_2)`.
+
+### The Avalanche Effect
+
+A mathematically sound hash function must exhibit the **Avalanche Effect**. This means that a tiny change in the input (like flipping a single bit) must result in a significantly different output, typically affecting at least half of the output bits. This is achieved through multiple "rounds" of complex bitwise transformations.
+
+```mermaid
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
+flowchart TD
+    Input[Input Data: 'Cat'] --> Pad[Padding & Pre-processing]
+    Pad --> Round1[Round 1: Bitwise XOR & Rotations]
+    Round1 --> Round2[Round 2: Non-linear Functions]
+    Round2 --> RoundN[Round ...N]
+    RoundN --> Digest[Final Hash: 0x77e1...]
+    
+    Input2[Input Data: 'Car'] --> Pad2[Padding & Pre-processing]
+    Pad2 --> R1[Round 1]
+    R1 --> R2[Round 2]
+    R2 --> RN[Round ...N]
+    RN --> Digest2[Final Hash: 0x3a4f...]
+    
+    style Digest fill:#f9f,stroke:#333,stroke-width:2px
+    style Digest2 fill:#f9f,stroke:#333,stroke-width:2px
+```
+
+### Simplified Mathematical Representation
+
+While real-world algorithms like SHA-256 are complex, we can represent the logic of a "one-way" bitwise operation using a simple Python-like logic. Note how the information is "lost" or compressed during the operation, making it hard to reverse.
+
+```python
+def simple_toy_hash(data):
+    # A toy example of mixing bits
+    hash_val = 0xDEADBEEF
+    for char in data:
+        # Use bitwise XOR and left-shift to diffuse information
+        hash_val = (hash_val ^ ord(char)) << 5
+        # Keep it within a 32-bit boundary (simulating fixed-length output)
+        hash_val = hash_val & 0xFFFFFFFF
+    return hex(hash_val)
+
+# 'A' -> 0xbd57dd00
+# 'B' -> 0xbd57df00 (Small change in input leads to change in output)
+```
+
+```masteryls
+{"id":"ae1d11ef-44e6-4c1f-9a61-cb7ee6bd9dda","title":"Identifying Collision Resistance","type":"multiple-choice"}
+A security researcher is trying to find two different PDF files that result in the exact same SHA-256 hash value. Which mathematical property is the researcher attempting to break?
+
+- [ ] Pre-image Resistance
+  You're thinking of the right area, but pre-image resistance specifically refers to finding the original input from a known hash. Here, the researcher is looking for any two inputs that match, which is a different challenge.
+- [ ] The Avalanche Effect
+  Not quite. The avalanche effect describes how a small change in input changes the output significantly. While related to hash quality, it doesn't describe the difficulty of finding two identical outputs.
+- [x] Collision Resistance
+  Correct! Collision resistance is the property that makes it computationally infeasible to find any two distinct inputs that produce the same hash output. This is a vital property for digital signatures and file integrity.
+- [ ] Determinism
+  Actually, determinism is a requirement that the same input *always* produces the same output. If a hash function wasn't deterministic, it wouldn't be useful for verification at all!
+```
+
+
 ## Videos
 
 - 🎥 [Computer Security Overview (7:49)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=f60bd2e6-9aec-44ba-8e48-b1a8014a2efe) - [[transcript]](https://github.com/user-attachments/files/17736619/CS_240_Computer_Security_Overview_Transcript.pdf)
