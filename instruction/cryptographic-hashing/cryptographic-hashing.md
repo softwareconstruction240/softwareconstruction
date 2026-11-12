@@ -217,19 +217,20 @@ flowchart TD
 
 While real-world algorithms like SHA-256 are complex, we can represent the logic of a "one-way" bitwise operation using a simple Python-like logic. Note how the information is "lost" or compressed during the operation, making it hard to reverse.
 
-```python
-def simple_toy_hash(data):
-    # A toy example of mixing bits
-    hash_val = 0xDEADBEEF
-    for char in data:
-        # Use bitwise XOR and left-shift to diffuse information
-        hash_val = (hash_val ^ ord(char)) << 5
-        # Keep it within a 32-bit boundary (simulating fixed-length output)
-        hash_val = hash_val & 0xFFFFFFFF
-    return hex(hash_val)
+```java
+public static String simpleToyHash(String data) {
+    long hashVal = 0xDEADBEEFL;
+    for (char c : data.toCharArray()) {
+        // Use bitwise XOR and left-shift to diffuse information
+        hashVal = (hashVal ^ c) << 5;
+        // Keep a fixed-length output of 32-bit
+        hashVal = hashVal & 0xFFFFFFFFL;
+    }
+    return "0x" + Long.toHexString(hashVal);
+}
 
-# 'A' -> 0xbd57dd00
-# 'B' -> 0xbd57df00 (Small change in input leads to change in output)
+// "A" -> 0xbd57dd00
+// "B" -> 0xbd57df00 (Small change in input leads to change in output)
 ```
 
 ```masteryls
