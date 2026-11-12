@@ -1,5 +1,22 @@
 # Encryption
 
+🖥️ [Slides](https://docs.google.com/presentation/d/1pUU4DDACUndgj_ij7bbKOUY8cxmGinZq/edit#slide=id.p1)
+
+🖥️ [Lecture Videos](#videos)
+
+📖 **Required Reading**: None
+
+### 🔑 Key points
+
+- Symmetric encryption
+- Asymmetric encryption with public and private keys
+- Secure key exchange
+- Digital signatures
+- Public key certificates
+- Secure network communication using HTTPS
+
+---
+
 In the landscape of modern software engineering, security is not an optional feature but a foundational requirement. As systems become increasingly distributed and cloud-native, data must traverse untrusted networks, making it vulnerable to interception, tampering, and impersonation. Encryption is the primary tool architects use to ensure confidentiality, integrity, and authenticity. It is the mathematical shield that allows us to build a "web of trust" over a public infrastructure. By understanding the mechanics of how keys are generated, exchanged, and validated, developers can build systems that protect user privacy and maintain the integrity of sensitive data.
 
 ## Encryption and Decryption
