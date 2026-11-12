@@ -187,8 +187,7 @@ One of the defining mathematical characteristics is the **Pigeonhole Principle**
 The security of a hash function is measured by its resistance to three types of attacks:
 
 1.  **Pre-image Resistance (One-wayness):** Given a hash `h`, it should be computationally infeasible to find any input `m` such that `hash(m) = h`.
-2.  **Second Pre-image Resistance:** Given an input `m_1`, it should be infeasible to find a different input `m_2` such that `hash(m_1) = hash(m_2)`.
-3.  **Collision Resistance:** It should be infeasible to find *any* two distinct inputs `m_1` and `m_2` such that `hash(m_1) = hash(m_2)`.
+1.  **Collision Resistance:** It should be infeasible to find *any* two distinct inputs `m_1` and `m_2` such that `hash(m_1) = hash(m_2)`.
 
 ### The Avalanche Effect
 
