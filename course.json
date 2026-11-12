@@ -829,9 +829,7 @@
           "id": "0ffff5f3-5a33-45e3-9e93-9213a75260b3",
           "state": "published",
           "interactions": [
-            "72e7da2d-4755-40ef-bcc6-cd3c0ebee3c0",
-            "c1c21706-2c8e-406e-a54d-62695cab0c42",
-            "848391d2-e265-4d53-ad15-a55fc760547c"
+            "4ea2f11a-4edf-4171-be84-e00492a62e4b"
           ]
         },
         {
@@ -875,6 +873,7 @@
           "type": "instruction",
           "path": "instruction/cryptographic-hashing/cryptographic-hashing.md",
           "id": "c5f95364-fa0e-44ac-911a-cbca917734bd",
+          "state": "published",
           "description": ""
         }
       ]
