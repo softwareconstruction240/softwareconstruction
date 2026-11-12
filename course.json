@@ -867,7 +867,15 @@
           "type": "instruction",
           "path": "instruction/encryption/encryption.md",
           "id": "20d8ba2a-4f40-45f3-b43e-fcf3e55aeb4f",
+          "state": "published",
           "description": "Symetrric and asymmetric encryption with public and private keys for secure key exchange, dital signatures and public key certificates. Secure network communication using HTTPS demonstrates putting everything together.\n"
+        },
+        {
+          "title": "Cryptographic Hashing",
+          "type": "instruction",
+          "path": "instruction/cryptographic-hashing/cryptographic-hashing.md",
+          "id": "c5f95364-fa0e-44ac-911a-cbca917734bd",
+          "description": ""
         }
       ]
     },
