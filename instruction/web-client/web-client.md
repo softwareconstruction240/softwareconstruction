@@ -66,7 +66,7 @@ If you first run the `name list` service defined above, then you can run the `Cl
 
 The `response.statusCode()` method tells us what the HTTP status code was for the response. It's important to check the status code, because the body on its own won't tell you if there was an error or not!
 
-### Using HTTP Headers on the Client
+## Using HTTP Headers on the Client
 
 Request headers can be added to any request via the `header` method on `HttpRequest` builders. Response headers can be read via the `headers` method on `HttpResponse` objects.
 
@@ -82,7 +82,7 @@ OptionalLong length = response.firstValueAsLong("Content-Length");
 Optional<String> type = response.firstValue("Content-Type");
 ```
 
-### Using BodyHandlers and BodyPublishers
+## Using BodyHandlers and BodyPublishers
 
 The `client.send()` method takes a `BodyHandler` argument that determines the type of `response.body()`. Different `BodyHandler`s allow using the body in different ways. The `BodyHandlers` class contains several convenient `BodyHandler` factory functions. We've been using the `ofString` body handler, but we could also use other handlers like in the following example:
 
