@@ -849,6 +849,11 @@
           "path": "instruction/encryption/encryption.md",
           "id": "20d8ba2a-4f40-45f3-b43e-fcf3e55aeb4f",
           "state": "published",
+          "interactions": [
+            "72e7da2d-4755-40ef-bcc6-cd3c0ebee3c0",
+            "c1c21706-2c8e-406e-a54d-62695cab0c42",
+            "848391d2-e265-4d53-ad15-a55fc760547c"
+          ],
           "description": "Symetrric and asymmetric encryption with public and private keys for secure key exchange, dital signatures and public key certificates. Secure network communication using HTTPS demonstrates putting everything together.\n"
         },
         {
