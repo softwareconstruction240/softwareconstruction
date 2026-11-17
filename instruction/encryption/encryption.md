@@ -79,25 +79,35 @@ A common symmetric algorithm is the Advanced Encryption Standard (**AES**). AES 
 The following code demonstrates AES encryption and decryption in Java:
 
 ```java
+package security;
+
 import javax.crypto.*;
-import javax.crypto.spec.IvParameterSpec;
-import java.security.SecureRandom;
+import javax.crypto.spec.GCMParameterSpec;
 import java.io.*;
+import java.nio.charset.StandardCharsets;
+import java.security.SecureRandom;
 
 public class SymmetricKeyExample {
+    private static final int GCM_IV_LENGTH = 12;       // bytes
+    private static final int GCM_TAG_LENGTH = 128;     // bits
+
     public static void main(String[] args) throws Exception {
         SecretKey key = createAesKey();
-        IvParameterSpec initVector = createAesInitVector();
+        byte[] iv = createAesGcmIv();
 
-        var secretMessage = "toomanysecrets";
+        String secretMessage = "toomanysecrets";
 
-        var plainTextIn = new ByteArrayInputStream(secretMessage.getBytes());
-        var cipherBytes = runAes(Cipher.ENCRYPT_MODE, plainTextIn, key, initVector);
+        var plainTextIn = new ByteArrayInputStream(secretMessage.getBytes(StandardCharsets.UTF_8));
+        var cipherTextOut = new ByteArrayOutputStream();
+        runAes(Cipher.ENCRYPT_MODE, plainTextIn, cipherTextOut, key, iv);
 
-        var cipherTextIn = new ByteArrayInputStream(cipherBytes);
-        var plainTextBytes = runAes(Cipher.DECRYPT_MODE, cipherTextIn, key, initVector);
+        var cipherTextIn = new ByteArrayInputStream(cipherTextOut.toByteArray());
+        var plainTextOut = new ByteArrayOutputStream();
+        runAes(Cipher.DECRYPT_MODE, cipherTextIn, plainTextOut, key, iv);
 
-        System.out.printf("%s == %s%n", secretMessage, new String(plainTextBytes));
+        String decryptedMessage = plainTextOut.toString(StandardCharsets.UTF_8);
+
+        System.out.printf("%s == %s%n", secretMessage, decryptedMessage);
     }
 
     static SecretKey createAesKey() throws Exception {
@@ -106,32 +116,32 @@ public class SymmetricKeyExample {
         return keyGen.generateKey();
     }
 
-    static IvParameterSpec createAesInitVector() {
-        var ivBytes = new byte[16];
-        new SecureRandom().nextBytes(ivBytes);
-        return new IvParameterSpec(ivBytes);
+    static byte[] createAesGcmIv() {
+        byte[] iv = new byte[GCM_IV_LENGTH];
+        new SecureRandom().nextBytes(iv);
+        return iv;
     }
 
-    static byte[] runAes(int cipherMode, InputStream in, SecretKey key, IvParameterSpec initVector) throws Exception {
-        Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-        cipher.init(cipherMode, key, initVector);
+    static void runAes(int cipherMode, InputStream in, OutputStream out, SecretKey key, byte[] iv
+    ) throws Exception {
+        Cipher cipher = Cipher.getInstance("AES/GCM/NoPadding");
+        GCMParameterSpec parameters = new GCMParameterSpec(GCM_TAG_LENGTH, iv);
+        cipher.init(cipherMode, key, parameters);
 
-        ByteArrayOutputStream out = new ByteArrayOutputStream();
-        byte[] inputBytes = new byte[64];
-        int bytesRead;
-        while ((bytesRead = in.read(inputBytes)) != -1) {
-            out.write(cipher.update(inputBytes, 0, bytesRead));
-        }
-
-        out.write(cipher.doFinal());
-        return out.toByteArray();
+        byte[] input = in.readAllBytes();
+        byte[] output = cipher.doFinal(input);
+        out.write(output);
     }
 }
 ```
 
-### Asymmetric Key Encryption
+## Asymmetric Key Encryption
 
-Asymmetric encryption uses a **key pair**: a **public key** and a **private key**. Data encrypted with the public key can only be decrypted with the corresponding private key.
+Asymmetric encryption uses a **key pair**: a **public key** and a **private key**. Data encrypted with one key can only be decrypted with the other key pair.
+
+Asymmetric encryption is essential because it solves the fundamental problem of secure key distribution. Unlike symmetric encryption, which requires both parties to share a secret key beforehand, asymmetric encryption allows users to communicate securely over an untrusted network without any prior contact. By using a mathematically linked pair consisting of a public key for encryption and a private key for decryption, it eliminates the risk of an attacker intercepting a secret key during transmission. This mechanism serves as the foundation for modern security, enabling the secure exchange of symmetric keys, the verification of identities through digital signatures, and the establishment of trust in protocols like HTTPS.
+
+The process for using asymmetric encryption includes:
 
 1. Generate a key pair.
 2. Keep the **private key** secret.
