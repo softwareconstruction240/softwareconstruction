@@ -11,7 +11,7 @@ public class ClientMain {
             new PetClient(serverUrl).run();
 
         } catch (Throwable ex) {
-            System.out.printf("Unable to start server: %s%n", ex.getMessage());
+            System.out.printf("Unable to start client: %s%n", ex.getMessage());
         }
     }
 
