@@ -123,9 +123,9 @@ There are no new automated pass-off test cases for this phase.
 
 ### Unit Tests
 
-You must write positive and negative unit tests for every method in your `ServerFacade` class.
+You must write tests that assert the correctness of your `ServerFacade` class, reach at least 80% line coverage on your `ServerFacade` class, and give you confidence that the code is working correctly.
 
-Reach 80% line coverage on your `ServerFacade` class. If you are unsure where to start, consider writing a positive and a negative test case for each public method.
+If you are unsure where to start, consider writing a positive and a negative test case for each public method.
 
 Your tests must be located in `client/src/test/java/client/ServerFacadeTests.java`.
 
@@ -162,7 +162,8 @@ public class ServerFacadeTests {
 
 1. **Port Initialization:** Ensure your `ServerFacade` constructor accepts the port so it can connect to the dynamic port used by the test server.
 2. **Database Cleanup:** Use a `@BeforeEach` method to clear the database before every test to ensure a clean state.
-3. **Coverage:** Write tests that achieve at least 80% line coverage on your `ServerFacade` class, and include both successful and failure scenarios where appropriate.
+3. **Assertions**: Each test must actually assert the correctness of all the code being tested.
+4. **Coverage:** Write tests that achieve at least 80% line coverage on your `ServerFacade` class, and include both successful and failure scenarios where appropriate.
 
 Example test:
 
@@ -171,6 +172,7 @@ Example test:
 void register() throws Exception {
     var authData = facade.register("player1", "password", "p1@email.com");
     assertTrue(authData.authToken().length() > 10);
+    assertTrue(authData.username.equals("player1");
 }
 ```
 
@@ -211,7 +213,7 @@ Review the [Phase 5 Passoff Common Problems](../../instruction/chess-tips/chess-
 | GitHub History | At least 12 GitHub commits spread evenly over the assignment period demonstrating proof of work.                                                                                                  | Prerequisite |
 | Functionality  | Program supports all required UI and server interaction functionality.                                                                                                                            |          100 |
 | Code Quality   | Adherence to the [Code Quality Rubric](../../instruction/code-quality-rubric/code-quality-rubric.md).                                                                                             |           30 |
-| Unit Tests     | All test cases pass<br/>Line coverage on `ServerFacade` class is at least 80%<br/>Every test case includes an Assert statement of some type<br/>1.25 points of extra credit for 90% line coverage |           25 |
+| Unit Tests     | All test cases pass<br/>Line coverage on `ServerFacade` class is at least 80%<br/>Every test case includes assertions the properly validation the code being tested.<br/>1.25 points of extra credit for 90% line coverage |           25 |
 |                | **Total**                                                                                                                                                                                         |      **155** |
 
 ## Outcome Reflections
