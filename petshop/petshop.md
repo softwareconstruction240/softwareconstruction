@@ -2,7 +2,9 @@
 
 The Pet Shop application demonstrates the topics presented in this course and serves as a comprehensive example of how these concepts work together in a complete application.
 
-To experience Pet Shop for yourself, clone the [GitHub Repository](https://github.com/softwareconstruction240/petshop).
+> [!NOTE]
+>
+> To experience Pet Shop for yourself, clone the [GitHub Repository](https://github.com/softwareconstruction240/petshop).
 
 **Concepts Demonstrated**
 
@@ -26,7 +28,7 @@ To experience Pet Shop for yourself, clone the [GitHub Repository](https://githu
 
 The following diagram illustrates the different components that make up the Pet Shop application. This includes all layers, starting from the client interface down to the data persisted in the database.
 
-![petShopArchitecture.png](petShopArchitecture.png)
+![petshopOverview.png](petshopOverview.png)
 
 It is important to note that each layer only communicates with its adjacent layers. For example, the Client layer does not directly communicate with the Service or DataAccess layers. This level of abstraction decouples the components and makes the application easier to understand and maintain.
 
