@@ -56,7 +56,7 @@ As you design your database schema, carefully consider data types, primary and f
 
 The `DatabaseManager` class has a method for creating a database if it does not exist. While you are not strictly required to use that specific code, your server **must** automatically create both the database and the necessary tables on startup based on the values in `db.properties`. This allows the pass-off tests to run without manual database setup.
 
-The [Pet Shop](../../petshop/server/src/main/dataaccess/MySqlDataAccess.java) example provides a reference for how to initialize your database on startup.
+The [Pet Shop](../../petshop/petshop.md) example provides a reference for how to initialize your database on startup.
 
 Note that once your code creates the tables for the first time, changing your `CREATE TABLE` statements in code will **not** modify existing table definitions in the database. See the [Altering Tables](../../instruction/db-sql/db-sql.md#altering-tables) instruction for more information on how to handle schema changes.
 
