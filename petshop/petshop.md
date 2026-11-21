@@ -2,6 +2,8 @@
 
 The Pet Shop application demonstrates the topics presented in this course and serves as a comprehensive example of how these concepts work together in a complete application.
 
+![replExample.png](replExample.png)
+
 > [!NOTE]
 >
 > To experience Pet Shop for yourself, clone the [GitHub Repository](https://github.com/softwareconstruction240/petshop).
