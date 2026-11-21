@@ -22,7 +22,7 @@ The Pet Shop application demonstrates the topics presented in this course and se
 
 The following diagram illustrates the different components that make up the Pet Shop application. This includes all layers, starting from the client interface down to the data persisted in the database.
 
-![Pet Shop diagram](petshopdiagram.png)
+![petShopArchitecture.png](petShopArchitecture.png)
 
 It is important to note that each layer only communicates with its adjacent layers. For example, the Client layer does not directly communicate with the Service or DataAccess layers. This level of abstraction decouples the components and makes the application easier to understand and maintain.
 
