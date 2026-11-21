@@ -2,6 +2,8 @@
 
 The Pet Shop application demonstrates the topics presented in this course and serves as a comprehensive example of how these concepts work together in a complete application.
 
+To experience Pet Shop for yourself, clone the [GitHub Repository](https://github.com/softwareconstruction240/petshop).
+
 **Concepts Demonstrated**
 
 - Console client
@@ -17,6 +19,8 @@ The Pet Shop application demonstrates the topics presented in this course and se
 > [!IMPORTANT]
 >
 > You can use Pet Shop as inspiration for your chess application, but ensure you **fully understand the code** before reusing any part of it. Many representations are simplified and will not directly translate to the requirements of the chess application.
+>
+> Blindly copying Pet Shop code may actually slow you down.
 
 ## Architecture
 
