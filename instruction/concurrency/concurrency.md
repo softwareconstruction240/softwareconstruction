@@ -199,7 +199,8 @@ An `ExecutorService` can manage multiple threads in a **pool**. Creating new thr
 
 In the example above, we used `newSingleThreadExecutor`. Other types include:
 
-![Executor](executor.png)
+![executorService.png](executorService.png)
+
 
 | Pool Type                 | Description                                                                              |
 | ------------------------- | ---------------------------------------------------------------------------------------- |
