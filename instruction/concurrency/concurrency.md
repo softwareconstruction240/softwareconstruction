@@ -197,9 +197,10 @@ public class CallableExample {
 
 An `ExecutorService` can manage multiple threads in a **pool**. Creating new threads is expensive; thread pools allow threads to be reused, which reduces overhead.
 
+![executorService.png](executorService.png)
+
 In the example above, we used `newSingleThreadExecutor`. Other types include:
 
-![executorService.png](executorService.png)
 
 
 | Pool Type                 | Description                                                                              |
