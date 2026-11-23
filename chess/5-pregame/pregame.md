@@ -26,6 +26,22 @@ Complete the [Getting Started](getting-started.md) instructions before working o
 
 ## Required Functionality
 
+In Phase 5, your client transitions between two primary interactive states: **Prelogin** and **Postlogin**. While you will render a **Gameplay UI** (the board), the user technically remains in the Postlogin state for command input.
+
+
+#### User State Transitions
+```mermaid
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
+flowchart TD
+    Start((Start)) --> Pre[Prelogin UI]
+    Pre -- Login / Register --> Post[Postlogin UI]
+    Post -- Logout --> Pre
+    Post -- Play / Observe --> Board[Draw Board]
+    Board --> Post
+    Pre -- Quit --> End((Exit))
+```
+
+
 ### Prelogin UI
 
 When the user first opens the Chess client, they can execute any of the Prelogin commands.
